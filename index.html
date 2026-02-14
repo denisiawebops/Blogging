@@ -1,0 +1,1397 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Hiwa Nirvara | Luxury Villas in Narapally</title>
+    <meta name="description" content="Hiwa Nirvara - Ultra-luxury glassmorphism villas in Secunderabad. 45+ Exclusive units.">
+    <meta name="theme-color" content="#0f172a">
+    
+    <!-- PWA Capable -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="assets/icon-192.png">
+    <link rel="manifest" href="manifest.json"> <!-- optional, you can create a manifest file later -->
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // REPLACE WITH YOUR ACTUAL KEY
+            emailjs.init("YOUR_PUBLIC_KEY"); 
+        })();
+    </script>
+
+    <!-- 🎨 CSS: CUSTOM GLASSMORPHISM THEME -->
+    <style>
+        :root {
+            /* Palette */
+            --bg-dark: #0f172a; /* Slate 900 */
+            --bg-darker: #020617; /* Slate 950 */
+            --accent-gold: #d4af37;
+            --accent-gold-light: #f3e5ab;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            
+            /* Glass Variables */
+            --glass-bg: rgba(30, 41, 59, 0.4);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-highlight: rgba(255, 255, 255, 0.03);
+            --glass-blur: 16px;
+        }
+
+        /* --- Base Reset --- */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(56, 189, 248, 0.08) 0%, transparent 25%);
+            color: var(--text-light);
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
+
+        /* Prevent Image Dragging */
+        img {
+            -webkit-user-drag: none;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+
+        /* --- Glassmorphism Engine --- */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .glass-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            transition: 0.5s;
+        }
+
+        .glass-card:hover::before { left: 100%; }
+        
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        /* --- Typography & Accents --- */
+        .text-gold { color: var(--accent-gold); }
+        .text-gradient-gold {
+            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* --- Buttons --- */
+        .btn-primary {
+            background: linear-gradient(45deg, #d4af37, #aa771c);
+            color: #000;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 12px 32px;
+            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+            transition: transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary:hover { transform: scale(1.05); }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 11px 31px;
+            transition: all 0.3s;
+        }
+        .btn-outline:hover { background: rgba(212, 175, 55, 0.1); color: #fff; }
+
+        /* --- Page Routing System --- */
+        main { position: relative; min-height: 100vh; padding-top: 80px; }
+        .page-section {
+            display: none;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        .page-section.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Scrollbar --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-gold); }
+
+        /* --- Navigation Active State --- */
+        .nav-link.active { color: var(--accent-gold); position: relative; }
+        .nav-link.active::after {
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px;
+            background: var(--accent-gold);
+            box-shadow: 0 0 10px var(--accent-gold);
+        }
+        
+        /* --- FAQ Accordion Styles --- */
+        details > summary { list-style: none; cursor: pointer; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] summary ~ * { animation: sweep .5s ease-in-out; }
+        @keyframes sweep { 0% {opacity: 0; transform: translateY(-10px)} 100% {opacity: 1; transform: translateY(0)} }
+        
+        /* --- Floating Icons --- */
+        .float-icon {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            z-index: 100;
+            transition: transform 0.3s;
+        }
+        .float-icon:hover { transform: scale(1.1); }
+        .whatsapp-icon { bottom: 20px; left: 20px; background-color: #25d366; }
+        
+        /* --- EMI Calculator Styles --- */
+        .emi-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            width: 100%;
+        }
+        .emi-input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+        .emi-result-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        .bank-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .bank-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+        }
+        .bank-card.selected {
+            border-color: var(--accent-gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#d4af37'
+                    }
+                }
+            }
+        }
+    </script>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.bottom-4{bottom:1rem}.right-4{right:1rem}.right-6{right:1.5rem}.top-4{top:1rem}.top-6{top:1.5rem}.z-0{z-index:0}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.z-\[60\]{z-index:60}.mx-auto{margin-left:auto;margin-right:auto}.-mt-20{margin-top:-5rem}.mb-10{margin-bottom:2.5rem}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mr-1{margin-right:0.25rem}.mr-2{margin-right:0.5rem}.mt-16{margin-top:4rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.mt-auto{margin-top:auto}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.aspect-square{aspect-ratio:1 / 1}.h-10{height:2.5rem}.h-2{height:0.5rem}.h-24{height:6rem}.h-32{height:8rem}.h-48{height:12rem}.h-64{height:16rem}.h-80{height:20rem}.h-\[400px\]{height:400px}.h-\[450px\]{height:450px}.h-\[50vh\]{height:50vh}.h-\[60vh\]{height:60vh}.h-auto{height:auto}.h-full{height:100%}.h-screen{height:100vh}.max-h-64{max-height:16rem}.max-h-\[90vh\]{max-height:90vh}.min-h-\[80vh\]{min-height:80vh}.w-10{width:2.5rem}.w-2{width:0.5rem}.w-\[85\%\]{width:85%}.w-auto{width:auto}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-5xl{max-width:64rem}.max-w-full{max-width:100%}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.flex-none{flex:none}.scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-95{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-\[pulse_10s_ease-in-out_infinite\]{animation:pulse 10s ease-in-out infinite}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.cursor-pointer{cursor:pointer}.snap-x{scroll-snap-type:x var(--tw-scroll-snap-strictness)}.snap-center{scroll-snap-align:center}.appearance-none{-webkit-appearance:none;appearance:none}.columns-1{columns:1}.break-inside-avoid{break-inside:avoid}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-12{gap:3rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-x-6 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1.5rem * var(--tw-space-x-reverse));margin-left:calc(1.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-8 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(2rem * var(--tw-space-x-reverse));margin-left:calc(2rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-8 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.whitespace-nowrap{white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-0{border-width:0px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-b-2{border-bottom-width:2px}.border-l-2{border-left-width:2px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-dashed{border-style:dashed}.border-gold{--tw-border-opacity:1;border-color:rgb(212 175 55 / var(--tw-border-opacity, 1))}.border-gold\/30{border-color:rgb(212 175 55 / 0.3)}.border-gold\/40{border-color:rgb(212 175 55 / 0.4)}.border-gray-600{--tw-border-opacity:1;border-color:rgb(75 85 99 / var(--tw-border-opacity, 1))}.border-transparent{border-color:transparent}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/20{border-color:rgb(255 255 255 / 0.2)}.border-white\/5{border-color:rgb(255 255 255 / 0.05)}.bg-black\/30{background-color:rgb(0 0 0 / 0.3)}.bg-black\/40{background-color:rgb(0 0 0 / 0.4)}.bg-black\/50{background-color:rgb(0 0 0 / 0.5)}.bg-black\/95{background-color:rgb(0 0 0 / 0.95)}.bg-blue-500{--tw-bg-opacity:1;background-color:rgb(59 130 246 / var(--tw-bg-opacity, 1))}.bg-blue-600{--tw-bg-opacity:1;background-color:rgb(37 99 235 / var(--tw-bg-opacity, 1))}.bg-blue-900\/20{background-color:rgb(30 58 138 / 0.2)}.bg-gold{--tw-bg-opacity:1;background-color:rgb(212 175 55 / var(--tw-bg-opacity, 1))}.bg-gold\/20{background-color:rgb(212 175 55 / 0.2)}.bg-gray-700{--tw-bg-opacity:1;background-color:rgb(55 65 81 / var(--tw-bg-opacity, 1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94 / var(--tw-bg-opacity, 1))}.bg-green-600{--tw-bg-opacity:1;background-color:rgb(22 163 74 / var(--tw-bg-opacity, 1))}.bg-slate-800\/50{background-color:rgb(30 41 59 / 0.5)}.bg-slate-900\/90{background-color:rgb(15 23 42 / 0.9)}.bg-transparent{background-color:transparent}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/5{background-color:rgb(255 255 255 / 0.05)}.bg-gradient-to-b{background-image:linear-gradient(to bottom, var(--tw-gradient-stops))}.bg-gradient-to-t{background-image:linear-gradient(to top, var(--tw-gradient-stops))}.from-black\/60{--tw-gradient-from:rgb(0 0 0 / 0.6) var(--tw-gradient-from-position);--tw-gradient-to:rgb(0 0 0 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-slate-900{--tw-gradient-from:#0f172a var(--tw-gradient-from-position);--tw-gradient-to:rgb(15 23 42 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-slate-900\/60{--tw-gradient-from:rgb(15 23 42 / 0.6) var(--tw-gradient-from-position);--tw-gradient-to:rgb(15 23 42 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-slate-900\/40{--tw-gradient-to:rgb(15 23 42 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), rgb(15 23 42 / 0.4) var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-\[\#0f172a\]{--tw-gradient-to:#0f172a var(--tw-gradient-to-position)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.object-cover{object-fit:cover}.p-1{padding:0.25rem}.p-10{padding:2.5rem}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-0{padding-left:0px;padding-right:0px}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-0{padding-top:0px;padding-bottom:0px}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-1{padding-bottom:0.25rem}.pb-4{padding-bottom:1rem}.pl-2{padding-left:0.5rem}.pr-2{padding-right:0.5rem}.pt-4{padding-top:1rem}.pt-8{padding-top:2rem}.text-center{text-align:center}.text-right{text-align:right}.font-serif{font-family:ui-serif, Georgia, Cambria, "Times New Roman", Times, serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-\[10px\]{font-size:10px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-light{font-weight:300}.font-medium{font-weight:500}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-gold{--tw-text-opacity:1;color:rgb(212 175 55 / var(--tw-text-opacity, 1))}.text-gray-200{--tw-text-opacity:1;color:rgb(229 231 235 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.no-underline{-webkit-text-decoration-line:none;text-decoration-line:none}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-0{opacity:0}.opacity-100{opacity:1}.opacity-20{opacity:0.2}.opacity-50{opacity:0.5}.opacity-60{opacity:0.6}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_20px_rgba\(212\2c 175\2c 55\2c 0\.4\)\]{--tw-shadow:0 0 20px rgba(212,175,55,0.4);--tw-shadow-colored:0 0 20px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_50px_rgba\(255\2c 255\2c 255\2c 0\.1\)\]{--tw-shadow:0 0 50px rgba(255,255,255,0.1);--tw-shadow-colored:0 0 50px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.drop-shadow-2xl{--tw-drop-shadow:drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.duration-700{transition-duration:700ms}.hover\:border-gold:hover{--tw-border-opacity:1;border-color:rgb(212 175 55 / var(--tw-border-opacity, 1))}.hover\:bg-blue-700:hover{--tw-bg-opacity:1;background-color:rgb(29 78 216 / var(--tw-bg-opacity, 1))}.hover\:bg-gold:hover{--tw-bg-opacity:1;background-color:rgb(212 175 55 / var(--tw-bg-opacity, 1))}.hover\:bg-green-700:hover{--tw-bg-opacity:1;background-color:rgb(21 128 61 / var(--tw-bg-opacity, 1))}.hover\:bg-white\/5:hover{background-color:rgb(255 255 255 / 0.05)}.hover\:text-black:hover{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.hover\:text-gold:hover{--tw-text-opacity:1;color:rgb(212 175 55 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:opacity-100:hover{opacity:1}.focus\:border-gold:focus{--tw-border-opacity:1;border-color:rgb(212 175 55 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.group[open] .group-open\:rotate-180{--tw-rotate:180deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:opacity-40{opacity:0.4}@media (min-width: 768px){.md\:col-span-2{grid-column:span 2 / span 2}.md\:mb-0{margin-bottom:0px}.md\:mt-0{margin-top:0px}.md\:h-\[500px\]{height:500px}.md\:w-2\/5{width:40%}.md\:w-3\/5{width:60%}.md\:w-\[40\%\]{width:40%}.md\:columns-3{columns:3}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:text-left{text-align:left}.md\:text-7xl{font-size:4.5rem;line-height:1}}@media (min-width: 1024px){.lg\:flex{display:flex}.lg\:hidden{display:none}.lg\:w-2\/5{width:40%}.lg\:w-3\/5{width:60%}.lg\:flex-row{flex-direction:row}.lg\:text-8xl{font-size:6rem;line-height:1}}</style></head>
+<body class="antialiased">
+
+    <!-- 🧭 NAVIGATION -->
+    <nav class="fixed w-full z-50 transition-all duration-300 glass-panel border-b border-white/5" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="#home" onclick="route(event, 'home')" class="block cursor-pointer">
+                <img src="assets/logo.svg" alt="Hiwa Nirvara" class="h-10 w-auto"> <!-- Adjust height as needed -->
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex space-x-8 items-center text-sm font-light tracking-wide">
+                <a href="#home" onclick="route(event, 'home')" class="nav-link hover:text-gold transition-colors active">Home</a>
+                <a href="#villas" onclick="route(event, 'villas')" class="nav-link hover:text-gold transition-colors">Villas</a>
+                <a href="#amenities" onclick="route(event, 'amenities')" class="nav-link hover:text-gold transition-colors">Amenities</a>
+                <a href="#gallery" onclick="route(event, 'gallery')" class="nav-link hover:text-gold transition-colors">Gallery</a>
+                <a href="#location" onclick="route(event, 'location')" class="nav-link hover:text-gold transition-colors">Location</a>
+                <a href="#emi" onclick="route(event, 'emi')" class="nav-link hover:text-gold transition-colors">EMI Calculator</a>
+                <a href="#contact" onclick="route(event, 'contact')" class="btn-primary text-xs text-black no-underline">Enquire</a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button class="lg:hidden text-gold text-2xl focus:outline-none" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-900/98 z-40 hidden flex flex-col justify-center items-center space-y-6">
+            <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-gray-400 text-3xl">×</button>
+            <a href="#home" onclick="route(event, 'home'); toggleMobileMenu()" class="text-2xl font-serif text-white hover:text-gold">Home</a>
+            <a href="#villas" onclick="route(event, 'villas'); toggleMobileMenu()" class="text-2xl font-serif text-white hover:text-gold">Villas</a>
+            <a href="#amenities" onclick="route(event, 'amenities'); toggleMobileMenu()" class="text-2xl font-serif text-white hover:text-gold">Amenities</a>
+            <a href="#gallery" onclick="route(event, 'gallery'); toggleMobileMenu()" class="text-2xl font-serif text-white hover:text-gold">Gallery</a>
+            <a href="#location" onclick="route(event, 'location'); toggleMobileMenu()" class="text-2xl font-serif text-white hover:text-gold">Location</a>
+            <a href="#emi" onclick="route(event, 'emi'); toggleMobileMenu()" class="text-2xl font-serif text-white hover:text-gold">EMI Calculator</a>
+            <a href="#contact" onclick="route(event, 'contact'); toggleMobileMenu()" class="text-xl text-gold border border-gold px-8 py-2">Enquire</a>
+        </div>
+    </nav>
+
+    <!-- 📦 APP CONTAINER -->
+    <main id="app">
+        
+        <!-- 1️⃣ HOME PAGE -->
+        <section id="page-home" class="page-section h-auto -mt-20 active" style="display: block;">
+            <!-- Hero -->
+            <div class="relative h-screen flex items-center justify-center overflow-hidden">
+                <div class="absolute inset-0 z-0">
+                    <img src="assets/images/Aerial view.webp" class="w-full h-full object-cover opacity-60 scale-105 animate-[pulse_10s_ease-in-out_infinite]" onerror="this.style.display='none'" style="display: none;">
+                    <div class="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/40 to-[#0f172a]"></div>
+                </div>
+                <div class="relative z-10 text-center px-6 max-w-5xl mx-auto mt-16">
+                    <div class="inline-flex items-center gap-2 border border-gold/40 bg-black/30 backdrop-blur-md px-4 py-1 rounded-full mb-6">
+                        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                        <span class="text-gold text-xs tracking-widest uppercase font-medium">Secunderabad's Finest</span>
+                    </div>
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-gradient-gold drop-shadow-2xl leading-tight">
+                        HIWA NIRVARA
+                    </h1>
+                    <p class="text-lg text-gray-200 font-light max-w-2xl mx-auto mb-10">Premium 3 &amp; 4 BHK Independent Villas</p>
+                    <button onclick="route(event, 'villas')" class="btn-primary shadow-[0_0_20px_rgba(212,175,55,0.4)]">Explore Residences</button>
+                </div>
+            </div>
+
+            <!-- New: Premium Journey (Home Specific) -->
+            <div class="bg-black/50 backdrop-blur-sm border-t border-white/5 py-12">
+                <div class="container mx-auto px-6">
+                    <h3 class="text-gold uppercase tracking-widest text-sm mb-6 text-center">The Arrival Experience</h3>
+                    <div class="flex overflow-x-auto gap-4 pb-4 snap-x">
+                         <div class="flex-none w-[85%] md:w-[40%] snap-center glass-card rounded-xl overflow-hidden cursor-pointer" onclick="route(event, 'villas')">
+                             <div class="h-48 relative">
+                                 <img src="assets/images/Entrance.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center"><h4 class="text-2xl font-serif text-white">Grand Entrance</h4></div>
+                             </div>
+                             <div class="p-4 text-center">
+                                 <p class="text-xs text-gray-400">Double Height Entrance Lobbies</p>
+                             </div>
+                         </div>
+                         <div class="flex-none w-[85%] md:w-[40%] snap-center glass-card rounded-xl overflow-hidden cursor-pointer" onclick="route(event, 'amenities')">
+                             <div class="h-48 relative">
+                                 <img src="assets/images/Landscape_1.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center"><h4 class="text-2xl font-serif text-white">Lush Landscapes</h4></div>
+                             </div>
+                             <div class="p-4 text-center">
+                                 <p class="text-xs text-gray-400">Glass Facades with Garden Views</p>
+                             </div>
+                         </div>
+                         <div class="flex-none w-[85%] md:w-[40%] snap-center glass-card rounded-xl overflow-hidden cursor-pointer" onclick="route(event, 'amenity-club')">
+                             <div class="h-48 relative">
+                                 <img src="assets/images/Clubhouse.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center"><h4 class="text-2xl font-serif text-white">Elite Club</h4></div>
+                             </div>
+                             <div class="p-4 text-center">
+                                 <p class="text-xs text-gray-400">Infinity Pools &amp; Sky Decks</p>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New: Rich Interactive Gallery (Home Specific) -->
+            <div class="container mx-auto px-6 py-16">
+                <div class="text-center mb-10">
+                    <span class="text-gold uppercase tracking-widest text-sm">Experience</span>
+                    <h2 class="text-3xl font-serif mt-2">Life at Nirvara</h2>
+                </div>
+                <div class="glass-panel p-2 rounded-2xl max-w-5xl mx-auto">
+                    <!-- Main Display Image -->
+                    <div class="relative h-[400px] md:h-[500px] overflow-hidden rounded-xl mb-4 group">
+                        <img id="rich-gallery-main" src="assets/images/Street view.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+                            <h3 id="rich-gallery-caption" class="text-2xl font-serif text-white">Serene Streetscapes</h3>
+                        </div>
+                    </div>
+                    <!-- Thumbnails -->
+                    <div class="grid grid-cols-3 gap-4">
+                        <div onclick="updateHomeGallery('assets/images/Street view.webp', 'Serene Streetscapes')" class="cursor-pointer rounded-lg overflow-hidden h-24 border-2 border-gold opacity-100 hover:opacity-100 transition">
+                            <img src="assets/images/Street view.webp" class="w-full h-full object-cover">
+                        </div>
+                        <div onclick="updateHomeGallery('assets/images/Balcony view.webp', 'Private Balconies')" class="cursor-pointer rounded-lg overflow-hidden h-24 border-2 border-transparent hover:border-gold opacity-60 hover:opacity-100 transition">
+                            <img src="assets/images/Balcony view.webp" class="w-full h-full object-cover">
+                        </div>
+                        <div onclick="updateHomeGallery('assets/images/Street Night View.webp', 'Evening Ambiance')" class="cursor-pointer rounded-lg overflow-hidden h-24 border-2 border-transparent hover:border-gold opacity-60 hover:opacity-100 transition">
+                            <img src="assets/images/Street Night View.webp" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Villa Style Image Section (Premium Journey) -->
+            <div class="bg-black/50 backdrop-blur-sm border-t border-white/5 py-12">
+                <div class="container mx-auto px-6">
+                    <h3 class="text-gold uppercase tracking-widest text-sm mb-6 text-center">Exclusive Designs</h3>
+                    <div class="flex overflow-x-auto gap-4 pb-4 snap-x">
+                         <div class="flex-none w-[85%] md:w-[40%] snap-center glass-card rounded-xl overflow-hidden cursor-pointer" onclick="route(event, 'villas')">
+                             <div class="h-48 relative">
+                                 <img src="assets/images/South facing type_1.webp" class="w-full h-full object-cover">
+                                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center"><h4 class="text-2xl font-serif text-white">Modern Contemporary</h4></div>
+                             </div>
+                         </div>
+                         <div class="flex-none w-[85%] md:w-[40%] snap-center glass-card rounded-xl overflow-hidden cursor-pointer" onclick="route(event, 'villas')">
+                             <div class="h-48 relative">
+                                 <img src="assets/images/South facing type_2.webp" class="w-full h-full object-cover">
+                                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center"><h4 class="text-2xl font-serif text-white">Classic Elegance</h4></div>
+                             </div>
+                         </div>
+                         <div class="flex-none w-[85%] md:w-[40%] snap-center glass-card rounded-xl overflow-hidden cursor-pointer" onclick="route(event, 'villas')">
+                             <div class="h-48 relative">
+                                 <img src="assets/images/South facing type_3.webp" class="w-full h-full object-cover">
+                                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center"><h4 class="text-2xl font-serif text-white">Neo-Modern</h4></div>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Home Page Contact Form (Moved Below Gallery) -->
+            <div class="container mx-auto px-6 py-16">
+                <div class="glass-panel max-w-2xl mx-auto p-8 rounded-2xl relative">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-serif text-white">Quick Enquiry</h3>
+                        <p class="text-gray-400 text-sm">Download our e-brochure instantly.</p>
+                    </div>
+                    <form id="homeForm" class="space-y-4">
+                        <input type="text" placeholder="Name" required="" class="w-full bg-slate-800/50 border border-white/10 rounded p-3 text-white focus:border-gold outline-none">
+                        <input type="tel" placeholder="Phone" required="" class="w-full bg-slate-800/50 border border-white/10 rounded p-3 text-white focus:border-gold outline-none">
+                        <button type="submit" class="w-full btn-primary">Get Brochure</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="container mx-auto px-6 py-16 border-t border-white/5">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-serif text-white">Frequently Asked Questions</h2>
+                </div>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <details class="glass-card rounded-lg p-4 group">
+                        <summary class="flex justify-between items-center font-medium text-gold">What are the villa sizes available? <span class="group-open:rotate-180 transition"><i class="fas fa-chevron-down"></i></span></summary>
+                        <p class="text-gray-300 text-sm mt-3 pl-2 border-l-2 border-gold/30">We offer 3 BHK (2800 Sft) and 4 BHK (3200-4500 Sft) independent villas.</p>
+                    </details>
+                    <details class="glass-card rounded-lg p-4 group">
+                        <summary class="flex justify-between items-center font-medium text-gold">Is the project HMDA approved? <span class="group-open:rotate-180 transition"><i class="fas fa-chevron-down"></i></span></summary>
+                        <p class="text-gray-300 text-sm mt-3 pl-2 border-l-2 border-gold/30">Yes, Hiwa Nirvara is fully HMDA approved and RERA registered.</p>
+                    </details>
+                    <details class="glass-card rounded-lg p-4 group">
+                        <summary class="flex justify-between items-center font-medium text-gold">What is the completion timeline? <span class="group-open:rotate-180 transition"><i class="fas fa-chevron-down"></i></span></summary>
+                        <p class="text-gray-300 text-sm mt-3 pl-2 border-l-2 border-gold/30">Phase 1 is ready for handover by Dec 2025. Phase 2 by mid-2026.</p>
+                    </details>
+                    <details class="glass-card rounded-lg p-4 group">
+                        <summary class="flex justify-between items-center font-medium text-gold">Are banks providing loans? <span class="group-open:rotate-180 transition"><i class="fas fa-chevron-down"></i></span></summary>
+                        <p class="text-gray-300 text-sm mt-3 pl-2 border-l-2 border-gold/30">Yes, the project is approved by SBI, HDFC, ICICI, and Axis Bank.</p>
+                    </details>
+                    <details class="glass-card rounded-lg p-4 group">
+                        <summary class="flex justify-between items-center font-medium text-gold">Can we customize the interiors? <span class="group-open:rotate-180 transition"><i class="fas fa-chevron-down"></i></span></summary>
+                        <p class="text-gray-300 text-sm mt-3 pl-2 border-l-2 border-gold/30">Yes, internal structural changes are permitted before the brickwork stage.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3️⃣ VILLAS LISTING PAGE -->
+        <section id="page-villas" class="page-section container mx-auto px-6 py-12" style="display: none;">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-sm">Configurations</span>
+                <h2 class="text-4xl font-serif mt-2">Choose Your Sanctuary</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Villa A: The Azure (East Facing) -->
+                <div class="glass-card rounded-xl group cursor-pointer" onclick="route(event, 'villa-azure')">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="assets/images/Easy facing villa type.1.webp" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                        <span class="absolute top-4 right-4 bg-gold text-black text-xs font-bold px-3 py-1">EAST FACING</span>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-serif text-white mb-2">The Azure</h3>
+                        <p class="text-gray-400 text-sm mb-6">4 BHK Triplex Villa • 3200 Sft</p>
+                        <button class="w-full py-3 border border-gold text-gold hover:bg-gold hover:text-black transition uppercase text-sm tracking-wider">View Details</button>
+                    </div>
+                </div>
+                 <!-- Villa B: The Solis (West Facing) -->
+                <div class="glass-card rounded-xl group cursor-pointer" onclick="route(event, 'villa-solis')">
+                    <div class="h-64 overflow-hidden relative">
+                         <img src="assets/images/West facing type_2.webp" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                        <span class="absolute top-4 right-4 bg-white text-black text-xs font-bold px-3 py-1">WEST FACING</span>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-serif text-white mb-2">The Solis</h3>
+                        <p class="text-gray-400 text-sm mb-6">3 BHK Duplex Villa • 2800 Sft</p>
+                        <button class="w-full py-3 border border-gold text-gold hover:bg-gold hover:text-black transition uppercase text-sm tracking-wider">View Details</button>
+                    </div>
+                </div>
+                 <!-- Villa C: The Zenith (Corner) -->
+                <div class="glass-card rounded-xl group cursor-pointer" onclick="route(event, 'villa-zenith')">
+                    <div class="h-64 overflow-hidden relative">
+                         <img src="assets/images/North facing type_2.webp" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                        <span class="absolute top-4 right-4 bg-blue-500 text-white text-xs font-bold px-3 py-1">CORNER</span>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-serif text-white mb-2">The Zenith</h3>
+                        <p class="text-gray-400 text-sm mb-6">5 BHK Luxury Villa • 4500 Sft</p>
+                        <button class="w-full py-3 border border-gold text-gold hover:bg-gold hover:text-black transition uppercase text-sm tracking-wider">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🆕 DEDICATED VILLA PAGE: AZURE -->
+        <section id="page-villa-azure" class="page-section container mx-auto px-0 py-0" style="display: none;">
+            <div class="relative h-[60vh] flex items-center justify-center">
+                <img src="assets/images/Easy facing villa type.1.webp" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+                <div class="relative z-10 text-center">
+                    <h1 class="text-5xl font-serif text-white mb-2">The Azure</h1>
+                    <p class="text-gold tracking-widest uppercase text-sm">4 BHK Triplex | East Facing | 3200 Sft</p>
+                </div>
+            </div>
+            <div class="container mx-auto px-6 py-12">
+                <button onclick="route(event, 'villas')" class="mb-8 text-sm text-gray-400 hover:text-white"><i class="fas fa-arrow-left mr-2"></i> Back to Villas</button>
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <div>
+                        <h2 class="text-3xl font-serif text-white mb-6">Designed for Sunlight</h2>
+                        <p class="text-gray-400 leading-relaxed mb-6">The Azure features a unique East-facing orientation that invites the morning sun deep into your living spaces. With a grand double-height entrance and a private home theater, it is the epitome of luxury.</p>
+                        <ul class="space-y-4 text-sm text-gray-300">
+                            <li class="flex items-center gap-3"><i class="fas fa-bed text-gold"></i> 4 Master Bedrooms with Walk-in Closets</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-car text-gold"></i> 2 Covered Car Parks</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-leaf text-gold"></i> Private Terrace Garden</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-film text-gold"></i> Dedicated Home Theater Room</li>
+                        </ul>
+                        <button onclick="route(event, 'contact')" class="btn-primary mt-8">Request Floor Plan &amp; Price</button>
+                    </div>
+                    <div class="glass-panel p-4 rounded-xl">
+                        <div class="bg-blue-900/20 border border-dashed border-white/20 h-80 rounded flex items-center justify-center flex-col overflow-hidden">
+                             <img src="assets/images/Balcony view.webp" class="w-full h-full object-cover opacity-50">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🆕 DEDICATED VILLA PAGE: SOLIS -->
+        <section id="page-villa-solis" class="page-section container mx-auto px-0 py-0" style="display: none;">
+            <div class="relative h-[60vh] flex items-center justify-center">
+                <img src="assets/images/West facing type_2.webp" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+                <div class="relative z-10 text-center">
+                    <h1 class="text-5xl font-serif text-white mb-2">The Solis</h1>
+                    <p class="text-gold tracking-widest uppercase text-sm">3 BHK Duplex | West Facing | 2800 Sft</p>
+                </div>
+            </div>
+            <div class="container mx-auto px-6 py-12">
+                <button onclick="route(event, 'villas')" class="mb-8 text-sm text-gray-400 hover:text-white"><i class="fas fa-arrow-left mr-2"></i> Back to Villas</button>
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <div>
+                        <h2 class="text-3xl font-serif text-white mb-6">Contemporary Comfort</h2>
+                        <p class="text-gray-400 leading-relaxed mb-6">Designed for the modern family, The Solis optimizes space without compromising on style. The West-facing layout ensures beautiful sunset views from the master bedroom balcony.</p>
+                        <ul class="space-y-4 text-sm text-gray-300">
+                            <li class="flex items-center gap-3"><i class="fas fa-bed text-gold"></i> 3 Spacious Bedrooms + Study</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-arrows-alt-v text-gold"></i> Double Height Living Area</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-utensils text-gold"></i> Open Kitchen with Island</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-couch text-gold"></i> Family Lounge on First Floor</li>
+                        </ul>
+                        <button onclick="route(event, 'contact')" class="btn-primary mt-8">Request Floor Plan &amp; Price</button>
+                    </div>
+                    <div class="glass-panel p-4 rounded-xl">
+                        <div class="bg-blue-900/20 border border-dashed border-white/20 h-80 rounded flex items-center justify-center flex-col overflow-hidden">
+                             <img src="assets/images/Street Night View.webp" class="w-full h-full object-cover opacity-50">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🆕 DEDICATED VILLA PAGE: ZENITH -->
+        <section id="page-villa-zenith" class="page-section container mx-auto px-0 py-0" style="display: none;">
+            <div class="relative h-[60vh] flex items-center justify-center">
+                <img src="assets/images/South facing villa-type-05.webp" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+                <div class="relative z-10 text-center">
+                    <h1 class="text-5xl font-serif text-white mb-2">The Zenith</h1>
+                    <p class="text-gold tracking-widest uppercase text-sm">5 BHK Luxury | Corner Plot | 4500 Sft</p>
+                </div>
+            </div>
+            <div class="container mx-auto px-6 py-12">
+                <button onclick="route(event, 'villas')" class="mb-8 text-sm text-gray-400 hover:text-white"><i class="fas fa-arrow-left mr-2"></i> Back to Villas</button>
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <div>
+                        <h2 class="text-3xl font-serif text-white mb-6">The Pinnacle of Luxury</h2>
+                        <p class="text-gray-400 leading-relaxed mb-6">Our most exclusive offering, The Zenith sits on prime corner plots. It features a private lap pool, a provision for an internal elevator, and expansive landscaped decks on every level.</p>
+                        <ul class="space-y-4 text-sm text-gray-300">
+                            <li class="flex items-center gap-3"><i class="fas fa-bed text-gold"></i> 5 Grand Suites</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-swimmer text-gold"></i> Private Plunge Pool</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-elevator text-gold"></i> Internal Lift Provision</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-glass-martini-alt text-gold"></i> Terrace Bar &amp; Lounge</li>
+                        </ul>
+                        <button onclick="route(event, 'contact')" class="btn-primary mt-8">Request Floor Plan &amp; Price</button>
+                    </div>
+                    <div class="glass-panel p-4 rounded-xl">
+                        <div class="bg-blue-900/20 border border-dashed border-white/20 h-80 rounded flex items-center justify-center flex-col overflow-hidden">
+                             <img src="assets/images/ORTHO VIEW.webp" class="w-full h-full object-cover opacity-50">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4️⃣ AMENITIES & SUB-PAGES -->
+        <section id="page-amenities" class="page-section container mx-auto px-6 py-12" style="display: none;">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <span class="text-gold uppercase tracking-widest text-sm">Lifestyle</span>
+                    <h2 class="text-4xl font-serif mt-2">World-Class Amenities</h2>
+                </div>
+                <p class="text-gray-400 max-w-md text-right">Click below to view plans.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Pool -->
+                <div onclick="route(event, 'amenity-pool')" class="glass-card p-8 rounded-2xl flex flex-col items-center justify-center text-center aspect-square group hover:bg-white/5 cursor-pointer relative overflow-hidden">
+                    <img src="assets/images/Swimming pool.webp" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition">
+                    <i class="fas fa-swimmer text-4xl text-gold mb-4 relative z-10"></i>
+                    <h4 class="text-lg font-medium relative z-10">Infinity Pool</h4>
+                    <span class="text-[10px] text-gray-400 mt-2 uppercase border-b border-gold pb-1 relative z-10">View Plan</span>
+                </div>
+                <!-- Gym -->
+                <div onclick="route(event, 'amenity-gym')" class="glass-card p-8 rounded-2xl flex flex-col items-center justify-center text-center aspect-square group hover:bg-white/5 cursor-pointer relative overflow-hidden">
+                    <img src="assets/images/Gym.webp" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition">
+                    <i class="fas fa-dumbbell text-4xl text-gold mb-4 relative z-10"></i>
+                    <h4 class="text-lg font-medium relative z-10">Sky Gym</h4>
+                     <span class="text-[10px] text-gray-400 mt-2 uppercase border-b border-gold pb-1 relative z-10">View Plan</span>
+                </div>
+                <!-- Club -->
+                <div onclick="route(event, 'amenity-club')" class="glass-card p-8 rounded-2xl flex flex-col items-center justify-center text-center aspect-square group hover:bg-white/5 cursor-pointer relative overflow-hidden">
+                    <img src="assets/images/Clubhouse.webp" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition">
+                    <i class="fas fa-glass-cheers text-4xl text-gold mb-4 relative z-10"></i>
+                    <h4 class="text-lg font-medium relative z-10">Clubhouse</h4>
+                     <span class="text-[10px] text-gray-400 mt-2 uppercase border-b border-gold pb-1 relative z-10">View Plan</span>
+                </div>
+                <!-- Gardens -->
+                <div class="glass-card p-8 rounded-2xl flex flex-col items-center justify-center text-center aspect-square relative overflow-hidden">
+                    <img src="assets/images/Landscape_1.webp" class="absolute inset-0 w-full h-full object-cover opacity-20">
+                    <i class="fas fa-tree text-2xl text-gray-500 mb-4 relative z-10"></i>
+                    <h4 class="text-lg font-medium text-gray-400 relative z-10">Zen Gardens</h4>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-amenity-pool" class="page-section container mx-auto px-0 py-0" style="display: none;">
+             <div class="relative h-[50vh]">
+                 <img src="assets/images/Swimming pool.webp" class="w-full h-full object-cover">
+                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center"><h1 class="text-5xl font-serif text-white">Infinity Pool</h1></div>
+             </div>
+             <div class="p-8"><button onclick="route(event, 'amenities')" class="text-gold mb-4"><i class="fas fa-arrow-left"></i> Back</button><p class="text-gray-300">Level 3 | 25 Meter Lap Pool | Jacuzzi</p><div class="mt-8 h-64 border border-dashed border-white/20 rounded flex items-center justify-center text-gray-500">Pool Plan Placeholder</div></div>
+        </section>
+        
+        <section id="page-amenity-gym" class="page-section container mx-auto px-0 py-0" style="display: none;">
+             <div class="relative h-[50vh]">
+                 <img src="assets/images/Gym.webp" class="w-full h-full object-cover">
+                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center"><h1 class="text-5xl font-serif text-white">Sky Gym</h1></div>
+             </div>
+             <div class="p-8"><button onclick="route(event, 'amenities')" class="text-gold mb-4"><i class="fas fa-arrow-left"></i> Back</button><p class="text-gray-300">Level 4 | Technogym Equipment | Yoga Deck</p><div class="mt-8 h-64 border border-dashed border-white/20 rounded flex items-center justify-center text-gray-500">Gym Plan Placeholder</div></div>
+        </section>
+
+        <section id="page-amenity-club" class="page-section container mx-auto px-0 py-0" style="display: none;">
+             <div class="relative h-[50vh]">
+                 <img src="assets/images/Clubhouse Night View.webp" class="w-full h-full object-cover">
+                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center"><h1 class="text-5xl font-serif text-white">Clubhouse</h1></div>
+             </div>
+             <div class="p-8">
+                 <button onclick="route(event, 'amenities')" class="text-gold mb-4"><i class="fas fa-arrow-left"></i> Back</button>
+                 <p class="text-gray-300 mb-6">15,000 Sft | Banquet Hall | Library | Indoor Games</p>
+                 <div class="grid grid-cols-2 gap-4">
+                     <div><img src="assets/images/Indoor games.webp" class="rounded-lg h-32 object-cover w-full"></div>
+                     <div><img src="assets/images/Party hall.webp" class="rounded-lg h-32 object-cover w-full"></div>
+                 </div>
+             </div>
+        </section>
+
+        <!-- 5️⃣ GALLERY PAGE -->
+        <section id="page-gallery" class="page-section container mx-auto px-6 py-12" style="display: none;">
+            <h2 class="text-4xl font-serif text-center mb-12">Visual Tour</h2>
+            <div class="columns-1 md:columns-3 gap-6 space-y-6">
+                <div class="glass-card p-1 rounded-lg break-inside-avoid cursor-pointer" onclick="openLightbox(this)"><img src="assets/images/Street Night View.webp" class="w-full rounded-lg"></div>
+                <div class="glass-card p-1 rounded-lg break-inside-avoid cursor-pointer" onclick="openLightbox(this)"><img src="assets/images/ORTHO VIEW.webp" class="w-full rounded-lg"></div>
+                <div class="glass-card p-1 rounded-lg break-inside-avoid cursor-pointer" onclick="openLightbox(this)"><img src="assets/images/South facing type_4.webp" class="w-full rounded-lg"></div>
+                <div class="glass-card p-1 rounded-lg break-inside-avoid cursor-pointer" onclick="openLightbox(this)"><img src="assets/images/South facing type_5.webp" class="w-full rounded-lg"></div>
+                <div class="glass-card p-1 rounded-lg break-inside-avoid cursor-pointer" onclick="openLightbox(this)"><img src="assets/images/Entrance.webp" class="w-full rounded-lg"></div>
+                <div class="glass-card p-1 rounded-lg break-inside-avoid cursor-pointer" onclick="openLightbox(this)"><img src="assets/images/South facing villa-type-05.webp" class="w-full rounded-lg"></div>
+            </div>
+        </section>
+
+        <!-- 🆕 EMI CALCULATOR PAGE -->
+        <section id="page-emi" class="page-section container mx-auto px-6 py-12" style="display: none;">
+            <div class="text-center mb-12">
+                <span class="text-gold uppercase tracking-widest text-sm">Financial Planning</span>
+                <h2 class="text-4xl font-serif mt-2">EMI Calculator</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">Calculate your monthly payments including down payment, interest rates, and documentation fees.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Left: Calculator Form -->
+                <div class="md:col-span-2">
+                    <div class="glass-panel p-8 rounded-2xl">
+                        <form id="emiForm">
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Property Price (₹)</label>
+                                    <input type="number" id="propertyPrice" value="25000000" class="emi-input" min="100000" step="100000">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Down Payment (%)</label>
+                                    <input type="range" id="downPaymentPercent" min="10" max="90" value="20" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                                    <div class="flex justify-between mt-2">
+                                        <span class="text-xs text-gray-400">10%</span>
+                                        <span id="downPaymentValue" class="text-gold">20%</span>
+                                        <span class="text-xs text-gray-400">90%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Loan Tenure (Years)</label>
+                                    <select id="loanTenure" class="emi-input">
+                                        <option value="5">5 Years</option>
+                                        <option value="10">10 Years</option>
+                                        <option value="15" selected="">15 Years</option>
+                                        <option value="20">20 Years</option>
+                                        <option value="25">25 Years</option>
+                                        <option value="30">30 Years</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Interest Rate (% p.a.)</label>
+                                    <input type="number" id="interestRate" value="8.5" step="0.1" min="6" max="15" class="emi-input">
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Documentation Fees (₹)</label>
+                                    <input type="number" id="docFees" value="50000" class="emi-input" min="0" step="5000">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Loan Type</label>
+                                    <select id="loanType" class="emi-input">
+                                        <option value="home">Home Loan</option>
+                                        <option value="personal">Personal Loan</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button type="button" onclick="calculateEMI()" class="w-full btn-primary py-4">Calculate EMI</button>
+                        </form>
+                    </div>
+
+                    <!-- Bank Selection -->
+                    <div class="mt-8">
+                        <h3 class="text-2xl font-serif text-white mb-6">Select Your Bank</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="bankSelection">
+                            <!-- Banks will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Results & CTA -->
+                <div class="space-y-6">
+                    <!-- Results Card -->
+                    <div class="emi-result-card glass-panel p-8 rounded-2xl">
+                        <h3 class="text-2xl font-serif text-white mb-6">Your EMI Breakdown</h3>
+                        <div class="space-y-4" id="emiResults">
+                            <div class="flex justify-between">
+                                <span class="text-gray-300">Loan Amount:</span>
+                                <span id="loanAmount" class="text-white font-bold">₹0</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-300">Down Payment:</span>
+                                <span id="downPayment" class="text-white font-bold">₹0</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-300">Monthly EMI:</span>
+                                <span id="monthlyEMI" class="text-2xl text-gold font-bold">₹0</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-300">Total Interest:</span>
+                                <span id="totalInterest" class="text-white font-bold">₹0</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-300">Total Payment:</span>
+                                <span id="totalPayment" class="text-white font-bold">₹0</span>
+                            </div>
+                            <div class="flex justify-between border-t border-white/10 pt-4">
+                                <span class="text-gray-300">Documentation Fees:</span>
+                                <span id="totalDocFees" class="text-white font-bold">₹0</span>
+                            </div>
+                        </div>
+
+                        <!-- CTA Buttons -->
+                        <div class="mt-8 space-y-4">
+                            <a href="https://wa.me/919876543210?text=Hi,%20I'm%20interested%20in%20loan%20options%20for%20Hiwa%20Nirvara" target="_blank" class="block w-full bg-green-600 hover:bg-green-700 text-white text-center py-3 rounded-lg font-medium transition">
+                                <i class="fab fa-whatsapp mr-2"></i> Chat on WhatsApp
+                            </a>
+                            <a href="tel:+919876543210" class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-lg font-medium transition">
+                                <i class="fas fa-phone mr-2"></i> Call Now
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Bank Profile Card -->
+                    <div class="glass-panel p-6 rounded-2xl">
+                        <h3 class="text-xl font-serif text-white mb-4">Bank Interest Rates</h3>
+                        <div class="space-y-3" id="bankRates">
+                            <!-- Bank rates will be populated by JavaScript -->
+                        </div>
+                        <p class="text-gray-400 text-sm mt-4">*Rates are subject to change. Contact bank for latest rates.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 8️⃣ LOCATION PAGE with LIVE DIRECTIONS & ROUTE -->
+        <section id="page-location" class="page-section container mx-auto px-6 py-12" style="display: none;">
+            <div class="text-center mb-12">
+                <span class="text-gold uppercase tracking-widest text-sm">Connectivity</span>
+                <h2 class="text-4xl font-serif mt-2">Narapally, Secunderabad</h2>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- LEFT: Google Maps with Directions -->
+                <div class="lg:w-3/5">
+                    <div class="glass-panel p-2 rounded-2xl overflow-hidden h-[450px] relative group">
+                        <!-- Google Maps iframe – destination is FIXED, origin is DYNAMIC -->
+                        <iframe id="mapFrame" class="w-full h-full rounded-xl" style="border:0;" loading="lazy" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY_HERE&amp;q=Hiwa+Nirvara+Narapally+Secunderabad&amp;zoom=14">
+                        </iframe>
+                        
+                        <!-- Floating button to open current route in Google Maps app -->
+                        <a id="openMapsLink" href="https://www.google.com/maps/dir/?api=1&amp;destination=Hiwa+Nirvara+Narapally+Secunderabad&amp;travelmode=driving" target="_blank" class="absolute bottom-4 right-4 glass-card px-5 py-3 rounded-full text-white hover:text-gold flex items-center gap-2 z-10 backdrop-blur-md">
+                            <i class="fas fa-map-signs text-gold"></i> Open in Maps
+                        </a>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Journey Planner (Start point + Directions) -->
+                <div class="lg:w-2/5 space-y-6">
+                    <!-- Start point input -->
+                    <div class="glass-panel p-6 rounded-2xl">
+                        <h3 class="text-xl font-serif text-white mb-4 flex items-center gap-2">
+                            <i class="fas fa-route text-gold"></i> Plan Your Journey
+                        </h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-gray-300 text-sm mb-2">Starting Point</label>
+                                <div class="flex gap-2">
+                                    <input type="text" id="startAddress" value="Secunderabad Railway Station" class="flex-1 bg-slate-800/50 border border-white/10 rounded-lg p-3 text-white text-sm focus:border-gold outline-none">
+                                    <button onclick="updateRoute()" class="btn-primary px-6 py-3 text-sm whitespace-nowrap">
+                                        <i class="fas fa-sync-alt mr-1"></i> Go
+                                    </button>
+                                </div>
+                                <p class="text-xs text-gray-400 mt-2">
+                                    <i class="fas fa-location-dot text-gold"></i> Destination fixed: Hiwa Nirvara, Narapally
+                                </p>
+                            </div>
+
+                            <!-- Quick start suggestions -->
+                            <div class="flex flex-wrap gap-2">
+                                <button onclick="setStartPoint('current')" class="text-xs border border-white/10 hover:border-gold rounded-full px-3 py-1.5 text-gray-300">
+                                    📍 My Location
+                                </button>
+                                <button onclick="setStartPoint('Secunderabad Railway Station')" class="text-xs border border-white/10 hover:border-gold rounded-full px-3 py-1.5 text-gray-300">
+                                    🚉 Secunderabad Stn
+                                </button>
+                                <button onclick="setStartPoint('Rajiv Gandhi International Airport')" class="text-xs border border-white/10 hover:border-gold rounded-full px-3 py-1.5 text-gray-300">
+                                    ✈️ Airport
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pizza Tracker (Step-by-step directions) & Distance/Time -->
+                    <div class="glass-panel p-6 rounded-2xl" id="directionsPanel">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-serif text-white">Route Overview</h3>
+                            <span id="travelTime" class="text-gold font-medium">— min</span>
+                        </div>
+                        <!-- Step list will be dynamically populated -->
+                        <div id="stepList" class="space-y-3 max-h-64 overflow-y-auto pr-2 text-sm">
+                            <p class="text-gray-400 text-center py-4">Enter a starting point to see directions.</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-white/10 flex justify-between">
+                            <span class="text-gray-300">Total Distance</span>
+                            <span id="totalDistance" class="text-white font-medium">— km</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden input to store destination coordinates (extracted from your link) -->
+            <input type="hidden" id="destLat" value="17.4567">
+            <input type="hidden" id="destLng" value="78.6214">
+            <!-- NOTE: Replace the above coordinates with the actual lat/lng of your project. 
+                 You can get them from the Google Maps link you shared. -->
+        </section>
+
+        <!-- TERMS & CONDITIONS PAGE -->
+        <section id="page-terms" class="page-section container mx-auto px-6 py-12" style="display: none;">
+            <div class="glass-panel p-8 rounded-2xl max-w-4xl mx-auto">
+                <h1 class="text-3xl font-serif text-gold mb-6">Terms &amp; Conditions</h1>
+                <div class="text-gray-300 text-sm space-y-4">
+                    <p><strong>1. Introduction:</strong> Welcome to Hiwa Nirvara. By accessing this website, you agree to these terms.</p>
+                    <p><strong>2. Accuracy of Information:</strong> The visuals, dimensions, and specifications are indicative and subject to change by the developer.</p>
+                    <p><strong>3. Intellectual Property:</strong> All content, images, and logos are the property of Hiwa Nirvara.</p>
+                    <p><strong>4. Limitation of Liability:</strong> Hiwa Nirvara is not liable for any damages arising from the use of this website.</p>
+                    <p><strong>5. RERA:</strong> This project is registered under TSRERA. Registration No: P0220000XXXX.</p>
+                    <button onclick="route(event, 'home')" class="mt-6 text-gold underline">Back to Home</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9️⃣ CONTACT PAGE -->
+        <section id="page-contact" class="page-section container mx-auto px-6 py-12 flex flex-col justify-center min-h-[80vh]" style="display: none;">
+            <div class="glass-panel w-full max-w-5xl mx-auto rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl">
+                <!-- Contact Info -->
+                <div class="md:w-2/5 bg-slate-900/90 p-10 flex flex-col justify-between border-r border-white/5">
+                    <div>
+                        <h2 class="text-3xl font-serif text-white mb-8">Get In Touch</h2>
+                        <div class="space-y-8">
+                            <div class="flex gap-4"><div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-gold"><i class="fas fa-map-marker-alt"></i></div><div><h5 class="text-white font-medium">Site Address</h5><p class="text-gray-400 text-sm">Survey No. 45/A, Warangal Highway, Narapally</p></div></div>
+                            <div class="flex gap-4"><div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-gold"><i class="fas fa-envelope"></i></div><div><h5 class="text-white font-medium">Email</h5><p class="text-gray-400 text-sm">sales@hiwanirvara.com</p></div></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Form -->
+                <div class="md:w-3/5 p-10 bg-white/5 relative">
+                    <h3 class="text-xl text-gold font-serif mb-2">Register Interest</h3>
+                    <form id="enquiryForm" class="space-y-5">
+                        <input type="text" name="user_name" placeholder="Your Name" required="" class="block w-full px-0 py-3 text-sm text-white bg-transparent border-0 border-b-2 border-gray-600 focus:outline-none focus:border-gold">
+                        <input type="tel" name="user_phone" placeholder="Phone Number" required="" class="block w-full px-0 py-3 text-sm text-white bg-transparent border-0 border-b-2 border-gray-600 focus:outline-none focus:border-gold">
+                        <input type="email" name="user_email" placeholder="Email Address" required="" class="block w-full px-0 py-3 text-sm text-white bg-transparent border-0 border-b-2 border-gray-600 focus:outline-none focus:border-gold">
+                        <button type="submit" class="w-full btn-primary mt-4">Submit Enquiry</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/5 bg-black/40 mt-auto py-12">
+        <div class="container mx-auto px-6">
+             <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="text-center md:text-left mb-6 md:mb-0">
+                    <h4 class="text-2xl font-serif text-white mb-2">HIWA NIRVARA</h4>
+                    <p class="text-gray-400 text-xs">Narapally, Secunderabad, Telangana</p>
+                </div>
+                <div class="flex space-x-6 text-xl">
+                    <a href="#" class="text-gray-400 hover:text-gold transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-gold transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-gold transition"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-gold transition"><i class="fab fa-youtube"></i></a>
+                </div>
+             </div>
+             <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+                <p>© 2024 Hiwa Nirvara. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#terms" onclick="route(event, 'terms')" class="hover:text-gold">Terms &amp; Conditions</a>
+                    <a href="#" class="hover:text-gold">Privacy Policy</a>
+                    <span>RERA No: P0220000XXXX</span>
+                </div>
+             </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp & Chatbot -->
+    <a href="https://wa.me/919876543210" target="_blank" class="float-icon whatsapp-icon">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="fixed inset-0 z-[60] bg-black/95 hidden flex items-center justify-center p-4 backdrop-blur-md opacity-0 transition-opacity duration-300">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-gold text-4xl">×</button>
+        <img id="lightbox-img" class="max-w-full max-h-[90vh] rounded-lg shadow-[0_0_50px_rgba(255,255,255,0.1)] transform scale-95 transition-transform duration-300">
+    </div>
+
+    <!-- ⚙️ LOGIC -->
+    <script>
+        // Bank data with interest rates
+        const banks = [
+            { id: 'sbi', name: 'State Bank of India', homeLoanRate: 8.4, personalLoanRate: 10.5, color: 'bg-blue-600', selected: true },
+            { id: 'hdfc', name: 'HDFC Bank', homeLoanRate: 8.5, personalLoanRate: 10.8, color: 'bg-blue-800', selected: false },
+            { id: 'icici', name: 'ICICI Bank', homeLoanRate: 8.6, personalLoanRate: 11.0, color: 'bg-orange-600', selected: false },
+            { id: 'axis', name: 'Axis Bank', homeLoanRate: 8.7, personalLoanRate: 11.2, color: 'bg-red-600', selected: false }
+        ];
+
+        // Initialize bank selection and rates
+        function initializeBanks() {
+            const bankSelection = document.getElementById('bankSelection');
+            const bankRates = document.getElementById('bankRates');
+            
+            if (!bankSelection || !bankRates) return;
+            
+            bankSelection.innerHTML = '';
+            bankRates.innerHTML = '';
+            
+            banks.forEach(bank => {
+                // Bank selection cards
+                const bankCard = document.createElement('div');
+                bankCard.className = `bank-card glass-panel p-4 rounded-xl text-center cursor-pointer ${bank.selected ? 'selected' : ''}`;
+                bankCard.innerHTML = `
+                    <div class="w-10 h-10 rounded-full ${bank.color} flex items-center justify-center mx-auto mb-2">
+                        <i class="fas fa-university text-white"></i>
+                    </div>
+                    <h4 class="text-sm font-medium">${bank.name}</h4>
+                    <p class="text-xs text-gray-400 mt-1">Home: ${bank.homeLoanRate}%</p>
+                `;
+                bankCard.onclick = () => selectBank(bank.id);
+                bankSelection.appendChild(bankCard);
+                
+                // Bank rates list
+                const rateItem = document.createElement('div');
+                rateItem.className = 'flex justify-between items-center';
+                rateItem.innerHTML = `
+                    <span class="text-gray-300">${bank.name}</span>
+                    <span class="text-gold font-medium">${bank.homeLoanRate}% - ${bank.personalLoanRate}%</span>
+                `;
+                bankRates.appendChild(rateItem);
+            });
+        }
+
+        // Select a bank
+        function selectBank(bankId) {
+            banks.forEach(bank => {
+                bank.selected = bank.id === bankId;
+                if (bank.selected) {
+                    document.getElementById('interestRate').value = bank.homeLoanRate;
+                }
+            });
+            initializeBanks();
+            calculateEMI();
+        }
+
+        // EMI Calculation Formula
+        function calculateEMI() {
+            const propertyPrice = parseFloat(document.getElementById('propertyPrice').value) || 25000000;
+            const downPaymentPercent = parseFloat(document.getElementById('downPaymentPercent').value) || 20;
+            const loanTenure = parseFloat(document.getElementById('loanTenure').value) || 15;
+            const interestRate = parseFloat(document.getElementById('interestRate').value) || 8.5;
+            const docFees = parseFloat(document.getElementById('docFees').value) || 50000;
+            const loanType = document.getElementById('loanType').value;
+            
+            const downPayment = (propertyPrice * downPaymentPercent) / 100;
+            const loanAmount = propertyPrice - downPayment;
+            const monthlyInterestRate = interestRate / 12 / 100;
+            const months = loanTenure * 12;
+            
+            // EMI Formula: [P x R x (1+R)^N]/[(1+R)^N-1]
+            const emi = loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, months) / 
+                       (Math.pow(1 + monthlyInterestRate, months) - 1);
+            
+            const totalPayment = emi * months;
+            const totalInterest = totalPayment - loanAmount;
+            const totalWithFees = totalPayment + docFees + downPayment;
+            
+            // Update results
+            document.getElementById('loanAmount').textContent = '₹' + formatNumber(Math.round(loanAmount));
+            document.getElementById('downPayment').textContent = '₹' + formatNumber(Math.round(downPayment));
+            document.getElementById('monthlyEMI').textContent = '₹' + formatNumber(Math.round(emi));
+            document.getElementById('totalInterest').textContent = '₹' + formatNumber(Math.round(totalInterest));
+            document.getElementById('totalPayment').textContent = '₹' + formatNumber(Math.round(totalPayment));
+            document.getElementById('totalDocFees').textContent = '₹' + formatNumber(docFees);
+            
+            // Update loan type in CTA message
+            const whatsappBtn = document.querySelector('a[href*="whatsapp"]');
+            const loanText = loanType === 'home' ? 'home loan' : 'personal loan';
+            whatsappBtn.href = `https://wa.me/919876543210?text=Hi,%20I'm%20interested%20in%20${loanText}%20options%20for%20Hiwa%20Nirvara.%20My%20estimated%20EMI%20is%20₹${Math.round(emi)}%20per%20month`;
+        }
+
+        // Format numbers with commas
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // --- Router Logic ---
+        function route(event, pageId) {
+            if(event) event.preventDefault();
+            
+            // Update URL hash without scrolling
+            window.history.pushState({page: pageId}, "", `#${pageId}`);
+            
+            // 1. Hide all pages
+            document.querySelectorAll('.page-section').forEach(el => {
+                el.classList.remove('active');
+                el.style.display = 'none';
+            });
+
+            // 2. Show target page
+            const target = document.getElementById(`page-${pageId}`);
+            if(target) {
+                target.style.display = 'block';
+                setTimeout(() => target.classList.add('active'), 10);
+                window.scrollTo(0,0);
+                
+                // Initialize EMI calculator if on EMI page
+                if(pageId === 'emi') {
+                    initializeBanks();
+                    calculateEMI();
+                }
+                // Load maps if on location page
+                if(pageId === 'location') {
+                    setTimeout(loadGoogleMapsScript, 100);
+                }
+            }
+
+            // 3. Update Navigation State
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === `#${pageId}`) link.classList.add('active');
+            });
+        }
+
+        // Handle Back/Forward Browser Buttons
+        window.onpopstate = function(event) {
+            const pageId = event.state && event.state.page ? event.state.page : (window.location.hash.replace('#', '') || 'home');
+            route(null, pageId);
+        };
+
+        // --- Mobile Menu Logic ---
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+            }
+        }
+
+        // --- Gallery Image Switcher ---
+        function updateHomeGallery(src, caption) {
+            const main = document.getElementById('rich-gallery-main');
+            const cap = document.getElementById('rich-gallery-caption');
+            
+            main.style.opacity = '0';
+            setTimeout(() => {
+                main.src = src;
+                cap.innerText = caption;
+                main.style.opacity = '1';
+            }, 200);
+        }
+
+        // Update down payment value display
+        if (document.getElementById('downPaymentPercent')) {
+            document.getElementById('downPaymentPercent').addEventListener('input', function() {
+                document.getElementById('downPaymentValue').textContent = this.value + '%';
+            });
+        }
+
+        // --- Lightbox Logic ---
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            if (img) {
+                lightboxImg.src = img.src;
+                lightbox.classList.remove('hidden');
+                setTimeout(() => {
+                    lightbox.classList.remove('opacity-0');
+                    lightboxImg.classList.remove('scale-95');
+                    lightboxImg.classList.add('scale-100');
+                }, 10);
+            }
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('opacity-0');
+            lightboxImg.classList.remove('scale-100');
+            lightboxImg.classList.add('scale-95');
+            setTimeout(() => lightbox.classList.add('hidden'), 300);
+        }
+
+        // --- Google Maps Directions Logic ---
+        let directionsService;
+        let directionsRenderer;
+        let map;
+
+        function initMap() {
+            // Only initialize if we are on the location page
+            if (!document.getElementById('page-location').classList.contains('active')) return;
+
+            const destination = {
+                lat: parseFloat(document.getElementById('destLat').value) || 17.4567,
+                lng: parseFloat(document.getElementById('destLng').value) || 78.6214
+            };
+
+            // Create a new map
+            const mapElement = document.getElementById('mapFrame');
+            if (!mapElement) return;
+            
+            // We need to replace the iframe with a div to use Maps API
+            const mapDiv = document.createElement('div');
+            mapDiv.id = 'mapDiv';
+            mapDiv.style.width = '100%';
+            mapDiv.style.height = '100%';
+            mapDiv.style.borderRadius = '0.75rem';
+            mapElement.parentNode.replaceChild(mapDiv, mapElement);
+
+            map = new google.maps.Map(mapDiv, {
+                zoom: 12,
+                center: destination,
+                mapTypeControl: false,
+                fullscreenControl: false,
+                streetViewControl: false,
+                styles: [ /* optional: dark theme to match your site */
+                    {
+                        "elementType": "geometry",
+                        "stylers": [{ "color": "#242f3e" }]
+                    },
+                    {
+                        "elementType": "labels.text.fill",
+                        "stylers": [{ "color": "#746855" }]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "geometry",
+                        "stylers": [{ "color": "#38414e" }]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "geometry.stroke",
+                        "stylers": [{ "color": "#212a37" }]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "labels.text.fill",
+                        "stylers": [{ "color": "#9ca5b3" }]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "geometry",
+                        "stylers": [{ "color": "#17263c" }]
+                    }
+                ]
+            });
+
+            directionsService = new google.maps.DirectionsService();
+            directionsRenderer = new google.maps.DirectionsRenderer({
+                map: map,
+                suppressMarkers: false,
+                preserveViewport: false,
+                polylineOptions: {
+                    strokeColor: '#d4af37',
+                    strokeWeight: 5,
+                    strokeOpacity: 0.8
+                }
+            });
+
+            // Add a custom marker for the villa
+            new google.maps.Marker({
+                position: destination,
+                map: map,
+                title: 'Hiwa Nirvara',
+                icon: {
+                    url: 'https://maps.google.com/mapfiles/ms/icons/gold-dot.png',
+                    scaledSize: new google.maps.Size(40, 40)
+                }
+            });
+
+            // Default route from Secunderabad station
+            setTimeout(() => {
+                const defaultStart = document.getElementById('startAddress').value;
+                calculateAndDisplayRoute(defaultStart);
+            }, 500);
+        }
+
+        function calculateAndDisplayRoute(start) {
+            if (!directionsService) return;
+            
+            const destination = {
+                lat: parseFloat(document.getElementById('destLat').value),
+                lng: parseFloat(document.getElementById('destLng').value)
+            };
+
+            directionsService.route({
+                origin: start,
+                destination: destination,
+                travelMode: google.maps.TravelMode.DRIVING
+            }, (response, status) => {
+                if (status === 'OK') {
+                    directionsRenderer.setDirections(response);
+                    displaySteps(response);
+                    updateTravelInfo(response);
+                    
+                    // Update the "Open in Maps" link with the new start point
+                    const mapsLink = document.getElementById('openMapsLink');
+                    mapsLink.href = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(start)}&destination=Hiwa+Nirvara+Narapally+Secunderabad&travelmode=driving`;
+                } else {
+                    console.error('Directions request failed:', status);
+                    document.getElementById('stepList').innerHTML = `<p class="text-red-400 text-center py-2">Could not find route. Please try a different starting point.</p>`;
+                }
+            });
+        }
+
+        function displaySteps(directionsResult) {
+            const legs = directionsResult.routes[0].legs[0];
+            let stepsHtml = '';
+            legs.steps.forEach((step, i) => {
+                stepsHtml += `
+                    <div class="flex items-start gap-3 text-gray-300">
+                        <span class="text-gold font-bold w-5">${i+1}</span>
+                        <span class="flex-1">${step.instructions.replace(/<[^>]*>/g, '')}</span>
+                        <span class="text-xs text-gray-400">${step.distance.text}</span>
+                    </div>
+                `;
+            });
+            document.getElementById('stepList').innerHTML = stepsHtml;
+        }
+
+        function updateTravelInfo(directionsResult) {
+            const leg = directionsResult.routes[0].legs[0];
+            document.getElementById('totalDistance').innerText = leg.distance.text;
+            document.getElementById('travelTime').innerText = leg.duration.text;
+        }
+
+        // Called when user clicks "Go" or changes start point
+        function updateRoute() {
+            const start = document.getElementById('startAddress').value;
+            if (start.trim() === '') {
+                alert('Please enter a starting point.');
+                return;
+            }
+            calculateAndDisplayRoute(start);
+        }
+
+        function setStartPoint(location) {
+            if (location === 'current') {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition((position) => {
+                        const latlng = `${position.coords.latitude},${position.coords.longitude}`;
+                        document.getElementById('startAddress').value = latlng;
+                        updateRoute();
+                    }, () => {
+                        alert('Unable to get your location. Please enter manually.');
+                    });
+                } else {
+                    alert('Geolocation not supported.');
+                }
+            } else {
+                document.getElementById('startAddress').value = location;
+                updateRoute();
+            }
+        }
+
+        // Load Google Maps API script dynamically when the location page is activated
+        function loadGoogleMapsScript() {
+            if (window.google && window.google.maps) {
+                initMap();
+                return;
+            }
+            const script = document.createElement('script');
+            script.src = 'https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&callback=initMap';
+            script.async = true;
+            script.defer = true;
+            document.head.appendChild(script);
+        }
+
+        // --- Initialization ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Handle Initial Route
+            const hash = window.location.hash.replace('#', '') || 'home';
+            route(null, hash);
+            
+            // 2. EmailJS Form Handling
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const btn = this.querySelector('button');
+                    const originalText = btn.innerText;
+                    
+                    btn.innerText = "Sending...";
+                    btn.disabled = true;
+
+                    // Simulate sending
+                    setTimeout(() => {
+                        alert("Enquiry Sent! We will contact you shortly.");
+                        this.reset();
+                        btn.innerText = "Sent";
+                        setTimeout(() => {
+                            btn.innerText = originalText;
+                            btn.disabled = false;
+                        }, 2000);
+                    }, 1500);
+                });
+            });
+
+            // 3. Initialize EMI Calculator events
+            const emiInputs = ['propertyPrice', 'downPaymentPercent', 'loanTenure', 'interestRate', 'docFees', 'loanType'];
+            emiInputs.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('input', calculateEMI);
+                    el.addEventListener('change', calculateEMI);
+                }
+            });
+
+            // 4. Set initial down payment display
+            const downSlider = document.getElementById('downPaymentPercent');
+            if (downSlider) {
+                document.getElementById('downPaymentValue').textContent = downSlider.value + '%';
+            }
+        });
+    </script>
+
+</body></html>
+live-output (9).html
+Displaying live-output (9).html.
