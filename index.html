@@ -1,208 +1,204 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- DYNAMIC SEO META (updated via JS) -->
-    <title>Nexus Digital – AI & web studio</title>
-    <meta name="description" content="Nexus Digital: website development, AI integration, SEO, VFX, content & image generation. Full-spectrum digital services with case studies and expert insights.">
-    <meta name="keywords" content="web development, AI, SEO, digital marketing, VFX, content writing, image generation, case studies, Nexus Digital">
-    <meta name="author" content="Nexus Digital">
+    
+    <!-- Dynamic SEO Tags (Updated via JS) -->
+    <title id="page-title">Nexus Digital | AI-Driven Web Development & SEO Agency</title>
+    <meta id="meta-desc" name="description" content="Nexus Digital Agency blends elite website development, strategic SEO, and cutting-edge generative AI to build brands that dominate the future.">
+    <meta name="keywords" content="Web Development, SEO, AI Integration, Gemini, Grok, Digital Marketing, VFX, React, Next.js">
+    <meta name="author" content="Nexus Digital Agency">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" id="canonical-link" href="https://nexus.digital/">
-    <!-- Open Graph -->
-    <meta property="og:title" content="Nexus Digital – AI & web studio">
-    <meta property="og:description" content="Elite website development, strategic SEO, and generative AI solutions.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nexus.digital/">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80&w=1200">
-    <!-- Twitter card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Nexus Digital">
-    <meta name="twitter:description" content="Crafting digital excellence with AI.">
+    <link id="canonical-link" rel="canonical" href="https://your-username.github.io/nexus-digital/">
 
-    <!-- Tailwind & Lucide -->
+    <!-- Open Graph / Facebook (Dynamic) -->
+    <meta property="og:type" content="website">
+    <meta id="og-url" property="og:url" content="https://your-username.github.io/nexus-digital/">
+    <meta id="og-title" property="og:title" content="Nexus Digital | Future-Ready Digital Solutions">
+    <meta id="og-desc" property="og:description" content="Crafting digital excellence with AI. We integrate Gemini, Grok, and modern web stacks for superior performance.">
+    <meta id="og-image" property="og:image" content="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200">
+
+    <!-- Twitter (Dynamic) -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta id="tw-url" property="twitter:url" content="https://your-username.github.io/nexus-digital/">
+    <meta id="tw-title" property="twitter:title" content="Nexus Digital | Future-Ready Digital Solutions">
+    <meta id="tw-desc" property="twitter:description" content="Crafting digital excellence with AI. We integrate Gemini, Grok, and modern web stacks for superior performance.">
+    <meta id="tw-image" property="twitter:image" content="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Tawk.to Widget (replace property ID with your own) -->
+
+    <!-- Custom Config for Tailwind -->
     <script>
-        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-        (function() {
-            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-            s1.async = true;
-            s1.src = 'https://embed.tawk.to/YOUR_TAWKTO_PROPERTY_ID/default';  // <-- REPLACE WITH YOUR ID
-            s1.charset = 'UTF-8';
-            s1.setAttribute('crossorigin', '*');
-            s0.parentNode.insertBefore(s1, s0);
-        })();
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeIn: {
+                            'from': { opacity: '0', transform: 'translateY(10px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
     </script>
+
     <style>
-        @keyframes blob {
-            0% { transform: translate(0px, 0px) scale(1); }
-            33% { transform: translate(30px, -50px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(0.9); }
-            100% { transform: translate(0px, 0px) scale(1); }
+        /* Custom Utilities */
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
-        .animate-blob { animation: blob 7s infinite; }
-        .animation-delay-2000 { animation-delay: 2s; }
-        .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .prose h3 {
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
         }
-        ::selection { background: #3b82f6; color: white; }
+        .prose p {
+            margin-bottom: 1rem;
+            line-height: 1.75;
+        }
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(55, 65, 81, 0.5);
+        }
+        /* Form Inputs */
+        input, select, textarea {
+            background-color: rgba(31, 41, 55, 0.5);
+            border: 1px solid #374151;
+            color: white;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            ring: 2px solid #3b82f6;
+        }
+        /* Ad Slots */
+        .ad-container {
+            width: 100%;
+            background-color: #1f2937;
+            border: 1px dashed #4b5563;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin: 2rem 0;
+            min-height: 100px;
+        }
     </style>
 </head>
-<body class="bg-gray-950 text-white antialiased min-h-screen">
+<body class="bg-gray-950 text-white min-h-screen selection:bg-blue-500 selection:text-white flex flex-col">
 
-<div id="app" class="relative">
-
-    <!-- ========== NAVBAR (identical to original) ========== -->
+    <!-- Navbar -->
     <nav class="fixed w-full z-50 bg-gray-900/90 backdrop-blur-md border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <div class="flex items-center cursor-pointer" id="logo-home">
+                <!-- Logo -->
+                <div class="flex items-center cursor-pointer" onclick="router.navigate('home')">
                     <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-2 rounded-lg">
                         <i data-lucide="zap" class="h-6 w-6 text-white"></i>
                     </div>
-                    <span class="ml-3 text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">NEXUS DIGITAL</span>
+                    <span class="ml-3 text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                        NEXUS DIGITAL
+                    </span>
                 </div>
+
+                <!-- Desktop Menu -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <button id="nav-home" class="px-3 py-2 rounded-md text-sm font-medium text-blue-400">Home</button>
-                        <button id="nav-blogs" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white">Insights & Blogs</button>
-                        <a href="#services" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Services</a>
-                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-medium shadow-lg shadow-blue-900/50">Get Started</button>
+                        <button onclick="router.navigate('home')" id="nav-home" class="px-3 py-2 rounded-md text-sm font-medium transition-colors text-blue-400">Home</button>
+                        <button onclick="router.navigate('blogs')" id="nav-blogs" class="px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-300 hover:text-white">Insights & Blogs</button>
+                        <button onclick="navigateToSection('services-section')" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</button>
+                        <button onclick="router.navigate('contact')" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-medium transition-all shadow-lg shadow-blue-900/50">Get Started</button>
                     </div>
                 </div>
+
+                <!-- Mobile Menu Button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-400 hover:text-white p-2">
-                        <i data-lucide="menu" class="h-6 w-6"></i>
+                    <button onclick="toggleMobileMenu()" class="text-gray-400 hover:text-white p-2">
+                        <i id="mobile-menu-icon" data-lucide="menu" class="h-6 w-6"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="md:hidden hidden bg-gray-900 border-b border-gray-800">
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-b border-gray-800">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <button id="mobile-home" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-800">Home</button>
-                <button id="mobile-blogs" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Blogs</button>
-                <button class="block w-full text-left px-3 py-2 text-base font-medium text-blue-400">Get Started</button>
+                <button onclick="router.navigate('home'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-800">Home</button>
+                <button onclick="router.navigate('blogs'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Blogs</button>
+                <button onclick="navigateToSection('services-section'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Services</button>
+                <button onclick="router.navigate('contact'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-base font-medium text-blue-400">Get Started</button>
             </div>
         </div>
     </nav>
 
-    <!-- ========== MAIN PAGES ========== -->
-    <main>
-        <!-- HOME PAGE (exact original) -->
-        <div id="home-page" class="animate-fade-in">
-            <div class="relative overflow-hidden bg-gray-950 pt-32 pb-20 lg:pt-48 lg:pb-32">
-                <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-                    <div class="absolute -top-24 -right-24 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-                    <div class="absolute top-48 -left-24 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-                </div>
-                <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center">
-                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-gray-900 border border-gray-800 text-sm text-blue-400 mb-8">
-                        <span class="flex h-2 w-2 rounded-full bg-blue-500 mr-2 animate-pulse"></span>
-                        Now integrating Gemini & Grok API solutions
-                    </div>
-                    <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-8 leading-tight">
-                        Crafting Digital <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Excellence with AI</span>
-                    </h1>
-                    <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-400 mb-10">
-                        We blend elite website development, strategic SEO, and cutting-edge generative AI to build brands that dominate the future.
-                    </p>
-                    <div class="flex justify-center gap-4">
-                        <button id="home-read-insights" class="px-8 py-4 bg-white text-gray-900 rounded-lg font-bold hover:bg-gray-100 transition-all flex items-center">
-                            Read Our Insights <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
-                        </button>
-                        <button class="px-8 py-4 bg-gray-800 text-white rounded-lg font-bold hover:bg-gray-700 transition-all border border-gray-700">
-                            View Services
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!-- Services Grid (clickable cards) -->
-            <div id="services" class="bg-gray-900 py-24">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center mb-16">
-                        <h2 class="text-blue-500 font-semibold tracking-wide uppercase text-sm">Our Capabilities</h2>
-                        <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">Full-Spectrum Digital Services</h3>
-                        <p class="mt-4 max-w-2xl text-xl text-gray-400 mx-auto">From code to content, we leverage the latest tools to deliver speed, scale, and creativity.</p>
-                    </div>
-                    <div id="services-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-                </div>
-            </div>
-            <!-- CTA Section -->
-            <div class="bg-gradient-to-br from-blue-900 to-gray-900 py-20">
-                <div class="max-w-4xl mx-auto px-4 text-center">
-                    <h2 class="text-3xl font-bold text-white mb-6">Ready to upgrade your digital presence?</h2>
-                    <p class="text-blue-100 text-lg mb-8">Join the forward-thinking companies using our AI-driven strategies to grow faster.</p>
-                    <button class="bg-white text-blue-900 px-8 py-3 rounded-lg font-bold hover:bg-blue-50 transition-colors shadow-lg">Schedule a Consultation</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- BLOG LIST PAGE (exact original) -->
-        <div id="blogs-page" class="animate-fade-in bg-gray-950 min-h-screen pt-32 pb-20 hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Insights & Analysis</h1>
-                    <p class="text-gray-400 text-lg max-w-2xl mx-auto">Deep dives into Web Development, Generative AI, SEO, and the future of digital creativity.</p>
-                </div>
-                <div id="blog-list-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-            </div>
-        </div>
-
-        <!-- BLOG DETAIL PAGE (with related topics) -->
-        <div id="blog-detail-page" class="animate-fade-in bg-gray-950 min-h-screen pt-32 pb-20 hidden">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <button id="back-to-blogs" class="text-gray-400 hover:text-white mb-8 flex items-center text-sm font-medium transition-colors">
-                    <i data-lucide="arrow-right" class="h-4 w-4 mr-2 rotate-180"></i> Back to Blogs
-                </button>
-                <div id="blog-detail-container"></div>
-                <!-- Related Articles Section (5 related topics) -->
-                <div id="related-posts-container" class="mt-16 border-t border-gray-800 pt-12">
-                    <h2 class="text-2xl font-bold text-white mb-8">You might also like</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="related-posts-grid"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SERVICE DETAIL PAGE (with case study) -->
-        <div id="service-detail-page" class="animate-fade-in bg-gray-950 min-h-screen pt-32 pb-20 hidden">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <button id="back-to-services" class="text-gray-400 hover:text-white mb-8 flex items-center text-sm font-medium transition-colors">
-                    <i data-lucide="arrow-right" class="h-4 w-4 mr-2 rotate-180"></i> Back to Services
-                </button>
-                <div id="service-detail-container"></div>
-                <!-- Case Study -->
-                <div class="mt-16 border-t border-gray-800 pt-12">
-                    <h2 class="text-2xl font-bold text-white mb-8">Related Case Study</h2>
-                    <div id="case-study-container" class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 p-6 md:p-8"></div>
-                </div>
-            </div>
-        </div>
+    <!-- Main Content Area -->
+    <main id="app-root" class="flex-grow">
+        <!-- Content injected via JS -->
     </main>
 
-    <!-- FOOTER (original with slight form tweak for tawk) -->
-    <footer class="bg-gray-950 border-t border-gray-900 pt-16 pb-8">
+    <!-- Footer -->
+    <footer class="bg-gray-950 border-t border-gray-900 pt-16 pb-8 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-1 md:col-span-1">
                     <div class="flex items-center mb-4">
-                        <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-1.5 rounded-lg"><i data-lucide="zap" class="h-5 w-5 text-white"></i></div>
+                        <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-1.5 rounded-lg">
+                            <i data-lucide="zap" class="h-5 w-5 text-white"></i>
+                        </div>
                         <span class="ml-3 text-lg font-bold text-white">NEXUS</span>
                     </div>
-                    <p class="text-gray-400 text-sm leading-relaxed">Empowering brands with next-generation digital solutions. From AI integration to immersive web experiences.</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Empowering brands with next-generation digital solutions. From AI integration to immersive web experiences.
+                    </p>
                 </div>
-                <div><h4 class="text-white font-semibold mb-4">Services</h4><ul class="space-y-2 text-sm text-gray-400"><li><a href="#" class="hover:text-blue-400">Web Development</a></li><li><a href="#" class="hover:text-blue-400">SEO Optimization</a></li><li><a href="#" class="hover:text-blue-400">AI Integration</a></li><li><a href="#" class="hover:text-blue-400">VFX & Motion</a></li></ul></div>
-                <div><h4 class="text-white font-semibold mb-4">Resources</h4><ul class="space-y-2 text-sm text-gray-400"><li><button id="footer-blogs" class="hover:text-blue-400">Blog</button></li><li><a href="#" class="hover:text-blue-400">Case Studies</a></li><li><a href="#" class="hover:text-blue-400">Documentation</a></li></ul></div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><button onclick="router.navigate('service-detail', 'web-dev')" class="hover:text-blue-400 transition-colors text-left">Web Development</button></li>
+                        <li><button onclick="router.navigate('service-detail', 'seo')" class="hover:text-blue-400 transition-colors text-left">SEO Optimization</button></li>
+                        <li><button onclick="router.navigate('service-detail', 'ai')" class="hover:text-blue-400 transition-colors text-left">AI Integration</button></li>
+                        <li><button onclick="router.navigate('service-detail', 'vfx')" class="hover:text-blue-400 transition-colors text-left">VFX & Motion</button></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><button onclick="router.navigate('blogs')" class="hover:text-blue-400 transition-colors">Blog</button></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Case Studies</a></li>
+                        <li><button onclick="router.navigate('contact')" class="hover:text-blue-400 transition-colors">Contact Us</button></li>
+                    </ul>
+                </div>
+
                 <div>
                     <h4 class="text-white font-semibold mb-4">Newsletter</h4>
                     <p class="text-gray-400 text-sm mb-4">Subscribe to our weekly insights.</p>
                     <div class="flex">
-                        <input type="email" id="newsletter-email" placeholder="Enter email" class="bg-gray-900 text-white px-4 py-2 rounded-l-md border border-gray-800 focus:outline-none focus:border-blue-500 w-full text-sm">
-                        <button id="newsletter-submit" class="bg-blue-600 px-4 py-2 rounded-r-md hover:bg-blue-700 transition-colors">
+                        <input type="email" placeholder="Enter email" class="w-full px-4 py-2 rounded-l-md text-sm" />
+                        <button class="bg-blue-600 px-4 py-2 rounded-r-md hover:bg-blue-700 transition-colors">
                             <i data-lucide="arrow-right" class="h-4 w-4 text-white"></i>
                         </button>
                     </div>
@@ -210,260 +206,904 @@
             </div>
             <div class="border-t border-gray-900 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-gray-500 text-sm">© 2026 Nexus Digital Agency. All rights reserved.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0"><i data-lucide="globe" class="h-5 w-5 text-gray-500 hover:text-white cursor-pointer"></i><i data-lucide="message-square" class="h-5 w-5 text-gray-500 hover:text-white cursor-pointer"></i></div>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <i data-lucide="globe" class="h-5 w-5 text-gray-500 hover:text-white cursor-pointer"></i>
+                    <i data-lucide="message-square" class="h-5 w-5 text-gray-500 hover:text-white cursor-pointer"></i>
+                </div>
             </div>
         </div>
     </footer>
-</div>
 
-<script>
-(function() {
-    // ---------- FULL BLOG POSTS ARRAY (exact from original React) ----------
-    const BLOG_POSTS = [
-        { id: 1, title: "The Future of Web Development: 2026 & Beyond", category: "Development", author: "Sarah Jenkins", date: "Oct 12, 2025", readTime: "5 min read", image: "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80&w=800", excerpt: "From WebAssembly to AI-driven code generation, explore the technologies reshaping how we build for the web.", content: `<p class="mb-4">The landscape of web development is shifting beneath our feet. As we move through 2025 and into 2026, the traditional stack is being augmented by intelligent agents and compiled languages running natively in the browser.</p><h3 class="text-xl font-bold text-white mt-6 mb-3">1. WebAssembly (Wasm) is Mainstream</h3><p class="mb-4">No longer just for games or heavy computation, Wasm is powering full-stack frameworks, allowing developers to write high-performance apps in Rust, Go, or C++ that run at near-native speed in Chrome and Safari.</p><h3 class="text-xl font-bold text-white mt-6 mb-3">2. AI-Assisted coding</h3><p class="mb-4">It's not just about autocompletion anymore. Tools are now architecting entire database schemas and API endpoints based on natural language descriptions, shifting the developer's role from syntax writer to system architect.</p>` },
-        { id: 2, title: "SEO in the Age of SGE (Search Generative Experience)", category: "SEO", author: "Mike Ross", date: "Oct 10, 2025", readTime: "6 min read", image: "https://images.unsplash.com/photo-1571786256017-aee7a0c009b6?auto=format&fit=crop&q=80&w=800", excerpt: "How to rank when AI answers the user's question before they even click a link.", content: `<p class="mb-4">Search engines are evolving from link aggregators to answer engines. With Google's SGE and Bing's AI integration, the goal of SEO is shifting from 'getting the click' to 'being the source'.</p><h3 class="text-xl font-bold text-white mt-6 mb-3">Optimizing for LLMs</h3><p class="mb-4">To be cited by an AI, your content needs high informational density. Fluff pieces are ignored. We are seeing a trend towards structured data, clear entity relationships, and direct answers to complex queries.</p>` },
-        { id: 3, title: "Digital Marketing: The Hyper-Personalization Era", category: "Marketing", author: "Elena Fisher", date: "Oct 08, 2025", readTime: "4 min read", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800", excerpt: "Moving beyond segments to N=1 marketing using real-time behavioral data and AI.", content: `<p class="mb-4">Generic email blasts are dead. The new standard is hyper-personalization, where every landing page, email, and ad creative is dynamically generated for the specific individual viewing it.</p><p class="mb-4">Using customer data platforms (CDPs) linked with generative AI, marketers can now create infinite variations of copy and imagery that resonate with specific psychological triggers of different user personas.</p>` },
-        { id: 4, title: "Content Writing: Human Creativity vs. AI Efficiency", category: "Content", author: "David Kim", date: "Oct 05, 2025", readTime: "5 min read", image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=800", excerpt: "Why the best content teams are using a hybrid approach to scale quality.", content: `<p class="mb-4">There is a fear that AI will replace writers. The reality is that AI is replacing <em>average</em> writing. Great writing—that which offers unique insight, personal experience, and emotional resonance—is more valuable than ever.</p><p class="mb-4">The winning workflow for 2026 is 'AI-Draft, Human-Polish'. Let the AI handle the structure and the research summaries, while human editors inject voice, tone, and strategic nuance.</p>` },
-        { id: 5, title: "VFX Revolution: Real-time Rendering with Grok", category: "VFX & AI", author: "Alex Chen", date: "Oct 03, 2025", readTime: "7 min read", image: "https://images.unsplash.com/photo-1535016120720-40c6874c3b1c?auto=format&fit=crop&q=80&w=800", excerpt: "Exploring how Grok's integration into 3D pipelines is accelerating visual effects workflows.", content: `<p class="mb-4">Visual Effects (VFX) has traditionally been a render-heavy, time-consuming process. Grok's latest integration into standard pipelines like Blender and Maya is changing that.</p><h3 class="text-xl font-bold text-white mt-6 mb-3">Text-to-Texture & Geometry</h3><p class="mb-4">Artists can now generate complex PBR textures and even base geometry meshes simply by describing them to the Grok assistant within the viewport, drastically cutting down the 'greyboxing' phase of production.</p>` },
-        { id: 6, title: "Deep Dive: Gemini's Multimodal Capabilities", category: "AI Models", author: "Sarah Jenkins", date: "Sep 28, 2025", readTime: "8 min read", image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800", excerpt: "Understanding how Gemini processes video, audio, and code simultaneously for better apps.", content: `<p class="mb-4">Gemini stands out in the crowded LLM market because it was built from the ground up to be multimodal. It doesn't just 'see' images by converting them to text; it understands visual nuance directly.</p><p class="mb-4">For developers, this means building apps that can watch a video stream and answer questions about it in real-time, or analyze complex codebase diagrams and suggest refactors without a single line of explanatory text.</p>` },
-        { id: 7, title: "ChatGPT Enterprise: Use Cases for Big Business", category: "AI Models", author: "Mike Ross", date: "Sep 25, 2025", readTime: "5 min read", image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800", excerpt: "Security, privacy, and speed: How Fortune 500s are deploying ChatGPT internally.", content: `<p class="mb-4">The biggest barrier to enterprise AI adoption was data privacy. ChatGPT Enterprise solved this by ensuring training data isn't used to improve the public models.</p><p class="mb-4">We are seeing massive adoption in legal analysis, automated customer support triage, and internal knowledge base searching. It is effectively becoming the 'corporate brain' for large organizations.</p>` },
-        { id: 8, title: "Image Generation Services: A Comparative Guide", category: "Design", author: "Elena Fisher", date: "Sep 20, 2025", readTime: "6 min read", image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800", excerpt: "Midjourney vs. DALL-E 3 vs. Stable Diffusion. Which one is right for your brand?", content: `<p class="mb-4">Not all pixels are created equal. While Midjourney reigns supreme for artistic, stylistic visuals, DALL-E 3 offers superior prompt adherence for complex logical scenes.</p><p class="mb-4">Stable Diffusion, meanwhile, remains the king of control, allowing for ControlNet implementations that let designers dictate the exact pose and composition of the generated subjects.</p>` },
-        { id: 9, title: "The Ethics of Generative AI in Creative Industries", category: "Opinion", author: "David Kim", date: "Sep 15, 2025", readTime: "4 min read", image: "https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&q=80&w=800", excerpt: "Navigating the gray areas of copyright, bias, and displacement in the AI age.", content: `<p class="mb-4">As we embrace these tools, we must also grapple with their impact. The question isn't just 'can we generate this?', but 'should we?' and 'who owns it?'.</p><p class="mb-4">Agencies today need a clear AI ethics policy. Transparency with clients about what is human-made and what is machine-generated is the foundation of trust in this new era.</p>` },
-        { id: 10, title: "Building Scalable Architectures for AI Apps", category: "Development", author: "Alex Chen", date: "Sep 10, 2025", readTime: "9 min read", image: "https://images.unsplash.com/photo-1558494949-efc535b5c47c?auto=format&fit=crop&q=80&w=800", excerpt: "Vector databases, RAG pipelines, and inference caching: The new backend stack.", content: `<p class="mb-4">The 'LAMP' stack is being replaced by the 'Vector' stack. Building for AI requires a fundamental rethink of database topology.</p><p class="mb-4">We discuss how to implement Retrieval-Augmented Generation (RAG) efficiently, preventing hallucinations by grounding your LLM in your own private data lake.</p>` }
-    ];
+    <!-- Application Logic -->
+    <script>
+        // --- ADSENSE CONFIGURATION ---
+        // Place your Google AdSense or generic Ad script here.
+        // For now, we use a placeholder visual.
+        const AD_SLOT_HTML = `
+            <div class="ad-container" title="Advertisement Space - Place AdSense Code Here">
+                <span class="flex items-center"><i data-lucide="monitor" class="mr-2 h-4 w-4"></i> Sponsored Advertisement</span>
+            </div>
+        `;
 
-    const SERVICES = [
-        { icon: "globe", title: "Website Development", desc: "Custom React & Next.js solutions built for speed, scale, and SEO dominance.", slug: "website-development" },
-        { icon: "search", title: "Advanced SEO", desc: "Data-driven strategies to capture organic traffic in the age of AI search.", slug: "advanced-seo" },
-        { icon: "megaphone", title: "Digital Marketing", desc: "Full-funnel ROI campaigns across Social, Search, and Display networks.", slug: "digital-marketing" },
-        { icon: "pen-tool", title: "Content Writing", desc: "Authority-building articles and copy that converts visitors into loyal clients.", slug: "content-writing" },
-        { icon: "video", title: "VFX & Motion", desc: "Cinematic visual effects powered by Grok and industry-standard pipelines.", slug: "vfx-motion" },
-        { icon: "image", title: "AI Image Gen", desc: "Bespoke visual assets generated via Midjourney, DALL-E and Gemini.", slug: "ai-image-gen" }
-    ];
+        // --- EXPANDED SERVICE DATA ---
+        const SERVICES = [
+            { 
+                id: 'web-dev',
+                icon: 'globe', 
+                title: "Website Development", 
+                desc: "Custom React & Next.js solutions built for speed, scale, and SEO dominance.",
+                longDesc: "We don't just build websites; we architect digital experiences. Utilizing React, Next.js, and modern server-side rendering techniques, we ensure your site is lightning fast, accessible, and primed for Google's Core Web Vitals.",
+                features: ["Custom React/Next.js Architecture", "Headless CMS Integration", "PWA (Progressive Web App) Capabilities", "Core Web Vitals Optimization"],
+                caseStudy: {
+                    title: "E-Commerce Velocity Revamp",
+                    client: "FashionNova X (Fictional)",
+                    challenge: "Legacy Magento site with 4s load times causing 60% bounce rate on mobile.",
+                    solution: "Migrated to a headless Shopify Plus setup with a Next.js frontend, implementing edge caching.",
+                    result: "0.8s load time, 40% increase in conversion rate, and 2x mobile revenue."
+                },
+                image: "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80&w=1200"
+            },
+            { 
+                id: 'seo',
+                icon: 'search', 
+                title: "Advanced SEO", 
+                desc: "Data-driven strategies to capture organic traffic in the age of AI search.",
+                longDesc: "SEO has changed. It's no longer just about keywords; it's about topical authority and being cited by AI. We optimize for Search Generative Experience (SGE) and traditional organic search simultaneously.",
+                features: ["Technical SEO Audits", "Programmatic SEO", "SGE (AI Search) Optimization", "Backlink Authority Building"],
+                caseStudy: {
+                    title: "Dominating the SERP",
+                    client: "TechFlow SaaS",
+                    challenge: "Stagnant organic traffic despite high-quality product.",
+                    solution: "Implemented a programmatic SEO strategy targeting 5,000+ long-tail intent keywords.",
+                    result: "300% organic traffic growth in 6 months and #1 ranking for 'Enterprise Workflow Automation'."
+                },
+                image: "https://images.unsplash.com/photo-1571786256017-aee7a0c009b6?auto=format&fit=crop&q=80&w=1200"
+            },
+            { 
+                id: 'marketing',
+                icon: 'megaphone', 
+                title: "Digital Marketing", 
+                desc: "Full-funnel ROI campaigns across Social, Search, and Display networks.",
+                longDesc: "Stop burning cash on ads that don't convert. We use AI-driven audience targeting and hyper-personalized creative to ensure every dollar spent contributes to your bottom line.",
+                features: ["Cross-Channel Strategy", "AI-Optimized Ad Copy", "Conversion Rate Optimization (CRO)", "Real-time Analytics Dashboards"],
+                caseStudy: {
+                    title: "Viral ROAS Campaign",
+                    client: "DrinkPure",
+                    challenge: "High CPA (Cost Per Acquisition) on Facebook Ads.",
+                    solution: "Deployed AI-generated creative variations to test 100+ hooks in 48 hours.",
+                    result: "5x ROAS (Return on Ad Spend) and CPA reduced by 65%."
+                },
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200"
+            },
+            { 
+                id: 'content',
+                icon: 'pen-tool', 
+                title: "Content Writing", 
+                desc: "Authority-building articles and copy that converts visitors into loyal clients.",
+                longDesc: "Content is the fuel for your digital presence. Our hybrid team of expert human editors and AI tools creates high-depth, authoritative content that builds trust and ranks high.",
+                features: ["Thought Leadership Articles", "Whitepapers & E-books", "Email Drip Campaigns", "UX Microcopy"],
+                caseStudy: {
+                    title: "The Authority Builder",
+                    client: "LegalEase Firm",
+                    challenge: "Low trust indicators and zero organic leads.",
+                    solution: "Published 50+ deep-dive legal guides answering complex user queries directly.",
+                    result: "Captured 50+ Featured Snippets and generated 200+ qualified leads per month."
+                },
+                image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=1200"
+            },
+            { 
+                id: 'vfx',
+                icon: 'video', 
+                title: "VFX & Motion", 
+                desc: "Cinematic visual effects powered by Grok and industry-standard pipelines.",
+                longDesc: "Capture attention instantly. We blend traditional VFX pipelines (Blender, Maya) with new AI video generation tools to create stunning visuals at a fraction of the traditional cost and time.",
+                features: ["3D Product Animation", "Motion Graphics", "AI Video Generation", "Post-Production VFX"],
+                caseStudy: {
+                    title: "Cinematic Product Launch",
+                    client: "AutoStream EV",
+                    challenge: "Needed a Tesla-level launch video on a startup budget.",
+                    solution: "Hybrid workflow using 3D models and Grok-enhanced environment generation.",
+                    result: "1M+ views on launch day and pre-orders sold out in 48 hours."
+                },
+                image: "https://images.unsplash.com/photo-1535016120720-40c6874c3b1c?auto=format&fit=crop&q=80&w=1200"
+            },
+            { 
+                id: 'ai',
+                icon: 'image', 
+                title: "AI Image Gen", 
+                desc: "Bespoke visual assets generated via Midjourney, DALL-E and Gemini.",
+                longDesc: "Say goodbye to stock photos. We generate brand-specific, consistent visual assets that make your brand look unique, modern, and expensive.",
+                features: ["Custom Brand Models", "Rapid Concepting", "High-Res Upscaling", "Marketing Asset Libraries"],
+                caseStudy: {
+                    title: "Infinite Creative Scale",
+                    client: "Studio G Architecture",
+                    challenge: "Visualization costs were eating 20% of project budgets.",
+                    solution: "Trained a custom Stable Diffusion model on their architectural style.",
+                    result: "Reduced asset production time by 80% and pitch win rate increased by 25%."
+                },
+                image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1200"
+            },
+        ];
 
-    const CASE_STUDIES = [
-        { serviceTitle: "Website Development", title: "LuxBrand e‑commerce transformation", description: "Migrated from legacy monolith to headless Shopify + Next.js. Result: 40% faster load times, 150% increase in mobile conversions.", image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=800", results: "40% faster LCP, 150% mobile revenue growth" },
-        { serviceTitle: "Advanced SEO", title: "Fintech startup domain authority boost", description: "Implemented entity‑based SEO and SGE‑optimized content. Organic traffic grew 300% in 6 months.", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800", results: "300% organic traffic increase, featured snippets for 50+ keywords" },
-        { serviceTitle: "Digital Marketing", title: "SaaS launch campaign", description: "Full‑funnel LinkedIn + programmatic campaign. Achieved 5x ROAS and 10k MQLs in quarter one.", image: "https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&q=80&w=800", results: "5x ROAS, 10k+ MQLs" },
-        { serviceTitle: "Content Writing", title: "B2B thought leadership", description: "Authored 30 pillar pages and 100+ blog posts for a cybersecurity client. Organic sessions up 220%.", image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=800", results: "220% organic growth, 35% increase in newsletter signups" },
-        { serviceTitle: "VFX & Motion", title: "Automotive launch film", description: "Real‑time Grok‑enhanced VFX for a global car brand. Produced 4 spots in half the usual time.", image: "https://images.unsplash.com/photo-1535016120720-40c6874c3b1c?auto=format&fit=crop&q=80&w=800", results: "50% faster production, 2M+ views" },
-        { serviceTitle: "AI Image Gen", title: "Fashion catalogue generation", description: "Generated 5,000 on‑model product shots using Midjourney & DALL‑E, saving $200k in photoshoot costs.", image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800", results: "$200k saved, 4x faster time‑to‑market" }
-    ];
-
-    // ---------- DOM elements ----------
-    const homePage = document.getElementById('home-page');
-    const blogsPage = document.getElementById('blogs-page');
-    const blogDetailPage = document.getElementById('blog-detail-page');
-    const serviceDetailPage = document.getElementById('service-detail-page');
-    const blogListContainer = document.getElementById('blog-list-container');
-    const blogDetailContainer = document.getElementById('blog-detail-container');
-    const relatedGrid = document.getElementById('related-posts-grid');
-    const servicesContainer = document.getElementById('services-container');
-    const serviceDetailContainer = document.getElementById('service-detail-container');
-    const caseStudyContainer = document.getElementById('case-study-container');
-
-    const navHome = document.getElementById('nav-home');
-    const navBlogs = document.getElementById('nav-blogs');
-    const mobileHome = document.getElementById('mobile-home');
-    const mobileBlogs = document.getElementById('mobile-blogs');
-    const footerBlogs = document.getElementById('footer-blogs');
-    const logoHome = document.getElementById('logo-home');
-    const homeReadInsights = document.getElementById('home-read-insights');
-    const backToBlogs = document.getElementById('back-to-blogs');
-    const backToServices = document.getElementById('back-to-services');
-    const mobileBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const newsletterSubmit = document.getElementById('newsletter-submit');
-    const newsletterEmail = document.getElementById('newsletter-email');
-
-    // ---------- Helper: related posts (max 5, same category first) ----------
-    function getRelatedPosts(currentPost, max = 5) {
-        if (!currentPost) return [];
-        const sameCat = BLOG_POSTS.filter(p => p.category === currentPost.category && p.id !== currentPost.id);
-        const others = BLOG_POSTS.filter(p => p.category !== currentPost.category && p.id !== currentPost.id);
-        const related = [...sameCat, ...others].slice(0, max);
-        return related;
-    }
-
-    // ---------- Render functions ----------
-    function renderServices() {
-        let html = '';
-        SERVICES.forEach(s => {
-            html += `<div class="service-card group p-8 bg-gray-950 rounded-2xl border border-gray-800 hover:border-blue-500/50 transition-all hover:shadow-2xl hover:shadow-blue-900/20 cursor-pointer" data-service="${s.title}">
-                <div class="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
-                    <i data-lucide="${s.icon}" class="h-6 w-6 text-blue-400 group-hover:text-white"></i>
-                </div>
-                <h4 class="text-xl font-bold text-white mb-3">${s.title}</h4>
-                <p class="text-gray-400 leading-relaxed">${s.desc}</p>
-            </div>`;
-        });
-        servicesContainer.innerHTML = html;
-    }
-
-    function renderBlogList() {
-        let html = '';
-        BLOG_POSTS.forEach(post => {
-            html += `<div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all group flex flex-col h-full" data-post-id="${post.id}">
-                <div class="relative h-48 overflow-hidden"><img src="${post.image}" alt="${post.title}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"><div class="absolute top-4 left-4 bg-gray-900/90 backdrop-blur text-xs font-bold text-blue-400 px-3 py-1 rounded-full border border-gray-700">${post.category}</div></div>
-                <div class="p-6 flex-1 flex flex-col"><div class="flex items-center text-xs text-gray-500 mb-3 space-x-4"><span class="flex items-center"><i data-lucide="check-circle" class="h-3 w-3 mr-1"></i> ${post.author}</span><span>${post.date}</span></div><h3 class="text-xl font-bold text-white mb-3 leading-snug group-hover:text-blue-400 transition-colors">${post.title}</h3><p class="text-gray-400 text-sm mb-6 flex-1">${post.excerpt}</p><button class="read-more-btn text-white text-sm font-semibold flex items-center hover:text-blue-400 transition-colors mt-auto" data-id="${post.id}">Read Article <i data-lucide="chevron-right" class="h-4 w-4 ml-1"></i></button></div>
-            </div>`;
-        });
-        blogListContainer.innerHTML = html;
-    }
-
-    function renderBlogDetail(post) {
-        if (!post) return;
-        const html = `<div class="mb-8"><span class="text-blue-400 font-semibold tracking-wide uppercase text-xs">${post.category}</span><h1 class="mt-2 text-3xl md:text-5xl font-bold text-white leading-tight">${post.title}</h1><div class="mt-6 flex items-center justify-between border-b border-gray-800 pb-8"><div class="flex items-center"><div class="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center text-white font-bold text-sm">${post.author.charAt(0)}</div><div class="ml-3"><p class="text-sm font-medium text-white">${post.author}</p><p class="text-xs text-gray-500">${post.date} · ${post.readTime}</p></div></div><div class="flex space-x-2"><button class="p-2 text-gray-400 hover:text-white rounded-full hover:bg-gray-800 transition-colors"><i data-lucide="globe" class="h-5 w-5"></i></button></div></div></div><div class="relative h-80 w-full mb-10 rounded-2xl overflow-hidden"><img src="${post.image}" alt="${post.title}" class="w-full h-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-gray-950 to-transparent opacity-60"></div></div><div class="prose prose-lg prose-invert max-w-none text-gray-300"><p class="lead text-xl text-gray-200 mb-8 font-light">${post.excerpt}</p>${post.content}<div class="mt-12 p-6 bg-gray-900 rounded-xl border border-gray-800"><h4 class="text-white font-bold mb-2">Want to implement this?</h4><p class="text-sm text-gray-400 mb-4">Our team specializes in ${post.category}. Contact us to discuss how we can help your business grow.</p><button class="text-blue-400 text-sm font-bold hover:text-blue-300">Get in touch &rarr;</button></div></div>`;
-        blogDetailContainer.innerHTML = html;
-
-        // related posts
-        const related = getRelatedPosts(post, 5);
-        let relatedHtml = '';
-        related.forEach(p => {
-            relatedHtml += `<div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all cursor-pointer related-post" data-id="${p.id}">
-                <img src="${p.image}" class="h-40 w-full object-cover" alt="${p.title}">
-                <div class="p-4"><h4 class="font-bold text-white text-sm mb-1">${p.title}</h4><p class="text-xs text-gray-400">${p.category}</p></div>
-            </div>`;
-        });
-        relatedGrid.innerHTML = relatedHtml || '<p class="text-gray-500">No related articles yet.</p>';
-    }
-
-    function renderServiceDetail(serviceTitle) {
-        const service = SERVICES.find(s => s.title === serviceTitle);
-        if (!service) return;
-        const caseStudy = CASE_STUDIES.find(cs => cs.serviceTitle === serviceTitle) || { title: 'Case study coming soon', description: 'We are preparing an in-depth case study for this service.', image: 'https://images.unsplash.com/photo-1558494949-efc535b5c47c?auto=format&fit=crop&q=80&w=800', results: '' };
-        serviceDetailContainer.innerHTML = `<div class="flex items-center mb-6"><div class="h-16 w-16 bg-gray-800 rounded-2xl flex items-center justify-center mr-4"><i data-lucide="${service.icon}" class="h-8 w-8 text-blue-400"></i></div><h1 class="text-4xl md:text-5xl font-bold text-white">${service.title}</h1></div><p class="text-gray-300 text-lg mb-8">${service.desc}</p><div class="prose prose-invert text-gray-400"><p>At Nexus Digital, our ${service.title.toLowerCase()} service combines cutting-edge technology with proven strategies. We work closely with clients to deliver measurable results.</p><p>Our approach is tailored to your business goals, ensuring maximum ROI and competitive advantage.</p></div>`;
-        caseStudyContainer.innerHTML = `<div class="md:flex items-start gap-6"><div class="md:w-1/3 h-40 md:h-auto rounded-lg overflow-hidden"><img src="${caseStudy.image}" alt="${caseStudy.title}" class="w-full h-full object-cover"></div><div class="md:w-2/3 mt-4 md:mt-0"><h3 class="text-xl font-bold text-white mb-2">${caseStudy.title}</h3><p class="text-gray-400 mb-3">${caseStudy.description}</p><p class="text-blue-400 font-semibold">Key result: ${caseStudy.results}</p></div></div>`;
-    }
-
-    // ---------- SEO & canonical updater ----------
-    function updateMetaTags(title, description, canonicalPath = '') {
-        document.title = title ? `${title} · Nexus Digital` : 'Nexus Digital – AI & web studio';
-        let metaDesc = document.querySelector('meta[name="description"]');
-        if (!metaDesc) { metaDesc = document.createElement('meta'); metaDesc.name = 'description'; document.head.appendChild(metaDesc); }
-        metaDesc.content = description || 'Nexus Digital: website development, AI integration, SEO, VFX, content & image generation. Full-spectrum digital services with case studies.';
-        const canonical = document.getElementById('canonical-link');
-        if (canonical) canonical.href = 'https://nexus.digital/' + (canonicalPath ? canonicalPath + '/' : '');
-        const ogTitle = document.querySelector('meta[property="og:title"]');
-        if (ogTitle) ogTitle.content = title || 'Nexus Digital';
-        const ogUrl = document.querySelector('meta[property="og:url"]');
-        if (ogUrl) ogUrl.content = 'https://nexus.digital/' + (canonicalPath ? canonicalPath + '/' : '');
-    }
-
-    // ---------- Navigation ----------
-    function setActiveNav(page) {
-        [navHome, navBlogs].forEach(b => b.classList.remove('text-blue-400'));
-        navHome.classList.add('text-gray-300');
-        navBlogs.classList.add('text-gray-300');
-        if (page === 'home') navHome.classList.add('text-blue-400');
-        if (page === 'blogs' || page === 'blog-detail') navBlogs.classList.add('text-blue-400');
-    }
-
-    function showPage(page, param = null) {
-        homePage.classList.add('hidden');
-        blogsPage.classList.add('hidden');
-        blogDetailPage.classList.add('hidden');
-        serviceDetailPage.classList.add('hidden');
-
-        if (page === 'home') {
-            homePage.classList.remove('hidden');
-            setActiveNav('home');
-            updateMetaTags('Home | Nexus Digital', 'Full-spectrum digital services: dev, AI, SEO, VFX, content & image generation.', '');
-        } else if (page === 'blogs') {
-            blogsPage.classList.remove('hidden');
-            setActiveNav('blogs');
-            renderBlogList();
-            updateMetaTags('Insights & Blogs', 'Deep dives into Web Development, Generative AI, SEO, and the future of digital creativity.', 'blogs');
-        } else if (page === 'blog-detail' && param) {
-            const post = BLOG_POSTS.find(p => p.id == param);
-            if (post) {
-                renderBlogDetail(post);
-                blogDetailPage.classList.remove('hidden');
-                setActiveNav('blogs');
-                updateMetaTags(post.title, post.excerpt, `blog/${post.id}`);
-            } else showPage('blogs');
-        } else if (page === 'service-detail' && param) {
-            renderServiceDetail(param);
-            serviceDetailPage.classList.remove('hidden');
-            setActiveNav('home');
-            updateMetaTags(param + ' | Nexus Digital', `Expert ${param} services with proven case studies.`, `service/${SERVICES.find(s=>s.title===param)?.slug || ''}`);
-        }
-
-        if (window.lucide) lucide.createIcons();
-        mobileMenu.classList.add('hidden');
-    }
-
-    // ---------- Event listeners ----------
-    navHome.addEventListener('click', e => { e.preventDefault(); showPage('home'); });
-    navBlogs.addEventListener('click', e => { e.preventDefault(); showPage('blogs'); });
-    mobileHome.addEventListener('click', () => showPage('home'));
-    mobileBlogs.addEventListener('click', () => showPage('blogs'));
-    footerBlogs.addEventListener('click', () => showPage('blogs'));
-    logoHome.addEventListener('click', () => showPage('home'));
-    homeReadInsights.addEventListener('click', () => showPage('blogs'));
-    backToBlogs.addEventListener('click', (e) => { e.preventDefault(); showPage('blogs'); });
-    backToServices.addEventListener('click', (e) => { e.preventDefault(); showPage('home'); setTimeout(() => document.getElementById('services').scrollIntoView({ behavior: 'smooth' }), 50); });
-
-    servicesContainer.addEventListener('click', (e) => {
-        const card = e.target.closest('.service-card');
-        if (card) {
-            const serviceTitle = card.getAttribute('data-service');
-            if (serviceTitle) showPage('service-detail', serviceTitle);
-        }
-    });
-
-    blogListContainer.addEventListener('click', (e) => {
-        const btn = e.target.closest('.read-more-btn');
-        if (btn) {
-            e.preventDefault();
-            const id = btn.getAttribute('data-id');
-            if (id) showPage('blog-detail', parseInt(id));
-        }
-    });
-
-    relatedGrid.addEventListener('click', (e) => {
-        const card = e.target.closest('.related-post');
-        if (card) {
-            const id = card.getAttribute('data-id');
-            if (id) showPage('blog-detail', parseInt(id));
-        }
-    });
-
-    mobileBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        const icon = mobileBtn.querySelector('i');
-        icon.setAttribute('data-lucide', mobileMenu.classList.contains('hidden') ? 'menu' : 'x');
-        lucide.createIcons();
-    });
-
-    document.querySelector('a[href="#services"]').addEventListener('click', (e) => {
-        e.preventDefault();
-        showPage('home');
-        setTimeout(() => document.getElementById('services').scrollIntoView({ behavior: 'smooth' }), 50);
-    });
-
-    // Tawk.to integration: on newsletter submit, simulate chat message (or you can push to tawk)
-    newsletterSubmit.addEventListener('click', (e) => {
-        e.preventDefault();
-        const email = newsletterEmail.value.trim();
-        if (email) {
-            // Demo: alert and, if Tawk_API available, send event
-            alert(`Thank you! You (${email}) will receive our insights. (Tawk.to integration: you can notify agents)`);
-            if (window.Tawk_API && window.Tawk_API.visitor) {
-                window.Tawk_API.visitor.email = email;
-                console.log('Tawk.to visitor email set');
+        // --- BLOG POSTS WITH 5 SUB-POSTS EACH ---
+        const BLOG_POSTS = [
+            {
+                id: 1,
+                title: "The Future of Web Development: 2026 & Beyond",
+                category: "Development",
+                author: "Sarah Jenkins",
+                date: "Oct 12, 2025",
+                readTime: "5 min read",
+                image: "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80&w=800",
+                excerpt: "From WebAssembly to AI-driven code generation, explore the technologies reshaping how we build for the web.",
+                content: `<p class="mb-4">The landscape of web development is shifting...</p>`,
+                subPosts: [
+                    { id: '1-1', title: "Is WebAssembly faster than JavaScript for React?", content: "Detailed comparison of Wasm vs JS performance..." },
+                    { id: '1-2', title: "Best AI Coding Assistants: Copilot vs Ghostwriter", content: "A breakdown of the top tools for 2026..." },
+                    { id: '1-3', title: "Will AI replace Frontend Developers by 2030?", content: "Analysis of the evolving role of developers..." },
+                    { id: '1-4', title: "How to migrate from Create React App to Vite", content: "Step-by-step migration guide for legacy apps..." },
+                    { id: '1-5', title: "Understanding Server Components in Next.js 15", content: "Deep dive into RSC and data fetching patterns..." }
+                ]
+            },
+            {
+                id: 2,
+                title: "SEO in the Age of SGE (Search Generative Experience)",
+                category: "SEO",
+                author: "Mike Ross",
+                date: "Oct 10, 2025",
+                readTime: "6 min read",
+                image: "https://images.unsplash.com/photo-1571786256017-aee7a0c009b6?auto=format&fit=crop&q=80&w=800",
+                excerpt: "How to rank when AI answers the user's question before they even click a link.",
+                content: `<p class="mb-4">Search engines are evolving...</p>`,
+                subPosts: [
+                    { id: '2-1', title: "How to rank in Google SGE Snapshots", content: "Strategies to get featured in AI overviews..." },
+                    { id: '2-2', title: "Does AI generated content hurt SEO rankings?", content: "Google's latest stance on AI content..." },
+                    { id: '2-3', title: "Zero-click searches: Survival guide 2026", content: "Marketing strategies for zero-click environments..." },
+                    { id: '2-4', title: "Optimizing for Bing Chat and Perplexity AI", content: "SEO beyond Google: The new search engines..." },
+                    { id: '2-5', title: "The death of backlinks? New authority metrics", content: "Why topical authority matters more than links..." }
+                ]
+            },
+            {
+                id: 3,
+                title: "Digital Marketing: The Hyper-Personalization Era",
+                category: "Marketing",
+                author: "Elena Fisher",
+                date: "Oct 08, 2025",
+                readTime: "4 min read",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+                excerpt: "Moving beyond segments to N=1 marketing using real-time behavioral data and AI.",
+                content: `<p class="mb-4">Generic email blasts are dead...</p>`,
+                subPosts: [
+                    { id: '3-1', title: "CDP vs CRM: What do you need for AI marketing?", content: "Choosing the right data stack..." },
+                    { id: '3-2', title: "Implementing dynamic landing pages with React", content: "Personalizing content at runtime..." },
+                    { id: '3-3', title: "Privacy-first personalization strategies", content: "Navigating GDPR/CCPA with AI..." },
+                    { id: '3-4', title: "AI algorithms for customer segmentation", content: "Clustering users effectively..." },
+                    { id: '3-5', title: "Real-time behavioral targeting examples", content: "Case studies of instant personalization..." }
+                ]
+            },
+            {
+                id: 4,
+                title: "Content Writing: Human Creativity vs. AI Efficiency",
+                category: "Content",
+                author: "David Kim",
+                date: "Oct 05, 2025",
+                readTime: "5 min read",
+                image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=800",
+                excerpt: "Why the best content teams are using a hybrid approach to scale quality.",
+                content: `<p class="mb-4">There is a fear that AI will replace writers...</p>`,
+                subPosts: [
+                    { id: '4-1', title: "How to detect AI written text", content: "Tools and techniques to spot LLM output..." },
+                    { id: '4-2', title: "Editing AI drafts: A checklist for humans", content: "Improving flow and tone..." },
+                    { id: '4-3', title: "Copyright laws for AI generated blogs", content: "Legal landscape for content creators..." },
+                    { id: '4-4', title: "Tone of voice prompting guide", content: "Teaching AI your brand voice..." },
+                    { id: '4-5', title: "Scaling content production without quality loss", content: "Workflow automation strategies..." }
+                ]
+            },
+            {
+                id: 5,
+                title: "VFX Revolution: Real-time Rendering with Grok",
+                category: "VFX & AI",
+                author: "Alex Chen",
+                date: "Oct 03, 2025",
+                readTime: "7 min read",
+                image: "https://images.unsplash.com/photo-1535016120720-40c6874c3b1c?auto=format&fit=crop&q=80&w=800",
+                excerpt: "Exploring how Grok's integration into 3D pipelines is accelerating visual effects workflows.",
+                content: `<p class="mb-4">Visual Effects (VFX) has traditionally been...</p>`,
+                subPosts: [
+                    { id: '5-1', title: "Grok 3D vs Midjourney: Texture generation", content: "Comparing texture synthesis tools..." },
+                    { id: '5-2', title: "Real-time rendering pipelines for indie filmmakers", content: "Unreal Engine vs Unity for film..." },
+                    { id: '5-3', title: "AI motion capture from video", content: "Markerless mocap revolution..." },
+                    { id: '5-4', title: "Reducing render times with AI denoising", content: "Optimizing cycle render times..." },
+                    { id: '5-5', title: "The future of the VFX artist career", content: "Adapting skills for the AI era..." }
+                ]
+            },
+            {
+                id: 6,
+                title: "Deep Dive: Gemini's Multimodal Capabilities",
+                category: "AI Models",
+                author: "Sarah Jenkins",
+                date: "Sep 28, 2025",
+                readTime: "8 min read",
+                image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800",
+                excerpt: "Understanding how Gemini processes video, audio, and code simultaneously for better apps.",
+                content: `<p class="mb-4">Gemini stands out in the crowded LLM market...</p>`,
+                subPosts: [
+                    { id: '6-1', title: "Building video analysis apps with Gemini API", content: "Tutorial: Analyzing video streams..." },
+                    { id: '6-2', title: "Gemini Pro Vision limits and pricing", content: "Cost analysis for startups..." },
+                    { id: '6-3', title: "Multimodal vs Unimodal LLMs explained", content: "Why multimodality wins..." },
+                    { id: '6-4', title: "Code generation benchmarks: Gemini vs GPT-5", content: "Performance comparison..." },
+                    { id: '6-5', title: "Integrating Gemini into mobile apps", content: "React Native integration guide..." }
+                ]
+            },
+            {
+                id: 7,
+                title: "ChatGPT Enterprise: Use Cases for Big Business",
+                category: "AI Models",
+                author: "Mike Ross",
+                date: "Sep 25, 2025",
+                readTime: "5 min read",
+                image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800",
+                excerpt: "Security, privacy, and speed: How Fortune 500s are deploying ChatGPT internally.",
+                content: `<p class="mb-4">The biggest barrier to enterprise AI adoption...</p>`,
+                subPosts: [
+                    { id: '7-1', title: "ChatGPT Enterprise data privacy explained", content: "How data is handled securely..." },
+                    { id: '7-2', title: "SOC2 compliance for LLMs", content: "Meeting security standards..." },
+                    { id: '7-3', title: "Custom instructions for corporate branding", content: "Standardizing outputs across teams..." },
+                    { id: '7-4', title: "Internal knowledge base RAG setup", content: "Connecting to Sharepoint/Confluence..." },
+                    { id: '7-5', title: "Employee training for AI adoption", content: "Change management strategies..." }
+                ]
+            },
+            {
+                id: 8,
+                title: "Image Generation Services: A Comparative Guide",
+                category: "Design",
+                author: "Elena Fisher",
+                date: "Sep 20, 2025",
+                readTime: "6 min read",
+                image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800",
+                excerpt: "Midjourney vs. DALL-E 3 vs. Stable Diffusion. Which one is right for your brand?",
+                content: `<p class="mb-4">Not all pixels are created equal...</p>`,
+                subPosts: [
+                    { id: '8-1', title: "Midjourney v7 parameter guide", content: "Mastering the settings..." },
+                    { id: '8-2', title: "DALL-E 3 text rendering tips", content: "Getting perfect typography..." },
+                    { id: '8-3', title: "Stable Diffusion ControlNet tutorial", content: "Posing characters perfectly..." },
+                    { id: '8-4', title: "Commercial rights for AI art", content: "Understanding ownership..." },
+                    { id: '8-5', title: "Vector generation tools for logos", content: "Creating SVG assets..." }
+                ]
+            },
+            {
+                id: 9,
+                title: "The Ethics of Generative AI in Creative Industries",
+                category: "Opinion",
+                author: "David Kim",
+                date: "Sep 15, 2025",
+                readTime: "4 min read",
+                image: "https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&q=80&w=800",
+                excerpt: "Navigating the gray areas of copyright, bias, and displacement in the AI age.",
+                content: `<p class="mb-4">As we embrace these tools, we must also grapple...</p>`,
+                subPosts: [
+                    { id: '9-1', title: "Deepfake detection tools", content: "Protecting corporate identity..." },
+                    { id: '9-2', title: "Bias in Large Language Models", content: "Mitigating harmful outputs..." },
+                    { id: '9-3', title: "Artist compensation models for AI training", content: "Fair use vs theft debates..." },
+                    { id: '9-4', title: "Watermarking AI content standards", content: "C2PA and industry standards..." },
+                    { id: '9-5', title: "Corporate AI Ethics Policy Template", content: "Drafting your internal policy..." }
+                ]
+            },
+            {
+                id: 10,
+                title: "Building Scalable Architectures for AI Apps",
+                category: "Development",
+                author: "Alex Chen",
+                date: "Sep 10, 2025",
+                readTime: "9 min read",
+                image: "https://images.unsplash.com/photo-1558494949-efc535b5c47c?auto=format&fit=crop&q=80&w=800",
+                excerpt: "Vector databases, RAG pipelines, and inference caching: The new backend stack.",
+                content: `<p class="mb-4">The 'LAMP' stack is being replaced by the 'Vector' stack...</p>`,
+                subPosts: [
+                    { id: '10-1', title: "Pinecone vs Milvus: Vector DB comparison", content: "Choosing the right index..." },
+                    { id: '10-2', title: "Cost of running LLMs in production", content: "Token economics analysis..." },
+                    { id: '10-3', title: "LangChain vs LlamaIndex for RAG", content: "Framework comparison..." },
+                    { id: '10-4', title: "Edge AI: Running models on device", content: "Privacy and latency benefits..." },
+                    { id: '10-5', title: "Latency optimization for chatbot APIs", content: "Streaming vs buffering..." }
+                ]
             }
-            newsletterEmail.value = '';
-        } else alert('Please enter an email.');
-    });
+        ];
 
-    // Initial render
-    renderServices();
-    renderBlogList();
-    showPage('home');
-})();
-</script>
-<!-- ensure icons after dynamic updates -->
-<script>window.addEventListener('load', function() { if (window.lucide) lucide.createIcons(); });</script>
+        // --- RENDER FUNCTIONS ---
+        const appRoot = document.getElementById('app-root');
+
+        const renderHome = () => {
+            const servicesHtml = SERVICES.map(s => `
+                <div class="group p-8 bg-gray-950 rounded-2xl border border-gray-800 hover:border-blue-500/50 transition-all hover:shadow-2xl hover:shadow-blue-900/20 cursor-pointer" onclick="router.navigate('service-detail', '${s.id}')">
+                    <div class="h-12 w-12 bg-gray-900 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+                        <i data-lucide="${s.icon}" class="h-6 w-6 text-blue-400 group-hover:text-white"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3 flex items-center justify-between">
+                        ${s.title}
+                        <i data-lucide="arrow-right" class="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity transform -translate-x-2 group-hover:translate-x-0"></i>
+                    </h4>
+                    <p class="text-gray-400 leading-relaxed">${s.desc}</p>
+                </div>
+            `).join('');
+
+            return `
+                <div class="animate-fade-in">
+                    <!-- Hero Section -->
+                    <div class="relative overflow-hidden bg-gray-950 pt-32 pb-20 lg:pt-48 lg:pb-32">
+                        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+                            <div class="absolute -top-24 -right-24 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+                            <div class="absolute top-48 -left-24 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" style="animation-delay: 2s;"></div>
+                        </div>
+
+                        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center">
+                            <div class="inline-flex items-center px-4 py-2 rounded-full bg-gray-900 border border-gray-800 text-sm text-blue-400 mb-8">
+                                <span class="flex h-2 w-2 rounded-full bg-blue-500 mr-2 animate-pulse"></span>
+                                Now integrating Gemini & Grok API solutions
+                            </div>
+                            <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-8 leading-tight">
+                                Crafting Digital <br />
+                                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Excellence with AI</span>
+                            </h1>
+                            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-400 mb-10">
+                                We blend elite website development, strategic SEO, and cutting-edge generative AI to build brands that dominate the future.
+                            </p>
+                            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                                <button onclick="router.navigate('blogs')" class="px-8 py-4 bg-white text-gray-900 rounded-lg font-bold hover:bg-gray-100 transition-all flex items-center justify-center">
+                                    Read Our Insights <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
+                                </button>
+                                <button onclick="navigateToSection('services-section')" class="px-8 py-4 bg-gray-800 text-white rounded-lg font-bold hover:bg-gray-700 transition-all border border-gray-700">
+                                    View Services
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    ${AD_SLOT_HTML}
+
+                    <!-- Services Grid -->
+                    <div id="services-section" class="bg-gray-900 py-24">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="text-center mb-16">
+                                <h2 class="text-blue-500 font-semibold tracking-wide uppercase text-sm">Our Capabilities</h2>
+                                <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
+                                    Full-Spectrum Digital Services
+                                </h3>
+                                <p class="mt-4 max-w-2xl text-xl text-gray-400 mx-auto">
+                                    From code to content, we leverage the latest tools to deliver speed, scale, and creativity.
+                                </p>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                ${servicesHtml}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Section -->
+                    <div class="bg-gradient-to-br from-blue-900 to-gray-900 py-20">
+                        <div class="max-w-4xl mx-auto px-4 text-center">
+                            <h2 class="text-3xl font-bold text-white mb-6">Ready to upgrade your digital presence?</h2>
+                            <p class="text-blue-100 text-lg mb-8">
+                                Join the forward-thinking companies using our AI-driven strategies to grow faster.
+                            </p>
+                            <button onclick="router.navigate('contact')" class="bg-white text-blue-900 px-8 py-3 rounded-lg font-bold hover:bg-blue-50 transition-colors shadow-lg">
+                                Get in Touch
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        };
+
+        const renderContact = () => {
+            return `
+                <div class="animate-fade-in bg-gray-950 pt-32 pb-20">
+                    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-12">
+                            <h1 class="text-4xl font-bold text-white mb-4">Get in Touch</h1>
+                            <p class="text-gray-400 text-lg">Tell us about your project. Our AI specialists will analyze your needs and respond shortly.</p>
+                        </div>
+
+                        ${AD_SLOT_HTML}
+
+                        <div class="glass-panel rounded-2xl p-8 md:p-10 shadow-2xl relative overflow-hidden">
+                            <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-6 relative z-10">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-400 mb-2">Full Name</label>
+                                        <input type="text" name="name" required class="w-full px-4 py-3 rounded-lg focus:outline-none" placeholder="John Doe">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
+                                        <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg focus:outline-none" placeholder="john@company.com">
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-400 mb-2">Phone Number</label>
+                                        <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-lg focus:outline-none" placeholder="+1 (555) 000-0000">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-400 mb-2">Location</label>
+                                        <select name="location" required class="w-full px-4 py-3 rounded-lg focus:outline-none">
+                                            <option value="" disabled selected>Select Region</option>
+                                            <option value="North America">North America</option>
+                                            <option value="Europe">Europe</option>
+                                            <option value="Asia Pacific">Asia Pacific</option>
+                                            <option value="Middle East">Middle East</option>
+                                            <option value="Latin America">Latin America</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-400 mb-2">Project Details</label>
+                                    <textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-lg focus:outline-none" placeholder="Describe your project, goals, and timeline..."></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-lg transition-all shadow-lg shadow-blue-900/50 flex justify-center items-center">
+                                    Submit Inquiry <i data-lucide="send" class="ml-2 h-5 w-5"></i>
+                                </button>
+                            </form>
+                            <!-- Decorative blob -->
+                             <div class="absolute -top-24 -right-24 w-64 h-64 bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
+                             <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        };
+
+        const renderBlogs = () => {
+            const postsHtml = BLOG_POSTS.map(post => `
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all group flex flex-col h-full cursor-pointer" onclick="router.navigate('blog-detail', ${post.id})">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="${post.image}" alt="${post.title}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                        <div class="absolute top-4 left-4 bg-gray-900/90 backdrop-blur text-xs font-bold text-blue-400 px-3 py-1 rounded-full border border-gray-700">
+                            ${post.category}
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex items-center text-xs text-gray-500 mb-3 space-x-4">
+                            <span class="flex items-center"><i data-lucide="check-circle" class="h-3 w-3 mr-1"></i> ${post.author}</span>
+                            <span>${post.date}</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 leading-snug group-hover:text-blue-400 transition-colors">
+                            ${post.title}
+                        </h3>
+                        <p class="text-gray-400 text-sm mb-6 flex-1">
+                            ${post.excerpt}
+                        </p>
+                        <button class="text-white text-sm font-semibold flex items-center hover:text-blue-400 transition-colors mt-auto">
+                            Read Article <i data-lucide="chevron-right" class="h-4 w-4 ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+
+            return `
+                <div class="animate-fade-in bg-gray-950 pt-32 pb-20">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-16">
+                            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Insights & Analysis</h1>
+                            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                                Deep dives into Web Development, Generative AI, SEO, and the future of digital creativity.
+                            </p>
+                        </div>
+                        ${AD_SLOT_HTML}
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            ${postsHtml}
+                        </div>
+                        ${AD_SLOT_HTML}
+                    </div>
+                </div>
+            `;
+        };
+
+        const renderServiceDetail = (serviceId) => {
+            const service = SERVICES.find(s => s.id === serviceId);
+            if (!service) return renderHome();
+
+            return `
+                <div class="animate-fade-in bg-gray-950 pt-32 pb-20">
+                    <!-- Header -->
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+                         <button onclick="router.navigate('home')" class="text-gray-400 hover:text-white mb-8 flex items-center text-sm font-medium transition-colors">
+                            <i data-lucide="arrow-left" class="h-4 w-4 mr-2"></i> Back to Home
+                        </button>
+                        <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                            <div>
+                                <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                                    ${service.title}
+                                </h1>
+                                <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                                    ${service.longDesc}
+                                </p>
+                                <div class="space-y-4 mb-8">
+                                    ${service.features.map(f => `
+                                        <div class="flex items-start">
+                                            <div class="flex-shrink-0 h-6 w-6 rounded-full bg-blue-900/50 flex items-center justify-center border border-blue-700">
+                                                <i data-lucide="check" class="h-3 w-3 text-blue-400"></i>
+                                            </div>
+                                            <p class="ml-4 text-gray-300 text-base">${f}</p>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                                <button onclick="router.navigate('contact')" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-bold transition-all shadow-lg shadow-blue-900/50">
+                                    Request a Proposal
+                                </button>
+                            </div>
+                            <div class="mt-12 lg:mt-0 relative">
+                                <div class="absolute -inset-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur-lg opacity-30"></div>
+                                <img src="${service.image}" alt="${service.title}" class="relative rounded-2xl shadow-2xl border border-gray-800 w-full" />
+                            </div>
+                        </div>
+                    </div>
+
+                    ${AD_SLOT_HTML}
+
+                    <!-- Case Study Section -->
+                    <div class="bg-gray-900 py-20 border-y border-gray-800">
+                        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="text-center mb-12">
+                                <span class="text-blue-400 font-bold tracking-wider uppercase text-sm">Success Story</span>
+                                <h2 class="text-3xl font-bold text-white mt-2">Case Study: ${service.caseStudy.title}</h2>
+                            </div>
+                            
+                            <div class="glass-panel rounded-2xl p-8 md:p-12 relative overflow-hidden">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+                                    <div class="col-span-1 border-r border-gray-700/50 pr-8">
+                                        <h4 class="text-gray-400 text-sm font-semibold uppercase mb-2">Client</h4>
+                                        <p class="text-xl text-white font-bold mb-6">${service.caseStudy.client}</p>
+                                        <h4 class="text-gray-400 text-sm font-semibold uppercase mb-2">Key Result</h4>
+                                        <p class="text-3xl text-blue-400 font-bold">${service.caseStudy.result.split(',')[0]}</p>
+                                    </div>
+                                    <div class="col-span-1 md:col-span-2">
+                                        <h4 class="text-white text-lg font-bold mb-3">The Challenge</h4>
+                                        <p class="text-gray-400 mb-6">${service.caseStudy.challenge}</p>
+                                        
+                                        <h4 class="text-white text-lg font-bold mb-3">Our Solution</h4>
+                                        <p class="text-gray-400 mb-6">${service.caseStudy.solution}</p>
+
+                                        <h4 class="text-white text-lg font-bold mb-3">Full Results</h4>
+                                        <p class="text-gray-300">${service.caseStudy.result}</p>
+                                    </div>
+                                </div>
+                                <!-- Decorative background element -->
+                                <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        const renderBlogDetail = (id) => {
+            const post = BLOG_POSTS.find(p => p.id === parseInt(id));
+            if (!post) return renderBlogs();
+
+            // Generate Sub-Post Links
+            const subPostsLinks = post.subPosts.map(sub => `
+                <div class="border-b border-gray-800 py-3 last:border-0 hover:bg-gray-900/50 transition-colors rounded-lg px-2 cursor-pointer group" onclick="router.navigate('sub-blog-detail', '${post.id}', '${sub.id}')">
+                    <h5 class="text-blue-400 font-medium text-sm group-hover:text-blue-300 mb-1">${sub.title}</h5>
+                    <p class="text-gray-500 text-xs">Deep dive into this specific topic &rarr;</p>
+                </div>
+            `).join('');
+
+            return `
+                <div class="animate-fade-in bg-gray-950 pt-32 pb-20">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-12">
+                        <!-- Main Content -->
+                        <div class="lg:col-span-2">
+                            <button onclick="router.navigate('blogs')" class="text-gray-400 hover:text-white mb-8 flex items-center text-sm font-medium transition-colors">
+                                <i data-lucide="arrow-left" class="h-4 w-4 mr-2"></i> Back to Blogs
+                            </button>
+
+                            <div class="mb-8">
+                                <span class="text-blue-400 font-semibold tracking-wide uppercase text-xs">
+                                    ${post.category}
+                                </span>
+                                <h1 class="mt-2 text-3xl md:text-5xl font-bold text-white leading-tight">
+                                    ${post.title}
+                                </h1>
+                                <div class="mt-6 flex items-center justify-between border-b border-gray-800 pb-8">
+                                    <div class="flex items-center">
+                                        <div class="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center text-white font-bold text-sm">
+                                            ${post.author.charAt(0)}
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="text-sm font-medium text-white">${post.author}</p>
+                                            <p class="text-xs text-gray-500">${post.date} · ${post.readTime}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="relative h-80 w-full mb-10 rounded-2xl overflow-hidden">
+                            <img src="${post.image}" alt="${post.title}" class="w-full h-full object-cover" />
+                            </div>
+
+                            <div class="prose prose-lg prose-invert max-w-none text-gray-300">
+                                <p class="lead text-xl text-gray-200 mb-8 font-light">${post.excerpt}</p>
+                                ${post.content}
+                                ${AD_SLOT_HTML}
+                                <div class="mt-12 p-6 bg-gray-900 rounded-xl border border-gray-800">
+                                    <h4 class="text-white font-bold mb-2">Want to implement this?</h4>
+                                    <p class="text-sm text-gray-400 mb-4">
+                                        Our team specializes in ${post.category}. Contact us to discuss how we can help your business grow.
+                                    </p>
+                                    <button onclick="router.navigate('contact')" class="text-blue-400 text-sm font-bold hover:text-blue-300">
+                                        Get in touch &rarr;
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sidebar with Related Sub-Blogs -->
+                        <div class="lg:col-span-1">
+                            <div class="sticky top-24">
+                                <div class="bg-gray-900 rounded-xl p-6 border border-gray-800 mb-8">
+                                    <h4 class="text-white font-bold mb-4 flex items-center">
+                                        <i data-lucide="book-open" class="mr-2 h-4 w-4 text-blue-500"></i> Common Questions
+                                    </h4>
+                                    <div class="flex flex-col">
+                                        ${subPostsLinks}
+                                    </div>
+                                </div>
+                                ${AD_SLOT_HTML}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        };
+
+        const renderSubBlogDetail = (parentId, subId) => {
+            const post = BLOG_POSTS.find(p => p.id === parseInt(parentId));
+            if (!post) return renderBlogs();
+            const subPost = post.subPosts.find(s => s.id === subId);
+            if (!subPost) return renderBlogDetail(parentId);
+
+            return `
+                <div class="animate-fade-in bg-gray-950 pt-32 pb-20">
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <!-- Breadcrumbs -->
+                        <div class="flex items-center space-x-2 text-sm text-gray-400 mb-8">
+                            <button onclick="router.navigate('blogs')" class="hover:text-white">Blogs</button>
+                            <span>/</span>
+                            <button onclick="router.navigate('blog-detail', '${post.id}')" class="hover:text-white truncate max-w-[150px]">${post.title}</button>
+                            <span>/</span>
+                            <span class="text-blue-400 font-medium truncate max-w-[200px]">${subPost.title}</span>
+                        </div>
+
+                        <h1 class="text-3xl md:text-4xl font-bold text-white mb-8 leading-tight">
+                            ${subPost.title}
+                        </h1>
+
+                        <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-8 mb-8">
+                            <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                                ${subPost.content}
+                            </p>
+                            <p class="text-gray-300 leading-relaxed mb-6">
+                                This is a focused deep-dive into specifically <strong>${subPost.title}</strong>. 
+                                In the rapidly evolving landscape of ${post.category}, understanding the nuances of this topic is critical for businesses looking to stay ahead.
+                            </p>
+                             <p class="text-gray-300 leading-relaxed mb-6">
+                                By leveraging data-driven insights and the latest AI methodologies, organizations can turn this specific challenge into a competitive advantage.
+                            </p>
+                            ${AD_SLOT_HTML}
+                            <h3 class="text-xl font-bold text-white mb-4">Key Takeaways</h3>
+                            <ul class="list-disc list-inside text-gray-400 space-y-2 mb-6">
+                                <li>Comprehensive analysis of ${subPost.title}.</li>
+                                <li>Strategic implementation steps for immediate results.</li>
+                                <li>Common pitfalls to avoid in 2026.</li>
+                            </ul>
+                        </div>
+
+                         <div class="mt-12 p-8 bg-blue-900/20 rounded-xl border border-blue-800/50 text-center">
+                            <h3 class="text-2xl font-bold text-white mb-4">Need expert help with this?</h3>
+                            <p class="text-gray-300 mb-6 max-w-xl mx-auto">
+                                Our agency specializes in solving exact problems like "${subPost.title}". 
+                                Let's discuss a custom strategy for your brand.
+                            </p>
+                            <button onclick="router.navigate('contact')" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-bold transition-all shadow-lg shadow-blue-900/50">
+                                Book a Free Consultation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- DYNAMIC SEO ENGINE ---
+        const updateSEO = (page, id, subId) => {
+            let title = "Nexus Digital | AI-Driven Web Development & SEO Agency";
+            let desc = "Nexus Digital Agency blends elite website development, strategic SEO, and cutting-edge generative AI to build brands that dominate the future.";
+            let url = "https://your-username.github.io/nexus-digital/";
+
+            if (page === 'blogs') {
+                title = "Insights & Blogs | Nexus Digital Agency";
+                desc = "Deep dives into Web Development, Generative AI, and SEO. Stay ahead of the curve with our expert analysis.";
+                url += "#blogs";
+            } else if (page === 'blog-detail') {
+                const post = BLOG_POSTS.find(p => p.id === parseInt(id));
+                if (post) {
+                    title = `${post.title} | Nexus Digital Insights`;
+                    desc = post.excerpt;
+                    url += `#blog/${id}`;
+                }
+            } else if (page === 'sub-blog-detail') {
+                 const post = BLOG_POSTS.find(p => p.id === parseInt(id));
+                 if (post) {
+                    const subPost = post.subPosts.find(s => s.id === subId);
+                    if (subPost) {
+                        title = `${subPost.title} - Expert Analysis | Nexus Digital`;
+                        desc = `Detailed FAQ and analysis on: ${subPost.title}. Learn how this impacts ${post.category} strategies in 2026.`;
+                        url += `#blog/${id}/${subId}`;
+                    }
+                 }
+            } else if (page === 'service-detail') {
+                const service = SERVICES.find(s => s.id === id);
+                if (service) {
+                    title = `${service.title} Services | Nexus Digital`;
+                    desc = service.desc;
+                    url += `#service/${id}`;
+                }
+            } else if (page === 'contact') {
+                title = "Contact Us | Nexus Digital Agency";
+                desc = "Get in touch with our AI and Web Development experts. Start your project today.";
+                url += "#contact";
+            }
+
+            // Update DOM Elements
+            document.getElementById('page-title').innerText = title;
+            document.getElementById('meta-desc').setAttribute('content', desc);
+            document.getElementById('canonical-link').setAttribute('href', url);
+            
+            // Update Open Graph
+            document.getElementById('og-title').setAttribute('content', title);
+            document.getElementById('og-desc').setAttribute('content', desc);
+            document.getElementById('og-url').setAttribute('content', url);
+            
+            // Update Twitter
+            document.getElementById('tw-title').setAttribute('content', title);
+            document.getElementById('tw-desc').setAttribute('content', desc);
+            document.getElementById('tw-url').setAttribute('content', url);
+        }
+
+        // --- ROUTING ---
+        const router = {
+            currentPage: 'home',
+            navigate: function(page, id = null, subId = null) {
+                this.currentPage = page;
+                window.scrollTo(0, 0);
+                
+                // 1. Update Navigation State
+                const navHome = document.getElementById('nav-home');
+                const navBlogs = document.getElementById('nav-blogs');
+                
+                if (navHome && navBlogs) {
+                    navHome.classList.remove('text-blue-400');
+                    navHome.classList.add('text-gray-300');
+                    navBlogs.classList.remove('text-blue-400');
+                    navBlogs.classList.add('text-gray-300');
+
+                    if (page === 'home') {
+                        navHome.classList.add('text-blue-400');
+                        navHome.classList.remove('text-gray-300');
+                    } else if (page === 'blogs' || page === 'blog-detail' || page === 'sub-blog-detail') {
+                        navBlogs.classList.add('text-blue-400');
+                        navBlogs.classList.remove('text-gray-300');
+                    }
+                }
+
+                // 2. Render Content
+                if (page === 'home') {
+                    appRoot.innerHTML = renderHome();
+                } else if (page === 'blogs') {
+                    appRoot.innerHTML = renderBlogs();
+                } else if (page === 'blog-detail') {
+                    appRoot.innerHTML = renderBlogDetail(id);
+                } else if (page === 'sub-blog-detail') {
+                    appRoot.innerHTML = renderSubBlogDetail(id, subId);
+                } else if (page === 'service-detail') {
+                    appRoot.innerHTML = renderServiceDetail(id);
+                } else if (page === 'contact') {
+                    appRoot.innerHTML = renderContact();
+                }
+
+                // 3. Update SEO Tags
+                updateSEO(page, id, subId);
+
+                // 4. Re-initialize Icons
+                lucide.createIcons();
+            }
+        };
+        
+        // --- HELPERS ---
+        function navigateToSection(sectionId) {
+            if (router.currentPage !== 'home') {
+                router.navigate('home');
+                // Allow render to complete before scrolling
+                setTimeout(() => {
+                    const el = document.getElementById(sectionId);
+                    if (el) el.scrollIntoView({behavior: 'smooth'});
+                }, 150);
+            } else {
+                const el = document.getElementById(sectionId);
+                if (el) el.scrollIntoView({behavior: 'smooth'});
+            }
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            // Format message for Tawk.to event
+            const inquiryDetails = {
+                name: data.name,
+                email: data.email,
+                phone: data.phone,
+                location: data.location,
+                message: data.message
+            };
+
+            // Integration Logic
+            if (typeof Tawk_API !== 'undefined') {
+                // 1. Identify the Visitor
+                Tawk_API.setAttributes({
+                    name: data.name,
+                    email: data.email,
+                    'phone': data.phone,
+                    'location': data.location
+                }, function(error){});
+
+                // 2. Log the data as an event (visible in timeline)
+                Tawk_API.addEvent('form_submission', inquiryDetails);
+
+                // 3. Open the chat widget
+                Tawk_API.maximize();
+                
+                alert("Thank you! Connecting you to an agent...");
+            } else {
+                alert("Thank you! (Tawk.to script not loaded - check console)");
+                console.log("Form Data:", data);
+            }
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                menu.classList.add('hidden');
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        }
+
+        // Initialize App
+        document.addEventListener('DOMContentLoaded', () => {
+            router.navigate('home');
+        });
+
+    </script>
+    
+    <!-- Tawk.to Script -->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    // REPLACE 'YOUR_PROPERTY_ID/default' with your actual Tawk.to ID
+    s1.src='https://embed.tawk.to/YOUR_PROPERTY_ID/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
 </body>
 </html>
