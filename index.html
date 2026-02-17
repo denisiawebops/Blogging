@@ -9,24 +9,24 @@
     
 
     <!-- Dynamic SEO Tags (Updated via JS) -->
-    <title id="page-title">Nexus Digital | AI-Driven Web Development & SEO Agency</title>
-    <meta id="meta-desc" name="description" content="Nexus Digital Agency blends elite website development, strategic SEO, and cutting-edge generative AI to build brands that dominate the future.">
+    <title id="page-title">Denisia Webops | AI-Driven Web Development & SEO Agency</title>
+    <meta id="meta-desc" name="description" content="Denisia Webops Agency blends elite website development, strategic SEO, and cutting-edge generative AI to build brands that dominate the future.">
     <meta name="keywords" content="Web Development, SEO, AI Integration, Gemini, Grok, Digital Marketing, VFX, React, Next.js">
-    <meta name="author" content="Nexus Digital Agency">
+    <meta name="author" content="Denisia Webops Agency">
     <meta name="robots" content="index, follow">
     <link id="canonical-link" rel="canonical" href="https://www.denisiawebops.org/">
 
     <!-- Open Graph / Facebook (Dynamic) -->
     <meta property="og:type" content="website">
     <meta id="og-url" property="og:url" content="https://www.denisiawebops.org/">
-    <meta id="og-title" property="og:title" content="Nexus Digital | Future-Ready Digital Solutions">
+    <meta id="og-title" property="og:title" content="Denisia Webops | Future-Ready Digital Solutions">
     <meta id="og-desc" property="og:description" content="Crafting digital excellence with AI. We integrate Gemini, Grok, and modern web stacks for superior performance.">
     <meta id="og-image" property="og:image" content="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200">
 
     <!-- Twitter (Dynamic) -->
     <meta property="twitter:card" content="summary_large_image">
     <meta id="tw-url" property="twitter:url" content="https://www.denisiawebops.org/">
-    <meta id="tw-title" property="twitter:title" content="Nexus Digital | Future-Ready Digital Solutions">
+    <meta id="tw-title" property="twitter:title" content="Denisia Webops | Future-Ready Digital Solutions">
     <meta id="tw-desc" property="twitter:description" content="Crafting digital excellence with AI. We integrate Gemini, Grok, and modern web stacks for superior performance.">
     <meta id="tw-image" property="twitter:image" content="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200">
 
@@ -123,7 +123,7 @@
                         <i data-lucide="zap" class="h-6 w-6 text-white"></i>
                     </div>
                     <span class="ml-3 text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-                        NEXUS DIGITAL
+                        Denisia Webops
                     </span>
                 </div>
 
@@ -209,7 +209,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-900 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-500 text-sm">© 2026 Nexus Digital Agency. All rights reserved.</p>
+                <p class="text-gray-500 text-sm">© 2026 Denisia Webops Agency. All rights reserved.</p>
                 <div class="flex space-x-6 mt-4 md:mt-0">
                     <i data-lucide="globe" class="h-5 w-5 text-gray-500 hover:text-white cursor-pointer"></i>
                     <i data-lucide="message-square" class="h-5 w-5 text-gray-500 hover:text-white cursor-pointer"></i>
@@ -919,18 +919,18 @@
 
         // --- DYNAMIC SEO ENGINE ---
         const updateSEO = (page, id, subId) => {
-            let title = "Nexus Digital | AI-Driven Web Development & SEO Agency";
-            let desc = "Nexus Digital Agency blends elite website development, strategic SEO, and cutting-edge generative AI to build brands that dominate the future.";
+            let title = "Denisia Webops | AI-Driven Web Development & SEO Agency";
+            let desc = "Denisia Webops Agency blends elite website development, strategic SEO, and cutting-edge generative AI to build brands that dominate the future.";
             let url = "https://www.denisiawebops.org/";
 
             if (page === 'blogs') {
-                title = "Insights & Blogs | Nexus Digital Agency";
+                title = "Insights & Blogs | Denisia Webops Agency";
                 desc = "Deep dives into Web Development, Generative AI, and SEO. Stay ahead of the curve with our expert analysis.";
                 url += "#blogs";
             } else if (page === 'blog-detail') {
                 const post = BLOG_POSTS.find(p => p.id === parseInt(id));
                 if (post) {
-                    title = `${post.title} | Nexus Digital Insights`;
+                    title = `${post.title} | Denisia Webops Insights`;
                     desc = post.excerpt;
                     url += `#blog/${id}`;
                 }
@@ -939,7 +939,7 @@
                  if (post) {
                     const subPost = post.subPosts.find(s => s.id === subId);
                     if (subPost) {
-                        title = `${subPost.title} - Expert Analysis | Nexus Digital`;
+                        title = `${subPost.title} - Expert Analysis | Denisia Webops`;
                         desc = `Detailed FAQ and analysis on: ${subPost.title}. Learn how this impacts ${post.category} strategies in 2026.`;
                         url += `#blog/${id}/${subId}`;
                     }
@@ -947,12 +947,12 @@
             } else if (page === 'service-detail') {
                 const service = SERVICES.find(s => s.id === id);
                 if (service) {
-                    title = `${service.title} Services | Nexus Digital`;
+                    title = `${service.title} Services | Denisia Webops`;
                     desc = service.desc;
                     url += `#service/${id}`;
                 }
             } else if (page === 'contact') {
-                title = "Contact Us | Nexus Digital Agency";
+                title = "Contact Us | Denisia Webops Agency";
                 desc = "Get in touch with our AI and Web Development experts. Start your project today.";
                 url += "#contact";
             }
