@@ -285,7 +285,58 @@
 
     <!-- Application Logic -->
     <script>
-        // --- SERVICES (13 items) ---
+        // ============================================================
+        // EDITABLE PROJECTS DATA – update URLs and details here
+        // ============================================================
+        const PROJECTS = [
+            {
+                title: "E‑Commerce Store",
+                description: "A fully responsive Shopify store with custom theme and fast checkout.",
+                image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=800",
+                url: "https://example-store.com",  // <-- change this URL
+                tags: ["Shopify", "React"]
+            },
+            {
+                title: "Real Estate PWA",
+                description: "Progressive web app for property listings with offline support.",
+                image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800",
+                url: "https://realestate-pwa.demo",
+                tags: ["PWA", "React", "Node.js"]
+            },
+            {
+                title: "Restaurant Booking App",
+                description: "Mobile‑friendly web app for table reservations and menu browsing.",
+                image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800",
+                url: "https://restaurant-app.demo",
+                tags: ["Vue", "Firebase"]
+            },
+            {
+                title: "Corporate Website",
+                description: "Modern corporate site with CMS integration and multilingual support.",
+                image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=800",
+                url: "https://corporate-site.demo",
+                tags: ["WordPress", "Custom Theme"]
+            },
+            {
+                title: "Portfolio & Blog",
+                description: "Minimalist portfolio for a photographer with integrated blog.",
+                image: "https://images.unsplash.com/photo-1554080353-a576cf803bda?auto=format&fit=crop&q=80&w=800",
+                url: "https://photographer-portfolio.demo",
+                tags: ["Next.js", "Sanity"]
+            },
+            {
+                title: "SaaS Dashboard",
+                description: "Interactive dashboard for analytics with real‑time data.",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+                url: "https://saas-dashboard.demo",
+                tags: ["React", "D3.js"]
+            }
+            // Add more up to 20...
+        ];
+
+        // ============================================================
+        // SERVICES (unchanged)
+        // ============================================================
         const SERVICES = [
             { 
                 id: 'web-dev',
@@ -575,7 +626,9 @@
             }
         ];
 
-        // --- BLOG POSTS (for reference, but not used in SPA) ---
+        // ============================================================
+        // BLOG POSTS (for reference, not used in SPA)
+        // ============================================================
         const BLOG_POSTS = [
             { id: 1, title: "Why SEO is Important", slug: "why-seo-important", category: "SEO", image: "https://images.unsplash.com/photo-1571786256017-aee7a0c009b6?auto=format&fit=crop&q=80&w=800", excerpt: "Discover why SEO is the foundation of online visibility." },
             { id: 2, title: "How to Find Ranking Keywords", slug: "find-ranking-keywords", category: "Keyword Research", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800", excerpt: "Step‑by‑step guide to identifying keywords with low competition." },
@@ -583,54 +636,9 @@
             // additional posts...
         ];
 
-        // --- PROJECTS (up to 20) ---
-        const PROJECTS = [
-            {
-                title: "E‑Commerce Store",
-                description: "A fully responsive Shopify store with custom theme and fast checkout.",
-                image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=800",
-                url: "https://example-store.com",
-                tags: ["Shopify", "React"]
-            },
-            {
-                title: "Real Estate PWA",
-                description: "Progressive web app for property listings with offline support.",
-                image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800",
-                url: "https://realestate-pwa.demo",
-                tags: ["PWA", "React", "Node.js"]
-            },
-            {
-                title: "Restaurant Booking App",
-                description: "Mobile‑friendly web app for table reservations and menu browsing.",
-                image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800",
-                url: "https://restaurant-app.demo",
-                tags: ["Vue", "Firebase"]
-            },
-            {
-                title: "Corporate Website",
-                description: "Modern corporate site with CMS integration and multilingual support.",
-                image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=800",
-                url: "https://corporate-site.demo",
-                tags: ["WordPress", "Custom Theme"]
-            },
-            {
-                title: "Portfolio & Blog",
-                description: "Minimalist portfolio for a photographer with integrated blog.",
-                image: "https://images.unsplash.com/photo-1554080353-a576cf803bda?auto=format&fit=crop&q=80&w=800",
-                url: "https://photographer-portfolio.demo",
-                tags: ["Next.js", "Sanity"]
-            },
-            {
-                title: "SaaS Dashboard",
-                description: "Interactive dashboard for analytics with real‑time data.",
-                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
-                url: "https://saas-dashboard.demo",
-                tags: ["React", "D3.js"]
-            }
-            // Add more up to 20...
-        ];
-
-        // --- RENDER FUNCTIONS ---
+        // ============================================================
+        // RENDER FUNCTIONS
+        // ============================================================
         const appRoot = document.getElementById('app-root');
 
         const renderHome = () => {
@@ -971,7 +979,9 @@
             `;
         };
 
-        // --- SEO UPDATER ---
+        // ============================================================
+        // SEO UPDATER
+        // ============================================================
         const updateSEO = (page, id) => {
             let title = "Digital Agency | Web, App, SEO & AI";
             let desc = "Full‑service digital agency offering web development, app development, SEO, digital marketing, chatbot integration, automation, analytics, and more.";
@@ -1019,7 +1029,9 @@
             document.getElementById('tw-url').setAttribute('content', url);
         };
 
-        // --- ROUTER ---
+        // ============================================================
+        // ROUTER
+        // ============================================================
         const router = {
             currentPage: 'home',
             navigate: function(page, id = null) {
@@ -1069,7 +1081,9 @@
             }
         };
 
-        // --- HELPERS ---
+        // ============================================================
+        // HELPERS
+        // ============================================================
         function navigateToSection(sectionId) {
             if (router.currentPage !== 'home') {
                 router.navigate('home');
@@ -1087,8 +1101,13 @@
             e.preventDefault();
             const formData = new FormData(e.target);
             const data = Object.fromEntries(formData);
-            alert("Thank you! We'll get back to you soon.");
-            console.log("Form Data:", data);
+            
+            // Construct WhatsApp message
+            const phoneNumber = "918317581308"; // without + or spaces
+            const message = `Hello, I'm interested in your services.%0A%0A*Name:* ${encodeURIComponent(data.name)}%0A*Email:* ${encodeURIComponent(data.email)}%0A*Service:* ${encodeURIComponent(data.service || 'Not specified')}%0A*Message:* ${encodeURIComponent(data.message)}`;
+            
+            // Redirect to WhatsApp
+            window.location.href = `https://wa.me/${phoneNumber}?text=${message}`;
         }
 
         function toggleMobileMenu() {
