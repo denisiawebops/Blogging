@@ -29,7 +29,7 @@
     </script>
     
     <!-- Dynamic SEO Tags (Updated via JS) -->
-    <title id="page-title">Digital Agency | Web, App, SEO & AI Solutions</title>
+    <title id="page-title">Digital Agency | Web, App, SEO & AI</title>
     <meta id="meta-desc" name="description" content="Full‑service digital agency offering website development, app development, SEO, digital marketing, chatbot integration, automation, analytics, and more.">
     <meta name="keywords" content="web development, app development, SEO, digital marketing, Google Maps, chatbot, automation, AdSense, content writing">
     <meta name="author" content="Your Agency">
@@ -192,6 +192,7 @@
                     <div class="ml-10 flex items-baseline space-x-8">
                         <button onclick="router.navigate('home')" id="nav-home" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-blue-700">Home</button>
                         <button onclick="router.navigate('services')" id="nav-services" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Services</button>
+                        <button onclick="router.navigate('projects')" id="nav-projects" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Projects</button>
                         <a href="blogs.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Blog</a>
                         <button onclick="router.navigate('ai-models')" class="nav-link px-3 py-2 rounded-md text-sm font-medium">AI Models</button>
                         <button onclick="router.navigate('contact')" class="btn-primary text-sm px-5 py-2">Get in Touch</button>
@@ -212,6 +213,7 @@
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <button onclick="router.navigate('home'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Home</button>
                 <button onclick="router.navigate('services'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Services</button>
+                <button onclick="router.navigate('projects'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Projects</button>
                 <a href="blogs.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Blog</a>
                 <button onclick="router.navigate('ai-models'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">AI Models</button>
                 <button onclick="router.navigate('contact'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-base font-medium text-blue-700">Get in Touch</button>
@@ -254,6 +256,7 @@
                     <h4 class="text-gray-900 font-semibold mb-4">Resources</h4>
                     <ul class="space-y-2 text-sm text-gray-600">
                         <li><a href="blogs.html" class="hover:text-blue-700 transition-colors">Blog</a></li>
+                        <li><button onclick="router.navigate('projects')" class="hover:text-blue-700 transition-colors">Projects</button></li>
                         <li><button onclick="router.navigate('privacy')" class="hover:text-blue-700 transition-colors">Privacy Policy</button></li>
                         <li><button onclick="router.navigate('contact')" class="hover:text-blue-700 transition-colors">Contact</button></li>
                     </ul>
@@ -282,7 +285,7 @@
 
     <!-- Application Logic -->
     <script>
-        // --- EXPANDED SERVICES (13 items) ---
+        // --- SERVICES (13 items) ---
         const SERVICES = [
             { 
                 id: 'web-dev',
@@ -572,20 +575,65 @@
             }
         ];
 
-        // --- BLOG POSTS (for the separate blogs.html page) ---
-        // We'll just keep an array for reference, but links will point to external .html files.
+        // --- BLOG POSTS (for reference, but not used in SPA) ---
         const BLOG_POSTS = [
             { id: 1, title: "Why SEO is Important", slug: "why-seo-important", category: "SEO", image: "https://images.unsplash.com/photo-1571786256017-aee7a0c009b6?auto=format&fit=crop&q=80&w=800", excerpt: "Discover why SEO is the foundation of online visibility." },
             { id: 2, title: "How to Find Ranking Keywords", slug: "find-ranking-keywords", category: "Keyword Research", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800", excerpt: "Step‑by‑step guide to identifying keywords with low competition." },
             { id: 3, title: "On‑Page SEO Best Practices", slug: "on-page-seo", category: "On‑Page", image: "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80&w=800", excerpt: "Optimize your pages for both users and search engines." },
-            // ... additional posts as needed
+            // additional posts...
+        ];
+
+        // --- PROJECTS (up to 20) ---
+        const PROJECTS = [
+            {
+                title: "E‑Commerce Store",
+                description: "A fully responsive Shopify store with custom theme and fast checkout.",
+                image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=800",
+                url: "https://example-store.com",
+                tags: ["Shopify", "React"]
+            },
+            {
+                title: "Real Estate PWA",
+                description: "Progressive web app for property listings with offline support.",
+                image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800",
+                url: "https://realestate-pwa.demo",
+                tags: ["PWA", "React", "Node.js"]
+            },
+            {
+                title: "Restaurant Booking App",
+                description: "Mobile‑friendly web app for table reservations and menu browsing.",
+                image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800",
+                url: "https://restaurant-app.demo",
+                tags: ["Vue", "Firebase"]
+            },
+            {
+                title: "Corporate Website",
+                description: "Modern corporate site with CMS integration and multilingual support.",
+                image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=800",
+                url: "https://corporate-site.demo",
+                tags: ["WordPress", "Custom Theme"]
+            },
+            {
+                title: "Portfolio & Blog",
+                description: "Minimalist portfolio for a photographer with integrated blog.",
+                image: "https://images.unsplash.com/photo-1554080353-a576cf803bda?auto=format&fit=crop&q=80&w=800",
+                url: "https://photographer-portfolio.demo",
+                tags: ["Next.js", "Sanity"]
+            },
+            {
+                title: "SaaS Dashboard",
+                description: "Interactive dashboard for analytics with real‑time data.",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+                url: "https://saas-dashboard.demo",
+                tags: ["React", "D3.js"]
+            }
+            // Add more up to 20...
         ];
 
         // --- RENDER FUNCTIONS ---
         const appRoot = document.getElementById('app-root');
 
         const renderHome = () => {
-            // Show only a few featured services on home
             const featuredServices = SERVICES.slice(0, 6).map(s => `
                 <div class="card p-8 cursor-pointer group" onclick="router.navigate('service-detail', '${s.id}')">
                     <div class="h-12 w-12 bg-blue-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors">
@@ -849,7 +897,6 @@
         };
 
         const renderAIModels = () => {
-            // Affiliate page for AI models
             const models = [
                 { name: "ChatGPT", description: "OpenAI's conversational AI.", link: "https://openai.com/chatgpt", image: "https://images.unsplash.com/photo-1677442136019-21780a5b6e8e?auto=format&fit=crop&q=80&w=800" },
                 { name: "Gemini", description: "Google's multimodal AI.", link: "https://deepmind.google/technologies/gemini/", image: "https://images.unsplash.com/photo-1700839151303-7f1c25b81a8f?auto=format&fit=crop&q=80&w=800" },
@@ -888,6 +935,42 @@
             `;
         };
 
+        const renderProjects = () => {
+            const projectCards = PROJECTS.map(p => `
+                <div class="card overflow-hidden flex flex-col h-full group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">${p.title}</h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-1">${p.description}</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            ${p.tags.map(tag => `<span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">${tag}</span>`).join('')}
+                        </div>
+                        <a href="${p.url}" target="_blank" rel="noopener" class="btn-primary text-center text-sm py-2">
+                            View Project <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+
+            return `
+                <div class="animate-fade-in bg-white pt-32 pb-20">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-12">
+                            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Projects</h1>
+                            <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                                A showcase of websites, web apps, and PWAs we've built for clients.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            ${projectCards}
+                        </div>
+                    </div>
+                </div>
+            `;
+        };
+
         // --- SEO UPDATER ---
         const updateSEO = (page, id) => {
             let title = "Digital Agency | Web, App, SEO & AI";
@@ -917,6 +1000,10 @@
                 title = "AI Models | Affiliate Hub";
                 desc = "Discover and purchase the best AI tools through our affiliate links.";
                 url += "#ai-models";
+            } else if (page === 'projects') {
+                title = "Our Projects | Digital Agency";
+                desc = "Browse our portfolio of websites, apps, and PWAs.";
+                url += "#projects";
             }
 
             document.getElementById('page-title').innerText = title;
@@ -942,16 +1029,21 @@
                 // Update nav active states
                 const navHome = document.getElementById('nav-home');
                 const navServices = document.getElementById('nav-services');
-                if (navHome && navServices) {
+                const navProjects = document.getElementById('nav-projects');
+                if (navHome && navServices && navProjects) {
                     navHome.classList.remove('text-blue-700');
                     navServices.classList.remove('text-blue-700');
+                    navProjects.classList.remove('text-blue-700');
                     navHome.classList.add('nav-link');
                     navServices.classList.add('nav-link');
+                    navProjects.classList.add('nav-link');
                     
                     if (page === 'home') {
                         navHome.classList.add('text-blue-700');
                     } else if (page === 'services' || page === 'service-detail') {
                         navServices.classList.add('text-blue-700');
+                    } else if (page === 'projects') {
+                        navProjects.classList.add('text-blue-700');
                     }
                 }
 
@@ -968,6 +1060,8 @@
                     appRoot.innerHTML = renderPrivacy();
                 } else if (page === 'ai-models') {
                     appRoot.innerHTML = renderAIModels();
+                } else if (page === 'projects') {
+                    appRoot.innerHTML = renderProjects();
                 }
 
                 updateSEO(page, id);
