@@ -28,10 +28,10 @@
         })(window, document, "clarity", "script", "vimok6xi57");
     </script>
 
-    <!-- SEO Meta - Blog Post -->
+    <!-- SEO Meta -->
     <title>Budget Money Manager App: Divide Monthly Salary into Structured Plan | Your Agency</title>
-    <meta name="description" content="Learn how to build a simple money manager app that automates the 5‑account system, fixes mid-month cash crunches, and helps you save effortlessly.">
-    <meta name="keywords" content="money manager app, budget app, salary allocation, personal finance app, 5 account system">
+    <meta name="description" content="Use our interactive budget calculator to apply the 5‑account system. Explore top investment platforms and start saving automatically.">
+    <meta name="keywords" content="money manager app, budget calculator, salary allocation, 5 account system, investment platforms, affiliate">
     <meta name="author" content="Your Agency">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.youragency.local/blogpost1.html">
@@ -40,14 +40,14 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://www.youragency.local/blogpost1.html">
     <meta property="og:title" content="Budget Money Manager App: Divide Monthly Salary into Structured Plan">
-    <meta property="og:description" content="Stop going broke mid-month. Automate the 5‑account system with a custom money manager app.">
+    <meta property="og:description" content="Use our interactive budget calculator to apply the 5‑account system. Explore top investment platforms and start saving automatically.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?auto=format&fit=crop&q=80&w=1200">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.youragency.local/blogpost1.html">
     <meta property="twitter:title" content="Budget Money Manager App: Divide Monthly Salary into Structured Plan">
-    <meta property="twitter:description" content="Stop going broke mid-month. Automate the 5‑account system with a custom money manager app.">
+    <meta property="twitter:description" content="Use our interactive budget calculator to apply the 5‑account system. Explore top investment platforms and start saving automatically.">
     <meta property="twitter:image" content="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?auto=format&fit=crop&q=80&w=1200">
 
     <!-- Tailwind CSS -->
@@ -55,7 +55,7 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Custom Tailwind Config (same as main) -->
+    <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -68,6 +68,7 @@
                     animation: {
                         'fade-in': 'fadeIn 0.5s ease-out forwards',
                         'slide-up': 'slideUp 0.4s ease-out',
+                        'pulse-slow': 'pulse 3s infinite',
                     },
                     keyframes: {
                         fadeIn: {
@@ -90,6 +91,13 @@
             background-color: #ffffff;
             color: #1f2937;
         }
+        .prose h2 {
+            color: #111827;
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
         .prose h3 {
             color: #111827;
             font-size: 1.25rem;
@@ -101,6 +109,13 @@
             margin-bottom: 1rem;
             line-height: 1.75;
             color: #374151;
+        }
+        .prose ul, .prose ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
         }
         .glass-panel {
             background: rgba(255, 255, 255, 0.8);
@@ -150,6 +165,18 @@
             border-radius: 1rem;
             transition: all 0.3s;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .card:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.1), 0 8px 10px -6px rgba(59, 130, 246, 0.05);
+            transform: scale(1.02);
+        }
+        .affiliate-card {
+            transition: all 0.2s;
+        }
+        .affiliate-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -203,123 +230,291 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
+    <!-- Main Content: Two columns (article + sidebar) -->
     <main class="flex-grow pt-32 pb-20">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Back to Blog -->
-            <a href="blog.html" class="inline-flex items-center text-gray-600 hover:text-blue-700 mb-8 text-sm font-medium transition-colors">
-                <i data-lucide="arrow-left" class="h-4 w-4 mr-2"></i> Back to Blog
-            </a>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Back to Blog (above columns on mobile, inside on desktop?) We'll put it above both -->
+            <div class="mb-6">
+                <a href="blog.html" class="inline-flex items-center text-gray-600 hover:text-blue-700 text-sm font-medium transition-colors">
+                    <i data-lucide="arrow-left" class="h-4 w-4 mr-2"></i> Back to Blog
+                </a>
+            </div>
 
-            <!-- Article -->
-            <article class="prose prose-blue max-w-none">
-                <!-- Title -->
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Budget Money Manager App: Divide Monthly Salary into Structured Plan</h1>
-                
-                <!-- Meta -->
-                <div class="flex items-center gap-4 text-gray-500 text-sm mb-8 border-b border-blue-100 pb-6">
-                    <span>By Your Agency Team</span>
-                    <span>•</span>
-                    <span>March 19, 2026</span>
-                    <span>•</span>
-                    <span>6 min read</span>
+            <div class="lg:grid lg:grid-cols-3 lg:gap-12">
+                <!-- Article Column (left 2/3) -->
+                <div class="lg:col-span-2">
+                    <article class="prose prose-blue max-w-none animate-fade-in">
+                        <!-- Title -->
+                        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Budget Money Manager App: Divide Monthly Salary into Structured Plan</h1>
+                        
+                        <!-- Meta -->
+                        <div class="flex items-center gap-4 text-gray-500 text-sm mb-8 border-b border-blue-100 pb-6">
+                            <span>By Your Agency Team</span>
+                            <span>•</span>
+                            <span>March 19, 2026</span>
+                            <span>•</span>
+                            <span>6 min read</span>
+                        </div>
+
+                        <!-- Hero Image -->
+                        <img src="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?auto=format&fit=crop&q=80&w=1200" alt="Person planning budget with calculator and piggy bank" class="w-full rounded-2xl shadow-xl mb-10 border border-blue-100">
+
+                        <!-- Content -->
+                        <p class="lead text-xl text-gray-700 mb-6">
+                            Going “nil mid-month” usually means cash flow is unmanaged, not that income is too low.  
+                            Let’s fix this like a system (not just tips). Here’s a practical plan you can implement this week — and how a custom money manager app can automate it all.
+                        </p>
+
+                        <!-- Step 1 -->
+                        <h2>🔍 Step 1: Understand Why You’re Going Broke Mid-Month</h2>
+                        <p>From experience, this usually happens due to:</p>
+                        <ul>
+                            <li>No fixed allocation for expenses</li>
+                            <li>Spending from one account (no separation)</li>
+                            <li>No automated savings</li>
+                            <li>Lifestyle creep (subscriptions, food, small spends)</li>
+                            <li>No “limit visibility”</li>
+                        </ul>
+                        <p>👉 You don’t need to earn more first — you need structure.</p>
+
+                        <!-- Step 2: 5-Account System with Calculator Integration -->
+                        <h2>💰 Step 2: The “5‑Account Money System” (Game Changer)</h2>
+                        <p>Open or use separate accounts (or wallets like GPay / bank sub‑accounts). Below is a typical allocation. Use the calculator to see how it applies to your income.</p>
+
+                        <!-- Interactive Budget Calculator -->
+                        <div class="glass-panel p-6 rounded-xl my-8 border border-blue-200 animate-slide-up">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                                <i data-lucide="calculator" class="h-6 w-6 mr-2 text-blue-600"></i>
+                                Try the 5‑Account Budget Calculator
+                            </h3>
+                            <p class="text-gray-600 mb-4">Enter your monthly income and we'll split it according to the plan. Adjust percentages if needed.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Input -->
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Monthly Income (₹)</label>
+                                    <input type="number" id="monthlyIncome" value="50000" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                                </div>
+                                <div class="flex items-end">
+                                    <button onclick="calculateBudget()" class="btn-primary w-full">Calculate</button>
+                                </div>
+                            </div>
+
+                            <!-- Percentage Sliders (optional customization) -->
+                            <div class="mt-6 grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-gray-500">
+                                <div>Expenses <span id="expensesPercent" class="font-bold text-blue-700">55%</span></div>
+                                <div>Savings <span id="savingsPercent" class="font-bold text-blue-700">20%</span></div>
+                                <div>Kids <span id="kidsPercent" class="font-bold text-blue-700">10%</span></div>
+                                <div>Lifestyle <span id="lifestylePercent" class="font-bold text-blue-700">10%</span></div>
+                                <div>Emergency <span id="emergencyPercent" class="font-bold text-blue-700">5%</span></div>
+                            </div>
+                            <input type="range" id="expensesSlider" min="0" max="100" value="55" class="w-full mt-2" oninput="updateSliders()">
+                            <input type="range" id="savingsSlider" min="0" max="100" value="20" class="w-full" oninput="updateSliders()">
+                            <input type="range" id="kidsSlider" min="0" max="100" value="10" class="w-full" oninput="updateSliders()">
+                            <input type="range" id="lifestyleSlider" min="0" max="100" value="10" class="w-full" oninput="updateSliders()">
+                            <input type="range" id="emergencySlider" min="0" max="100" value="5" class="w-full" oninput="updateSliders()">
+
+                            <!-- Results -->
+                            <div class="mt-6 grid grid-cols-1 md:grid-cols-5 gap-4">
+                                <div class="bg-blue-50 p-3 rounded-lg text-center">
+                                    <span class="text-xs text-gray-500">Expenses</span>
+                                    <div class="text-lg font-bold text-gray-900" id="expensesAmount">₹27,500</div>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded-lg text-center">
+                                    <span class="text-xs text-gray-500">Savings</span>
+                                    <div class="text-lg font-bold text-gray-900" id="savingsAmount">₹10,000</div>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded-lg text-center">
+                                    <span class="text-xs text-gray-500">Kids</span>
+                                    <div class="text-lg font-bold text-gray-900" id="kidsAmount">₹5,000</div>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded-lg text-center">
+                                    <span class="text-xs text-gray-500">Lifestyle</span>
+                                    <div class="text-lg font-bold text-gray-900" id="lifestyleAmount">₹5,000</div>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded-lg text-center">
+                                    <span class="text-xs text-gray-500">Emergency</span>
+                                    <div class="text-lg font-bold text-gray-900" id="emergencyAmount">₹2,500</div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray-400 mt-2">Adjust sliders to customize your own percentages. Total must equal 100%.</p>
+                        </div>
+
+                        <!-- Continue Steps -->
+                        <h2>⚡ Step 3: Salary Day Rule (MOST IMPORTANT)</h2>
+                        <p>The moment salary hits, immediately split money like this:</p>
+                        <ul>
+                            <li>20% → Savings (lock it)</li>
+                            <li>10% → Kids fund</li>
+                            <li>5–10% → Emergency</li>
+                        </ul>
+                        <p>👉 Only keep spending money in your main account. If you see full balance → you WILL spend it.</p>
+
+                        <h2>📊 Step 4: Your Weekly Budget (Not Monthly)</h2>
+                        <p>Monthly budgeting fails because you overspend early → struggle later. Instead, divide your spending money into 4 weeks.</p>
+                        <p><strong>Example:</strong> ₹40,000 expenses → ₹10,000 per week. Once week budget is over ➡️ STOP spending.</p>
+
+                        <h2>🧠 Step 5: Cut These First (High Impact)</h2>
+                        <p>You don’t need to suffer — just optimize. Biggest money leaks:</p>
+                        <ul>
+                            <li>Daily Swiggy/Zomato</li>
+                            <li>Random Amazon buys</li>
+                            <li>Subscriptions (OTT, apps)</li>
+                            <li>Impulse UPI payments</li>
+                        </ul>
+                        <p>👉 Rule: If it’s not planned → don’t spend.</p>
+
+                        <h2>🏦 Step 6: Where to Put Savings (Simple & Safe)</h2>
+                        <p>Start simple (don’t overcomplicate):</p>
+                        <ul>
+                            <li><strong>For Children:</strong> SIP in Index Fund (₹2k–₹5k/month) or PPF (long‑term safe).</li>
+                            <li><strong>For You & Wife:</strong> Emergency Fund → Savings account / FD. SIP → Wealth creation.</li>
+                        </ul>
+
+                        <h2>🔐 Step 7: Make Saving HARD to Touch</h2>
+                        <p>Use a different bank, no UPI access, no debit card. 👉 If it’s easy → you’ll use it.</p>
+
+                        <h2>🧩 Step 8: Realistic Starter Plan (For You)</h2>
+                        <p>Since you go zero mid-month, start small:</p>
+                        <ul>
+                            <li><strong>Month 1:</strong> Save just 10% total, track every expense for 7 days, no drastic cuts.</li>
+                            <li><strong>Month 2:</strong> Increase to 15–20%, start SIP.</li>
+                        </ul>
+
+                        <h2>📱 Step 9: Tools You Can Use</h2>
+                        <ul>
+                            <li>Walnut / Money Manager app</li>
+                            <li>Excel (we can build one for you)</li>
+                            <li>Bank auto‑transfer</li>
+                        </ul>
+
+                        <h2>🧭 Step 10: Mindset Shift</h2>
+                        <p>Right now: “Spend → Save what’s left (which is zero)”. Change to: “Save first → Spend what’s left”.</p>
+
+                        <div class="bg-blue-50 p-6 rounded-xl my-8 border-l-4 border-blue-600">
+                            <p class="text-lg font-medium text-gray-900 mb-2">💡 Simple Truth</p>
+                            <p class="text-gray-700">You don’t have a money problem. You have a money flow problem. Fix flow → savings will happen automatically.</p>
+                        </div>
+
+                        <!-- FAQ Section with Affiliate Links -->
+                        <h2 class="text-3xl font-bold mt-12 mb-6">Frequently Asked Questions</h2>
+                        
+                        <div class="space-y-4">
+                            <details class="bg-gray-50 p-4 rounded-lg cursor-pointer">
+                                <summary class="font-semibold text-lg">What are the best investment platforms in India?</summary>
+                                <div class="mt-2 text-gray-600">
+                                    <p>We recommend these trusted platforms (we may earn a commission if you sign up):</p>
+                                    <ul class="list-disc pl-5 mt-2">
+                                        <li><a href="https://zerodha.com/open-account?c=YOUR_REF" target="_blank" rel="nofollow sponsored" class="text-blue-700 underline">Zerodha</a> – Low-cost stock trading and mutual funds.</li>
+                                        <li><a href="https://groww.in?ref=YOUR_REF" target="_blank" rel="nofollow sponsored" class="text-blue-700 underline">Groww</a> – User‑friendly for beginners.</li>
+                                        <li><a href="https://www.paytmmoney.com?ref=YOUR_REF" target="_blank" rel="nofollow sponsored" class="text-blue-700 underline">Paytm Money</a> – Direct mutual funds and ETFs.</li>
+                                        <li><a href="https://www.coinbydjus.com?ref=YOUR_REF" target="_blank" rel="nofollow sponsored" class="text-blue-700 underline">Coin by DJUS</a> – Ideal for cryptocurrency exposure.</li>
+                                    </ul>
+                                </div>
+                            </details>
+
+                            <details class="bg-gray-50 p-4 rounded-lg cursor-pointer">
+                                <summary class="font-semibold text-lg">How do I automate the 5‑account split?</summary>
+                                <div class="mt-2 text-gray-600">
+                                    <p>Most banks allow standing instructions to auto‑transfer fixed amounts on salary day. You can also use apps like <a href="https://www.famapp.in?ref=YOUR_REF" target="_blank" rel="nofollow sponsored" class="text-blue-700 underline">Fam</a> or <a href="https://www.indmoney.com?ref=YOUR_REF" target="_blank" rel="nofollow sponsored" class="text-blue-700 underline">INDmoney</a> which automate this for you.</p>
+                                </div>
+                            </details>
+
+                            <details class="bg-gray-50 p-4 rounded-lg cursor-pointer">
+                                <summary class="font-semibold text-lg">What percentage should I save for retirement?</summary>
+                                <div class="mt-2 text-gray-600">
+                                    <p>A common rule is 15–20% of your gross income. Our “Savings” account (20%) can be split between emergency fund and long‑term investments like PPF, NPS, or mutual funds. Check out <a href="https://www.etmoney.com?ref=YOUR_REF" target="_blank" rel="nofollow sponsored" class="text-blue-700 underline">ETMoney</a> for goal‑based planning.</p>
+                                </div>
+                            </details>
+                        </div>
+
+                        <!-- Call to Action -->
+                        <hr class="my-12 border-blue-100" />
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Want This Automated?</h3>
+                            <p class="text-gray-600 mb-6">We can build a custom money manager app that does all of the above — auto‑splits your salary, tracks weekly budgets, and sends alerts. Let’s talk.</p>
+                            <a href="index.html#contact" class="btn-primary inline-flex items-center">
+                                Request a Free Consultation <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
+                            </a>
+                        </div>
+                    </article>
                 </div>
 
-                <!-- Hero Image -->
-                <img src="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?auto=format&fit=crop&q=80&w=1200" alt="Person planning budget with calculator and piggy bank" class="w-full rounded-2xl shadow-xl mb-10 border border-blue-100">
+                <!-- Sidebar (right 1/3) -->
+                <aside class="lg:col-span-1 mt-12 lg:mt-0">
+                    <div class="sticky top-28 space-y-8 animate-slide-up">
+                        <!-- Affiliate: Investment Platforms -->
+                        <div class="glass-panel p-6 rounded-xl border border-blue-200">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                                <i data-lucide="trending-up" class="h-5 w-5 mr-2 text-blue-600"></i>
+                                Start Investing Today
+                            </h3>
+                            <p class="text-sm text-gray-600 mb-4">Open an account with these trusted platforms (we may earn a commission).</p>
+                            <div class="space-y-4">
+                                <!-- Zerodha -->
+                                <a href="https://zerodha.com/open-account?c=YOUR_REF" target="_blank" rel="nofollow sponsored" class="affiliate-card flex items-center p-3 bg-white rounded-lg border border-gray-200 hover:border-blue-400 transition">
+                                    <img src="https://logos-world.net/wp-content/uploads/2021/03/Zerodha-Logo.png" alt="Zerodha" class="h-8 w-auto mr-3">
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900">Zerodha</h4>
+                                        <p class="text-xs text-gray-500">#1 discount broker</p>
+                                    </div>
+                                    <i data-lucide="external-link" class="h-4 w-4 ml-auto text-gray-400"></i>
+                                </a>
+                                <!-- Groww -->
+                                <a href="https://groww.in?ref=YOUR_REF" target="_blank" rel="nofollow sponsored" class="affiliate-card flex items-center p-3 bg-white rounded-lg border border-gray-200 hover:border-blue-400 transition">
+                                    <img src="https://logos-world.net/wp-content/uploads/2021/08/Groww-Logo.png" alt="Groww" class="h-8 w-auto mr-3">
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900">Groww</h4>
+                                        <p class="text-xs text-gray-500">Stocks & mutual funds</p>
+                                    </div>
+                                    <i data-lucide="external-link" class="h-4 w-4 ml-auto text-gray-400"></i>
+                                </a>
+                                <!-- INDmoney -->
+                                <a href="https://www.indmoney.com?ref=YOUR_REF" target="_blank" rel="nofollow sponsored" class="affiliate-card flex items-center p-3 bg-white rounded-lg border border-gray-200 hover:border-blue-400 transition">
+                                    <img src="https://logos-world.net/wp-content/uploads/2021/08/INDmoney-Logo.png" alt="INDmoney" class="h-8 w-auto mr-3">
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900">INDmoney</h4>
+                                        <p class="text-xs text-gray-500">All-in-one finance</p>
+                                    </div>
+                                    <i data-lucide="external-link" class="h-4 w-4 ml-auto text-gray-400"></i>
+                                </a>
+                                <!-- ET Money -->
+                                <a href="https://www.etmoney.com?ref=YOUR_REF" target="_blank" rel="nofollow sponsored" class="affiliate-card flex items-center p-3 bg-white rounded-lg border border-gray-200 hover:border-blue-400 transition">
+                                    <img src="https://logos-world.net/wp-content/uploads/2021/08/ET-Money-Logo.png" alt="ET Money" class="h-8 w-auto mr-3">
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900">ET Money</h4>
+                                        <p class="text-xs text-gray-500">Goal planning</p>
+                                    </div>
+                                    <i data-lucide="external-link" class="h-4 w-4 ml-auto text-gray-400"></i>
+                                </a>
+                            </div>
+                            <p class="text-xs text-gray-400 mt-4">Disclosure: We earn a commission if you sign up via these links.</p>
+                        </div>
 
-                <!-- Content -->
-                <p class="lead text-xl text-gray-700 mb-6">
-                    Going “nil mid-month” usually means cash flow is unmanaged, not that income is too low.  
-                    Let’s fix this like a system (not just tips). Here’s a practical plan you can implement this week — and how a custom money manager app can automate it all.
-                </p>
+                        <!-- Newsletter Signup (short) -->
+                        <div class="glass-panel p-6 rounded-xl border border-blue-200">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">📩 Weekly Finance Tips</h3>
+                            <p class="text-sm text-gray-600 mb-4">Get one actionable tip every Monday.</p>
+                            <div class="flex">
+                                <input type="email" placeholder="Your email" class="w-full px-3 py-2 rounded-l-md text-sm border-gray-300">
+                                <button class="bg-blue-800 px-4 py-2 rounded-r-md hover:bg-blue-700 transition-colors">
+                                    <i data-lucide="arrow-right" class="h-4 w-4 text-white"></i>
+                                </button>
+                            </div>
+                        </div>
 
-                <h2>🔍 Step 1: Understand Why You’re Going Broke Mid-Month</h2>
-                <p>From experience, this usually happens due to:</p>
-                <ul>
-                    <li>No fixed allocation for expenses</li>
-                    <li>Spending from one account (no separation)</li>
-                    <li>No automated savings</li>
-                    <li>Lifestyle creep (subscriptions, food, small spends)</li>
-                    <li>No “limit visibility”</li>
-                </ul>
-                <p>👉 You don’t need to earn more first — you need structure.</p>
-
-                <h2>💰 Step 2: The “5‑Account Money System” (Game Changer)</h2>
-                <p>Open or use separate accounts (or wallets like GPay / bank sub‑accounts):</p>
-                <ol>
-                    <li><strong>🏠 Expenses Account (50–60%)</strong> – Rent, groceries, bills, EMIs. This is your survival account.</li>
-                    <li><strong>🎯 Savings Account (20%)</strong> – Non‑negotiable. Auto‑transfer on salary day.</li>
-                    <li><strong>🧒 Children Future (10%)</strong> – SIP / RD / mutual fund. Treat this like a bill.</li>
-                    <li><strong>❤️ Family & Lifestyle (5–10%)</strong> – Eating out, movies, shopping.</li>
-                    <li><strong>🚨 Emergency Fund (5–10%)</strong> – Build up to 6 months of expenses.</li>
-                </ol>
-
-                <h2>⚡ Step 3: Salary Day Rule (MOST IMPORTANT)</h2>
-                <p>The moment salary hits, immediately split money like this:</p>
-                <ul>
-                    <li>20% → Savings (lock it)</li>
-                    <li>10% → Kids fund</li>
-                    <li>5–10% → Emergency</li>
-                </ul>
-                <p>👉 Only keep spending money in your main account. If you see full balance → you WILL spend it.</p>
-
-                <h2>📊 Step 4: Your Weekly Budget (Not Monthly)</h2>
-                <p>Monthly budgeting fails because you overspend early → struggle later. Instead, divide your spending money into 4 weeks.</p>
-                <p><strong>Example:</strong> ₹40,000 expenses → ₹10,000 per week. Once week budget is over ➡️ STOP spending.</p>
-
-                <h2>🧠 Step 5: Cut These First (High Impact)</h2>
-                <p>You don’t need to suffer — just optimize. Biggest money leaks:</p>
-                <ul>
-                    <li>Daily Swiggy/Zomato</li>
-                    <li>Random Amazon buys</li>
-                    <li>Subscriptions (OTT, apps)</li>
-                    <li>Impulse UPI payments</li>
-                </ul>
-                <p>👉 Rule: If it’s not planned → don’t spend.</p>
-
-                <h2>🏦 Step 6: Where to Put Savings (Simple & Safe)</h2>
-                <p>Start simple (don’t overcomplicate):</p>
-                <ul>
-                    <li><strong>For Children:</strong> SIP in Index Fund (₹2k–₹5k/month) or PPF (long‑term safe).</li>
-                    <li><strong>For You & Wife:</strong> Emergency Fund → Savings account / FD. SIP → Wealth creation.</li>
-                </ul>
-
-                <h2>🔐 Step 7: Make Saving HARD to Touch</h2>
-                <p>Use a different bank, no UPI access, no debit card. 👉 If it’s easy → you’ll use it.</p>
-
-                <h2>🧩 Step 8: Realistic Starter Plan (For You)</h2>
-                <p>Since you go zero mid-month, start small:</p>
-                <ul>
-                    <li><strong>Month 1:</strong> Save just 10% total, track every expense for 7 days, no drastic cuts.</li>
-                    <li><strong>Month 2:</strong> Increase to 15–20%, start SIP.</li>
-                </ul>
-
-                <h2>📱 Step 9: Tools You Can Use</h2>
-                <ul>
-                    <li>Walnut / Money Manager app</li>
-                    <li>Excel (we can build one for you)</li>
-                    <li>Bank auto‑transfer</li>
-                </ul>
-
-                <h2>🧭 Step 10: Mindset Shift</h2>
-                <p>Right now: “Spend → Save what’s left (which is zero)”. Change to: “Save first → Spend what’s left”.</p>
-
-                <div class="bg-blue-50 p-6 rounded-xl my-8 border-l-4 border-blue-600">
-                    <p class="text-lg font-medium text-gray-900 mb-2">💡 Simple Truth</p>
-                    <p class="text-gray-700">You don’t have a money problem. You have a money flow problem. Fix flow → savings will happen automatically.</p>
-                </div>
-
-                <!-- Call to Action -->
-                <hr class="my-12 border-blue-100" />
-                <div class="text-center">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Want This Automated?</h3>
-                    <p class="text-gray-600 mb-6">We can build a custom money manager app that does all of the above — auto‑splits your salary, tracks weekly budgets, and sends alerts. Let’s talk.</p>
-                    <a href="index.html#contact" class="btn-primary inline-flex items-center">
-                        Request a Free Consultation <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
-                    </a>
-                </div>
-            </article>
+                        <!-- Related Tools -->
+                        <div class="glass-panel p-6 rounded-xl border border-blue-200">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">🔧 Free Tools</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li><a href="#" class="text-blue-700 hover:underline">SIP Calculator</a></li>
+                                <li><a href="#" class="text-blue-700 hover:underline">Income Tax Calculator</a></li>
+                                <li><a href="#" class="text-blue-700 hover:underline">Emergency Fund Goal</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+            </div>
         </div>
     </main>
 
@@ -380,6 +575,43 @@
         </div>
     </footer>
 
+    <!-- Budget Calculator JavaScript -->
+    <script>
+        function calculateBudget() {
+            const income = parseFloat(document.getElementById('monthlyIncome').value) || 0;
+            const expensesPercent = parseFloat(document.getElementById('expensesSlider').value);
+            const savingsPercent = parseFloat(document.getElementById('savingsSlider').value);
+            const kidsPercent = parseFloat(document.getElementById('kidsSlider').value);
+            const lifestylePercent = parseFloat(document.getElementById('lifestyleSlider').value);
+            const emergencyPercent = parseFloat(document.getElementById('emergencySlider').value);
+
+            // Update displayed percentages
+            document.getElementById('expensesPercent').innerText = expensesPercent + '%';
+            document.getElementById('savingsPercent').innerText = savingsPercent + '%';
+            document.getElementById('kidsPercent').innerText = kidsPercent + '%';
+            document.getElementById('lifestylePercent').innerText = lifestylePercent + '%';
+            document.getElementById('emergencyPercent').innerText = emergencyPercent + '%';
+
+            // Calculate amounts
+            document.getElementById('expensesAmount').innerText = '₹' + (income * expensesPercent / 100).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('savingsAmount').innerText = '₹' + (income * savingsPercent / 100).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('kidsAmount').innerText = '₹' + (income * kidsPercent / 100).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('lifestyleAmount').innerText = '₹' + (income * lifestylePercent / 100).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('emergencyAmount').innerText = '₹' + (income * emergencyPercent / 100).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+
+        function updateSliders() {
+            // Optional: enforce total 100% by adjusting others? For simplicity we just recalc.
+            calculateBudget();
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', () => {
+            calculateBudget();
+            lucide.createIcons();
+        });
+    </script>
+
     <!-- Mobile menu toggle script -->
     <script>
         function toggleMobileMenu() {
@@ -394,11 +626,6 @@
             }
             lucide.createIcons();
         }
-
-        // Initialize Lucide icons
-        document.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
-        });
     </script>
 </body>
 </html>
