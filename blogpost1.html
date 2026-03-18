@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FWP9BLNZK6');
+    </script>
+
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="82U62k4jtMBmS52po-sbJ12znmacAgq0Rg4NvMZLXMY" />
+
+    <!-- Binge Webmaster Tool -->
+    <meta name="msvalidate.01" content="8250834873D72FFE4BABCD1B2C7B3173" />
+
+    <!-- Clarity tracking code -->
+    <script>
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vimok6xi57");
+    </script>
+
+    <!-- SEO Meta - Blog Post -->
+    <title>Budget Money Manager App: Divide Monthly Salary into Structured Plan | Your Agency</title>
+    <meta name="description" content="Learn how to build a simple money manager app that automates the 5‑account system, fixes mid-month cash crunches, and helps you save effortlessly.">
+    <meta name="keywords" content="money manager app, budget app, salary allocation, personal finance app, 5 account system">
+    <meta name="author" content="Your Agency">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.youragency.local/blogpost1.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.youragency.local/blogpost1.html">
+    <meta property="og:title" content="Budget Money Manager App: Divide Monthly Salary into Structured Plan">
+    <meta property="og:description" content="Stop going broke mid-month. Automate the 5‑account system with a custom money manager app.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?auto=format&fit=crop&q=80&w=1200">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.youragency.local/blogpost1.html">
+    <meta property="twitter:title" content="Budget Money Manager App: Divide Monthly Salary into Structured Plan">
+    <meta property="twitter:description" content="Stop going broke mid-month. Automate the 5‑account system with a custom money manager app.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?auto=format&fit=crop&q=80&w=1200">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Tailwind Config (same as main) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a',
+                        secondary: '#3b82f6',
+                        accent: '#dbeafe',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'slide-up': 'slideUp 0.4s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #ffffff;
+            color: #1f2937;
+        }
+        .prose h3 {
+            color: #111827;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose p {
+            margin-bottom: 1rem;
+            line-height: 1.75;
+            color: #374151;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+        }
+        .btn-primary {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            box-shadow: 0 4px 6px -1px rgba(30, 58, 138, 0.2);
+        }
+        .btn-primary:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(30, 58, 138, 0.3);
+        }
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid #1e3a8a;
+            color: #1e3a8a;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-outline:hover {
+            background-color: #dbeafe;
+            border-color: #2563eb;
+            color: #2563eb;
+        }
+        .nav-link {
+            color: #4b5563;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #1e3a8a;
+        }
+        .card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 antialiased selection:bg-blue-200 selection:text-blue-900 flex flex-col min-h-screen">
+
+    <!-- Navbar (identical to main) -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center cursor-pointer" onclick="window.location='index.html'">
+                    <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-2 rounded-lg shadow-md">
+                        <i data-lucide="zap" class="h-6 w-6 text-white"></i>
+                    </div>
+                    <span class="ml-3 text-xl font-bold text-gray-900">
+                        Your Agency
+                    </span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="index.html#services-section" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Services</a>
+                        <a href="index.html#projects" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                        <a href="blog.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Blog</a>
+                        <a href="index.html#ai-models" class="nav-link px-3 py-2 rounded-md text-sm font-medium">AI Models</a>
+                        <a href="index.html#contact" class="btn-primary text-sm px-5 py-2">Get in Touch</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-blue-700 p-2">
+                        <i id="mobile-menu-icon" data-lucide="menu" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-blue-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Home</a>
+                <a href="index.html#services-section" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Services</a>
+                <a href="index.html#projects" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Projects</a>
+                <a href="blog.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-blue-700">Blog</a>
+                <a href="index.html#ai-models" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">AI Models</a>
+                <a href="index.html#contact" class="block w-full text-left px-3 py-2 text-base font-medium text-blue-700">Get in Touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-32 pb-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Back to Blog -->
+            <a href="blog.html" class="inline-flex items-center text-gray-600 hover:text-blue-700 mb-8 text-sm font-medium transition-colors">
+                <i data-lucide="arrow-left" class="h-4 w-4 mr-2"></i> Back to Blog
+            </a>
+
+            <!-- Article -->
+            <article class="prose prose-blue max-w-none">
+                <!-- Title -->
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Budget Money Manager App: Divide Monthly Salary into Structured Plan</h1>
+                
+                <!-- Meta -->
+                <div class="flex items-center gap-4 text-gray-500 text-sm mb-8 border-b border-blue-100 pb-6">
+                    <span>By Your Agency Team</span>
+                    <span>•</span>
+                    <span>March 19, 2026</span>
+                    <span>•</span>
+                    <span>6 min read</span>
+                </div>
+
+                <!-- Hero Image -->
+                <img src="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?auto=format&fit=crop&q=80&w=1200" alt="Person planning budget with calculator and piggy bank" class="w-full rounded-2xl shadow-xl mb-10 border border-blue-100">
+
+                <!-- Content -->
+                <p class="lead text-xl text-gray-700 mb-6">
+                    Going “nil mid-month” usually means cash flow is unmanaged, not that income is too low.  
+                    Let’s fix this like a system (not just tips). Here’s a practical plan you can implement this week — and how a custom money manager app can automate it all.
+                </p>
+
+                <h2>🔍 Step 1: Understand Why You’re Going Broke Mid-Month</h2>
+                <p>From experience, this usually happens due to:</p>
+                <ul>
+                    <li>No fixed allocation for expenses</li>
+                    <li>Spending from one account (no separation)</li>
+                    <li>No automated savings</li>
+                    <li>Lifestyle creep (subscriptions, food, small spends)</li>
+                    <li>No “limit visibility”</li>
+                </ul>
+                <p>👉 You don’t need to earn more first — you need structure.</p>
+
+                <h2>💰 Step 2: The “5‑Account Money System” (Game Changer)</h2>
+                <p>Open or use separate accounts (or wallets like GPay / bank sub‑accounts):</p>
+                <ol>
+                    <li><strong>🏠 Expenses Account (50–60%)</strong> – Rent, groceries, bills, EMIs. This is your survival account.</li>
+                    <li><strong>🎯 Savings Account (20%)</strong> – Non‑negotiable. Auto‑transfer on salary day.</li>
+                    <li><strong>🧒 Children Future (10%)</strong> – SIP / RD / mutual fund. Treat this like a bill.</li>
+                    <li><strong>❤️ Family & Lifestyle (5–10%)</strong> – Eating out, movies, shopping.</li>
+                    <li><strong>🚨 Emergency Fund (5–10%)</strong> – Build up to 6 months of expenses.</li>
+                </ol>
+
+                <h2>⚡ Step 3: Salary Day Rule (MOST IMPORTANT)</h2>
+                <p>The moment salary hits, immediately split money like this:</p>
+                <ul>
+                    <li>20% → Savings (lock it)</li>
+                    <li>10% → Kids fund</li>
+                    <li>5–10% → Emergency</li>
+                </ul>
+                <p>👉 Only keep spending money in your main account. If you see full balance → you WILL spend it.</p>
+
+                <h2>📊 Step 4: Your Weekly Budget (Not Monthly)</h2>
+                <p>Monthly budgeting fails because you overspend early → struggle later. Instead, divide your spending money into 4 weeks.</p>
+                <p><strong>Example:</strong> ₹40,000 expenses → ₹10,000 per week. Once week budget is over ➡️ STOP spending.</p>
+
+                <h2>🧠 Step 5: Cut These First (High Impact)</h2>
+                <p>You don’t need to suffer — just optimize. Biggest money leaks:</p>
+                <ul>
+                    <li>Daily Swiggy/Zomato</li>
+                    <li>Random Amazon buys</li>
+                    <li>Subscriptions (OTT, apps)</li>
+                    <li>Impulse UPI payments</li>
+                </ul>
+                <p>👉 Rule: If it’s not planned → don’t spend.</p>
+
+                <h2>🏦 Step 6: Where to Put Savings (Simple & Safe)</h2>
+                <p>Start simple (don’t overcomplicate):</p>
+                <ul>
+                    <li><strong>For Children:</strong> SIP in Index Fund (₹2k–₹5k/month) or PPF (long‑term safe).</li>
+                    <li><strong>For You & Wife:</strong> Emergency Fund → Savings account / FD. SIP → Wealth creation.</li>
+                </ul>
+
+                <h2>🔐 Step 7: Make Saving HARD to Touch</h2>
+                <p>Use a different bank, no UPI access, no debit card. 👉 If it’s easy → you’ll use it.</p>
+
+                <h2>🧩 Step 8: Realistic Starter Plan (For You)</h2>
+                <p>Since you go zero mid-month, start small:</p>
+                <ul>
+                    <li><strong>Month 1:</strong> Save just 10% total, track every expense for 7 days, no drastic cuts.</li>
+                    <li><strong>Month 2:</strong> Increase to 15–20%, start SIP.</li>
+                </ul>
+
+                <h2>📱 Step 9: Tools You Can Use</h2>
+                <ul>
+                    <li>Walnut / Money Manager app</li>
+                    <li>Excel (we can build one for you)</li>
+                    <li>Bank auto‑transfer</li>
+                </ul>
+
+                <h2>🧭 Step 10: Mindset Shift</h2>
+                <p>Right now: “Spend → Save what’s left (which is zero)”. Change to: “Save first → Spend what’s left”.</p>
+
+                <div class="bg-blue-50 p-6 rounded-xl my-8 border-l-4 border-blue-600">
+                    <p class="text-lg font-medium text-gray-900 mb-2">💡 Simple Truth</p>
+                    <p class="text-gray-700">You don’t have a money problem. You have a money flow problem. Fix flow → savings will happen automatically.</p>
+                </div>
+
+                <!-- Call to Action -->
+                <hr class="my-12 border-blue-100" />
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Want This Automated?</h3>
+                    <p class="text-gray-600 mb-6">We can build a custom money manager app that does all of the above — auto‑splits your salary, tracks weekly budgets, and sends alerts. Let’s talk.</p>
+                    <a href="index.html#contact" class="btn-primary inline-flex items-center">
+                        Request a Free Consultation <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
+                    </a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer (identical to main) -->
+    <footer class="bg-gray-50 border-t border-blue-100 pt-16 pb-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-1.5 rounded-lg shadow">
+                            <i data-lucide="zap" class="h-5 w-5 text-white"></i>
+                        </div>
+                        <span class="ml-3 text-lg font-bold text-gray-900">YOUR AGENCY</span>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Complete digital solutions – from web development to AI integration.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-gray-900 font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="index.html#web-dev" class="hover:text-blue-700 transition-colors">Web Development</a></li>
+                        <li><a href="index.html#app-dev" class="hover:text-blue-700 transition-colors">App Development</a></li>
+                        <li><a href="index.html#seo" class="hover:text-blue-700 transition-colors">SEO</a></li>
+                        <li><a href="index.html#digital-marketing" class="hover:text-blue-700 transition-colors">Digital Marketing</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-gray-900 font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="blog.html" class="hover:text-blue-700 transition-colors">Blog</a></li>
+                        <li><a href="index.html#projects" class="hover:text-blue-700 transition-colors">Projects</a></li>
+                        <li><a href="privacy.html" class="hover:text-blue-700 transition-colors">Privacy Policy</a></li>
+                        <li><a href="index.html#contact" class="hover:text-blue-700 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-gray-900 font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-600 text-sm mb-4">Get weekly insights.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Enter email" class="w-full px-4 py-2 rounded-l-md text-sm border-gray-300" />
+                        <button class="bg-blue-800 px-4 py-2 rounded-r-md hover:bg-blue-700 transition-colors">
+                            <i data-lucide="arrow-right" class="h-4 w-4 text-white"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-blue-100 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">© 2026 Your Agency. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <i data-lucide="twitter" class="h-5 w-5 text-gray-500 hover:text-blue-700 cursor-pointer transition"></i>
+                    <i data-lucide="linkedin" class="h-5 w-5 text-gray-500 hover:text-blue-700 cursor-pointer transition"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile menu toggle script -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                menu.classList.add('hidden');
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        }
+
+        // Initialize Lucide icons
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
