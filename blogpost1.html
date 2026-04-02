@@ -29,30 +29,14 @@
     </script>
 
     <!-- SEO Meta -->
-    <title>Budget Money Manager App: Divide Monthly Salary into Structured Plan | Your Agency</title>
-    <meta name="description" content="Use our interactive budget calculator to apply the 5‑account system. Explore top investment platforms and start saving automatically.">
-    <meta name="keywords" content="money manager app, budget calculator, salary allocation, 5 account system, investment platforms, affiliate">
+    <title>Budget Money Manager App | Digital Agency Blog</title>
+    <meta name="description" content="Learn how a simple money management app can automate the 5-account system and fix your cash flow.">
+    <meta name="keywords" content="budget app, money management, 50/30/20 rule, financial planning, automated savings">
     <meta name="author" content="Your Agency">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.youragency.local/blogpost1.html">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.youragency.local/blogpost1.html">
-    <meta property="og:title" content="Budget Money Manager App: Divide Monthly Salary into Structured Plan">
-    <meta property="og:description" content="Use our interactive budget calculator to apply the 5‑account system. Explore top investment platforms and start saving automatically.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?auto=format&fit=crop&q=80&w=1200">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.youragency.local/blogpost1.html">
-    <meta property="twitter:title" content="Budget Money Manager App: Divide Monthly Salary into Structured Plan">
-    <meta property="twitter:description" content="Use our interactive budget calculator to apply the 5‑account system. Explore top investment platforms and start saving automatically.">
-    <meta property="twitter:image" content="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?auto=format&fit=crop&q=80&w=1200">
-
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS & Lucide Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Custom Tailwind Config -->
@@ -60,25 +44,11 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        primary: '#1e3a8a',
-                        secondary: '#3b82f6',
-                        accent: '#dbeafe',
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-out forwards',
-                        'slide-up': 'slideUp 0.4s ease-out',
-                        'pulse-slow': 'pulse 3s infinite',
-                    },
+                    colors: { primary: '#1e3a8a', secondary: '#3b82f6', accent: '#dbeafe' },
+                    animation: { 'fade-in': 'fadeIn 0.5s ease-out forwards', 'slide-up': 'slideUp 0.4s ease-out' },
                     keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(10px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        slideUp: {
-                            '0%': { transform: 'translateY(20px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' },
-                        }
+                        fadeIn: { '0%': { opacity: '0', transform: 'translateY(10px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } }
                     }
                 }
             }
@@ -86,129 +56,41 @@
     </script>
 
     <style>
-        body {
-            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #ffffff;
-            color: #1f2937;
-        }
-        .prose h2 {
-            color: #111827;
-            font-size: 1.875rem;
-            font-weight: 700;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-        .prose h3 {
-            color: #111827;
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-        .prose p {
-            margin-bottom: 1rem;
-            line-height: 1.75;
-            color: #374151;
-        }
-        .prose ul, .prose ol {
-            margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
-        }
-        .prose li {
-            margin-bottom: 0.5rem;
-        }
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
-        }
-        .btn-primary {
-            background-color: #1e3a8a;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            transition: all 0.2s;
-            box-shadow: 0 4px 6px -1px rgba(30, 58, 138, 0.2);
-        }
-        .btn-primary:hover {
-            background-color: #2563eb;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(30, 58, 138, 0.3);
-        }
-        .btn-outline {
-            background-color: transparent;
-            border: 1px solid #1e3a8a;
-            color: #1e3a8a;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            transition: all 0.2s;
-        }
-        .btn-outline:hover {
-            background-color: #dbeafe;
-            border-color: #2563eb;
-            color: #2563eb;
-        }
-        .nav-link {
-            color: #4b5563;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        .nav-link:hover, .nav-link.active {
-            color: #1e3a8a;
-        }
-        .card {
-            background: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 1rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-        .card:hover {
-            border-color: #3b82f6;
-            box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.1), 0 8px 10px -6px rgba(59, 130, 246, 0.05);
-            transform: scale(1.02);
-        }
-        .affiliate-card {
-            transition: all 0.2s;
-        }
-        .affiliate-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #ffffff; color: #1f2937; }
+        .prose h2 { color: #111827; font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
+        .prose h3 { color: #111827; font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .prose p { margin-bottom: 1rem; line-height: 1.75; color: #374151; }
+        .prose ul { margin-bottom: 1rem; padding-left: 1.5rem; list-style-type: disc; color: #374151; }
+        .prose li { margin-bottom: 0.5rem; }
+        .btn-primary { background-color: #1e3a8a; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; transition: all 0.2s; box-shadow: 0 4px 6px -1px rgba(30, 58, 138, 0.2); }
+        .btn-primary:hover { background-color: #2563eb; transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(30, 58, 138, 0.3); }
+        .nav-link { color: #4b5563; font-weight: 500; transition: color 0.2s; }
+        .nav-link:hover, .nav-link.active { color: #1e3a8a; }
+        input[type=range] { accent-color: #3b82f6; }
     </style>
 </head>
 <body class="bg-white text-gray-900 antialiased selection:bg-blue-200 selection:text-blue-900 flex flex-col min-h-screen">
 
-    <!-- Navbar (identical to main) -->
+    <!-- Navbar -->
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
                 <div class="flex items-center cursor-pointer" onclick="window.location='index.html'">
                     <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-2 rounded-lg shadow-md">
                         <i data-lucide="zap" class="h-6 w-6 text-white"></i>
                     </div>
-                    <span class="ml-3 text-xl font-bold text-gray-900">
-                        Your Agency
-                    </span>
+                    <span class="ml-3 text-xl font-bold text-gray-900">Your Agency</span>
                 </div>
-
-                <!-- Desktop Menu -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
                         <a href="index.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Home</a>
                         <a href="index.html#services-section" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Services</a>
                         <a href="index.html#projects" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-                        <a href="blog.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Blog</a>
+                        <a href="blog.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-blue-700">Blog</a>
                         <a href="index.html#ai-models" class="nav-link px-3 py-2 rounded-md text-sm font-medium">AI Models</a>
                         <a href="index.html#contact" class="btn-primary text-sm px-5 py-2">Get in Touch</a>
                     </div>
                 </div>
-
-                <!-- Mobile Menu Button -->
                 <div class="md:hidden">
                     <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-blue-700 p-2">
                         <i id="mobile-menu-icon" data-lucide="menu" class="h-6 w-6"></i>
@@ -216,7 +98,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-blue-100">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
@@ -230,295 +111,86 @@
         </div>
     </nav>
 
-    <!-- Main Content: Two columns (article + sidebar) -->
+    <!-- Main Content -->
     <main class="flex-grow pt-32 pb-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Back to Blog (above columns on mobile, inside on desktop?) We'll put it above both -->
-            <div class="mb-6">
-                <a href="blog.html" class="inline-flex items-center text-gray-600 hover:text-blue-700 text-sm font-medium transition-colors">
-                    <i data-lucide="arrow-left" class="h-4 w-4 mr-2"></i> Back to Blog
-                </a>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Breadcrumb -->
+            <nav class="text-sm text-gray-500 mb-6 flex items-center">
+                <a href="index.html" class="hover:text-blue-700">Home</a>
+                <i data-lucide="chevron-right" class="w-4 h-4 mx-2"></i>
+                <a href="blog.html" class="hover:text-blue-700">Blog</a>
+                <i data-lucide="chevron-right" class="w-4 h-4 mx-2"></i>
+                <span class="text-gray-900 font-medium">Budget Money Manager</span>
+            </nav>
+
+            <!-- Blog Header -->
+            <div class="mb-10">
+                <div class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">App Development</span>
+                    <span>•</span>
+                    <span>5 min read</span>
+                </div>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-6">Budget Money Manager App: Divide Monthly Salary into Structured Plan</h1>
+                
+                <img src="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?auto=format&fit=crop&q=80&w=1200" alt="Budget Planning" class="w-full h-auto rounded-2xl shadow-lg object-cover max-h-[400px]">
             </div>
 
-            <div class="lg:grid lg:grid-cols-3 lg:gap-12">
-                <!-- Article Column (left 2/3) -->
-                <div class="lg:col-span-2">
-                    <article class="prose prose-blue max-w-none animate-fade-in">
-                        <!-- Title -->
-                        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Budget Money Manager App: Divide Monthly Salary into Structured Plan</h1>
-                        
-                        <!-- Meta -->
-                        <div class="flex items-center gap-4 text-gray-500 text-sm mb-8 border-b border-blue-100 pb-6">
-                            <span>By Your Agency Team</span>
-                            <span>•</span>
-                            <span>March 19, 2026</span>
-                            <span>•</span>
-                            <span>6 min read</span>
-                        </div>
+            <!-- Content -->
+            <div class="prose max-w-none mb-12">
+                <h2>The Salary Trap</h2>
+                <p>We've all been there: the salary hits your account on the 1st of the month, and by the 20th, you're wondering where it all went. The problem isn't your income; the problem is the lack of a structured financial architecture.</p>
+                <p>By automating the 50/30/20 budget rule using a structured Money Management App, you instantly remove the emotional friction of saving.</p>
 
-                        <!-- Hero Image -->
-                        <img src="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?auto=format&fit=crop&q=80&w=1200" alt="Person planning budget with calculator and piggy bank" class="w-full rounded-2xl shadow-xl mb-10 border border-blue-100">
+                <h2>The 50/30/20 Rule Explained</h2>
+                <ul>
+                    <li><strong>50% Needs:</strong> Rent, groceries, utilities, and essential bills.</li>
+                    <li><strong>30% Wants:</strong> Dining out, entertainment, and luxury purchases.</li>
+                    <li><strong>20% Savings:</strong> Investments, emergency funds, and debt repayment.</li>
+                </ul>
 
-                        <!-- Content -->
-                        <p class="lead text-xl text-gray-700 mb-6">
-                            Going “nil mid-month” usually means cash flow is unmanaged, not that income is too low.  
-                            Let’s fix this like a system (not just tips). Here’s a practical plan you can implement this week — and how a custom money manager app can automate it all.
-                        </p>
+                <h2>Automating the System</h2>
+                <p>A good budget app doesn't just track where your money went (that's looking in the rearview mirror). It dictates where your money <em>should go</em> before you spend it. Set up auto-transfers on payday, and let the algorithm protect your financial future.</p>
+            </div>
 
-                        <!-- Step 1 -->
-                        <h2>🔍 Step 1: Understand Why You’re Going Broke Mid-Month</h2>
-                        <p>From experience, this usually happens due to:</p>
-                        <ul>
-                            <li>No fixed allocation for expenses</li>
-                            <li>Spending from one account (no separation)</li>
-                            <li>No automated savings</li>
-                            <li>Lifestyle creep (subscriptions, food, small spends)</li>
-                            <li>No “limit visibility”</li>
-                        </ul>
-                        <p>👉 You don’t need to earn more first — you need structure.</p>
+            <!-- Interactive Calculator -->
+            <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 md:p-8 shadow-sm">
+                <h3 class="text-2xl font-bold text-gray-900 mb-2 flex items-center"><i data-lucide="calculator" class="w-6 h-6 mr-2 text-blue-600"></i> Interactive 50/30/20 Calculator</h3>
+                <p class="text-gray-600 mb-8">Enter your monthly take-home salary to instantly structure your budget.</p>
 
-                        <!-- Step 2: 5-Account System with Calculator Integration -->
-                        <h2>💰 Step 2: The “5‑Account Money System” (Game Changer)</h2>
-                        <p>Open or use separate accounts (or wallets like GPay / bank sub‑accounts). Below is a typical allocation. Use the calculator to see how it applies to your income.</p>
-
-                        <!-- Interactive Budget Calculator -->
-                        <div class="glass-panel p-6 rounded-xl my-8 border border-blue-200 animate-slide-up">
-                            <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-                                <i data-lucide="calculator" class="h-6 w-6 mr-2 text-blue-600"></i>
-                                Try the 5‑Account Budget Calculator
-                            </h3>
-                            <p class="text-gray-600 mb-4">Enter your monthly income and we'll split it according to the plan. Adjust percentages if needed.</p>
-                            
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <!-- Input -->
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Monthly Income (₹)</label>
-                                    <input type="number" id="monthlyIncome" value="50000" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
-                                </div>
-                                <div class="flex items-end">
-                                    <button onclick="calculateBudget()" class="btn-primary w-full">Calculate</button>
-                                </div>
-                            </div>
-
-                            <!-- Percentage Sliders (optional customization) -->
-                            <div class="mt-6 grid grid-cols-2 md:grid-cols-5 gap-2 text-xs text-gray-500">
-                                <div>Expenses <span id="expensesPercent" class="font-bold text-blue-700">55%</span></div>
-                                <div>Savings <span id="savingsPercent" class="font-bold text-blue-700">20%</span></div>
-                                <div>Kids <span id="kidsPercent" class="font-bold text-blue-700">10%</span></div>
-                                <div>Lifestyle <span id="lifestylePercent" class="font-bold text-blue-700">10%</span></div>
-                                <div>Emergency <span id="emergencyPercent" class="font-bold text-blue-700">5%</span></div>
-                            </div>
-                            <input type="range" id="expensesSlider" min="0" max="100" value="55" class="w-full mt-2" oninput="updateSliders()">
-                            <input type="range" id="savingsSlider" min="0" max="100" value="20" class="w-full" oninput="updateSliders()">
-                            <input type="range" id="kidsSlider" min="0" max="100" value="10" class="w-full" oninput="updateSliders()">
-                            <input type="range" id="lifestyleSlider" min="0" max="100" value="10" class="w-full" oninput="updateSliders()">
-                            <input type="range" id="emergencySlider" min="0" max="100" value="5" class="w-full" oninput="updateSliders()">
-
-                            <!-- Results -->
-                            <div class="mt-6 grid grid-cols-1 md:grid-cols-5 gap-4">
-                                <div class="bg-blue-50 p-3 rounded-lg text-center">
-                                    <span class="text-xs text-gray-500">Expenses</span>
-                                    <div class="text-lg font-bold text-gray-900" id="expensesAmount">₹27,500</div>
-                                </div>
-                                <div class="bg-blue-50 p-3 rounded-lg text-center">
-                                    <span class="text-xs text-gray-500">Savings</span>
-                                    <div class="text-lg font-bold text-gray-900" id="savingsAmount">₹10,000</div>
-                                </div>
-                                <div class="bg-blue-50 p-3 rounded-lg text-center">
-                                    <span class="text-xs text-gray-500">Kids</span>
-                                    <div class="text-lg font-bold text-gray-900" id="kidsAmount">₹5,000</div>
-                                </div>
-                                <div class="bg-blue-50 p-3 rounded-lg text-center">
-                                    <span class="text-xs text-gray-500">Lifestyle</span>
-                                    <div class="text-lg font-bold text-gray-900" id="lifestyleAmount">₹5,000</div>
-                                </div>
-                                <div class="bg-blue-50 p-3 rounded-lg text-center">
-                                    <span class="text-xs text-gray-500">Emergency</span>
-                                    <div class="text-lg font-bold text-gray-900" id="emergencyAmount">₹2,500</div>
-                                </div>
-                            </div>
-                            <p class="text-xs text-gray-400 mt-2">Adjust sliders to customize your own percentages. Total must equal 100%.</p>
-                        </div>
-
-                        <!-- Continue Steps -->
-                        <h2>⚡ Step 3: Salary Day Rule (MOST IMPORTANT)</h2>
-                        <p>The moment salary hits, immediately split money like this:</p>
-                        <ul>
-                            <li>20% → Savings (lock it)</li>
-                            <li>10% → Kids fund</li>
-                            <li>5–10% → Emergency</li>
-                        </ul>
-                        <p>👉 Only keep spending money in your main account. If you see full balance → you WILL spend it.</p>
-
-                        <h2>📊 Step 4: Your Weekly Budget (Not Monthly)</h2>
-                        <p>Monthly budgeting fails because you overspend early → struggle later. Instead, divide your spending money into 4 weeks.</p>
-                        <p><strong>Example:</strong> ₹40,000 expenses → ₹10,000 per week. Once week budget is over ➡️ STOP spending.</p>
-
-                        <h2>🧠 Step 5: Cut These First (High Impact)</h2>
-                        <p>You don’t need to suffer — just optimize. Biggest money leaks:</p>
-                        <ul>
-                            <li>Daily Swiggy/Zomato</li>
-                            <li>Random Amazon buys</li>
-                            <li>Subscriptions (OTT, apps)</li>
-                            <li>Impulse UPI payments</li>
-                        </ul>
-                        <p>👉 Rule: If it’s not planned → don’t spend.</p>
-
-                        <h2>🏦 Step 6: Where to Put Savings (Simple & Safe)</h2>
-                        <p>Start simple (don’t overcomplicate):</p>
-                        <ul>
-                            <li><strong>For Children:</strong> SIP in Index Fund (₹2k–₹5k/month) or PPF (long‑term safe).</li>
-                            <li><strong>For You & Wife:</strong> Emergency Fund → Savings account / FD. SIP → Wealth creation.</li>
-                        </ul>
-
-                        <h2>🔐 Step 7: Make Saving HARD to Touch</h2>
-                        <p>Use a different bank, no UPI access, no debit card. 👉 If it’s easy → you’ll use it.</p>
-
-                        <h2>🧩 Step 8: Realistic Starter Plan (For You)</h2>
-                        <p>Since you go zero mid-month, start small:</p>
-                        <ul>
-                            <li><strong>Month 1:</strong> Save just 10% total, track every expense for 7 days, no drastic cuts.</li>
-                            <li><strong>Month 2:</strong> Increase to 15–20%, start SIP.</li>
-                        </ul>
-
-                        <h2>📱 Step 9: Tools You Can Use</h2>
-                        <ul>
-                            <li>Walnut / Money Manager app</li>
-                            <li>Excel (we can build one for you)</li>
-                            <li>Bank auto‑transfer</li>
-                        </ul>
-
-                        <h2>🧭 Step 10: Mindset Shift</h2>
-                        <p>Right now: “Spend → Save what’s left (which is zero)”. Change to: “Save first → Spend what’s left”.</p>
-
-                        <div class="bg-blue-50 p-6 rounded-xl my-8 border-l-4 border-blue-600">
-                            <p class="text-lg font-medium text-gray-900 mb-2">💡 Simple Truth</p>
-                            <p class="text-gray-700">You don’t have a money problem. You have a money flow problem. Fix flow → savings will happen automatically.</p>
-                        </div>
-
-                        <!-- FAQ Section with Affiliate Links -->
-                        <h2 class="text-3xl font-bold mt-12 mb-6">Frequently Asked Questions</h2>
-                        
-                        <div class="space-y-4">
-                            <details class="bg-gray-50 p-4 rounded-lg cursor-pointer">
-                                <summary class="font-semibold text-lg">What are the best investment platforms in India?</summary>
-                                <div class="mt-2 text-gray-600">
-                                    <p>We recommend these trusted platforms (we may earn a commission if you sign up):</p>
-                                    <ul class="list-disc pl-5 mt-2">
-                                        <li><a href="https://zerodha.com/open-account?c=YOUR_REF" target="_blank" rel="nofollow sponsored" class="text-blue-700 underline">Zerodha</a> – Low-cost stock trading and mutual funds.</li>
-                                        <li><a href="https://groww.in?ref=YOUR_REF" target="_blank" rel="nofollow sponsored" class="text-blue-700 underline">Groww</a> – User‑friendly for beginners.</li>
-                                        <li><a href="https://www.paytmmoney.com?ref=YOUR_REF" target="_blank" rel="nofollow sponsored" class="text-blue-700 underline">Paytm Money</a> – Direct mutual funds and ETFs.</li>
-                                        <li><a href="https://www.coinbydjus.com?ref=YOUR_REF" target="_blank" rel="nofollow sponsored" class="text-blue-700 underline">Coin by DJUS</a> – Ideal for cryptocurrency exposure.</li>
-                                    </ul>
-                                </div>
-                            </details>
-
-                            <details class="bg-gray-50 p-4 rounded-lg cursor-pointer">
-                                <summary class="font-semibold text-lg">How do I automate the 5‑account split?</summary>
-                                <div class="mt-2 text-gray-600">
-                                    <p>Most banks allow standing instructions to auto‑transfer fixed amounts on salary day. You can also use apps like <a href="https://www.famapp.in?ref=YOUR_REF" target="_blank" rel="nofollow sponsored" class="text-blue-700 underline">Fam</a> or <a href="https://www.indmoney.com?ref=YOUR_REF" target="_blank" rel="nofollow sponsored" class="text-blue-700 underline">INDmoney</a> which automate this for you.</p>
-                                </div>
-                            </details>
-
-                            <details class="bg-gray-50 p-4 rounded-lg cursor-pointer">
-                                <summary class="font-semibold text-lg">What percentage should I save for retirement?</summary>
-                                <div class="mt-2 text-gray-600">
-                                    <p>A common rule is 15–20% of your gross income. Our “Savings” account (20%) can be split between emergency fund and long‑term investments like PPF, NPS, or mutual funds. Check out <a href="https://www.etmoney.com?ref=YOUR_REF" target="_blank" rel="nofollow sponsored" class="text-blue-700 underline">ETMoney</a> for goal‑based planning.</p>
-                                </div>
-                            </details>
-                        </div>
-
-                        <!-- Call to Action -->
-                        <hr class="my-12 border-blue-100" />
-                        <div class="text-center">
-                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Want This Automated?</h3>
-                            <p class="text-gray-600 mb-6">We can build a custom money manager app that does all of the above — auto‑splits your salary, tracks weekly budgets, and sends alerts. Let’s talk.</p>
-                            <a href="index.html#contact" class="btn-primary inline-flex items-center">
-                                Request a Free Consultation <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
-                            </a>
-                        </div>
-                    </article>
+                <div class="mb-8">
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Monthly Take-Home Income (₹)</label>
+                    <input type="number" id="incomeInput" value="50000" class="w-full text-2xl font-bold p-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500" oninput="calculateBudget()">
                 </div>
 
-                <!-- Sidebar (right 1/3) -->
-                <aside class="lg:col-span-1 mt-12 lg:mt-0">
-                    <div class="sticky top-28 space-y-8 animate-slide-up">
-                        <!-- Affiliate: Investment Platforms -->
-                        <div class="glass-panel p-6 rounded-xl border border-blue-200">
-                            <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                                <i data-lucide="trending-up" class="h-5 w-5 mr-2 text-blue-600"></i>
-                                Start Investing Today
-                            </h3>
-                            <p class="text-sm text-gray-600 mb-4">Open an account with these trusted platforms (we may earn a commission).</p>
-                            <div class="space-y-4">
-                                <!-- Zerodha -->
-                                <a href="https://zerodha.com/open-account?c=YOUR_REF" target="_blank" rel="nofollow sponsored" class="affiliate-card flex items-center p-3 bg-white rounded-lg border border-gray-200 hover:border-blue-400 transition">
-                                    <img src="https://logos-world.net/wp-content/uploads/2021/03/Zerodha-Logo.png" alt="Zerodha" class="h-8 w-auto mr-3">
-                                    <div>
-                                        <h4 class="font-semibold text-gray-900">Zerodha</h4>
-                                        <p class="text-xs text-gray-500">#1 discount broker</p>
-                                    </div>
-                                    <i data-lucide="external-link" class="h-4 w-4 ml-auto text-gray-400"></i>
-                                </a>
-                                <!-- Groww -->
-                                <a href="https://groww.in?ref=YOUR_REF" target="_blank" rel="nofollow sponsored" class="affiliate-card flex items-center p-3 bg-white rounded-lg border border-gray-200 hover:border-blue-400 transition">
-                                    <img src="https://logos-world.net/wp-content/uploads/2021/08/Groww-Logo.png" alt="Groww" class="h-8 w-auto mr-3">
-                                    <div>
-                                        <h4 class="font-semibold text-gray-900">Groww</h4>
-                                        <p class="text-xs text-gray-500">Stocks & mutual funds</p>
-                                    </div>
-                                    <i data-lucide="external-link" class="h-4 w-4 ml-auto text-gray-400"></i>
-                                </a>
-                                <!-- INDmoney -->
-                                <a href="https://www.indmoney.com?ref=YOUR_REF" target="_blank" rel="nofollow sponsored" class="affiliate-card flex items-center p-3 bg-white rounded-lg border border-gray-200 hover:border-blue-400 transition">
-                                    <img src="https://logos-world.net/wp-content/uploads/2021/08/INDmoney-Logo.png" alt="INDmoney" class="h-8 w-auto mr-3">
-                                    <div>
-                                        <h4 class="font-semibold text-gray-900">INDmoney</h4>
-                                        <p class="text-xs text-gray-500">All-in-one finance</p>
-                                    </div>
-                                    <i data-lucide="external-link" class="h-4 w-4 ml-auto text-gray-400"></i>
-                                </a>
-                                <!-- ET Money -->
-                                <a href="https://www.etmoney.com?ref=YOUR_REF" target="_blank" rel="nofollow sponsored" class="affiliate-card flex items-center p-3 bg-white rounded-lg border border-gray-200 hover:border-blue-400 transition">
-                                    <img src="https://logos-world.net/wp-content/uploads/2021/08/ET-Money-Logo.png" alt="ET Money" class="h-8 w-auto mr-3">
-                                    <div>
-                                        <h4 class="font-semibold text-gray-900">ET Money</h4>
-                                        <p class="text-xs text-gray-500">Goal planning</p>
-                                    </div>
-                                    <i data-lucide="external-link" class="h-4 w-4 ml-auto text-gray-400"></i>
-                                </a>
-                            </div>
-                            <p class="text-xs text-gray-400 mt-4">Disclosure: We earn a commission if you sign up via these links.</p>
-                        </div>
-
-                        <!-- Newsletter Signup (short) -->
-                        <div class="glass-panel p-6 rounded-xl border border-blue-200">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">📩 Weekly Finance Tips</h3>
-                            <p class="text-sm text-gray-600 mb-4">Get one actionable tip every Monday.</p>
-                            <div class="flex">
-                                <input type="email" placeholder="Your email" class="w-full px-3 py-2 rounded-l-md text-sm border-gray-300">
-                                <button class="bg-blue-800 px-4 py-2 rounded-r-md hover:bg-blue-700 transition-colors">
-                                    <i data-lucide="arrow-right" class="h-4 w-4 text-white"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Related Tools -->
-                        <div class="glass-panel p-6 rounded-xl border border-blue-200">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">🔧 Free Tools</h3>
-                            <ul class="space-y-2 text-sm">
-                                <li><a href="#" class="text-blue-700 hover:underline">SIP Calculator</a></li>
-                                <li><a href="#" class="text-blue-700 hover:underline">Income Tax Calculator</a></li>
-                                <li><a href="#" class="text-blue-700 hover:underline">Emergency Fund Goal</a></li>
-                            </ul>
-                        </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm text-center">
+                        <span class="text-xs font-bold uppercase tracking-wider text-gray-500 block mb-1">Needs (50%)</span>
+                        <div id="needsResult" class="text-2xl font-bold text-blue-700">₹25,000</div>
+                        <p class="text-xs text-gray-400 mt-2">Rent, Groceries, Bills</p>
                     </div>
-                </aside>
+                    <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm text-center">
+                        <span class="text-xs font-bold uppercase tracking-wider text-gray-500 block mb-1">Wants (30%)</span>
+                        <div id="wantsResult" class="text-2xl font-bold text-gray-900">₹15,000</div>
+                        <p class="text-xs text-gray-400 mt-2">Lifestyle & Hobbies</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm text-center border-b-4 border-b-green-500">
+                        <span class="text-xs font-bold uppercase tracking-wider text-gray-500 block mb-1">Savings (20%)</span>
+                        <div id="savingsResult" class="text-2xl font-bold text-green-600">₹10,000</div>
+                        <p class="text-xs text-gray-400 mt-2">Investments & Debt</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="mt-12 bg-blue-900 text-white rounded-2xl p-8 text-center shadow-lg">
+                <h3 class="text-2xl font-bold mb-4">Want to Build a Fintech App?</h3>
+                <p class="text-blue-200 mb-6">We design and develop scalable finance apps that users love. Let's build your vision.</p>
+                <a href="index.html#contact" class="inline-block bg-white text-blue-900 font-bold px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors">Get a Free Consultation</a>
             </div>
         </div>
     </main>
 
-    <!-- Footer (identical to main) -->
+    <!-- Footer -->
     <footer class="bg-gray-50 border-t border-blue-100 pt-16 pb-8 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
@@ -529,11 +201,8 @@
                         </div>
                         <span class="ml-3 text-lg font-bold text-gray-900">YOUR AGENCY</span>
                     </div>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Complete digital solutions – from web development to AI integration.
-                    </p>
+                    <p class="text-gray-600 text-sm leading-relaxed">Complete digital solutions – from web development to AI integration.</p>
                 </div>
-                
                 <div>
                     <h4 class="text-gray-900 font-semibold mb-4">Services</h4>
                     <ul class="space-y-2 text-sm text-gray-600">
@@ -543,7 +212,6 @@
                         <li><a href="index.html#digital-marketing" class="hover:text-blue-700 transition-colors">Digital Marketing</a></li>
                     </ul>
                 </div>
-
                 <div>
                     <h4 class="text-gray-900 font-semibold mb-4">Resources</h4>
                     <ul class="space-y-2 text-sm text-gray-600">
@@ -553,12 +221,11 @@
                         <li><a href="index.html#contact" class="hover:text-blue-700 transition-colors">Contact</a></li>
                     </ul>
                 </div>
-
                 <div>
                     <h4 class="text-gray-900 font-semibold mb-4">Newsletter</h4>
                     <p class="text-gray-600 text-sm mb-4">Get weekly insights.</p>
                     <div class="flex">
-                        <input type="email" placeholder="Enter email" class="w-full px-4 py-2 rounded-l-md text-sm border-gray-300" />
+                        <input type="email" placeholder="Enter email" class="w-full px-4 py-2 rounded-l-md text-sm border border-gray-300" />
                         <button class="bg-blue-800 px-4 py-2 rounded-r-md hover:bg-blue-700 transition-colors">
                             <i data-lucide="arrow-right" class="h-4 w-4 text-white"></i>
                         </button>
@@ -575,44 +242,7 @@
         </div>
     </footer>
 
-    <!-- Budget Calculator JavaScript -->
-    <script>
-        function calculateBudget() {
-            const income = parseFloat(document.getElementById('monthlyIncome').value) || 0;
-            const expensesPercent = parseFloat(document.getElementById('expensesSlider').value);
-            const savingsPercent = parseFloat(document.getElementById('savingsSlider').value);
-            const kidsPercent = parseFloat(document.getElementById('kidsSlider').value);
-            const lifestylePercent = parseFloat(document.getElementById('lifestyleSlider').value);
-            const emergencyPercent = parseFloat(document.getElementById('emergencySlider').value);
-
-            // Update displayed percentages
-            document.getElementById('expensesPercent').innerText = expensesPercent + '%';
-            document.getElementById('savingsPercent').innerText = savingsPercent + '%';
-            document.getElementById('kidsPercent').innerText = kidsPercent + '%';
-            document.getElementById('lifestylePercent').innerText = lifestylePercent + '%';
-            document.getElementById('emergencyPercent').innerText = emergencyPercent + '%';
-
-            // Calculate amounts
-            document.getElementById('expensesAmount').innerText = '₹' + (income * expensesPercent / 100).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-            document.getElementById('savingsAmount').innerText = '₹' + (income * savingsPercent / 100).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-            document.getElementById('kidsAmount').innerText = '₹' + (income * kidsPercent / 100).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-            document.getElementById('lifestyleAmount').innerText = '₹' + (income * lifestylePercent / 100).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-            document.getElementById('emergencyAmount').innerText = '₹' + (income * emergencyPercent / 100).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-        }
-
-        function updateSliders() {
-            // Optional: enforce total 100% by adjusting others? For simplicity we just recalc.
-            calculateBudget();
-        }
-
-        // Initialize on load
-        document.addEventListener('DOMContentLoaded', () => {
-            calculateBudget();
-            lucide.createIcons();
-        });
-    </script>
-
-    <!-- Mobile menu toggle script -->
+    <!-- Scripts -->
     <script>
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
@@ -626,6 +256,31 @@
             }
             lucide.createIcons();
         }
+
+        function calculateBudget() {
+            const income = parseFloat(document.getElementById('incomeInput').value) || 0;
+            document.getElementById('needsResult').innerText = '₹' + (income * 0.50).toLocaleString('en-IN', { maximumFractionDigits: 0 });
+            document.getElementById('wantsResult').innerText = '₹' + (income * 0.30).toLocaleString('en-IN', { maximumFractionDigits: 0 });
+            document.getElementById('savingsResult').innerText = '₹' + (income * 0.20).toLocaleString('en-IN', { maximumFractionDigits: 0 });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            calculateBudget();
+            lucide.createIcons();
+        });
+    </script>
+
+    <!-- Tawk.to Script -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function(){
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/6993fa897941b81c35293c7a/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
     </script>
 </body>
 </html>
