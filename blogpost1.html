@@ -31,9 +31,7 @@
     <!-- SEO Meta -->
     <title>Budget Money Manager App | Digital Agency Blog</title>
     <meta name="description" content="Learn how a simple money management app can automate the 5-account system and fix your cash flow.">
-    <meta name="keywords" content="budget app, money management, 50/30/20 rule, financial planning, automated savings">
-    <meta name="author" content="Your Agency">
-    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="budget app, money management, 50/30/20 rule, financial planning">
 
     <!-- Tailwind CSS & Lucide Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -41,18 +39,7 @@
 
     <!-- Custom Tailwind Config -->
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { primary: '#1e3a8a', secondary: '#3b82f6', accent: '#dbeafe' },
-                    animation: { 'fade-in': 'fadeIn 0.5s ease-out forwards', 'slide-up': 'slideUp 0.4s ease-out' },
-                    keyframes: {
-                        fadeIn: { '0%': { opacity: '0', transform: 'translateY(10px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
-                        slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } }
-                    }
-                }
-            }
-        }
+        tailwind.config = { theme: { extend: { colors: { primary: '#1e3a8a', secondary: '#3b82f6', accent: '#dbeafe' } } } }
     </script>
 
     <style>
@@ -66,12 +53,11 @@
         .btn-primary:hover { background-color: #2563eb; transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(30, 58, 138, 0.3); }
         .nav-link { color: #4b5563; font-weight: 500; transition: color 0.2s; }
         .nav-link:hover, .nav-link.active { color: #1e3a8a; }
-        input[type=range] { accent-color: #3b82f6; }
     </style>
 </head>
-<body class="bg-white text-gray-900 antialiased selection:bg-blue-200 selection:text-blue-900 flex flex-col min-h-screen">
+<body class="bg-white text-gray-900 antialiased flex flex-col min-h-screen">
 
-    <!-- Navbar -->
+    <!-- SYNCHRONIZED NAVBAR -->
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
@@ -86,7 +72,7 @@
                         <a href="index.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Home</a>
                         <a href="index.html#services-section" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Services</a>
                         <a href="index.html#projects" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-                        <a href="blog.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-blue-700">Blog</a>
+                        <a href="blogs.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-blue-700">Blog</a>
                         <a href="index.html#ai-models" class="nav-link px-3 py-2 rounded-md text-sm font-medium">AI Models</a>
                         <a href="index.html#contact" class="btn-primary text-sm px-5 py-2">Get in Touch</a>
                     </div>
@@ -98,44 +84,38 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile Menu -->
+        <!-- SYNCHRONIZED MOBILE/BURGER MENU -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-blue-100">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="index.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Home</a>
                 <a href="index.html#services-section" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Services</a>
                 <a href="index.html#projects" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Projects</a>
-                <a href="blog.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-blue-700">Blog</a>
+                <a href="blogs.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-blue-700">Blog</a>
                 <a href="index.html#ai-models" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">AI Models</a>
-                <a href="index.html#contact" class="block w-full text-left px-3 py-2 text-base font-medium text-blue-700">Get in Touch</a>
+                <a href="index.html#contact" class="block w-full text-left px-3 py-2 text-base font-medium text-blue-700 hover:bg-blue-50">Get in Touch</a>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main class="flex-grow pt-32 pb-20">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Breadcrumb -->
             <nav class="text-sm text-gray-500 mb-6 flex items-center">
                 <a href="index.html" class="hover:text-blue-700">Home</a>
                 <i data-lucide="chevron-right" class="w-4 h-4 mx-2"></i>
-                <a href="blog.html" class="hover:text-blue-700">Blog</a>
+                <a href="blogs.html" class="hover:text-blue-700">Blog</a>
                 <i data-lucide="chevron-right" class="w-4 h-4 mx-2"></i>
                 <span class="text-gray-900 font-medium">Budget Money Manager</span>
             </nav>
 
-            <!-- Blog Header -->
             <div class="mb-10">
                 <div class="flex items-center gap-2 text-sm text-gray-500 mb-4">
                     <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">App Development</span>
-                    <span>•</span>
-                    <span>5 min read</span>
+                    <span>•</span><span>5 min read</span>
                 </div>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-6">Budget Money Manager App: Divide Monthly Salary into Structured Plan</h1>
-                
                 <img src="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?auto=format&fit=crop&q=80&w=1200" alt="Budget Planning" class="w-full h-auto rounded-2xl shadow-lg object-cover max-h-[400px]">
             </div>
 
-            <!-- Content -->
             <div class="prose max-w-none mb-12">
                 <h2>The Salary Trap</h2>
                 <p>We've all been there: the salary hits your account on the 1st of the month, and by the 20th, you're wondering where it all went. The problem isn't your income; the problem is the lack of a structured financial architecture.</p>
@@ -147,12 +127,8 @@
                     <li><strong>30% Wants:</strong> Dining out, entertainment, and luxury purchases.</li>
                     <li><strong>20% Savings:</strong> Investments, emergency funds, and debt repayment.</li>
                 </ul>
-
-                <h2>Automating the System</h2>
-                <p>A good budget app doesn't just track where your money went (that's looking in the rearview mirror). It dictates where your money <em>should go</em> before you spend it. Set up auto-transfers on payday, and let the algorithm protect your financial future.</p>
             </div>
 
-            <!-- Interactive Calculator -->
             <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 md:p-8 shadow-sm">
                 <h3 class="text-2xl font-bold text-gray-900 mb-2 flex items-center"><i data-lucide="calculator" class="w-6 h-6 mr-2 text-blue-600"></i> Interactive 50/30/20 Calculator</h3>
                 <p class="text-gray-600 mb-8">Enter your monthly take-home salary to instantly structure your budget.</p>
@@ -166,22 +142,18 @@
                     <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm text-center">
                         <span class="text-xs font-bold uppercase tracking-wider text-gray-500 block mb-1">Needs (50%)</span>
                         <div id="needsResult" class="text-2xl font-bold text-blue-700">₹25,000</div>
-                        <p class="text-xs text-gray-400 mt-2">Rent, Groceries, Bills</p>
                     </div>
                     <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm text-center">
                         <span class="text-xs font-bold uppercase tracking-wider text-gray-500 block mb-1">Wants (30%)</span>
                         <div id="wantsResult" class="text-2xl font-bold text-gray-900">₹15,000</div>
-                        <p class="text-xs text-gray-400 mt-2">Lifestyle & Hobbies</p>
                     </div>
                     <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm text-center border-b-4 border-b-green-500">
                         <span class="text-xs font-bold uppercase tracking-wider text-gray-500 block mb-1">Savings (20%)</span>
                         <div id="savingsResult" class="text-2xl font-bold text-green-600">₹10,000</div>
-                        <p class="text-xs text-gray-400 mt-2">Investments & Debt</p>
                     </div>
                 </div>
             </div>
 
-            <!-- CTA -->
             <div class="mt-12 bg-blue-900 text-white rounded-2xl p-8 text-center shadow-lg">
                 <h3 class="text-2xl font-bold mb-4">Want to Build a Fintech App?</h3>
                 <p class="text-blue-200 mb-6">We design and develop scalable finance apps that users love. Let's build your vision.</p>
@@ -196,53 +168,31 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-1 md:col-span-1">
                     <div class="flex items-center mb-4">
-                        <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-1.5 rounded-lg shadow">
-                            <i data-lucide="zap" class="h-5 w-5 text-white"></i>
-                        </div>
+                        <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-1.5 rounded-lg shadow"><i data-lucide="zap" class="h-5 w-5 text-white"></i></div>
                         <span class="ml-3 text-lg font-bold text-gray-900">YOUR AGENCY</span>
                     </div>
-                    <p class="text-gray-600 text-sm leading-relaxed">Complete digital solutions – from web development to AI integration.</p>
+                    <p class="text-gray-600 text-sm">Complete digital solutions – from web development to AI integration.</p>
                 </div>
                 <div>
                     <h4 class="text-gray-900 font-semibold mb-4">Services</h4>
                     <ul class="space-y-2 text-sm text-gray-600">
-                        <li><a href="index.html#web-dev" class="hover:text-blue-700 transition-colors">Web Development</a></li>
-                        <li><a href="index.html#app-dev" class="hover:text-blue-700 transition-colors">App Development</a></li>
-                        <li><a href="index.html#seo" class="hover:text-blue-700 transition-colors">SEO</a></li>
-                        <li><a href="index.html#digital-marketing" class="hover:text-blue-700 transition-colors">Digital Marketing</a></li>
+                        <li><a href="index.html#services-section" class="hover:text-blue-700">Web Development</a></li>
+                        <li><a href="index.html#services-section" class="hover:text-blue-700">App Development</a></li>
+                        <li><a href="index.html#services-section" class="hover:text-blue-700">SEO</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-gray-900 font-semibold mb-4">Resources</h4>
                     <ul class="space-y-2 text-sm text-gray-600">
-                        <li><a href="blog.html" class="hover:text-blue-700 transition-colors">Blog</a></li>
-                        <li><a href="index.html#projects" class="hover:text-blue-700 transition-colors">Projects</a></li>
-                        <li><a href="privacy.html" class="hover:text-blue-700 transition-colors">Privacy Policy</a></li>
-                        <li><a href="index.html#contact" class="hover:text-blue-700 transition-colors">Contact</a></li>
+                        <li><a href="blogs.html" class="hover:text-blue-700">Blog</a></li>
+                        <li><a href="index.html#projects" class="hover:text-blue-700">Projects</a></li>
+                        <li><a href="index.html#contact" class="hover:text-blue-700">Contact</a></li>
                     </ul>
-                </div>
-                <div>
-                    <h4 class="text-gray-900 font-semibold mb-4">Newsletter</h4>
-                    <p class="text-gray-600 text-sm mb-4">Get weekly insights.</p>
-                    <div class="flex">
-                        <input type="email" placeholder="Enter email" class="w-full px-4 py-2 rounded-l-md text-sm border border-gray-300" />
-                        <button class="bg-blue-800 px-4 py-2 rounded-r-md hover:bg-blue-700 transition-colors">
-                            <i data-lucide="arrow-right" class="h-4 w-4 text-white"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-blue-100 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-500 text-sm">© 2026 Your Agency. All rights reserved.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <i data-lucide="twitter" class="h-5 w-5 text-gray-500 hover:text-blue-700 cursor-pointer transition"></i>
-                    <i data-lucide="linkedin" class="h-5 w-5 text-gray-500 hover:text-blue-700 cursor-pointer transition"></i>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script>
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
@@ -256,20 +206,17 @@
             }
             lucide.createIcons();
         }
-
         function calculateBudget() {
             const income = parseFloat(document.getElementById('incomeInput').value) || 0;
             document.getElementById('needsResult').innerText = '₹' + (income * 0.50).toLocaleString('en-IN', { maximumFractionDigits: 0 });
             document.getElementById('wantsResult').innerText = '₹' + (income * 0.30).toLocaleString('en-IN', { maximumFractionDigits: 0 });
             document.getElementById('savingsResult').innerText = '₹' + (income * 0.20).toLocaleString('en-IN', { maximumFractionDigits: 0 });
         }
-
         document.addEventListener('DOMContentLoaded', () => {
             calculateBudget();
             lucide.createIcons();
         });
     </script>
-
     <!-- Tawk.to Script -->
     <script type="text/javascript">
         var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
