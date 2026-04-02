@@ -31,9 +31,7 @@
     <!-- SEO Meta -->
     <title>Advanced Prompt Engineering Frameworks | Digital Agency Blog</title>
     <meta name="description" content="Discover advanced prompt engineering frameworks that operations managers use to automate reporting and cut operational friction in half.">
-    <meta name="keywords" content="prompt engineering, operations AI, automate reporting, UX research automation, corporate analytics AI">
-    <meta name="author" content="Your Agency">
-    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="prompt engineering, operations AI, automate reporting">
 
     <!-- Tailwind CSS & Lucide Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -41,27 +39,14 @@
 
     <!-- Custom Tailwind Config -->
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { primary: '#1e3a8a', secondary: '#3b82f6', accent: '#dbeafe' },
-                    animation: { 'fade-in': 'fadeIn 0.5s ease-out forwards', 'slide-up': 'slideUp 0.4s ease-out' },
-                    keyframes: {
-                        fadeIn: { '0%': { opacity: '0', transform: 'translateY(10px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
-                        slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } }
-                    }
-                }
-            }
-        }
+        tailwind.config = { theme: { extend: { colors: { primary: '#1e3a8a', secondary: '#3b82f6', accent: '#dbeafe' } } } }
     </script>
 
     <style>
         body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #ffffff; color: #1f2937; }
         .prose h2 { color: #111827; font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
-        .prose h3 { color: #111827; font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; }
         .prose p { margin-bottom: 1rem; line-height: 1.75; color: #374151; }
-        .prose ul, .prose ol { margin-bottom: 1rem; padding-left: 1.5rem; color: #374151; }
-        .prose li { margin-bottom: 0.5rem; }
+        .prose ul { margin-bottom: 1rem; padding-left: 1.5rem; list-style-type: disc; color: #374151; }
         .btn-primary { background-color: #1e3a8a; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; transition: all 0.2s; box-shadow: 0 4px 6px -1px rgba(30, 58, 138, 0.2); }
         .btn-primary:hover { background-color: #2563eb; transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(30, 58, 138, 0.3); }
         .nav-link { color: #4b5563; font-weight: 500; transition: color 0.2s; }
@@ -69,9 +54,9 @@
         input[type=range] { accent-color: #3b82f6; }
     </style>
 </head>
-<body class="bg-white text-gray-900 antialiased selection:bg-blue-200 selection:text-blue-900 flex flex-col min-h-screen">
+<body class="bg-white text-gray-900 antialiased flex flex-col min-h-screen">
 
-    <!-- Navbar -->
+    <!-- SYNCHRONIZED NAVBAR -->
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
@@ -86,7 +71,7 @@
                         <a href="index.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Home</a>
                         <a href="index.html#services-section" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Services</a>
                         <a href="index.html#projects" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-                        <a href="blog.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-blue-700">Blog</a>
+                        <a href="blogs.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-blue-700">Blog</a>
                         <a href="index.html#ai-models" class="nav-link px-3 py-2 rounded-md text-sm font-medium">AI Models</a>
                         <a href="index.html#contact" class="btn-primary text-sm px-5 py-2">Get in Touch</a>
                     </div>
@@ -98,105 +83,88 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile Menu -->
+        <!-- SYNCHRONIZED MOBILE/BURGER MENU -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-blue-100">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="index.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Home</a>
                 <a href="index.html#services-section" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Services</a>
                 <a href="index.html#projects" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Projects</a>
-                <a href="blog.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-blue-700">Blog</a>
+                <a href="blogs.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-blue-700">Blog</a>
                 <a href="index.html#ai-models" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">AI Models</a>
-                <a href="index.html#contact" class="block w-full text-left px-3 py-2 text-base font-medium text-blue-700">Get in Touch</a>
+                <a href="index.html#contact" class="block w-full text-left px-3 py-2 text-base font-medium text-blue-700 hover:bg-blue-50">Get in Touch</a>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main class="flex-grow pt-32 pb-20">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Breadcrumb -->
             <nav class="text-sm text-gray-500 mb-6 flex items-center">
                 <a href="index.html" class="hover:text-blue-700">Home</a>
                 <i data-lucide="chevron-right" class="w-4 h-4 mx-2"></i>
-                <a href="blog.html" class="hover:text-blue-700">Blog</a>
+                <a href="blogs.html" class="hover:text-blue-700">Blog</a>
                 <i data-lucide="chevron-right" class="w-4 h-4 mx-2"></i>
                 <span class="text-gray-900 font-medium">Prompt Engineering</span>
             </nav>
 
-            <!-- Blog Header -->
             <div class="mb-10">
                 <div class="flex items-center gap-2 text-sm text-gray-500 mb-4">
                     <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">Operations & AI</span>
-                    <span>•</span>
-                    <span>8 min read</span>
+                    <span>•</span><span>8 min read</span>
                 </div>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-6">Advanced Prompt Engineering Frameworks for Operations</h1>
-                
-                <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=1200" alt="Code and AI algorithms" class="w-full h-auto rounded-2xl shadow-lg object-cover max-h-[400px]">
+                <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=1200" alt="Code AI" class="w-full h-auto rounded-2xl shadow-lg object-cover max-h-[400px]">
             </div>
 
-            <!-- Content -->
             <div class="prose max-w-none mb-12">
-                <h2>The Evolution of Work: From Doing to Directing</h2>
-                <p>In the corporate world—whether managing enterprise customer care queues or directing agency deliverables—the biggest bottleneck is always human bandwidth. Operations managers spend 80% of their time formatting reports, identifying pain points in data, and writing scope documents.</p>
-                <p><strong>Prompt Engineering</strong> is the skill that bridges the gap between manual labor and infinite scale. By mastering specific frameworks, you transition from "doing the work" to "directing the intelligence."</p>
+                <h2>From Doing to Directing</h2>
+                <p>In the corporate world, the biggest bottleneck is always human bandwidth. Operations managers spend 80% of their time formatting reports and writing scope documents. By mastering prompt frameworks, you transition from "doing the work" to "directing the intelligence."</p>
 
                 <h2>The R-C-T-O Framework</h2>
-                <p>The most common mistake business owners make is providing AI with vague instructions. To extract enterprise-grade analytics, use the R-C-T-O framework:</p>
-                <ul style="list-style-type: disc;">
-                    <li><strong>Role (Persona):</strong> "Act as a Senior UX Researcher and Workforce Analyst..."</li>
-                    <li><strong>Context (Environment):</strong> "We are analyzing a dataset of 5,000 customer service tickets regarding our new checkout flow..."</li>
-                    <li><strong>Task (Action):</strong> "Identify the top 3 recurring friction points and draft a clear scope-of-work document..."</li>
-                    <li><strong>Output (Format):</strong> "Format the response as a markdown table followed by an executive summary."</li>
+                <ul>
+                    <li><strong>Role (Persona):</strong> "Act as a Senior UX Researcher..."</li>
+                    <li><strong>Context (Environment):</strong> "We are analyzing a dataset of 5,000 tickets..."</li>
+                    <li><strong>Task (Action):</strong> "Identify the top 3 recurring friction points..."</li>
+                    <li><strong>Output (Format):</strong> "Format the response as a markdown table."</li>
                 </ul>
-
-                <h2>Building Solutions, Not Just Documents</h2>
-                <p>When you master prompt engineering, you are no longer just an analyst writing reports—you become an architect building solutions. You identify the bottleneck, engineer the prompt to process the data, and deliver a frictionless solution.</p>
             </div>
 
             <!-- Interactive Calculator -->
             <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 md:p-8 shadow-sm">
                 <h3 class="text-2xl font-bold text-gray-900 mb-2 flex items-center"><i data-lucide="clock" class="w-6 h-6 mr-2 text-blue-600"></i> AI Time-Savings Calculator</h3>
-                <p class="text-gray-600 mb-8">Calculate exactly how much money and time you waste on manual operations.</p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
                     <div class="space-y-6">
                         <div>
                             <label class="block text-sm font-semibold text-gray-700 mb-2">Reports/Tasks per Month</label>
-                            <input type="range" id="tasksSlider" min="5" max="100" step="5" value="20" class="w-full h-2 rounded-lg appearance-none cursor-pointer" oninput="updateTimeCalc()">
+                            <input type="range" id="tasksSlider" min="5" max="100" step="5" value="20" class="w-full h-2 rounded-lg" oninput="updateTimeCalc()">
                             <div class="flex justify-between text-xs text-gray-500 mt-2">
-                                <span>5</span><span id="tasksLabel" class="font-bold text-blue-700">20 tasks</span><span>100</span>
+                                <span id="tasksLabel" class="font-bold text-blue-700">20 tasks</span>
                             </div>
                         </div>
                         <div>
                             <label class="block text-sm font-semibold text-gray-700 mb-2">Manual Hours per Task</label>
-                            <input type="range" id="hoursSlider" min="1" max="10" step="1" value="3" class="w-full h-2 rounded-lg appearance-none cursor-pointer" oninput="updateTimeCalc()">
+                            <input type="range" id="hoursSlider" min="1" max="10" step="1" value="3" class="w-full h-2 rounded-lg" oninput="updateTimeCalc()">
                             <div class="flex justify-between text-xs text-gray-500 mt-2">
-                                <span>1 hr</span><span id="hoursLabel" class="font-bold text-blue-700">3 hrs</span><span>10 hrs</span>
+                                <span id="hoursLabel" class="font-bold text-blue-700">3 hrs</span>
                             </div>
                         </div>
                         <div>
                             <label class="block text-sm font-semibold text-gray-700 mb-2">Your Hourly Value (₹)</label>
-                            <input type="range" id="rateSlider" min="500" max="10000" step="500" value="2000" class="w-full h-2 rounded-lg appearance-none cursor-pointer" oninput="updateTimeCalc()">
+                            <input type="range" id="rateSlider" min="500" max="10000" step="500" value="2000" class="w-full h-2 rounded-lg" oninput="updateTimeCalc()">
                             <div class="flex justify-between text-xs text-gray-500 mt-2">
-                                <span>₹500/hr</span><span id="rateLabel" class="font-bold text-blue-700">₹2,000/hr</span><span>₹10K/hr</span>
+                                <span id="rateLabel" class="font-bold text-blue-700">₹2,000/hr</span>
                             </div>
                         </div>
                     </div>
-
-                    <div class="bg-blue-900 rounded-xl p-6 text-white flex flex-col justify-center items-center text-center shadow-inner">
-                        <span class="text-blue-200 text-sm uppercase tracking-wider font-semibold mb-2">Monthly Wasted Value</span>
+                    <div class="bg-blue-900 rounded-xl p-6 text-white flex flex-col justify-center items-center text-center">
+                        <span class="text-blue-200 text-sm uppercase font-semibold mb-2">Monthly Wasted Value</span>
                         <span id="wastedMoney" class="text-4xl md:text-5xl font-extrabold text-white mb-2">₹1,20,000</span>
-                        <span id="wastedHours" class="text-sm text-blue-300 font-medium">60 hours of manual labor</span>
-                        <p class="text-xs text-blue-200 mt-3">AI Prompt Automation reduces this by 90%.</p>
+                        <span id="wastedHours" class="text-sm text-blue-300">60 hours of manual labor</span>
                     </div>
                 </div>
             </div>
 
-            <!-- CTA -->
             <div class="mt-12 bg-blue-900 text-white rounded-2xl p-8 text-center shadow-lg">
                 <h3 class="text-2xl font-bold mb-4">Reclaim Your Team's Time</h3>
-                <p class="text-blue-200 mb-6">We integrate custom AI models directly into your business workflows.</p>
                 <a href="index.html#contact" class="inline-block bg-white text-blue-900 font-bold px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors">Book an AI Workflow Audit</a>
             </div>
         </div>
@@ -208,98 +176,56 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-1 md:col-span-1">
                     <div class="flex items-center mb-4">
-                        <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-1.5 rounded-lg shadow">
-                            <i data-lucide="zap" class="h-5 w-5 text-white"></i>
-                        </div>
+                        <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-1.5 rounded-lg shadow"><i data-lucide="zap" class="h-5 w-5 text-white"></i></div>
                         <span class="ml-3 text-lg font-bold text-gray-900">YOUR AGENCY</span>
                     </div>
-                    <p class="text-gray-600 text-sm leading-relaxed">Complete digital solutions – from web development to AI integration.</p>
                 </div>
                 <div>
                     <h4 class="text-gray-900 font-semibold mb-4">Services</h4>
                     <ul class="space-y-2 text-sm text-gray-600">
-                        <li><a href="index.html#web-dev" class="hover:text-blue-700 transition-colors">Web Development</a></li>
-                        <li><a href="index.html#app-dev" class="hover:text-blue-700 transition-colors">App Development</a></li>
-                        <li><a href="index.html#seo" class="hover:text-blue-700 transition-colors">SEO</a></li>
-                        <li><a href="index.html#digital-marketing" class="hover:text-blue-700 transition-colors">Digital Marketing</a></li>
+                        <li><a href="index.html#services-section" class="hover:text-blue-700">Web Development</a></li>
+                        <li><a href="index.html#services-section" class="hover:text-blue-700">SEO</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-gray-900 font-semibold mb-4">Resources</h4>
                     <ul class="space-y-2 text-sm text-gray-600">
-                        <li><a href="blog.html" class="hover:text-blue-700 transition-colors">Blog</a></li>
-                        <li><a href="index.html#projects" class="hover:text-blue-700 transition-colors">Projects</a></li>
-                        <li><a href="privacy.html" class="hover:text-blue-700 transition-colors">Privacy Policy</a></li>
-                        <li><a href="index.html#contact" class="hover:text-blue-700 transition-colors">Contact</a></li>
+                        <li><a href="blogs.html" class="hover:text-blue-700">Blog</a></li>
+                        <li><a href="index.html#contact" class="hover:text-blue-700">Contact</a></li>
                     </ul>
-                </div>
-                <div>
-                    <h4 class="text-gray-900 font-semibold mb-4">Newsletter</h4>
-                    <p class="text-gray-600 text-sm mb-4">Get weekly insights.</p>
-                    <div class="flex">
-                        <input type="email" placeholder="Enter email" class="w-full px-4 py-2 rounded-l-md text-sm border border-gray-300" />
-                        <button class="bg-blue-800 px-4 py-2 rounded-r-md hover:bg-blue-700 transition-colors">
-                            <i data-lucide="arrow-right" class="h-4 w-4 text-white"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-blue-100 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-500 text-sm">© 2026 Your Agency. All rights reserved.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <i data-lucide="twitter" class="h-5 w-5 text-gray-500 hover:text-blue-700 cursor-pointer transition"></i>
-                    <i data-lucide="linkedin" class="h-5 w-5 text-gray-500 hover:text-blue-700 cursor-pointer transition"></i>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script>
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('mobile-menu-icon');
-            if (menu.classList.contains('hidden')) {
-                menu.classList.remove('hidden');
-                icon.setAttribute('data-lucide', 'x');
-            } else {
-                menu.classList.add('hidden');
-                icon.setAttribute('data-lucide', 'menu');
-            }
+            if (menu.classList.contains('hidden')) { menu.classList.remove('hidden'); icon.setAttribute('data-lucide', 'x'); } 
+            else { menu.classList.add('hidden'); icon.setAttribute('data-lucide', 'menu'); }
             lucide.createIcons();
         }
-
         function updateTimeCalc() {
             const tasks = parseInt(document.getElementById('tasksSlider').value);
             const hours = parseInt(document.getElementById('hoursSlider').value);
             const rate = parseInt(document.getElementById('rateSlider').value);
-
             document.getElementById('tasksLabel').innerText = tasks + ' tasks';
             document.getElementById('hoursLabel').innerText = hours + ' hrs';
             document.getElementById('rateLabel').innerText = '₹' + rate.toLocaleString() + '/hr';
-
             const totalHours = tasks * hours;
             const moneyWasted = totalHours * rate;
-            
             document.getElementById('wastedHours').innerText = totalHours + ' hours of manual labor';
             document.getElementById('wastedMoney').innerText = '₹' + moneyWasted.toLocaleString('en-IN', { maximumFractionDigits: 0 });
         }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            updateTimeCalc();
-            lucide.createIcons();
-        });
+        document.addEventListener('DOMContentLoaded', () => { updateTimeCalc(); lucide.createIcons(); });
     </script>
-
-    <!-- Tawk.to Script -->
     <script type="text/javascript">
         var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
         (function(){
             var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-            s1.async = true;
-            s1.src = 'https://embed.tawk.to/6993fa897941b81c35293c7a/default';
-            s1.charset = 'UTF-8';
-            s1.setAttribute('crossorigin', '*');
+            s1.async = true; s1.src = 'https://embed.tawk.to/6993fa897941b81c35293c7a/default';
+            s1.charset = 'UTF-8'; s1.setAttribute('crossorigin', '*');
             s0.parentNode.insertBefore(s1, s0);
         })();
     </script>
