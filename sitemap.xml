@@ -2,8 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.denisiawebops.org/</loc>
-    <lastmod>2026-02-17</lastmod>
-    <changefreq>daily</changefreq>
+    <lastmod>2025-12-09</lastmod>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.denisiawebops.org/blogs.html</loc>
+    <lastmod>2026-04-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.denisiawebops.org/blogpost1.html</loc>
+    <lastmod>2026-04-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.denisiawebops.org/blogpost2.html</loc>
+    <lastmod>2026-04-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.denisiawebops.org/blogpost3.html</loc>
+    <lastmod>2026-04-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+   <url>
+    <loc>https://www.denisiawebops.org/index.html#ai-models</loc>
+    <lastmod>2026-04-08</lastmod>
+    <priority>0.8</priority>
   </url>
 </urlset>
