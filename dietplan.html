@@ -11,7 +11,7 @@
     <meta name="author" content="Denisia Webops">
     <meta name="robots" content="index, follow">
 
-    <!-- Google Fonts (Added 'Inter' for your agency branding) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Nunito:wght@400;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
@@ -79,7 +79,7 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
         /* App Header */
-        header.app-header { text-align: center; padding: 60px 20px 40px; background: linear-gradient(135deg, #FFF9F5 0%, #F5EAE1 100%); border-bottom: 2px solid var(--border-color); border-radius: 0 0 30px 30px; margin-bottom: 40px; }
+        header.app-header { text-align: center; padding: 60px 20px 40px; background: linear-gradient(135deg, #FFF9F5 0%, #F5EAE1 100%); border-bottom: 2px solid var(--border-color); border-radius: 0 0 30px 30px; margin-bottom: 40px; margin-top: 70px; }
         header.app-header h1 { color: var(--primary); font-size: 2.5rem; margin-bottom: 10px; }
         header.app-header h2 { color: var(--text-light); font-size: 1.2rem; font-weight: 500; margin-bottom: 20px; }
         header.app-header p { max-width: 700px; margin: 0 auto; color: var(--text-main); font-size: 1.05rem; }
@@ -89,7 +89,7 @@
         @media (min-width: 992px) {
             .main-layout { flex-direction: row; align-items: flex-start; }
             .content-area { flex: 1; }
-            .sidebar { width: 320px; position: sticky; top: 100px; } /* Adjusted top for sticky nav */
+            .sidebar { width: 320px; position: sticky; top: 100px; } 
         }
 
         /* Portion Guide Sidebar */
@@ -168,13 +168,56 @@
         .back-to-top.visible { opacity: 1; pointer-events: auto; }
         .empty-state { text-align: center; padding: 40px; color: var(--text-light); grid-column: 1 / -1; }
 
+        /* Business Ideas Section */
+        .business-section {
+            background: linear-gradient(135deg, #FFF9F5 0%, #F5EAE1 100%);
+            border-radius: var(--radius);
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 1px solid var(--border-color);
+        }
+        .business-section h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .business-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media (min-width: 768px) {
+            .business-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .business-card {
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        .business-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        .business-card h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        .business-card p {
+            color: var(--text-main);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
 
-    <!-- =========================================
-         DENISIA WEBOPS NAVIGATION (WITH BURGER)
-         ========================================= -->
+    <!-- DENISIA WEBOPS NAVIGATION -->
     <nav class="dw-nav">
         <a href="index.html" class="dw-logo">Denisia<span style="color:white">Webops</span></a>
         
@@ -193,22 +236,17 @@
         </div>
     </nav>
 
-    <!-- =========================================
-         APP HEADER
-         ========================================= -->
+    <!-- APP HEADER -->
     <header class="app-header">
         <h1>Post‑Delivery Care Kitchen 👶🏽</h1>
         <h2>Indian recipes for healing & lactation</h2>
         <p>A curated collection of traditional Indian postpartum meals. Emphasizing gentle spices, pure ghee, and easily digestible ingredients to support optimal recovery, restore energy, and boost milk supply.</p>
     </header>
 
-    <!-- =========================================
-         MAIN APPLICATION CONTENT
-         ========================================= -->
     <div class="container main-layout">
         <main class="content-area">
             
-            <!-- Simplified Weight Planner -->
+            <!-- Weight Planner -->
             <div class="weight-planner">
                 <div class="input-group">
                     <label for="user-weight"><i class="fa-solid fa-weight-scale"></i> Weight (kg):</label>
@@ -237,7 +275,7 @@
                 <button class="tab-btn" data-target="page-dinner">Dinner</button>
             </nav>
 
-            <!-- Dedicated Recipe Pages -->
+            <!-- Recipe Sections -->
             <section id="page-breakfast" class="page-section active">
                 <h3 style="color: var(--primary); margin-bottom: 20px; font-family: 'Poppins', sans-serif;"><i class="fa-solid fa-sun"></i> Breakfast Plan</h3>
                 <div class="recipe-grid" id="grid-breakfast"></div>
@@ -262,6 +300,37 @@
                 <h3 style="color: var(--primary); margin-bottom: 20px; font-family: 'Poppins', sans-serif;"><i class="fa-solid fa-moon"></i> Dinner Plan</h3>
                 <div class="recipe-grid" id="grid-dinner"></div>
             </section>
+
+            <!-- Business Ideas Section -->
+            <div class="business-section">
+                <h3><i class="fa-solid fa-chart-line"></i> Indian Homemade Food Business Ideas</h3>
+                <div class="business-grid">
+                    <div class="business-card">
+                        <h4><i class="fa-solid fa-cookie-bite"></i> Thekua (Bengal)</h4>
+                        <p>A traditional devotional snack from Bihar-Jharkhand, Thekua is a sweet, deep-fried cookie made from wheat flour, jaggery, and ghee. It's a popular prasad during Chhath Puja. Two Bengal teens turned this into a ₹1 crore business by selling it year-round online and through local networks, proving that regional sweets can have national appeal.</p>
+                    </div>
+                    <div class="business-card">
+                        <h4><i class="fa-solid fa-bread-slice"></i> Lijjat Papad (Pan-India)</h4>
+                        <p>Started in 1959 by seven women in Mumbai, Lijjat Papad is now a ₹800 crore cooperative. Women make papads at home using urad dal flour, spices, and sun-drying techniques. This model empowers women to work flexibly while producing a high-demand product that's shipped globally.</p>
+                    </div>
+                    <div class="business-card">
+                        <h4><i class="fa-solid fa-seedling"></i> Adukale (Karnataka)</h4>
+                        <p>Based in Bengaluru, Adukale started with a grandmother's rasam recipe and now earns ₹16 crore annually. They sell ready-to-cook and ready-to-eat Sankethi cuisine items, showing how authentic regional vegetarian food can scale through modern packaging and online sales.</p>
+                    </div>
+                    <div class="business-card">
+                        <h4><i class="fa-solid fa-apple-alt"></i> Dadi's Recipes (Punjab)</h4>
+                        <p>This food startup uses naturally grown fruits and traditional ingredients like dates and ghee to produce organic sherbets and sweets. It won a ₹50,000 prize at Future Tycoons of Amritsar, highlighting the growing market for heritage-based, health-conscious products.</p>
+                    </div>
+                    <div class="business-card">
+                        <h4><i class="fa-solid fa-jar"></i> FarmDidi (Pan-India)</h4>
+                        <p>A direct-to-consumer pickle brand empowering rural women to produce homemade, chemical-free condiments. Using a tech-enabled model, FarmDidi ensures quality while helping women become micro-entrepreneurs, tapping into the ₹1,500 crore Indian pickle market.</p>
+                    </div>
+                    <div class="business-card">
+                        <h4><i class="fa-solid fa-wheat-awn"></i> Homemade Snack Bars (Pan-India)</h4>
+                        <p>Create healthy snack bars using millets, nuts, seeds, and jaggery. With India's health food market growing at 15% annually, this low-investment home business can start with a small kitchen and expand to online platforms like Amazon and Flipkart.</p>
+                    </div>
+                </div>
+            </div>
         </main>
 
         <!-- Sidebar -->
@@ -278,15 +347,13 @@
         </aside>
     </div>
 
-    <!-- App Disclaimer Footer (Kept from original app) -->
+    <!-- App Disclaimer Footer -->
     <div class="app-disclaimer">
         <p>🍲 Made with love for new moms.</p>
         <p style="margin-top: 5px; font-size: 0.8rem;"><em>Disclaimer: This application provides traditional dietary suggestions. Always consult your doctor or a certified nutritionist for specific dietary needs, especially post-delivery.</em></p>
     </div>
 
-    <!-- =========================================
-         DENISIA WEBOPS FOOTER
-         ========================================= -->
+    <!-- DENISIA WEBOPS FOOTER -->
     <footer class="dw-footer">
         <div class="dw-footer-content">
             <div class="dw-footer-section">
@@ -381,9 +448,11 @@
         }
 
         // =========================================
-        // POST-DELIVERY APP LOGIC
+        // ENHANCED POST-DELIVERY RECIPE DATABASE
         // =========================================
         const recipes = [
+            // --- VEGETARIAN RECIPES ---
+            // Breakfast - Veg
             {
                 id: "rec-001", mealType: "Breakfast", dietType: "Veg", name: "Sooji Halwa (Sheera)",
                 postPartumBenefit: "Quick energy, easily digestible, provides warmth.", servings: 2, cookingTime: "15 mins",
@@ -424,6 +493,7 @@
                     "Cook until glossy and thick.", "Add milk and jaggery (skip jaggery if diabetic). Serve hot."
                 ]
             },
+            // Lunch - Veg
             {
                 id: "rec-004", mealType: "Lunch", dietType: "Veg", name: "Methi Moong Dal Khichdi",
                 postPartumBenefit: "Fenugreek boosts lactation; Moong dal is easily digestible.", servings: 2, cookingTime: "25 mins",
@@ -438,19 +508,6 @@
                 ]
             },
             {
-                id: "rec-012", mealType: "Lunch", dietType: "Non-Veg", name: "Mutton Paya (Bone Broth)",
-                postPartumBenefit: "High in calcium; strengthens the back and joints immensely.", servings: 3, cookingTime: "2 hrs",
-                calories: "280 kcal", calorieCount: 280, imageIcon: "fa-bone",
-                ingredients: [
-                    { item: "Mutton Trotters", quantity: "4 pieces" }, { item: "Ghee", quantity: "1 tbsp" }, { item: "Whole Spices", quantity: "A few" },
-                    { item: "Onion & Garlic", quantity: "1 onion, 4 cloves" }, { item: "Water", quantity: "4 cups" }
-                ],
-                cookingSteps: [
-                    "Wash trotters thoroughly.", "Heat ghee, add spices, onions, and garlic.", "Add trotters and sauté.",
-                    "Add water and simmer for 2 hours (or pressure cook).", "Serve hot with rotis."
-                ]
-            },
-            {
                 id: "rec-006", mealType: "Dinner", dietType: "Veg", name: "Palak Paneer (Light)",
                 postPartumBenefit: "Spinach replenishes iron and folate lost during delivery.", servings: 2, cookingTime: "25 mins",
                 calories: "310 kcal", calorieCount: 310, imageIcon: "fa-leaf",
@@ -462,18 +519,7 @@
                     "Blanch spinach and puree.", "Heat ghee, sauté garlic.", "Add puree and simmer for 5 mins.", "Add paneer cubes. Serve with rotis."
                 ]
             },
-            {
-                id: "rec-011", mealType: "Dinner", dietType: "Non-Veg", name: "Murg Shorba (Chicken Soup)",
-                postPartumBenefit: "Rich in collagen, helps heal tissues rapidly.", servings: 2, cookingTime: "40 mins",
-                calories: "220 kcal", calorieCount: 220, imageIcon: "fa-bowl-food",
-                ingredients: [
-                    { item: "Chicken (with bones)", quantity: "250g" }, { item: "Ghee", quantity: "1 tbsp" },
-                    { item: "Onion & Ginger-Garlic", quantity: "1 small, 1 tsp" }, { item: "Turmeric & Pepper", quantity: "1/2 tsp each" }, { item: "Water", quantity: "3 cups" }
-                ],
-                cookingSteps: [
-                    "Heat ghee, sauté onions and ginger-garlic paste.", "Sear chicken lightly.", "Add water and spices.", "Pressure cook for 5 whistles. Serve clear broth."
-                ]
-            },
+            // Snacks - Veg
             {
                 id: "rec-009", mealType: "Mid-Morning Snack", dietType: "Veg", name: "Ajwain & Jeera Water",
                 postPartumBenefit: "Flushes toxins, shrinks uterus, keeps digestion clear.", servings: 4, cookingTime: "10 mins",
@@ -521,6 +567,272 @@
                 ],
                 cookingSteps: [
                     "Simmer milk in a pan.", "Add turmeric and black pepper.", "Add ghee for extra joint lubrication.", "Drink warm right before bed."
+                ]
+            },
+            // --- ENHANCED NON-VEGETARIAN RECIPES (Regional Indian Delicacies) ---
+            // North Indian Non-Veg
+            {
+                id: "rec-101", mealType: "Lunch", dietType: "Non-Veg", name: "Butter Chicken (Delhi)",
+                postPartumBenefit: "Rich in protein and healthy fats, helps rebuild strength.", servings: 4, cookingTime: "45 mins",
+                calories: "450 kcal", calorieCount: 450, imageIcon: "fa-drumstick-bite",
+                ingredients: [
+                    { item: "Chicken (boneless)", quantity: "500g" }, { item: "Butter", quantity: "4 tbsp" },
+                    { item: "Fresh Cream", quantity: "1/2 cup" }, { item: "Tomato Puree", quantity: "1 cup" },
+                    { item: "Cashew Paste", quantity: "2 tbsp" }, { item: "Garam Masala", quantity: "1 tsp" },
+                    { item: "Kasuri Methi", quantity: "1 tbsp" }, { item: "Ginger-Garlic Paste", quantity: "1 tbsp" }
+                ],
+                cookingSteps: [
+                    "Marinate chicken with ginger-garlic paste, red chili powder, and salt for 30 minutes.",
+                    "Grill or pan-fry chicken until slightly charred. Set aside.",
+                    "In a pan, melt butter and add ginger-garlic paste. Sauté.",
+                    "Add tomato puree and cook until oil separates.",
+                    "Add cashew paste, garam masala, and kasuri methi. Simmer for 5 minutes.",
+                    "Add grilled chicken and cream. Cook for another 5-7 minutes.",
+                    "Garnish with more cream and serve hot with naan or rice."
+                ]
+            },
+            {
+                id: "rec-102", mealType: "Lunch", dietType: "Non-Veg", name: "Rogan Josh (Kashmir)",
+                postPartumBenefit: "Warming spices aid recovery and boost circulation.", servings: 4, cookingTime: "60 mins",
+                calories: "480 kcal", calorieCount: 480, imageIcon: "fa-utensils",
+                ingredients: [
+                    { item: "Mutton/Lamb", quantity: "750g" }, { item: "Ghee", quantity: "1/2 cup" },
+                    { item: "Ratan Jot (Alkanet)", quantity: "1 tsp" }, { item: "Fennel Powder", quantity: "2 tbsp" },
+                    { item: "Dried Ginger Powder", quantity: "1 tsp" }, { item: "Kashmiri Red Chili", quantity: "2 tbsp" },
+                    { item: "Yogurt", quantity: "1 cup" }, { item: "Cardamom & Cinnamon", quantity: "To taste" }
+                ],
+                cookingSteps: [
+                    "Heat ghee, add ratan jot for color, then add whole spices.",
+                    "Add mutton pieces and brown on high heat.",
+                    "Add fennel powder, ginger powder, and Kashmiri red chili. Sauté.",
+                    "Whisk yogurt and add slowly to the meat while stirring continuously.",
+                    "Add water to cover meat, cover and cook on low heat for 45 minutes.",
+                    "Garnish with fresh coriander and serve with steamed rice or roti."
+                ]
+            },
+            {
+                id: "rec-103", mealType: "Dinner", dietType: "Non-Veg", name: "Chicken Tikka (Punjab)",
+                postPartumBenefit: "High protein content supports muscle recovery.", servings: 4, cookingTime: "40 mins",
+                calories: "380 kcal", calorieCount: 380, imageIcon: "fa-drumstick-bite",
+                ingredients: [
+                    { item: "Chicken (boneless)", quantity: "500g" }, { item: "Yogurt", quantity: "1 cup" },
+                    { item: "Ginger-Garlic Paste", quantity: "2 tbsp" }, { item: "Lemon Juice", quantity: "2 tbsp" },
+                    { item: "Red Chili Powder", quantity: "1 tbsp" }, { item: "Garam Masala", quantity: "1 tsp" },
+                    { item: "Cumin Powder", quantity: "1 tsp" }, { item: "Mustard Oil", quantity: "2 tbsp" }
+                ],
+                cookingSteps: [
+                    "Cut chicken into bite-sized pieces. Marinate with lemon juice and salt for 15 minutes.",
+                    "Mix yogurt with all spices, ginger-garlic paste, and mustard oil.",
+                    "Add chicken to marinade and refrigerate for 4-6 hours.",
+                    "Skewer chicken pieces and grill in tandoor or oven at 200°C for 12-15 minutes.",
+                    "Baste with butter halfway through cooking.",
+                    "Serve hot with mint chutney and onion rings."
+                ]
+            },
+            // East Indian Non-Veg
+            {
+                id: "rec-104", mealType: "Lunch", dietType: "Non-Veg", name: "Kosha Mangsho (Bengal)",
+                postPartumBenefit: "Slow-cooked mutton provides easily digestible iron and protein.", servings: 4, cookingTime: "90 mins",
+                calories: "520 kcal", calorieCount: 520, imageIcon: "fa-utensils",
+                ingredients: [
+                    { item: "Mutton (with bones)", quantity: "750g" }, { item: "Mustard Oil", quantity: "1/2 cup" },
+                    { item: "Onion", quantity: "3 large sliced" }, { item: "Ginger-Garlic Paste", quantity: "2 tbsp" },
+                    { item: "Yogurt", quantity: "1/2 cup" }, { item: "Potatoes", quantity: "3 medium cubed" },
+                    { item: "Garam Masala Powder", quantity: "1 tbsp" }, { item: "Green Chilies", quantity: "3-4" }
+                ],
+                cookingSteps: [
+                    "Heat mustard oil until smoking. Add potatoes and fry until golden. Remove.",
+                    "In the same oil, add whole garam masala and sliced onions. Fry until brown.",
+                    "Add ginger-garlic paste and sauté for 2 minutes.",
+                    "Add mutton pieces and fry on high heat until browned.",
+                    "Add yogurt, salt, and spices. Cook for 5 minutes.",
+                    "Add fried potatoes and water. Pressure cook for 4-5 whistles.",
+                    "Finish with garam masala powder and green chilies. Serve with luchi or rice."
+                ]
+            },
+            {
+                id: "rec-105", mealType: "Lunch", dietType: "Non-Veg", name: "Poora Haah (Assam)",
+                postPartumBenefit: "Duck meat provides essential B vitamins and iron.", servings: 4, cookingTime: "60 mins",
+                calories: "490 kcal", calorieCount: 490, imageIcon: "fa-drumstick-bite",
+                ingredients: [
+                    { item: "Duck", quantity: "1 whole (cut into pieces)" }, { item: "Mustard Oil", quantity: "1/4 cup" },
+                    { item: "Onion", quantity: "2 large sliced" }, { item: "Ginger Paste", quantity: "2 tbsp" },
+                    { item: "Turmeric Powder", quantity: "1 tsp" }, { item: "Red Chili Powder", quantity: "1 tbsp" },
+                    { item: "Black Pepper", quantity: "1 tsp" }, { item: "Green Chilies", quantity: "4-5 slit" }
+                ],
+                cookingSteps: [
+                    "Marinate duck pieces with turmeric, salt, and ginger paste for 30 minutes.",
+                    "Heat mustard oil in a heavy-bottomed pan.",
+                    "Add duck pieces and fry until golden brown.",
+                    "Add sliced onions and sauté until translucent.",
+                    "Add red chili powder, black pepper, and 2 cups water.",
+                    "Cover and cook on low heat until duck is tender (about 40 minutes).",
+                    "Add slit green chilies and cook for another 5 minutes.",
+                    "Serve hot with steamed rice."
+                ]
+            },
+            // West Indian Non-Veg
+            {
+                id: "rec-106", mealType: "Lunch", dietType: "Non-Veg", name: "Goan Fish Curry (Goa)",
+                postPartumBenefit: "Omega-3 fatty acids support brain health and reduce inflammation.", servings: 4, cookingTime: "30 mins",
+                calories: "350 kcal", calorieCount: 350, imageIcon: "fa-fish",
+                ingredients: [
+                    { item: "Kingfish (or any firm fish)", quantity: "500g" }, { item: "Coconut Milk", quantity: "2 cups" },
+                    { item: "Tamarind Pulp", quantity: "2 tbsp" }, { item: "Onion", quantity: "1 medium" },
+                    { item: "Red Chilies", quantity: "5-6" }, { item: "Coriander Seeds", quantity: "1 tbsp" },
+                    { item: "Cumin Seeds", quantity: "1 tsp" }, { item: "Turmeric Powder", quantity: "1/2 tsp" }
+                ],
+                cookingSteps: [
+                    "Grind onion, red chilies, coriander seeds, cumin seeds, and turmeric into a fine paste.",
+                    "Heat oil in a pan and sauté the masala paste for 5 minutes.",
+                    "Add coconut milk and tamarind pulp. Simmer for 5 minutes.",
+                    "Add fish pieces and cook gently for 8-10 minutes without stirring too much.",
+                    "Garnish with fresh curry leaves and serve with steamed rice."
+                ]
+            },
+            {
+                id: "rec-107", mealType: "Dinner", dietType: "Non-Veg", name: "Bheja Masala (Mumbai)",
+                postPartumBenefit: "Rich in iron and B12, helps combat postpartum fatigue.", servings: 3, cookingTime: "30 mins",
+                calories: "320 kcal", calorieCount: 320, imageIcon: "fa-utensils",
+                ingredients: [
+                    { item: "Goat Brain (Bheja)", quantity: "250g" }, { item: "Onion", quantity: "2 medium sliced" },
+                    { item: "Tomato", quantity: "1 medium chopped" }, { item: "Ginger-Garlic Paste", quantity: "1 tbsp" },
+                    { item: "Turmeric Powder", quantity: "1/2 tsp" }, { item: "Red Chili Powder", quantity: "1 tsp" },
+                    { item: "Garam Masala", quantity: "1/2 tsp" }, { item: "Coriander Leaves", quantity: "For garnish" }
+                ],
+                cookingSteps: [
+                    "Clean bheja by boiling in salted water for 5 minutes. Drain and cube.",
+                    "Heat oil, add onions and sauté until golden.",
+                    "Add ginger-garlic paste and cook for 1 minute.",
+                    "Add tomatoes and cook until soft.",
+                    "Add turmeric, red chili powder, and salt.",
+                    "Add cubed bheja and cook for 5-7 minutes.",
+                    "Sprinkle garam masala and garnish with coriander.",
+                    "Serve hot with pav or roti."
+                ]
+            },
+            // South Indian Non-Veg
+            {
+                id: "rec-108", mealType: "Lunch", dietType: "Non-Veg", name: "Chicken Chettinad (Tamil Nadu)",
+                postPartumBenefit: "Pepper and spices improve digestion and metabolism.", servings: 4, cookingTime: "45 mins",
+                calories: "420 kcal", calorieCount: 420, imageIcon: "fa-drumstick-bite",
+                ingredients: [
+                    { item: "Chicken (curry cut)", quantity: "750g" }, { item: "Coconut (grated)", quantity: "1/2 cup" },
+                    { item: "Poppy Seeds", quantity: "1 tbsp" }, { item: "Fennel Seeds", quantity: "1 tbsp" },
+                    { item: "Cinnamon & Cloves", quantity: "Few" }, { item: "Curry Leaves", quantity: "2 sprigs" },
+                    { item: "Black Pepper", quantity: "1 tbsp" }, { item: "Onion & Tomato", quantity: "2 each" }
+                ],
+                cookingSteps: [
+                    "Dry roast coconut, poppy seeds, fennel, cinnamon, cloves, and black pepper.",
+                    "Grind into a fine paste with water.",
+                    "In a pan, sauté onions until golden, add tomatoes and curry leaves.",
+                    "Add chicken and cook until it releases water.",
+                    "Add the ground masala paste and salt. Cook for 5 minutes.",
+                    "Add water as needed and simmer until chicken is tender (20-25 minutes).",
+                    "Garnish with fresh coriander and serve with rice or parotta."
+                ]
+            },
+            {
+                id: "rec-109", mealType: "Lunch", dietType: "Non-Veg", name: "Kankada Jhola (Odisha)",
+                postPartumBenefit: "Crab meat is rich in zinc, essential for immunity and healing.", servings: 4, cookingTime: "40 mins",
+                calories: "340 kcal", calorieCount: 340, imageIcon: "fa-fish",
+                ingredients: [
+                    { item: "Crab (cleaned)", quantity: "4-5 medium" }, { item: "Mustard Oil", quantity: "1/4 cup" },
+                    { item: "Onion", quantity: "2 large sliced" }, { item: "Garlic", quantity: "6-8 cloves" },
+                    { item: "Turmeric", quantity: "1 tsp" }, { item: "Coriander Powder", quantity: "2 tbsp" },
+                    { item: "Cumin Powder", quantity: "1 tsp" }, { item: "Potato", quantity: "1 medium cubed" }
+                ],
+                cookingSteps: [
+                    "Clean crabs thoroughly, remove gills and mud sacs.",
+                    "Marinate crabs with turmeric and salt for 10 minutes.",
+                    "Heat mustard oil, fry potatoes until golden. Remove.",
+                    "In the same oil, add onions and garlic. Sauté until brown.",
+                    "Add coriander and cumin powder. Cook for 1 minute.",
+                    "Add crabs and fry for 5 minutes.",
+                    "Add water and fried potatoes. Cover and cook for 15 minutes.",
+                    "Serve hot with steamed rice."
+                ]
+            },
+            // Central Indian Non-Veg
+            {
+                id: "rec-110", mealType: "Lunch", dietType: "Non-Veg", name: "Haleem (Hyderabad)",
+                postPartumBenefit: "Protein-rich lentils and meat combination provides sustained energy.", servings: 6, cookingTime: "120 mins",
+                calories: "510 kcal", calorieCount: 510, imageIcon: "fa-utensils",
+                ingredients: [
+                    { item: "Mutton/Lamb", quantity: "500g" }, { item: "Wheat (broken)", quantity: "1 cup" },
+                    { item: "Chana Dal", quantity: "1/2 cup" }, { item: "Moong Dal", quantity: "1/4 cup" },
+                    { item: "Onion (fried)", quantity: "1 cup" }, { item: "Ginger-Garlic Paste", quantity: "2 tbsp" },
+                    { item: "Green Chilies", quantity: "4-5" }, { item: "Garam Masala", quantity: "1 tbsp" },
+                    { item: "Mint & Coriander", quantity: "1/2 cup each" }
+                ],
+                cookingSteps: [
+                    "Soak wheat and dals overnight. Cook with mutton, ginger-garlic paste, and water in pressure cooker.",
+                    "After 5-6 whistles, remove mutton pieces and shred the meat.",
+                    "Blend the cooked dal-wheat mixture until smooth.",
+                    "Return to pot, add shredded meat, and simmer on low heat.",
+                    "Heat ghee, add fried onions, green chilies, and spices. Add to haleem.",
+                    "Continue stirring and cooking until thick (about 30 minutes).",
+                    "Garnish with fried onions, mint, coriander, and lemon juice.",
+                    "Serve hot with naan or roti."
+                ]
+            },
+            {
+                id: "rec-111", mealType: "Dinner", dietType: "Non-Veg", name: "Paya Soup (Bhopal)",
+                postPartumBenefit: "Rich in collagen and calcium, strengthens bones and joints.", servings: 4, cookingTime: "120 mins",
+                calories: "290 kcal", calorieCount: 290, imageIcon: "fa-bowl-food",
+                ingredients: [
+                    { item: "Lamb Trotters (Paya)", quantity: "4 pieces" }, { item: "Onion", quantity: "2 medium sliced" },
+                    { item: "Ginger-Garlic Paste", quantity: "2 tbsp" }, { item: "Turmeric", quantity: "1 tsp" },
+                    { item: "Red Chili Powder", quantity: "1 tbsp" }, { item: "Coriander Powder", quantity: "1 tbsp" },
+                    { item: "Garam Masala", quantity: "1 tsp" }, { item: "Fresh Coriander", quantity: "For garnish" }
+                ],
+                cookingSteps: [
+                    "Clean paya thoroughly. Pressure cook with ginger-garlic paste, turmeric, and 4 cups water for 10-12 whistles.",
+                    "In a separate pan, heat ghee and sauté onions until brown.",
+                    "Add red chili powder, coriander powder, and garam masala.",
+                    "Add the cooked paya along with the stock.",
+                    "Simmer for 15-20 minutes until soup thickens slightly.",
+                    "Garnish with fresh coriander and serve hot with bread."
+                ]
+            },
+            // Tribal and Specialty Non-Veg
+            {
+                id: "rec-112", mealType: "Dinner", dietType: "Non-Veg", name: "Bamboo Chicken (Bhil Tribe, MP)",
+                postPartumBenefit: "Smoky and tender, easily digestible protein source.", servings: 4, cookingTime: "60 mins",
+                calories: "390 kcal", calorieCount: 390, imageIcon: "fa-drumstick-bite",
+                ingredients: [
+                    { item: "Chicken (curry cut)", quantity: "1 kg" }, { item: "Mahua Flowers (optional)", quantity: "2 tbsp" },
+                    { item: "Red Chili Powder", quantity: "2 tbsp" }, { item: "Turmeric", quantity: "1 tsp" },
+                    { item: "Garlic Paste", quantity: "2 tbsp" }, { item: "Bamboo Stalks", quantity: "2 (cleaned)" },
+                    { item: "Local Herbs", quantity: "As available" }, { item: "Salt", quantity: "To taste" }
+                ],
+                cookingSteps: [
+                    "Marinate chicken with chili powder, turmeric, garlic paste, mahua flowers (if using), local herbs, and salt for 2 hours.",
+                    "Stuff marinated chicken into hollow bamboo stalks.",
+                    "Seal bamboo openings with banana leaves or dough.",
+                    "Roast bamboo stalks over open fire or charcoal for 30-40 minutes, rotating occasionally.",
+                    "Crack open bamboo to reveal smoky, tender chicken.",
+                    "Serve hot with rice or roti."
+                ]
+            },
+            {
+                id: "rec-113", mealType: "Lunch", dietType: "Non-Veg", name: "Gond Mutton Curry (Gond Tribe, MP)",
+                postPartumBenefit: "Slow-cooked mutton with forest spices aids postpartum recovery.", servings: 4, cookingTime: "75 mins",
+                calories: "530 kcal", calorieCount: 530, imageIcon: "fa-utensils",
+                ingredients: [
+                    { item: "Goat Meat (with bones)", quantity: "750g" }, { item: "Bay Leaves", quantity: "3-4" },
+                    { item: "Coriander Seeds", quantity: "2 tbsp" }, { item: "Cumin Seeds", quantity: "1 tbsp" },
+                    { item: "Onion", quantity: "3 large sliced" }, { item: "Garlic Paste", quantity: "2 tbsp" },
+                    { item: "Red Chili Powder", quantity: "2 tbsp" }, { item: "Mustard Oil", quantity: "1/2 cup" }
+                ],
+                cookingSteps: [
+                    "Heat mustard oil in a heavy pan. Add bay leaves.",
+                    "Add sliced onions and sauté until dark brown.",
+                    "Add garlic paste and sauté for 2 minutes.",
+                    "Add goat meat and fry on high heat until well-browned.",
+                    "Add coriander powder, cumin powder, red chili powder, and salt.",
+                    "Add 2 cups water, cover, and cook on low heat for 45-50 minutes until meat is tender.",
+                    "Garnish with fresh coriander and serve with rice or roti."
                 ]
             }
         ];
