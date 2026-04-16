@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post‑Delivery Care Kitchen | Denisia Webops</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="A comprehensive guide to traditional Indian postpartum diet and recipes. Explore healing, lactation-boosting meals with vegetarian and non-vegetarian options.">
+    <meta name="keywords" content="postpartum diet, Indian post-delivery food, lactation recipes, new mother diet, healthy postpartum meals, veg, non-veg, meal builder">
+    <meta name="author" content="Denisia Webops">
+    <meta name="robots" content="index, follow">
+
+    <!-- Google Fonts (Added 'Inter' for your agency branding) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Nunito:wght@400;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+           DENISIA WEBOPS NAV & FOOTER STYLES
+           ========================================= */
+        .dw-nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background: rgba(10, 10, 18, 0.95); position: sticky; top: 0; z-index: 2000; border-bottom: 1px solid #222; font-family: 'Inter', sans-serif; }
+        .dw-logo { font-size: 1.5rem; font-weight: 800; color: #00f2ff; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; }
+        .dw-nav-links { display: flex; }
+        .dw-nav-links a { margin-left: 30px; text-decoration: none; color: #e0e0e0; font-weight: 500; transition: 0.3s; font-family: 'Inter', sans-serif; font-size: 1rem;}
+        .dw-nav-links a:hover, .dw-nav-links a.active { color: #00f2ff; }
+        .dw-cta-btn { background: #00f2ff; color: #000; padding: 10px 25px; border-radius: 50px; font-weight: 700; text-decoration: none; transition: transform 0.2s; font-family: 'Inter', sans-serif; font-size: 1rem;}
+        .dw-cta-btn:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(0, 242, 255, 0.4); }
+        .dw-burger-menu { display: none; cursor: pointer; }
+        .dw-burger-menu div { width: 25px; height: 3px; background-color: white; margin: 5px; transition: 0.4s; }
+
+        .dw-footer { background: #161625; padding: 40px 5%; border-top: 1px solid #222; text-align: left; font-family: 'Inter', sans-serif; margin-top: 0; }
+        .dw-footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
+        .dw-footer-section { margin: 20px 40px 20px 0; min-width: 150px; }
+        .dw-footer-section h4 { color: white; margin-bottom: 15px; font-family: 'Inter', sans-serif; font-size: 1.2rem;}
+        .dw-footer-section p, .dw-footer-section a { color: #a0a0b0; text-decoration: none; display: block; margin-bottom: 8px; font-size: 0.9rem; font-family: 'Inter', sans-serif;}
+        .dw-footer-section a:hover { color: #00f2ff; }
+        .dw-social-links a { color: white; margin-right: 15px; font-size: 1.5rem; transition: color 0.3s; display: inline-block;}
+        .dw-social-links a:hover { color: #00f2ff; }
+        .dw-copyright { margin-top: 30px; border-top: 1px solid #222; padding-top: 20px; color: #a0a0b0; font-size: 0.8rem; text-align: center; font-family: 'Inter', sans-serif;}
+
+        @media (max-width: 900px) {
+            .dw-nav-links { display: none; flex-direction: column; width: 100%; position: absolute; top: 73px; left: 0; background: #0a0a12; padding: 10px 0; border-top: 1px solid #222; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.5);}
+            .dw-nav-links a { margin: 15px 5%; display: block;}
+            .dw-burger-menu { display: block; }
+            .dw-nav-links.active { display: flex; }
+            .dw-desktop-cta { display: none; }
+            .dw-footer-content { justify-content: center; text-align: center; }
+            .dw-footer-section { margin: 20px 20px; }
+        }
+
+        /* =========================================
+           POST-DELIVERY APP STYLES
+           ========================================= */
+        :root {
+            --bg-color: #FAF6F0; 
+            --text-main: #4A4A4A; 
+            --text-light: #707070;
+            --primary: #D96C5B; 
+            --primary-hover: #C55B4B;
+            --secondary: #E8B4A2; 
+            --accent-green: #8FA998; 
+            --card-bg: #FFFFFF;
+            --border-color: #EEDDCC;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --radius: 12px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body { font-family: 'Nunito', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; scroll-behavior: smooth; }
+        h1, h2, h3, h4, .brand-font { font-family: 'Poppins', sans-serif; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* App Header */
+        header.app-header { text-align: center; padding: 60px 20px 40px; background: linear-gradient(135deg, #FFF9F5 0%, #F5EAE1 100%); border-bottom: 2px solid var(--border-color); border-radius: 0 0 30px 30px; margin-bottom: 40px; }
+        header.app-header h1 { color: var(--primary); font-size: 2.5rem; margin-bottom: 10px; }
+        header.app-header h2 { color: var(--text-light); font-size: 1.2rem; font-weight: 500; margin-bottom: 20px; }
+        header.app-header p { max-width: 700px; margin: 0 auto; color: var(--text-main); font-size: 1.05rem; }
+
+        /* Layout Grid */
+        .main-layout { display: flex; flex-direction: column; gap: 30px; padding-bottom: 60px;}
+        @media (min-width: 992px) {
+            .main-layout { flex-direction: row; align-items: flex-start; }
+            .content-area { flex: 1; }
+            .sidebar { width: 320px; position: sticky; top: 100px; } /* Adjusted top for sticky nav */
+        }
+
+        /* Portion Guide Sidebar */
+        .info-box { background-color: var(--card-bg); border: 2px dashed var(--secondary); border-radius: var(--radius); padding: 25px; box-shadow: var(--shadow); }
+        .info-box h3 { color: var(--primary); font-size: 1.2rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .info-box ul { list-style: none; }
+        .info-box li { position: relative; padding-left: 25px; margin-bottom: 12px; font-size: 0.95rem; }
+        .info-box li i { position: absolute; left: 0; top: 4px; color: var(--accent-green); }
+        .info-box li.avoid i { color: var(--primary); }
+
+        /* Simplified Weight Planner */
+        .weight-planner { display: flex; flex-wrap: wrap; gap: 20px; background: var(--card-bg); padding: 20px 25px; border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 25px; align-items: center; border-left: 5px solid var(--primary); }
+        .weight-planner .input-group { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--text-main); }
+        .weight-planner input, .weight-planner select { padding: 10px 15px; border: 1px solid #CCC; border-radius: 8px; font-family: 'Nunito', sans-serif; font-size: 1rem; width: 120px; }
+        .weight-planner select { width: auto; min-width: 150px; }
+        .weight-planner input:focus, .weight-planner select:focus { outline: none; border-color: var(--primary); }
+        .target-display { margin-left: auto; background: #F1F5F2; padding: 12px 20px; border-radius: 8px; font-weight: bold; color: var(--accent-green); font-size: 1.1rem; text-align: right; }
+        .target-display span { display: block; font-size: 0.85rem; font-weight: normal; color: var(--text-light); }
+
+        /* Tab Navigation */
+        .meal-tabs { display: flex; flex-wrap: wrap; background: white; padding: 10px; border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 25px; gap: 10px; }
+        .tab-btn { background-color: transparent; border: 2px solid transparent; color: var(--text-main); padding: 10px 20px; border-radius: 30px; font-family: 'Poppins', sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; white-space: nowrap; flex-grow: 1; text-align: center; }
+        .tab-btn:hover { background-color: var(--bg-color); color: var(--primary); }
+        .tab-btn.active { background-color: var(--primary); color: white; border-color: var(--primary); }
+        .page-section { display: none; animation: fadeIn 0.4s ease; }
+        .page-section.active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Recipe Grid & Cards */
+        .recipe-grid { display: grid; grid-template-columns: 1fr; gap: 25px; margin-bottom: 40px; }
+        @media (min-width: 768px) { .recipe-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1200px) { .recipe-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        .card { background-color: var(--card-bg); border-radius: var(--radius); padding: 25px; box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; border: 1px solid transparent; }
+        .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--secondary); }
+        .card-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; text-align: center; background: #FFF5F3; width: 70px; height: 70px; line-height: 70px; border-radius: 50%; margin: 0 auto 15px; }
+        .card h3 { font-size: 1.2rem; text-align: center; margin-bottom: 10px; color: var(--text-main); }
+        .badge { display: inline-block; background-color: #F1F5F2; color: var(--accent-green); padding: 4px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin: 0 auto 15px; text-align: center; }
+        .card-meta { display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--text-light); margin-bottom: 15px; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 10px 0; }
+        .card-benefit { font-style: italic; font-size: 0.9rem; color: var(--text-light); margin-bottom: 20px; flex-grow: 1; text-align: center; }
+        .card-plan { background-color: #FDFBF7; color: var(--text-main); padding: 15px; border-radius: 8px; font-size: 0.95rem; margin-bottom: 20px; text-align: center; border: 1px dashed var(--primary); }
+        .card-plan strong { display: block; color: var(--primary); font-size: 1.1rem; margin-top: 5px; }
+        .card-actions { display: flex; gap: 10px; margin-top: auto; }
+        .view-btn { background-color: white; color: var(--primary); border: 2px solid var(--primary); border-radius: var(--radius); padding: 10px; font-weight: 600; font-family: 'Poppins', sans-serif; cursor: pointer; transition: all 0.3s ease; width: 100%; min-height: 44px; }
+        .view-btn:hover { background-color: var(--primary); color: white; }
+
+        /* Modal Overlay */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); display: flex; justify-content: center; align-items: center; z-index: 3000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; padding: 20px; }
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+        .modal-content { background-color: var(--card-bg); width: 100%; max-width: 650px; max-height: 90vh; border-radius: var(--radius); overflow-y: auto; position: relative; transform: translateY(20px); transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .modal-overlay.active .modal-content { transform: translateY(0); }
+        .modal-header { padding: 25px 30px; border-bottom: 1px solid var(--border-color); background: linear-gradient(to right, #FFF9F5, #FFFFFF); border-radius: var(--radius) var(--radius) 0 0; position: sticky; top: 0; z-index: 10; }
+        .close-btn { position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 1.5rem; color: var(--text-light); cursor: pointer; min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: background 0.2s; }
+        .close-btn:hover { background: #f0f0f0; color: var(--primary); }
+        .modal-body { padding: 30px; }
+        .modal-title { color: var(--primary); font-size: 1.8rem; margin-bottom: 5px; padding-right: 40px; }
+        .modal-benefit { color: var(--accent-green); font-weight: 600; font-size: 0.95rem; }
+        .modal-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+        @media (min-width: 600px) { .modal-grid { grid-template-columns: 1fr 1.5fr; } }
+        .ingredients-list { background-color: #FDFBF7; padding: 20px; border-radius: var(--radius); border: 1px solid var(--border-color); }
+        .ingredients-list h4, .steps-list h4 { color: var(--text-main); margin-bottom: 15px; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
+        .ingredients-list ul, .steps-list ol { list-style: none; padding-left:0;}
+        .ingredients-list li { display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed var(--border-color); font-size: 0.95rem; }
+        .ingredients-list li:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .ingredients-list .qty { font-weight: 600; color: var(--primary); }
+        .steps-list ol { padding-left: 20px; }
+        .steps-list li { margin-bottom: 15px; font-size: 0.95rem; padding-left: 5px; }
+        .steps-list li::marker { color: var(--primary); font-weight: bold; }
+        .portion-guidance { margin-top: 30px; background-color: rgba(143, 169, 152, 0.1); border-left: 4px solid var(--accent-green); padding: 15px 20px; border-radius: 0 var(--radius) var(--radius) 0; }
+        .portion-guidance strong { color: var(--accent-green); display: block; margin-bottom: 5px; }
+
+        /* Utilities */
+        .app-disclaimer { text-align: center; padding: 20px; background-color: #FFF9F5; border-top: 1px solid var(--border-color); color: var(--text-light); font-size: 0.9rem; margin-bottom:0;}
+        .back-to-top { position: fixed; bottom: 30px; right: 30px; background-color: var(--primary); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; box-shadow: var(--shadow-hover); opacity: 0; pointer-events: none; transition: all 0.3s; z-index: 90; }
+        .back-to-top.visible { opacity: 1; pointer-events: auto; }
+        .empty-state { text-align: center; padding: 40px; color: var(--text-light); grid-column: 1 / -1; }
+
+    </style>
+</head>
+<body>
+
+    <!-- =========================================
+         DENISIA WEBOPS NAVIGATION (WITH BURGER)
+         ========================================= -->
+    <nav class="dw-nav">
+        <a href="index.html" class="dw-logo">Denisia<span style="color:white">Webops</span></a>
+        
+        <div class="dw-nav-links" id="dw-navLinks">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services & Pricing</a>
+            <a href="contact.html">Start Project</a>
+        </div>
+        
+        <a href="contact.html" class="dw-cta-btn dw-desktop-cta">Get Quote</a>
+        
+        <div class="dw-burger-menu" id="dw-burgerMenu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+
+    <!-- =========================================
+         APP HEADER
+         ========================================= -->
+    <header class="app-header">
+        <h1>Post‑Delivery Care Kitchen 👶🏽</h1>
+        <h2>Indian recipes for healing & lactation</h2>
+        <p>A curated collection of traditional Indian postpartum meals. Emphasizing gentle spices, pure ghee, and easily digestible ingredients to support optimal recovery, restore energy, and boost milk supply.</p>
+    </header>
+
+    <!-- =========================================
+         MAIN APPLICATION CONTENT
+         ========================================= -->
+    <div class="container main-layout">
+        <main class="content-area">
+            
+            <!-- Simplified Weight Planner -->
+            <div class="weight-planner">
+                <div class="input-group">
+                    <label for="user-weight"><i class="fa-solid fa-weight-scale"></i> Weight (kg):</label>
+                    <input type="number" id="user-weight" value="65" min="40" max="150">
+                </div>
+                <div class="input-group">
+                    <label for="user-diet"><i class="fa-solid fa-leaf"></i> Diet:</label>
+                    <select id="user-diet">
+                        <option value="All">Combined (All)</option>
+                        <option value="Veg">Vegetarian</option>
+                        <option value="Non-Veg">Non-Vegetarian</option>
+                    </select>
+                </div>
+                <div class="target-display">
+                    <div id="daily-target-cals">2216 kcal</div>
+                    <span>Daily Target</span>
+                </div>
+            </div>
+
+            <!-- Tab Navigation -->
+            <nav class="meal-tabs">
+                <button class="tab-btn active" data-target="page-breakfast">Breakfast</button>
+                <button class="tab-btn" data-target="page-mid-snack">Mid-Snack</button>
+                <button class="tab-btn" data-target="page-lunch">Lunch</button>
+                <button class="tab-btn" data-target="page-eve-snack">Eve-Snack</button>
+                <button class="tab-btn" data-target="page-dinner">Dinner</button>
+            </nav>
+
+            <!-- Dedicated Recipe Pages -->
+            <section id="page-breakfast" class="page-section active">
+                <h3 style="color: var(--primary); margin-bottom: 20px; font-family: 'Poppins', sans-serif;"><i class="fa-solid fa-sun"></i> Breakfast Plan</h3>
+                <div class="recipe-grid" id="grid-breakfast"></div>
+            </section>
+
+            <section id="page-mid-snack" class="page-section">
+                <h3 style="color: var(--primary); margin-bottom: 20px; font-family: 'Poppins', sans-serif;"><i class="fa-solid fa-mug-hot"></i> Mid-Morning Snack</h3>
+                <div class="recipe-grid" id="grid-mid-snack"></div>
+            </section>
+
+            <section id="page-lunch" class="page-section">
+                <h3 style="color: var(--primary); margin-bottom: 20px; font-family: 'Poppins', sans-serif;"><i class="fa-solid fa-bowl-food"></i> Lunch Plan</h3>
+                <div class="recipe-grid" id="grid-lunch"></div>
+            </section>
+
+            <section id="page-eve-snack" class="page-section">
+                <h3 style="color: var(--primary); margin-bottom: 20px; font-family: 'Poppins', sans-serif;"><i class="fa-solid fa-cookie-bite"></i> Evening Snack</h3>
+                <div class="recipe-grid" id="grid-eve-snack"></div>
+            </section>
+
+            <section id="page-dinner" class="page-section">
+                <h3 style="color: var(--primary); margin-bottom: 20px; font-family: 'Poppins', sans-serif;"><i class="fa-solid fa-moon"></i> Dinner Plan</h3>
+                <div class="recipe-grid" id="grid-dinner"></div>
+            </section>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="info-box">
+                <h3><i class="fa-solid fa-scale-balanced"></i> General Guidelines</h3>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> <strong>Follow the portions:</strong> The servings shown in the recipes are automatically tailored to your weight!</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Ghee:</strong> Don't skip the ghee. It aids digestion and provides essential postpartum warmth.</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Hydration:</strong> Drink warm Ajwain (carom) or Jeera (cumin) water throughout the day.</li>
+                    <li class="avoid"><i class="fa-solid fa-xmark"></i> <strong>Avoid:</strong> Raw salads, heavy masalas, chillies, and strictly avoid cold foods/beverages.</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- App Disclaimer Footer (Kept from original app) -->
+    <div class="app-disclaimer">
+        <p>🍲 Made with love for new moms.</p>
+        <p style="margin-top: 5px; font-size: 0.8rem;"><em>Disclaimer: This application provides traditional dietary suggestions. Always consult your doctor or a certified nutritionist for specific dietary needs, especially post-delivery.</em></p>
+    </div>
+
+    <!-- =========================================
+         DENISIA WEBOPS FOOTER
+         ========================================= -->
+    <footer class="dw-footer">
+        <div class="dw-footer-content">
+            <div class="dw-footer-section">
+                <h4>Services</h4>
+                <a href="services.html#dev">Web App Development</a>
+                <a href="services.html#seo">SEO & Ranking</a>
+                <a href="services.html#ai">Chatbot Integration</a>
+                <a href="services.html#ads">Digital Marketing</a>
+            </div>
+            <div class="dw-footer-section">
+                <h4>Company</h4>
+                <a href="index.html#about">Our Process</a>
+                <a href="services.html">Pricing</a>
+                <a href="contact.html">Free Consultation</a>
+            </div>
+            <div class="dw-footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: contact@denisiawebops.com</p>
+                <p>Phone: +91 XXXXXXXXXX</p>
+                <div class="dw-social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="dw-copyright">
+            &copy; <span id="currentYear"></span> Denisia Webops. All rights reserved. Launched Dec 9, 2025.
+        </div>
+    </footer>
+
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="recipe-modal">
+        <div class="modal-content" role="dialog" aria-modal="true">
+            <div class="modal-header">
+                <button class="close-btn" id="close-modal" aria-label="Close modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <h2 class="modal-title" id="modal-title">Recipe Name</h2>
+                <div class="modal-benefit" id="modal-benefit">Benefit goes here</div>
+            </div>
+            
+            <div class="modal-body">
+                <div class="card-meta" style="margin-bottom: 25px;">
+                    <span><i class="fa-regular fa-clock"></i> <span id="modal-time">25 mins</span></span>
+                    <span><i class="fa-solid fa-fire-burner"></i> <span id="modal-calories">250 kcal</span></span>
+                    <span><i class="fa-solid fa-utensils"></i> <span id="modal-servings">2 Servings</span></span>
+                </div>
+
+                <div class="modal-grid">
+                    <div class="ingredients-list">
+                        <h4><i class="fa-solid fa-basket-shopping"></i> Ingredients</h4>
+                        <ul id="modal-ingredients"></ul>
+                    </div>
+
+                    <div class="steps-list">
+                        <h4><i class="fa-solid fa-list-ol"></i> Instructions</h4>
+                        <ol id="modal-steps"></ol>
+                    </div>
+                </div>
+
+                <div class="portion-guidance">
+                    <strong><i class="fa-solid fa-circle-info"></i> How much to eat?</strong>
+                    <span id="modal-guidance">This recipe makes 2 servings. For a single new mother, consume 1 serving per meal to avoid over-fullness.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
+
+    <!-- JavaScript Data and Logic -->
+    <script>
+        // =========================================
+        // DENISIA WEBOPS NAV & FOOTER LOGIC
+        // =========================================
+        const dwBurgerMenu = document.getElementById('dw-burgerMenu');
+        const dwNavLinks = document.getElementById('dw-navLinks');
+
+        if (dwBurgerMenu) {
+            dwBurgerMenu.addEventListener('click', () => {
+                dwNavLinks.classList.toggle('active');
+            });
+        }
+
+        const currentYearElement = document.getElementById('currentYear');
+        if (currentYearElement) {
+            currentYearElement.textContent = new Date().getFullYear();
+        }
+
+        // =========================================
+        // POST-DELIVERY APP LOGIC
+        // =========================================
+        const recipes = [
+            {
+                id: "rec-001", mealType: "Breakfast", dietType: "Veg", name: "Sooji Halwa (Sheera)",
+                postPartumBenefit: "Quick energy, easily digestible, provides warmth.", servings: 2, cookingTime: "15 mins",
+                calories: "320 kcal", calorieCount: 320, imageIcon: "fa-bowl-rice",
+                ingredients: [
+                    { item: "Sooji (Semolina)", quantity: "1/2 cup" }, { item: "Pure Ghee", quantity: "3 tbsp" },
+                    { item: "Jaggery powder", quantity: "1/3 cup" }, { item: "Warm Water/Milk", quantity: "1.5 cups" },
+                    { item: "Cardamom powder", quantity: "1/4 tsp" }, { item: "Almonds", quantity: "5-6 chopped" }
+                ],
+                cookingSteps: [
+                    "Heat ghee in a heavy-bottomed pan.", "Add sooji and roast on low heat until golden brown.",
+                    "Simultaneously, heat water/milk and dissolve jaggery.", "Pour warm liquid into roasted sooji while stirring.", "Cook until thick. Serve warm."
+                ]
+            },
+            {
+                id: "rec-002", mealType: "Breakfast", dietType: "Veg", name: "Moong Dal Chilla",
+                postPartumBenefit: "High protein, light on stomach, aids tissue repair.", servings: 3, cookingTime: "20 mins",
+                calories: "150 kcal", calorieCount: 150, imageIcon: "fa-pancakes",
+                ingredients: [
+                    { item: "Yellow Moong Dal", quantity: "1 cup (soaked)" }, { item: "Ginger & Jeera", quantity: "1/2 tsp each" },
+                    { item: "Turmeric & Hing", quantity: "1/4 tsp each" }, { item: "Salt", quantity: "To taste" }, { item: "Ghee", quantity: "For cooking" }
+                ],
+                cookingSteps: [
+                    "Blend soaked dal with ginger and jeera.", "Add turmeric, hing, and salt.",
+                    "Heat tawa and grease with ghee.", "Pour batter and spread into a circle.", "Cook both sides until crisp."
+                ]
+            },
+            {
+                id: "rec-003", mealType: "Breakfast", dietType: "Veg", name: "Ragi Porridge",
+                postPartumBenefit: "Rich in calcium and iron, excellent for boosting milk supply.", servings: 1, cookingTime: "10 mins",
+                calories: "210 kcal", calorieCount: 210, imageIcon: "fa-mug-hot",
+                ingredients: [
+                    { item: "Ragi flour", quantity: "2 tbsp" }, { item: "Water & Milk", quantity: "1 cup & 1/2 cup" },
+                    { item: "Jaggery powder", quantity: "1-2 tbsp" }, { item: "Ghee", quantity: "1 tsp" }
+                ],
+                cookingSteps: [
+                    "Roast ragi flour in ghee for 2 minutes.", "Slowly add water while whisking.",
+                    "Cook until glossy and thick.", "Add milk and jaggery (skip jaggery if diabetic). Serve hot."
+                ]
+            },
+            {
+                id: "rec-004", mealType: "Lunch", dietType: "Veg", name: "Methi Moong Dal Khichdi",
+                postPartumBenefit: "Fenugreek boosts lactation; Moong dal is easily digestible.", servings: 2, cookingTime: "25 mins",
+                calories: "280 kcal", calorieCount: 280, imageIcon: "fa-bowl-food",
+                ingredients: [
+                    { item: "Rice & Moong Dal", quantity: "1/2 cup each" }, { item: "Fresh Methi leaves", quantity: "1/2 cup" },
+                    { item: "Ghee", quantity: "2 tbsp" }, { item: "Jeera, Turmeric, Hing", quantity: "A pinch" }, { item: "Water", quantity: "3.5 cups" }
+                ],
+                cookingSteps: [
+                    "Heat ghee in cooker, splutter jeera.", "Add hing and chopped methi. Sauté.", "Add washed rice and dal.",
+                    "Add water and spices. Pressure cook for 4 whistles.", "Mash slightly and serve hot."
+                ]
+            },
+            {
+                id: "rec-012", mealType: "Lunch", dietType: "Non-Veg", name: "Mutton Paya (Bone Broth)",
+                postPartumBenefit: "High in calcium; strengthens the back and joints immensely.", servings: 3, cookingTime: "2 hrs",
+                calories: "280 kcal", calorieCount: 280, imageIcon: "fa-bone",
+                ingredients: [
+                    { item: "Mutton Trotters", quantity: "4 pieces" }, { item: "Ghee", quantity: "1 tbsp" }, { item: "Whole Spices", quantity: "A few" },
+                    { item: "Onion & Garlic", quantity: "1 onion, 4 cloves" }, { item: "Water", quantity: "4 cups" }
+                ],
+                cookingSteps: [
+                    "Wash trotters thoroughly.", "Heat ghee, add spices, onions, and garlic.", "Add trotters and sauté.",
+                    "Add water and simmer for 2 hours (or pressure cook).", "Serve hot with rotis."
+                ]
+            },
+            {
+                id: "rec-006", mealType: "Dinner", dietType: "Veg", name: "Palak Paneer (Light)",
+                postPartumBenefit: "Spinach replenishes iron and folate lost during delivery.", servings: 2, cookingTime: "25 mins",
+                calories: "310 kcal", calorieCount: 310, imageIcon: "fa-leaf",
+                ingredients: [
+                    { item: "Spinach (Palak)", quantity: "1 bunch" }, { item: "Paneer", quantity: "150g" },
+                    { item: "Ghee", quantity: "1 tbsp" }, { item: "Garlic & Jeera", quantity: "To taste" }
+                ],
+                cookingSteps: [
+                    "Blanch spinach and puree.", "Heat ghee, sauté garlic.", "Add puree and simmer for 5 mins.", "Add paneer cubes. Serve with rotis."
+                ]
+            },
+            {
+                id: "rec-011", mealType: "Dinner", dietType: "Non-Veg", name: "Murg Shorba (Chicken Soup)",
+                postPartumBenefit: "Rich in collagen, helps heal tissues rapidly.", servings: 2, cookingTime: "40 mins",
+                calories: "220 kcal", calorieCount: 220, imageIcon: "fa-bowl-food",
+                ingredients: [
+                    { item: "Chicken (with bones)", quantity: "250g" }, { item: "Ghee", quantity: "1 tbsp" },
+                    { item: "Onion & Ginger-Garlic", quantity: "1 small, 1 tsp" }, { item: "Turmeric & Pepper", quantity: "1/2 tsp each" }, { item: "Water", quantity: "3 cups" }
+                ],
+                cookingSteps: [
+                    "Heat ghee, sauté onions and ginger-garlic paste.", "Sear chicken lightly.", "Add water and spices.", "Pressure cook for 5 whistles. Serve clear broth."
+                ]
+            },
+            {
+                id: "rec-009", mealType: "Mid-Morning Snack", dietType: "Veg", name: "Ajwain & Jeera Water",
+                postPartumBenefit: "Flushes toxins, shrinks uterus, keeps digestion clear.", servings: 4, cookingTime: "10 mins",
+                calories: "5 kcal", calorieCount: 5, imageIcon: "fa-glass-water",
+                ingredients: [
+                    { item: "Water", quantity: "1 Litre" }, { item: "Ajwain (Carom)", quantity: "1 tsp" }, { item: "Jeera (Cumin)", quantity: "1 tsp" }
+                ],
+                cookingSteps: [
+                    "Boil 1 litre of water.", "Add ajwain and jeera.", "Simmer for 5-7 minutes.", "Strain and sip warm throughout the day."
+                ]
+            },
+            {
+                id: "rec-013", mealType: "Mid-Morning Snack", dietType: "Veg", name: "Dry Fruit Panjiri",
+                postPartumBenefit: "Generates internal heat and strengthens pelvic muscles.", servings: 10, cookingTime: "30 mins",
+                calories: "180 kcal", calorieCount: 180, imageIcon: "fa-seedling",
+                ingredients: [
+                    { item: "Whole Wheat Flour", quantity: "1 cup" }, { item: "Ghee", quantity: "1/2 cup" }, { item: "Mixed Nuts", quantity: "1 cup crushed" },
+                    { item: "Makhana", quantity: "1/2 cup roasted" }, { item: "Jaggery Powder", quantity: "1/2 cup" }
+                ],
+                cookingSteps: [
+                    "Roast flour in ghee until golden brown.", "Separately roast nuts and makhana.",
+                    "Mix all roasted ingredients together off the heat.", "Stir in jaggery powder while warm. Eat 2 tbsp daily."
+                ]
+            },
+            {
+                id: "rec-008", mealType: "Evening Snack", dietType: "Veg", name: "Gond Ke Laddoo",
+                postPartumBenefit: "Lubricates joints, provides immense warmth and energy.", servings: 15, cookingTime: "45 mins",
+                calories: "200 kcal", calorieCount: 200, imageIcon: "fa-cookie",
+                ingredients: [
+                    { item: "Edible Gum (Gond)", quantity: "1/2 cup" }, { item: "Whole Wheat Flour", quantity: "2 cups" }, { item: "Pure Ghee", quantity: "1.5 cups" },
+                    { item: "Jaggery Powder", quantity: "1.5 cups" }, { item: "Nuts & Dry Ginger", quantity: "To taste" }
+                ],
+                cookingSteps: [
+                    "Fry gond in ghee until puffed, then crush.", "Roast wheat flour in ghee until nutty.",
+                    "Mix nuts, ginger, crushed gond, and flour.", "Mix in jaggery and bind into round laddoos."
+                ]
+            },
+            {
+                id: "rec-010", mealType: "Evening Snack", dietType: "Veg", name: "Turmeric Milk (Haldi Doodh)",
+                postPartumBenefit: "Nature's best anti-inflammatory; aids sleep.", servings: 1, cookingTime: "5 mins",
+                calories: "120 kcal", calorieCount: 120, imageIcon: "fa-mug-hot",
+                ingredients: [
+                    { item: "Milk", quantity: "1 cup" }, { item: "Turmeric powder", quantity: "1/2 tsp" },
+                    { item: "Black pepper", quantity: "A pinch" }, { item: "Ghee", quantity: "1/2 tsp" }
+                ],
+                cookingSteps: [
+                    "Simmer milk in a pan.", "Add turmeric and black pepper.", "Add ghee for extra joint lubrication.", "Drink warm right before bed."
+                ]
+            }
+        ];
+
+        let currentWeight = 65;
+        let currentDiet = 'All';
+        
+        const mealRatios = {
+            'Breakfast': 0.25, 'Mid-Morning Snack': 0.10, 'Lunch': 0.30, 'Evening Snack': 0.10, 'Dinner': 0.25
+        };
+
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const pageSections = document.querySelectorAll('.page-section');
+        const weightInput = document.getElementById('user-weight');
+        const dietInput = document.getElementById('user-diet');
+        const dailyTargetDisplay = document.getElementById('daily-target-cals');
+        const modal = document.getElementById('recipe-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+        const backToTopBtn = document.getElementById('backToTop');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                pageSections.forEach(s => s.classList.remove('active'));
+                
+                e.target.classList.add('active');
+                const targetId = e.target.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+
+        function updatePlan() {
+            currentWeight = parseFloat(weightInput.value) || 60;
+            currentDiet = dietInput.value;
+
+            const totalDailyCalories = Math.round((currentWeight * 22 * 1.2) + 500);
+            dailyTargetDisplay.textContent = totalDailyCalories + " kcal";
+
+            const pages = [
+                { id: 'grid-breakfast', type: 'Breakfast' }, { id: 'grid-mid-snack', type: 'Mid-Morning Snack' },
+                { id: 'grid-lunch', type: 'Lunch' }, { id: 'grid-eve-snack', type: 'Evening Snack' }, { id: 'grid-dinner', type: 'Dinner' }
+            ];
+
+            pages.forEach(page => {
+                const grid = document.getElementById(page.id);
+                grid.innerHTML = ''; 
+                const mealTargetCals = Math.round(totalDailyCalories * mealRatios[page.type]);
+
+                const safeRecipes = recipes.filter(r => {
+                    if (currentDiet !== 'All' && r.dietType !== currentDiet) return false;
+                    return r.mealType === page.type;
+                });
+
+                if (safeRecipes.length === 0) {
+                    grid.innerHTML = `<div class="empty-state">No recipes available for your diet selection here.</div>`;
+                    return;
+                }
+
+                safeRecipes.forEach(recipe => {
+                    let suggestedServings = (mealTargetCals / recipe.calorieCount).toFixed(1);
+                    if (recipe.calorieCount < 20) suggestedServings = 1; 
+
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `
+                        <div class="card-icon"><i class="fa-solid ${recipe.imageIcon}"></i></div>
+                        <span class="badge">${recipe.dietType}</span>
+                        <h3>${recipe.name}</h3>
+                        <div class="card-benefit">${recipe.postPartumBenefit}</div>
+                        <div class="card-meta">
+                            <span><i class="fa-regular fa-clock"></i> ${recipe.cookingTime}</span>
+                            <span><i class="fa-solid fa-fire-burner"></i> Base: ${recipe.calories}</span>
+                        </div>
+                        <div class="card-plan">
+                            Target for your weight: ${mealTargetCals} kcal
+                            <strong>Eat ${suggestedServings} Servings</strong>
+                        </div>
+                        <div class="card-actions">
+                            <button class="view-btn" onclick="openModal('${recipe.id}', ${mealTargetCals}, ${suggestedServings})">View Recipe Details</button>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            });
+        }
+
+        weightInput.addEventListener('input', updatePlan);
+        dietInput.addEventListener('change', updatePlan);
+
+        window.openModal = function(id, targetCals, suggestedServings) {
+            const recipe = recipes.find(r => r.id === id);
+            if (!recipe) return;
+
+            document.getElementById('modal-title').textContent = recipe.name;
+            document.getElementById('modal-benefit').textContent = recipe.postPartumBenefit;
+            document.getElementById('modal-time').textContent = recipe.cookingTime;
+            document.getElementById('modal-calories').textContent = `Base: ${recipe.calories}`;
+            document.getElementById('modal-servings').textContent = `Recipe makes: ${recipe.servings} Servings`;
+
+            document.getElementById('modal-ingredients').innerHTML = recipe.ingredients.map(ing => 
+                `<li><span>${ing.item}</span> <span class="qty">${ing.quantity}</span></li>`
+            ).join('');
+
+            document.getElementById('modal-steps').innerHTML = recipe.cookingSteps.map(step => 
+                `<li>${step}</li>`
+            ).join('');
+
+            const guidanceText = document.getElementById('modal-guidance');
+            if (recipe.calorieCount < 20) {
+                 guidanceText.textContent = `Based on your weight, sip this freely throughout the day as needed for hydration.`;
+            } else {
+                 guidanceText.innerHTML = `Based on your weight of <strong>${currentWeight}kg</strong>, your calorie target for this meal is <strong>${targetCals} kcal</strong>.<br><br>We recommend eating <strong>${suggestedServings} servings</strong> of this recipe.`;
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; 
+        };
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; 
+        }
+
+        closeModalBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) backToTopBtn.classList.add('visible');
+            else backToTopBtn.classList.remove('visible');
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updatePlan(); 
+        });
+    </script>
+</body>
+</html>
