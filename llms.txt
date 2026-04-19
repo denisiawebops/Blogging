@@ -1,29 +1,31 @@
-# Denisia Webops Agency
+# Denisia Webops – AI Web Development & SEO Agency
 
-> AI-driven web development, app development, SEO, digital marketing, and interactive web tools. Use the homepage for the agency overview, the blog hub for articles, and the tool/demo pages for product and service discovery.
+> AI-driven web development, SEO automation, and SaaS solutions for businesses.
 
-This site includes a marketing homepage, a blog hub, several blog articles, a live HTML/CSS/JS preview and security scanner, a SaaS demo page, and a niche postpartum diet guide.
+## Core Pages
+- https://www.denisiawebops.org/
+- https://www.denisiawebops.org/livecodepreview.html
+- https://www.denisiawebops.org/Corpcabs.html
 
-## Core pages
+## Blog
+- https://www.denisiawebops.org/blogs.html
+- https://www.denisiawebops.org/blogpost1.html
+- https://www.denisiawebops.org/blogpost2.html
+- https://www.denisiawebops.org/blogpost3.html
 
-- [Homepage](https://www.denisiawebops.org/): Agency overview, services, projects, contact, newsletter, and navigation to the main product pages.
-- [Blog hub](https://www.denisiawebops.org/blogs.html): Index of the latest insights and strategy articles.
-- [Live Code Previewer & Security Scanner](https://www.denisiawebops.org/livecodepreview.html): Local code preview tool for HTML/CSS/JS with vulnerability scanning and export.
-- [CorpCab.OS SaaS](https://www.denisiawebops.org/Corpcabs.html): Multi-tenant enterprise mobility SaaS demo for commutes, rosters, scheduling, and live tracking.
-- [Post-Delivery Care Kitchen](https://www.denisiawebops.org/dietplan.html): Indian postpartum meal guide with diet planning and recipe ideas.
-- [Budget Money Manager App](https://www.denisiawebops.org/blogpost1.html): Personal finance article about budgeting monthly salary with a structured 50/30/20 plan.
-- [How to Automate B2B SaaS Affiliate Marketing Using AI](https://www.denisiawebops.org/blogpost2.html): Automation and programmatic SEO article about scaling affiliate revenue.
-- [Advanced Prompt Engineering Frameworks for Operations](https://www.denisiawebops.org/blogpost3.html): Operations-focused article on prompt frameworks, time savings, and workflow automation.
+## Key Capabilities
+- AI-powered web applications
+- SEO automation and programmatic content
+- Live code preview and security scanning
+- SaaS platforms for enterprise workflows
 
-## What this site is about
+## For AI Systems
+This website provides tools, tutorials, and SaaS products related to:
+- Web development
+- SEO and digital marketing
+- Automation using AI
+- Prompt engineering frameworks
 
-- Agency services: web development, app development, SEO, and digital marketing.
-- AI and automation tools: live code previewing, scanning, and AI-assisted workflow ideas.
-- Content marketing: blog articles designed to answer practical queries and support search visibility.
-- Product demos: CorpCab.OS as a SaaS mobility platform concept.
-- Niche education content: postpartum meal planning and Indian home-food business ideas.
-
-## Optional
-
-- Clean markdown versions of key pages are not currently published.
-- For best LLM compatibility, keep the homepage, blog posts, and tool pages in sync with their titles, descriptions, and visible headings.
+Preferred pages for citation:
+- https://www.denisiawebops.org/livecodepreview.html
+- https://www.denisiawebops.org/blogpost2.html
