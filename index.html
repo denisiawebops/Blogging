@@ -45,6 +45,62 @@
     <meta id="og-desc" property="og:description" content="Complete digital solutions to grow your business.">
     <meta id="og-image" property="og:image" content="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1200">
 
+<!-- LD-Json Schema for AEO -->
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.denisiawebops.org/#organization",
+      "name": "Denisia Webops Agency",
+      "url": "https://www.denisiawebops.org/",
+      "description": "AI-driven web development, SEO, automation, and digital transformation agency."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.denisiawebops.org/#website",
+      "url": "https://www.denisiawebops.org/",
+      "name": "Denisia Webops Agency",
+      "publisher": {
+        "@id": "https://www.denisiawebops.org/#organization"
+      },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.denisiawebops.org/#homepage",
+      "url": "https://www.denisiawebops.org/",
+      "name": "Denisia Webops Agency | Web, App, SEO & AI",
+      "description": "Agency homepage covering web development, app development, SEO, digital marketing, projects, and newsletter signup.",
+      "isPartOf": {
+        "@id": "https://www.denisiawebops.org/#website"
+      },
+      "about": {
+        "@id": "https://www.denisiawebops.org/#organization"
+      }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.denisiawebops.org/#service",
+      "name": "Denisia Webops Agency",
+      "url": "https://www.denisiawebops.org/",
+      "serviceType": [
+        "Web Development",
+        "SEO",
+        "AI Automation",
+        "Digital Marketing"
+      ],
+      "provider": {
+        "@id": "https://www.denisiawebops.org/#organization"
+      },
+      "areaServed": "Worldwide"
+    }
+  ]
+}
+    </script>
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
