@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FWP9BLNZK6');
+    </script>
+
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="82U62k4jtMBmS52po-sbJ12znmacAgq0Rg4NvMZLXMY" />
+    <meta name="msvalidate.01" content="8250834873D72FFE4BABCD1B2C7B3173" />
+
+    <!-- Clarity tracking code -->
+    <script>
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vimok6xi57");
+    </script>
+
+    <title>What is Microsoft Power Pages? Low‑Code Website Builder (2026 Guide)</title>
+    <meta name="description" content="Learn what Microsoft Power Pages is, how it compares to Power Apps portals, and why enterprises use it to build secure, data‑driven external websites – no coding required.">
+    <meta name="keywords" content="what is microsoft power pages, microsoft power pages tutorial, power pages licensing, power pages studio, low-code website builder">
+    <link rel="canonical" href="https://www.denisiawebops.org/blogpost4.html">
+
+    <!-- Tailwind CSS & Lucide Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: { colors: { primary: '#1e3a8a', secondary: '#3b82f6', accent: '#dbeafe' } }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #ffffff; color: #1f2937; }
+        .prose h2 { color: #111827; font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
+        .prose h3 { color: #111827; font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .prose p { margin-bottom: 1rem; line-height: 1.75; color: #374151; }
+        .prose ul, .prose ol { margin-bottom: 1rem; padding-left: 1.5rem; color: #374151; }
+        .prose li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body class="bg-white text-gray-900 antialiased selection:bg-blue-200 selection:text-blue-900 flex flex-col min-h-screen">
+
+    <!-- Unified Navbar (same as other blog pages) -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center cursor-pointer" onclick="window.location='index.html'">
+                    <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-2 rounded-lg shadow-md">
+                        <i data-lucide="zap" class="h-6 w-6 text-white"></i>
+                    </div>
+                    <span class="ml-3 text-xl font-bold text-gray-900">Denisia Webops Agency</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="index.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Home</a>
+                        <a href="index.html#services" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Services</a>
+                        <a href="index.html#projects" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Projects</a>
+                        <a href="blogs.html" class="text-blue-700 font-bold transition text-sm border-b-2 border-blue-700 pb-1">Blog</a>
+                        <a href="index.html#ai-models" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">AI Models</a>
+                        <a href="index.html#contact" class="bg-blue-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition shadow-sm text-sm">Get in Touch</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-blue-700 p-2 focus:outline-none">
+                        <i id="mobile-menu-icon" data-lucide="menu" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-blue-100 shadow-lg absolute w-full z-40">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="index.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700">Home</a>
+                <a href="index.html#services" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700">Services</a>
+                <a href="index.html#projects" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700">Projects</a>
+                <a href="blogs.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-bold text-blue-700 bg-blue-50">Blog</a>
+                <a href="index.html#ai-models" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700">AI Models</a>
+                <a href="index.html#contact" class="block w-full text-center mt-4 bg-blue-800 text-white px-3 py-3 rounded-lg text-base font-medium hover:bg-blue-700 shadow-md">Get in Touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Blog Content -->
+    <main class="flex-grow pt-32 pb-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Breadcrumb -->
+            <nav class="text-sm text-gray-500 mb-6 flex items-center">
+                <a href="index.html" class="hover:text-blue-700">Home</a>
+                <i data-lucide="chevron-right" class="w-4 h-4 mx-2"></i>
+                <a href="blogs.html" class="hover:text-blue-700">Blog</a>
+                <i data-lucide="chevron-right" class="w-4 h-4 mx-2"></i>
+                <span class="text-gray-900 font-medium">Microsoft Power Pages</span>
+            </nav>
+
+            <!-- Blog Header -->
+            <div class="mb-10">
+                <div class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">Low‑Code Development</span>
+                    <span>•</span>
+                    <span>7 min read</span>
+                </div>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-6">What is Microsoft Power Pages? A Beginner’s Guide to Low‑Code Websites</h1>
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200" alt="Microsoft Power Pages dashboard concept" class="w-full h-auto rounded-2xl shadow-lg object-cover max-h-[400px]">
+            </div>
+
+            <!-- Content -->
+            <div class="prose max-w-none mb-12">
+                <p>If you’ve heard of <strong>Microsoft Power Pages</strong> but aren’t sure what it is, you’re not alone. Many businesses still confuse it with old Power Apps portals. In this guide, we’ll break down exactly what Power Pages offers, how it differs from other Microsoft tools, and why it’s becoming the go‑to platform for building external‑facing, data‑driven websites – with almost zero code.</p>
+
+                <h2>What is Microsoft Power Pages?</h2>
+                <p><strong>Microsoft Power Pages</strong> is a low‑code, secure, enterprise‑grade platform for creating external‑facing websites that connect directly to your data in Microsoft Dataverse. Think of it as the public‑facing cousin of Power Apps – built for customers, partners, and vendors to log in, view data, submit forms, or track orders – all while staying inside your business logic.</p>
+                <p>Launched in 2022 as the evolution of Power Apps portals, Power Pages combines a visual design studio with built‑on responsive templates, role‑based access control, and native integration with the rest of the Power Platform (Power Automate, Power BI, Power Apps).</p>
+
+                <h2>Key Features of Microsoft Power Pages</h2>
+                <ul>
+                    <li><strong>Visual design studio</strong> – Drag‑and‑drop components, no HTML/CSS required.</li>
+                    <li><strong>Dataverse connectivity</strong> – Read/write data securely from your tables.</li>
+                    <li><strong>Multi‑language support</strong> – Build sites that automatically localise content.</li>
+                    <li><strong>Authentication providers</strong> – Azure AD, Microsoft account, LinkedIn, Google, or custom OIDC.</li>
+                    <li><strong>Server‑side code (when needed)</strong> – Use Liquid templates or custom web templates.</li>
+                    <li><strong>SEO‑friendly</strong> – Unlike SPAs, Power Pages renders server‑side content, making it fully crawlable by search engines.</li>
+                </ul>
+
+                <h2>How is Power Pages Different from Power Apps Portals?</h2>
+                <p>The old “Power Apps portals” were clunky and hard to customise. Power Pages is a complete rewrite with a modern interface, better performance, and a focus on <strong>low‑code site building</strong>. Microsoft has also announced that classic portals will be deprecated, so all new projects should start on Power Pages.</p>
+
+                <h2>Who Should Use Microsoft Power Pages?</h2>
+                <ul>
+                    <li><strong>IT teams</strong> – Need to spin up a partner portal or customer self‑service site quickly.</li>
+                    <li><strong>Citizen developers</strong> – Business analysts who understand data but don’t code.</li>
+                    <li><strong>Agencies like Denisia Webops</strong> – We use Power Pages to deliver secure external portals for clients in weeks instead of months.</li>
+                </ul>
+
+                <h2>Power Pages Licensing – A Quick Overview</h2>
+                <p>Power Pages uses a **capacity‑based model** with two main license types:</p>
+                <ul>
+                    <li><strong>Authenticated users</strong> – Require a per‑user license (starting at ~$200/user/month).</li>
+                    <li><strong>Anonymous users</strong> – Use page view capacity (pay for visits).</li>
+                </ul>
+                <p>For a detailed breakdown, Microsoft’s official <a href="https://learn.microsoft.com/en-us/power-pages/admin/pricing" target="_blank" rel="noopener" class="text-blue-600 underline">Power Pages pricing page</a> is the best reference. (Source: Microsoft Learn, April 2026)</p>
+
+                <h2>Power Pages Studio: Building Your First Site</h2>
+                <p>When you open <strong>Power Pages Studio</strong> (accessible from make.powerpages.com), you get a WYSIWYG editor. You can start from a template (e.g., “Starter Layout”) and then connect to your Dataverse tables. Add forms, lists, charts, or even custom Liquid code. The studio also provides real‑time preview and one‑click publish.</p>
+
+                <h2>Why Enterprises Are Switching to Power Pages</h2>
+                <p>Gartner predicts that by 2026, more than 70% of new external websites will be built using low‑code platforms. Power Pages fits perfectly for organisations already using Microsoft 365 or Dynamics 365. It reduces development cost, time‑to‑market, and security risks compared to building a custom web app from scratch.</p>
+
+                <h2>Internal & External Resources for Further Learning</h2>
+                <p>To go deeper, check out these official resources:</p>
+                <ul>
+                    <li><a href="https://learn.microsoft.com/en-us/power-pages/getting-started" target="_blank" rel="noopener" class="text-blue-600 underline">Microsoft Learn: Get started with Power Pages</a></li>
+                    <li><a href="https://powerpages.microsoft.com/en-us/" target="_blank" rel="noopener" class="text-blue-600 underline">Official Power Pages product page</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=7f8oFg5kS0E" target="_blank" rel="noopener" class="text-blue-600 underline">Power Pages in 100 seconds (Microsoft video)</a></li>
+                </ul>
+
+                <!-- Referring blogs / internal links -->
+                <div class="bg-blue-50 p-6 rounded-2xl my-8 border border-blue-200">
+                    <h3 class="text-xl font-bold text-blue-900 flex items-center gap-2"><i data-lucide="book-open" class="w-5 h-5"></i> You might also like</h3>
+                    <ul class="mt-3 space-y-2 list-disc pl-5">
+                        <li><a href="blogpost1.html" class="text-blue-700 hover:underline">Budget Money Manager App: Automate the 50/30/20 Rule</a></li>
+                        <li><a href="blogpost2.html" class="text-blue-700 hover:underline">How to Automate B2B SaaS Affiliate Marketing Using AI</a></li>
+                        <li><a href="blogpost3.html" class="text-blue-700 hover:underline">Advanced Prompt Engineering Frameworks for Operations</a></li>
+                    </ul>
+                    <p class="text-sm text-gray-600 mt-4">📌 Read the full series on automation and low‑code development.</p>
+                </div>
+
+                <h2>Final Thoughts</h2>
+                <p>Microsoft Power Pages is a game‑changer for organisations that need secure, data‑connected external websites without hiring a full‑stack development team. Whether you’re building a partner portal, a customer community, or a public knowledge base, Power Pages should be on your radar.</p>
+                <p>At <strong>Denisia Webops Agency</strong>, we specialise in implementing Power Pages solutions, customising templates, and integrating them with Power Automate and Power BI. <a href="index.html#contact" class="text-blue-700 font-semibold underline">Contact us</a> to discuss your project.</p>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="mt-12 bg-blue-900 text-white rounded-2xl p-8 text-center shadow-lg">
+                <h3 class="text-2xl font-bold mb-4">Need a Low‑Code Website Built Fast?</h3>
+                <p class="text-blue-200 mb-6">We design and deploy Power Pages portals that integrate perfectly with your existing Microsoft stack.</p>
+                <a href="index.html#contact" class="inline-block bg-white text-blue-900 font-bold px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors shadow-md">Get a Free Consultation</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Unified Footer (exactly same as index.html) -->
+    <footer class="bg-gray-50 border-t border-blue-100 pt-16 pb-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-1.5 rounded-lg shadow">
+                            <i data-lucide="zap" class="h-5 w-5 text-white"></i>
+                        </div>
+                        <span class="ml-3 text-lg font-bold text-gray-900">Denisia Webops Agency</span>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">Complete digital solutions – from web development to AI integration.</p>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="index.html#web-dev" class="hover:text-blue-700 transition-colors">Web Development</a></li>
+                        <li><a href="index.html#app-dev" class="hover:text-blue-700 transition-colors">App Development</a></li>
+                        <li><a href="index.html#seo" class="hover:text-blue-700 transition-colors">SEO</a></li>
+                        <li><a href="index.html#digital-marketing" class="hover:text-blue-700 transition-colors">Digital Marketing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="blogs.html" class="hover:text-blue-700 transition-colors">Blog</a></li>
+                        <li><a href="index.html#projects" class="hover:text-blue-700 transition-colors">Projects</a></li>
+                        <li><a href="privacy.html" class="hover:text-blue-700 transition-colors">Privacy Policy</a></li>
+                        <li><a href="index.html#contact" class="hover:text-blue-700 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-600 text-sm mb-4">Get weekly insights.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Enter email" class="w-full px-4 py-2 rounded-l-md text-sm border border-gray-300" />
+                        <button class="bg-blue-800 px-4 py-2 rounded-r-md hover:bg-blue-700 transition-colors">
+                            <i data-lucide="arrow-right" class="h-4 w-4 text-white"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-blue-100 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">© 2025 Denisia Webops Agency. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <i data-lucide="twitter" class="h-5 w-5 text-gray-500 hover:text-blue-700 cursor-pointer transition"></i>
+                    <i data-lucide="linkedin" class="h-5 w-5 text-gray-500 hover:text-blue-700 cursor-pointer transition"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                menu.classList.add('hidden');
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+
+    <!-- Tawk.to Script -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function(){
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/6993fa897941b81c35293c7a/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+</body>
+</html>
