@@ -1,9 +1,11 @@
-<html lang="en" class="scroll-smooth"><head>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google tag (gtag.js) -->
-    <script async="" src="https://embed.tawk.to/6993fa897941b81c35293c7a/default" charset="UTF-8" crossorigin="*"></script><script async="" src="https://www.clarity.ms/tag/vimok6xi57?ref=bwt"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -24,58 +26,49 @@
         })(window, document, "clarity", "script", "vimok6xi57");
     </script>
 
-
-    <!-- AEO -->
-
+    <!-- AEO Schema -->
     <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
     {
-      "@type": "Organization",
-      "@id": "https://www.denisiawebops.org/#organization",
-      "name": "Denisia Webops Agency",
-      "url": "https://www.denisiawebops.org/"
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.denisiawebops.org/#website",
-      "url": "https://www.denisiawebops.org/",
-      "name": "Denisia Webops Agency",
-      "publisher": {
-        "@id": "https://www.denisiawebops.org/#organization"
-      }
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://www.denisiawebops.org/livecodepreview.html#webpage",
-      "url": "https://www.denisiawebops.org/livecodepreview.html",
-      "name": "Live Code Previewer & Security Scanner",
-      "description": "Local HTML/CSS/JS preview tool with security scanning and export features.",
-      "isPartOf": {
-        "@id": "https://www.denisiawebops.org/#website"
-      }
-    },
-    {
-      "@type": "SoftwareApplication",
-      "@id": "https://www.denisiawebops.org/livecodepreview.html#softwareapplication",
-      "name": "Live Code Previewer & Security Scanner",
-      "applicationCategory": "DeveloperApplication",
-      "operatingSystem": "Web",
-      "url": "https://www.denisiawebops.org/livecodepreview.html",
-      "description": "Local HTML/CSS/JS preview tool with security scanning and export features.",
-      "creator": {
-        "@id": "https://www.denisiawebops.org/#organization"
-      }
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.denisiawebops.org/#organization",
+          "name": "Denisia Webops Agency",
+          "url": "https://www.denisiawebops.org/"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.denisiawebops.org/#website",
+          "url": "https://www.denisiawebops.org/",
+          "name": "Denisia Webops Agency",
+          "publisher": { "@id": "https://www.denisiawebops.org/#organization" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.denisiawebops.org/livecodepreview.html#webpage",
+          "url": "https://www.denisiawebops.org/livecodepreview.html",
+          "name": "Live Code Previewer & Security Scanner",
+          "description": "Local HTML/CSS/JS preview tool with security scanning and export features.",
+          "isPartOf": { "@id": "https://www.denisiawebops.org/#website" }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://www.denisiawebops.org/livecodepreview.html#softwareapplication",
+          "name": "Live Code Previewer & Security Scanner",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Web",
+          "url": "https://www.denisiawebops.org/livecodepreview.html",
+          "description": "Local HTML/CSS/JS preview tool with security scanning and export features.",
+          "creator": { "@id": "https://www.denisiawebops.org/#organization" }
+        }
+      ]
     }
-  ]
-}
-</script>
+    </script>
 
-<!-- Canonical -->
     <link rel="canonical" href="https://www.denisiawebops.org/livecodepreview.html">
     
-    <title>Live Code Previewer &amp; Security Scanner | Deninisa Webops</title>
+    <title>Live Code Previewer & Security Scanner | Denisia Webops</title>
     <meta name="description" content="Preview full HTML or separate HTML/CSS/JS live, scan for real-world security issues, and export reports locally without server uploads.">
 
     <!-- Tailwind CSS, Lucide Icons, html2canvas -->
@@ -94,7 +87,7 @@
     <style>
         body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #f8fafc; color: #1f2937; }
         
-        /* Custom Editor Styles (Dark Theme inside Light Page) */
+        /* Editor Styles – Fixed height with scroll, no auto-expand */
         .editor-shell {
             display: flex;
             background: #0f172a;
@@ -102,6 +95,7 @@
             overflow: hidden;
             border: 1px solid #334155;
             box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+            height: 400px;
         }
         .line-numbers {
             width: 3rem;
@@ -116,21 +110,24 @@
             font-size: 0.875rem;
             line-height: 1.5;
             border-right: 1px solid #1e293b;
+            height: 100%;
+            overflow-y: auto;
         }
         textarea.code {
             flex-grow: 1;
-            min-height: 400px;
             background: #0f172a;
             color: #38bdf8;
             padding: 1rem;
             border: none;
             outline: none;
-            resize: vertical;
+            resize: none;
             white-space: pre;
             font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
             font-size: 0.875rem;
             line-height: 1.5;
             tab-size: 2;
+            height: 100%;
+            overflow-y: auto;
         }
         textarea.code::placeholder { color: #475569; }
         
@@ -142,10 +139,10 @@
         .editor-shell ::-webkit-scrollbar-track { background: #0f172a; }
         .editor-shell ::-webkit-scrollbar-thumb { background: #334155; }
     </style>
-<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.left-3{left:0.75rem}.top-0{top:0px}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.col-span-1{grid-column:span 1 / span 1}.mx-auto{margin-left:auto;margin-right:auto}.mb-12{margin-bottom:3rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.ml-10{margin-left:2.5rem}.ml-3{margin-left:0.75rem}.mr-2{margin-right:0.5rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-auto{margin-top:auto}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-20{height:5rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-8{height:2rem}.h-\[300px\]{height:300px}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-4{width:1rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-8{width:2rem}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-7xl{max-width:80rem}.max-w-\[1600px\]{max-width:1600px}.flex-grow{flex-grow:1}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-12{gap:3rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-x-8 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(2rem * var(--tw-space-x-reverse));margin-left:calc(2rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.divide-y > :not([hidden]) ~ :not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px * var(--tw-divide-y-reverse))}.divide-gray-100 > :not([hidden]) ~ :not([hidden]){--tw-divide-opacity:1;border-color:rgb(243 244 246 / var(--tw-divide-opacity, 1))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.scroll-smooth{scroll-behavior:smooth}.whitespace-nowrap{white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-xl{border-radius:0.75rem}.rounded-l-md{border-top-left-radius:0.375rem;border-bottom-left-radius:0.375rem}.rounded-r-md{border-top-right-radius:0.375rem;border-bottom-right-radius:0.375rem}.border{border-width:1px}.border-0{border-width:0px}.border-b{border-bottom-width:1px}.border-b-2{border-bottom-width:2px}.border-t{border-top-width:1px}.border-blue-100{--tw-border-opacity:1;border-color:rgb(219 234 254 / var(--tw-border-opacity, 1))}.border-blue-200{--tw-border-opacity:1;border-color:rgb(191 219 254 / var(--tw-border-opacity, 1))}.border-blue-700{--tw-border-opacity:1;border-color:rgb(29 78 216 / var(--tw-border-opacity, 1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1))}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219 / var(--tw-border-opacity, 1))}.border-green-100{--tw-border-opacity:1;border-color:rgb(220 252 231 / var(--tw-border-opacity, 1))}.border-orange-100{--tw-border-opacity:1;border-color:rgb(255 237 213 / var(--tw-border-opacity, 1))}.border-red-100{--tw-border-opacity:1;border-color:rgb(254 226 226 / var(--tw-border-opacity, 1))}.border-red-800{--tw-border-opacity:1;border-color:rgb(153 27 27 / var(--tw-border-opacity, 1))}.border-transparent{border-color:transparent}.bg-blue-100{--tw-bg-opacity:1;background-color:rgb(219 234 254 / var(--tw-bg-opacity, 1))}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-blue-700{--tw-bg-opacity:1;background-color:rgb(29 78 216 / var(--tw-bg-opacity, 1))}.bg-blue-800{--tw-bg-opacity:1;background-color:rgb(30 64 175 / var(--tw-bg-opacity, 1))}.bg-blue-900{--tw-bg-opacity:1;background-color:rgb(30 58 138 / var(--tw-bg-opacity, 1))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.bg-gray-200{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-green-50{--tw-bg-opacity:1;background-color:rgb(240 253 244 / var(--tw-bg-opacity, 1))}.bg-green-600{--tw-bg-opacity:1;background-color:rgb(22 163 74 / var(--tw-bg-opacity, 1))}.bg-orange-50{--tw-bg-opacity:1;background-color:rgb(255 247 237 / var(--tw-bg-opacity, 1))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity, 1))}.bg-red-900\/50{background-color:rgb(127 29 29 / 0.5)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/90{background-color:rgb(255 255 255 / 0.9)}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-blue-800{--tw-gradient-from:#1e40af var(--tw-gradient-from-position);--tw-gradient-to:rgb(30 64 175 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-blue-600{--tw-gradient-to:#2563eb var(--tw-gradient-to-position)}.p-1{padding:0.25rem}.p-1\.5{padding:0.375rem}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-5{padding:1.25rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pb-1{padding-bottom:0.25rem}.pb-16{padding-bottom:4rem}.pb-6{padding-bottom:1.5rem}.pb-8{padding-bottom:2rem}.pl-9{padding-left:2.25rem}.pr-3{padding-right:0.75rem}.pt-16{padding-top:4rem}.pt-2{padding-top:0.5rem}.pt-32{padding-top:8rem}.pt-8{padding-top:2rem}.text-left{text-align:left}.text-center{text-align:center}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-\[10px\]{font-size:10px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.tracking-tight{letter-spacing:-0.025em}.text-blue-200{--tw-text-opacity:1;color:rgb(191 219 254 / var(--tw-text-opacity, 1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}.text-blue-800{--tw-text-opacity:1;color:rgb(30 64 175 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity, 1))}.text-green-600{--tw-text-opacity:1;color:rgb(22 163 74 / var(--tw-text-opacity, 1))}.text-green-800{--tw-text-opacity:1;color:rgb(22 101 52 / var(--tw-text-opacity, 1))}.text-orange-600{--tw-text-opacity:1;color:rgb(234 88 12 / var(--tw-text-opacity, 1))}.text-orange-800{--tw-text-opacity:1;color:rgb(154 52 18 / var(--tw-text-opacity, 1))}.text-red-200{--tw-text-opacity:1;color:rgb(254 202 202 / var(--tw-text-opacity, 1))}.text-red-600{--tw-text-opacity:1;color:rgb(220 38 38 / var(--tw-text-opacity, 1))}.text-red-800{--tw-text-opacity:1;color:rgb(153 27 27 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-10{opacity:0.1}.shadow{--tw-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:bg-blue-100:hover{--tw-bg-opacity:1;background-color:rgb(219 234 254 / var(--tw-bg-opacity, 1))}.hover\:bg-blue-50:hover{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.hover\:bg-blue-700:hover{--tw-bg-opacity:1;background-color:rgb(29 78 216 / var(--tw-bg-opacity, 1))}.hover\:bg-blue-800:hover{--tw-bg-opacity:1;background-color:rgb(30 64 175 / var(--tw-bg-opacity, 1))}.hover\:bg-gray-100:hover{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.hover\:bg-gray-200:hover{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1))}.hover\:bg-gray-300:hover{--tw-bg-opacity:1;background-color:rgb(209 213 219 / var(--tw-bg-opacity, 1))}.hover\:bg-green-500:hover{--tw-bg-opacity:1;background-color:rgb(34 197 94 / var(--tw-bg-opacity, 1))}.hover\:bg-red-800:hover{--tw-bg-opacity:1;background-color:rgb(153 27 27 / var(--tw-bg-opacity, 1))}.hover\:text-blue-600:hover{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.hover\:text-blue-700:hover{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}.hover\:text-gray-900:hover{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity, 1))}.focus\:border-blue-500:focus{--tw-border-opacity:1;border-color:rgb(59 130 246 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}@media (min-width: 640px){.sm\:mt-0{margin-top:0px}.sm\:w-64{width:16rem}.sm\:w-auto{width:auto}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}}@media (min-width: 768px){.md\:col-span-1{grid-column:span 1 / span 1}.md\:block{display:block}.md\:hidden{display:none}.md\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:items-center{align-items:center}.md\:justify-end{justify-content:flex-end}.md\:p-6{padding:1.5rem}.md\:text-left{text-align:left}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-base{font-size:1rem;line-height:1.5rem}}@media (min-width: 1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (min-width: 1280px){.xl\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}</style></head>
+</head>
 <body class="antialiased flex flex-col min-h-screen">
 
-    <!-- Unified Navbar -->
+    <!-- Unified Navbar (same as original) -->
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
@@ -153,7 +150,7 @@
                     <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-2 rounded-lg shadow-md">
                         <i data-lucide="zap" class="h-6 w-6 text-white"></i>
                     </div>
-                    <span class="ml-3 text-xl font-bold text-gray-900">Your Agency</span>
+                    <span class="ml-3 text-xl font-bold text-gray-900">Denisia Webops Agency</span>
                 </div>
 
                 <div class="hidden md:block">
@@ -162,7 +159,7 @@
                         <a href="index.html#services" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Services</a>
                         <a href="index.html#projects" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Projects</a>
                         <a href="blogs.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Blog</a>
-                        <a href="livecodepreview.html" class="text-blue-700 font-bold transition text-sm border-b-2 border-blue-700 pb-1">Livecodepreview</a>
+                        <a href="livecodepreview.html" class="text-blue-700 font-bold transition text-sm border-b-2 border-blue-700 pb-1">Live Preview & Scanner</a>
                         <a href="index.html#contact" class="bg-blue-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition shadow-sm text-sm">Get in Touch</a>
                     </div>
                 </div>
@@ -181,9 +178,8 @@
                 <a href="index.html#services" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Services</a>
                 <a href="index.html#projects" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Projects</a>
                 <a href="blogs.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Blog</a>
-                <a href="scanner.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-bold text-blue-700 bg-blue-50">Scanner</a>
+                <a href="livecodepreview.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-bold text-blue-700 bg-blue-50">Scanner</a>
                 <a href="index.html#contact" class="block w-full text-center mt-4 bg-blue-800 text-white px-3 py-3 rounded-lg text-base font-medium hover:bg-blue-700 shadow-md">Get in Touch</a>
-                <link rel="canonical" href="https://www.denisiawebops.org/livecodepreview.html" />
             </div>
         </div>
     </nav>
@@ -226,7 +222,7 @@
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
                     <div>
                         <h2 class="text-xl font-bold text-gray-900">Workspace Editor</h2>
-                        <p class="text-xs text-gray-500 mt-1">Select mode to write code</p>
+                        <p class="text-xs text-gray-500 mt-1">Select mode to write code (fixed height, scrollable)</p>
                     </div>
                     <div class="flex bg-gray-100 p-1 rounded-lg border border-gray-200">
                         <button id="modeCombinedBtn" onclick="setMode('combined')" class="px-4 py-1.5 text-sm font-semibold rounded-md transition-colors bg-white text-blue-700 shadow-sm border border-gray-200">Combined HTML</button>
@@ -302,7 +298,8 @@
                             <p class="text-xs text-gray-500">Local iframe execution output</p>
                         </div>
                         <div class="flex gap-2">
-                            <button onclick="downloadPreview()" class="p-1.5 text-gray-500 hover:bg-gray-100 hover:text-blue-600 rounded transition" title="Download HTML"><i data-lucide="download" class="w-5 h-5"></i></button>
+                            <button onclick="downloadFullWidget()" class="p-1.5 text-gray-500 hover:bg-gray-100 hover:text-blue-600 rounded transition" title="Download Standalone HTML"><i data-lucide="download" class="w-5 h-5"></i></button>
+                            <button onclick="launchPreviewNewTab()" class="p-1.5 text-gray-500 hover:bg-gray-100 hover:text-blue-600 rounded transition" title="Launch in New Tab"><i data-lucide="external-link" class="w-5 h-5"></i></button>
                             <button onclick="captureWidget()" class="p-1.5 text-gray-500 hover:bg-gray-100 hover:text-blue-600 rounded transition" title="Screenshot UI"><i data-lucide="camera" class="w-5 h-5"></i></button>
                         </div>
                     </div>
@@ -368,12 +365,102 @@
                         </div>
                     </div>
                     
-                    <button onclick="redirectToWhatsApp()" class="mt-4 w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-xl shadow-md transition flex justify-center items-center">
-                        <i data-lucide="message-circle" class="w-5 h-5 mr-2"></i> Discuss Fixes with an Expert
-                    </button>
+                    <div class="flex gap-3 mt-4">
+                        <button onclick="redirectToWhatsApp()" class="flex-1 bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-xl shadow-md transition flex justify-center items-center">
+                            <i data-lucide="message-circle" class="w-5 h-5 mr-2"></i> Discuss Fixes with an Expert
+                        </button>
+                        <button onclick="fixAllIssues()" class="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl shadow-md transition flex justify-center items-center">
+                            <i data-lucide="shield-alert" class="w-5 h-5 mr-2"></i> Fix All Issues
+                        </button>
+                    </div>
                 </div>
 
             </section>
+        </div>
+
+        <!-- STEP-BY-STEP GUIDE & BLOG CITATIONS -->
+        <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Left: Step-by-Step Guide -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2"><i data-lucide="book-open" class="w-6 h-6 text-blue-600"></i> How to Use This Tool</h2>
+                <div class="space-y-4">
+                    <div class="border-l-4 border-blue-600 pl-4">
+                        <h3 class="font-bold text-gray-800">1. Generate a full web app using AI</h3>
+                        <p class="text-sm text-gray-600 mb-2">Copy one of these prompts into your favourite AI assistant:</p>
+                        <div class="bg-gray-50 rounded-lg p-3 text-xs font-mono text-gray-700 overflow-x-auto">
+                            <strong>Gemini / ChatGPT / Copilot:</strong><br>
+                            "Build a complete, self-contained HTML/CSS/JS web application with a modern UI. Include interactive features, responsive design, and no external dependencies. Add local storage or demo data. Make it a functional dashboard/todo/calculator/crud app. Output only the full HTML file."
+                        </div>
+                        <button onclick="copyPrompt()" class="mt-2 text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded hover:bg-blue-200 transition">Copy Prompt</button>
+                    </div>
+                    <div class="border-l-4 border-green-600 pl-4">
+                        <h3 class="font-bold text-gray-800">2. Paste the code into the editor</h3>
+                        <p class="text-sm text-gray-600">Switch to <strong>Combined HTML</strong> mode and paste the entire output. Or use <strong>Split Files</strong> for separate HTML/CSS/JS.</p>
+                    </div>
+                    <div class="border-l-4 border-purple-600 pl-4">
+                        <h3 class="font-bold text-gray-800">3. Click <strong>Compile, Preview & Scan</strong></h3>
+                        <p class="text-sm text-gray-600">The tool renders your app live and runs a real‑world security audit (XSS, secrets, dangerous patterns).</p>
+                    </div>
+                    <div class="border-l-4 border-red-600 pl-4">
+                        <h3 class="font-bold text-gray-800">4. Address vulnerabilities</h3>
+                        <p class="text-sm text-gray-600">Use the report table to identify issues, then click <strong>Fix All Issues</strong> to contact us for a professional security review.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Premium Blog Citations -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2"><i data-lucide="newspaper" class="w-6 h-6 text-blue-600"></i> Premium Insights</h2>
+                <div class="grid grid-cols-1 gap-4">
+                    <!-- Blog Card 1 -->
+                    <a href="blogpost1.html" class="group block border border-gray-100 rounded-xl p-4 hover:shadow-md transition-all hover:-translate-y-0.5">
+                        <div class="flex items-start gap-3">
+                            <div class="bg-blue-100 p-2 rounded-lg"><i data-lucide="wallet" class="w-5 h-5 text-blue-700"></i></div>
+                            <div>
+                                <h3 class="font-bold text-gray-800 group-hover:text-blue-700">Budget Money Manager App</h3>
+                                <p class="text-xs text-gray-500 mt-1">Automate the 50/30/20 rule and fix cash flow.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="blogpost2.html" class="group block border border-gray-100 rounded-xl p-4 hover:shadow-md transition-all hover:-translate-y-0.5">
+                        <div class="flex items-start gap-3">
+                            <div class="bg-purple-100 p-2 rounded-lg"><i data-lucide="trending-up" class="w-5 h-5 text-purple-700"></i></div>
+                            <div>
+                                <h3 class="font-bold text-gray-800 group-hover:text-purple-700">Automate B2B SaaS Affiliate Marketing</h3>
+                                <p class="text-xs text-gray-500 mt-1">Programmatic SEO with AI – scale your commissions.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="blogpost3.html" class="group block border border-gray-100 rounded-xl p-4 hover:shadow-md transition-all hover:-translate-y-0.5">
+                        <div class="flex items-start gap-3">
+                            <div class="bg-cyan-100 p-2 rounded-lg"><i data-lucide="brain" class="w-5 h-5 text-cyan-700"></i></div>
+                            <div>
+                                <h3 class="font-bold text-gray-800 group-hover:text-cyan-700">Prompt Engineering Frameworks</h3>
+                                <p class="text-xs text-gray-500 mt-1">R‑C‑T‑O method for enterprise automation.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="blogpost4.html" class="group block border border-gray-100 rounded-xl p-4 hover:shadow-md transition-all hover:-translate-y-0.5">
+                        <div class="flex items-start gap-3">
+                            <div class="bg-indigo-100 p-2 rounded-lg"><i data-lucide="code-2" class="w-5 h-5 text-indigo-700"></i></div>
+                            <div>
+                                <h3 class="font-bold text-gray-800 group-hover:text-indigo-700">Microsoft Power Pages Guide</h3>
+                                <p class="text-xs text-gray-500 mt-1">Low‑code external websites with Dataverse.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="blogpost5.html" class="group block border border-gray-100 rounded-xl p-4 hover:shadow-md transition-all hover:-translate-y-0.5">
+                        <div class="flex items-start gap-3">
+                            <div class="bg-emerald-100 p-2 rounded-lg"><i data-lucide="bus" class="w-5 h-5 text-emerald-700"></i></div>
+                            <div>
+                                <h3 class="font-bold text-gray-800 group-hover:text-emerald-700">Employee Transport Management</h3>
+                                <p class="text-xs text-gray-500 mt-1">Automated routing, billing & safety for fleets.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <p class="text-xs text-gray-400 mt-4 text-center">📌 More articles coming soon – stay tuned.</p>
+            </div>
         </div>
     </main>
 
@@ -386,7 +473,7 @@
                         <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-1.5 rounded-lg shadow">
                             <i data-lucide="zap" class="h-5 w-5 text-white"></i>
                         </div>
-                        <span class="ml-3 text-lg font-bold text-gray-900">YOUR AGENCY</span>
+                        <span class="ml-3 text-lg font-bold text-gray-900">DENISIA WEBOPS</span>
                     </div>
                     <p class="text-gray-600 text-sm leading-relaxed">Complete digital solutions – from web development to AI integration.</p>
                 </div>
@@ -403,7 +490,7 @@
                     <h4 class="text-gray-900 font-semibold mb-4">Resources</h4>
                     <ul class="space-y-2 text-sm text-gray-600">
                         <li><a href="blogs.html" class="hover:text-blue-700 transition-colors">Blog</a></li>
-                        <li><a href="scanner.html" class="hover:text-blue-700 transition-colors">Scanner Tool</a></li>
+                        <li><a href="livecodepreview.html" class="hover:text-blue-700 transition-colors">Scanner Tool</a></li>
                         <li><a href="index.html#projects" class="hover:text-blue-700 transition-colors">Projects</a></li>
                         <li><a href="index.html#contact" class="hover:text-blue-700 transition-colors">Contact</a></li>
                     </ul>
@@ -411,7 +498,7 @@
                 <div>
                     <h4 class="text-gray-900 font-semibold mb-4">Newsletter</h4>
                     <div class="flex">
-                        <input type="email" placeholder="Enter email" class="w-full px-4 py-2 rounded-l-md text-sm border border-gray-300 focus:outline-none focus:border-blue-500">
+                        <input type="email" placeholder="Enter email" id="newsletterEmail" class="w-full px-4 py-2 rounded-l-md text-sm border border-gray-300 focus:outline-none focus:border-blue-500">
                         <button class="bg-blue-800 px-4 py-2 rounded-r-md hover:bg-blue-700 transition-colors">
                             <i data-lucide="arrow-right" class="h-4 w-4 text-white"></i>
                         </button>
@@ -419,16 +506,18 @@
                 </div>
             </div>
             <div class="border-t border-blue-100 pt-8 text-center">
-                <p class="text-gray-500 text-sm">© 2026 Your Agency. All rights reserved.</p>
+                <p class="text-gray-500 text-sm">© 2026 Denisia Webops Agency. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- SCANNER & PREVIEW LOGIC -->
+    <!-- Enhanced Scanner & Preview Logic -->
     <script>
-        const WHATSAPP_NUMBER = "918317581308"; // Update with your actual WhatsApp number
+        const WHATSAPP_NUMBER = "918317581308";
         const END_SCRIPT = "<\\/script>";
-
+        const CONTACT_URL = "https://www.denisiawebops.org/index.html#contact";
+        const EMAIL_SUBJECT = "Security Scan Report – Need Fixes";
+        
         const state = {
             mode: "combined",
             splitTab: "html",
@@ -462,14 +551,46 @@
             countLow: document.getElementById("countLow")
         };
 
-        // Samples
-        const sampleFull = `<!doctype html>\n<html lang="en">\n<head>\n  <meta charset="utf-8">\n  <title>Sample App</title>\n  <style>\n    body { font-family: sans-serif; padding: 40px; background: #f0f9ff; }\n    .card { max-width: 600px; margin: auto; background: white; padding: 28px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }\n  </style>\n</head>\n<body>\n  <div class="card">\n    <h1 style="color:#0369a1">Welcome to Scanner</h1>\n    <p onclick="alert('Inline event handler')">Click me to see an inline handler warning.</p>\n    <script>\n      // The scanner catches vulnerable patterns\n      const token = "sk_live_ABC1234567890SECRET";\n      document.body.innerHTML += "<p>Unsafe innerHTML demo</p>";\n      setTimeout("console.log('string timer')", 1000);\n    <\/script>\n  </div>\n</body>\n</html>`;
+        // Helper: copy prompt
+        window.copyPrompt = function() {
+            const promptText = `"Build a complete, self-contained HTML/CSS/JS web application with a modern UI. Include interactive features, responsive design, and no external dependencies. Add local storage or demo data. Make it a functional dashboard/todo/calculator/crud app. Output only the full HTML file."`;
+            navigator.clipboard.writeText(promptText);
+            alert("Prompt copied to clipboard! Paste it into Gemini, ChatGPT, or Copilot.");
+        };
 
-        const sampleHtml = `<div class="p-8 text-center">\n  <h1 class="text-2xl font-bold text-blue-800">Split Mode App</h1>\n  <p class="mt-4 text-gray-600">HTML is structured here.</p>\n</div>`;
-        const sampleCss = `body { background: #f8fafc; font-family: system-ui; }\n.p-8 { padding: 2rem; }\n.text-center { text-align: center; }\n.text-2xl { font-size: 1.5rem; }\n.font-bold { font-weight: bold; }\n.text-blue-800 { color: #1e40af; }\n.mt-4 { margin-top: 1rem; }\n.text-gray-600 { color: #4b5563; }`;
-        const sampleJs = `// JavaScript logic here\nconst apiKey = "AIzaSyA-EXAMPLE-SECRET-KEY-123456";\ndocument.querySelector(".text-center").innerHTML += "<p>Unsafe DOM write added via JS.</p>";`;
+        // Download full standalone HTML widget (includes current preview)
+        window.downloadFullWidget = function() {
+            const doc = buildPreviewDocument();
+            const blob = new Blob([doc], { type: "text/html" });
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = "webapp-widget.html";
+            a.click();
+            URL.revokeObjectURL(a.href);
+        };
 
-        // Mobile Menu
+        // Launch preview in new tab using blob
+        window.launchPreviewNewTab = function() {
+            const doc = buildPreviewDocument();
+            const blob = new Blob([doc], { type: "text/html" });
+            const url = URL.createObjectURL(blob);
+            window.open(url, "_blank");
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+        };
+
+        // Fix All Issues – send email and open contact page
+        window.fixAllIssues = function() {
+            const critical = state.findings.filter(f => f.severity === "Critical").length;
+            const total = state.findings.length;
+            const body = `I scanned my code with your Live Preview & Scanner and found ${total} issues (${critical} critical).\n\nPlease help me fix them securely.\n\nFirst few issues:\n${state.findings.slice(0,3).map(f => `- ${f.title} at ${f.file}:${f.line}`).join("\n")}\n\nThank you.`;
+            const mailto = `mailto:contact@denisiawebops.com?subject=${encodeURIComponent(EMAIL_SUBJECT)}&body=${encodeURIComponent(body)}`;
+            window.open(mailto, "_blank");
+            setTimeout(() => {
+                window.open(CONTACT_URL, "_blank");
+            }, 500);
+        };
+
+        // --- Existing functions (kept as is) ---
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('mobile-menu-icon');
@@ -483,64 +604,36 @@
             lucide.createIcons();
         }
 
-        // Initialize Icons
-        document.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
-            loadSample('full'); // Load default sample
-        });
-
-        // Mode Switching
         function setMode(mode){
             state.mode = mode;
-            
-            // Stylize toggle buttons
             el.modeCombinedBtn.className = mode === "combined" 
                 ? "px-4 py-1.5 text-sm font-semibold rounded-md transition-colors bg-white text-blue-700 shadow-sm border border-gray-200"
                 : "px-4 py-1.5 text-sm font-semibold rounded-md transition-colors text-gray-600 hover:text-gray-900 border border-transparent";
-            
             el.modeSplitBtn.className = mode === "split"
                 ? "px-4 py-1.5 text-sm font-semibold rounded-md transition-colors bg-white text-blue-700 shadow-sm border border-gray-200"
                 : "px-4 py-1.5 text-sm font-semibold rounded-md transition-colors text-gray-600 hover:text-gray-900 border border-transparent";
-
             el.combinedPanel.classList.toggle("hidden", mode !== "combined");
-            el.combinedPanel.classList.toggle("flex", mode === "combined");
-            
             el.splitPanel.classList.toggle("hidden", mode !== "split");
-            el.splitPanel.classList.toggle("flex", mode === "split");
-            
             updateAllLineNumbers();
-            renderPreviewOnly();
+            runPreviewAndScan();
         }
 
         function setSplitTab(tab){
             state.splitTab = tab;
-            
             const btnClassActive = "px-3 py-1 text-sm font-bold rounded-md bg-blue-100 text-blue-700 border border-blue-200";
             const btnClassInactive = "px-3 py-1 text-sm font-bold rounded-md text-gray-600 bg-gray-100 border border-transparent hover:bg-gray-200";
-            
             document.getElementById("tabHtmlBtn").className = tab === "html" ? btnClassActive : btnClassInactive;
             document.getElementById("tabCssBtn").className = tab === "css" ? btnClassActive : btnClassInactive;
             document.getElementById("tabJsBtn").className = tab === "js" ? btnClassActive : btnClassInactive;
-            
             document.getElementById("splitHtml").classList.toggle("hidden", tab !== "html");
-            document.getElementById("splitHtml").classList.toggle("flex", tab === "html");
             document.getElementById("splitCss").classList.toggle("hidden", tab !== "css");
-            document.getElementById("splitCss").classList.toggle("flex", tab === "css");
             document.getElementById("splitJs").classList.toggle("hidden", tab !== "js");
-            document.getElementById("splitJs").classList.toggle("flex", tab === "js");
-            
             updateAllLineNumbers();
+            runPreviewAndScan();
         }
 
-        function activeTextarea(){
-            if(state.mode === "combined") return el.combinedCode;
-            if(state.splitTab === "html") return el.htmlCode;
-            if(state.splitTab === "css") return el.cssCode;
-            return el.jsCode;
-        }
-
-        // Editor Utilities (Line Numbers & Syncing)
         function updateLineNumbers(textarea, lineEl){
+            if(!textarea || !lineEl) return;
             const lines = (textarea.value || "").split("\n").length || 1;
             let out = "";
             for(let i=1; i<=lines; i++) out += i + "\n";
@@ -555,6 +648,7 @@
         }
 
         function bindLineNumbers(textarea, lineEl){
+            if(!textarea || !lineEl) return;
             textarea.addEventListener("input", () => updateLineNumbers(textarea, lineEl));
             textarea.addEventListener("scroll", () => lineEl.scrollTop = textarea.scrollTop);
         }
@@ -564,7 +658,6 @@
         bindLineNumbers(el.cssCode, el.cssLines);
         bindLineNumbers(el.jsCode, el.jsLines);
 
-        // Code Preview Compilation
         function buildPreviewDocument(){
             if(state.mode === "combined"){
                 return el.combinedCode.value || "";
@@ -581,7 +674,6 @@
             el.outputFrame.srcdoc = doc || "<!doctype html><html><body style='font-family:sans-serif;padding:20px;color:#9ca3af;'>Workspace is empty.</body></html>";
         }
 
-        // Security Scanner Engine
         function escapeHtml(str){
             return String(str || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;");
         }
@@ -632,7 +724,6 @@
                 }
             }
 
-            // High Entropy String Detection (e.g. JWTs, API Keys)
             const stringRx = /(["'`])((?:\\[\s\S]|(?!\1)[\s\S]){15,120})\1/g;
             let s;
             while((s = stringRx.exec(source)) !== null){
@@ -646,7 +737,6 @@
                     addFinding("Critical", "High Entropy Secret", snippet, `Suspicious high entropy string detected (${e.toFixed(2)}).`, line);
                 }
             }
-
             return findings;
         }
 
@@ -663,14 +753,11 @@
 
         function runPreviewAndScan(){
             renderPreviewOnly();
-
             const targets = buildScanTargets();
             let findings = [];
             for(const t of targets){
                 findings = findings.concat(scanText(t.code, t.file));
             }
-
-            // Deduplicate
             const seen = new Set();
             findings = findings.filter(x => {
                 const key = [x.file, x.line, x.title, x.snippet].join("|");
@@ -678,16 +765,12 @@
                 seen.add(key);
                 return true;
             });
-
-            // Sort by Severity
             findings.sort((a,b) => {
                 const weight = { Critical:4, High:3, Medium:2, Low:1 };
                 return (weight[b.severity] - weight[a.severity]) || (a.file.localeCompare(b.file)) || (a.line - b.line);
             });
-
             state.findings = findings;
             state.lastReport = JSON.stringify({ generatedAt: new Date().toISOString(), mode: state.mode, findings }, null, 2);
-
             renderResults();
         }
 
@@ -697,27 +780,22 @@
             const high = f.filter(x => x.severity === "High").length;
             const medium = f.filter(x => x.severity === "Medium").length;
             const low = f.filter(x => x.severity === "Low").length;
-
             el.countCrit.textContent = critical;
             el.countHigh.textContent = high;
             el.countMed.textContent = medium;
             el.countLow.textContent = low;
-
             el.scanSummary.textContent = f.length ? `${f.length} issue(s) detected. Review report below.` : "Scan complete. No major issues found.";
-
             if(!f.length){
                 el.resultsBody.innerHTML = `<tr><td colspan="3" class="px-4 py-12 text-center text-gray-500"><i data-lucide="check-circle" class="w-8 h-8 mx-auto mb-2 text-green-500"></i> No major vulnerabilities detected in the current workspace.</td></tr>`;
                 lucide.createIcons();
                 return;
             }
-
             const sevStyles = {
                 "Critical": "bg-red-100 text-red-700 border-red-200",
                 "High": "bg-orange-100 text-orange-700 border-orange-200",
                 "Medium": "bg-blue-100 text-blue-700 border-blue-200",
                 "Low": "bg-green-100 text-green-700 border-green-200"
             };
-
             el.resultsBody.innerHTML = f.map(item => `
                 <tr class="hover:bg-gray-50 transition">
                     <td class="px-4 py-4 whitespace-nowrap"><span class="px-2.5 py-1 text-xs font-bold rounded-full border ${sevStyles[item.severity]}">${item.severity}</span></td>
@@ -731,7 +809,6 @@
             `).join("");
         }
 
-        // Toolbar Actions
         function clearAll(){
             el.combinedCode.value = "";
             el.htmlCode.value = "";
@@ -748,6 +825,10 @@
         }
 
         function loadSample(type){
+            const sampleFull = `<!doctype html>\n<html lang="en">\n<head>\n  <meta charset="utf-8">\n  <title>Sample App</title>\n  <style>\n    body { font-family: sans-serif; padding: 40px; background: #f0f9ff; }\n    .card { max-width: 600px; margin: auto; background: white; padding: 28px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }\n  </style>\n</head>\n<body>\n  <div class="card">\n    <h1 style="color:#0369a1">Welcome to Scanner</h1>\n    <p onclick="alert('Inline event handler')">Click me to see an inline handler warning.</p>\n    <script>\n      const token = "sk_live_ABC1234567890SECRET";\n      document.body.innerHTML += "<p>Unsafe innerHTML demo</p>";\n      setTimeout("console.log('string timer')", 1000);\n    <\/script>\n  </div>\n</body>\n</html>`;
+            const sampleHtml = `<div class="p-8 text-center">\n  <h1 class="text-2xl font-bold text-blue-800">Split Mode App</h1>\n  <p class="mt-4 text-gray-600">HTML is structured here.</p>\n</div>`;
+            const sampleCss = `body { background: #f8fafc; font-family: system-ui; }\n.p-8 { padding: 2rem; }\n.text-center { text-align: center; }\n.text-2xl { font-size: 1.5rem; }\n.font-bold { font-weight: bold; }\n.text-blue-800 { color: #1e40af; }\n.mt-4 { margin-top: 1rem; }\n.text-gray-600 { color: #4b5563; }`;
+            const sampleJs = `const apiKey = "AIzaSyA-EXAMPLE-SECRET-KEY-123456";\ndocument.querySelector(".text-center").innerHTML += "<p>Unsafe DOM write added via JS.</p>";`;
             if(type === "full"){
                 setMode("combined");
                 el.combinedCode.value = sampleFull;
@@ -772,7 +853,6 @@
         }
 
         function openFileDialog(){ el.fileInput.click(); }
-
         el.fileInput.addEventListener("change", (e) => {
             const file = e.target.files[0];
             if(!file) return;
@@ -784,18 +864,11 @@
                 else if(ext === "js"){ setMode("split"); setSplitTab("js"); el.jsCode.value = text; }
                 else { setMode("combined"); el.combinedCode.value = text; }
                 updateAllLineNumbers();
+                runPreviewAndScan();
             };
             reader.readAsText(file);
             el.fileInput.value = "";
         });
-
-        function downloadPreview(){
-            const blob = new Blob([buildPreviewDocument()], { type: "text/html" });
-            const a = document.createElement("a");
-            a.href = URL.createObjectURL(blob);
-            a.download = "live-preview.html";
-            a.click();
-        }
 
         function captureWidget(){
             html2canvas(document.getElementById("widget")).then(canvas => {
@@ -822,18 +895,27 @@
         function findInCurrent(){
             const needle = (el.searchText.value || "").trim();
             if(!needle){ alert("Type a search term first."); return; }
-            const editor = activeTextarea();
+            let editor;
+            if(state.mode === "combined") editor = el.combinedCode;
+            else if(state.splitTab === "html") editor = el.htmlCode;
+            else if(state.splitTab === "css") editor = el.cssCode;
+            else editor = el.jsCode;
             const idx = editor.value.indexOf(needle);
             if(idx === -1) alert("Text not found.");
             else { editor.focus(); editor.setSelectionRange(idx, idx + needle.length); }
         }
 
         function redirectToWhatsApp(){
-            const crit = state.findings.filter(x => x.severity === "Critical").length;
+            const critical = state.findings.filter(x => x.severity === "Critical").length;
             const total = state.findings.length;
-            const msg = `Hi, I ran the AI code scan on my workspace.\n\nFindings: ${total}\nCritical: ${crit}\n\nI need expert help fixing these vulnerabilities.`;
+            const msg = `Hi, I ran the AI code scan on my workspace.\n\nFindings: ${total}\nCritical: ${critical}\n\nI need expert help fixing these vulnerabilities.`;
             window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            loadSample('full');
+        });
     </script>
     
     <!-- Tawk.to Script -->
@@ -848,5 +930,5 @@
             s0.parentNode.insertBefore(s1, s0);
         })();
     </script>
-
-</body></html>
+</body>
+</html>
