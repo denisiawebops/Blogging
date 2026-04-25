@@ -220,59 +220,67 @@
             box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.1), 0 8px 10px -6px rgba(59, 130, 246, 0.05);
             transform: scale(1.02);
         }
+        .burger-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    min-height: 48px;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-900 antialiased selection:bg-blue-200 selection:text-blue-900 flex flex-col min-h-screen">
 
-    <!-- Navbar -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <div class="flex items-center cursor-pointer" onclick="router.navigate('home')">
-                    <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-2 rounded-lg shadow-md">
-                        <i data-lucide="zap" class="h-6 w-6 text-white"></i>
-                    </div>
-                    <span class="ml-3 text-xl font-bold text-gray-900">
-                        Denisia Webops Agency
-                    </span>
+<!-- Navbar (with improved visible burger menu) -->
+<nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center">
+                <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-2 rounded-lg shadow-md">
+                    <i data-lucide="zap" class="h-6 w-6 text-white"></i>
                 </div>
+                <span class="ml-3 text-xl font-bold text-gray-900">Denisia Webops Agency</span>
+            </a>
 
-                <!-- Desktop Menu -->
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <button onclick="router.navigate('home')" id="nav-home" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-blue-700">Home</button>
-                        <button onclick="router.navigate('services')" id="nav-services" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Services</button>
-                        <button onclick="router.navigate('projects')" id="nav-projects" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Projects</button>
-                        <a href="blogs.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Blog</a>
-                        <button onclick="router.navigate('ai-models')" class="nav-link px-3 py-2 rounded-md text-sm font-medium">AI Models</button>
-                        <button onclick="router.navigate('contact')" class="btn-primary text-sm px-5 py-2">Get in Touch</button>
-                        <a href="livecodepreview.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Code Preview</a>
-                    </div>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden">
-                    <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-blue-700 p-2">
-                        <i id="mobile-menu-icon" data-lucide="menu" class="h-6 w-6"></i>
-                    </button>
+            <!-- Desktop Menu -->
+            <div class="hidden md:block">
+                <div class="ml-10 flex items-baseline space-x-8">
+                    <a href="index.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                    <a href="services.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Services</a>
+                    <a href="projects.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                    <a href="blogs.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Blog</a>
+                    <a href="ai-models.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">AI Models</a>
+                    <a href="contact.html" class="btn-primary text-sm px-5 py-2">Get in Touch</a>
+                    <a href="livecodepreview.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Code Preview</a>
                 </div>
             </div>
-        </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-blue-100">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <button onclick="router.navigate('home'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Home</button>
-                <button onclick="router.navigate('services'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Services</button>
-                <button onclick="router.navigate('projects'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Projects</button>
-                <a href="blogs.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Blog</a>
-                <button onclick="router.navigate('ai-models'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">AI Models</button>
-                <button onclick="router.navigate('contact'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-base font-medium text-blue-700">Get in Touch</button>
-                <a href="livecodepreview.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Code Preview</a>
+            <!-- Mobile Menu Button (visible, with larger tap area) -->
+            <div class="md:hidden">
+                <button onclick="toggleMobileMenu()" class="burger-menu-btn p-3 rounded-xl bg-gray-100 hover:bg-gray-200 focus:outline-none transition-colors shadow-sm">
+                    <i id="mobile-menu-icon" data-lucide="menu" class="h-6 w-6 text-gray-700"></i>
+                </button>
             </div>
         </div>
-    </nav>
+    </div>
+
+    <!-- Mobile Menu Dropdown (links to static HTML pages) -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-blue-100 shadow-lg absolute w-full z-40">
+        <div class="px-4 pt-2 pb-6 space-y-2">
+            <a href="index.html" class="block w-full text-left px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-blue-50">🏠 Home</a>
+            <a href="services.html" class="block w-full text-left px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-blue-50">⚙️ Services</a>
+            <a href="projects.html" class="block w-full text-left px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-blue-50">📁 Projects</a>
+            <a href="blogs.html" class="block w-full text-left px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-blue-50">📝 Blog</a>
+            <a href="ai-models.html" class="block w-full text-left px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-blue-50">🤖 AI Models</a>
+            <a href="contact.html" class="block w-full text-left px-4 py-3 rounded-lg text-base font-medium text-blue-700 bg-blue-50">📞 Get in Touch</a>
+            <a href="livecodepreview.html" class="block w-full text-left px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-blue-50">🔍 Code Preview</a>
+            <a href="dietplan.html" class="block w-full text-left px-4 py-3 rounded-lg text-sm text-gray-600 hover:bg-blue-50">🍽️ Diet Plan App</a>
+            <a href="Corpcabs.html" class="block w-full text-left px-4 py-3 rounded-lg text-sm text-gray-600 hover:bg-blue-50">🚌 CorpCab Demo</a>
+            <a href="privacy.html" class="block w-full text-left px-4 py-3 rounded-lg text-sm text-gray-600 hover:bg-blue-50">📄 Privacy Policy</a>
+        </div>
+    </div>
+</nav>
 
     <!-- Main Content Area -->
     <main id="app-root" class="flex-grow pt-20">
