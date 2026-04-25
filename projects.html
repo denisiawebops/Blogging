@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FWP9BLNZK6');
+    </script>
+
+    <!-- Google Site Verification & Bing -->
+    <meta name="google-site-verification" content="82U62k4jtMBmS52po-sbJ12znmacAgq0Rg4NvMZLXMY">
+    <meta name="msvalidate.01" content="8250834873D72FFE4BABCD1B2C7B3173">
+
+    <!-- Clarity tracking code -->
+    <script>
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vimok6xi57");
+    </script>
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://www.denisiawebops.org/projects.html">
+
+    <title>Our Projects | Denisia Webops Agency – Web, App & Software Showcase</title>
+    <meta name="description" content="Browse our portfolio of websites, web apps, PWAs, and enterprise solutions built for clients across industries.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Tailwind CSS & Lucide Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: { colors: { primary: '#1e3a8a', secondary: '#3b82f6', accent: '#dbeafe' } }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #ffffff; color: #1f2937; }
+        .nav-link { color: #4b5563; font-weight: 500; transition: color 0.2s; }
+        .nav-link:hover, .nav-link.active { color: #1e3a8a; }
+        .btn-primary {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            box-shadow: 0 4px 6px -1px rgba(30, 58, 138, 0.2);
+        }
+        .btn-primary:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(30, 58, 138, 0.3);
+        }
+        .card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .card:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.1);
+            transform: scale(1.02);
+        }
+        /* Burger menu visible fix */
+        .burger-icon { color: #1f2937; background: #f3f4f6; padding: 8px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .burger-icon:hover { background: #e5e7eb; }
+    </style>
+</head>
+<body class="bg-white text-gray-900 antialiased selection:bg-blue-200 selection:text-blue-900 flex flex-col min-h-screen">
+
+    <!-- Navbar (same as index.html) -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center">
+                    <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-2 rounded-lg shadow-md">
+                        <i data-lucide="zap" class="h-6 w-6 text-white"></i>
+                    </div>
+                    <span class="ml-3 text-xl font-bold text-gray-900">Denisia Webops Agency</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="services.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Services</a>
+                        <a href="projects.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-blue-700 font-bold border-b-2 border-blue-700">Projects</a>
+                        <a href="blogs.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Blog</a>
+                        <a href="ai-models.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">AI Models</a>
+                        <a href="contact.html" class="btn-primary text-sm px-5 py-2">Get in Touch</a>
+                        <a href="livecodepreview.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Code Preview</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button (visible) -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="burger-icon focus:outline-none">
+                        <i id="mobile-menu-icon" data-lucide="menu" class="h-6 w-6 text-gray-700"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-blue-100 shadow-lg absolute w-full z-40">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Home</a>
+                <a href="services.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Services</a>
+                <a href="projects.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-bold text-blue-700 bg-blue-50">Projects</a>
+                <a href="blogs.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Blog</a>
+                <a href="ai-models.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">AI Models</a>
+                <a href="contact.html" class="block w-full text-left px-3 py-2 text-base font-medium text-blue-700">Get in Touch</a>
+                <a href="livecodepreview.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Code Preview</a>
+                <a href="dietplan.html" class="block w-full text-left px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-blue-50">🍽️ Diet Plan App</a>
+                <a href="Corpcabs.html" class="block w-full text-left px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-blue-50">🚌 CorpCab Demo</a>
+                <a href="privacy.html" class="block w-full text-left px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-blue-50">📄 Privacy Policy</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Projects</h1>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    A showcase of websites, web apps, and PWAs we've built for clients.
+                </p>
+            </div>
+
+            <!-- Projects Grid (exactly as in index.html) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="card overflow-hidden flex flex-col h-full group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=800" alt="Roamify India" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Roamify India</h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-1">A fully responsive Travel Agency with custom theme.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">HTML</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">React</span>
+                        </div>
+                        <a href="https://henry-paul.github.io/ROAMIFY/" target="_blank" rel="noopener" class="btn-primary text-center text-sm py-2">
+                            View Project <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="card overflow-hidden flex flex-col h-full group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="corpcab.jpg" alt="CorpCab - Fleet Management" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">CorpCab - Fleet Management</h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-1">Enterprise SaaS platform for employee cab scheduling, live tracking, and C-Suite analytics.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">SaaS</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Vanilla JS</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Tailwind CSS</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">HTML5</span>
+                        </div>
+                        <a href="https://denisiawebops.org/Corpcabs.html" target="_blank" rel="noopener" class="btn-primary text-center text-sm py-2">
+                            View Project <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="card overflow-hidden flex flex-col h-full group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="powerapp.jpg" alt="POWERAPP and Powerbi" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">POWERAPP and Powerbi</h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-1">Mobile‑friendly Powerapp for Capacity Planning.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">POWERAPP</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">POWERBI</span>
+                        </div>
+                        <a href="https://henry-paul.github.io/Forecast-and-Capacity-Planning/" target="_blank" rel="noopener" class="btn-primary text-center text-sm py-2">
+                            View Project <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="card overflow-hidden flex flex-col h-full group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="preschool.jpg" alt="St Vincent's Preschool" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">St Vincent's Preschool</h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-1">Modern corporate site with CMS integration and multilingual support.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">HTML</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">JAVA</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">JS</span>
+                        </div>
+                        <a href="https://stvincents.lovable.app/auth" target="_blank" rel="noopener" class="btn-primary text-center text-sm py-2">
+                            View Project <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="card overflow-hidden flex flex-col h-full group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="elevator.jpg" alt="Lorven Elevator" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Lorven Elevator</h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-1">Minimalist portfolio for a photographer with integrated blog.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Next.js</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">HTML</span>
+                        </div>
+                        <a href="https://henry-paul.github.io/Lorven-Elevators/" target="_blank" rel="noopener" class="btn-primary text-center text-sm py-2">
+                            View Project <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="card overflow-hidden flex flex-col h-full group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="corefitness.jpg" alt="Corefitness Studio" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Corefitness Studio</h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-1">Interactive dashboard for analytics with real‑time data.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">React</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">HTML &amp; CSS &amp; JS</span>
+                        </div>
+                        <a href="https://www.corefitnessstudios.in/" target="_blank" rel="noopener" class="btn-primary text-center text-sm py-2">
+                            View Project <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="card overflow-hidden flex flex-col h-full group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="corefitness.jpg" alt="Post Pregnancy Dietplan" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Post Pregnancy Dietplan</h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-1">Best Diet Plan Calculator for after Pregnancy.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">React</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">HTML &amp; CSS &amp; JS</span>
+                        </div>
+                        <a href="https://denisiawebops.org/dietplan.html" target="_blank" rel="noopener" class="btn-primary text-center text-sm py-2">
+                            View Project <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 8 -->
+                <div class="card overflow-hidden flex flex-col h-full group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="dietplan.jpg" alt="Live Code Preview" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Live Code Preview</h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-1">HTML CSS JS CODE Preview with security scanner.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">JavaScript</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">HTML5</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">CSS3</span>
+                        </div>
+                        <a href="https://denisiawebops.org/livecodepreview.html" target="_blank" rel="noopener" class="btn-primary text-center text-sm py-2">
+                            View Project <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back to Home CTA -->
+            <div class="mt-16 text-center">
+                <a href="index.html" class="inline-flex items-center gap-2 text-blue-700 hover:text-blue-900 font-semibold">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Homepage
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="bg-gray-50 border-t border-blue-100 pt-16 pb-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-1.5 rounded-lg shadow">
+                            <i data-lucide="zap" class="h-5 w-5 text-white"></i>
+                        </div>
+                        <span class="ml-3 text-lg font-bold text-gray-900">Denisia Webops Agency</span>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">Complete digital solutions – from web development to AI integration.</p>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="services.html#web-dev" class="hover:text-blue-700 transition-colors">Web Development</a></li>
+                        <li><a href="services.html#app-dev" class="hover:text-blue-700 transition-colors">App Development</a></li>
+                        <li><a href="services.html#seo" class="hover:text-blue-700 transition-colors">SEO</a></li>
+                        <li><a href="services.html#digital-marketing" class="hover:text-blue-700 transition-colors">Digital Marketing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="blogs.html" class="hover:text-blue-700 transition-colors">Blog</a></li>
+                        <li><a href="projects.html" class="hover:text-blue-700 transition-colors font-bold">Projects</a></li>
+                        <li><a href="privacy.html" class="hover:text-blue-700 transition-colors">Privacy Policy</a></li>
+                        <li><a href="contact.html" class="hover:text-blue-700 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-600 text-sm mb-4">Get weekly insights.</p>
+                    <div class="flex">
+                        <input type="email" id="newsletterEmail" placeholder="Enter email" class="w-full px-4 py-2 rounded-l-md text-sm border border-gray-300 focus:outline-none focus:border-blue-500">
+                        <button class="bg-blue-800 px-4 py-2 rounded-r-md hover:bg-blue-700 transition-colors">
+                            <i data-lucide="arrow-right" class="h-4 w-4 text-white"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-blue-100 pt-8 text-center">
+                <p class="text-gray-500 text-sm">© 2025 Denisia Webops Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Tawk.to Script -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function(){
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/6993fa897941b81c35293c7a/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                menu.classList.add('hidden');
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
