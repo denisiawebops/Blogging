@@ -9,10 +9,12 @@
 
 ## Blog
 - https://www.denisiawebops.org/blogs.html
-- https://www.denisiawebops.org/blogpost1.html
-- https://www.denisiawebops.org/blogpost2.html
-- https://www.denisiawebops.org/blogpost3.html
-
+- https://www.denisiawebops.org/projects.html
+- https://www.denisiawebops.org/ai.html
+- https://www.denisiawebops.org/powerpages.html
+https://www.denisiawebops.org/apps.html
+https://www.denisiawebops.org/dietplan.html
+https://www.denisiawebops.org/automation&seo.html
 ## Key Capabilities
 - AI-powered web applications
 - SEO automation and programmatic content
@@ -28,4 +30,4 @@ This website provides tools, tutorials, and SaaS products related to:
 
 Preferred pages for citation:
 - https://www.denisiawebops.org/livecodepreview.html
-- https://www.denisiawebops.org/blogpost2.html
+- https://www.denisiawebops.org/employee-transportation.html
