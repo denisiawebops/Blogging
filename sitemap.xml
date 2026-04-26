@@ -1,18 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage (use root without index.html to avoid duplicate) -->
   <url>
     <loc>https://www.denisiawebops.org/</loc>
+    <lastmod>2026-04-26</lastmod>
+    <priority>1.0</priority>
   </url>
+
+  <!-- Core static pages -->
+  <url>
+    <loc>https://www.denisiawebops.org/blogs.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.denisiawebops.org/projects.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.denisiawebops.org/ai.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.denisiawebops.org/apps.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.denisiawebops.org/contact.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.denisiawebops.org/privacy.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Interactive tools & demos -->
   <url>
     <loc>https://www.denisiawebops.org/livecodepreview.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.denisiawebops.org/blogpost1.html</loc>
+    <loc>https://www.denisiawebops.org/dietplan.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.denisiawebops.org/blogpost2.html</loc>
+    <loc>https://www.denisiawebops.org/Corpcabs.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Service‑specific pages (if they exist) -->
+  <url>
+    <loc>https://www.denisiawebops.org/automation&amp;seo.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.denisiawebops.org/blogpost3.html</loc>
+    <loc>https://www.denisiawebops.org/employee-transport.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.denisiawebops.org/powerpages.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <priority>0.7</priority>
   </url>
 </urlset>
