@@ -27,15 +27,15 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "vimok6xi57");
     </script>
-   <!-- canonical tag -->
-<link rel="canonical" href="https://www.denisiawebops.org/index.html" />
     
     <!-- Dynamic SEO Tags (Updated via JS) -->
-    <title>Denisia Webops – AI Web Development & SEO Agency</title>
+    <title id="page-title">Denisia Webops Agency | Web, App, SEO & AI</title>
     <meta id="meta-desc" name="description" content="Full‑service digital agency offering website development, app development, SEO, digital marketing, chatbot integration, automation, analytics, and more.">
-    <meta name="keywords" content="web development, app development, SEO, digital marketing, Google Maps, chatbot integration, automation, learn AdSense, content writing">
+    <meta name="keywords" content="web development, app development, SEO, digital marketing, Google Maps, chatbot, automation, AdSense, content writing">
     <meta name="author" content="Website Development | Digital Marketing | SEO">
     <meta name="robots" content="index, follow">
+    <link id="canonical-link" rel="canonical" href="https://www.denisiawebops.org/">
+    <link id="canonical-link" rel="canonical" href="https://www.denisiawebops.org/index.html">
     
 
     <!-- Open Graph / Facebook -->
@@ -45,62 +45,13 @@
     <meta id="og-desc" property="og:description" content="Complete digital solutions to grow your business.">
     <meta id="og-image" property="og:image" content="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1200">
 
-<!-- LD-Json Schema for AEO -->
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta id="tw-url" property="twitter:url" content="https://www.youragency.local/">
+    <meta id="tw-title" property="twitter:title" content="Denisia Webops Agency – Web, App, SEO & AI">
+    <meta id="tw-desc" property="twitter:description" content="Complete digital solutions to grow your business.">
+    <meta id="tw-image" property="twitter:image" content="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1200">
 
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://www.denisiawebops.org/#organization",
-      "name": "Denisia Webops Agency",
-      "url": "https://www.denisiawebops.org/",
-      "description": "AI-driven web development, SEO, automation, and digital transformation agency."
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.denisiawebops.org/#website",
-      "url": "https://www.denisiawebops.org/",
-      "name": "Denisia Webops Agency",
-      "publisher": {
-        "@id": "https://www.denisiawebops.org/#organization"
-      },
-      "inLanguage": "en-IN"
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://www.denisiawebops.org/#homepage",
-      "url": "https://www.denisiawebops.org/",
-      "name": "Denisia Webops Agency | Web, App, SEO & AI",
-      "description": "Agency homepage covering web development, app development, SEO, digital marketing, projects, and newsletter signup.",
-      "isPartOf": {
-        "@id": "https://www.denisiawebops.org/#website"
-      },
-      "about": {
-        "@id": "https://www.denisiawebops.org/#organization"
-      }
-    },
-    {
-      "@type": "ProfessionalService",
-      "@id": "https://www.denisiawebops.org/#service",
-      "name": "Denisia Webops Agency",
-      "url": "https://www.denisiawebops.org/",
-      "serviceType": [
-        "Web Development",
-        "SEO",
-        "AI Automation",
-        "Digital Marketing"
-      ],
-      "provider": {
-        "@id": "https://www.denisiawebops.org/#organization"
-      },
-      "areaServed": "Worldwide"
-    }
-  ]
-}
-    </script>
-    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -220,67 +171,57 @@
             box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.1), 0 8px 10px -6px rgba(59, 130, 246, 0.05);
             transform: scale(1.02);
         }
-        .burger-menu-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 48px;
-    min-height: 48px;
-        }
     </style>
 </head>
 <body class="bg-white text-gray-900 antialiased selection:bg-blue-200 selection:text-blue-900 flex flex-col min-h-screen">
 
-<!-- Navbar (with improved visible burger menu) -->
-<nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-20">
-            <!-- Logo -->
-            <a href="index.html" class="flex items-center">
-                <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-2 rounded-lg shadow-md">
-                    <i data-lucide="zap" class="h-6 w-6 text-white"></i>
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center cursor-pointer" onclick="router.navigate('home')">
+                    <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-2 rounded-lg shadow-md">
+                        <i data-lucide="zap" class="h-6 w-6 text-white"></i>
+                    </div>
+                    <span class="ml-3 text-xl font-bold text-gray-900">
+                        Denisia Webops Agency
+                    </span>
                 </div>
-                <span class="ml-3 text-xl font-bold text-gray-900">Denisia Webops Agency</span>
-            </a>
 
-            <!-- Desktop Menu -->
-            <div class="hidden md:block">
-                <div class="ml-10 flex items-baseline space-x-8">
-                    <a href="index.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                    <a href="index.html#services" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Services</a>
-                    <a href="projects.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-                    <a href="blogs.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Blog</a>
-                    <a href="ai.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">AI Models</a>
-                    <a href="contact.html" class="btn-primary text-sm px-5 py-2">Get in Touch</a>
-                    <a href="livecodepreview.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Code Preview</a>
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <button onclick="router.navigate('home')" id="nav-home" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-blue-700">Home</button>
+                        <button onclick="router.navigate('services')" id="nav-services" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Services</button>
+                        <button onclick="router.navigate('projects')" id="nav-projects" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Projects</button>
+                        <a href="blogs.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Blog</a>
+                        <button onclick="router.navigate('ai-models')" class="nav-link px-3 py-2 rounded-md text-sm font-medium">AI Models</button>
+                        <button onclick="router.navigate('contact')" class="btn-primary text-sm px-5 py-2">Get in Touch</button>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-blue-700 p-2">
+                        <i id="mobile-menu-icon" data-lucide="menu" class="h-6 w-6"></i>
+                    </button>
                 </div>
             </div>
+        </div>
 
-            <!-- Mobile Menu Button (visible, with larger tap area) -->
-            <div class="md:hidden">
-                <button onclick="toggleMobileMenu()" class="burger-menu-btn p-3 rounded-xl bg-gray-100 hover:bg-gray-200 focus:outline-none transition-colors shadow-sm">
-                    <i id="mobile-menu-icon" data-lucide="menu" class="h-6 w-6 text-gray-700"></i>
-                </button>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-blue-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <button onclick="router.navigate('home'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Home</button>
+                <button onclick="router.navigate('services'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Services</button>
+                <button onclick="router.navigate('projects'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Projects</button>
+                <a href="blogs.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Blog</a>
+                <button onclick="router.navigate('ai-models'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">AI Models</button>
+                <button onclick="router.navigate('contact'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-base font-medium text-blue-700">Get in Touch</button>
             </div>
         </div>
-    </div>
-
-    <!-- Mobile Menu Dropdown (links to static HTML pages) -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-blue-100 shadow-lg absolute w-full z-40">
-        <div class="px-4 pt-2 pb-6 space-y-2">
-            <a href="index.html" class="block w-full text-left px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-blue-50">🏠 Home</a>
-            <a href="index.html#services" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">👨‍🔧 Services</a>
-            <a href="projects.html" class="block w-full text-left px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-blue-50">📁 Projects</a>
-            <a href="blogs.html" class="block w-full text-left px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-blue-50">📝 Blog</a>
-            <a href="ai.html" class="block w-full text-left px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-blue-50">🤖 AI Models</a>
-            <a href="contact.html" class="block w-full text-left px-4 py-3 rounded-lg text-base font-medium text-blue-700 bg-blue-50">📞 Get in Touch</a>
-            <a href="livecodepreview.html" class="block w-full text-left px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-blue-50">🔍 Code Preview</a>
-            <a href="dietplan.html" class="block w-full text-left px-4 py-3 rounded-lg text-sm text-gray-600 hover:bg-blue-50">🍽️ Diet Plan App</a>
-            <a href="Corpcabs.html" class="block w-full text-left px-4 py-3 rounded-lg text-sm text-gray-600 hover:bg-blue-50">🚌 CorpCab Demo</a>
-            <a href="privacy.html" class="block w-full text-left px-4 py-3 rounded-lg text-sm text-gray-600 hover:bg-blue-50">📄 Privacy Policy</a>
-        </div>
-    </div>
-</nav>
+    </nav>
 
     <!-- Main Content Area -->
     <main id="app-root" class="flex-grow pt-20">
@@ -400,17 +341,10 @@
                 tags: ["React", "HTML & CSS & JS"]
             },
             {
-                title: "Live Code Preview",
-                description: "HTML CSS JS CODE Preview .",
+                title: "Diet Plan Calculator",
+                description: "Personalized diet planner with calorie tracking and meal suggestions.",
                 image: "dietplan.jpg",
-                url: "https://denisiawebops.org/livecodepreview.html",
-                tags: ["JavaScript", "HTML5", "CSS3", "HealthTech"]
-            }
-            {
-                title: "Shubam Mine Minerals",
-                description: "HTML CSS JS CODE Preview .",
-                image: "mine-minerals.jpg",
-                url: "https://denisiawebops.org/shubam-mine-minerals.html",
+                url: "https://denisiawebops.org/dietplan.html",
                 tags: ["JavaScript", "HTML5", "CSS3", "HealthTech"]
             }
         ];
@@ -825,7 +759,7 @@
                 <div class="animate-fade-in bg-white pt-32 pb-20">
                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div class="text-center mb-16">
-                            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Services</h2>
+                            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Services</h1>
                             <p class="text-gray-600 text-lg max-w-2xl mx-auto">
                                 We offer a full range of digital solutions tailored to your needs.
                             </p>
@@ -1202,13 +1136,11 @@
                 icon.setAttribute('data-lucide', 'menu');
             }
             lucide.createIcons();
-            menu.scrollIntoView && menu.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             router.navigate('home');
-            lucide.createIcons();
         });
     </script>
 
