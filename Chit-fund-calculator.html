@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chit Fund Calculator | Denisia Webops</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FWP9BLNZK6');
+    </script>
+
+    <!-- Clarity tracking code -->
+    <script>
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vimok6xi57");
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            900: '#312e81',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome & Lucide (for consistent icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- PDF Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #475569; }
+
+        /* Print Styles (for receipts) */
+        @media print {
+            body * { visibility: hidden; }
+            #receipt-wrapper, #receipt-wrapper * { visibility: visible; }
+            #receipt-wrapper { 
+                position: absolute; 
+                left: 0; 
+                top: 0; 
+                width: 100%; 
+                padding: 20px;
+                background: white !important;
+                color: black !important;
+            }
+            .no-print { display: none !important; }
+        }
+
+        .glass-card {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.9);
+        }
+
+        /* Burger menu button style */
+        .burger-icon { 
+            color: #1f2937; 
+            background: #f3f4f6; 
+            padding: 8px; 
+            border-radius: 8px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+        }
+        .burger-icon:hover { background: #e5e7eb; }
+        .dark .burger-icon { background: #374151; color: #e5e7eb; }
+        .dark .burger-icon:hover { background: #4b5563; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 font-sans pb-20">
+
+    <!-- Denisia Webops Navbar (with burger menu) -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm dark:bg-gray-900/90 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center">
+                    <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-2 rounded-lg shadow-md">
+                        <i data-lucide="zap" class="h-6 w-6 text-white"></i>
+                    </div>
+                    <span class="ml-3 text-xl font-bold text-gray-900 dark:text-white">Denisia Webops Agency</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-700">Home</a>
+                        <a href="services.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-700">Services</a>
+                        <a href="projects.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-700">Projects</a>
+                        <a href="blogs.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-700">Blog</a>
+                        <a href="ai-models.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-700">AI Models</a>
+                        <a href="contact.html" class="bg-blue-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition shadow-sm text-sm">Get in Touch</a>
+                        <a href="livecodepreview.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-700">Code Preview</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button (visible) -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="burger-icon focus:outline-none">
+                        <i id="mobile-menu-icon" data-lucide="menu" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 border-b border-blue-100 dark:border-gray-800 shadow-lg absolute w-full z-40">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800">Home</a>
+                <a href="services.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800">Services</a>
+                <a href="projects.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800">Projects</a>
+                <a href="blogs.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800">Blog</a>
+                <a href="ai-models.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800">AI Models</a>
+                <a href="contact.html" class="block w-full text-left px-3 py-2 text-base font-medium text-blue-700 dark:text-blue-400">Get in Touch</a>
+                <a href="livecodepreview.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800">Code Preview</a>
+                <a href="dietplan.html" class="block w-full text-left px-3 py-2 rounded-md text-sm text-gray-600 dark:text-gray-400 hover:bg-blue-50 dark:hover:bg-gray-800">🍽️ Diet Plan App</a>
+                <a href="Corpcabs.html" class="block w-full text-left px-3 py-2 rounded-md text-sm text-gray-600 dark:text-gray-400 hover:bg-blue-50 dark:hover:bg-gray-800">🚌 CorpCab Demo</a>
+                <a href="privacy.html" class="block w-full text-left px-3 py-2 rounded-md text-sm text-gray-600 dark:text-gray-400 hover:bg-blue-50 dark:hover:bg-gray-800">📄 Privacy Policy</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content (with padding top for fixed navbar) -->
+    <main class="pt-24 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header / Title -->
+            <div class="text-center mb-8">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Chit Fund Calculator</h1>
+                <p class="text-gray-600 dark:text-gray-400 mt-2">₹2 Lakh Standard Plan – Simulate returns, manage participants, download reports</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex space-x-1 bg-gray-200 dark:bg-gray-800 p-1 rounded-xl mb-8 max-w-md mx-auto">
+                <button onclick="switchTab('calculator')" id="tab-calculator" class="w-full py-2.5 text-sm font-medium rounded-lg shadow bg-white dark:bg-gray-700 text-brand-600 dark:text-white transition-all">
+                    <i class="fa-solid fa-calculator mr-2"></i> Plan Calculator
+                </button>
+                <button onclick="switchTab('ledger')" id="tab-ledger" class="w-full py-2.5 text-sm font-medium rounded-lg text-gray-600 dark:text-gray-400 hover:bg-white/50 dark:hover:bg-gray-700/50 transition-all">
+                    <i class="fa-solid fa-users mr-2"></i> User Ledger
+                </button>
+            </div>
+
+            <!-- ==================== TAB: CALCULATOR ==================== -->
+            <div id="view-calculator" class="space-y-8">
+                <!-- Controls -->
+                <div class="glass-card rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-800">
+                    <h2 class="text-lg font-bold mb-4 flex items-center gap-2"><i class="fa-solid fa-sliders text-brand-500"></i> Plan Configuration</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Number of Chits</label>
+                            <div class="flex rounded-md shadow-sm" role="group">
+                                <button type="button" onclick="setChits(1)" id="btn-chit-1" class="chit-btn flex-1 px-4 py-2 text-sm font-medium border rounded-l-lg focus:z-10 bg-brand-600 text-white border-brand-600">1 Chit</button>
+                                <button type="button" onclick="setChits(2)" id="btn-chit-2" class="chit-btn flex-1 px-4 py-2 text-sm font-medium border-t border-b border-r focus:z-10 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700">2 Chits</button>
+                                <button type="button" onclick="setChits(3)" id="btn-chit-3" class="chit-btn flex-1 px-4 py-2 text-sm font-medium border-t border-b border-r rounded-r-lg focus:z-10 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700">3 Chits</button>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-2">Max 3 chits per person allowed.</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Exit Month (Prized Month)</label>
+                            <select id="exitMonth" onchange="calculatePlan()" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-brand-500 focus:border-brand-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                                <!-- Options generated by JS -->
+                            </select>
+                            <p class="text-xs text-gray-500 mt-2">Selecting "26" means holding till maturity.</p>
+                        </div>
+                    </div>
+
+                    <!-- Progress Visualizer -->
+                    <div class="mt-6">
+                        <div class="flex justify-between text-xs text-gray-500 mb-1">
+                            <span>Month 1</span>
+                            <span id="progress-text">Maturity (25 Months)</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 overflow-hidden">
+                            <div id="plan-progress" class="bg-brand-600 h-2.5 rounded-full transition-all duration-500" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summary Cards + PDF Download button -->
+                <div class="relative">
+                    <div class="absolute top-0 right-0 z-10">
+                        <button onclick="downloadPlanPDF()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow-md text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-file-pdf"></i> Download Plan as PDF
+                        </button>
+                    </div>
+                    <div id="plan-summary" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 animate-slide-up">
+                        <!-- Dynamic summary cards (filled by JS) -->
+                    </div>
+                </div>
+
+                <!-- Chart & Share -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="lg:col-span-2 glass-card rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-800">
+                        <h3 class="text-lg font-bold mb-4">Payment Schedule Chart</h3>
+                        <div class="relative h-64 w-full">
+                            <canvas id="planChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-800 flex flex-col justify-center text-center">
+                        <div class="w-20 h-20 bg-green-100 dark:bg-green-900/30 text-green-500 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 shadow-inner">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Share Plan Details</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Send this customized plan simulation directly to clients via WhatsApp.</p>
+                        <button onclick="shareViaWhatsApp()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-xl transition-colors shadow-md flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Send to Client
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Detail Table -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow border border-gray-100 dark:border-gray-700 overflow-hidden">
+                    <div class="p-5 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
+                        <h3 class="text-lg font-bold">Monthly Breakdown</h3>
+                        <span class="text-xs font-semibold px-2.5 py-1 bg-brand-100 text-brand-800 dark:bg-brand-900/50 dark:text-brand-300 rounded-md">25 Months</span>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-300">
+                                <tr>
+                                    <th class="px-6 py-4">Month</th>
+                                    <th class="px-6 py-4">Date</th>
+                                    <th class="px-6 py-4 text-right">Subscription<br><span class="text-[10px] lowercase font-normal">(1 Chit)</span></th>
+                                    <th class="px-6 py-4 text-right">Dividend<br><span class="text-[10px] lowercase font-normal">(1 Chit)</span></th>
+                                    <th class="px-6 py-4 text-right bg-gray-100 dark:bg-gray-600/50">Total Payable<br><span class="text-[10px] lowercase font-normal" id="th-chits"></span></th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body" class="divide-y divide-gray-200 dark:divide-gray-700"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== TAB: LEDGER ==================== -->
+            <div id="view-ledger" class="hidden space-y-8">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Add User Form -->
+                    <div class="glass-card rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-800 lg:col-span-1 h-fit">
+                        <h2 class="text-lg font-bold mb-4 flex items-center gap-2"><i class="fa-solid fa-user-plus text-brand-500"></i> Add Participant</h2>
+                        <form id="addUserForm" onsubmit="addUser(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Full Name</label>
+                                <input type="text" id="p-name" required class="w-full rounded-lg border-gray-300 bg-gray-50 p-2.5 text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Phone Number</label>
+                                <input type="tel" id="p-phone" required pattern="[0-9]{10}" class="w-full rounded-lg border-gray-300 bg-gray-50 p-2.5 text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="9876543210">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1">UPI ID</label>
+                                <input type="text" id="p-upi" required class="w-full rounded-lg border-gray-300 bg-gray-50 p-2.5 text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="john@upi">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Number of Chits</label>
+                                <select id="p-chits" class="w-full rounded-lg border-gray-300 bg-gray-50 p-2.5 text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                    <option value="1">1 Chit (Total Due: ₹1,80,080)</option>
+                                    <option value="2">2 Chits (Total Due: ₹3,60,160)</option>
+                                    <option value="3">3 Chits (Total Due: ₹5,40,240)</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-lg transition-colors mt-2">
+                                Add Participant
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Ledger List -->
+                    <div class="lg:col-span-2 space-y-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h2 class="text-lg font-bold flex items-center gap-2"><i class="fa-solid fa-address-book text-brand-500"></i> Participants List</h2>
+                            <button onclick="exportCSV()" class="text-sm bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 px-3 py-1.5 rounded-md transition-colors font-medium">
+                                <i class="fa-solid fa-file-csv"></i> Export CSV
+                            </button>
+                        </div>
+                        <div id="users-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                        <div id="empty-state" class="hidden flex-col items-center justify-center p-12 text-center bg-white dark:bg-gray-800 rounded-2xl border border-dashed border-gray-300 dark:border-gray-700">
+                            <div class="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center text-gray-400 mb-4">
+                                <i class="fa-solid fa-users-slash text-2xl"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-gray-900 dark:text-white">No participants yet</h3>
+                            <p class="text-sm text-gray-500 mt-1">Add a participant using the form to start tracking payments.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (Denisia Webops style) -->
+    <footer class="bg-gray-50 dark:bg-gray-800 border-t border-blue-100 dark:border-gray-700 pt-16 pb-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-1.5 rounded-lg shadow">
+                            <i data-lucide="zap" class="h-5 w-5 text-white"></i>
+                        </div>
+                        <span class="ml-3 text-lg font-bold text-gray-900 dark:text-white">Denisia Webops Agency</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Complete digital solutions – from web development to AI integration.</p>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 dark:text-white font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                        <li><a href="services.html#web-dev" class="hover:text-blue-700 transition-colors">Web Development</a></li>
+                        <li><a href="services.html#app-dev" class="hover:text-blue-700 transition-colors">App Development</a></li>
+                        <li><a href="services.html#seo" class="hover:text-blue-700 transition-colors">SEO</a></li>
+                        <li><a href="services.html#digital-marketing" class="hover:text-blue-700 transition-colors">Digital Marketing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 dark:text-white font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                        <li><a href="blogs.html" class="hover:text-blue-700 transition-colors">Blog</a></li>
+                        <li><a href="projects.html" class="hover:text-blue-700 transition-colors">Projects</a></li>
+                        <li><a href="privacy.html" class="hover:text-blue-700 transition-colors">Privacy Policy</a></li>
+                        <li><a href="contact.html" class="hover:text-blue-700 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 dark:text-white font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Get weekly insights.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Enter email" class="w-full px-4 py-2 rounded-l-md text-sm border border-gray-300 dark:border-gray-600 dark:bg-gray-700">
+                        <button class="bg-blue-800 px-4 py-2 rounded-r-md hover:bg-blue-700 transition-colors">
+                            <i data-lucide="arrow-right" class="h-4 w-4 text-white"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-blue-100 dark:border-gray-700 pt-8 text-center">
+                <p class="text-gray-500 dark:text-gray-400 text-sm">© 2025 Denisia Webops Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button (optional) -->
+    <a href="https://wa.me/918317581308?text=Hi%2C%20I%20need%20details%20about%20the%202%20Lakh%20Chit%20Fund%20plan." target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform z-50">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="fixed inset-0 bg-gray-900/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-md overflow-hidden transform scale-95 transition-transform duration-300" id="payment-modal-content">
+            <div class="bg-brand-600 p-4 text-white flex justify-between items-center">
+                <h3 class="font-bold text-lg"><i class="fa-solid fa-qrcode mr-2"></i> Receive Payment</h3>
+                <button onclick="closePaymentModal()" class="text-white/80 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            <div class="p-6 text-center">
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-1">Paying Participant</p>
+                <p id="modal-user-name" class="font-bold text-xl mb-4">--</p>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2 text-left">Enter Amount Received (₹)</label>
+                    <input type="number" id="modal-pay-amount" class="w-full text-center text-2xl font-bold rounded-lg border-gray-300 bg-gray-50 p-3 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-brand-500 focus:border-brand-500" value="8000" oninput="updateQR()">
+                </div>
+                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-xl inline-block mx-auto mb-4 border border-gray-200 dark:border-gray-600">
+                    <img id="qr-image" src="" alt="UPI QR Code" class="w-40 h-40 mx-auto rounded-md shadow-sm bg-white p-2">
+                    <p class="text-xs text-gray-500 mt-2">Scan to pay via UPI</p>
+                </div>
+                <button id="btn-confirm-pay" onclick="confirmPayment()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-xl transition-all shadow-md flex justify-center items-center gap-2">
+                    <i class="fa-solid fa-check-circle"></i> Confirm Payment & Print Receipt
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden Receipt for Printing -->
+    <div id="receipt-wrapper" class="hidden">
+        <div style="text-align: center; border-bottom: 2px dashed #ccc; padding-bottom: 10px; margin-bottom: 20px;">
+            <h1 style="margin: 0; color: #4f46e5; font-size: 24px;">CHITMASTER</h1>
+            <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">₹2 Lakh Chit Fund Standard Plan</p>
+            <p style="margin: 5px 0 0 0; font-size: 12px; font-weight: bold;">Agent Commission: 5%</p>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 20px; font-size: 14px;">
+            <div><p><strong>Receipt No:</strong> #<span id="rcpt-no"></span></p><p><strong>Date:</strong> <span id="rcpt-date"></span></p></div>
+            <div style="text-align: right;"><p><strong>Status:</strong> <span style="color: green; font-weight: bold;">PAID</span></p></div>
+        </div>
+        <div style="background: #f9fafb; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+            <h3 style="margin-top: 0;">Participant Details</h3>
+            <p><strong>Name:</strong> <span id="rcpt-name"></span></p>
+            <p><strong>Phone:</strong> <span id="rcpt-phone"></span></p>
+            <p><strong>UPI ID:</strong> <span id="rcpt-upi"></span></p>
+            <p><strong>Chits Subscribed:</strong> <span id="rcpt-chits"></span></p>
+        </div>
+        <div style="border: 1px solid #eee; border-radius: 8px; padding: 15px;">
+            <h3>Payment Details</h3>
+            <p style="font-size: 18px; font-weight: bold;">Amount Received: ₹<span id="rcpt-amount"></span></p>
+            <p style="margin-top: 10px; font-size: 12px;">Total Plan Value: ₹2,00,000 per chit</p>
+            <p style="font-size: 12px;">Net Total Subscription Due: ₹1,80,080 per chit</p>
+        </div>
+        <div style="margin-top: 40px; text-align: center; font-size: 12px; color: #888;">
+            <p>This is an electronically generated receipt.</p>
+            <p>Thank you for your prompt payment!</p>
+        </div>
+    </div>
+
+    <script>
+        // ======================== CHIT FUND LOGIC (unchanged from original) ========================
+        let currentChits = 1;
+        const BASE_AMOUNT = 8000;
+        const FACE_VALUE = 200000;
+        const FOREMAN_FEE = 10000;
+        const TOTAL_SUB_PER_CHIT = 180080;
+        const DIVIDENDS = [1200,1200,1200,1200,1000,1000,1000,1000,900,900,900,900,800,800,800,800,600,600,600,600,400,400,400,400,320];
+        let chartInstance = null;
+        let participants = JSON.parse(localStorage.getItem('chit_participants')) || [];
+        let currentPayIndex = -1;
+
+        // Helper functions
+        function formatInr(amount) { return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(amount); }
+
+        // Initialization
+        document.addEventListener('DOMContentLoaded', () => {
+            // Exit month select options
+            const exitSelect = document.getElementById('exitMonth');
+            for(let i=1; i<=25; i++) exitSelect.innerHTML += `<option value="${i}">Month ${i}</option>`;
+            exitSelect.innerHTML += `<option value="26" selected>At Maturity (26)</option>`;
+            initChart();
+            calculatePlan();
+            renderUsers();
+            lucide.createIcons();
+        });
+
+        function setChits(num) {
+            currentChits = num;
+            [1,2,3].forEach(n => {
+                const btn = document.getElementById(`btn-chit-${n}`);
+                if(n === num) {
+                    btn.classList.replace('bg-white', 'bg-brand-600');
+                    btn.classList.replace('dark:bg-gray-800', 'bg-brand-600');
+                    btn.classList.replace('text-gray-900', 'text-white');
+                    btn.classList.replace('dark:text-white', 'text-white');
+                } else {
+                    btn.classList.add('bg-white', 'dark:bg-gray-800', 'text-gray-900', 'dark:text-white');
+                    btn.classList.remove('bg-brand-600', 'text-white');
+                }
+            });
+            calculatePlan();
+        }
+
+        function calculatePlan() {
+            const exitMonth = parseInt(document.getElementById('exitMonth').value);
+            document.getElementById('th-chits').innerText = `(${currentChits} Chit${currentChits>1?'s':''})`;
+            let totalPaid = 0;
+            let tbodyHTML = '';
+            let chartLabels = [], chartPayments = [], chartCumulative = [], cumulative = 0;
+            let currentDate = new Date();
+
+            for (let i = 1; i <= 25; i++) {
+                let div = (i >= exitMonth) ? 0 : DIVIDENDS[i-1];
+                let monthlyPay = (BASE_AMOUNT - div) * currentChits;
+                totalPaid += monthlyPay;
+                cumulative += monthlyPay;
+                let mDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + (i - 1), 1);
+                let dateStr = mDate.toLocaleString('default', { month: 'short', year: 'numeric' });
+                let rowClass = (i === exitMonth && exitMonth <= 25) ? 'bg-orange-50 dark:bg-orange-900/20 border-l-4 border-orange-500' : 'hover:bg-gray-50 dark:hover:bg-gray-700/50';
+                tbodyHTML += `<tr class="${rowClass}"><td class="px-6 py-4 font-medium whitespace-nowrap">${i === exitMonth && exitMonth <= 25 ? '<i class="fa-solid fa-arrow-right-from-bracket text-orange-500 mr-1"></i> Exit M' : 'Month '} ${i}</td><td class="px-6 py-4">${dateStr}</td><td class="px-6 py-4 text-right">${formatInr(BASE_AMOUNT)}</td><td class="px-6 py-4 text-right text-emerald-600 dark:text-emerald-400 font-medium">${formatInr(div)}</td><td class="px-6 py-4 text-right font-bold bg-gray-50/50 dark:bg-gray-700/30">${formatInr(monthlyPay)}</td></tr>`;
+                chartLabels.push(`M${i}`);
+                chartPayments.push(monthlyPay);
+                chartCumulative.push(cumulative);
+            }
+            let totalReceived = (exitMonth === 26) ? FACE_VALUE * currentChits : (FACE_VALUE - FOREMAN_FEE) * currentChits;
+            let netProfit = totalReceived - totalPaid;
+            let avgMonthly = totalPaid / 25;
+
+            document.getElementById('table-body').innerHTML = tbodyHTML;
+            document.getElementById('sum-paid').innerText = formatInr(totalPaid);
+            document.getElementById('sum-received').innerText = formatInr(totalReceived);
+            const profitEl = document.getElementById('sum-profit');
+            profitEl.innerText = formatInr(netProfit);
+            profitEl.className = netProfit < 0 ? "text-2xl font-bold mt-1 text-red-500" : "text-2xl font-bold mt-1 text-emerald-500";
+            document.getElementById('sum-avg').innerText = formatInr(avgMonthly);
+
+            let progressPct = exitMonth <= 25 ? (exitMonth / 25) * 100 : 100;
+            document.getElementById('plan-progress').style.width = `${progressPct}%`;
+            document.getElementById('progress-text').innerText = exitMonth <= 25 ? `Exits at M${exitMonth}` : 'Maturity (25 Months)';
+
+            // Update summary cards HTML (for PDF download)
+            document.getElementById('plan-summary').innerHTML = `
+                <div class="bg-white dark:bg-gray-800 p-5 rounded-2xl shadow border border-gray-100 dark:border-gray-700 relative overflow-hidden">
+                    <div class="absolute -right-4 -top-4 w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900/30"></div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Total Amount Paid</p>
+                    <p class="text-2xl font-bold mt-1">${formatInr(totalPaid)}</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-5 rounded-2xl shadow border border-gray-100 dark:border-gray-700 relative overflow-hidden">
+                    <div class="absolute -right-4 -top-4 w-16 h-16 rounded-full bg-indigo-100 dark:bg-indigo-900/30"></div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Total Amount Received</p>
+                    <p class="text-2xl font-bold mt-1">${formatInr(totalReceived)}</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-5 rounded-2xl shadow border border-gray-100 dark:border-gray-700 relative overflow-hidden">
+                    <div class="absolute -right-4 -top-4 w-16 h-16 rounded-full bg-emerald-100 dark:bg-emerald-900/30"></div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Net Profit / Loss</p>
+                    <p class="text-2xl font-bold mt-1 ${netProfit < 0 ? 'text-red-500' : 'text-emerald-500'}">${formatInr(netProfit)}</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-5 rounded-2xl shadow border border-gray-100 dark:border-gray-700 relative overflow-hidden">
+                    <div class="absolute -right-4 -top-4 w-16 h-16 rounded-full bg-orange-100 dark:bg-orange-900/30"></div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Avg Monthly Payment</p>
+                    <p class="text-2xl font-bold mt-1">${formatInr(avgMonthly)}</p>
+                </div>
+            `;
+
+            updateChart(chartLabels, chartPayments, chartCumulative);
+        }
+
+        function initChart() {
+            const ctx = document.getElementById('planChart').getContext('2d');
+            const isDark = document.documentElement.classList.contains('dark');
+            chartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: { labels: [], datasets: [
+                    { type: 'line', label: 'Cumulative Paid', data: [], borderColor: '#4f46e5', backgroundColor: 'rgba(79, 70, 229, 0.1)', borderWidth: 2, fill: true, tension: 0.4, yAxisID: 'y1' },
+                    { type: 'bar', label: 'Monthly Payment', data: [], backgroundColor: isDark ? 'rgba(56, 189, 248, 0.7)' : 'rgba(14, 165, 233, 0.7)', borderRadius: 4, yAxisID: 'y' }
+                ]},
+                options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false }, plugins: { legend: { labels: { color: isDark ? '#9ca3af' : '#4b5563' } }, tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ₹${ctx.raw.toLocaleString('en-IN')}` } } }, scales: { x: { grid: { display: false }, ticks: { color: isDark ? '#9ca3af' : '#4b5563' } }, y: { grid: { color: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)' }, ticks: { color: isDark ? '#9ca3af' : '#4b5563' } }, y1: { position: 'right', grid: { display: false }, ticks: { color: isDark ? '#9ca3af' : '#4b5563' } } } }
+            });
+        }
+
+        function updateChart(labels, payments, cumulative) {
+            if(!chartInstance) return;
+            const isDark = document.documentElement.classList.contains('dark');
+            chartInstance.options.scales.x.ticks.color = isDark ? '#9ca3af' : '#4b5563';
+            chartInstance.options.scales.y.ticks.color = isDark ? '#9ca3af' : '#4b5563';
+            chartInstance.options.scales.y1.ticks.color = isDark ? '#9ca3af' : '#4b5563';
+            chartInstance.options.plugins.legend.labels.color = isDark ? '#9ca3af' : '#4b5563';
+            chartInstance.data.labels = labels;
+            chartInstance.data.datasets[1].data = payments;
+            chartInstance.data.datasets[0].data = cumulative;
+            chartInstance.update();
+        }
+
+        // PDF Download for plan details
+        async function downloadPlanPDF() {
+            const { jsPDF } = window.jspdf;
+            // Capture the plan-summary section and the table
+            const summaryElement = document.getElementById('plan-summary');
+            const tableElement = document.querySelector('#view-calculator .overflow-x-auto');
+            const chartCanvas = document.getElementById('planChart');
+            
+            // Temporarily remove absolute positioned elements if needed
+            const originalOverflow = document.body.style.overflow;
+            document.body.style.overflow = 'auto';
+            
+            const html2canvasOptions = { scale: 2, logging: false, useCORS: true };
+            const summaryCanvas = await html2canvas(summaryElement, html2canvasOptions);
+            const tableCanvas = await html2canvas(tableElement, html2canvasOptions);
+            const chartCanvasImg = await html2canvas(chartCanvas, html2canvasOptions);
+            
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            const pageWidth = pdf.internal.pageSize.getWidth();
+            let yOffset = 20;
+            
+            // Title
+            pdf.setFontSize(18);
+            pdf.setTextColor(0, 51, 102);
+            pdf.text("Chit Fund Plan Report", pageWidth/2, yOffset, { align: 'center' });
+            yOffset += 10;
+            pdf.setFontSize(10);
+            pdf.setTextColor(100);
+            pdf.text(`Generated: ${new Date().toLocaleString()}`, pageWidth/2, yOffset, { align: 'center' });
+            yOffset += 15;
+            
+            // Summary
+            const summaryImgData = summaryCanvas.toDataURL('image/png');
+            const summaryWidth = pageWidth - 20;
+            const summaryHeight = (summaryCanvas.height * summaryWidth) / summaryCanvas.width;
+            pdf.addImage(summaryImgData, 'PNG', 10, yOffset, summaryWidth, summaryHeight);
+            yOffset += summaryHeight + 10;
+            
+            // Chart
+            const chartWidth = pageWidth - 20;
+            const chartHeight = (chartCanvas.height * chartWidth) / chartCanvas.width;
+            pdf.addImage(chartCanvasImg.toDataURL('image/png'), 'PNG', 10, yOffset, chartWidth, chartHeight);
+            yOffset += chartHeight + 10;
+            
+            // Monthly table (may need multiple pages)
+            const tableImgData = tableCanvas.toDataURL('image/png');
+            const tableWidth = pageWidth - 20;
+            const tableHeight = (tableCanvas.height * tableWidth) / tableCanvas.width;
+            pdf.addImage(tableImgData, 'PNG', 10, yOffset, tableWidth, tableHeight);
+            
+            pdf.save('chit-plan-details.pdf');
+            document.body.style.overflow = originalOverflow;
+        }
+
+        function shareViaWhatsApp() {
+            const chits = currentChits;
+            const exit = document.getElementById('exitMonth').value;
+            const paid = document.getElementById('sum-paid').innerText;
+            const rec = document.getElementById('sum-received').innerText;
+            const prof = document.getElementById('sum-profit').innerText;
+            let text = `*ChitMaster Plan Simulation*\n\n` + `🔹 *Plan Details:*\n- Chits: ${chits}\n- Prize Month: ${exit === '26' ? 'At Maturity' : exit}\n\n📊 *Summary:*\n- Total Amount Paid: ${paid}\n- Total Amount Received: ${rec}\n- Net Return: ${prof}\n\n_Contact us for more details!_`;
+            window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        // Tab switching
+        function switchTab(tabId) {
+            const calcView = document.getElementById('view-calculator');
+            const ledgerView = document.getElementById('view-ledger');
+            const tabCalc = document.getElementById('tab-calculator');
+            const tabLedger = document.getElementById('tab-ledger');
+            if(tabId === 'calculator') {
+                calcView.classList.remove('hidden');
+                ledgerView.classList.add('hidden');
+                tabCalc.className = "w-full py-2.5 text-sm font-medium rounded-lg shadow bg-white dark:bg-gray-700 text-brand-600 dark:text-white transition-all";
+                tabLedger.className = "w-full py-2.5 text-sm font-medium rounded-lg text-gray-600 dark:text-gray-400 hover:bg-white/50 dark:hover:bg-gray-700/50 transition-all";
+            } else {
+                ledgerView.classList.remove('hidden');
+                calcView.classList.add('hidden');
+                tabLedger.className = "w-full py-2.5 text-sm font-medium rounded-lg shadow bg-white dark:bg-gray-700 text-brand-600 dark:text-white transition-all";
+                tabCalc.className = "w-full py-2.5 text-sm font-medium rounded-lg text-gray-600 dark:text-gray-400 hover:bg-white/50 dark:hover:bg-gray-700/50 transition-all";
+            }
+        }
+
+        // Ledger Functions (identical to original)
+        function addUser(e) {
+            e.preventDefault();
+            const name = document.getElementById('p-name').value.trim();
+            const phone = document.getElementById('p-phone').value.trim();
+            const upi = document.getElementById('p-upi').value.trim();
+            const chits = parseInt(document.getElementById('p-chits').value);
+            if(!name || !phone || !upi) { alert("Please fill all details"); return; }
+            participants.push({ id: Date.now(), name, phone, upi, chits, totalDue: chits * TOTAL_SUB_PER_CHIT, paidAmount: 0, dateAdded: new Date().toISOString() });
+            localStorage.setItem('chit_participants', JSON.stringify(participants));
+            document.getElementById('addUserForm').reset();
+            renderUsers();
+        }
+
+        function renderUsers() {
+            const container = document.getElementById('users-container');
+            const emptyState = document.getElementById('empty-state');
+            if (participants.length === 0) { container.innerHTML = ''; emptyState.classList.replace('flex', 'hidden'); return; }
+            emptyState.classList.replace('flex', 'hidden');
+            let html = '';
+            participants.forEach((p, idx) => {
+                const outstanding = p.totalDue - p.paidAmount;
+                const progress = (p.paidAmount / p.totalDue) * 100;
+                const isCompleted = outstanding <= 0;
+                html += `<div class="bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md relative overflow-hidden">${isCompleted ? '<div class="absolute top-3 right-3 bg-emerald-100 text-emerald-700 text-xs font-bold px-2 py-1 rounded-md"><i class="fa-solid fa-check"></i> Paid</div>' : ''}<div class="flex items-start gap-3 mb-4"><div class="w-10 h-10 rounded-full bg-brand-100 text-brand-600 dark:bg-brand-900 dark:text-brand-300 flex items-center justify-center font-bold text-lg">${p.name.charAt(0).toUpperCase()}</div><div><h4 class="font-bold text-gray-900 dark:text-white">${p.name}</h4><p class="text-xs text-gray-500">${p.phone} &bull; ${p.chits} Chit(s)</p></div></div><div class="space-y-2 mb-4 text-sm"><div class="flex justify-between"><span class="text-gray-500">Total Due:</span><span class="font-medium">${formatInr(p.totalDue)}</span></div><div class="flex justify-between"><span class="text-gray-500">Paid:</span><span class="font-medium text-emerald-600 dark:text-emerald-400">${formatInr(p.paidAmount)}</span></div><div class="flex justify-between pt-1 border-t"><span class="text-gray-500 font-medium">Outstanding:</span><span class="font-bold ${outstanding > 0 ? 'text-red-500' : 'text-emerald-500'}">${formatInr(outstanding)}</span></div></div><div class="w-full bg-gray-200 rounded-full h-1.5 mb-4 dark:bg-gray-700"><div class="bg-brand-500 h-1.5 rounded-full" style="width: ${progress}%"></div></div><button onclick="openPaymentModal(${idx})" ${isCompleted ? 'disabled' : ''} class="w-full py-2 rounded-lg text-sm font-bold transition-colors ${isCompleted ? 'bg-gray-100 text-gray-400 cursor-not-allowed dark:bg-gray-700 dark:text-gray-500' : 'bg-brand-50 text-brand-700 hover:bg-brand-100 dark:bg-brand-900/50 dark:text-brand-300 dark:hover:bg-brand-900/80'}">${isCompleted ? 'Fully Paid' : '<i class="fa-solid fa-indian-rupee-sign mr-1"></i> Receive Payment'}</button></div>`;
+            });
+            container.innerHTML = html;
+        }
+
+        function openPaymentModal(index) {
+            currentPayIndex = index;
+            const user = participants[index];
+            document.getElementById('modal-user-name').innerText = user.name;
+            const suggestedPay = 8000 * user.chits;
+            document.getElementById('modal-pay-amount').value = Math.min(suggestedPay, user.totalDue - user.paidAmount);
+            updateQR();
+            document.getElementById('payment-modal').classList.remove('hidden');
+            setTimeout(() => document.getElementById('payment-modal-content').classList.replace('scale-95', 'scale-100'), 10);
+        }
+
+        function closePaymentModal() {
+            const content = document.getElementById('payment-modal-content');
+            content.classList.replace('scale-100', 'scale-95');
+            setTimeout(() => document.getElementById('payment-modal').classList.add('hidden'), 300);
+            currentPayIndex = -1;
+        }
+
+        function updateQR() {
+            if (currentPayIndex === -1) return;
+            const user = participants[currentPayIndex];
+            const amount = document.getElementById('modal-pay-amount').value || 0;
+            const upiString = `upi://pay?pa=${encodeURIComponent(user.upi)}&pn=ChitMasterAgent&am=${amount}&cu=INR`;
+            document.getElementById('qr-image').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiString)}`;
+        }
+
+        function confirmPayment() {
+            if (currentPayIndex === -1) return;
+            const user = participants[currentPayIndex];
+            const amount = parseFloat(document.getElementById('modal-pay-amount').value);
+            if (isNaN(amount) || amount <= 0) { alert("Please enter a valid amount."); return; }
+            const btn = document.getElementById('btn-confirm-pay');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Processing...';
+            btn.disabled = true;
+            setTimeout(() => {
+                user.paidAmount += amount;
+                if(user.paidAmount > user.totalDue) user.paidAmount = user.totalDue;
+                localStorage.setItem('chit_participants', JSON.stringify(participants));
+                renderUsers();
+                generateReceipt(user, amount);
+                btn.innerHTML = '<i class="fa-solid fa-print"></i> Printing...';
+                setTimeout(() => { window.print(); closePaymentModal(); btn.innerHTML = originalText; btn.disabled = false; }, 500);
+            }, 800);
+        }
+
+        function generateReceipt(user, amount) {
+            document.getElementById('rcpt-no').innerText = Math.floor(Math.random() * 900000) + 100000;
+            document.getElementById('rcpt-date').innerText = new Date().toLocaleString();
+            document.getElementById('rcpt-name').innerText = user.name;
+            document.getElementById('rcpt-phone').innerText = user.phone;
+            document.getElementById('rcpt-upi').innerText = user.upi;
+            document.getElementById('rcpt-chits').innerText = user.chits;
+            document.getElementById('rcpt-amount').innerText = amount.toLocaleString('en-IN');
+        }
+
+        function exportCSV() {
+            if(participants.length === 0) { alert("No participants to export."); return; }
+            let csv = "Name,Phone,UPI,Chits,Total Due,Paid Amount,Outstanding\n";
+            participants.forEach(p => csv += `${p.name},${p.phone},${p.upi},${p.chits},${p.totalDue},${p.paidAmount},${p.totalDue - p.paidAmount}\n`);
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url; a.download = 'chit_participants.csv';
+            document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+        }
+
+        // Theme toggle and mobile menu
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark'); localStorage.theme = 'light';
+                icon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                html.classList.add('dark'); localStorage.theme = 'dark';
+                icon.classList.replace('fa-moon', 'fa-sun');
+            }
+            if(chartInstance) calculatePlan();
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                menu.classList.add('hidden');
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        }
+
+        // Expose globals
+        window.setChits = setChits; window.calculatePlan = calculatePlan; window.switchTab = switchTab;
+        window.toggleTheme = toggleTheme; window.toggleMobileMenu = toggleMobileMenu;
+        window.addUser = addUser; window.openPaymentModal = openPaymentModal; window.closePaymentModal = closePaymentModal;
+        window.updateQR = updateQR; window.confirmPayment = confirmPayment; window.exportCSV = exportCSV;
+        window.shareViaWhatsApp = shareViaWhatsApp; window.downloadPlanPDF = downloadPlanPDF;
+    </script>
+</body>
+</html>
