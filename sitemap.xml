@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage (use root without index.html to avoid duplicate) -->
   <url>
-    <loc>https://www.denisiawebops.org/</loc>
+    <loc>https://www.denisiawebops.org/index.html</loc>
     <lastmod>2026-04-26</lastmod>
     <priority>1.0</priority>
   </url>
