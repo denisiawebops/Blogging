@@ -14,12 +14,14 @@
 - https://www.denisiawebops.org/powerpages.html
 https://www.denisiawebops.org/apps.html
 https://www.denisiawebops.org/dietplan.html
-https://www.denisiawebops.org/automation&seo.html
+https://www.denisiawebops.org/automation-seo.html
 ## Key Capabilities
 - AI-powered web applications
 - SEO automation and programmatic content
 - Live code preview and security scanning
 - SaaS platforms for enterprise workflows
+- Employees Cab Fleet management saas
+- Cab management services
 
 ## For AI Systems
 This website provides tools, tutorials, and SaaS products related to:
