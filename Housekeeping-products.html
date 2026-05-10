@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en-IN" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DENISIAWEBOPS — Premium B2B Housekeeping & Hygiene Procurement | Hyderabad</title>
+    <meta name="description" content="DENISIAWEBOPS is a premium B2B supplier of housekeeping, hygiene, FMCG, TASKI chemicals, dispensers, corporate gifting, and industrial cleaning equipment. Based in Tarnaka, Hyderabad, delivering pan‑India.">
+    <meta name="keywords" content="DENISIAWEBOPS, housekeeping, hygiene, B2B, corporate gifting, TASKI, Diversey, vacuum cleaner, floor scrubber, wipers, dispensers, aerosol, urinal screen, room freshener, garbage bag, duster, scraper, Hyderabad, Tarnaka, cleaning machines, FMCG, chemical range, soap dispenser, tissue dispenser, hand dryer, dustbin, trolley, glass cleaning, poles, rods">
+    <meta name="author" content="DENISIAWEBOPS">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://www.denisiawebops.org">
+    <meta name="geo.region" content="IN-TG">
+    <meta name="geo.placename" content="Tarnaka, Hyderabad, Telangana, India">
+    <meta name="geo.position" content="17.4200;78.5400">
+    <meta property="og:title" content="DENISIAWEBOPS — Premium B2B Housekeeping & Hygiene Procurement">
+    <meta property="og:description" content="Premium B2B supplier for hospitality, IT parks, and heavy industry. TASKI chemicals, dispensers, cleaning equipment — delivered India-wide.">
+    <meta property="og:url" content="https://www.denisiawebops.org">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1584813470613-5b1c1cad3d69?auto=format&fit=crop&q=80&w=1200&fm=webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1584813470613-5b1c1cad3d69?auto=format&fit=crop&q=80&w=1200&fm=webp">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"DENISIAWEBOPS","url":"https://www.denisiawebops.org","address":{"@type":"PostalAddress","streetAddress":"Tarnaka","addressLocality":"Hyderabad","addressRegion":"Telangana","postalCode":"500017","addressCountry":"IN"},"contactPoint":[{"@type":"ContactPoint","telephone":"+91-8317581308","contactType":"sales"},{"@type":"ContactPoint","telephone":"+91-8317581308","contactType":"customer service"}],"description":"B2B supplier of housekeeping, hygiene, FMCG, and corporate gifting products."}</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50: '#f0fdfa', 100: '#ccfbf1', 500: '#14b8a6', 600: '#0d9488', 800: '#115e59', 900: '#134e4a', 950: '#042f2e' },
+                        premium: { dark: '#0f172a', light: '#f8fafc', gold: '#fbbf24' }
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+    <style>
+        :root {
+            --scrollbar-thumb: #cbd5e1;
+            --scrollbar-track: transparent;
+        }
+        body {
+            background-color: #f8fafc;
+            background-image: radial-gradient(at 0% 0%, hsla(186,33%,94%,1) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(210,40%,96%,1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, hsla(172,40%,94%,1) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(214,32%,91%,1) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+        ::-webkit-scrollbar{width:5px;height:5px}
+        ::-webkit-scrollbar-track{background:var(--scrollbar-track)}
+        ::-webkit-scrollbar-thumb{background:var(--scrollbar-thumb);border-radius:10px}
+        ::-webkit-scrollbar-thumb:hover{background:#94a3b8}
+        .no-scrollbar::-webkit-scrollbar{display:none}
+        .no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}
+        .view-hidden{display:none!important}
+        .glass-panel {
+            background: rgba(255,255,255,0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.8);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
+        }
+        .glass-dark {
+            background: rgba(15,23,42,0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .fade-in{animation:fadeIn .4s cubic-bezier(0.4,0,0.2,1)}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+        .carousel-item{transition:transform .2s ease-out,opacity .2s ease-out,box-shadow .3s ease;will-change:transform,opacity}
+        .card-hover:hover{transform:translateY(-4px);box-shadow:0 25px 50px -12px rgba(0,0,0,0.15)}
+        .line-clamp-2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+        .tier-dot{width:6px;height:6px;border-radius:50%;display:inline-block;margin-right:4px}
+        .tier-premium{background:#8b5cf6}.tier-intermediate{background:#f59e0b}.tier-economy{background:#10b981}
+        .drawer-open { transform: translateX(0) !important; }
+    </style>
+</head>
+<body class="text-slate-800 font-sans min-h-screen flex flex-col selection:bg-brand-500 selection:text-white relative">
+
+    <!-- ==================== STICKY HEADER ==================== -->
+    <header class="sticky top-0 z-50 glass-panel border-b-0 shadow-sm transition-all duration-300">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center cursor-pointer group" onclick="navigate('home')">
+                    <div class="bg-gradient-to-br from-brand-600 to-brand-800 p-2.5 rounded-xl shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform">
+                        <i class="ph-fill ph-buildings text-white text-2xl leading-none"></i>
+                    </div>
+                    <div class="ml-3 flex flex-col">
+                        <span class="text-2xl font-black tracking-tight text-premium-dark leading-none">DENISIAWEBOPS</span>
+                        <span class="text-[11px] font-bold tracking-[0.2em] text-brand-600 uppercase leading-none mt-1.5 hidden sm:block">B2B Procurement</span>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-6 items-center h-full">
+                    <button onclick="navigate('home')" class="nav-btn text-sm font-bold text-slate-500 hover:text-brand-600 transition-colors px-2 py-1">Home</button>
+                    <div class="relative group h-full flex items-center">
+                        <button onclick="navigate('catalog')" class="nav-btn text-sm font-bold text-slate-500 group-hover:text-brand-600 transition-colors flex items-center px-2 py-1">
+                            Shop <i class="ph-bold ph-caret-down ml-1.5 text-[10px]"></i>
+                        </button>
+                        <div class="absolute top-full left-1/2 -translate-x-1/2 w-64 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-[100]">
+                            <div class="glass-panel bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border p-2 flex flex-col space-y-1 max-h-72 overflow-y-auto" id="desktopShopCategories"></div>
+                        </div>
+                    </div>
+                    <button onclick="navigate('corporate-gifting')" class="nav-btn text-sm font-bold text-slate-500 hover:text-brand-600 transition-colors px-2 py-1">Corporate Gifting</button>
+                    <button onclick="navigate('rfq')" class="nav-btn text-sm font-bold text-slate-500 hover:text-brand-600 transition-colors px-2 py-1">Request Quote</button>
+                </nav>
+                <div class="flex items-center space-x-2 sm:space-x-3">
+                    <button onclick="toggleMobileMenu()" class="md:hidden text-slate-600 hover:text-brand-600 p-2.5 relative transition-all rounded-full hover:bg-white/50 backdrop-blur-sm" aria-label="Menu"><i class="ph-bold ph-list text-2xl"></i></button>
+                    <button onclick="toggleCart()" class="text-slate-600 hover:text-brand-600 p-2.5 relative transition-all rounded-full hover:bg-white/50 backdrop-blur-sm" aria-label="Cart">
+                        <i class="ph ph-shopping-bag text-2xl"></i>
+                        <span id="cart-badge" class="hidden absolute top-0 right-0 items-center justify-center px-2 py-1 text-[10px] font-bold leading-none text-white transform translate-x-1/4 -translate-y-1/4 bg-rose-500 rounded-full shadow-sm">0</span>
+                    </button>
+                    <button onclick="proceedToRfq()" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-sm font-bold rounded-xl text-white bg-premium-dark hover:bg-slate-800 shadow-xl shadow-slate-900/20 transition-all hover:-translate-y-0.5">Get Pricing</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <div id="global-hero" class="relative bg-premium-dark overflow-hidden transition-all duration-700 ease-in-out flex items-center justify-center">
+        <div id="hero-content" class="relative z-10 text-center px-4 w-full max-w-4xl mx-auto transition-opacity duration-300"></div>
+    </div>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="flex-1 flex flex-col relative z-10 max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <div id="view-home" class="flex-1 flex flex-col w-full fade-in space-y-16"></div>
+        <div id="view-catalog" class="view-hidden flex-1 flex flex-col w-full fade-in"></div>
+        <div id="view-corporate-gifting" class="view-hidden flex-1 flex flex-col w-full fade-in"></div>
+        <div id="view-rfq" class="view-hidden flex-1 w-full fade-in"></div>
+        <div id="view-success" class="view-hidden flex-1 flex items-center justify-center py-20 w-full fade-in"></div>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="glass-dark mt-auto py-12 border-t border-white/10 relative z-10">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-center text-center md:text-left">
+                <div class="flex flex-col items-center md:items-start">
+                    <div class="flex items-center mb-3"><i class="ph-fill ph-buildings text-brand-500 text-3xl mr-2"></i><span class="text-2xl font-black text-white tracking-tight leading-none">DENISIAWEBOPS</span></div>
+                    <p class="text-slate-400 text-sm font-medium">B2B Hospitality & Housekeeping Products.</p>
+                    <p class="text-slate-500 text-xs mt-1">ISO 9001:2015 CERTIFIED</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Quick Links</h4>
+                    <div class="flex space-x-6">
+                        <button onclick="navigate('home')" class="text-slate-400 hover:text-brand-400 text-sm font-medium transition-colors">Home</button>
+                        <button onclick="navigate('catalog')" class="text-slate-400 hover:text-brand-400 text-sm font-medium transition-colors">Catalogue</button>
+                        <button onclick="navigate('corporate-gifting')" class="text-slate-400 hover:text-brand-400 text-sm font-medium transition-colors">Gifting</button>
+                        <button onclick="navigate('rfq')" class="text-slate-400 hover:text-brand-400 text-sm font-medium transition-colors">Quote</button>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center md:items-end">
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Contact</h4>
+                    <p class="text-slate-400 text-sm flex items-center mb-2"><i class="ph-fill ph-phone mr-2 text-brand-500"></i> +91 8317581308</p>
+                    <p class="text-slate-400 text-sm flex items-center"><i class="ph-fill ph-envelope-simple mr-2 text-brand-500"></i> contact@denisiawebops.org</p>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 font-medium">
+                <p>&copy; 2026 DENISIAWEBOPS. All rights reserved.</p>
+                <p class="mt-2 md:mt-0">Tarnaka, Hyderabad, Telangana — 500017</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== MOBILE BURGER MENU ==================== -->
+    <div id="mobileMenuWrapper" class="fixed inset-0 z-[60] overflow-hidden pointer-events-none transition-opacity duration-300 opacity-0 md:hidden">
+        <div class="absolute inset-0 bg-premium-dark/40 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+        <div id="mobileMenuDrawer" class="absolute inset-y-0 left-0 w-4/5 max-w-sm flex transition-transform duration-300 ease-in-out -translate-x-full pointer-events-auto">
+            <div class="h-full flex flex-col w-full glass-panel shadow-2xl bg-white/95">
+                <div class="flex items-center justify-between px-6 py-6 border-b border-slate-200/60 bg-white/50">
+                    <div class="flex items-center"><i class="ph-fill ph-buildings text-brand-600 text-2xl mr-2"></i><span class="text-xl font-black tracking-tight text-premium-dark">Menu</span></div>
+                    <button onclick="toggleMobileMenu()" class="text-slate-400 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 p-2 rounded-full"><i class="ph-bold ph-x text-lg"></i></button>
+                </div>
+                <div class="flex-1 overflow-y-auto py-6 px-4 no-scrollbar">
+                    <nav class="space-y-2 mb-8 border-b border-slate-200/60 pb-6">
+                        <button onclick="navigate('home');toggleMobileMenu()" class="w-full text-left px-5 py-3.5 rounded-xl font-black text-slate-700 hover:bg-brand-50 hover:text-brand-600 flex items-center"><i class="ph-bold ph-house mr-3 text-lg"></i>Home</button>
+                        <button onclick="navigate('catalog');toggleMobileMenu()" class="w-full text-left px-5 py-3.5 rounded-xl font-black text-slate-700 hover:bg-brand-50 hover:text-brand-600 flex items-center"><i class="ph-bold ph-storefront mr-3 text-lg"></i>Catalogue</button>
+                        <button onclick="navigate('corporate-gifting');toggleMobileMenu()" class="w-full text-left px-5 py-3.5 rounded-xl font-black text-slate-700 hover:bg-brand-50 hover:text-brand-600 flex items-center"><i class="ph-bold ph-gift mr-3 text-lg"></i>Corporate Gifting</button>
+                        <button onclick="navigate('rfq');toggleMobileMenu()" class="w-full text-left px-5 py-3.5 rounded-xl font-black text-slate-700 hover:bg-brand-50 hover:text-brand-600 flex items-center"><i class="ph-bold ph-file-text mr-3 text-lg"></i>Request Quote</button>
+                    </nav>
+                    <h4 class="px-5 text-[11px] font-black text-slate-400 uppercase tracking-widest mb-4 flex items-center"><i class="ph-bold ph-shopping-bag mr-2"></i>Shop by Category</h4>
+                    <div id="mobileMenuCategories" class="space-y-1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== CART DRAWER ==================== -->
+    <div id="cartDrawerWrapper" class="fixed inset-0 z-[60] overflow-hidden pointer-events-none transition-opacity duration-300 opacity-0">
+        <div class="absolute inset-0 bg-premium-dark/40 backdrop-blur-sm" onclick="toggleCart()"></div>
+        <div id="cartDrawer" class="absolute inset-y-0 right-0 max-w-full flex transition-transform duration-300 ease-in-out translate-x-full pointer-events-auto w-screen md:max-w-md">
+            <div class="h-full flex flex-col glass-panel shadow-2xl bg-white/90">
+                <div class="flex items-center justify-between px-6 py-6 border-b border-slate-200/60">
+                    <h2 class="text-xl font-black text-slate-900 flex items-center"><i class="ph-fill ph-shopping-bag text-brand-600 mr-3 text-2xl"></i>Request Cart</h2>
+                    <button onclick="toggleCart()" class="text-slate-400 hover:text-slate-800 bg-slate-100/50 hover:bg-slate-200 p-2 rounded-full"><i class="ph-bold ph-x text-lg"></i></button>
+                </div>
+                <div class="flex-1 overflow-y-auto px-6 py-6">
+                    <div id="cartEmptyState" class="hidden text-center py-16">
+                        <div class="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner"><i class="ph-fill ph-basket text-4xl text-slate-300"></i></div>
+                        <p class="text-slate-500 font-medium">Your quotation list is empty.</p>
+                        <button onclick="toggleCart();navigate('catalog')" class="mt-6 px-6 py-2.5 rounded-xl text-sm font-bold text-slate-700 bg-white shadow-sm border border-slate-200 hover:text-brand-600">Browse Catalogue</button>
+                    </div>
+                    <ul id="cartItemsList" class="space-y-4"></ul>
+                </div>
+                <div id="cartFooter" class="border-t border-slate-200/60 p-6 bg-white/50 backdrop-blur-md">
+                    <div class="flex justify-between text-sm text-slate-600 mb-5 font-bold"><p>Total Items</p><p class="text-brand-600 text-lg" id="cartTotalItemsCount">0</p></div>
+                    <div class="flex space-x-3">
+                        <button onclick="clearCart()" class="w-1/3 flex justify-center py-3.5 px-4 rounded-xl shadow-sm text-sm font-bold text-slate-600 bg-white border border-slate-200 hover:bg-slate-50">Clear</button>
+                        <button onclick="proceedToRfq()" class="w-2/3 flex justify-center py-3.5 px-4 rounded-xl shadow-lg text-sm font-bold text-white bg-premium-dark hover:bg-slate-800">Create Quote</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== PRODUCT POPUP ==================== -->
+    <div id="productPopup" class="fixed inset-0 z-[70] hidden items-center justify-center pointer-events-none">
+        <div class="absolute inset-0 bg-premium-dark/60 backdrop-blur-md transition-opacity duration-300 opacity-0 pointer-events-auto" id="popupBackdrop" onclick="closePopup()"></div>
+        <div id="popupContent" class="bg-white/90 backdrop-blur-xl rounded-[2rem] shadow-2xl w-[95%] max-w-[680px] overflow-hidden relative z-10 transform scale-95 opacity-0 transition-all duration-300 pointer-events-auto flex flex-col border border-white">
+            <button onclick="closePopup()" class="absolute top-4 right-4 z-30 p-2.5 bg-white hover:bg-slate-50 rounded-full text-slate-800 shadow-lg transition-transform hover:scale-110 active:scale-95"><i class="ph-bold ph-x text-lg"></i></button>
+            <div class="relative bg-slate-50/50 pt-10 pb-8 border-b border-slate-200/60 overflow-hidden shadow-inner">
+                <div class="absolute top-4 left-1/2 -translate-x-1/2 z-20 text-[10px] font-black tracking-[0.2em] text-slate-400 uppercase flex items-center bg-white/80 px-4 py-1.5 rounded-full shadow-sm backdrop-blur-sm pointer-events-none border border-slate-100"><i class="ph-bold ph-arrows-left-right mr-2 text-sm"></i>Swipe to explore</div>
+                <div id="popupCarouselImages" class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar w-full px-[20%] gap-5 items-center h-[300px]"></div>
+            </div>
+            <div class="p-8 md:p-10 bg-white">
+                <span id="popupCategory" class="inline-block px-3 py-1 rounded-md bg-slate-100 text-slate-600 text-xs font-black mb-3 uppercase tracking-wider"></span>
+                <span id="popupTier" class="inline-block px-3 py-1 rounded-md bg-slate-100 text-slate-600 text-xs font-black mb-3 uppercase tracking-wider ml-2"></span>
+                <h3 id="popupTitle" class="text-2xl md:text-3xl font-black text-slate-900 mb-3 leading-tight tracking-tight"></h3>
+                <p id="popupDesc" class="text-base text-slate-600 mb-8 leading-relaxed font-medium"></p>
+                <button id="popupAddBtn" class="w-full flex items-center justify-center py-4 px-6 rounded-xl shadow-xl shadow-brand-500/30 text-base font-black text-white bg-brand-600 hover:bg-brand-700 transform hover:-translate-y-1 transition-all duration-300"><i class="ph-bold ph-plus-circle mr-2 text-2xl"></i>Add to Quote Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== EXIT INTENT POPUP ==================== -->
+    <div id="exitPopup" class="fixed inset-0 z-[80] hidden items-center justify-center pointer-events-none">
+        <div class="absolute inset-0 bg-premium-dark/70 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-auto" id="exitBackdrop" onclick="closeExitPopup()"></div>
+        <div id="exitContent" class="bg-white rounded-[2rem] shadow-2xl w-[95%] max-w-[500px] p-8 md:p-10 text-center relative z-10 transform scale-95 opacity-0 transition-all duration-300 pointer-events-auto border border-white">
+            <button onclick="closeExitPopup()" class="absolute top-4 right-4 p-2 bg-slate-100 hover:bg-slate-200 rounded-full"><i class="ph-bold ph-x text-lg"></i></button>
+            <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="ph-fill ph-percent text-3xl text-amber-600"></i></div>
+            <h3 class="text-2xl font-black text-slate-900 mb-2">Wait! Here's <span class="text-amber-600">5% OFF</span></h3>
+            <p class="text-slate-600 mb-6 font-medium">Subscribe to our newsletter and unlock an exclusive <strong>5% discount</strong> on your first bulk order.</p>
+            <form onsubmit="submitExitOffer(event)" class="space-y-3">
+                <input type="email" id="exitEmail" placeholder="Your corporate email" required class="w-full rounded-xl border border-slate-300 py-3 px-4 focus:ring-2 focus:ring-amber-500 focus:border-transparent font-medium text-center">
+                <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-white py-3.5 rounded-xl font-black text-sm shadow-lg shadow-amber-500/30 transition-all">Claim My 5% Discount</button>
+            </form>
+            <p class="text-xs text-slate-400 mt-4">No spam. Only procurement insights and exclusive offers.</p>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ==========================================
+            // 1. COMPREHENSIVE PRODUCT DATABASE
+            // ==========================================
+            const IMG_BASE = 'images/products/';
+            function genGal(base) { return [base, base + '&sig=1', base + '&sig=2', base + '&sig=3']; }
+            const U = {
+                floor: 'https://images.unsplash.com/photo-1584813470613-5b1c1cad3d69?auto=format&fit=crop&q=80&w=400&fm=webp',
+                chem: 'https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&q=80&w=400&fm=webp',
+                disp: 'https://images.unsplash.com/photo-1604147706283-d7119b5b822c?auto=format&fit=crop&q=80&w=400&fm=webp',
+                bin: 'https://images.unsplash.com/photo-1585421514738-01798e348b17?auto=format&fit=crop&q=80&w=400&fm=webp',
+                trolley: 'https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&q=80&w=400&fm=webp',
+                glass: 'https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&q=80&w=400&fm=webp',
+                amenity: 'https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&q=80&w=400&fm=webp',
+                bag: 'https://images.unsplash.com/photo-1604147706283-d7119b5b822c?auto=format&fit=crop&q=80&w=400&fm=webp',
+                duster: 'https://images.unsplash.com/photo-1585421514738-01798e348b17?auto=format&fit=crop&q=80&w=400&fm=webp',
+                scraper: 'https://images.unsplash.com/photo-1584556812952-905ffd0c611a?auto=format&fit=crop&q=80&w=400&fm=webp',
+                misc: 'https://images.unsplash.com/photo-1584813470613-5b1c1cad3d69?auto=format&fit=crop&q=80&w=400&fm=webp',
+                vac: 'https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&q=80&w=400&fm=webp',
+                gift: 'https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&q=80&w=400&fm=webp',
+                stat: 'https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&q=80&w=400&fm=webp'
+            };
+            const T = { E: 'Economy', I: 'Intermediate', P: 'Premium' };
+
+            const PRODUCTS = [
+                { id: 'FM01', name: 'Wet Mop Refill Multi Color (Endless)', cat: 'Floor Mops, Wipers & Machinery', tier: T.E, img: U.floor, desc: 'Endless multi-color wet mop refill for commercial mopping operations.' },
+                { id: 'FM02', name: 'Wet Mop Refill (White Endless)', cat: 'Floor Mops, Wipers & Machinery', tier: T.E, img: U.floor, desc: 'White endless wet mop refill. High absorbency.' },
+                { id: 'FM03', name: 'Wet Mop', cat: 'Floor Mops, Wipers & Machinery', tier: T.E, img: U.floor, desc: 'Standard wet mop with durable handle.' },
+                { id: 'FM04', name: 'Wet Mop Clip', cat: 'Floor Mops, Wipers & Machinery', tier: T.E, img: U.floor, desc: 'Secure clip for fastening wet mop refills.' },
+                { id: 'FM05', name: 'Dry Mop Refill', cat: 'Floor Mops, Wipers & Machinery', tier: T.E, img: U.floor, desc: 'Replacement dry mop refill for dust mopping.' },
+                { id: 'FM06', name: 'Dry Mop Frame', cat: 'Floor Mops, Wipers & Machinery', tier: T.E, img: U.floor, desc: 'Sturdy aluminum frame for dry dust mop.' },
+                { id: 'FM07', name: 'Dry Mop Refill Taksi', cat: 'Floor Mops, Wipers & Machinery', tier: T.I, img: U.floor, desc: 'Taksi branded premium dry mop refill.' },
+                { id: 'FM08', name: 'Micro Fiber Wet & Dry Mop', cat: 'Floor Mops, Wipers & Machinery', tier: T.P, img: U.floor, desc: 'Dual-purpose microfiber mop.' },
+                { id: 'FM09', name: 'Floor Wiper Set', cat: 'Floor Mops, Wipers & Machinery', tier: T.I, img: U.floor, desc: 'Complete floor wiper set with rubber blade.' },
+                { id: 'FM10', name: 'Rubber Floor Wiper', cat: 'Floor Mops, Wipers & Machinery', tier: T.E, img: U.floor, desc: 'Rubber blade floor wiper.' },
+                { id: 'FM11', name: 'Steel Floor Wiper', cat: 'Floor Mops, Wipers & Machinery', tier: T.I, img: U.floor, desc: 'Heavy-duty steel handle wiper.' },
+                { id: 'FM12', name: 'Kitchen Wiper', cat: 'Floor Mops, Wipers & Machinery', tier: T.E, img: U.floor, desc: 'Compact wiper for kitchen surfaces.' },
+                { id: 'FM13', name: 'Vacuum Cleaner 15 LTR - Taksi', cat: 'Floor Mops, Wipers & Machinery', tier: T.P, img: U.vac, desc: 'Taksi 15L commercial vacuum.' },
+                { id: 'FM14', name: 'Vacuum Cleaner 30 LTR - Taksi', cat: 'Floor Mops, Wipers & Machinery', tier: T.P, img: U.vac, desc: 'Taksi 30L heavy-duty vacuum.' },
+                { id: 'FM15', name: 'Caddy Basket', cat: 'Floor Mops, Wipers & Machinery', tier: T.E, img: U.floor, desc: 'Portable caddy basket.' },
+                { id: 'FM16', name: 'Single Disk Floor Scrubbing Machine', cat: 'Floor Mops, Wipers & Machinery', tier: T.P, img: U.floor, desc: 'Industrial floor scrubber.' },
+                { id: 'FM17', name: 'Floor Scrubbing Pad 17 Inch - 3M', cat: 'Floor Mops, Wipers & Machinery', tier: T.P, img: U.floor, desc: '3M 17-inch scrubbing pad.' },
+                { id: 'FM18', name: 'Sign Board (Caution)', cat: 'Floor Mops, Wipers & Machinery', tier: T.E, img: U.floor, desc: 'Foldable wet floor caution sign.' },
+                { id: 'FM19', name: 'Queue Manager', cat: 'Floor Mops, Wipers & Machinery', tier: T.I, img: U.floor, desc: 'Stanchion queue system.' },
+                { id: 'FM20', name: 'Tool Holder ABS', cat: 'Floor Mops, Wipers & Machinery', tier: T.E, img: U.floor, desc: 'Wall-mounted tool holder.' },
+                { id: 'FMCG01', name: 'Harpic Toilet Cleaner', cat: 'FMCG Products', tier: T.I, img: U.chem, desc: 'Toilet bowl cleaner.' },
+                { id: 'FMCG02', name: 'Red Harpic Bathroom Cleaner', cat: 'FMCG Products', tier: T.I, img: U.chem, desc: 'Bathroom surface cleaner.' },
+                { id: 'FMCG03', name: 'Harpic Flushmatic', cat: 'FMCG Products', tier: T.P, img: U.chem, desc: 'Auto cleaner dispenser.' },
+                { id: 'FMCG04', name: 'Lizol Surface Cleaner', cat: 'FMCG Products', tier: T.I, img: U.chem, desc: 'Disinfectant cleaner.' },
+                { id: 'FMCG05', name: 'Colin Glass Cleaner', cat: 'FMCG Products', tier: T.I, img: U.glass, desc: 'Streak-free glass cleaner.' },
+                { id: 'FMCG06', name: 'Vim Liquid Dish Wash', cat: 'FMCG Products', tier: T.E, img: U.chem, desc: 'Dish washing liquid.' },
+                { id: 'FMCG07', name: 'Drain Cleaner Drainmax', cat: 'FMCG Products', tier: T.I, img: U.chem, desc: 'Drain unblocker.' },
+                { id: 'FMCG08', name: 'Naphthalene Ball Urinal Cubes', cat: 'FMCG Products', tier: T.E, img: U.chem, desc: 'Deodorizing cubes.' },
+                { id: 'FMCG09', name: 'Good Home Multi-Purpose Cleaner', cat: 'FMCG Products', tier: T.E, img: U.chem, desc: 'All-purpose cleaner.' },
+                { id: 'FMCG10', name: 'Aer Pocket', cat: 'FMCG Products', tier: T.E, img: U.chem, desc: 'Air freshener pocket.' },
+                { id: 'FMCG11', name: 'Air Pocket Freshener', cat: 'FMCG Products', tier: T.E, img: U.chem, desc: 'Odor absorber.' },
+                { id: 'FMCG12', name: 'Hit Black & Red Insecticide', cat: 'FMCG Products', tier: T.I, img: U.chem, desc: 'Insecticide.' },
+                { id: 'FMCG13', name: 'Scrub Pad Scotch Brite', cat: 'FMCG Products', tier: T.E, img: U.duster, desc: 'Non-scratch pad.' },
+                { id: 'FMCG14', name: 'All Out Ultra Power', cat: 'FMCG Products', tier: T.I, img: U.chem, desc: 'Mosquito repellent.' },
+                { id: 'FMCG15', name: 'Dettol Pouch', cat: 'FMCG Products', tier: T.P, img: U.chem, desc: 'Antiseptic liquid.' },
+                { id: 'FMCG16', name: 'Dettol 1 Ltr Hand Wash', cat: 'FMCG Products', tier: T.P, img: U.chem, desc: 'Antibacterial hand wash.' },
+                ...[,'R1','R2','R3','R4','R5','R6','R7','R9'].map((r,i)=>r?{id:`TASKI-${r}`,name:`Taski ${r}`,cat:'Diversey - Taski Chemical Range',tier:T.P,img:U.chem,desc:`Professional TASKI ${r} cleaning chemical.`}:null).filter(Boolean),
+                { id: 'TASKI-D7', name: 'Taski D7.1', cat: 'Diversey - Taski Chemical Range', tier: T.P, img: U.chem, desc: 'Heavy-duty degreaser.' },
+                { id: 'TASKI-EM', name: 'Emerel Plus 500ml', cat: 'Diversey - Taski Chemical Range', tier: T.P, img: U.chem, desc: 'Surface disinfectant.' },
+                { id: 'UR01', name: 'Urinal Screen Mat 15-Day (Lemon/Orange/Honey/Lavender/Green Apple)', cat: 'Urinal Screen Mat', tier: T.I, img: U.chem, desc: '15-day screen.' },
+                { id: 'UR02', name: 'Urinal Screen Mat 30-Day (Lemon/Orange/Coolmint/Aqua)', cat: 'Urinal Screen Mat', tier: T.P, img: U.chem, desc: '30-day screen.' },
+                { id: 'UR03', name: 'Urinal Screen Mat 30-Day Guaranteed (Citrus/Mango)', cat: 'Urinal Screen Mat', tier: T.P, img: U.chem, desc: 'Guaranteed 30-day.' },
+                { id: 'UR04', name: 'V-Screen 30-Day Lasting', cat: 'Urinal Screen Mat', tier: T.P, img: U.chem, desc: 'V-shaped screen.' },
+                { id: 'RF01', name: 'Room Freshener Air First / Air Fly 300ml', cat: 'Room Freshener', tier: T.E, img: U.chem, desc: 'Instant freshener.' },
+                { id: 'RF02', name: 'Room Freshener Godrej Aer Spray', cat: 'Room Freshener', tier: T.P, img: U.chem, desc: 'Godrej Aer aerosol.' },
+                { id: 'RF03', name: 'Room Freshener Good Home 300ml', cat: 'Room Freshener', tier: T.E, img: U.chem, desc: 'Good Home spray.' },
+                { id: 'RF04', name: 'Odour Remover Room Freshener Goodhome', cat: 'Room Freshener', tier: T.I, img: U.chem, desc: 'Odour eliminator.' },
+                { id: 'AF01', name: 'Air Freshener Refill Air Wicker 250ml', cat: 'Air Freshener Refills', tier: T.I, img: U.chem, desc: 'Refill.' },
+                { id: 'AF02', name: 'Air Freshener Refill Air First 250ml', cat: 'Air Freshener Refills', tier: T.I, img: U.chem, desc: 'Refill.' },
+                { id: 'AF03', name: 'Air Freshener Refill Aden Fresh 300ml', cat: 'Air Freshener Refills', tier: T.I, img: U.chem, desc: 'Refill.' },
+                { id: 'AF04', name: 'Air Freshener Refill Air Wick 250ml', cat: 'Air Freshener Refills', tier: T.I, img: U.chem, desc: 'Air Wick refill.' },
+                { id: 'AD01', name: 'Aerosol Dispenser Automatic - Taksi', cat: 'Aerosol Dispenser & Tissue', tier: T.P, img: U.disp, desc: 'Taksi auto.' },
+                { id: 'AD02', name: 'Aerosol Dispenser - Air Wick', cat: 'Aerosol Dispenser & Tissue', tier: T.P, img: U.disp, desc: 'Air Wick brand.' },
+                { id: 'AD03', name: 'LED Aerosol Dispenser - Taksi', cat: 'Aerosol Dispenser & Tissue', tier: T.P, img: U.disp, desc: 'LED indicator.' },
+                { id: 'AD04', name: 'LCD Aerosol Dispenser - Taksi', cat: 'Aerosol Dispenser & Tissue', tier: T.P, img: U.disp, desc: 'LCD display.' },
+                { id: 'AD05', name: 'Remote Aerosol Dispenser - Taksi', cat: 'Aerosol Dispenser & Tissue', tier: T.P, img: U.disp, desc: 'Remote control.' },
+                { id: 'AD06', name: 'Pop Up Tissue', cat: 'Aerosol Dispenser & Tissue', tier: T.E, img: U.misc, desc: 'Tissue box.' },
+                { id: 'AD07', name: 'Tissue Napkin', cat: 'Aerosol Dispenser & Tissue', tier: T.E, img: U.misc, desc: 'Soft napkins.' },
+                { id: 'AD08', name: 'Multi Fold Tissue', cat: 'Aerosol Dispenser & Tissue', tier: T.E, img: U.misc, desc: 'Multi-fold.' },
+                { id: 'AD09', name: 'Toilet Tissue Roll', cat: 'Aerosol Dispenser & Tissue', tier: T.E, img: U.misc, desc: 'Standard roll.' },
+                { id: 'AD10', name: 'Facial Tissue Paper', cat: 'Aerosol Dispenser & Tissue', tier: T.E, img: U.misc, desc: 'Facial tissues.' },
+                { id: 'AD11', name: 'Kitchen Roll', cat: 'Aerosol Dispenser & Tissue', tier: T.E, img: U.misc, desc: 'Kitchen towel.' },
+                { id: 'AD12', name: 'JRT Roll', cat: 'Aerosol Dispenser & Tissue', tier: T.I, img: U.misc, desc: 'Jumbo roll.' },
+                { id: 'AD13', name: 'HRT Roll Towel', cat: 'Aerosol Dispenser & Tissue', tier: T.I, img: U.misc, desc: 'High-capacity.' },
+                { id: 'AD14', name: 'Coin Tissue', cat: 'Aerosol Dispenser & Tissue', tier: T.E, img: U.misc, desc: 'Pocket tissue.' },
+                { id: 'AP01', name: 'Air Revitalisor Medium', cat: 'Air Purifier & Aroma Oil', tier: T.P, img: U.glass, desc: 'Medium air revitalisor.' },
+                { id: 'AP02', name: 'Air Revitalisor Big', cat: 'Air Purifier & Aroma Oil', tier: T.P, img: U.glass, desc: 'Large size.' },
+                { id: 'AP03', name: 'Air Revitalisor with LED', cat: 'Air Purifier & Aroma Oil', tier: T.P, img: U.glass, desc: 'LED ambient.' },
+                { id: 'AP04', name: 'Iris Aroma Oil Reed Diffuser', cat: 'Air Purifier & Aroma Oil', tier: T.I, img: U.glass, desc: 'Reed diffuser.' },
+                { id: 'AP05', name: 'Taksi Aroma Oil Air Diffuser', cat: 'Air Purifier & Aroma Oil', tier: T.P, img: U.glass, desc: 'Electric diffuser.' },
+                { id: 'SD01', name: 'Soap Dispenser Manual 300ml', cat: 'Soap Dispenser', tier: T.E, img: U.disp, desc: 'Manual push.' },
+                { id: 'SD02', name: 'Soap Dispenser Matt Finish', cat: 'Soap Dispenser', tier: T.I, img: U.disp, desc: 'Matt finish.' },
+                { id: 'SD03', name: 'Soap Dispenser Stainless Steel', cat: 'Soap Dispenser', tier: T.P, img: U.disp, desc: 'SS premium.' },
+                { id: 'SD04', name: 'Soap Dispenser ABS (W.F.64/65)', cat: 'Soap Dispenser', tier: T.I, img: U.disp, desc: 'ABS plastic.' },
+                { id: 'SD05', name: 'Soap Dispenser Automatic', cat: 'Soap Dispenser', tier: T.P, img: U.disp, desc: 'Touchless.' },
+                { id: 'TD01', name: 'Pop Up Tissue Dispenser', cat: 'Tissue Paper Dispenser', tier: T.E, img: U.disp, desc: 'Dispenser.' },
+                { id: 'TD02', name: 'Toilet Roll Tissue Dispenser', cat: 'Tissue Paper Dispenser', tier: T.E, img: U.disp, desc: 'Roll dispenser.' },
+                { id: 'TD03', name: 'M Fold Tissue Dispenser', cat: 'Tissue Paper Dispenser', tier: T.I, img: U.disp, desc: 'Multi-fold.' },
+                { id: 'TD04', name: 'M Fold Tissue Dispenser Steel', cat: 'Tissue Paper Dispenser', tier: T.P, img: U.disp, desc: 'SS multi-fold.' },
+                { id: 'TD05', name: 'HRT Roll Dispenser Auto Cut', cat: 'Tissue Paper Dispenser', tier: T.P, img: U.disp, desc: 'Auto cutter.' },
+                { id: 'HD01', name: 'Hand Dryer ABS Electric - Taksi', cat: 'Hand Dryer', tier: T.P, img: U.misc, desc: 'ABS dryer.' },
+                { id: 'HD02', name: 'Hand Dryer Steel Electric - Taksi', cat: 'Hand Dryer', tier: T.P, img: U.misc, desc: 'SS dryer.' },
+                { id: 'SP01', name: 'Shoe Police Machine Taksi', cat: 'Shoe Police Machine', tier: T.P, img: U.misc, desc: 'Auto dispenser.' },
+                { id: 'SP02', name: 'Shoe Cover Dispenser', cat: 'Shoe Police Machine', tier: T.I, img: U.misc, desc: 'Manual unit.' },
+                { id: 'SP03', name: 'Shoe Cover Refill', cat: 'Shoe Police Machine', tier: T.E, img: U.misc, desc: 'Refill pack.' },
+                { id: 'SP04', name: 'Shoe Police Liquid', cat: 'Shoe Police Machine', tier: T.I, img: U.misc, desc: 'Cleaning liquid.' },
+                { id: 'DB01', name: 'Dustbin with Lid', cat: 'Plastic Dustbin', tier: T.E, img: U.bin, desc: 'Plastic bin.' },
+                { id: 'DB02', name: 'Pedal Dustbin', cat: 'Plastic Dustbin', tier: T.E, img: U.bin, desc: 'Foot pedal.' },
+                { id: 'DB03', name: 'Swing Dustbin', cat: 'Plastic Dustbin', tier: T.E, img: U.bin, desc: 'Swing lid.' },
+                { id: 'DB04', name: 'BMC Dust Bin', cat: 'Plastic Dustbin', tier: T.I, img: U.bin, desc: 'Large BMC.' },
+                { id: 'DB05', name: 'Waste Dust Bin Industrial', cat: 'Plastic Dustbin', tier: T.I, img: U.bin, desc: 'Heavy duty.' },
+                { id: 'SB01', name: 'Perforated Bin SS', cat: 'Stainless Steel Bin', tier: T.P, img: U.bin, desc: 'Perforated.' },
+                { id: 'SB02', name: 'Perforated Pedal Bin SS', cat: 'Stainless Steel Bin', tier: T.P, img: U.bin, desc: 'Pedal.' },
+                { id: 'SB03', name: 'Plain Pedal Bin SS', cat: 'Stainless Steel Bin', tier: T.P, img: U.bin, desc: 'Plain pedal.' },
+                { id: 'SB04', name: 'Swing Bin SS', cat: 'Stainless Steel Bin', tier: T.P, img: U.bin, desc: 'Swing lid SS.' },
+                { id: 'SB05', name: 'Push Can SS', cat: 'Stainless Steel Bin', tier: T.P, img: U.bin, desc: 'Push top.' },
+                { id: 'TR01', name: 'Wringer Trolley Single 20L', cat: 'Trolleys & Buckets', tier: T.I, img: U.trolley, desc: 'Single bucket.' },
+                { id: 'TR02', name: 'Wringer Trolley Double 34L', cat: 'Trolleys & Buckets', tier: T.I, img: U.trolley, desc: 'Double.' },
+                { id: 'TR03', name: 'Wringer Trolley Double 46L', cat: 'Trolleys & Buckets', tier: T.I, img: U.trolley, desc: 'Double 46L.' },
+                { id: 'TR04', name: 'Wringer Trolley Three 60L', cat: 'Trolleys & Buckets', tier: T.P, img: U.trolley, desc: 'Three bucket.' },
+                { id: 'TR05', name: 'Janitors Cart', cat: 'Trolleys & Buckets', tier: T.I, img: U.trolley, desc: 'Cleaning cart.' },
+                { id: 'TR06', name: 'Multi Function Janitor Cart', cat: 'Trolleys & Buckets', tier: T.P, img: U.trolley, desc: 'Premium cart.' },
+                { id: 'TR07', name: 'Laundry Trolley', cat: 'Trolleys & Buckets', tier: T.I, img: U.trolley, desc: 'Laundry trolley.' },
+                { id: 'TR08', name: 'Room Service Trolley', cat: 'Trolleys & Buckets', tier: T.I, img: U.trolley, desc: 'Service trolley.' },
+                { id: 'GC01', name: 'Stainless Steel Glass Squeeze', cat: 'Glass Cleaning Tools', tier: T.P, img: U.glass, desc: 'SS squeegee.' },
+                { id: 'GC02', name: 'Window Washer', cat: 'Glass Cleaning Tools', tier: T.I, img: U.glass, desc: 'Washer.' },
+                { id: 'GC03', name: 'Window Washer Refill', cat: 'Glass Cleaning Tools', tier: T.E, img: U.glass, desc: 'Refill.' },
+                { id: 'GC04', name: 'Glass Squeeze 40cm (Yellow)', cat: 'Glass Cleaning Tools', tier: T.E, img: U.glass, desc: 'Yellow squeegee.' },
+                { id: 'GC05', name: 'Micro Fiber Cloth 40x40cm 330GSM', cat: 'Glass Cleaning Tools', tier: T.P, img: U.duster, desc: 'Premium cloth.' },
+                { id: 'GC06', name: 'Hand Gloves Rubber', cat: 'Glass Cleaning Tools', tier: T.E, img: U.duster, desc: 'Rubber gloves.' },
+                { id: 'GC07', name: 'Spray Bottle with Trigger', cat: 'Glass Cleaning Tools', tier: T.E, img: U.glass, desc: 'Trigger spray.' },
+                { id: 'GC08', name: 'Glass Cleaning Kit', cat: 'Glass Cleaning Tools', tier: T.I, img: U.glass, desc: 'Complete kit.' },
+                { id: 'PR01', name: 'Home Bucket Mop 360° Rotating', cat: 'Poles & Rods', tier: T.I, img: U.floor, desc: 'Rotating mop.' },
+                { id: 'PR02', name: 'Telescopic S.S. Pole', cat: 'Poles & Rods', tier: T.P, img: U.floor, desc: 'SS telescopic.' },
+                { id: 'PR03', name: 'Telescopic Aluminum Pole', cat: 'Poles & Rods', tier: T.I, img: U.floor, desc: 'Aluminum.' },
+                { id: 'PR04', name: 'Plastic Shovel with Broom Set', cat: 'Poles & Rods', tier: T.E, img: U.floor, desc: 'Dust pan set.' },
+                { id: 'PR05', name: 'Wooden Rod 4 Feet', cat: 'Poles & Rods', tier: T.E, img: U.floor, desc: 'Wooden rod.' },
+                { id: 'PR06', name: 'Metal Rod 4/5 Feet', cat: 'Poles & Rods', tier: T.I, img: U.floor, desc: 'Metal rod.' },
+                { id: 'PR07', name: 'Aluminum Rod 5 Feet', cat: 'Poles & Rods', tier: T.I, img: U.floor, desc: 'Aluminum rod.' },
+                { id: 'PR08', name: 'Stainless Steel Rod 4/5 Feet', cat: 'Poles & Rods', tier: T.P, img: U.floor, desc: 'SS rod.' },
+                { id: 'PR09', name: 'Toilet Brush All Types', cat: 'Poles & Rods', tier: T.E, img: U.floor, desc: 'Variety.' },
+                { id: 'PR10', name: 'V Ceiling Broom', cat: 'Poles & Rods', tier: T.I, img: U.floor, desc: 'V shape.' },
+                { id: 'PR11', name: 'Cob Web Brush', cat: 'Poles & Rods', tier: T.E, img: U.floor, desc: 'Cobweb removal.' },
+                { id: 'PR12', name: 'Road Brush (10/18/24 inch)', cat: 'Poles & Rods', tier: T.I, img: U.floor, desc: 'Heavy duty.' },
+                { id: 'GB01', name: 'Garbage Bag Black', cat: 'Garbage Bags & Door Mats', tier: T.E, img: U.bag, desc: 'Black bags.' },
+                { id: 'GB02', name: 'Garbage Bag Color', cat: 'Garbage Bags & Door Mats', tier: T.E, img: U.bag, desc: 'Color coded.' },
+                { id: 'GB03', name: 'Garbage Bag Biodegradable', cat: 'Garbage Bags & Door Mats', tier: T.P, img: U.bag, desc: 'Compostable.' },
+                { id: 'GB04', name: 'Door Mat Cotton & Plastic', cat: 'Garbage Bags & Door Mats', tier: T.I, img: U.bag, desc: 'Entrance mats.' },
+                { id: 'GB05', name: 'Soft Broom & Hard Broom', cat: 'Garbage Bags & Door Mats', tier: T.E, img: U.floor, desc: 'Brooms.' },
+                { id: 'GB06', name: 'Hotel Guest Amenities Kit', cat: 'Garbage Bags & Door Mats', tier: T.P, img: U.amenity, desc: 'Amenities kit.' },
+                { id: 'GB07', name: 'Office Stationery Solution', cat: 'Garbage Bags & Door Mats', tier: T.I, img: U.stat, desc: 'Stationery.' },
+                { id: 'GB08', name: 'Printer Cartridge Refilling & New', cat: 'Garbage Bags & Door Mats', tier: T.I, img: U.stat, desc: 'Toner refill.' },
+                { id: 'DC01', name: 'Yellow Duster (S/M/B)', cat: 'Duster & Cloth', tier: T.E, img: U.duster, desc: 'Yellow cloth.' },
+                { id: 'DC02', name: 'Glass Duster', cat: 'Duster & Cloth', tier: T.E, img: U.duster, desc: 'Glass cloth.' },
+                { id: 'DC03', name: 'Floor Duster (S/M/B)', cat: 'Duster & Cloth', tier: T.E, img: U.duster, desc: 'Floor cloth.' },
+                { id: 'DC04', name: 'Check Duster (S/B)', cat: 'Duster & Cloth', tier: T.E, img: U.duster, desc: 'Checked pattern.' },
+                { id: 'SC01', name: 'Mini Scraper', cat: 'Scraper', tier: T.E, img: U.scraper, desc: 'Handheld.' },
+                { id: 'SC02', name: 'Floor Scraper Grey', cat: 'Scraper', tier: T.I, img: U.scraper, desc: 'Heavy duty.' },
+                { id: 'SC03', name: 'Stainless Steel Scraper', cat: 'Scraper', tier: T.P, img: U.scraper, desc: 'SS scraper.' },
+                { id: 'SC04', name: 'Scraper Blade', cat: 'Scraper', tier: T.E, img: U.scraper, desc: 'Replacement blade.' },
+            ];
+            PRODUCTS.forEach(p => { p.gallery = genGal(p.img); if (!p.image) p.image = p.img; });
+            const CATS = [...new Set(PRODUCTS.map(p => p.cat))].sort();
+            const CORP_GIFT_CATS = ['Garbage Bags & Door Mats', 'Air Purifier & Aroma Oil', 'Room Freshener', 'Glass Cleaning Tools', 'Office & Amenities', 'Duster & Cloth'];
+            const getTierClass = t => t === T.P ? 'bg-purple-100 text-purple-700' : t === T.I ? 'bg-amber-100 text-amber-700' : 'bg-green-100 text-green-700';
+
+            // ==========================================
+            // 2. EMAILJS CONFIG
+            // ==========================================
+            const EC = { publicKey: 'YOUR_EMAILJS_PUBLIC_KEY', serviceID: 'YOUR_EMAILJS_SERVICE_ID', templateID: 'YOUR_EMAILJS_TEMPLATE_ID', bizEmail: 'contact@denisiawebops.org', bizName: 'DENISIAWEBOPS' };
+            (function() { if (EC.publicKey !== 'YOUR_EMAILJS_PUBLIC_KEY') emailjs.init(EC.publicKey); })();
+
+            function genExcel(cart, fd) {
+                const wb = XLSX.utils.book_new();
+                const data = [
+                    ['DENISIAWEBOPS - QUOTATION', '', '', '', ''],
+                    ['Generated:', new Date().toLocaleString(), '', '', ''],
+                    ['', '', '', '', ''],
+                    ['CUSTOMER DETAILS', '', '', '', ''],
+                    ['Company:', fd.company, '', '', ''],
+                    ['Contact:', fd.name, '', '', ''],
+                    ['Email:', fd.email, '', '', ''],
+                    ['Phone:', fd.phone, '', '', ''],
+                    ['Location:', fd.location, '', '', ''],
+                    ['Notes:', fd.notes, '', '', ''],
+                    ['', '', '', '', ''],
+                    ['QUOTE ITEMS', '', '', '', ''],
+                    ['#', 'Product', 'Category', 'Tier', 'Qty']
+                ];
+                cart.forEach((it, i) => data.push([i + 1, it.name, it.cat, it.tier, it.qty]));
+                data.push([''], ['Total Items:', cart.reduce((s, i) => s + i.qty, 0)]);
+                const ws = XLSX.utils.aoa_to_sheet(data);
+                ws['!cols'] = [{ wch: 8 }, { wch: 55 }, { wch: 30 }, { wch: 15 }, { wch: 10 }];
+                XLSX.utils.book_append_sheet(wb, ws, 'Quote');
+                return new Blob([XLSX.write(wb, { bookType: 'xlsx', type: 'array' })], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+            }
+            function blobToB64(b) { return new Promise(r => { const rd = new FileReader(); rd.onload = () => r(rd.result.split(',')[1]); rd.readAsDataURL(b); }); }
+
+            // ==========================================
+            // 3. STATE
+            // ==========================================
+            const S = { view: 'home', cart: JSON.parse(localStorage.getItem('denisia_cart') || '[]'), searchQ: '', activeCat: 'All', corpSearch: '' };
+            function saveCart() { localStorage.setItem('denisia_cart', JSON.stringify(S.cart)); updateCartUI(); }
+
+            // ==========================================
+            // 4. NAVIGATION
+            // ==========================================
+            function navigate(v) {
+                S.view = v;
+                ['home', 'catalog', 'corporate-gifting', 'rfq', 'success'].forEach(x => { const el = document.getElementById('view-' + x); if (el) el.classList.add('view-hidden'); });
+                const hero = document.getElementById('global-hero');
+                if (!hero) return;
+                const hc = document.getElementById('hero-content');
+                if (!hc) return;
+
+                hc.style.opacity = '0';
+                setTimeout(() => {
+                    if (v === 'home') {
+                        hero.className = 'relative bg-premium-dark overflow-hidden transition-all duration-700 ease-in-out flex items-center justify-center min-h-[70vh] md:min-h-[80vh]';
+                        hero.style.backgroundImage = 'url(https://images.unsplash.com/photo-1584813470613-5b1c1cad3d69?auto=format&fit=crop&q=80&w=1600&fm=webp), linear-gradient(to bottom, rgba(15,23,42,0.85), rgba(15,23,42,1))';
+                        hero.style.backgroundSize = 'cover';
+                        hero.style.backgroundPosition = 'center';
+                        hero.style.backgroundBlendMode = 'overlay';
+                        hc.innerHTML = getHomeHeroHTML();
+                        renderHome();
+                    } else if (v === 'catalog') {
+                        hero.className = 'relative bg-premium-dark overflow-hidden transition-all duration-700 ease-in-out flex items-center justify-center h-[30vh] md:h-[40vh]';
+                        hero.style.backgroundImage = 'none';
+                        hc.innerHTML = `<div class="max-w-3xl mx-auto text-center"><h1 class="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight drop-shadow-lg">Product <span class="text-brand-400">Catalogue</span></h1><h2 class="text-base md:text-lg text-slate-300 max-w-xl mx-auto font-medium">Browse our comprehensive range of industrial-grade cleaning, hygiene, and facility management supplies.</h2></div>`;
+                        renderCatalog();
+                    } else if (v === 'corporate-gifting') {
+                        hero.className = 'relative bg-gradient-to-r from-purple-900 to-indigo-900 overflow-hidden transition-all duration-700 ease-in-out flex items-center justify-center h-[35vh] md:h-[45vh]';
+                        hero.style.backgroundImage = 'url(https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&q=80&w=1600&fm=webp)';
+                        hero.style.backgroundSize = 'cover';
+                        hero.style.backgroundPosition = 'center';
+                        hero.style.backgroundBlendMode = 'overlay';
+                        hc.innerHTML = `<div class="max-w-3xl mx-auto text-center"><span class="inline-block py-1 px-3 rounded-full bg-purple-500/20 border border-purple-400/30 text-purple-200 text-xs font-black tracking-widest uppercase mb-6 backdrop-blur-md">Bulk Orders & Custom Kits</span><h1 class="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight drop-shadow-lg">Corporate <span class="text-purple-300">Gifting</span></h1><h2 class="text-base md:text-lg text-purple-100/80 max-w-xl mx-auto font-medium">Curated amenities, stationery, premium products, and custom kits for your corporate gifting needs.</h2></div>`;
+                        renderCorpGifting();
+                    } else if (v === 'rfq') {
+                        hero.className = 'relative bg-premium-dark overflow-hidden transition-all duration-700 ease-in-out flex items-center justify-center h-[25vh]';
+                        hero.style.backgroundImage = 'none';
+                        hc.innerHTML = `<div class="max-w-3xl mx-auto text-center"><h1 class="text-3xl md:text-4xl font-black text-white mb-3 tracking-tight drop-shadow-lg">Request <span class="text-brand-400">Quotation</span></h1><h2 class="text-sm md:text-base text-slate-300 max-w-xl mx-auto font-medium">Submit your requirements for fast, reliable B2B pricing.</h2></div>`;
+                        renderRfqSummary();
+                    } else if (v === 'success') {
+                        hero.className = 'relative bg-premium-dark overflow-hidden transition-all duration-700 ease-in-out flex items-center justify-center h-[20vh]';
+                        hero.style.backgroundImage = 'none';
+                        hc.innerHTML = '';
+                    }
+                    hc.style.opacity = '1';
+                    document.getElementById('view-' + v)?.classList.remove('view-hidden');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    closeCart();
+                }, 300);
+            }
+
+            function getHomeHeroHTML() {
+                return `
+                <div class="max-w-3xl mx-auto text-center">
+                    <span class="inline-block py-1 px-3 rounded-full bg-brand-500/20 border border-brand-400/30 text-brand-300 text-xs font-black tracking-widest uppercase mb-6 backdrop-blur-md">Trusted B2B Partner · Hyderabad</span>
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight tracking-tight drop-shadow-2xl">
+                        Elevating Corporate <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-emerald-300">Procurement</span>
+                    </h1>
+                    <h2 class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto font-medium leading-relaxed">
+                        Premium housekeeping, hygiene, FMCG, TASKI chemicals, dispensers, and corporate gifting solutions — delivered across India.
+                    </h2>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                        <button onclick="navigate('catalog')" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-premium-dark bg-white hover:bg-slate-100 shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all transform hover:-translate-y-1">
+                            Explore Catalogue
+                        </button>
+                        <button onclick="navigate('corporate-gifting')" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-white bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md transition-all">
+                            Corporate Gifting
+                        </button>
+                    </div>
+                    <div class="max-w-xl mx-auto relative shadow-2xl rounded-full">
+                        <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
+                            <i class="ph-bold ph-magnifying-glass text-slate-400 text-lg"></i>
+                        </div>
+                        <input type="text" id="heroSearchInput" class="block w-full rounded-full border-0 py-4 pl-12 pr-20 text-slate-900 bg-white/90 placeholder:text-slate-400 focus:ring-4 focus:ring-brand-400/40 focus:bg-white font-medium transition-all" placeholder="Search products, brands, categories...">
+                        <button onclick="performHeroSearch()" class="absolute right-1.5 top-1/2 -translate-y-1/2 bg-brand-600 hover:bg-brand-700 text-white px-6 py-2 rounded-full text-sm font-bold transition shadow-md">
+                            Search
+                        </button>
+                    </div>
+                </div>`;
+            }
+
+            function performHeroSearch() {
+                const q = document.getElementById('heroSearchInput')?.value.toLowerCase().trim();
+                if (!q) return;
+                const found = PRODUCTS.find(p => p.name.toLowerCase().includes(q) || p.cat.toLowerCase().includes(q));
+                if (found) {
+                    S.activeCat = found.cat;
+                    S.searchQ = q;
+                    navigate('catalog');
+                } else {
+                    alert('No matching products found. Try a different search term.');
+                }
+            }
+
+            // ==========================================
+            // 5. RENDER HOME
+            // ==========================================
+            function renderHome() {
+                const vh = document.getElementById('view-home');
+                if (!vh) return;
+                vh.innerHTML = `
+                <section class="w-full"><div class="flex items-center justify-between mb-6 px-2"><h3 class="text-2xl font-black text-slate-800">Top Categories</h3><button onclick="navigate('catalog')" class="text-sm font-bold text-brand-600 hover:text-brand-800 flex items-center">View All <i class="ph-bold ph-arrow-right ml-1"></i></button></div><div class="grid grid-cols-2 md:grid-cols-4 gap-4">${CATS.slice(0,8).map((c,i)=>{const icons=['ph-broom','ph-flask','ph-drop','ph-wind','ph-soap','ph-trash','ph-tote','ph-stack'];return`<div onclick="navigate('catalog');S.activeCat='${c.replace(/'/g,"\\'")}'" class="glass-panel p-6 rounded-2xl cursor-pointer hover:bg-white/80 transition-all transform hover:-translate-y-1 hover:shadow-xl text-center group border border-slate-200"><div class="w-14 h-14 mx-auto bg-brand-50 text-brand-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-inner"><i class="ph-fill ${icons[i%8]} text-2xl"></i></div><h4 class="font-bold text-slate-800 text-sm leading-tight">${c}</h4><p class="text-xs text-slate-400 mt-1">${PRODUCTS.filter(p=>p.cat===c).length} items</p></div>`}).join('')}</div></section>
+                <section class="w-full"><h3 class="text-2xl font-black text-slate-800 mb-6 px-2">Featured Products</h3><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">${PRODUCTS.filter(p=>p.tier===T.P).slice(0,4).map(p=>`<div class="glass-panel rounded-2xl overflow-hidden shadow-lg border border-slate-200 group flex flex-col relative transition-all card-hover"><div onclick="openPopup('${p.id}')" class="relative h-48 overflow-hidden cursor-pointer bg-slate-100"><img src="${p.img}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='${p.image}'" loading="lazy"></div><div class="p-5 flex flex-col flex-1 bg-white/50"><span class="text-[10px] font-black uppercase px-2 py-0.5 rounded-full ${getTierClass(p.tier)} mb-2 inline-block w-fit">${p.tier}</span><h4 onclick="openPopup('${p.id}')" class="text-sm font-black text-slate-900 mb-2 leading-snug cursor-pointer hover:text-brand-600">${p.name}</h4><p class="text-xs text-slate-500 mb-4 flex-1 line-clamp-2">${p.desc}</p><button onclick="addToCart('${p.id}')" class="w-full flex items-center justify-center py-2.5 rounded-xl text-sm font-bold text-brand-700 bg-brand-50 hover:bg-brand-600 hover:text-white transition-colors border border-brand-100">Add to Quote</button></div></div>`).join('')}</div></section>
+                <section class="w-full"><div class="glass-panel rounded-3xl p-8 md:p-12 border border-white"><div class="text-center max-w-2xl mx-auto mb-10"><h2 class="text-3xl font-black text-slate-900 mb-4">Solving Your Procurement Challenges</h2><p class="text-slate-600">We understand the pain points of facility management. Here's how our catalogue directly resolves them.</p></div><div class="grid grid-cols-1 md:grid-cols-2 gap-6">${[{q:"Struggling with inconsistent cleaning standards?",a:"Equip your team with our industry-leading TASKI machines and chemicals for flawless, repeatable results.",pid:"FM13",btn:"Add TASKI Vacuum"},{q:"High consumption of washroom consumables?",a:"Switch to our controlled-dispensing hygiene systems. They reduce paper and soap waste by up to 40%.",pid:"SD05",btn:"Add Auto Dispenser"},{q:"Looking for eco-friendly disposal solutions?",a:"Our 100% biodegradable garbage bags offer heavy-duty performance without environmental guilt.",pid:"GB03",btn:"Add Bio Bags"},{q:"Need to elevate your guest experience?",a:"Deploy our Premium Hotel Amenities Kits for a luxurious, memorable stay for VIP clients.",pid:"GB06",btn:"Add Amenities Kit"}].map(f=>`<div class="bg-white/60 backdrop-blur p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow"><div class="flex items-start mb-3"><i class="ph-fill ph-question text-xl text-amber-500 mr-3 mt-0.5"></i><h4 class="font-black text-slate-900 text-lg leading-tight">${f.q}</h4></div><div class="flex items-start mb-5 pl-8"><p class="text-sm text-slate-600 font-medium leading-relaxed">${f.a}</p></div><div class="pl-8"><button onclick="addToCart('${f.pid}');openPopup('${f.pid}')" class="flex items-center text-xs font-bold text-white bg-premium-dark px-4 py-2 rounded-lg hover:bg-brand-600 transition-colors shadow-md"><i class="ph-bold ph-plus mr-1.5"></i>${f.btn}</button></div></div>`).join('')}</div></div></section>
+                <section class="w-full pb-10"><h3 class="text-2xl font-black text-slate-800 mb-6 px-2 text-center">Trusted by Industry Leaders</h3><div class="relative overflow-hidden py-4 -mx-4 px-4"><div id="reviewsSlider" class="flex space-x-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-6 scroll-smooth">${[{text:"DENISIAWEBOPS revolutionized our facility management. The TASKI machines are flawless.",author:"Rajesh K.",role:"Operations Head, TechPark Hyd"},{text:"Their biodegradable garbage bags hold up perfectly under heavy commercial use.",author:"Sneha M.",role:"Manager, GreenStay Hotels"},{text:"The automated dispensers reduced our consumable waste by 35%. Excellent ROI.",author:"Vikram P.",role:"Facility Admin"},{text:"Our go-to B2B vendor for corporate gifting and office hygiene kits.",author:"Mohan S.",role:"HR Director"},{text:"Exceptional quality of floor scrubbers. Post-sales support is unmatched.",author:"Priya R.",role:"Procurement Manager"}].map(r=>`<div class="flex-shrink-0 w-80 glass-panel p-6 rounded-2xl snap-center border border-slate-200 shadow-sm"><div class="flex text-amber-400 mb-3 text-sm">${'<i class="ph-fill ph-star"></i>'.repeat(5)}</div><p class="text-slate-700 text-sm italic mb-5 leading-relaxed font-medium">"${r.text}"</p><div class="flex items-center"><div class="w-10 h-10 bg-gradient-to-br from-slate-200 to-slate-300 rounded-full flex items-center justify-center text-slate-600 font-black shadow-inner">${r.author.charAt(0)}</div><div class="ml-3"><h5 class="text-xs font-black text-slate-900">${r.author}</h5><p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">${r.role}</p></div></div></div>`).join('')}</div></div></section>`;
+            }
+
+            // ==========================================
+            // 6. RENDER CATALOG
+            // ==========================================
+            function renderCatalog() {
+                const vc = document.getElementById('view-catalog');
+                if (!vc) return;
+                vc.innerHTML = `<div class="glass-panel rounded-2xl p-4 mb-8 flex flex-col md:flex-row gap-4 items-center justify-between sticky top-24 z-30"><div class="relative w-full md:w-96 text-slate-900"><div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"><i class="ph-bold ph-magnifying-glass text-slate-400"></i></div><input type="text" id="catalogSearchInput" class="block w-full rounded-xl border-0 py-3 pl-11 pr-4 bg-white/50 focus:bg-white shadow-inner ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-brand-500 sm:text-sm font-medium transition-all" placeholder="Search products, SKUs..." value="${S.searchQ||''}"></div><div class="w-full md:w-auto"><select id="catalogCatSelect" class="block w-full md:w-64 rounded-xl border-0 py-3 px-4 bg-white/50 focus:bg-white shadow-sm ring-1 ring-inset ring-slate-200 focus:ring-2 focus:ring-inset focus:ring-brand-500 sm:text-sm font-medium cursor-pointer"><option value="All">All Categories</option>${CATS.map(c=>`<option value="${c}" ${S.activeCat===c?'selected':''}>${c}</option>`).join('')}</select></div></div><div id="catalogEmpty" class="hidden text-center py-20 glass-panel rounded-3xl border-dashed"><div class="bg-slate-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner"><i class="ph-fill ph-package text-4xl text-slate-400"></i></div><h3 class="text-lg font-bold text-slate-900">No products found</h3><p class="mt-1 text-sm text-slate-500 mb-6">Try adjusting your search or category filter.</p><button onclick="resetCatalogFilters()" class="px-6 py-2.5 glass-panel rounded-xl text-sm font-bold text-slate-700 hover:text-brand-600 hover:shadow-md transition-all">Clear Filters</button></div><div id="catalogProductsContainer" class="flex flex-col space-y-12"></div>`;
+                document.getElementById('catalogSearchInput')?.addEventListener('input', function() { S.searchQ = this.value.toLowerCase(); renderCatalogProducts(); });
+                document.getElementById('catalogCatSelect')?.addEventListener('change', function() { S.activeCat = this.value; renderCatalogProducts(); });
+                renderCatalogProducts();
+            }
+
+            function resetCatalogFilters() { S.searchQ = ''; S.activeCat = 'All'; const si = document.getElementById('catalogSearchInput'); if (si) si.value = ''; const cs = document.getElementById('catalogCatSelect'); if (cs) cs.value = 'All'; renderCatalogProducts(); }
+            function scrollCarousel(cid, dir) { const el = document.getElementById(cid); if (el) el.scrollBy({ left: 270 * 2.5 * dir, behavior: 'smooth' }); }
+
+            function renderCatalogProducts() {
+                const container = document.getElementById('catalogProductsContainer');
+                const empty = document.getElementById('catalogEmpty');
+                if (!container) return;
+                const filtered = PRODUCTS.filter(p => { const mCat = S.activeCat === 'All' || p.cat === S.activeCat; const mSrch = !S.searchQ || p.name.toLowerCase().includes(S.searchQ) || p.cat.toLowerCase().includes(S.searchQ); return mCat && mSrch; });
+                if (filtered.length === 0) { container.innerHTML = ''; empty.classList.remove('hidden'); return; }
+                empty.classList.add('hidden');
+                const grouped = {};
+                filtered.forEach(p => { if (!grouped[p.cat]) grouped[p.cat] = []; grouped[p.cat].push(p); });
+                container.innerHTML = Object.entries(grouped).map(([cat, prods]) => { const cid = `catalog-carousel-${cat.replace(/[^a-zA-Z0-9]/g,'-')}`; return `<div class="glass-panel p-6 rounded-[2rem] border border-white/60 shadow-xl"><div class="flex items-center justify-between mb-6 px-2"><div class="flex items-center"><h3 class="text-2xl font-black text-slate-800 tracking-tight">${cat}</h3><span class="ml-4 px-3 py-1 bg-brand-50 text-brand-700 text-xs rounded-lg font-bold shadow-sm border border-brand-100">${prods.length} Items</span></div><div class="flex gap-2"><button onclick="scrollCarousel('${cid}',-1)" class="p-2 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-brand-600 shadow-sm transition-all active:scale-95"><i class="ph-bold ph-caret-left text-lg"></i></button><button onclick="scrollCarousel('${cid}',1)" class="p-2 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-brand-600 shadow-sm transition-all active:scale-95"><i class="ph-bold ph-caret-right text-lg"></i></button></div></div><div id="${cid}" class="flex overflow-x-auto gap-6 pb-6 pt-2 snap-x snap-mandatory no-scrollbar scroll-smooth px-2">${prods.map(p=>`<div class="w-[270px] flex-shrink-0 snap-start bg-white/80 backdrop-blur-sm rounded-2xl border border-slate-200 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group flex flex-col relative hover:-translate-y-2"><div onclick="openPopup('${p.id}')" class="relative h-48 bg-slate-100 overflow-hidden border-b border-slate-100 cursor-pointer"><img src="${p.img}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" onerror="this.src='${p.image}'" loading="lazy"><div class="absolute inset-0 bg-brand-900/0 group-hover:bg-brand-900/20 transition-colors flex items-center justify-center"><i class="ph-bold ph-arrows-out text-white opacity-0 group-hover:opacity-100 text-4xl transform scale-50 group-hover:scale-100 transition-all duration-300 drop-shadow-lg"></i></div></div><div class="p-5 flex flex-col flex-1"><span class="text-[10px] font-black uppercase px-2 py-0.5 rounded-full ${getTierClass(p.tier)} mb-2 inline-block w-fit">${p.tier}</span><h4 onclick="openPopup('${p.id}')" class="text-sm font-black text-slate-900 mb-2 leading-snug cursor-pointer hover:text-brand-600 transition-colors">${p.name}</h4><p class="text-xs text-slate-500 mb-5 flex-1 line-clamp-2 leading-relaxed font-medium">${p.desc}</p><button onclick="addToCart('${p.id}');event.stopPropagation()" class="w-full flex items-center justify-center py-2.5 px-4 border border-slate-200 shadow-sm text-sm font-bold rounded-xl text-slate-700 bg-white hover:bg-brand-600 hover:text-white hover:border-brand-600 transition-all duration-300"><i class="ph-bold ph-plus mr-1.5 text-lg"></i>Add</button></div></div>`).join('')}</div></div>`; }).join('');
+            }
+
+            // ==========================================
+            // 7. CORPORATE GIFTING
+            // ==========================================
+            function renderCorpGifting() {
+                const vcg = document.getElementById('view-corporate-gifting');
+                if (!vcg) return;
+                const giftProds = PRODUCTS.filter(p => CORP_GIFT_CATS.some(c => p.cat.includes(c)) || p.tier === T.P);
+                vcg.innerHTML = `<div class="max-w-[1400px] mx-auto w-full"><div class="flex items-center justify-between mb-6"><h3 class="text-2xl font-black text-slate-800">All Gift-Ready Products</h3><span class="text-sm text-slate-500 bg-slate-200 px-3 py-1 rounded-full">${giftProds.length} items</span></div><div class="relative mb-6"><input type="text" id="corpSearchInput" class="w-full rounded-xl border-0 py-3 px-4 bg-white/70 shadow-inner ring-1 ring-slate-200 focus:ring-2 focus:ring-brand-500 font-medium" placeholder="Search corporate gifts, amenities, stationery..."></div><div id="corpProductsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div><div id="corpEmpty" class="hidden text-center py-20"><i class="ph-fill ph-gift text-5xl text-slate-300 mb-3"></i><p class="text-slate-500">No matching gifts found.</p></div></div>`;
+                function renderCorpGrid(q = '') {
+                    const grid = document.getElementById('corpProductsGrid');
+                    const empty = document.getElementById('corpEmpty');
+                    const filt = q ? giftProds.filter(p => p.name.toLowerCase().includes(q) || p.cat.toLowerCase().includes(q)) : giftProds;
+                    if (filt.length === 0) { grid.innerHTML = ''; empty.classList.remove('hidden'); return; }
+                    empty.classList.add('hidden');
+                    grid.innerHTML = filt.map(p => `
+                    <div class="glass-panel rounded-2xl overflow-hidden shadow-lg border border-slate-200 group card-hover">
+                        <div onclick="openPopup('${p.id}')" class="relative h-48 overflow-hidden cursor-pointer bg-slate-100"><img src="${p.img}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='${p.image}'" loading="lazy"></div>
+                        <div class="p-5"><span class="${getTierClass(p.tier)} text-[10px] font-black uppercase px-2 py-0.5 rounded-full">${p.tier}</span><h4 class="font-bold text-sm mt-2 mb-1">${p.name}</h4><p class="text-xs text-slate-500 mb-4 line-clamp-2">${p.desc}</p><button onclick="addToCart('${p.id}')" class="w-full py-2.5 rounded-lg text-sm font-bold border border-purple-200 text-purple-700 bg-purple-50 hover:bg-purple-600 hover:text-white transition">Add to Quote</button></div>
+                    </div>`).join('');
+                }
+                renderCorpGrid();
+                document.getElementById('corpSearchInput')?.addEventListener('input', function() { renderCorpGrid(this.value.toLowerCase()); });
+            }
+
+            // ==========================================
+            // 8. RFQ & SUCCESS
+            // ==========================================
+            function renderRfqSummary() {
+                const vrfq = document.getElementById('view-rfq');
+                if (!vrfq) return;
+                vrfq.innerHTML = `<div class="glass-panel rounded-[2rem] shadow-2xl overflow-hidden border border-white/60"><div class="p-8 md:p-12 flex flex-col lg:flex-row gap-12"><div class="flex-1"><h3 class="text-2xl font-black text-slate-900 mb-6">Company Details</h3><form id="rfqForm" onsubmit="submitRFQ(event)"><div class="grid grid-cols-1 md:grid-cols-2 gap-5"><div><label class="block text-xs font-bold text-slate-500 mb-1.5 uppercase tracking-wider">Company Name *</label><input type="text" id="rfqCompany" required class="block w-full rounded-xl border-0 py-3 px-4 bg-slate-50/50 shadow-inner ring-1 ring-inset ring-slate-200 focus:ring-2 focus:ring-inset focus:ring-brand-500 sm:text-sm font-medium"></div><div><label class="block text-xs font-bold text-slate-500 mb-1.5 uppercase tracking-wider">Contact Person *</label><input type="text" id="rfqName" required class="block w-full rounded-xl border-0 py-3 px-4 bg-slate-50/50 shadow-inner ring-1 ring-inset ring-slate-200 focus:ring-2 focus:ring-inset focus:ring-brand-500 sm:text-sm font-medium"></div><div><label class="block text-xs font-bold text-slate-500 mb-1.5 uppercase tracking-wider">Email Address *</label><input type="email" id="rfqEmail" required class="block w-full rounded-xl border-0 py-3 px-4 bg-slate-50/50 shadow-inner ring-1 ring-inset ring-slate-200 focus:ring-2 focus:ring-inset focus:ring-brand-500 sm:text-sm font-medium"></div><div><label class="block text-xs font-bold text-slate-500 mb-1.5 uppercase tracking-wider">Phone Number *</label><input type="tel" id="rfqPhone" required class="block w-full rounded-xl border-0 py-3 px-4 bg-slate-50/50 shadow-inner ring-1 ring-inset ring-slate-200 focus:ring-2 focus:ring-inset focus:ring-brand-500 sm:text-sm font-medium"></div><div class="md:col-span-2"><label class="block text-xs font-bold text-slate-500 mb-1.5 uppercase tracking-wider">Delivery Location *</label><input type="text" id="rfqLocation" required placeholder="City, State, ZIP" class="block w-full rounded-xl border-0 py-3 px-4 bg-slate-50/50 shadow-inner ring-1 ring-inset ring-slate-200 focus:ring-2 focus:ring-inset focus:ring-brand-500 sm:text-sm font-medium"></div><div class="md:col-span-2"><label class="block text-xs font-bold text-slate-500 mb-1.5 uppercase tracking-wider">Requirements / Notes</label><textarea id="rfqNotes" rows="3" class="block w-full rounded-xl border-0 py-3 px-4 bg-slate-50/50 shadow-inner ring-1 ring-inset ring-slate-200 focus:ring-2 focus:ring-inset focus:ring-brand-500 sm:text-sm font-medium" placeholder="Specify brands, bulk quantities, or special requests..."></textarea></div></div><div class="mt-8"><button type="submit" id="submitBtn" class="w-full flex justify-center py-4 px-6 rounded-xl shadow-lg shadow-brand-500/30 text-base font-bold text-white bg-brand-600 hover:bg-brand-700 hover:shadow-brand-500/50 transform hover:-translate-y-1 transition-all duration-300">Submit Quote Request</button></div></form></div><div class="w-full lg:w-[380px] bg-slate-50 rounded-2xl p-6 border border-slate-200/60 shadow-inner h-fit"><div class="flex items-center justify-between border-b border-slate-200 pb-4 mb-4"><h3 class="text-lg font-black text-slate-900">Quote Summary</h3><span class="bg-brand-100 text-brand-800 text-xs font-bold px-2.5 py-1 rounded-md" id="rfqSummaryCount">0 Items</span></div><ul id="rfqSummaryList" class="space-y-4 mb-4 max-h-[400px] overflow-y-auto pr-2 text-sm no-scrollbar"></ul></div></div></div>`;
+                updateRfqSummaryList();
+            }
+
+            function updateRfqSummaryList() {
+                const list = document.getElementById('rfqSummaryList');
+                const cnt = document.getElementById('rfqSummaryCount');
+                if (!list || !cnt) return;
+                const total = S.cart.reduce((s, i) => s + i.qty, 0);
+                cnt.innerText = total + ' Items';
+                list.innerHTML = S.cart.map(i => `<li class="flex items-center text-slate-700 border-b border-slate-200/50 pb-3 last:border-0 last:pb-0"><span class="font-black mr-3 text-brand-600 bg-brand-50 px-2 py-0.5 rounded">${i.qty}x</span><span class="truncate font-bold flex-1 text-slate-800">${i.name}</span></li>`).join('');
+                if (S.cart.length === 0) list.innerHTML = '<li class="text-center text-slate-400 py-4">No items added yet.</li>';
+            }
+
+            async function submitRFQ(e) {
+                e.preventDefault();
+                if (S.cart.length === 0) { alert('Please add items to your quote before submitting.'); return; }
+                const btn = document.getElementById('submitBtn');
+                if (!btn) return;
+                const orig = btn.innerHTML;
+                btn.innerHTML = '<i class="ph-bold ph-spinner animate-spin mr-2"></i> Submitting...';
+                btn.disabled = true;
+                const fd = { company: document.getElementById('rfqCompany').value.trim(), name: document.getElementById('rfqName').value.trim(), email: document.getElementById('rfqEmail').value.trim(), phone: document.getElementById('rfqPhone').value.trim(), location: document.getElementById('rfqLocation').value.trim(), notes: document.getElementById('rfqNotes').value.trim() || 'None' };
+                const cartSnap = JSON.parse(JSON.stringify(S.cart));
+                try {
+                    const blob = genExcel(cartSnap, fd);
+                    const b64 = await blobToB64(blob);
+                    if (EC.publicKey !== 'YOUR_EMAILJS_PUBLIC_KEY' && EC.serviceID !== 'YOUR_EMAILJS_SERVICE_ID') {
+                        await emailjs.send(EC.serviceID, EC.templateID, { to_email: EC.bizEmail, to_name: EC.bizName, from_name: fd.name, from_email: fd.email, company: fd.company, phone: fd.phone, location: fd.location, notes: fd.notes, total_items: cartSnap.reduce((s, i) => s + i.qty, 0), quote_summary: cartSnap.map(i => `${i.qty}x ${i.name}`).join(', '), attachment_name: `Quote_${fd.company.replace(/[^a-zA-Z0-9]/g,'_')}_${Date.now()}.xlsx`, attachment_data: b64 });
+                    }
+                } catch (err) { console.log('EmailJS skipped or failed:', err); } finally {
+                    S.cart = [];
+                    saveCart();
+                    document.getElementById('rfqForm').reset();
+                    navigate('success');
+                    document.getElementById('view-success').innerHTML = `<div class="glass-panel rounded-[2rem] p-10 text-center max-w-lg w-full shadow-2xl border-white/80"><div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner"><i class="ph-bold ph-check text-5xl text-green-500"></i></div><h2 class="text-3xl font-black text-slate-900 mb-3">Request Submitted!</h2><p class="text-slate-600 mb-8 font-medium leading-relaxed">Thank you for choosing DENISIAWEBOPS. Our enterprise sales team will review your requirements and share the best B2B pricing shortly.</p><button onclick="navigate('home')" class="w-full flex justify-center py-3.5 px-4 rounded-xl shadow-md text-sm font-bold text-white bg-premium-dark hover:bg-slate-800 transition-colors">Return to Home</button></div>`;
+                    btn.innerHTML = orig;
+                    btn.disabled = false;
+                }
+            }
+
+            // ==========================================
+            // 9. CART
+            // ==========================================
+            function addToCart(pid) { const p = PRODUCTS.find(x => x.id === pid); if (!p) return; const ex = S.cart.find(i => i.id === pid); if (ex) ex.qty++; else S.cart.push({ ...p, qty: 1 }); saveCart(); const badge = document.getElementById('cart-badge'); if (badge) { badge.classList.add('scale-125', 'bg-green-500'); setTimeout(() => badge.classList.remove('scale-125', 'bg-green-500'), 300); } }
+            function updateQty(pid, d) { const it = S.cart.find(i => i.id === pid); if (it) { it.qty += d; if (it.qty <= 0) S.cart = S.cart.filter(i => i.id !== pid); } saveCart(); }
+            function removeFromCart(pid) { S.cart = S.cart.filter(i => i.id !== pid); saveCart(); }
+            function clearCart() { S.cart = []; saveCart(); }
+            function updateCartUI() {
+                const total = S.cart.reduce((s, i) => s + i.qty, 0);
+                const badge = document.getElementById('cart-badge');
+                if (badge) { if (total > 0) { badge.innerText = total; badge.classList.remove('hidden'); badge.classList.add('flex'); } else { badge.classList.add('hidden'); badge.classList.remove('flex'); } }
+                const list = document.getElementById('cartItemsList');
+                const empty = document.getElementById('cartEmptyState');
+                const footer = document.getElementById('cartFooter');
+                const cntEl = document.getElementById('cartTotalItemsCount');
+                if (cntEl) cntEl.innerText = total;
+                if (S.cart.length === 0) { if (list) list.innerHTML = ''; if (empty) empty.classList.remove('hidden'); if (footer) footer.classList.add('hidden'); } else { if (empty) empty.classList.add('hidden'); if (footer) footer.classList.remove('hidden'); if (list) list.innerHTML = S.cart.map(i => `
+                    <li class="p-4 bg-white rounded-2xl border border-slate-100 flex shadow-sm">
+                        <img src="${i.img}" class="h-16 w-16 rounded-xl border border-slate-100 object-cover shadow-sm" onerror="this.src='${i.image}'" loading="lazy">
+                        <div class="ml-4 flex-1 flex flex-col"><div class="flex justify-between text-sm font-black text-slate-900"><h4 class="pr-2 leading-tight">${i.name}</h4><button onclick="removeFromCart('${i.id}')" class="text-slate-300 hover:text-red-500"><i class="ph-fill ph-trash text-lg"></i></button></div><p class="mt-0.5 text-[10px] uppercase font-bold text-slate-400 tracking-wider">${i.cat} · ${i.tier}</p><div class="flex-1 flex items-end justify-between text-sm mt-3"><div class="flex items-center border border-slate-200 rounded-lg bg-slate-50 shadow-inner overflow-hidden"><button onclick="updateQty('${i.id}',-1)" class="px-3 py-1 text-slate-600 hover:bg-slate-200 border-r border-slate-200 font-bold">-</button><span class="px-4 py-1 font-black text-brand-700 bg-white">${i.qty}</span><button onclick="updateQty('${i.id}',1)" class="px-3 py-1 text-slate-600 hover:bg-slate-200 border-l border-slate-200 font-bold">+</button></div></div></div>
+                    </li>`).join(''); }
+                if (S.view === 'rfq') updateRfqSummaryList();
+            }
+            function proceedToRfq() { if (S.cart.length === 0) { alert('Please add items to your quote before proceeding.'); if (!drawerO) toggleCart(); return; } navigate('rfq'); }
+
+            let drawerO = false;
+            function toggleCart() { drawerO = !drawerO; const w = document.getElementById('cartDrawerWrapper'); if (!w) return; const d = document.getElementById('cartDrawer'); if (!d) return; if (drawerO) { w.classList.remove('pointer-events-none', 'opacity-0'); w.classList.add('opacity-100'); d.classList.add('drawer-open'); } else { w.classList.add('opacity-0'); w.classList.remove('opacity-100'); d.classList.remove('drawer-open'); setTimeout(() => w.classList.add('pointer-events-none'), 300); } }
+            function closeCart() { if (drawerO) toggleCart(); }
+
+            let mobMenuO = false;
+            function toggleMobileMenu() { mobMenuO = !mobMenuO; const w = document.getElementById('mobileMenuWrapper'); if (!w) return; const d = document.getElementById('mobileMenuDrawer'); if (!d) return; if (mobMenuO) { w.classList.remove('pointer-events-none', 'opacity-0'); w.classList.add('opacity-100'); d.classList.remove('-translate-x-full'); d.classList.add('translate-x-0'); } else { w.classList.add('opacity-0'); w.classList.remove('opacity-100'); d.classList.add('-translate-x-full'); d.classList.remove('translate-x-0'); setTimeout(() => w.classList.add('pointer-events-none'), 300); } }
+
+            // ==========================================
+            // 10. POPUP
+            // ==========================================
+            function openPopup(pid) { const p = PRODUCTS.find(x => x.id === pid); if (!p) return; const tt = document.getElementById('popupTitle'); if (tt) tt.innerText = p.name; const pd = document.getElementById('popupDesc'); if (pd) pd.innerText = p.desc; const pc = document.getElementById('popupCategory'); if (pc) pc.innerText = p.cat; const pt = document.getElementById('popupTier'); if (pt) { pt.innerText = p.tier; pt.className = `inline-block px-3 py-1 rounded-md text-xs font-black mb-3 uppercase tracking-wider ml-2 ${getTierClass(p.tier)}`; } const car = document.getElementById('popupCarouselImages'); if (car) car.innerHTML = p.gallery.map((img) => `<div class="carousel-item flex-shrink-0 w-[65%] h-64 snap-center rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/80 bg-white"><img src="${img}" class="w-full h-full object-cover pointer-events-none" onerror="this.src='${p.image}'" loading="lazy"></div>`).join(''); const addBtn = document.getElementById('popupAddBtn'); if (addBtn) addBtn.onclick = () => { addToCart(p.id); closePopup(); }; const pop = document.getElementById('productPopup'); if (pop) { pop.classList.remove('hidden'); pop.classList.add('flex'); requestAnimationFrame(() => { const bd = document.getElementById('popupBackdrop'); if (bd) bd.classList.remove('opacity-0'); const ct = document.getElementById('popupContent'); if (ct) { ct.classList.remove('scale-95', 'opacity-0'); ct.classList.add('scale-100', 'opacity-100'); updateCarouselScale(); } }); } }
+            function closePopup() { const bd = document.getElementById('popupBackdrop'); if (bd) bd.classList.add('opacity-0'); const ct = document.getElementById('popupContent'); if (ct) ct.classList.add('scale-95', 'opacity-0'); setTimeout(() => { const pop = document.getElementById('productPopup'); if (pop) pop.classList.add('hidden'); }, 300); }
+            let carTicking = false;
+            const popCar = () => document.getElementById('popupCarouselImages');
+            const pcEl = popCar(); if (pcEl) pcEl.addEventListener('scroll', () => { if (!carTicking) { requestAnimationFrame(() => { updateCarouselScale(); carTicking = false; }); carTicking = true; } });
+            function updateCarouselScale() { const c = popCar(); if (!c) return; const cc = c.getBoundingClientRect().left + (c.offsetWidth / 2); const items = c.querySelectorAll('.carousel-item'); const md = c.offsetWidth / 2; items.forEach(item => { const ic = item.getBoundingClientRect().left + (item.offsetWidth / 2); const d = Math.abs(cc - ic); let s = 1.1 - (d / md) * 0.3; s = Math.max(0.85, s); let o = 1 - (d / md) * 0.5; o = Math.max(0.5, o); item.style.transform = `scale(${s})`; item.style.opacity = o; item.style.boxShadow = d < 40 ? '0 25px 50px -12px rgba(0,0,0,0.25)' : '0 4px 6px -1px rgba(0,0,0,0.1)'; item.style.zIndex = d < 40 ? '10' : '5'; }); }
+
+            // ==========================================
+            // 11. EXIT INTENT POPUP
+            // ==========================================
+            let exitShown = false;
+            function showExitPopup() { if (exitShown) return; exitShown = true; const pop = document.getElementById('exitPopup'); if (!pop) return; pop.classList.remove('hidden'); pop.classList.add('flex'); requestAnimationFrame(() => { const bd = document.getElementById('exitBackdrop'); if (bd) bd.classList.remove('opacity-0'); const ct = document.getElementById('exitContent'); if (ct) { ct.classList.remove('scale-95', 'opacity-0'); ct.classList.add('scale-100', 'opacity-100'); } }); }
+            function closeExitPopup() { const bd = document.getElementById('exitBackdrop'); if (bd) bd.classList.add('opacity-0'); const ct = document.getElementById('exitContent'); if (ct) ct.classList.add('scale-95', 'opacity-0'); setTimeout(() => { const pop = document.getElementById('exitPopup'); if (pop) pop.classList.add('hidden'); }, 300); }
+            function submitExitOffer(e) { e.preventDefault(); const email = document.getElementById('exitEmail')?.value; alert(`Thank you! A 5% discount code has been sent to ${email}. Use code DENISIA5 on your first bulk order.`); closeExitPopup(); }
+            document.addEventListener('mouseout', function(e) { if (e.clientY <= 0 && !exitShown && S.view !== 'success') showExitPopup(); });
+            let touchStartY = 0;
+            document.addEventListener('touchstart', function(e) { touchStartY = e.touches[0].clientY; });
+            document.addEventListener('touchmove', function(e) { if (touchStartY - e.touches[0].clientY < -50 && !exitShown && S.view !== 'success') showExitPopup(); });
+
+            // ==========================================
+            // 12. SHOP CATEGORIES
+            // ==========================================
+            function renderShopCategories() {
+                const d = document.getElementById('desktopShopCategories');
+                const m = document.getElementById('mobileMenuCategories');
+                const html = CATS.map(c => `<button onclick="navigate('catalog');S.activeCat='${c.replace(/'/g,"\\'")}';toggleMobileMenu()" class="w-full text-left px-5 py-3 rounded-xl text-sm font-black text-slate-600 hover:text-brand-600 hover:bg-brand-50 transition-colors">${c}</button>`).join('');
+                if (d) d.innerHTML = html;
+                if (m) m.innerHTML = html;
+            }
+
+            // ==========================================
+            // 13. INIT
+            // ==========================================
+            window.addEventListener('DOMContentLoaded', () => {
+                renderShopCategories();
+                updateCartUI();
+                navigate('home');
+            });
+            window.navigate = navigate;
+            window.openPopup = openPopup;
+            window.closePopup = closePopup;
+            window.addToCart = addToCart;
+            window.updateQty = updateQty;
+            window.removeFromCart = removeFromCart;
+            window.clearCart = clearCart;
+            window.toggleCart = toggleCart;
+            window.toggleMobileMenu = toggleMobileMenu;
+            window.proceedToRfq = proceedToRfq;
+            window.scrollCarousel = scrollCarousel;
+            window.resetCatalogFilters = resetCatalogFilters;
+            window.submitRFQ = submitRFQ;
+            window.performHeroSearch = performHeroSearch;
+            window.closeExitPopup = closeExitPopup;
+            window.submitExitOffer = submitExitOffer;
+        })();
+    </script>
+</body>
+</html>
