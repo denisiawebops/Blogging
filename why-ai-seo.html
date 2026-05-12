@@ -59,11 +59,18 @@
         .burger-icon { color: #1f2937; background: #f3f4f6; padding: 8px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
         .burger-icon:hover { background: #e5e7eb; }
         .dark .burger-icon { background: #374151; color: #e5e7eb; }
+        .blog-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body class="bg-white text-gray-900 antialiased flex flex-col min-h-screen">
 
-    <!-- Denisia Webops Navbar (identical to other pages) -->
+    <!-- Denisia Webops Navbar -->
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
@@ -97,16 +104,17 @@
                 <a href="services.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50">Services</a>
                 <a href="projects.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50">Projects</a>
                 <a href="blogs.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50">Blog</a>
-                <a href="ai-models.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50">AI Models</a>
+                <a href="ai.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50">AI Models</a>
                 <a href="why-ai-seo.html" class="block px-3 py-2 rounded-md text-base font-bold text-blue-700 bg-blue-50">Why AI SEO</a>
                 <a href="the_local_visibility_fix.html" class="block px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-blue-50">🔍 Local Visibility Fix</a>
+                <a href="ecommerce-growth-playbook.html" class="block px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-blue-50">📈 E‑commerce Growth</a>
                 <a href="contact.html" class="block px-3 py-2 text-base font-medium text-blue-700">Get in Touch</a>
             </div>
         </div>
     </nav>
 
     <main class="flex-grow pt-32 pb-20">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Hero -->
             <div class="text-center mb-12">
                 <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Why AI SEO is the Future of Search</h1>
@@ -143,11 +151,39 @@
                 </div>
             </div>
 
-            <!-- Blog teaser -->
+            <!-- Learn more about SEO and AI SEO section (replaces old single blog teaser) -->
             <div class="bg-blue-50 rounded-2xl p-8 mb-12 border border-blue-200">
-                <h2 class="text-2xl font-bold text-gray-900 mb-2">📘 Read Our Latest SEO Insight</h2>
-                <p class="text-gray-700 mb-4"><strong>The Local Visibility Fix</strong> – why your business isn’t showing on Google Maps and how to fix it in 3 steps.</p>
-                <a href="the_local_visibility_fix.html" class="inline-flex items-center text-blue-700 font-semibold hover:underline">Read the full article →</a>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">📖 Learn more about SEO and AI SEO</h2>
+                <p class="text-gray-700 mb-6">Deep dive into actionable strategies, real‑world case studies, and future‑proof tactics.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Blog Card 1: Local Visibility Fix -->
+                    <a href="the_local_visibility_fix.html" class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all blog-card flex flex-col h-full border border-blue-100">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i class="fa-solid fa-location-dot text-2xl text-blue-600"></i>
+                            <span class="text-xs font-semibold text-blue-600 uppercase tracking-wider">Local SEO</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Help! My Business is Not Showing on Google Maps (Here is the Fix)</h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-grow">Troubleshoot missing Google Maps listings, improve local SEO visibility, and get into the local pack – 3 DIY steps.</p>
+                        <div class="flex items-center justify-between mt-auto pt-3 border-t border-gray-100">
+                            <span class="text-xs text-gray-500">📅 12 May 2025</span>
+                            <span class="text-blue-700 text-sm font-semibold flex items-center">Read more <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Blog Card 2: E‑commerce Growth Playbook -->
+                    <a href="ecommerce-growth-playbook.html" class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all blog-card flex flex-col h-full border border-blue-100">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i class="fa-solid fa-chart-simple text-2xl text-blue-600"></i>
+                            <span class="text-xs font-semibold text-blue-600 uppercase tracking-wider">E‑commerce SEO</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">How to Get More Leads for Your E‑commerce Store (Without Paid Ads)</h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-grow">Build an organic lead machine, optimise product pages, and partner with a top‑tier SEO agency for sustainable growth.</p>
+                        <div class="flex items-center justify-between mt-auto pt-3 border-t border-gray-100">
+                            <span class="text-xs text-gray-500">📅 12 May 2025</span>
+                            <span class="text-blue-700 text-sm font-semibold flex items-center">Read more <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        </div>
+                    </a>
+                </div>
             </div>
 
             <!-- CTA -->
