@@ -118,13 +118,37 @@
     <footer class="bg-gray-50 border-t border-blue-100 pt-16 pb-8 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-                <div><div class="flex items-center mb-4"><div class="bg-gradient-to-r from-blue-800 to-blue-600 p-1.5 rounded-lg"><i data-lucide="zap" class="h-5 w-5 text-white"></i></div><span class="ml-3 text-lg font-bold">Denisia Webops Agency</span></div><p class="text-gray-600 text-sm">Complete digital solutions – from web development to AI integration.</p></div>
-                <div><h4 class="font-semibold mb-4">Services</h4><ul><li><a href="services.html#web-dev" class="text-gray-600 text-sm hover:text-blue-700">Web Development</a></li><li><a href="services.html#seo" class="text-gray-600 text-sm hover:text-blue-700">SEO</a></li><li><a href="services.html#digital-marketing" class="text-gray-600 text-sm hover:text-blue-700">Digital Marketing</a></li></ul></div>
-                <div><h4 class="font-semibold mb-4">Resources</h4><ul><li><a href="blogs.html" class="text-gray-600 text-sm hover:text-blue-700">Blog</a></li><li><a href="projects.html" class="text-gray-600 text-sm hover:text-blue-700">Projects</a></li><li><a href="privacy.html" class="text-gray-600 text-sm hover:text-blue-700">Privacy</a></li></ul></div>
-                <div><h4 class="font-semibold mb-4">Newsletter</h4><div class="flex"><input type="email" placeholder="Your email" class="w-full px-4 py-2 rounded-l-md text-sm border"><button class="bg-blue-800 px-4 rounded-r-md"><i data-lucide="arrow-right" class="text-white w-4 h-4"></i></button></div></div>
-            </div>
-            <div class="border-t pt-8 text-center text-gray-500 text-sm">© 2025 Denisia Webops Agency. All rights reserved.</div>
-        </div>
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-1.5 rounded-lg shadow">
+                            <i data-lucide="zap" class="h-5 w-5 text-white"></i>
+                        </div>
+                        <span class="ml-3 text-lg font-bold text-gray-900">Denisia Webops Agency</span>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Complete digital solutions – from web development to AI integration.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-gray-900 font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><button onclick="router.navigate('service-detail', 'web-dev')" class="hover:text-blue-700 transition-colors text-left">Web Development</button></li>
+                        <li><button onclick="router.navigate('service-detail', 'app-dev')" class="hover:text-blue-700 transition-colors text-left">App Development</button></li>
+                        <li><button onclick="router.navigate('service-detail', 'seo')" class="hover:text-blue-700 transition-colors text-left">SEO</button></li>
+                        <li><button onclick="router.navigate('service-detail', 'digital-marketing')" class="hover:text-blue-700 transition-colors text-left">Digital Marketing</button></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-gray-900 font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="blogs.html" class="hover:text-blue-700 transition-colors">Blog</a></li>
+                        <li><button onclick="router.navigate('projects')" class="hover:text-blue-700 transition-colors">Projects</button></li>
+                        <li><button onclick="router.navigate('privacy')" class="hover:text-blue-700 transition-colors">Privacy Policy</button></li>
+                        <li><button onclick="router.navigate('contact')" class="hover:text-blue-700 transition-colors">Contact</button></li>
+                    </ul>
+                </div>
     </footer>
 
     <script>
