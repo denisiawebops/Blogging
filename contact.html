@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FWP9BLNZK6');</script>
+    <meta name="google-site-verification" content="82U62k4jtMBmS52po-sbJ12znmacAgq0Rg4NvMZLXMY">
+    <meta name="msvalidate.01" content="8250834873D72FFE4BABCD1B2C7B3173">
+    <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "vimok6xi57");</script>
+
+    <link rel="canonical" href="https://www.denisiawebops.org/contact.html">
+    <title>Contact Us | Denisia Webops Agency</title>
+    <meta name="description" content="Get in touch with Denisia Webops Agency for web development, SEO, digital marketing, and AI solutions.">
+    <meta name="robots" content="index, follow">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>/* same unified styles as index */</style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; background-color: #ffffff; color: #1f2937; }
+        .nav-link { color: #4b5563; font-weight: 500; transition: color 0.2s; }
+        .nav-link:hover, .nav-link.active { color: #1e3a8a; }
+        .btn-primary { background-color: #1e3a8a; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; transition: all 0.2s; box-shadow: 0 4px 6px -1px rgba(30,58,138,0.2); }
+        .btn-primary:hover { background-color: #2563eb; transform: translateY(-2px); }
+        .burger-icon { color: #1f2937; background: #f3f4f6; padding: 8px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .burger-icon:hover { background: #e5e7eb; }
+        .glass-panel { background: rgba(255,255,255,0.8); backdrop-filter: blur(8px); border: 1px solid rgba(59,130,246,0.2); }
+    </style>
+</head>
+<body class="bg-white text-gray-900 antialiased flex flex-col min-h-screen">
+
+    <!-- Unified navbar (copy from index) -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">...</nav>
+    <!-- For brevity, use the same navbar code as in index.html – paste it exactly -->
+
+    <main class="flex-grow pt-32 pb-20">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">Get in Touch</h1>
+                <p class="text-gray-600 text-lg">Tell us about your project and we'll get back to you within 24h.</p>
+            </div>
+            <div class="glass-panel rounded-2xl p-8 md:p-10 shadow-xl relative overflow-hidden">
+                <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-6 relative z-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div><label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label><input type="text" name="name" required class="w-full px-4 py-3 rounded-lg border" placeholder="John Doe"></div>
+                        <div><label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label><input type="email" name="email" required class="w-full px-4 py-3 rounded-lg border" placeholder="john@company.com"></div>
+                    </div>
+                    <div><label class="block text-sm font-medium text-gray-700 mb-2">Service Interested In</label><select name="service" class="w-full px-4 py-3 rounded-lg border"><option value="">Select a service</option><option value="web-dev">Web Development</option><option value="app-dev">App Development</option><option value="seo">SEO</option><option value="digital-marketing">Digital Marketing</option></select></div>
+                    <div><label class="block text-sm font-medium text-gray-700 mb-2">Message</label><textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-lg border" placeholder="Tell us about your project..."></textarea></div>
+                    <button type="submit" class="w-full btn-primary flex justify-center items-center">Send Inquiry <i data-lucide="send" class="ml-2 h-5 w-5"></i></button>
+                </form>
+                <div class="absolute -top-24 -right-24 w-64 h-64 bg-blue-100 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-blue-100 rounded-full blur-3xl pointer-events-none"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer same as index -->
+    <footer class="bg-gray-50 border-t border-blue-100 pt-16 pb-8 mt-auto">...</footer>
+
+    <script>
+        function toggleMobileMenu() { /* same as index */ }
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            const phoneNumber = "918317581308";
+            const message = `Hello, I'm interested in your services.%0A%0A*Name:* ${encodeURIComponent(data.name)}%0A*Email:* ${encodeURIComponent(data.email)}%0A*Service:* ${encodeURIComponent(data.service || 'Not specified')}%0A*Message:* ${encodeURIComponent(data.message)}`;
+            window.location.href = `https://wa.me/${phoneNumber}?text=${message}`;
+        }
+        document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+        window.handleContactSubmit = handleContactSubmit;
+    </script>
+    <script type="text/javascript">var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src='https://embed.tawk.to/6993fa897941b81c35293c7a/default';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();</script>
+</body>
+</html>
