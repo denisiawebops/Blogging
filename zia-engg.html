@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zia Engineering Works | Premium Bakery Machinery</title>
+    <meta name="description" content="Zia Engineering Works - ISO 9001:2015 Certified Bakery Machinery Manufacturer. Rotary Rack Ovens, Spiral Mixers, Dough Sheeters & more." />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest">
+    </script>
+
+    <!-- Twak.io Chatbot Integration -->
+    <script>
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/67e91f7f20481a190fa20a36/1inn0gt8p';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+
+    <style>
+        /* -------- Custom Styles -------- */
+        html {
+            scroll-behavior: smooth;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #18181b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #52525b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f59e0b;
+        }
+
+        .page-view {
+            display: none;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        .page-view.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating Action Buttons */
+        .fab-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            z-index: 9999;
+            align-items: flex-end;
+        }
+
+        .fab-btn {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.30);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            cursor: pointer;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+        }
+        .fab-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.40);
+        }
+
+        .fab-map {
+            background: #1a73e8;
+        }
+        .fab-map:hover {
+            background: #1557b0;
+        }
+
+        .fab-call {
+            background: #22c55e;
+        }
+        .fab-call:hover {
+            background: #16a34a;
+        }
+
+        .fab-chat {
+            background: #f59e0b;
+        }
+        .fab-chat:hover {
+            background: #d97706;
+        }
+
+        .fab-container.hide-call .fab-call {
+            display: none;
+        }
+        .fab-container.hide-map .fab-map {
+            display: none;
+        }
+        .fab-container.hide-chat .fab-chat {
+            display: none;
+        }
+
+        /* Product card image placeholder gradient */
+        .product-img-placeholder {
+            background: linear-gradient(145deg, #1e1e2f, #2d2d44);
+        }
+
+        /* Cart badge */
+        .cart-badge {
+            position: relative;
+        }
+        .cart-badge::after {
+            content: attr(data-count);
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            background: #f59e0b;
+            color: #18181b;
+            font-size: 0.65rem;
+            font-weight: 900;
+            padding: 2px 7px;
+            border-radius: 999px;
+            border: 2px solid #18181b;
+        }
+
+        /* Mobile menu transition */
+        #mobile-nav {
+            transition: max-height 0.3s ease, opacity 0.2s ease;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #mobile-nav.open {
+            max-height: 600px;
+            opacity: 1;
+        }
+
+        /* Quote tool quantity buttons */
+        .qty-btn {
+            transition: all 0.15s ease;
+        }
+        .qty-btn:active {
+            transform: scale(0.92);
+        }
+
+        /* Custom scroll for cart list */
+        .cart-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .cart-scroll::-webkit-scrollbar-thumb {
+            background: #f59e0b;
+            border-radius: 4px;
+        }
+        .cart-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        /* Map embed responsive */
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* PDF viewer */
+        .pdf-container {
+            width: 100%;
+            height: 80vh;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #f9fafb;
+        }
+        .pdf-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Table styles for spec sheets */
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        .spec-table th {
+            background: #1f2937;
+            color: #f59e0b;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 700;
+            border: 1px solid #374151;
+        }
+        .spec-table td {
+            padding: 8px 12px;
+            border: 1px solid #e5e7eb;
+            vertical-align: middle;
+        }
+        .spec-table tr:nth-child(even) {
+            background: #f9fafb;
+        }
+        .spec-table tr:hover {
+            background: #fef3c7;
+        }
+
+        .calc-result-card {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border: 1px solid #f59e0b;
+            border-radius: 12px;
+            padding: 16px 20px;
+        }
+
+        /* Download button pulse */
+        @keyframes pulse-glow {
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 12px rgba(245, 158, 11, 0);
+            }
+        }
+        .pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+
+        /* Responsive tables */
+        @media (max-width: 768px) {
+            .spec-table {
+                font-size: 0.75rem;
+            }
+            .spec-table th,
+            .spec-table td {
+                padding: 4px 6px;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-zinc-900 bg-zinc-50 flex flex-col min-h-screen selection:bg-amber-200">
+
+    <!-- ============================================================ -->
+    <!-- NAVBAR -->
+    <!-- ============================================================ -->
+    <nav class="bg-zinc-900 text-white sticky top-0 z-50 shadow-xl border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Brand -->
+                <div class="flex items-center cursor-pointer" onclick="navigate('home')">
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-black tracking-tighter text-white uppercase leading-none">
+                            ZIA <span class="text-amber-500">ENGG.</span>
+                        </span>
+                        <span class="text-[0.6rem] tracking-widest text-zinc-400 mt-1 uppercase">ISO 9001:2015 Certified</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center space-x-1" id="desktop-nav">
+                    <button onclick="navigate('home')" class="nav-btn px-4 py-2 rounded-lg text-sm font-bold transition-colors text-zinc-300 hover:bg-zinc-800 hover:text-white" data-target="home">Home</button>
+                    <button onclick="navigate('products')" class="nav-btn px-4 py-2 rounded-lg text-sm font-bold transition-colors text-zinc-300 hover:bg-zinc-800 hover:text-white" data-target="products">Products</button>
+                    <button onclick="navigate('services')" class="nav-btn px-4 py-2 rounded-lg text-sm font-bold transition-colors text-zinc-300 hover:bg-zinc-800 hover:text-white" data-target="services">Services</button>
+                    <button onclick="navigate('catalog')" class="nav-btn px-4 py-2 rounded-lg text-sm font-bold transition-colors text-zinc-300 hover:bg-zinc-800 hover:text-white" data-target="catalog">Catalog</button>
+                    <button onclick="navigate('blogs')" class="nav-btn px-4 py-2 rounded-lg text-sm font-bold transition-colors text-zinc-300 hover:bg-zinc-800 hover:text-white" data-target="blogs">Knowledge Base</button>
+                    <button onclick="navigate('contact')" class="nav-btn px-4 py-2 rounded-lg text-sm font-bold transition-colors text-zinc-300 hover:bg-zinc-800 hover:text-white" data-target="contact">Contact Us</button>
+
+                    <div class="ml-4 pl-4 border-l border-zinc-700">
+                        <button onclick="navigate('tool')" class="bg-amber-500 hover:bg-amber-600 text-zinc-900 font-bold py-2 px-6 rounded-full transition-transform transform hover:scale-105 flex items-center gap-2 cart-badge" data-count="0" id="nav-cart-badge">
+                            <i data-lucide="calculator" class="w-4 h-4"></i> Calculator
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <div class="md:hidden flex items-center gap-3">
+                    <button onclick="navigate('tool')" class="bg-amber-500 text-zinc-900 p-2 rounded-full cart-badge" data-count="0" id="mobile-cart-badge">
+                        <i data-lucide="calculator" class="w-5 h-5"></i>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="text-zinc-300 hover:text-white p-2">
+                        <i data-lucide="menu" id="mobile-menu-icon" class="w-7 h-7"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Nav -->
+        <div id="mobile-nav" class="md:hidden bg-zinc-800 border-t border-zinc-700 absolute w-full left-0 shadow-2xl">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <button onclick="navigate('home')" class="block w-full text-left px-4 py-3 rounded-lg text-base font-bold text-zinc-300 hover:bg-zinc-700">Home</button>
+                <button onclick="navigate('products')" class="block w-full text-left px-4 py-3 rounded-lg text-base font-bold text-zinc-300 hover:bg-zinc-700">Products</button>
+                <button onclick="navigate('services')" class="block w-full text-left px-4 py-3 rounded-lg text-base font-bold text-zinc-300 hover:bg-zinc-700">Services</button>
+                <button onclick="navigate('catalog')" class="block w-full text-left px-4 py-3 rounded-lg text-base font-bold text-zinc-300 hover:bg-zinc-700">Catalog</button>
+                <button onclick="navigate('blogs')" class="block w-full text-left px-4 py-3 rounded-lg text-base font-bold text-zinc-300 hover:bg-zinc-700">Knowledge Base</button>
+                <button onclick="navigate('contact')" class="block w-full text-left px-4 py-3 rounded-lg text-base font-bold text-zinc-300 hover:bg-zinc-700">Contact Us</button>
+                <button onclick="navigate('tool')" class="block w-full text-center mt-4 bg-amber-500 text-zinc-900 font-bold py-3 rounded-lg hover:bg-amber-600 flex items-center justify-center gap-2">
+                    <i data-lucide="calculator" class="w-5 h-5"></i> Calculator
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================================ -->
+    <!-- MAIN CONTENT -->
+    <!-- ============================================================ -->
+    <main class="flex-grow">
+
+        <!-- ========== HOME VIEW ========== -->
+        <section id="view-home" class="page-view active">
+            <!-- Hero -->
+            <div class="relative bg-zinc-900 text-white py-24 px-4 overflow-hidden">
+                <div class="absolute inset-0 opacity-15 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0zMCAwTDMwIDYwTTAgMzBMNjAgMzAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjMiLz4KPC9zdmc+')]"></div>
+                <div class="max-w-6xl mx-auto relative z-10 grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <span class="inline-block py-1 px-3 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold tracking-wider mb-4 border border-amber-500/30">
+                            ★ An ISO 9001: 2015 Certified Company
+                        </span>
+                        <h1 class="text-5xl md:text-6xl font-black mb-6 leading-tight">
+                            Industrial Bakery <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">Perfection</span>.
+                        </h1>
+                        <p class="text-xl text-zinc-400 mb-8 border-l-4 border-amber-500 pl-4">
+                            A Perfect Baking Process for Bakery Industries… We engineer robust, efficient, and precise machinery to scale your bakery operations.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <button onclick="navigate('products')" class="bg-amber-500 hover:bg-amber-600 text-zinc-900 font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105">
+                                Explore Products
+                            </button>
+                            <button onclick="navigate('tool')" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold py-3 px-8 rounded-full transition-colors flex items-center gap-2">
+                                <i data-lucide="calculator" class="w-5 h-5"></i> Capacity Calculator
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="bg-gradient-to-tr from-zinc-800 to-zinc-700 p-8 rounded-3xl shadow-2xl border border-zinc-600 relative">
+                            <div class="absolute -top-4 -right-4 bg-amber-500 text-zinc-900 font-black p-4 rounded-full shadow-lg transform rotate-12 text-center leading-tight text-sm">
+                                MAKE IN<br />INDIA
+                            </div>
+                            <img src="https://placehold.co/600x400/27272a/f59e0b?text=Rotary+Rack+Oven+ZE-2" alt="Zia Rotary Rack Oven" class="rounded-xl w-full object-cover shadow-inner" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool Snapshot -->
+            <div class="py-20 bg-zinc-100 px-4">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-black text-zinc-900 mb-4">Plan Your Bakery Setup</h2>
+                        <p class="text-zinc-600 max-w-2xl mx-auto">Stop guessing capacities. Use our proprietary tool to build your equipment line and estimate your production output instantly.</p>
+                    </div>
+                    <div id="home-tool-container"></div>
+                </div>
+            </div>
+
+            <!-- Services Snapshot -->
+            <div class="py-20 bg-white px-4">
+                <div class="max-w-6xl mx-auto">
+                    <div class="flex justify-between items-end mb-12 border-b pb-4">
+                        <div>
+                            <h2 class="text-3xl font-black text-zinc-900">Comprehensive Support</h2>
+                            <p class="text-zinc-600 mt-2">Beyond manufacturing, we provide end-to-end bakery solutions.</p>
+                        </div>
+                        <button onclick="navigate('services')" class="hidden md:flex items-center gap-1 text-amber-600 font-bold hover:text-amber-700">
+                            View All Services <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="home-services-grid"></div>
+                </div>
+            </div>
+
+            <!-- Trust & Reviews -->
+            <div class="py-20 bg-zinc-900 text-white px-4">
+                <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-black mb-6">Built to Last. Backed by Trust.</h2>
+                        <div class="space-y-6">
+                            <div class="flex gap-4">
+                                <i data-lucide="shield-check" class="text-amber-500 w-8 h-8 flex-shrink-0"></i>
+                                <div>
+                                    <h4 class="text-xl font-bold">1 Year Comprehensive Warranty</h4>
+                                    <p class="text-zinc-400 mt-1">Full coverage on manufacturing defects and critical components.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <i data-lucide="check-circle-2" class="text-amber-500 w-8 h-8 flex-shrink-0"></i>
+                                <div>
+                                    <h4 class="text-xl font-bold">ISO 9001:2015 Quality Standards</h4>
+                                    <p class="text-zinc-400 mt-1">Every machine undergoes rigorous testing before dispatch.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <i data-lucide="wrench" class="text-amber-500 w-8 h-8 flex-shrink-0"></i>
+                                <div>
+                                    <h4 class="text-xl font-bold">Readily Available Spares</h4>
+                                    <p class="text-zinc-400 mt-1">Minimize downtime. All laser-cut spare parts are stocked locally.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-zinc-800 p-8 rounded-2xl border border-zinc-700">
+                        <h3 class="text-2xl font-bold mb-6 flex items-center gap-2"><i data-lucide="star" class="text-amber-500 fill-amber-500"></i> Client Reviews</h3>
+                        <div class="space-y-6" id="home-reviews-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Contact -->
+            <div class="py-20 bg-zinc-50 px-4">
+                <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-center bg-white p-8 rounded-3xl shadow-xl border border-zinc-100">
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-black text-zinc-900 mb-4">Visit Our Manufacturing Unit</h2>
+                        <p class="text-zinc-600 mb-6 flex items-start gap-3">
+                            <i data-lucide="map-pin" class="text-amber-500 mt-1 flex-shrink-0"></i>
+                            <span id="company-address"></span>
+                        </p>
+                        <div class="flex flex-col gap-3">
+                            <a href="#" id="company-phone" class="flex items-center gap-3 text-zinc-700 hover:text-amber-600 font-bold"></a>
+                            <a href="#" id="company-email" class="flex items-center gap-3 text-zinc-700 hover:text-amber-600 font-bold"></a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 w-full h-64 rounded-xl overflow-hidden shadow-inner bg-zinc-200 map-container">
+                        <iframe title="Zia Engineering Works Google Maps Location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.5100092797676!2d78.5630248!3d17.483162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9b8b00000000%3A0x0!2sElectronic%20Complex%2C%20Kushaiguda%2C%20Hyderabad!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== TOOL / CALCULATOR VIEW ========== -->
+        <section id="view-tool" class="page-view py-20 px-4 bg-zinc-100">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-black text-zinc-900 mb-4">⚙️ Capacity & Specification Calculator</h1>
+                <p class="text-lg text-zinc-600 mb-8">Select a product and quantity to view detailed specifications and calculate total production capacity based on the official Zia Engineering data sheet.</p>
+                <div id="standalone-tool-container"></div>
+            </div>
+        </section>
+
+        <!-- ========== PRODUCTS VIEW ========== -->
+        <section id="view-products" class="page-view py-12 bg-zinc-50 px-4">
+            <div class="max-w-6xl mx-auto">
+                <header class="mb-12">
+                    <h1 class="text-4xl font-black text-zinc-900 mb-4">Machinery Portfolio</h1>
+                    <p class="text-xl text-zinc-600">Precision engineered for scale, consistency, and durability. All specifications as per Zia Engineering Works official data sheet.</p>
+                </header>
+
+                <div class="flex flex-wrap gap-2 mb-8 border-b border-zinc-200 pb-4" id="product-filters"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="products-grid"></div>
+            </div>
+        </section>
+
+        <!-- ========== SERVICES VIEW ========== -->
+        <section id="view-services" class="page-view py-12 bg-white px-4">
+            <div class="max-w-6xl mx-auto">
+                <header class="mb-16 text-center">
+                    <h1 class="text-4xl md:text-5xl font-black text-zinc-900 mb-4">Engineering Support & Services</h1>
+                    <p class="text-xl text-zinc-600 max-w-2xl mx-auto">We don't just sell machines; we partner with you to ensure your bakery runs efficiently 24/7.</p>
+                </header>
+
+                <div class="grid md:grid-cols-2 gap-12" id="services-grid"></div>
+
+                <div class="mt-20 bg-amber-50 border border-amber-200 rounded-3xl p-8 text-center max-w-3xl mx-auto">
+                    <h3 class="text-2xl font-black text-amber-900 mb-4">Need Urgent Maintenance?</h3>
+                    <p class="text-amber-800 mb-6">Our rapid response team is available for breakdown repairs to minimize your production loss.</p>
+                    <a href="tel:+919963188489" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-zinc-900 font-bold py-3 px-8 rounded-full transition-colors">
+                        <i data-lucide="wrench" class="w-5 h-5"></i> Request Service Team
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CATALOG VIEW ========== -->
+        <section id="view-catalog" class="page-view py-12 bg-white px-4">
+            <div class="max-w-6xl mx-auto">
+                <header class="mb-8 text-center">
+                    <h1 class="text-4xl font-black text-zinc-900 mb-4">📄 Product Catalog</h1>
+                    <p class="text-xl text-zinc-600 max-w-2xl mx-auto">View the complete Zia Engineering Works product catalog with full technical specifications. Download the PDF for offline reference.</p>
+                </header>
+
+                <div class="grid md:grid-cols-1 gap-8">
+                    <!-- PDF Viewer -->
+                    <div class="bg-zinc-50 rounded-2xl border border-zinc-200 overflow-hidden shadow-lg">
+                        <div class="bg-zinc-900 text-white px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="file-text" class="text-amber-500 w-6 h-6"></i>
+                                <span class="font-bold text-lg">Zia Engineering Works – Full Catalog</span>
+                            </div>
+                            <a href="#" id="catalog-download-btn" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-zinc-900 font-bold px-5 py-2 rounded-full transition-colors pulse-glow">
+                                <i data-lucide="download" class="w-4 h-4"></i> Download PDF
+                            </a>
+                        </div>
+                        <div class="pdf-container">
+                            <!-- PDF embedded via iframe – user to place 'Zia_Engineering_Catalog.pdf' in same directory -->
+                            <iframe src="Zia_Engineering_Catalog.pdf" type="application/pdf" title="Zia Engineering Works Product Catalog"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Quick Specs Preview -->
+                    <div class="bg-zinc-50 rounded-2xl border border-zinc-200 p-6 shadow-lg">
+                        <h3 class="text-2xl font-black text-zinc-900 mb-4 flex items-center gap-2">
+                            <i data-lucide="list-checks" class="text-amber-500 w-6 h-6"></i> Quick Specifications Summary
+                        </h3>
+                        <div class="overflow-x-auto">
+                            <table class="spec-table">
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Model</th>
+                                        <th>Key Capacity</th>
+                                        <th>Power</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="catalog-spec-preview"></tbody>
+                            </table>
+                        </div>
+                        <p class="text-sm text-zinc-500 mt-4 italic">* Full specifications available in the PDF catalog above.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== BLOGS VIEW ========== -->
+        <section id="view-blogs" class="page-view py-12 bg-zinc-50 px-4">
+            <div class="max-w-4xl mx-auto">
+                <header class="mb-12">
+                    <h1 class="text-4xl font-black text-zinc-900 mb-4">Knowledge Base</h1>
+                    <p class="text-xl text-zinc-600">Technical insights, maintenance guides, and industry trends.</p>
+                </header>
+                <div class="space-y-8" id="blogs-list"></div>
+            </div>
+        </section>
+
+        <!-- ========== CONTACT VIEW ========== -->
+        <section id="view-contact" class="page-view py-12 bg-white px-4">
+            <div class="max-w-6xl mx-auto">
+                <header class="mb-12 text-center">
+                    <h1 class="text-4xl font-black text-zinc-900 mb-4">Let's Build Your Bakery Line</h1>
+                    <p class="text-xl text-zinc-600">Reach out for custom quotes, technical specifications, or dealership inquiries.</p>
+                </header>
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <div class="bg-zinc-50 p-8 rounded-3xl border border-zinc-100">
+                        <form class="space-y-6" onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent. (Demo)');">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-bold text-zinc-700 mb-2">First Name</label>
+                                    <input type="text" required class="w-full p-3 rounded-lg border border-zinc-300 focus:ring-2 focus:ring-amber-500 outline-none" />
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-zinc-700 mb-2">Last Name</label>
+                                    <input type="text" class="w-full p-3 rounded-lg border border-zinc-300 focus:ring-2 focus:ring-amber-500 outline-none" />
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-zinc-700 mb-2">Company Name</label>
+                                <input type="text" class="w-full p-3 rounded-lg border border-zinc-300 focus:ring-2 focus:ring-amber-500 outline-none" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-zinc-700 mb-2">Email Address</label>
+                                <input type="email" required class="w-full p-3 rounded-lg border border-zinc-300 focus:ring-2 focus:ring-amber-500 outline-none" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-zinc-700 mb-2">Message / Requirements</label>
+                                <textarea rows="4" required class="w-full p-3 rounded-lg border border-zinc-300 focus:ring-2 focus:ring-amber-500 outline-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-zinc-900 hover:bg-zinc-800 text-white font-bold py-4 rounded-lg transition-colors">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info & FAQs -->
+                    <div class="space-y-12">
+                        <div>
+                            <h3 class="text-2xl font-black mb-6">Contact Information</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-amber-100 p-3 rounded-full text-amber-600"><i data-lucide="map-pin" class="w-6 h-6"></i></div>
+                                    <div>
+                                        <h4 class="font-bold text-zinc-900">Factory Address</h4>
+                                        <p class="text-zinc-600" id="contact-address"></p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-amber-100 p-3 rounded-full text-amber-600"><i data-lucide="phone" class="w-6 h-6"></i></div>
+                                    <div>
+                                        <h4 class="font-bold text-zinc-900">Phone</h4>
+                                        <p class="text-zinc-600" id="contact-phone"></p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-amber-100 p-3 rounded-full text-amber-600"><i data-lucide="mail" class="w-6 h-6"></i></div>
+                                    <div>
+                                        <h4 class="font-bold text-zinc-900">Email</h4>
+                                        <p class="text-zinc-600" id="contact-email"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-2xl font-black mb-6">General FAQs</h3>
+                            <div class="space-y-4" id="contact-faqs"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================================ -->
+    <footer class="bg-zinc-950 text-zinc-400 py-12 px-4 border-t border-zinc-900">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-2">
+                <span class="text-2xl font-black tracking-tighter text-white uppercase mb-4 block">
+                    ZIA <span class="text-amber-500">ENGG.</span>
+                </span>
+                <p class="mb-4 max-w-sm">A Perfect Baking Process for Bakery Industries…</p>
+                <p class="text-sm font-bold text-amber-500">An ISO 9001: 2015 Certified Company</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><button onclick="navigate('home')" class="hover:text-amber-500">Home</button></li>
+                    <li><button onclick="navigate('products')" class="hover:text-amber-500">Products</button></li>
+                    <li><button onclick="navigate('services')" class="hover:text-amber-500">Services</button></li>
+                    <li><button onclick="navigate('catalog')" class="hover:text-amber-500 flex items-center gap-1"><i data-lucide="file-text" class="w-3 h-3"></i> Catalog</button></li>
+                    <li><button onclick="navigate('tool')" class="hover:text-amber-500 flex items-center gap-1"><i data-lucide="calculator" class="w-3 h-3"></i> Calculator</button></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Contact</h4>
+                <ul class="space-y-2 text-sm" id="footer-contact"></ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-zinc-800 text-sm text-center flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>© 2026 ZIA ENGINEERING WORKS. All rights reserved.</p>
+            <p class="text-zinc-600">Designed with Industry-Leading UX Research.</p>
+        </div>
+    </footer>
+
+    <!-- ============================================================ -->
+    <!-- FLOATING ACTION BUTTONS -->
+    <!-- ============================================================ -->
+    <div class="fab-container" id="fab-container">
+        <!-- Floating Map -->
+        <a href="https://www.google.com/maps/place/Electronic+Complex,+Kushaiguda,+Hyderabad" target="_blank" rel="noopener" class="fab-btn fab-map" title="Find us on Google Maps">
+            <i data-lucide="map" class="w-7 h-7"></i>
+        </a>
+        <!-- Floating Call (visible only on contact page) -->
+        <a href="tel:+919963188489" class="fab-btn fab-call" id="fab-call-btn" title="Call us now">
+            <i data-lucide="phone" class="w-7 h-7"></i>
+        </a>
+        <!-- Floating Chat (visible on home, products, services) -->
+        <button class="fab-btn fab-chat" id="fab-chat-btn" title="Chat with us" onclick="openTwakChat()">
+            <i data-lucide="message-circle" class="w-7 h-7"></i>
+        </button>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- JAVASCRIPT – DATA & LOGIC -->
+    <!-- ============================================================ -->
+    <script>
+        // =============================================================
+        // 1. DATA – Extracted directly from Zia Engineering PDF
+        // =============================================================
+
+        const COMPANY_INFO = {
+            name: "ZIA ENGINEERING WORKS",
+            tagline: "A Perfect Baking Process for Bakery Industries…",
+            cert: "An ISO 9001: 2015 Certified Company",
+            address: "Shed No: D-48, Electronic Complex, Kushaiguda, Ecil Post, Hyderabad - 500 062. T.S. INDIA.",
+            phone: "+91 9963 18 8489",
+            email: "ziaengineeringworks6@gmail.com",
+            website: "ziaengineeringwork.com"
+        };
+
+        // ---- OVENS (ZE-1 to ZE-8) ----
+        const OVEN_PRODUCTS = [{
+            id: "oven-ze1",
+            category: "Rotary Rack Ovens",
+            model: "ZE-1",
+            trolley: "1 Trolley",
+            traySize: "450 x 450 mm (18\" x 18\")",
+            capacity: { bread: "80 Loaves (80 Moulds)", cake: "19 Kgs (10 Trays)", buns: "224 Nos (14 Trays)", biscuits: "10-11 Kgs (15 Trays)", rusks: "10 Kgs (15 Trays)", khari: "15 Trays" },
+            power: "1.5 KW",
+            dimensions: "1422 x 1067 x 2236 mm",
+            weight: "800 Kg",
+            features: ["Stainless Steel Construction", "Automatic Burner", "Uniform Hot Air Circulation", "Max Temp 315°C"]
+        }, {
+            id: "oven-ze2",
+            category: "Rotary Rack Ovens",
+            model: "ZE-2",
+            trolley: "1 Trolley",
+            traySize: "450 x 700 mm (18\" x 27\")",
+            capacity: { bread: "120 Loaves (120 Moulds)", cake: "38 Kgs (10 Trays)", buns: "336 Nos (14 Trays)", biscuits: "16-17 Kgs (15 Trays)", rusks: "15 Kgs (15 Trays)", khari: "15 Trays" },
+            power: "1.5 KW",
+            dimensions: "1321 x 1829 x 2236 mm",
+            weight: "1200 Kg",
+            features: ["Heat Exchanger", "High Quality Insulation", "Homogenous Steam", "Max Temp 315°C"]
+        }, {
+            id: "oven-ze3",
+            category: "Rotary Rack Ovens",
+            model: "ZE-3",
+            trolley: "1 Trolley",
+            traySize: "450 x 700 mm (18\" x 27\")",
+            capacity: { bread: "168 Loaves (168 Moulds)", cake: "53 Kgs (14 Trays)", buns: "432 Nos (18 Trays)", biscuits: "22 Kgs (20 Trays)", rusks: "20-21 Kgs (20 Trays)", khari: "20 Trays" },
+            power: "3.0 KW / 4.4 HP",
+            dimensions: "1778 x 1422 x 2438 mm",
+            weight: "1600 Kg",
+            features: ["Digital Control Panel", "Steam Injection", "Double Insulation", "Max Temp 315°C"]
+        }, {
+            id: "oven-ze4",
+            category: "Rotary Rack Ovens",
+            model: "ZE-4",
+            trolley: "1 Trolley",
+            traySize: "600 x 800 mm (23.5\" x 31.5\")",
+            capacity: { bread: "210 Loaves (210 Moulds)", cake: "75 Kgs (14 Trays)", buns: "630 Nos (18 Trays)", biscuits: "22 Kgs (20 Trays)", rusks: "28 Kgs (20 Trays)", khari: "20 Trays" },
+            power: "3.0 KW",
+            dimensions: "—",
+            weight: "—",
+            features: ["Large Capacity", "Energy Efficient", "Multi-stage Baking", "Max Temp 315°C"]
+        }, {
+            id: "oven-ze5",
+            category: "Rotary Rack Ovens",
+            model: "ZE-5",
+            trolley: "2 Trolleys",
+            traySize: "450 x 700 mm (18\" x 27\")",
+            capacity: { bread: "336 Loaves (336 Moulds)", cake: "106 Kgs (28 Trays)", buns: "864 Nos (36 Trays)", biscuits: "44 Kgs (40 Trays)", rusks: "40 Kgs (40 Trays)", khari: "40 Trays" },
+            power: "3.0 KW / 4.4 HP",
+            dimensions: "2184 x 2174 x 2438 mm",
+            weight: "1800 Kg",
+            features: ["Dual Trolley", "High Output", "Consistent Heat Distribution", "Max Temp 315°C"]
+        }, {
+            id: "oven-ze6",
+            category: "Rotary Rack Ovens",
+            model: "ZE-6",
+            trolley: "2 Trolleys",
+            traySize: "600 x 800 mm (23.5\" x 31.5\")",
+            capacity: { bread: "420 Loaves (420 Moulds)", cake: "150 Kgs (28 Trays)", buns: "1260 Nos (36 Trays)", biscuits: "62 Kgs (40 Trays)", rusks: "60 Kgs (40 Trays)", khari: "40 Trays" },
+            power: "3.0 KW / 4.4 HP",
+            dimensions: "2997 x 2184 x 2438 mm",
+            weight: "2200 Kg",
+            features: ["Industrial Scale", "Max Efficiency", "Heavy Duty Construction", "Max Temp 315°C"]
+        }, {
+            id: "oven-ze7",
+            category: "Rotary Rack Ovens",
+            model: "ZE-7",
+            trolley: "4 Trolleys",
+            traySize: "450 x 700 mm (18\" x 27\")",
+            capacity: { bread: "672 Loaves (672 Moulds)", cake: "212 Kgs (56 Trays)", buns: "1728 Nos (72 Trays)", biscuits: "88 Kgs (80 Trays)", rusks: "80 Kgs (80 Trays)", khari: "80 Trays" },
+            power: "6.5 KW / 8.6 HP",
+            dimensions: "3099 x 2286 x 2438 mm",
+            weight: "2700 Kg",
+            features: ["Max Capacity", "Quad Trolley", "Premium Build", "Max Temp 315°C"]
+        }, {
+            id: "oven-ze8",
+            category: "Rotary Rack Ovens",
+            model: "ZE-8",
+            trolley: "4 Trolleys",
+            traySize: "600 x 800 mm (23.5\" x 31.5\")",
+            capacity: { bread: "840 Loaves (840 Moulds)", cake: "300 Kgs (56 Trays)", buns: "2520 Nos (72 Trays)", biscuits: "124 Kgs (80 Trays)", rusks: "118 Kgs (80 Trays)", khari: "80 Trays" },
+            power: "4.5 KW / 6.5 HP",
+            dimensions: "1422 x 1067 x 2236 mm",
+            weight: "3200 Kg",
+            features: ["Ultra High Capacity", "Heavy Duty", "Advanced Control", "Max Temp 315°C"]
+        }];
+
+        // ---- SPIRAL MIXERS ----
+        const SPIRAL_MIXERS = [
+            { id: "mixer-sp30", category: "Spiral Mixers", model: "ZE-30", dryFlour: "30 Kg", doughCapacity: "54 Kg", power: "3.5 HP", features: ["Dual Speed", "Safety Guard", "Stainless Steel Bowl"] },
+            { id: "mixer-sp40", category: "Spiral Mixers", model: "ZE-40", dryFlour: "40 Kg", doughCapacity: "72 Kg", power: "4 HP", features: ["Timer Control", "Stainless Steel Spiral", "Low Noise"] },
+            { id: "mixer-sp50", category: "Spiral Mixers", model: "ZE-50", dryFlour: "50 Kg", doughCapacity: "90 Kg", power: "6 HP", features: ["Industrial Duty", "Variable Speed", "Easy Clean"] },
+            { id: "mixer-sp60", category: "Spiral Mixers", model: "ZE-60", dryFlour: "60 Kg", doughCapacity: "108 Kg", power: "6.5 HP", features: ["High Torque", "Digital Controls", "Robust Construction"] }
+        ];
+
+        // ---- COOKIE DROPPERS ----
+        const DROPPERS = [
+            { id: "dropper-ze66", category: "Cookie Droppers", model: "ZE-66", dropsPerRow: "—", trayWidth: "16\" (400 mm)", capacity: "100-120 Kg/hr", power: "2.5 kW", features: ["Accurate Drops", "Adjustable Speed", "Easy Clean"] },
+            { id: "dropper-ze77", category: "Cookie Droppers", model: "ZE-77", dropsPerRow: "—", trayWidth: "18\" (450 mm)", capacity: "120-150 Kg/hr", power: "2.5 kW", features: ["High Precision", "Industrial Build", "Consistent Shapes"] },
+            { id: "dropper-ze88", category: "Cookie Droppers", model: "ZE-88", dropsPerRow: "—", trayWidth: "20\" (500 mm)", capacity: "150-180 Kg/hr", power: "3 kW", features: ["Large Capacity", "Digital Controls", "Stainless Steel"] },
+            { id: "dropper-ze99", category: "Cookie Droppers", model: "ZE-99", dropsPerRow: "—", trayWidth: "24\" (600 mm)", capacity: "80-200 Kg/hr", power: "5 kW", features: ["Max Output", "Versatile", "Heavy Duty"] }
+        ];
+
+        // ---- PLANETARY MIXERS ----
+        const PLANETARY_MIXERS = [
+            { id: "mixer-p150", category: "Planetary Mixers", model: "P-150", capacity: "150 Ltrs", batterCapacity: "60 Kgs", speed: "Multi Speed", power: "8.5 HP", features: ["Multi Speed", "Heavy Duty", "Commercial Grade"] },
+            { id: "mixer-p100", category: "Planetary Mixers", model: "P-100", capacity: "100 Ltrs", batterCapacity: "40 Kgs", speed: "Multi Speed", power: "5.5 HP", features: ["3 Speed Gear", "Stainless Steel Attachments", "Low Noise"] },
+            { id: "mixer-p60", category: "Planetary Mixers", model: "P-60", capacity: "60 Ltrs", batterCapacity: "24 Kgs", speed: "Multi Speed", power: "3.0 HP", features: ["Compact Design", "Easy Operation", "Safety Interlock"] },
+            { id: "mixer-p40", category: "Planetary Mixers", model: "P-40", capacity: "40 Ltrs", batterCapacity: "16 Kgs", speed: "Multi Speed", power: "2.0 HP", features: ["Bakery Standard", "Reliable", "Low Maintenance"] }
+        ];
+
+        // ---- DOUGH SHEETER ----
+        const DOUGH_SHEETER = [{
+            id: "sheeter-ze600",
+            category: "Dough Sheeters",
+            model: "ZE-600",
+            beltDimension: "580 x 2860 mm",
+            sheetWidth: "600 mm",
+            sheetThickness: "Max 34mm, Min 0.5mm",
+            power: "0.75 KW",
+            overallDimension: "3300 x 1200 x 1050 mm",
+            features: ["Variable Speed", "Reversible Action", "Roller to Roller Length 580x2860mm"]
+        }];
+
+        // ---- BREAD SLICER ----
+        const BREAD_SLICER = [{
+            id: "slicer-sm302",
+            category: "Bread Slicers",
+            model: "SM-302N",
+            power: "0.188 KW",
+            dimensions: "472 x 720 x 720 mm",
+            weight: "70 Kg",
+            slicingThickness: "Standard 12mm (10-48mm Custom)",
+            maxBread: "320 x 150 mm",
+            features: ["Adjustable Guide", "High Speed Blades", "Low Vibration"]
+        }];
+
+        // ---- ALL PRODUCTS ----
+        const PRODUCTS = [
+            ...OVEN_PRODUCTS,
+            ...SPIRAL_MIXERS,
+            ...DROPPERS,
+            ...PLANETARY_MIXERS,
+            ...DOUGH_SHEETER,
+            ...BREAD_SLICER
+        ];
+
+        // ---- SERVICES ----
+        const SERVICES = [
+            { icon: "settings", title: "Pre-Sales Consultation", desc: "Capacity planning and layout design for optimal bakery workflow." },
+            { icon: "wrench", title: "Installation & Commissioning", desc: "Expert setup of ovens, mixers, and processing lines to factory specs." },
+            { icon: "shield-check", title: "Preventive Maintenance", desc: "Scheduled servicing to minimize downtime and extend machine life." },
+            { icon: "factory", title: "Spares & Upgrades", desc: "Genuine OEM parts and technological upgrades for older machinery." },
+            { icon: "cpu", title: "Automation Integration", desc: "Upgrading manual lines to semi or fully automatic processes." },
+            { icon: "chef-hat", title: "Operator Training", desc: "Comprehensive training for your staff on machine operation and safety." }
+        ];
+
+        // ---- REVIEWS ----
+        const REVIEWS = [
+            { name: "Rahul Sharma", company: "Daily Bakes Ltd", rating: 5, text: "The ZE-2 oven transformed our production. Consistent heat and incredible capacity. The installation team was highly professional." },
+            { name: "Anita Desai", company: "Crust & Crumb", rating: 5, text: "Zia's spiral mixers are workhorses. We've been running the ZE-60 18 hours a day for two years without a single breakdown." }
+        ];
+
+        // ---- BLOGS ----
+        const BLOGS = [
+            { id: 1, title: "Optimizing Bakery Workflows for 2026", excerpt: "How to arrange your mixers, sheeters, and ovens to minimize labor waste.", content: "Full content on bakery layouts, ergonomics, and continuous flow vs batch production.", faq: { q: "What is the ideal distance between a mixer and an oven?", a: "Ideally, keep preparation and baking zones separate but within 10-15 feet to prevent dough over-proofing during transit." } },
+            { id: 2, title: "The Science of Rotary Rack Ovens", excerpt: "Why hot air circulation matters for consistent bread crusts.", content: "Detailed breakdown of heat exchangers, airflow dynamics, and moisture control in rotary ovens.", faq: { q: "How does steam injection improve bread?", a: "Steam delays crust formation, allowing the bread to expand fully (oven spring) before a crispy crust develops." } },
+            { id: 3, title: "Spiral vs. Planetary Mixers", excerpt: "Which mixer is right for your hydration levels?", content: "Comparing agitator styles. Spiral is best for heavy doughs, planetary for batters and creams.", faq: { q: "Can I use a planetary mixer for pizza dough?", a: "Yes, but for large industrial batches (over 20kg), a spiral mixer is significantly more efficient and causes less friction." } },
+            { id: 4, title: "Maintenance Checklist for Dough Sheeters", excerpt: "Prevent belt slippage and roller misalignment.", content: "Daily, weekly, and monthly maintenance protocols for dough sheeters to ensure longevity.", faq: { q: "How often should I clean the sheeter rollers?", a: "Rollers should be wiped down dry after every shift. Avoid using excess water which can rust internal bearings." } }
+        ];
+
+        // ---- FAQS ----
+        const FAQS = [
+            { q: "Do you export bakery equipment outside India?", a: "Yes, Zia Engineering Works caters to a global market with export-ready packaging and international shipping options." },
+            { q: "What is the standard warranty period?", a: "We offer a 1-year comprehensive warranty on all major parts, with extended warranty AMC available." },
+            { q: "Do you provide installation services?", a: "Absolutely. Our expert technicians will install, commission, and provide initial operator training at your facility." }
+        ];
+
+        // =============================================================
+        // 2. STATE
+        // =============================================================
+
+        let currentFilter = 'All';
+        let quoteCart = [];
+        let toolInstances = ['home-tool-container', 'standalone-tool-container'];
+
+        // =============================================================
+        // 3. CORE APPLICATION
+        // =============================================================
+
+        function initApp() {
+            populateContactInfo();
+            renderHomeServices();
+            renderReviews();
+            renderProductsFilter();
+            renderProducts();
+            renderServicesPage();
+            renderBlogs();
+            renderFaqs();
+            renderCatalogSpecPreview();
+            renderQuoteTool();
+            updateCartUI();
+            lucide.createIcons();
+
+            updateFabs('home');
+            navigate('home', true);
+
+            // Setup catalog download with actual PDF
+            setupCatalogDownload();
+        }
+
+        // ---------- NAVIGATION ----------
+        function navigate(viewId, skipScroll = false) {
+            document.querySelectorAll('.page-view').forEach(el => el.classList.remove('active'));
+            document.getElementById(`view-${viewId}`).classList.add('active');
+
+            document.querySelectorAll('#desktop-nav .nav-btn').forEach(btn => {
+                if (btn.dataset.target === viewId) {
+                    btn.classList.add('bg-zinc-800', 'text-amber-500');
+                    btn.classList.remove('text-zinc-300');
+                } else {
+                    btn.classList.remove('bg-zinc-800', 'text-amber-500');
+                    btn.classList.add('text-zinc-300');
+                }
+            });
+
+            const mobileNav = document.getElementById('mobile-nav');
+            if (mobileNav.classList.contains('open')) {
+                mobileNav.classList.remove('open');
+            }
+
+            const titles = {
+                'home': 'Home',
+                'products': 'Our Products',
+                'services': 'Services & Support',
+                'catalog': 'Product Catalog',
+                'blogs': 'Knowledge Base',
+                'contact': 'Contact Us',
+                'tool': 'Calculator'
+            };
+            document.title = `${titles[viewId]} | Zia Engineering Works`;
+
+            updateFabs(viewId);
+
+            if (!skipScroll) window.scrollTo(0, 0);
+        }
+
+        function toggleMobileMenu() {
+            const nav = document.getElementById('mobile-nav');
+            nav.classList.toggle('open');
+        }
+
+        // ---------- FAB VISIBILITY ----------
+        function updateFabs(viewId) {
+            const container = document.getElementById('fab-container');
+            const showChat = ['home', 'products', 'services'].includes(viewId);
+            const showCall = (viewId === 'contact');
+            container.classList.toggle('hide-chat', !showChat);
+            container.classList.toggle('hide-call', !showCall);
+        }
+
+        // ---------- TWAk CHAT ----------
+        function openTwakChat() {
+            if (window.Tawk_API && Tawk_API.maximize) {
+                Tawk_API.maximize();
+            } else {
+                window.open('https://tawk.to/chat/67e91f7f20481a190fa20a36/1inn0gt8p', '_blank');
+            }
+        }
+
+        // ---------- CATALOG DOWNLOAD ----------
+        function setupCatalogDownload() {
+            const btn = document.getElementById('catalog-download-btn');
+            if (btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Trigger download of the PDF file
+                    const link = document.createElement('a');
+                    link.href = 'Zia_Engineering_Catalog.pdf';
+                    link.download = 'Zia_Engineering_Catalog.pdf';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                });
+            }
+        }
+
+        // ---------- DYNAMIC RENDERERS ----------
+
+        function populateContactInfo() {
+            document.getElementById('company-address').innerText = COMPANY_INFO.address;
+            document.getElementById('contact-address').innerText = COMPANY_INFO.address;
+
+            const phones = document.querySelectorAll('[id$="phone"]');
+            phones.forEach(el => {
+                el.innerHTML = `<i data-lucide="phone" class="w-5 h-5 text-amber-500 inline mr-2"></i>${COMPANY_INFO.phone}`;
+                el.href = `tel:${COMPANY_INFO.phone}`;
+            });
+
+            const emails = document.querySelectorAll('[id$="email"]');
+            emails.forEach(el => {
+                el.innerHTML = `<i data-lucide="mail" class="w-5 h-5 text-amber-500 inline mr-2"></i>${COMPANY_INFO.email}`;
+                el.href = `mailto:${COMPANY_INFO.email}`;
+            });
+
+            document.getElementById('footer-contact').innerHTML = `
+                <li class="flex items-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5 flex-shrink-0 text-amber-500"></i> ${COMPANY_INFO.address}</li>
+                <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-amber-500"></i> ${COMPANY_INFO.phone}</li>
+                <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-amber-500"></i> ${COMPANY_INFO.email}</li>
+            `;
+        }
+
+        function renderHomeServices() {
+            const html = SERVICES.slice(0, 3).map(s => `
+                <div class="bg-zinc-50 p-8 rounded-2xl hover:shadow-xl transition-shadow border border-zinc-100 group">
+                    <div class="w-14 h-14 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                        <i data-lucide="${s.icon}" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">${s.title}</h3>
+                    <p class="text-zinc-600">${s.desc}</p>
+                </div>
+            `).join('');
+            document.getElementById('home-services-grid').innerHTML = html;
+        }
+
+        function renderReviews() {
+            const html = REVIEWS.map(r => `
+                <div class="border-b border-zinc-700 pb-4 last:border-0 last:pb-0">
+                    <div class="flex items-center gap-2 mb-2">
+                        ${Array(r.rating).fill('<i data-lucide="star" class="w-3 h-3 text-amber-500 fill-amber-500"></i>').join('')}
+                    </div>
+                    <p class="text-zinc-300 italic">"${r.text}"</p>
+                    <div class="mt-3 text-sm">
+                        <span class="font-bold text-white">${r.name}</span> - <span class="text-zinc-500">${r.company}</span>
+                    </div>
+                </div>
+            `).join('');
+            document.getElementById('home-reviews-list').innerHTML = html;
+        }
+
+        function renderProductsFilter() {
+            const categories = ['All', ...new Set(PRODUCTS.map(p => p.category))];
+            const html = categories.map(cat => `
+                <button onclick="setProductFilter('${cat}')" class="px-4 py-2 rounded-full text-sm font-bold transition-colors ${currentFilter === cat ? 'bg-zinc-900 text-white' : 'bg-white text-zinc-600 hover:bg-zinc-200 border border-zinc-200'}">
+                    ${cat}
+                </button>
+            `).join('');
+            document.getElementById('product-filters').innerHTML = html;
+        }
+
+        function setProductFilter(cat) {
+            currentFilter = cat;
+            renderProductsFilter();
+            renderProducts();
+            lucide.createIcons();
+        }
+
+        function renderProducts() {
+            const filtered = currentFilter === 'All' ? PRODUCTS : PRODUCTS.filter(p => p.category === currentFilter);
+            const html = filtered.map(p => {
+                let capacityStr = '';
+                if (p.capacity) {
+                    if (typeof p.capacity === 'object') {
+                        const parts = [];
+                        if (p.capacity.bread) parts.push(`🍞 ${p.capacity.bread}`);
+                        if (p.capacity.cake) parts.push(`🍰 ${p.capacity.cake}`);
+                        if (p.capacity.buns) parts.push(`🍔 ${p.capacity.buns}`);
+                        if (p.capacity.biscuits) parts.push(`🍪 ${p.capacity.biscuits}`);
+                        if (p.capacity.rusks) parts.push(`🥨 ${p.capacity.rusks}`);
+                        capacityStr = parts.join(' · ');
+                    } else {
+                        capacityStr = p.capacity;
+                    }
+                } else if (p.dryFlour) {
+                    capacityStr = `🌾 ${p.dryFlour} dry · ${p.doughCapacity} dough`;
+                } else if (p.capacity && typeof p.capacity === 'string') {
+                    capacityStr = p.capacity;
+                } else if (p.batterCapacity) {
+                    capacityStr = `🧁 ${p.capacity} · ${p.batterCapacity} batter`;
+                } else if (p.sheetWidth) {
+                    capacityStr = `📐 ${p.sheetWidth} width · ${p.sheetThickness}`;
+                } else if (p.slicingThickness) {
+                    capacityStr = `🔪 ${p.slicingThickness}`;
+                }
+
+                return `
+                <article class="bg-white rounded-2xl shadow-lg border border-zinc-100 overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+                    <div class="h-48 product-img-placeholder relative overflow-hidden flex items-center justify-center">
+                        <span class="text-zinc-500 font-bold opacity-15 text-4xl">ZIA</span>
+                        <img src="https://placehold.co/400x300/27272a/f59e0b?text=${p.model.replace(' ', '+')}" alt="${p.model}" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay group-hover:scale-110 transition-transform duration-700" />
+                        <div class="absolute top-4 right-4 bg-amber-500 text-xs font-black px-2 py-1 rounded shadow text-zinc-900 uppercase">${p.category}</div>
+                    </div>
+                    <div class="p-6">
+                        <h2 class="text-2xl font-black text-zinc-900 mb-2">${p.model}</h2>
+                        ${capacityStr ? `<div class="text-sm bg-zinc-50 p-2 rounded mb-2 font-medium">${capacityStr}</div>` : ''}
+                        <div class="space-y-2 mb-4">
+                            ${p.traySize ? `<div class="text-sm bg-zinc-50 p-2 rounded"><span class="font-bold text-zinc-700">Tray:</span> ${p.traySize}</div>` : ''}
+                            ${p.trolley ? `<div class="text-sm bg-zinc-50 p-2 rounded"><span class="font-bold text-zinc-700">Trolley:</span> ${p.trolley}</div>` : ''}
+                            <div class="text-sm bg-zinc-50 p-2 rounded flex items-center gap-1">
+                                <i data-lucide="zap" class="w-3 h-3 text-amber-500"></i><span class="font-bold text-zinc-700">Power:</span> ${p.power}
+                            </div>
+                            ${p.dimensions ? `<div class="text-sm bg-zinc-50 p-2 rounded"><span class="font-bold text-zinc-700">Dim:</span> ${p.dimensions}</div>` : ''}
+                            ${p.weight ? `<div class="text-sm bg-zinc-50 p-2 rounded"><span class="font-bold text-zinc-700">Weight:</span> ${p.weight}</div>` : ''}
+                        </div>
+                        <div class="mb-4">
+                            <h4 class="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">Key Features</h4>
+                            <ul class="text-sm text-zinc-600 space-y-1">
+                                ${(p.features || []).slice(0, 4).map(f => `<li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5"></i>${f}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <button onclick="addProductToCart('${p.id}')" class="w-full mt-2 bg-zinc-900 hover:bg-zinc-800 text-white font-bold py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                            <i data-lucide="calculator" class="w-4 h-4"></i> Add to Calculator
+                        </button>
+                    </div>
+                </article>
+            `}).join('');
+            document.getElementById('products-grid').innerHTML = html;
+        }
+
+        function renderServicesPage() {
+            const html = SERVICES.map(s => `
+                <div class="flex gap-6 items-start">
+                    <div class="w-16 h-16 rounded-2xl bg-zinc-900 text-amber-500 flex items-center justify-center flex-shrink-0 shadow-lg">
+                        <i data-lucide="${s.icon}" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-zinc-900 mb-2">${s.title}</h3>
+                        <p class="text-zinc-600 leading-relaxed">${s.desc}</p>
+                        <ul class="mt-4 space-y-2">
+                            <li class="flex items-center gap-2 text-sm text-zinc-700"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-500"></i> Certified Technicians</li>
+                            <li class="flex items-center gap-2 text-sm text-zinc-700"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-500"></i> OEM Standards</li>
+                        </ul>
+                    </div>
+                </div>
+            `).join('');
+            document.getElementById('services-grid').innerHTML = html;
+        }
+
+        function renderBlogs() {
+            const html = BLOGS.map(b => `
+                <article class="bg-white rounded-2xl shadow-sm border border-zinc-200 overflow-hidden">
+                    <div class="p-8">
+                        <div class="flex items-center gap-2 text-amber-600 text-sm font-bold mb-3">
+                            <i data-lucide="file-text" class="w-4 h-4"></i> Technical Article
+                        </div>
+                        <h2 class="text-2xl font-black text-zinc-900 mb-3">${b.title}</h2>
+                        <p class="text-zinc-600 mb-4">${b.excerpt}</p>
+                        <p class="text-zinc-500 text-sm mb-6 pb-6 border-b border-zinc-100">${b.content}</p>
+
+                        <div class="bg-zinc-50 rounded-xl p-4 border border-zinc-100">
+                            <button onclick="toggleFaq(${b.id})" class="w-full text-left flex justify-between items-center font-bold text-zinc-800 focus:outline-none">
+                                <span class="flex items-center gap-2"><i data-lucide="message-square" class="w-4 h-4 text-amber-500"></i> Topic FAQ</span>
+                                <i data-lucide="chevron-down" id="faq-icon-${b.id}" class="w-5 h-5 transform transition-transform"></i>
+                            </button>
+                            <div id="faq-content-${b.id}" class="hidden mt-4 pt-4 border-t border-zinc-200">
+                                <p class="font-semibold text-zinc-900 text-sm mb-2">Q: ${b.faq.q}</p>
+                                <p class="text-zinc-600 text-sm">A: ${b.faq.a}</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+            document.getElementById('blogs-list').innerHTML = html;
+        }
+
+        function toggleFaq(id) {
+            const content = document.getElementById(`faq-content-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        function renderFaqs() {
+            const html = FAQS.map(f => `
+                <div class="border-b border-zinc-200 pb-4">
+                    <h4 class="font-bold text-zinc-800 mb-2">${f.q}</h4>
+                    <p class="text-zinc-600 text-sm">${f.a}</p>
+                </div>
+            `).join('');
+            document.getElementById('contact-faqs').innerHTML = html;
+        }
+
+        function renderCatalogSpecPreview() {
+            const previewItems = PRODUCTS.slice(0, 12).map(p => {
+                let keyCap = '—';
+                if (p.capacity) {
+                    if (typeof p.capacity === 'object') {
+                        keyCap = p.capacity.bread || p.capacity.cake || p.capacity.buns || '—';
+                    } else {
+                        keyCap = p.capacity;
+                    }
+                } else if (p.dryFlour) {
+                    keyCap = `${p.dryFlour} dry`;
+                } else if (p.batterCapacity) {
+                    keyCap = `${p.batterCapacity} batter`;
+                } else if (p.sheetWidth) {
+                    keyCap = `${p.sheetWidth}`;
+                } else if (p.slicingThickness) {
+                    keyCap = p.slicingThickness;
+                }
+                return `<tr><td class="font-semibold">${p.category}</td><td>${p.model}</td><td>${keyCap}</td><td>${p.power}</td></tr>`;
+            }).join('');
+            document.getElementById('catalog-spec-preview').innerHTML = previewItems;
+        }
+
+        // =============================================================
+        // 4. CALCULATOR TOOL (with full spec data from PDF)
+        // =============================================================
+
+        function renderQuoteTool() {
+            const optionsHtml = PRODUCTS.map(p => `<option value="${p.id}">${p.category} — ${p.model}</option>`).join('');
+
+            const toolUI = `
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-zinc-200">
+                    <div class="bg-zinc-900 text-white p-6">
+                        <h3 class="text-2xl font-bold flex items-center gap-2">
+                            <i data-lucide="calculator" class="text-amber-500 w-6 h-6"></i> Product Specification & Capacity Calculator
+                        </h3>
+                        <p class="text-zinc-400 mt-2 text-sm">Select a product and quantity to view detailed specs and calculate total capacity based on official Zia Engineering data.</p>
+                    </div>
+
+                    <div class="p-6 md:flex gap-8">
+                        <div class="md:w-1/2 space-y-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-zinc-700 mb-1">Select Product</label>
+                                <select id="tool-select-APPID" class="w-full p-3 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-amber-500 outline-none">
+                                    ${optionsHtml}
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-zinc-700 mb-1">Quantity</label>
+                                <div class="flex items-center gap-4">
+                                    <button onclick="updateQty('APPID', -1)" class="qty-btn p-2 bg-zinc-100 rounded-lg hover:bg-zinc-200"><i data-lucide="minus" class="w-5 h-5"></i></button>
+                                    <span id="tool-qty-APPID" class="text-xl font-bold w-8 text-center">1</span>
+                                    <button onclick="updateQty('APPID', 1)" class="qty-btn p-2 bg-zinc-100 rounded-lg hover:bg-zinc-200"><i data-lucide="plus" class="w-5 h-5"></i></button>
+                                </div>
+                            </div>
+
+                            <button onclick="addToCart('APPID')" class="w-full bg-amber-500 hover:bg-amber-600 text-zinc-900 font-bold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                <i data-lucide="calculator" class="w-5 h-5"></i> Calculate & Add to List
+                            </button>
+                        </div>
+
+                        <div class="md:w-1/2 mt-8 md:mt-0 bg-zinc-50 rounded-xl p-4 flex flex-col h-full">
+                            <h4 class="font-bold text-zinc-800 mb-4 border-b pb-2">Selected Equipment List</h4>
+                            <div id="tool-cart-APPID" class="flex-grow overflow-y-auto max-h-48 space-y-2 mb-4 cart-scroll">
+                                <p class="text-zinc-400 text-sm italic text-center mt-8">No products added yet.</p>
+                            </div>
+
+                            <div class="mt-auto border-t pt-4 border-zinc-200">
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-white p-3 rounded border border-amber-200 shadow-sm text-center">
+                                        <div class="text-xs text-zinc-500 uppercase tracking-wider font-bold">Total Power Load</div>
+                                        <div class="text-xl font-black text-zinc-800 flex justify-center items-center gap-1">
+                                            <i data-lucide="zap" class="w-4 h-4 text-amber-500"></i> <span id="tool-power-APPID">0.00</span> KW
+                                        </div>
+                                    </div>
+                                    <div class="bg-white p-3 rounded border border-blue-200 shadow-sm text-center">
+                                        <div class="text-xs text-zinc-500 uppercase tracking-wider font-bold">Total Capacity</div>
+                                        <div class="text-xl font-black text-zinc-800" id="tool-capacity-APPID">--</div>
+                                    </div>
+                                </div>
+                                <button onclick="submitQuote()" class="w-full bg-zinc-900 hover:bg-zinc-800 text-white font-bold py-3 rounded-lg transition-colors">
+                                    Submit Configuration
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Spec Display -->
+                    <div id="tool-spec-display-APPID" class="px-6 pb-6"></div>
+                </div>
+            `;
+
+            toolInstances.forEach(id => {
+                document.getElementById(id).innerHTML = toolUI.replace(/APPID/g, id);
+            });
+
+            // Add change listener for select to show specs
+            toolInstances.forEach(id => {
+                const select = document.getElementById(`tool-select-${id}`);
+                if (select) {
+                    select.addEventListener('change', function() {
+                        displayProductSpec(id);
+                    });
+                    // Initial display
+                    setTimeout(() => displayProductSpec(id), 100);
+                }
+            });
+        }
+
+        function displayProductSpec(appId) {
+            const select = document.getElementById(`tool-select-${appId}`);
+            if (!select) return;
+            const productId = select.value;
+            const product = PRODUCTS.find(p => p.id === productId);
+            if (!product) return;
+
+            const container = document.getElementById(`tool-spec-display-${appId}`);
+            if (!container) return;
+
+            let specHtml = `
+                <div class="bg-zinc-50 rounded-xl border border-zinc-200 p-4 mt-2">
+                    <h4 class="font-bold text-zinc-800 mb-3 flex items-center gap-2">
+                        <i data-lucide="file-text" class="text-amber-500 w-4 h-4"></i> 
+                        ${product.model} — Full Specifications
+                    </h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+            `;
+
+            const fields = [
+                { label: 'Category', value: product.category },
+                { label: 'Model', value: product.model },
+                { label: 'Power', value: product.power },
+                { label: 'Trolley', value: product.trolley || '—' },
+                { label: 'Tray Size', value: product.traySize || '—' },
+                { label: 'Dimensions', value: product.dimensions || '—' },
+                { label: 'Weight', value: product.weight || '—' },
+                { label: 'Sheet Width', value: product.sheetWidth || '—' },
+                { label: 'Sheet Thickness', value: product.sheetThickness || '—' },
+                { label: 'Slicing Thickness', value: product.slicingThickness || '—' },
+                { label: 'Dry Flour', value: product.dryFlour || '—' },
+                { label: 'Dough Capacity', value: product.doughCapacity || '—' },
+                { label: 'Batter Capacity', value: product.batterCapacity || '—' },
+                { label: 'Belt Dimension', value: product.beltDimension || '—' },
+                { label: 'Overall Dimension', value: product.overallDimension || '—' }
+            ];
+
+            fields.forEach(f => {
+                if (f.value && f.value !== '—') {
+                    specHtml += `<div class="bg-white p-2 rounded border border-zinc-100"><span class="font-semibold text-zinc-700">${f.label}:</span> ${f.value}</div>`;
+                }
+            });
+
+            // Capacity details
+            if (product.capacity && typeof product.capacity === 'object') {
+                const capItems = Object.entries(product.capacity).filter(([k, v]) => v && v !== '—');
+                if (capItems.length > 0) {
+                    specHtml += `<div class="md:col-span-2 bg-white p-2 rounded border border-zinc-100">
+                        <span class="font-semibold text-zinc-700">Capacities:</span> 
+                        ${capItems.map(([k, v]) => `${k}: ${v}`).join(' · ')}
+                    </div>`;
+                }
+            } else if (product.capacity && typeof product.capacity === 'string' && product.capacity !== '—') {
+                specHtml += `<div class="md:col-span-2 bg-white p-2 rounded border border-zinc-100">
+                    <span class="font-semibold text-zinc-700">Capacity:</span> ${product.capacity}
+                </div>`;
+            }
+
+            // Features
+            if (product.features && product.features.length > 0) {
+                specHtml += `<div class="md:col-span-2 bg-white p-2 rounded border border-zinc-100">
+                    <span class="font-semibold text-zinc-700">Features:</span> 
+                    ${product.features.join(' · ')}
+                </div>`;
+            }
+
+            specHtml += `</div></div>`;
+            container.innerHTML = specHtml;
+            lucide.createIcons();
+        }
+
+        function updateQty(appId, change) {
+            const el = document.getElementById(`tool-qty-${appId}`);
+            let val = parseInt(el.innerText) + change;
+            if (val < 1) val = 1;
+            el.innerText = val;
+        }
+
+        function addToCart(appId) {
+            const select = document.getElementById(`tool-select-${appId}`);
+            const qty = parseInt(document.getElementById(`tool-qty-${appId}`).innerText);
+            const productId = select.value;
+            const product = PRODUCTS.find(p => p.id === productId);
+
+            const existing = quoteCart.find(item => item.product.id === productId);
+            if (existing) {
+                existing.qty += qty;
+            } else {
+                quoteCart.push({ product, qty });
+            }
+            updateCartUI();
+            // Feedback
+            const btn = document.querySelector(`#view-${appId === 'home-tool-container' ? 'home' : 'tool'} button[onclick*="addToCart"]`);
+            if (btn) {
+                const orig = btn.innerHTML;
+                btn.innerHTML = '<i data-lucide="check" class="w-4 h-4"></i> Added!';
+                setTimeout(() => { btn.innerHTML = orig;
+                    lucide.createIcons(); }, 1500);
+            }
+        }
+
+        function addProductToCart(productId) {
+            const product = PRODUCTS.find(p => p.id === productId);
+            if (!product) return;
+            const existing = quoteCart.find(item => item.product.id === productId);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                quoteCart.push({ product, qty: 1 });
+            }
+            updateCartUI();
+            const btn = event.target;
+            const orig = btn.innerHTML;
+            btn.innerHTML = '<i data-lucide="check" class="w-4 h-4"></i> Added!';
+            setTimeout(() => { btn.innerHTML = orig;
+                lucide.createIcons(); }, 1200);
+        }
+
+        function removeFromCart(productId) {
+            quoteCart = quoteCart.filter(item => item.product.id !== productId);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            let totalPower = 0;
+            let totalCapacity = 0;
+            let capacityUnit = '';
+
+            const cartHtml = quoteCart.length === 0 ?
+                `<p class="text-zinc-400 text-sm italic text-center mt-8">No products added yet.</p>` :
+                quoteCart.map(item => {
+                    const p = item.product;
+                    // Parse power
+                    let powerVal = 0;
+                    const powerStr = p.power.replace(' KW', '').replace(' HP', '').replace('kW', '');
+                    const numMatch = powerStr.match(/([\d.]+)/);
+                    if (numMatch) powerVal = parseFloat(numMatch[1]) * item.qty;
+                    totalPower += powerVal;
+
+                    // Parse capacity
+                    let capVal = 0;
+                    let unit = '';
+                    if (p.capacity) {
+                        if (typeof p.capacity === 'object') {
+                            if (p.capacity.bread) {
+                                const m = p.capacity.bread.match(/(\d+)/);
+                                if (m) { capVal = parseInt(m[1]) * item.qty;
+                                    unit = 'Loaves'; }
+                            } else if (p.capacity.cake) {
+                                const m = p.capacity.cake.match(/(\d+)/);
+                                if (m) { capVal = parseInt(m[1]) * item.qty;
+                                    unit = 'Kgs'; }
+                            } else if (p.capacity.buns) {
+                                const m = p.capacity.buns.match(/(\d+)/);
+                                if (m) { capVal = parseInt(m[1]) * item.qty;
+                                    unit = 'Nos'; }
+                            }
+                        } else if (typeof p.capacity === 'string') {
+                            const m = p.capacity.match(/(\d+)/);
+                            if (m) { capVal = parseInt(m[1]) * item.qty;
+                                unit = 'Units'; }
+                        }
+                    } else if (p.dryFlour) {
+                        const m = p.dryFlour.match(/(\d+)/);
+                        if (m) { capVal = parseInt(m[1]) * item.qty;
+                            unit = 'Kgs dry'; }
+                    } else if (p.batterCapacity) {
+                        const m = p.batterCapacity.match(/(\d+)/);
+                        if (m) { capVal = parseInt(m[1]) * item.qty;
+                            unit = 'Kgs batter'; }
+                    } else if (p.sheetWidth) {
+                        capVal = item.qty;
+                        unit = 'units';
+                    }
+
+                    if (capVal > 0) {
+                        totalCapacity += capVal;
+                        capacityUnit = unit;
+                    }
+
+                    return `
+                    <div class="flex justify-between items-center bg-white p-3 rounded shadow-sm border border-zinc-100">
+                        <div>
+                            <span class="font-bold">${item.qty}x</span> ${p.model}
+                            <div class="text-xs text-zinc-500">${p.category}</div>
+                        </div>
+                        <button onclick="removeFromCart('${p.id}')" class="text-red-500 hover:bg-red-50 p-2 rounded transition-colors">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                `}).join('');
+
+            toolInstances.forEach(id => {
+                const cartEl = document.getElementById(`tool-cart-${id}`);
+                if (cartEl) cartEl.innerHTML = cartHtml;
+                const powerEl = document.getElementById(`tool-power-${id}`);
+                if (powerEl) powerEl.innerText = totalPower.toFixed(2);
+                const capEl = document.getElementById(`tool-capacity-${id}`);
+                if (capEl) capEl.innerText = totalCapacity > 0 ? `${totalCapacity} ${capacityUnit}` : '—';
+            });
+
+            const totalItems = quoteCart.reduce((sum, item) => sum + item.qty, 0);
+            document.querySelectorAll('.cart-badge').forEach(el => {
+                el.dataset.count = totalItems;
+            });
+
+            lucide.createIcons();
+
+            // Refresh spec display for active tool
+            toolInstances.forEach(id => {
+                displayProductSpec(id);
+            });
+        }
+
+        function submitQuote() {
+            if (quoteCart.length === 0) {
+                alert('Please add at least one product to your configuration.');
+                return;
+            }
+            const totalItems = quoteCart.reduce((sum, item) => sum + item.qty, 0);
+            alert(`✅ Configuration submitted!\n\nTotal items: ${totalItems}\nTotal power: ${document.getElementById('tool-power-home-tool-container')?.innerText || '0.00'} KW\n\nThank you for choosing Zia Engineering Works. Our team will reach out within 24 hours.`);
+        }
+
+        // =============================================================
+        // 5. BOOT
+        // =============================================================
+
+        document.addEventListener('DOMContentLoaded', initApp);
+
+        // Expose functions globally
+        window.navigate = navigate;
+        window.toggleMobileMenu = toggleMobileMenu;
+        window.setProductFilter = setProductFilter;
+        window.toggleFaq = toggleFaq;
+        window.updateQty = updateQty;
+        window.addToCart = addToCart;
+        window.addProductToCart = addProductToCart;
+        window.removeFromCart = removeFromCart;
+        window.submitQuote = submitQuote;
+        window.openTwakChat = openTwakChat;
+        window.displayProductSpec = displayProductSpec;
+    </script>
+
+</body>
+</html>
