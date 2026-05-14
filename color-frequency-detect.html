@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
@@ -26,46 +26,50 @@
         })(window, document, "clarity", "script", "vimok6xi57");
     </script>
 
-    <link rel="canonical" href="https://www.denisiawebops.org/chromatone-pro.html">
-    <title>Color Frequency Detector| Color & Sensor Audio Mixer – Denisia Webops</title>
-    <meta name="description" content="Transform colors from your camera, motion sensors, or manual mixer into real‑time sound frequencies. A unique interactive audio‑visual tool by Denisia Webops.">
-    <meta name="keywords" content="color to sound, audio visualizer, motion sensor frequency, camera color mixer, interactive audio tool">
+    <!-- Canonical -->
+    <link rel="canonical" href="https://www.denisiawebops.org/chromatone.html">
+
+    <!-- Primary SEO -->
+    <title>ChromaTone Pro – Color to Frequency Converter | Denisia Webops</title>
+    <meta name="description" content="Turn any color into sound. Use your camera, motion sensors, or mixer to translate colors into physical audio frequencies in real time. Free interactive tool.">
+    <meta name="keywords" content="color to frequency, sound from color, chroma tone, audio synthesis, camera color sensor, motion sensor music, interactive audio tool, Denisia Webops">
     <meta name="author" content="Denisia Webops Agency">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph / Social -->
-    <meta property="og:title" content="Colour Frequency Detector– Color to Sound Synth">
-    <meta property="og:description" content="Use your camera, phone motion, or a custom mixer to translate colors into physical sound frequencies.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1200">
+    <meta property="og:title" content="Color Detect Sensor – Color to Frequency Converter">
+    <meta property="og:description" content="Translate any color into a pure sine wave frequency. Use your camera, device motion, or custom mixer – instant sonic feedback.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=1200">
     <meta property="og:url" content="https://www.denisiawebops.org/color-frequency-detect.html">
     <meta property="og:type" content="website">
 
-    <!-- Organization Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Denisia Webops Agency",
-      "url": "https://www.denisiawebops.org/",
-      "logo": "https://www.denisiawebops.org/images/logo.png",
-      "contactPoint": { "@type": "ContactPoint", "telephone": "+91-8317581308", "contactType": "customer service" }
-    }
-    </script>
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Color Detect Sensor – Color to Frequency Converter">
+    <meta name="twitter:description" content="Turn any color into a pure audio frequency. Real‑time camera, motion sensor, and mixer modes.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=1200">
 
-    <!-- WebApplication Schema for the tool -->
+    <!-- Schema: SoftwareApplication -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
+      "@type": "SoftwareApplication",
       "name": "ChromaTone Pro",
-      "url": "https://www.denisiawebops.org/color-frequency-detect.html",
-      "description": "Interactive web app that converts camera colors, motion sensor data, or manual color mixing into real‑time audio frequencies.",
       "applicationCategory": "MultimediaApplication",
       "operatingSystem": "Web",
-      "creator": { "@type": "Organization", "name": "Denisia Webops Agency" }
+      "url": "https://www.denisiawebops.org/chromatone.html",
+      "description": "Real‑time color to frequency converter using camera, device motion sensors, or manual mixer. Produces pure sine wave audio.",
+      "creator": {
+        "@type": "Organization",
+        "name": "Denisia Webops Agency",
+        "url": "https://www.denisiawebops.org"
+      },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "featureList": "Camera color picker, motion sensor hue detection, multi‑track mixer, WAV recording, real‑time audio synthesis"
     }
     </script>
 
+    <!-- Tailwind & Lucide (already used by app, but we add custom config for consistent theme) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -75,68 +79,40 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #09090b;
-            color: #f4f4f5;
-            overscroll-behavior: none;
-            -webkit-tap-highlight-color: transparent;
-            height: 100vh;
-            overflow: hidden;
+            background-color: #ffffff;
+            color: #1f2937;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Denisia Webops navbar override for this app page – make it relative to the tool */
-        .dw-navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 60;
-            background: rgba(255,255,255,0.9);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(59,130,246,0.2);
+        /* Unified navbar/footer overrides */
+        .nav-link { color: #4b5563; font-weight: 500; transition: color 0.2s; }
+        .nav-link:hover, .nav-link.active { color: #1e3a8a; }
+        .btn-primary {
+            background-color: #1e3a8a; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem;
+            font-weight: 600; transition: all 0.2s; box-shadow: 0 4px 6px -1px rgba(30,58,138,0.2);
         }
-        .dw-navbar a { color: #1f2937; }
-        .dw-navbar a:hover { color: #1e3a8a; }
-        .dw-navbar .btn-primary { background: #1e3a8a; color: white; }
-        .dw-navbar .btn-primary:hover { background: #2563eb; }
+        .btn-primary:hover { background-color: #2563eb; transform: translateY(-2px); }
+        .burger-icon { color: #1f2937; background: #f3f4f6; padding: 8px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .burger-icon:hover { background: #e5e7eb; }
 
-        /* App specific */
+        /* App‑specific styles (preserved) */
         .font-mono { font-family: 'JetBrains Mono', monospace; }
-
-        input[type=range] {
-            -webkit-appearance: none; width: 100%; background: transparent;
-        }
-        input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%;
-            background: #ffffff; cursor: pointer; margin-top: -8px; box-shadow: 0 0 10px rgba(0,0,0,0.5);
-        }
-        input[type=range]::-webkit-slider-runnable-track {
-            width: 100%; height: 6px; cursor: pointer; background: #3f3f46; border-radius: 4px;
-        }
-
-        input[type="color"] {
-            -webkit-appearance: none; border: none; width: 100%; height: 100%;
-            border-radius: 12px; cursor: pointer; padding: 0; background: transparent;
-        }
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%; background: #ffffff; cursor: pointer; margin-top: -8px; box-shadow: 0 0 10px rgba(0,0,0,0.5); }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 6px; cursor: pointer; background: #3f3f46; border-radius: 4px; }
+        input[type="color"] { -webkit-appearance: none; border: none; width: 100%; height: 100%; border-radius: 12px; cursor: pointer; padding: 0; background: transparent; }
         input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
         input[type="color"]::-webkit-color-swatch { border: 2px solid #3f3f46; border-radius: 12px; }
-
         .hide-scroll::-webkit-scrollbar { display: none; }
-        
-        #video-feed, #snap-canvas, #uploaded-img {
-            object-fit: cover; width: 100%; height: 100%;
-        }
-
-        /* Compass Animation for Sensor Mode */
-        .compass-ring {
-            background: conic-gradient(red, yellow, lime, cyan, blue, magenta, red);
-            border-radius: 50%;
-        }
+        #video-feed, #snap-canvas, #uploaded-img { object-fit: cover; width: 100%; height: 100%; }
+        .compass-ring { background: conic-gradient(red, yellow, lime, cyan, blue, magenta, red); border-radius: 50%; }
     </style>
 </head>
-<body class="flex flex-col bg-zinc-950">
+<body class="bg-white text-gray-900 antialiased selection:bg-blue-200 selection:text-blue-900 flex flex-col min-h-screen">
 
-    <!-- DENISIA WEBOPS NAVBAR (fixed) -->
-    <nav class="dw-navbar fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
+    <!-- ========== UNIFIED DENISIA WEBOPS NAVBAR ========== -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <a href="index.html" class="flex items-center">
@@ -178,178 +154,213 @@
                 <a href="Chit-fund-calculator.html" class="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50">💰 Chit Fund Calc</a>
                 <a href="privacy.html" class="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50">📄 Privacy</a>
                 <a href="contact.html" class="block w-full text-left px-3 py-2 text-base font-medium text-blue-700">Get in Touch</a>
+                <a href="chromatone.html" class="block w-full text-left px-3 py-2 rounded-md text-sm font-bold text-blue-700 bg-blue-50">🎨 ChromaTone Pro</a>
             </div>
         </div>
     </nav>
 
-    <!-- START OVERLAY -->
-    <div id="start-overlay" class="absolute inset-0 z-[70] bg-zinc-950 flex flex-col items-center justify-center p-6 text-center">
-        <div class="w-24 h-24 rounded-3xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 mb-6 flex items-center justify-center shadow-[0_0_50px_rgba(168,85,247,0.4)]">
-            <i data-lucide="waves" class="text-white w-12 h-12"></i>
-        </div>
-        <h1 class="text-4xl font-extrabold mb-2 tracking-tight">ChromaTone</h1>
-        <p class="text-zinc-400 mb-10 max-w-sm">Use your camera, motion sensors, or mixer to translate colors into physical sound frequencies.</p>
-        <button id="btn-start" class="bg-white text-black font-bold text-lg px-8 py-4 rounded-full flex items-center gap-3 hover:scale-105 transition-transform active:scale-95 shadow-[0_0_30px_rgba(255,255,255,0.2)]">
-            <i data-lucide="play" class="w-6 h-6 fill-black"></i> Initialize Engine
-        </button>
-    </div>
-
-    <!-- MAIN APP (hidden until start) -->
-    <div id="app-wrapper" class="flex flex-col h-full hidden opacity-0 transition-opacity duration-500 pt-20" style="height: calc(100vh - 80px); overflow: hidden;">
-        
-        <!-- TABS (Original app tabs, kept) -->
-        <div class="flex bg-zinc-900 border-b border-zinc-800 shrink-0 z-30 relative overflow-x-auto hide-scroll">
-            <button class="flex-1 min-w-[120px] py-3 text-sm font-semibold text-white border-b-2 border-indigo-500 tab-btn" data-target="view-camera">
-                <i data-lucide="camera" class="inline-block w-4 h-4 mr-1"></i> Lens
-            </button>
-            <button class="flex-1 min-w-[120px] py-3 text-sm font-semibold text-zinc-400 border-b-2 border-transparent tab-btn" data-target="view-sensor">
-                <i data-lucide="compass" class="inline-block w-4 h-4 mr-1"></i> Motion
-            </button>
-            <button class="flex-1 min-w-[120px] py-3 text-sm font-semibold text-zinc-400 border-b-2 border-transparent tab-btn" data-target="view-mixer">
-                <i data-lucide="sliders-horizontal" class="inline-block w-4 h-4 mr-1"></i> Mixer
+    <!-- ========== CHROMATONE APP (with scrollable layout) ========== -->
+    <main class="pt-20 flex-grow w-full">
+        <!-- Start Overlay (full screen, but now inside main) -->
+        <div id="start-overlay" class="fixed inset-0 z-50 bg-white flex flex-col items-center justify-center p-6 text-center">
+            <div class="w-24 h-24 rounded-3xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 mb-6 flex items-center justify-center shadow-[0_0_50px_rgba(168,85,247,0.4)]">
+                <i data-lucide="waves" class="text-white w-12 h-12"></i>
+            </div>
+            <h1 class="text-4xl font-extrabold mb-2 tracking-tight text-gray-900">ChromaTone Pro</h1>
+            <p class="text-gray-600 mb-10 max-w-sm">Use your camera, motion sensors, or mixer to translate colors into physical sound frequencies.</p>
+            <button id="btn-start" class="bg-blue-800 text-white font-bold text-lg px-8 py-4 rounded-full flex items-center gap-3 hover:scale-105 transition-transform active:scale-95 shadow-lg">
+                <i data-lucide="play" class="w-6 h-6"></i> Initialize Engine
             </button>
         </div>
 
-        <!-- VIEW: CAMERA & NATIVE FALLBACK -->
-        <main id="view-camera" class="flex-1 flex flex-col relative overflow-hidden view-section">
-            <div class="relative flex-1 bg-black overflow-hidden flex items-center justify-center">
-                <div id="camera-error-ui" class="absolute inset-0 z-20 bg-zinc-950 flex flex-col items-center justify-center p-6 text-center hidden">
-                    <i data-lucide="camera-off" class="w-12 h-12 text-zinc-600 mb-4"></i>
-                    <p class="text-zinc-400 mb-6 max-w-xs text-sm">Live camera access blocked (requires HTTPS or permissions). Use your native camera app instead!</p>
-                    <label class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-6 rounded-xl flex items-center gap-2 cursor-pointer shadow-lg">
-                        <i data-lucide="image-plus" class="w-5 h-5"></i> Open Native Camera
-                        <input type="file" id="native-camera-input" accept="image/*" capture="environment" class="hidden">
-                    </label>
+        <!-- Main App (initially hidden) -->
+        <div id="app-wrapper" class="hidden w-full">
+            <!-- App Header (internal) -->
+            <div class="bg-gray-100 border-b border-gray-200 px-4 py-3 flex items-center justify-between shadow-sm">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="aperture" class="text-indigo-600"></i>
+                    <span class="font-bold tracking-wide text-gray-800">ChromaTone Pro</span>
                 </div>
-
-                <video id="video-feed" autoplay playsinline muted class="absolute inset-0"></video>
-                <canvas id="snap-canvas" class="absolute inset-0 hidden"></canvas>
-                <img id="uploaded-img" class="absolute inset-0 hidden object-contain bg-black">
-                
-                <div class="absolute inset-0 pointer-events-none flex items-center justify-center z-10">
-                    <div id="crosshair" class="w-16 h-16 border-2 border-white/70 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(0,0,0,0.5)]">
-                        <div class="w-2 h-2 bg-white rounded-full shadow-sm"></div>
-                    </div>
-                </div>
-                <canvas id="sampler-canvas" width="1" height="1" class="hidden"></canvas>
+                <button id="btn-record-master" class="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-full text-sm font-semibold transition-colors">
+                    <div class="w-2.5 h-2.5 bg-red-500 rounded-full" id="record-dot"></div>
+                    <span id="record-text">Record WAV</span>
+                </button>
             </div>
 
-            <div class="bg-zinc-900 border-t border-zinc-800 p-5 rounded-t-3xl -mt-6 z-20 shrink-0 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
-                <div class="flex justify-between items-end mb-6">
-                    <div class="flex gap-4 items-center">
-                        <div id="cam-color-swatch" class="w-16 h-16 rounded-2xl border-4 border-zinc-800 shadow-inner bg-black transition-colors"></div>
-                        <div>
-                            <p id="cam-hex" class="text-2xl font-bold tracking-tight">#000000</p>
-                            <p id="cam-rgb" class="text-xs text-zinc-400 font-mono mt-1">RGB(0, 0, 0)</p>
+            <!-- Tabs -->
+            <div class="flex bg-white border-b border-gray-200 shrink-0 overflow-x-auto hide-scroll">
+                <button class="flex-1 min-w-[120px] py-3 text-sm font-semibold text-blue-700 border-b-2 border-blue-600 tab-btn" data-target="view-camera">
+                    <i data-lucide="camera" class="inline-block w-4 h-4 mr-1"></i> Lens
+                </button>
+                <button class="flex-1 min-w-[120px] py-3 text-sm font-semibold text-gray-500 border-b-2 border-transparent tab-btn" data-target="view-sensor">
+                    <i data-lucide="compass" class="inline-block w-4 h-4 mr-1"></i> Motion
+                </button>
+                <button class="flex-1 min-w-[120px] py-3 text-sm font-semibold text-gray-500 border-b-2 border-transparent tab-btn" data-target="view-mixer">
+                    <i data-lucide="sliders-horizontal" class="inline-block w-4 h-4 mr-1"></i> Mixer
+                </button>
+            </div>
+
+            <!-- Camera View -->
+            <main id="view-camera" class="view-section w-full">
+                <div class="relative w-full bg-black aspect-video flex items-center justify-center">
+                    <div id="camera-error-ui" class="absolute inset-0 z-20 bg-gray-900 flex flex-col items-center justify-center p-6 text-center hidden">
+                        <i data-lucide="camera-off" class="w-12 h-12 text-gray-500 mb-4"></i>
+                        <p class="text-gray-400 mb-6 max-w-xs text-sm">Live camera access blocked. Use your native camera app instead!</p>
+                        <label class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-6 rounded-xl flex items-center gap-2 cursor-pointer shadow-lg">
+                            <i data-lucide="image-plus" class="w-5 h-5"></i> Open Native Camera
+                            <input type="file" id="native-camera-input" accept="image/*" capture="environment" class="hidden">
+                        </label>
+                    </div>
+                    <video id="video-feed" autoplay playsinline muted class="absolute inset-0 w-full h-full object-cover"></video>
+                    <canvas id="snap-canvas" class="absolute inset-0 hidden w-full h-full"></canvas>
+                    <img id="uploaded-img" class="absolute inset-0 hidden object-contain bg-black w-full h-full">
+                    <div class="absolute inset-0 pointer-events-none flex items-center justify-center z-10">
+                        <div class="w-16 h-16 border-2 border-white/70 rounded-full flex items-center justify-center shadow-md">
+                            <div class="w-2 h-2 bg-white rounded-full shadow-sm"></div>
                         </div>
                     </div>
-                    <button id="btn-snap" class="p-3 bg-zinc-800 rounded-xl text-zinc-300 transition-colors flex items-center gap-2 font-medium">
-                        <i data-lucide="camera" class="w-5 h-5"></i> Snap
-                    </button>
+                    <canvas id="sampler-canvas" width="1" height="1" class="hidden"></canvas>
                 </div>
 
-                <div class="bg-zinc-950 p-4 rounded-2xl border border-zinc-800 flex justify-between items-center">
-                    <div>
-                        <p class="text-xs text-indigo-400 font-semibold uppercase tracking-wider mb-1">Pure Freq</p>
-                        <div class="flex items-baseline gap-1">
-                            <span id="cam-freq" class="text-3xl font-bold">0.0</span>
-                            <span class="text-zinc-500 font-medium">Hz</span>
+                <!-- Dashboard -->
+                <div class="bg-white border-t border-gray-200 p-5 shadow-md">
+                    <div class="flex justify-between items-end mb-6">
+                        <div class="flex gap-4 items-center">
+                            <div id="cam-color-swatch" class="w-16 h-16 rounded-2xl border-4 border-gray-200 shadow-inner bg-black transition-colors"></div>
+                            <div>
+                                <p id="cam-hex" class="text-2xl font-bold tracking-tight text-gray-900">#000000</p>
+                                <p id="cam-rgb" class="text-xs text-gray-500 font-mono mt-1">RGB(0, 0, 0)</p>
+                            </div>
                         </div>
+                        <button id="btn-snap" class="p-3 bg-gray-100 rounded-xl text-gray-700 transition-colors flex items-center gap-2 font-medium hover:bg-gray-200">
+                            <i data-lucide="camera" class="w-5 h-5"></i> Snap
+                        </button>
                     </div>
-                    <div class="text-right flex gap-2">
-                        <button id="btn-cam-mute" class="p-3 bg-indigo-500/20 text-indigo-400 rounded-xl">
+                    <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200 flex justify-between items-center">
+                        <div>
+                            <p class="text-xs text-indigo-600 font-semibold uppercase tracking-wider mb-1">Pure Freq</p>
+                            <div class="flex items-baseline gap-1">
+                                <span id="cam-freq" class="text-3xl font-bold text-gray-900">0.0</span>
+                                <span class="text-gray-500 font-medium">Hz</span>
+                            </div>
+                        </div>
+                        <button id="btn-cam-mute" class="p-3 bg-indigo-50 text-indigo-600 rounded-xl hover:bg-indigo-100">
                             <i data-lucide="volume-2" class="w-6 h-6"></i>
                         </button>
                     </div>
                 </div>
-            </div>
-        </main>
+            </main>
 
-        <!-- VIEW: SENSOR (motion) -->
-        <main id="view-sensor" class="flex-1 flex flex-col hidden bg-zinc-950 view-section overflow-hidden relative">
-            <div class="absolute inset-0 opacity-20 pointer-events-none transition-colors duration-200" id="sensor-bg"></div>
-            
-            <div class="flex-1 flex flex-col items-center justify-center p-6 z-10">
-                <div class="text-center mb-10">
-                    <h2 class="text-2xl font-bold mb-2">Motion Color Sensor</h2>
-                    <p class="text-zinc-400 text-sm max-w-xs">Rotate your phone physically. The compass translates direction into the visible color spectrum.</p>
-                </div>
-
-                <div class="relative w-64 h-64 flex items-center justify-center mb-8">
-                    <div class="absolute inset-0 compass-ring opacity-50 blur-xl"></div>
-                    <div class="absolute inset-0 compass-ring shadow-inner"></div>
-                    
-                    <div class="w-48 h-48 bg-zinc-950 rounded-full flex flex-col items-center justify-center z-10 border-4 border-zinc-800 shadow-2xl relative transition-colors duration-100" id="sensor-center">
-                        <span id="sensor-deg" class="text-3xl font-mono font-bold text-white mb-1">0°</span>
-                        <span class="text-xs text-zinc-500 uppercase font-semibold">Heading</span>
+            <!-- Motion Sensor View -->
+            <main id="view-sensor" class="view-section hidden w-full bg-gray-50">
+                <div class="absolute inset-0 opacity-20 pointer-events-none transition-colors duration-200" id="sensor-bg"></div>
+                <div class="flex flex-col items-center justify-center p-6 min-h-[60vh]">
+                    <div class="text-center mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2">Motion Color Sensor</h2>
+                        <p class="text-gray-600 text-sm max-w-xs">Rotate your phone. The compass direction translates into the color spectrum.</p>
                     </div>
-
-                    <div id="compass-pointer" class="absolute w-full h-full flex justify-center transition-transform duration-75" style="transform: rotate(0deg);">
-                        <div class="w-4 h-8 bg-white rounded-t-full -mt-2 shadow-[0_0_10px_white]"></div>
+                    <div class="relative w-64 h-64 flex items-center justify-center mb-8">
+                        <div class="absolute inset-0 compass-ring opacity-50 blur-xl"></div>
+                        <div class="absolute inset-0 compass-ring shadow-inner"></div>
+                        <div class="w-48 h-48 bg-white rounded-full flex flex-col items-center justify-center z-10 border-4 border-gray-200 shadow-2xl relative transition-colors duration-100" id="sensor-center">
+                            <span id="sensor-deg" class="text-3xl font-mono font-bold text-gray-900 mb-1">0°</span>
+                            <span class="text-xs text-gray-500 uppercase font-semibold">Heading</span>
+                        </div>
+                        <div id="compass-pointer" class="absolute w-full h-full flex justify-center transition-transform duration-75" style="transform: rotate(0deg);">
+                            <div class="w-4 h-8 bg-blue-600 rounded-t-full -mt-2 shadow-md"></div>
+                        </div>
                     </div>
-                </div>
-
-                <div class="bg-zinc-900/80 backdrop-blur-md p-4 rounded-2xl border border-zinc-800 w-full max-w-sm flex justify-between items-center">
-                    <div>
-                        <p id="sensor-hex" class="text-xl font-bold font-mono text-white">#FF0000</p>
-                        <p class="text-xs text-indigo-400 font-semibold uppercase mt-1">Generated Freq</p>
-                    </div>
-                    <div class="text-right">
-                        <div class="flex items-baseline gap-1 justify-end">
-                            <span id="sensor-freq" class="text-2xl font-bold">389.0</span>
-                            <span class="text-zinc-500 font-medium">Hz</span>
+                    <div class="bg-white/90 backdrop-blur-md p-4 rounded-2xl border border-gray-200 w-full max-w-sm flex justify-between items-center shadow-sm">
+                        <div>
+                            <p id="sensor-hex" class="text-xl font-bold font-mono text-gray-900">#FF0000</p>
+                            <p class="text-xs text-indigo-600 font-semibold uppercase mt-1">Generated Freq</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="flex items-baseline gap-1 justify-end">
+                                <span id="sensor-freq" class="text-2xl font-bold text-gray-900">389.0</span>
+                                <span class="text-gray-500 font-medium">Hz</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="pb-8 text-center">
+                    <button id="btn-activate-sensor" class="bg-blue-800 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-full shadow-md inline-flex items-center gap-2 transition">
+                        <i data-lucide="compass"></i> Activate Sensors
+                    </button>
+                </div>
+            </main>
+
+            <!-- Mixer View -->
+            <main id="view-mixer" class="view-section hidden w-full bg-gray-50">
+                <div class="p-4 border-b border-gray-200 bg-white shadow-sm">
+                    <p class="text-sm text-gray-600 mb-3">Add color tracks to mix frequencies in real time.</p>
+                    <button id="btn-add-track" class="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-colors">
+                        <i data-lucide="plus" class="w-5 h-5"></i> Add Color Track
+                    </button>
+                </div>
+                <div id="mixer-tracks" class="p-4 space-y-4 pb-24"></div>
+            </main>
+        </div>
+    </main>
+
+    <!-- ========== UNIFIED FOOTER ========== -->
+    <footer class="bg-gray-50 border-t border-blue-100 pt-16 pb-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-1.5 rounded-lg shadow">
+                            <i data-lucide="zap" class="h-5 w-5 text-white"></i>
+                        </div>
+                        <span class="ml-3 text-lg font-bold text-gray-900">Denisia Webops Agency</span>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">Complete digital solutions – from web development to AI integration.</p>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="services.html#web-dev" class="hover:text-blue-700">Web Development</a></li>
+                        <li><a href="services.html#app-dev" class="hover:text-blue-700">App Development</a></li>
+                        <li><a href="services.html#seo" class="hover:text-blue-700">SEO</a></li>
+                        <li><a href="services.html#digital-marketing" class="hover:text-blue-700">Digital Marketing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="blogs.html" class="hover:text-blue-700">Blog</a></li>
+                        <li><a href="projects.html" class="hover:text-blue-700">Projects</a></li>
+                        <li><a href="privacy.html" class="hover:text-blue-700">Privacy Policy</a></li>
+                        <li><a href="contact.html" class="hover:text-blue-700">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-600 text-sm mb-4">Get weekly insights.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Enter email" class="w-full px-4 py-2 rounded-l-md text-sm border border-gray-300" />
+                        <button class="bg-blue-800 px-4 py-2 rounded-r-md hover:bg-blue-700 transition-colors">
+                            <i data-lucide="arrow-right" class="h-4 w-4 text-white"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
-
-            <button id="btn-activate-sensor" class="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white text-black font-bold px-6 py-3 rounded-full shadow-lg flex items-center gap-2 z-20">
-                <i data-lucide="compass"></i> Activate Sensors
-            </button>
-        </main>
-
-        <!-- VIEW: MIXER -->
-        <main id="view-mixer" class="flex-1 flex flex-col hidden bg-zinc-950 view-section overflow-hidden">
-            <div class="p-4 border-b border-zinc-900 bg-zinc-900 shrink-0">
-                <p class="text-sm text-zinc-400 mb-3">Add infinite color channels to mix frequencies.</p>
-                <button id="btn-add-track" class="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-colors">
-                    <i data-lucide="plus" class="w-5 h-5"></i> Add Color Track
-                </button>
+            <div class="border-t border-blue-100 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">© 2025 Denisia Webops Agency. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <i data-lucide="twitter" class="h-5 w-5 text-gray-500 hover:text-blue-700 cursor-pointer transition"></i>
+                    <i data-lucide="linkedin" class="h-5 w-5 text-gray-500 hover:text-blue-700 cursor-pointer transition"></i>
+                </div>
             </div>
-            <div id="mixer-tracks" class="flex-1 overflow-y-auto p-4 space-y-4 hide-scroll pb-24"></div>
-        </main>
+        </div>
+    </footer>
 
-    </div>
-
-    <!-- FLOATING RECORD BUTTON (replaces original app header) -->
-    <button id="btn-record-master" class="fixed bottom-6 right-6 bg-zinc-800 hover:bg-zinc-700 text-white rounded-full p-4 shadow-2xl z-50 flex items-center gap-2 transition-colors backdrop-blur-md bg-opacity-80">
-        <div class="w-3 h-3 bg-red-500 rounded-full" id="record-dot"></div>
-        <span id="record-text" class="text-sm font-semibold">Record WAV</span>
-    </button>
-
-    <!-- Hidden Downloader -->
+    <!-- Hidden download link -->
     <a id="download-link" class="hidden"></a>
 
-    <!-- MOBILE MENU TOGGLE SCRIPT (required for navbar) -->
+    <!-- App JavaScript (preserved original logic, with slight DOM references update) -->
     <script>
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const icon = document.getElementById('mobile-menu-icon');
-            if (menu.classList.contains('hidden')) {
-                menu.classList.remove('hidden');
-                icon.setAttribute('data-lucide', 'x');
-            } else {
-                menu.classList.add('hidden');
-                icon.setAttribute('data-lucide', 'menu');
-            }
-            lucide.createIcons();
-        }
-        document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
-    </script>
-
-    <!-- APP LOGIC (unchanged, but with adjustments for new navbar/record button) -->
-    <script>
-        /** PHYSICS UTILS **/
+        // Helper: convert RGB to Hue and then to Frequency (same as original)
         function rgbToHue(r, g, b) {
             r /= 255; g /= 255; b /= 255;
             const max = Math.max(r, g, b), min = Math.min(r, g, b);
@@ -402,7 +413,7 @@
             return Math.round(audioFreq * 10) / 10;
         }
 
-        /** STATE **/
+        // App State
         const State = {
             audioCtx: null, masterGain: null, scriptNode: null,
             isRecording: false, audioChunks: [], recordTimer: null, recordSecs: 0,
@@ -412,7 +423,7 @@
             mixerTracks: [], trackCounter: 0
         };
 
-        /** AUDIO INIT **/
+        // Audio init
         function initAudio() {
             if (State.audioCtx) return;
             const AC = window.AudioContext || window.webkitAudioContext;
@@ -436,14 +447,10 @@
             State.mainOsc.start();
         }
 
-        function updateMainFreq(freq) {
-            if (State.mainOsc) State.mainOsc.frequency.setTargetAtTime(freq, State.audioCtx.currentTime, 0.05);
-        }
-        function updateMainVol(vol) {
-            if (State.mainGain) State.mainGain.gain.setTargetAtTime(vol, State.audioCtx.currentTime, 0.05);
-        }
+        function updateMainFreq(freq) { if (State.mainOsc) State.mainOsc.frequency.setTargetAtTime(freq, State.audioCtx.currentTime, 0.05); }
+        function updateMainVol(vol) { if (State.mainGain) State.mainGain.gain.setTargetAtTime(vol, State.audioCtx.currentTime, 0.05); }
 
-        /** CAMERA **/
+        // Camera & native fallback
         const videoEl = document.getElementById('video-feed');
         const snapCanvas = document.getElementById('snap-canvas');
         const uploadedImg = document.getElementById('uploaded-img');
@@ -464,11 +471,8 @@
         function processFrame() {
             if (State.activeMode !== 'camera') return;
             let source = null;
-            if (State.usingNativeImg && uploadedImg.complete) {
-                source = uploadedImg;
-            } else if (State.camActive && !State.isSnapped && videoEl.readyState >= 2) {
-                source = videoEl;
-            }
+            if (State.usingNativeImg && uploadedImg.complete) source = uploadedImg;
+            else if (State.camActive && !State.isSnapped && videoEl.readyState >= 2) source = videoEl;
             if (source) {
                 samplerCtx.drawImage(source, source.width/2 || source.videoWidth/2, source.height/2 || source.videoHeight/2, 1, 1, 0, 0, 1, 1);
                 const [r, g, b] = samplerCtx.getImageData(0, 0, 1, 1).data;
@@ -488,6 +492,7 @@
             if (State.activeMode === 'camera') updateMainFreq(freq);
         }
 
+        // Native camera input fallback
         document.getElementById('native-camera-input').addEventListener('change', (e) => {
             const file = e.target.files[0];
             if (file) {
@@ -521,7 +526,7 @@
             lucide.createIcons();
         });
 
-        /** SENSOR **/
+        // Motion sensor
         const btnSensor = document.getElementById('btn-activate-sensor');
         function handleOrientation(e) {
             if (State.activeMode !== 'sensor') return;
@@ -537,6 +542,7 @@
             document.getElementById('sensor-bg').style.backgroundColor = hex;
             updateMainFreq(freq);
         }
+
         btnSensor.addEventListener('click', () => {
             if (typeof DeviceOrientationEvent.requestPermission === 'function') {
                 DeviceOrientationEvent.requestPermission().then(res => {
@@ -553,7 +559,7 @@
             }
         });
 
-        /** MIXER **/
+        // Mixer
         function addMixerTrack() {
             const id = `track_${State.trackCounter++}`;
             const hex = '#FF0000';
@@ -566,17 +572,17 @@
             const trackObj = { id, osc, gain, vol: 0.5, muted: false };
             State.mixerTracks.push(trackObj);
             const div = document.createElement('div');
-            div.className = "bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col gap-4";
+            div.className = "bg-white border border-gray-200 rounded-2xl p-4 flex flex-col gap-4 shadow-sm";
             div.innerHTML = `
                 <div class="flex items-center gap-4">
-                    <div class="relative w-16 h-16 rounded-xl overflow-hidden border-2 border-zinc-700">
+                    <div class="relative w-16 h-16 rounded-xl overflow-hidden border-2 border-gray-300">
                         <input type="color" class="trk-col absolute inset-0 w-full h-full" value="${hex}">
                     </div>
                     <div class="flex-1">
-                        <div class="flex justify-between mb-2"><span class="trk-hex font-mono font-bold">${hex}</span><span class="trk-freq text-indigo-400 font-bold text-sm">${freq.toFixed(1)} Hz</span></div>
+                        <div class="flex justify-between mb-2"><span class="trk-hex font-mono font-bold text-gray-800">${hex}</span><span class="trk-freq text-indigo-600 font-bold text-sm">${freq.toFixed(1)} Hz</span></div>
                         <input type="range" class="trk-vol w-full" min="0" max="100" value="50">
                     </div>
-                    <button class="trk-del p-2 text-zinc-600 hover:text-red-500"><i data-lucide="x"></i></button>
+                    <button class="trk-del p-2 text-gray-400 hover:text-red-500"><i data-lucide="x"></i></button>
                 </div>
             `;
             document.getElementById('mixer-tracks').appendChild(div);
@@ -599,7 +605,7 @@
             });
         }
 
-        /** WAV ENCODING & RECORDING **/
+        // WAV Encoding & Recording
         function encodeWAV(audioDataArrays, sampleRate) {
             const totalLength = audioDataArrays.reduce((acc, arr) => acc + arr.length, 0);
             const result = new Float32Array(totalLength);
@@ -624,19 +630,19 @@
             return new Blob([view], { type: 'audio/wav' });
         }
 
-        const recordBtn = document.getElementById('btn-record-master');
-        const recordText = document.getElementById('record-text');
-        const recordDot = document.getElementById('record-dot');
-        recordBtn.addEventListener('click', () => {
+        document.getElementById('btn-record-master').addEventListener('click', () => {
+            const btn = document.getElementById('btn-record-master');
+            const txt = document.getElementById('record-text');
+            const dot = document.getElementById('record-dot');
             if (!State.isRecording) {
                 State.audioChunks = []; State.recordSecs = 0; State.isRecording = true;
-                recordBtn.classList.add('bg-red-600'); recordBtn.classList.remove('bg-zinc-800');
-                recordDot.classList.replace('bg-red-500', 'bg-white');
-                State.recordTimer = setInterval(() => recordText.innerText = `Rec ${++State.recordSecs}s`, 1000);
+                btn.classList.add('bg-red-600', 'text-white'); btn.classList.remove('bg-gray-200', 'text-gray-800');
+                dot.classList.replace('bg-red-500', 'bg-white');
+                State.recordTimer = setInterval(() => txt.innerText = `Rec ${++State.recordSecs}s`, 1000);
             } else {
                 State.isRecording = false; clearInterval(State.recordTimer);
-                recordBtn.classList.remove('bg-red-600'); recordBtn.classList.add('bg-zinc-800');
-                recordDot.classList.replace('bg-white', 'bg-red-500'); recordText.innerText = "Processing...";
+                btn.classList.remove('bg-red-600', 'text-white'); btn.classList.add('bg-gray-200', 'text-gray-800');
+                dot.classList.replace('bg-white', 'bg-red-500'); txt.innerText = "Processing...";
                 setTimeout(() => {
                     if (State.audioChunks.length > 0) {
                         const url = URL.createObjectURL(encodeWAV(State.audioChunks, State.audioCtx.sampleRate));
@@ -644,16 +650,18 @@
                         a.href = url; a.download = `chromatone_${new Date().getTime()}.wav`; a.click();
                         URL.revokeObjectURL(url);
                     }
-                    recordText.innerText = "Record WAV";
+                    txt.innerText = "Record WAV";
                 }, 100);
             }
         });
 
-        /** UI ROUTING & INIT **/
-        document.getElementById('btn-start').addEventListener('click', () => {
-            document.getElementById('start-overlay').style.display = 'none';
-            document.getElementById('app-wrapper').classList.remove('hidden');
-            setTimeout(() => document.getElementById('app-wrapper').classList.remove('opacity-0'), 50);
+        // Tab switching & UI initialisation
+        const startBtn = document.getElementById('btn-start');
+        const startOverlay = document.getElementById('start-overlay');
+        const appWrapper = document.getElementById('app-wrapper');
+        startBtn.addEventListener('click', () => {
+            startOverlay.style.display = 'none';
+            appWrapper.classList.remove('hidden');
             initAudio();
             startCamera();
         });
@@ -662,41 +670,51 @@
         const views = document.querySelectorAll('.view-section');
         tabs.forEach(btn => {
             btn.addEventListener('click', e => {
-                tabs.forEach(b => { b.classList.remove('border-indigo-500', 'text-white'); b.classList.add('border-transparent', 'text-zinc-400'); });
-                e.currentTarget.classList.add('border-indigo-500', 'text-white');
-                e.currentTarget.classList.remove('border-transparent', 'text-zinc-400');
+                tabs.forEach(b => { b.classList.remove('border-blue-600', 'text-blue-700'); b.classList.add('border-transparent', 'text-gray-500'); });
+                e.currentTarget.classList.add('border-blue-600', 'text-blue-700');
+                e.currentTarget.classList.remove('border-transparent', 'text-gray-500');
                 const target = e.currentTarget.dataset.target;
                 views.forEach(v => v.classList.add('hidden'));
                 document.getElementById(target).classList.remove('hidden');
                 State.activeMode = target.replace('view-', '');
-                if (State.activeMode === 'mixer') {
-                    updateMainVol(0);
-                } else if (!State.mainMuted) {
-                    updateMainVol(0.5);
-                    if (State.activeMode === 'camera' && State.camActive) requestAnimationFrame(processFrame);
-                }
+                if (State.activeMode === 'mixer') updateMainVol(0);
+                else if (!State.mainMuted) updateMainVol(0.5);
             });
         });
 
         document.getElementById('btn-cam-mute').addEventListener('click', e => {
             State.mainMuted = !State.mainMuted;
-            const b = e.currentTarget;
+            const btn = e.currentTarget;
             if (State.mainMuted) {
-                b.classList.replace('bg-indigo-500/20', 'bg-zinc-800'); b.classList.replace('text-indigo-400', 'text-zinc-500');
-                b.innerHTML = `<i data-lucide="volume-x" class="w-6 h-6"></i>`;
-                updateMainVol(0);
+                btn.classList.replace('bg-indigo-50', 'bg-gray-100'); btn.classList.replace('text-indigo-600', 'text-gray-500');
+                btn.innerHTML = `<i data-lucide="volume-x" class="w-6 h-6"></i>`; updateMainVol(0);
             } else {
-                b.classList.replace('bg-zinc-800', 'bg-indigo-500/20'); b.classList.replace('text-zinc-500', 'text-indigo-400');
-                b.innerHTML = `<i data-lucide="volume-2" class="w-6 h-6"></i>`;
-                updateMainVol(0.5);
+                btn.classList.replace('bg-gray-100', 'bg-indigo-50'); btn.classList.replace('text-gray-500', 'text-indigo-600');
+                btn.innerHTML = `<i data-lucide="volume-2" class="w-6 h-6"></i>`; updateMainVol(0.5);
             }
             lucide.createIcons();
         });
 
         document.getElementById('btn-add-track').addEventListener('click', addMixerTrack);
+
+        // Mobile menu toggle (same as other pages)
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                menu.classList.add('hidden');
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        }
+        window.toggleMobileMenu = toggleMobileMenu;
+        document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
     </script>
 
-    <!-- Tawk.to (optional – remove if not needed) -->
+    <!-- Tawk.to Script -->
     <script type="text/javascript">
         var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
         (function(){
