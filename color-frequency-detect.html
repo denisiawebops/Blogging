@@ -69,7 +69,7 @@
     }
     </script>
 
-    <!-- Tailwind & Lucide (already used by app, but we add custom config for consistent theme) -->
+    <!-- Tailwind & Lucide -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -96,7 +96,7 @@
         .burger-icon { color: #1f2937; background: #f3f4f6; padding: 8px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
         .burger-icon:hover { background: #e5e7eb; }
 
-        /* App‑specific styles (preserved) */
+        /* App‑specific styles */
         .font-mono { font-family: 'JetBrains Mono', monospace; }
         input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
         input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%; background: #ffffff; cursor: pointer; margin-top: -8px; box-shadow: 0 0 10px rgba(0,0,0,0.5); }
@@ -159,9 +159,9 @@
         </div>
     </nav>
 
-    <!-- ========== CHROMATONE APP (with scrollable layout) ========== -->
+    <!-- ========== CHROMATONE APP ========== -->
     <main class="pt-20 flex-grow w-full">
-        <!-- Start Overlay (full screen, but now inside main) -->
+        <!-- Start Overlay -->
         <div id="start-overlay" class="fixed inset-0 z-50 bg-white flex flex-col items-center justify-center p-6 text-center">
             <div class="w-24 h-24 rounded-3xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 mb-6 flex items-center justify-center shadow-[0_0_50px_rgba(168,85,247,0.4)]">
                 <i data-lucide="waves" class="text-white w-12 h-12"></i>
@@ -173,9 +173,9 @@
             </button>
         </div>
 
-        <!-- Main App (initially hidden) -->
+        <!-- Main App -->
         <div id="app-wrapper" class="hidden w-full">
-            <!-- App Header (internal) -->
+            <!-- App Header -->
             <div class="bg-gray-100 border-b border-gray-200 px-4 py-3 flex items-center justify-between shadow-sm">
                 <div class="flex items-center gap-2">
                     <i data-lucide="aperture" class="text-indigo-600"></i>
@@ -228,8 +228,9 @@
                         <div class="flex gap-4 items-center">
                             <div id="cam-color-swatch" class="w-16 h-16 rounded-2xl border-4 border-gray-200 shadow-inner bg-black transition-colors"></div>
                             <div>
-                                <p id="cam-hex" class="text-2xl font-bold tracking-tight text-gray-900">#000000</p>
-                                <p id="cam-rgb" class="text-xs text-gray-500 font-mono mt-1">RGB(0, 0, 0)</p>
+                                <p id="cam-color-name" class="text-2xl font-bold tracking-tight text-gray-900">Detecting...</p>
+                                <p id="cam-hex" class="text-sm font-semibold text-gray-600 mt-1">#000000</p>
+                                <p id="cam-rgb" class="text-xs text-gray-400 font-mono mt-0.5">RGB(0, 0, 0)</p>
                             </div>
                         </div>
                         <button id="btn-snap" class="p-3 bg-gray-100 rounded-xl text-gray-700 transition-colors flex items-center gap-2 font-medium hover:bg-gray-200">
@@ -252,9 +253,9 @@
             </main>
 
             <!-- Motion Sensor View -->
-            <main id="view-sensor" class="view-section hidden w-full bg-gray-50">
+            <main id="view-sensor" class="view-section hidden w-full bg-gray-50 relative overflow-hidden">
                 <div class="absolute inset-0 opacity-20 pointer-events-none transition-colors duration-200" id="sensor-bg"></div>
-                <div class="flex flex-col items-center justify-center p-6 min-h-[60vh]">
+                <div class="flex flex-col items-center justify-center p-6 min-h-[60vh] z-10 relative">
                     <div class="text-center mb-8">
                         <h2 class="text-2xl font-bold text-gray-900 mb-2">Motion Color Sensor</h2>
                         <p class="text-gray-600 text-sm max-w-xs">Rotate your phone. The compass direction translates into the color spectrum.</p>
@@ -272,7 +273,8 @@
                     </div>
                     <div class="bg-white/90 backdrop-blur-md p-4 rounded-2xl border border-gray-200 w-full max-w-sm flex justify-between items-center shadow-sm">
                         <div>
-                            <p id="sensor-hex" class="text-xl font-bold font-mono text-gray-900">#FF0000</p>
+                            <p id="sensor-color-name" class="text-xl font-bold text-gray-900">Red</p>
+                            <p id="sensor-hex" class="text-sm font-mono font-semibold text-gray-500 mt-1">#FF0000</p>
                             <p class="text-xs text-indigo-600 font-semibold uppercase mt-1">Generated Freq</p>
                         </div>
                         <div class="text-right">
@@ -283,7 +285,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="pb-8 text-center">
+                <div class="pb-8 text-center relative z-10">
                     <button id="btn-activate-sensor" class="bg-blue-800 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-full shadow-md inline-flex items-center gap-2 transition">
                         <i data-lucide="compass"></i> Activate Sensors
                     </button>
@@ -358,15 +360,18 @@
     <!-- Hidden download link -->
     <a id="download-link" class="hidden"></a>
 
-    <!-- App JavaScript (preserved original logic, with slight DOM references update) -->
+    <!-- App JavaScript -->
     <script>
-        // Helper: convert RGB to Hue and then to Frequency (same as original)
-        function rgbToHue(r, g, b) {
+        // PHYSICS & COLOR MATH UTILS
+        function rgbToHsl(r, g, b) {
             r /= 255; g /= 255; b /= 255;
             const max = Math.max(r, g, b), min = Math.min(r, g, b);
-            let h, d = max - min;
-            if (max === min) h = 0;
-            else {
+            let h, s, l = (max + min) / 2;
+            if (max === min) {
+                h = s = 0; // achromatic
+            } else {
+                const d = max - min;
+                s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
                 switch (max) {
                     case r: h = (g - b) / d + (g < b ? 6 : 0); break;
                     case g: h = (b - r) / d + 2; break;
@@ -374,7 +379,21 @@
                 }
                 h /= 6;
             }
-            return Math.round(h * 360);
+            return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
+        }
+
+        function getColorName(h, s, l) {
+            if (l < 15) return "Black";
+            if (l > 85) return "White";
+            if (s < 15) return "Gray";
+            if (h < 15 || h >= 345) return "Red";
+            if (h < 45) return "Orange";
+            if (h < 75) return "Yellow";
+            if (h < 160) return "Green";
+            if (h < 210) return "Cyan";
+            if (h < 260) return "Blue";
+            if (h < 315) return "Purple";
+            return "Pink";
         }
 
         function hueToRgbHex(hue) {
@@ -483,12 +502,20 @@
 
         function updateColorData(r, g, b) {
             const hex = '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('').toUpperCase();
-            const hue = rgbToHue(r, g, b);
-            const freq = hueToPhysicalFrequency(hue);
+            
+            // Generate Color Name and Frequency based on HSL
+            const [h, s, l] = rgbToHsl(r, g, b);
+            const colorName = getColorName(h, s, l);
+            const freq = hueToPhysicalFrequency(h);
+            
+            // DOM Updates
             document.getElementById('cam-color-swatch').style.backgroundColor = hex;
+            document.getElementById('cam-color-name').innerText = colorName;
             document.getElementById('cam-hex').innerText = hex;
             document.getElementById('cam-rgb').innerText = `RGB(${r}, ${g}, ${b})`;
             document.getElementById('cam-freq').innerText = freq.toFixed(1);
+            
+            // Audio Updates
             if (State.activeMode === 'camera') updateMainFreq(freq);
         }
 
@@ -532,14 +559,21 @@
             if (State.activeMode !== 'sensor') return;
             let alpha = e.alpha || 0;
             State.sensorHue = Math.round(alpha);
+            
             const hex = hueToRgbHex(State.sensorHue);
             const freq = hueToPhysicalFrequency(State.sensorHue);
+            const colorName = getColorName(State.sensorHue, 100, 50); // Sensor colours are 100% saturation
+            
             document.getElementById('compass-pointer').style.transform = `rotate(${alpha}deg)`;
             document.getElementById('sensor-deg').innerText = `${Math.round(alpha)}°`;
+            
+            document.getElementById('sensor-color-name').innerText = colorName;
             document.getElementById('sensor-hex').innerText = hex;
             document.getElementById('sensor-freq').innerText = freq.toFixed(1);
+            
             document.getElementById('sensor-center').style.borderColor = hex;
             document.getElementById('sensor-bg').style.backgroundColor = hex;
+            
             updateMainFreq(freq);
         }
 
@@ -587,14 +621,18 @@
             `;
             document.getElementById('mixer-tracks').appendChild(div);
             lucide.createIcons();
+            
             div.querySelector('.trk-col').addEventListener('input', e => {
                 const val = e.target.value.toUpperCase();
                 const rgb = hexToRgb(val);
-                const f = hueToPhysicalFrequency(rgbToHue(rgb.r, rgb.g, rgb.b));
+                const h = rgbToHsl(rgb.r, rgb.g, rgb.b)[0];
+                const f = hueToPhysicalFrequency(h);
+                
                 div.querySelector('.trk-hex').innerText = val;
                 div.querySelector('.trk-freq').innerText = f.toFixed(1) + ' Hz';
                 osc.frequency.setTargetAtTime(f, State.audioCtx.currentTime, 0.05);
             });
+            
             div.querySelector('.trk-vol').addEventListener('input', e => {
                 trackObj.vol = e.target.value / 100;
                 gain.gain.setTargetAtTime(trackObj.vol, State.audioCtx.currentTime, 0.05);
@@ -697,7 +735,7 @@
 
         document.getElementById('btn-add-track').addEventListener('click', addMixerTrack);
 
-        // Mobile menu toggle (same as other pages)
+        // Mobile menu toggle
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('mobile-menu-icon');
