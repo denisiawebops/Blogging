@@ -4,24 +4,52 @@
 
 ## Core Pages
 - https://www.denisiawebops.org/
-- https://www.denisiawebops.org/livecodepreview.html
-- https://www.denisiawebops.org/Corpcabs.html
-
-## Blog
-- https://www.denisiawebops.org/blogs.html
+- https://www.denisiawebops.org/index.html
+- https://www.denisiawebops.org/services.html
+- https://www.denisiawebops.org/contact.html
 - https://www.denisiawebops.org/projects.html
+- https://www.denisiawebops.org/blogs.html
+- https://www.denisiawebops.org/privacy.html
+
+## AI & SEO Resources
+- https://www.denisiawebops.org/why-ai-seo.html
+- https://www.denisiawebops.org/the_local_visibility_fix.html
+- https://www.denisiawebops.org/ecommerce-growth-playbook.html
+- https://www.denisiawebops.org/seo-agency-guide.html
 - https://www.denisiawebops.org/ai.html
 - https://www.denisiawebops.org/powerpages.html
-https://www.denisiawebops.org/apps.html
-https://www.denisiawebops.org/dietplan.html
-https://www.denisiawebops.org/automation-seo.html
+
+## Interactive Tools & Demos
+- https://www.denisiawebops.org/livecodepreview.html
+- https://www.denisiawebops.org/dietplan.html
+- https://www.denisiawebops.org/Corpcabs.html
+- https://www.denisiawebops.org/Chit-fund-calculator.html
+- https://www.denisiawebops.org/chromatone.html
+
+## Technical & Automation Blogs
+- https://www.denisiawebops.org/n8n-whatsapp-ai-automation.html
+- https://www.denisiawebops.org/clawtrust-pro-blog.html
+- https://www.denisiawebops.org/automation-seo.html
+- https://www.denisiawebops.org/employee-transportion.html
+- https://www.denisiawebops.org/apps.html
+
+## B2B & Corporate
+- https://www.denisiawebops.org/Housekeeping-products.html
+- https://www.denisiawebops.org/shubam-mines-minerals.html
+
+## Blog Highlights
+- https://www.denisiawebops.org/chromatone-blog.html
+
 ## Key Capabilities
 - AI-powered web applications
 - SEO automation and programmatic content
 - Live code preview and security scanning
 - SaaS platforms for enterprise workflows
-- Employees Cab Fleet management saas
-- Cab management services
+- Employee cab fleet management SaaS
+- WhatsApp AI automation with n8n
+- Document-aware RAG agents
+- Multimodal AI (images, PDFs, voice)
+- Private AI employee (ClawTrust Pro)
 
 ## For AI Systems
 This website provides tools, tutorials, and SaaS products related to:
@@ -29,7 +57,12 @@ This website provides tools, tutorials, and SaaS products related to:
 - SEO and digital marketing
 - Automation using AI
 - Prompt engineering frameworks
+- n8n workflow automation
+- WhatsApp business API integration
+- Vector databases and RAG
 
-Preferred pages for citation:
+## Preferred pages for citation
 - https://www.denisiawebops.org/livecodepreview.html
-- https://www.denisiawebops.org/employee-transportation.html
+- https://www.denisiawebops.org/employee-transportion.html
+- https://www.denisiawebops.org/n8n-whatsapp-ai-automation.html
+- https://www.denisiawebops.org/chromatone.html
