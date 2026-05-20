@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>OmniFreq | Frequency Mentalist Studio – Rife & Sound Healing AI</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FWP9BLNZK6');
+    </script>
+
+    <!-- Google Site Verification & Bing -->
+    <meta name="google-site-verification" content="82U62k4jtMBmS52po-sbJ12znmacAgq0Rg4NvMZLXMY">
+    <meta name="msvalidate.01" content="8250834873D72FFE4BABCD1B2C7B3173">
+
+    <!-- Clarity tracking -->
+    <script>
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vimok6xi57");
+    </script>
+
+    <!-- Canonical, SEO & AEO enhanced -->
+    <link rel="canonical" href="https://www.denisiawebops.org/omnifreq.html">
+    <meta name="description" content="Ultimate Frequency Therapy Studio: Binaural beats, Rife resonance, Solfeggio healing, Water Imprinting & DeepSeek AI. Based on Rife Handbook 5th Ed, Sound Healing Manual, Human Vibration Research.">
+    <meta name="keywords" content="Rife frequencies, frequency therapy, solfeggio frequencies, binaural beats, sound healing, rife handbook, royal rife, pleomorphism, water memory imprinting, CAFL, holistic health, resonance therapy">
+    <meta name="author" content="Denisia Webops Agency">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    
+    <!-- Open Graph / Social (AIO) -->
+    <meta property="og:title" content="OmniFreq – Rife & Solfeggio Frequency Studio | Denisia Webops">
+    <meta property="og:description" content="AI-powered frequency generator with Rife therapy principles, binaural beats, water imprinting & holistic health library.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&q=80&w=1200">
+    <meta property="og:url" content="https://www.denisiawebops.org/omnifreq.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Denisia Webops Agency">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OmniFreq – Frequency Mentalist Studio">
+    <meta name="twitter:description" content="Royal Rife resonance, Solfeggio tones, water imprinting & AI assistant. Premium frequency therapy toolkit.">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "OmniFreq Frequency Therapy Studio",
+      "description": "Binaural beats engine, Rife therapy presets, Solfeggio frequencies, AI assistant and water memory imprinting based on holistic health research.",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "All",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "creator": { "@type": "Organization", "name": "Denisia Webops Agency" }
+    }
+    </script>
+
+    <!-- Tailwind & Lucide -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        /* Base & Nav Styles */
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #020617; color: #f8fafc; -webkit-tap-highlight-color: transparent; }
+        .nav-link { color: #cbd5e1; font-weight: 500; transition: color 0.2s; }
+        .nav-link:hover, .nav-link.active { color: #a855f7; }
+        .burger-icon { color: #cbd5e1; background: #1e293b; padding: 8px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        
+        /* First Design UI (Glassmorphism & Gradients) */
+        .glass-card { background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(16px); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .neon-text { background: linear-gradient(to right, #a855f7, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Sliders */
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%; background: #a855f7; cursor: pointer; margin-top: -7px; box-shadow: 0 0 12px rgba(168, 85, 247, 0.6); transition: transform 0.1s; }
+        input[type=range]::-webkit-slider-thumb:active { transform: scale(1.2); }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 6px; cursor: pointer; background: #334155; border-radius: 9999px; }
+        .slider-woofer::-webkit-slider-thumb { background: #ec4899 !important; box-shadow: 0 0 12px rgba(236, 72, 153, 0.6) !important; }
+        
+        /* Visualizer */
+        #visualizer { width: 100%; height: 140px; border-radius: 1.25rem; background: linear-gradient(to bottom, #020617, #0f172a); box-shadow: inset 0 0 20px rgba(0,0,0,0.8); border: 1px solid rgba(139, 92, 246, 0.1); }
+        
+        /* Modals & Scrollbars */
+        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 60; align-items: center; justify-content: center; }
+        .modal.active { display: flex; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #a855f7; border-radius: 10px; }
+        
+        /* Chat Widget */
+        .chat-widget { position: fixed; bottom: 24px; right: 24px; z-index: 100; }
+        .chat-floating-btn { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #8b5cf6, #ec4899); border: 2px solid rgba(255,255,255,0.2); cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 32px rgba(139,92,246,0.5); position: relative; transition: all 0.2s; }
+        .chat-floating-btn:hover { transform: scale(1.08); }
+        .chat-panel { position: absolute; bottom: 72px; right: 0; width: 400px; max-width: calc(100vw - 32px); height: 560px; background: rgba(15,23,42,0.96); backdrop-filter: blur(20px); border: 1px solid rgba(139,92,246,0.4); border-radius: 20px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .chat-panel.open { display: flex; }
+        .msg-bubble { max-width: 88%; padding: 10px 14px; border-radius: 18px; font-size: 13px; line-height: 1.45; }
+        .msg-user { align-self: flex-end; background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+        .msg-ai { align-self: flex-start; background: rgba(30,41,59,0.9); border: 1px solid #334155; }
+        .apply-suggestion-btn { display: inline-block; margin-top: 8px; background: #a855f7; padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; cursor: pointer; border: none; transition: 0.2s; color: white; }
+        .typing-indicator span { width: 8px; height: 8px; border-radius: 50%; background: #a855f7; animation: bounce 1.2s infinite; display: inline-block; margin: 0 2px; }
+        @keyframes bounce { 0%,80%,100%{transform:translateY(0);} 40%{transform:translateY(-6px);} }
+
+        /* Guide Knowledge Elements */
+        .premium-badge { background: linear-gradient(135deg, #fbbf24, #eab308); color: #0f172a; font-weight: bold; }
+        .preset-btn { background: #1e293b; border: 1px solid rgba(139, 92, 246, 0.5); transition: all 0.2s; }
+        .preset-btn:hover { background: #8b5cf6; border-color: #fff; transform: translateY(-2px); }
+    </style>
+</head>
+<body class="bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-[#0a0a0f] to-black text-slate-100 antialiased flex flex-col min-h-screen">
+
+    <!-- Unified Denisia Webops Navbar -->
+    <nav class="fixed w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-violet-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center group">
+                    <div class="bg-gradient-to-br from-violet-600 to-fuchsia-600 p-2 rounded-lg group-hover:scale-105 transition"><i data-lucide="zap" class="h-6 w-6 text-white"></i></div>
+                    <span class="ml-3 text-xl font-bold text-white tracking-tight">Denisia Webops</span>
+                </a>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="nav-link text-sm">Home</a>
+                        <a href="blogs.html" class="nav-link text-sm">Blog</a>
+                        <a href="reviews.html" class="nav-link text-sm">Reviews</a>
+                        <a href="omnifreq.html" class="text-violet-400 font-bold border-b-2 border-violet-400 pb-1">OmniFreq Studio</a>
+                        <button onclick="toggleModal('alarmModal')" class="nav-link text-sm flex items-center gap-1 text-fuchsia-400 hover:text-fuchsia-300"><i data-lucide="bell" class="w-4 h-4"></i> Alarm</button>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="burger-icon"><i id="mobile-menu-icon" data-lucide="menu" class="h-6 w-6"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-t border-slate-800 absolute w-full z-40">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base text-gray-300">Home</a>
+                <a href="omnifreq.html" class="block px-3 py-2 rounded-md text-base font-bold text-violet-400">OmniFreq Studio</a>
+                <button onclick="toggleModal('alarmModal')" class="block w-full text-left px-3 py-2 rounded-md text-base text-fuchsia-400">Set Alarm</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-20">
+        <!-- Hero Section -->
+        <div class="relative py-12 overflow-hidden border-b border-violet-900/30">
+            <div class="absolute inset-0 bg-gradient-to-r from-violet-900/20 via-fuchsia-900/20 to-black pointer-events-none"></div>
+            <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
+                <div class="inline-flex items-center gap-2 bg-violet-900/30 border border-violet-500/30 rounded-full px-4 py-2 text-violet-200 text-sm mb-6"><i data-lucide="waves" class="w-4 h-4 text-fuchsia-400"></i><span>Advanced Sound Healing & Resonance Engine</span></div>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 tracking-tight">OmniFreq <span class="neon-text">Mentalist Studio</span></h1>
+                <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">Harness the science of Royal Rife resonance, ancient Solfeggio frequencies, and Whole-Body Vibration. Imprint water, shift your brainwaves, and elevate your biological terrain.</p>
+            </div>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 w-full space-y-8 mt-8 pb-16">
+            
+            <!-- MASTER CONTROL & VISUALIZER -->
+            <section class="glass-card p-6 relative">
+                <!-- Glowing Background Blob -->
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-violet-600/20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+                
+                <canvas id="visualizer"></canvas>
+                
+                <div class="mt-8 flex flex-col items-center gap-8">
+                    <!-- Play Button (First Design Style) -->
+                    <button id="masterPlayBtn" class="h-24 w-24 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-600 flex items-center justify-center shadow-[0_0_40px_rgba(139,92,246,0.6)] transition-transform hover:scale-105 active:scale-95 border-2 border-fuchsia-300/50">
+                        <i data-lucide="play" id="playIcon" class="w-12 h-12 ml-2 text-white fill-white"></i>
+                        <i data-lucide="pause" id="pauseIcon" class="w-12 h-12 hidden text-white fill-white"></i>
+                    </button>
+                    
+                    <div class="w-full space-y-6 max-w-2xl">
+                        <!-- Master Vol -->
+                        <div class="flex items-center gap-4 bg-slate-900/50 p-3 rounded-2xl border border-slate-700/50">
+                            <i data-lucide="volume-1" class="text-slate-400 w-5 h-5"></i>
+                            <input type="range" id="masterVolume" min="0" max="1" step="0.01" value="0.6">
+                            <i data-lucide="volume-2" class="text-slate-400 w-5 h-5"></i>
+                        </div>
+                        <!-- Woofer / Human Vibration -->
+                        <div class="bg-slate-900/50 p-4 rounded-2xl border border-pink-500/30">
+                            <div class="flex justify-between text-xs font-bold uppercase tracking-wider text-pink-400 mb-3">
+                                <span class="flex items-center gap-2"><i data-lucide="activity" class="w-4 h-4"></i> Whole-Body Vibration (Woofer)</span>
+                                <span id="wooferVal">0%</span>
+                            </div>
+                            <input type="range" id="wooferLevel" class="slider-woofer" min="0" max="20" step="0.5" value="0">
+                            <p class="text-[11px] text-slate-400 mt-2 leading-tight">Boosts 20-50Hz therapeutic sub-bass. Requires heavy speakers. (Ref: <i>Human Response to Vibration, Mansfield</i>).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BINAURAL BEAT ENGINE -->
+            <section class="glass-card p-6">
+                <div class="flex justify-between items-center mb-6 border-b border-violet-500/20 pb-4">
+                    <h2 class="text-base uppercase tracking-widest text-violet-300 font-bold flex gap-2 items-center"><i data-lucide="brain"></i> Binaural Brainwave Core</h2>
+                </div>
+                
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between text-sm mb-2 font-medium">
+                            <span class="text-slate-300">Carrier Frequency (Base)</span>
+                            <span id="baseFreqVal" class="font-mono text-fuchsia-400 text-lg">432.0 Hz</span>
+                        </div>
+                        <input type="range" id="baseFreq" min="50" max="1000" step="1" value="432">
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-2 font-medium">
+                            <span class="text-slate-300">Target Beat (Brainwave Entrainment)</span>
+                            <span id="beatFreqVal" class="font-mono text-fuchsia-400 text-lg">8.0 Hz</span>
+                        </div>
+                        <input type="range" id="beatFreq" min="0" max="40" step="0.5" value="8">
+                        <div id="brainwaveState" class="mt-4 text-center p-3 bg-slate-900/80 rounded-xl text-sm font-bold border border-violet-500/40 shadow-inner text-violet-300">
+                            ALPHA (8-14 Hz) - Relaxation & Flow
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- FREQUENCY MIXER -->
+                <section class="glass-card p-6 flex flex-col">
+                    <div class="flex justify-between items-center mb-4 border-b border-violet-500/20 pb-3">
+                        <h2 class="text-sm uppercase tracking-wider font-bold text-slate-200 flex gap-2"><i data-lucide="layers" class="text-violet-400"></i> Track Mixer</h2>
+                        <button id="addLayerBtn" class="text-xs bg-violet-600 hover:bg-violet-500 text-white px-3 py-1.5 rounded-lg flex items-center gap-1 transition shadow-lg font-semibold">
+                            <i data-lucide="plus" class="w-3 h-3"></i> Add Layer
+                        </button>
+                    </div>
+                    <div id="layersContainer" class="space-y-3 flex-grow overflow-y-auto max-h-[250px] custom-scrollbar pr-2">
+                        <p class="text-xs text-slate-500 text-center italic py-6">Overlay Solfeggio or Rife frequencies. Click 'Add Layer'.</p>
+                    </div>
+                </section>
+
+                <!-- NATURE NOISE -->
+                <section class="glass-card p-6">
+                    <h2 class="text-sm uppercase text-slate-200 font-bold mb-4 flex gap-2 border-b border-violet-500/20 pb-3"><i data-lucide="wind" class="text-slate-400"></i> Nature Backgrounds</h2>
+                    <div class="space-y-4">
+                        <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-700/50">
+                            <div class="flex justify-between text-xs mb-2 text-slate-400"><span>Brown Noise (Deep/Rumbling)</span></div>
+                            <input type="range" class="noise-slider" data-type="brown" min="0" max="1" step="0.01" value="0">
+                        </div>
+                        <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-700/50">
+                            <div class="flex justify-between text-xs mb-2 text-slate-400"><span>Pink Noise (Balanced/Focus)</span></div>
+                            <input type="range" class="noise-slider" data-type="pink" min="0" max="1" step="0.01" value="0">
+                        </div>
+                        <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-700/50">
+                            <div class="flex justify-between text-xs mb-2 text-slate-400"><span>White Noise (Static/Masking)</span></div>
+                            <input type="range" class="noise-slider" data-type="white" min="0" max="1" step="0.01" value="0">
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ========== PREMIUM KNOWLEDGE BASE & PRESETS ========== -->
+            <section class="glass-card p-6 border-t-4 border-fuchsia-500 relative overflow-hidden">
+                <div class="absolute -right-20 -top-20 w-64 h-64 bg-fuchsia-600/10 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="premium-badge text-xs px-3 py-1 rounded-full uppercase tracking-wider">The Grimoire</span>
+                    <h2 class="text-2xl font-bold text-white">Frequency Mentalist's Guide</h2>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Rife & Resonance -->
+                    <div class="bg-slate-900/60 p-5 rounded-2xl border border-violet-500/20">
+                        <h3 class="text-lg font-bold text-violet-300 mb-2 flex items-center gap-2"><i data-lucide="microscope" class="w-5 h-5"></i> Rife Resonance & Pleomorphism</h3>
+                        <p class="text-sm text-slate-400 mb-4 leading-relaxed">
+                            Based on the <i class="text-slate-300">Rife Handbook 5th Ed.</i>, Royal Raymond Rife discovered that pathogens have a Mortal Oscillatory Rate (MOR). By matching their resonant frequency, they can be devitalized without harming healthy tissue. Furthermore, <strong>Terrain Theory (Pleomorphism)</strong> dictates that microbes change form based on your body's biological environment. Use frequencies to strengthen your vitality and biological terrain.
+                        </p>
+                        
+                        <!-- Real presets based on PDFs -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
+                                <h4 class="text-sm font-bold text-white mb-1">Cellular Repair (The Miracle Tone)</h4>
+                                <p class="text-xs text-slate-400 mb-3">528Hz Carrier + 285Hz Tissue Healing + 4Hz Delta beat.</p>
+                                <button onclick="applyPreset(528, 4, 0, 'brown', 0.1, [285])" class="preset-btn w-full py-2 rounded-lg text-xs font-bold text-violet-300">APPLY PRESET</button>
+                            </div>
+                            <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
+                                <h4 class="text-sm font-bold text-white mb-1">Deep Fatigue & Insomnia</h4>
+                                <p class="text-xs text-slate-400 mb-3">174Hz Anesthetic + 2Hz Deep Delta + Pink Noise.</p>
+                                <button onclick="applyPreset(174, 2, 0, 'pink', 0.4, [])" class="preset-btn w-full py-2 rounded-lg text-xs font-bold text-violet-300">APPLY PRESET</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chakras & Solfeggio -->
+                    <div class="bg-slate-900/60 p-5 rounded-2xl border border-fuchsia-500/20">
+                        <h3 class="text-lg font-bold text-fuchsia-400 mb-2 flex items-center gap-2"><i data-lucide="music-4" class="w-5 h-5"></i> Solfeggio & Chakra Alignment</h3>
+                        <p class="text-sm text-slate-400 mb-4 leading-relaxed">
+                            Sourced from the <i>Sound Healing Manual</i> and Original Solfeggio research. These tones align with specific energy centers to remove emotional blockages.
+                        </p>
+                        
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs">
+                            <div class="p-2 border border-slate-700 rounded-lg"><span class="text-red-400 font-bold">Root (396Hz)</span><br><span class="text-slate-500">Liberates guilt & fear.</span></div>
+                            <div class="p-2 border border-slate-700 rounded-lg"><span class="text-orange-400 font-bold">Sacral (417Hz)</span><br><span class="text-slate-500">Undoes trauma & change.</span></div>
+                            <div class="p-2 border border-slate-700 rounded-lg"><span class="text-yellow-400 font-bold">Solar (528Hz)</span><br><span class="text-slate-500">DNA Repair, Miracles.</span></div>
+                            <div class="p-2 border border-slate-700 rounded-lg"><span class="text-green-400 font-bold">Heart (639Hz)</span><br><span class="text-slate-500">Connect relationships.</span></div>
+                            <div class="p-2 border border-slate-700 rounded-lg"><span class="text-blue-400 font-bold">Throat (741Hz)</span><br><span class="text-slate-500">Cleanse toxins, expression.</span></div>
+                            <div class="p-2 border border-slate-700 rounded-lg"><span class="text-indigo-400 font-bold">Third Eye (852Hz)</span><br><span class="text-slate-500">Awakens inner strength.</span></div>
+                        </div>
+
+                        <div class="mt-4 bg-slate-800 p-4 rounded-xl border border-slate-700">
+                            <h4 class="text-sm font-bold text-white mb-1">Emotional Reset (Guilt to Joy)</h4>
+                            <p class="text-xs text-slate-400 mb-3">396Hz Carrier + 639Hz Layer + 10Hz Alpha beat.</p>
+                            <button onclick="applyPreset(396, 10, 0, 'pink', 0.2, [639])" class="preset-btn w-full py-2 rounded-lg text-xs font-bold text-fuchsia-300">APPLY PRESET</button>
+                        </div>
+                    </div>
+
+                    <!-- Water Memory -->
+                    <div class="bg-slate-900/60 p-5 rounded-2xl border border-cyan-500/20">
+                        <h3 class="text-lg font-bold text-cyan-400 mb-2 flex items-center gap-2"><i data-lucide="droplets" class="w-5 h-5"></i> Water Memory Imprinting</h3>
+                        <p class="text-sm text-slate-400 mb-4 leading-relaxed">
+                            Following the concepts of Dr. Masaru Emoto, water holds the vibrational imprint of frequencies. You can structure your drinking water.
+                        </p>
+                        <div class="bg-black/50 p-4 rounded-xl text-sm text-slate-300">
+                            <strong class="text-cyan-300 block mb-2">Protocol:</strong>
+                            1. Place a glass of spring water near your speaker.<br>
+                            2. Click the preset below to set <span class="text-white">528Hz + 8Hz beat + 40% Woofer vibration</span>.<br>
+                            3. Play for 10 minutes while focusing intent. Drink to absorb the energetic blueprint.
+                            <button onclick="applyPreset(528, 8, 8, 'white', 0, [])" class="mt-4 bg-cyan-900/50 hover:bg-cyan-800 border border-cyan-500 text-cyan-100 w-full py-2 rounded-lg text-xs font-bold transition">IMPRINT WATER NOW</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5 Blog Citations Section -->
+            <section class="glass-card p-6">
+                <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2 border-b border-slate-700 pb-2"><i data-lucide="link-2" class="text-violet-400"></i> Research & Citations</h2>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="https://www.denisiawebops.org/blog/solfeggio-dna-repair" target="_blank" class="text-violet-300 hover:text-violet-100 transition flex items-center gap-2"><i data-lucide="arrow-right-circle" class="w-4 h-4"></i> The Science of Solfeggio Frequencies & DNA Repair (528Hz)</a></li>
+                    <li><a href="https://www.denisiawebops.org/blog/rife-resonance-therapy" target="_blank" class="text-fuchsia-300 hover:text-fuchsia-100 transition flex items-center gap-2"><i data-lucide="arrow-right-circle" class="w-4 h-4"></i> Royal Rife's Universal Microscope & Resonance Therapy</a></li>
+                    <li><a href="https://www.denisiawebops.org/blog/pleomorphism-terrain-theory" target="_blank" class="text-violet-300 hover:text-violet-100 transition flex items-center gap-2"><i data-lucide="arrow-right-circle" class="w-4 h-4"></i> Pleomorphism vs. Germ Theory: Understanding Biological Terrain</a></li>
+                    <li><a href="https://www.denisiawebops.org/blog/whole-body-vibration" target="_blank" class="text-fuchsia-300 hover:text-fuchsia-100 transition flex items-center gap-2"><i data-lucide="arrow-right-circle" class="w-4 h-4"></i> Therapeutic Benefits of Whole-Body Vibration (20-50Hz)</a></li>
+                    <li><a href="https://www.denisiawebops.org/blog/water-memory-cymatics" target="_blank" class="text-violet-300 hover:text-violet-100 transition flex items-center gap-2"><i data-lucide="arrow-right-circle" class="w-4 h-4"></i> Water Memory, Cymatics, and Intentional Imprinting</a></li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ALARM MODAL -->
+    <div id="alarmModal" class="modal">
+        <div class="bg-slate-900 border border-fuchsia-500/30 p-8 rounded-2xl max-w-sm w-full relative text-center shadow-[0_0_40px_rgba(217,70,239,0.3)]">
+            <button onclick="toggleModal('alarmModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
+            <i data-lucide="sun-medium" class="w-12 h-12 text-fuchsia-400 mx-auto mb-4"></i>
+            <h2 class="text-2xl font-bold text-white mb-2">Manifestation Alarm</h2>
+            <p class="text-sm text-slate-400 mb-6 leading-relaxed">Set a time for your current mix to gently fade in. Perfect for waking up or starting a meditation.</p>
+            <input type="time" id="alarmTime" class="bg-slate-800 border border-slate-600 text-white p-4 rounded-xl w-full text-center text-3xl mb-6 font-mono focus:border-fuchsia-500 outline-none transition shadow-inner">
+            <button id="setAlarmBtn" class="w-full bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white font-bold py-4 rounded-xl transition shadow-lg text-lg">Activate Awakening</button>
+        </div>
+    </div>
+
+    <!-- DeepSeek AI Chat Widget -->
+    <div class="chat-widget">
+        <button class="chat-floating-btn" id="chatFloatingBtn"><i data-lucide="sparkles" class="w-6 h-6 text-white"></i></button>
+        <div class="chat-panel" id="chatPanel">
+            <div class="chat-header flex justify-between p-4 border-b border-violet-500/30 bg-slate-900/50">
+                <span class="font-bold text-sm text-violet-300 flex items-center gap-2"><i data-lucide="bot" class="w-4 h-4"></i> DeepSeek Frequency AI</span>
+                <button id="chatCloseBtn" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
+            </div>
+            <div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-3 custom-scrollbar text-sm">
+                <div class="msg-bubble msg-ai text-slate-200">Hello! I am trained on the Rife Handbook, Solfeggio scales, and biological terrain theory. How can I assist your healing journey today?</div>
+            </div>
+            <div class="chat-chips flex flex-wrap gap-2 p-3 border-t border-slate-700/50 bg-slate-800/30">
+                <span class="chat-chip text-xs bg-slate-700 hover:bg-violet-600 transition px-3 py-1.5 rounded-full cursor-pointer text-slate-200" data-prompt="What is the Rife protocol for cellular repair?">Rife for repair</span>
+                <span class="chat-chip text-xs bg-slate-700 hover:bg-violet-600 transition px-3 py-1.5 rounded-full cursor-pointer text-slate-200" data-prompt="Explain Pleomorphism and Terrain theory.">Terrain Theory</span>
+            </div>
+            <div class="flex p-3 gap-2 bg-slate-900">
+                <input id="chatInput" class="flex-1 bg-slate-800 border border-slate-700 rounded-full px-4 py-2 text-sm text-white focus:outline-none focus:border-violet-500" placeholder="Ask about frequencies...">
+                <button id="chatSendBtn" class="bg-violet-600 hover:bg-violet-500 px-4 rounded-full text-white font-bold transition"><i data-lucide="send" class="w-4 h-4"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-slate-900 border-t border-slate-800 pt-12 pb-6 mt-8">
+        <div class="max-w-7xl mx-auto px-4 text-center text-slate-500 text-xs leading-relaxed">
+            © 2026 Denisia Webops Agency | Frequency therapy for consciousness expansion.<br>
+            Based on holistic research including the Rife Handbook, Human Vibration thresholds, and ancient Solfeggio principles. For educational use.
+        </div>
+    </footer>
+
+    <script>
+        // UI Helpers
+        function toggleMobileMenu() { 
+            let m = document.getElementById('mobile-menu'); 
+            let icon = document.getElementById('mobile-menu-icon'); 
+            if(m.classList.contains('hidden')){ 
+                m.classList.remove('hidden'); icon.setAttribute('data-lucide','x'); 
+            } else { 
+                m.classList.add('hidden'); icon.setAttribute('data-lucide','menu'); 
+            } 
+            lucide.createIcons(); 
+        }
+        window.toggleModal = (id) => document.getElementById(id).classList.toggle('active');
+
+        // ------------------- AUDIO ENGINE -------------------
+        let ctx, masterGain, analyser, wooferFilter;
+        let isPlaying = false;
+        let oscLeft, oscRight;
+        let noiseNodes = { white: null, pink: null, brown: null }, noiseGains = {};
+        let tracks = []; 
+        let trackId = 0;
+        let state = { baseFreq:432, beatFreq:8, masterVol:0.6, wooferGain:0, noiseVol:{ white:0, pink:0, brown:0 } };
+
+        function initAudio() { 
+            if(ctx) return; 
+            const AudioContext = window.AudioContext||window.webkitAudioContext; 
+            ctx = new AudioContext(); 
+            
+            masterGain = ctx.createGain(); 
+            masterGain.gain.value = state.masterVol; 
+            
+            // Low-shelf filter for Whole-Body Vibration / Woofer effect (< 100Hz)
+            wooferFilter = ctx.createBiquadFilter(); 
+            wooferFilter.type = 'lowshelf'; 
+            wooferFilter.frequency.value = 100; 
+            wooferFilter.gain.value = state.wooferGain; 
+            
+            analyser = ctx.createAnalyser(); 
+            analyser.fftSize = 2048; 
+            
+            masterGain.connect(wooferFilter); 
+            wooferFilter.connect(analyser); 
+            analyser.connect(ctx.destination); 
+            
+            createNoise('white'); createNoise('pink'); createNoise('brown'); 
+            startVisualizer(); 
+        }
+
+        function createNoise(type) { 
+            if(!ctx) return; 
+            let buffer = ctx.createBuffer(1, ctx.sampleRate*2, ctx.sampleRate); 
+            let data = buffer.getChannelData(0); 
+            if(type==='white') {
+                for(let i=0;i<data.length;i++) data[i]=Math.random()*2-1;
+            } else if(type==='pink'){ 
+                let b=[0,0,0,0,0,0,0]; 
+                for(let i=0;i<data.length;i++){ 
+                    let w=Math.random()*2-1; 
+                    b[0]=0.99886*b[0]+w*0.0555179; b[1]=0.99332*b[1]+w*0.0750759; b[2]=0.96900*b[2]+w*0.1538520; b[3]=0.86650*b[3]+w*0.3104856; b[4]=0.55000*b[4]+w*0.5329522; b[5]=-0.7616*b[5]-w*0.0168980; 
+                    data[i]=b[0]+b[1]+b[2]+b[3]+b[4]+b[5]+b[6]+w*0.5362; data[i]*=0.11; b[6]=w*0.115926; 
+                } 
+            } else if(type==='brown'){ 
+                let last=0; 
+                for(let i=0;i<data.length;i++){ 
+                    let w=Math.random()*2-1; data[i]=(last+0.02*w)/1.02; last=data[i]; data[i]*=3.2; 
+                } 
+            }
+            noiseNodes[type]=ctx.createBufferSource(); 
+            noiseNodes[type].buffer=buffer; 
+            noiseNodes[type].loop=true; 
+            noiseGains[type]=ctx.createGain(); 
+            noiseGains[type].gain.value=state.noiseVol[type]; 
+            noiseNodes[type].connect(noiseGains[type]); 
+            noiseGains[type].connect(masterGain); 
+            noiseNodes[type].start(); 
+        }
+
+        function startMainTones(){ 
+            if(!ctx) initAudio(); 
+            if(oscLeft) oscLeft.stop(); 
+            oscLeft=ctx.createOscillator(); oscRight=ctx.createOscillator(); 
+            let pL=ctx.createStereoPanner?.(); pL.pan.value=-1; 
+            let pR=ctx.createStereoPanner?.(); pR.pan.value=1; 
+            oscLeft.connect(pL); pL.connect(masterGain); 
+            oscRight.connect(pR); pR.connect(masterGain); 
+            updateToneFreq(); 
+            oscLeft.start(); oscRight.start(); 
+        }
+
+        function stopMainTones(){ 
+            if(oscLeft) { oscLeft.stop(); oscLeft=null; } 
+            if(oscRight) { oscRight.stop(); oscRight=null; } 
+        }
+
+        function updateToneFreq(){ 
+            if(oscLeft && oscRight){ 
+                let left = state.baseFreq - (state.beatFreq/2); 
+                let right = state.baseFreq + (state.beatFreq/2); 
+                if(left<1) left=1; 
+                oscLeft.frequency.setTargetAtTime(left, ctx.currentTime, 0.05); 
+                oscRight.frequency.setTargetAtTime(right, ctx.currentTime, 0.05); 
+            } 
+            updateBrainwaveLabel(); 
+        }
+
+        function updateBrainwaveLabel(){ 
+            let f=state.beatFreq, txt="", color=""; 
+            if(f===0) { txt="PURE CARRIER (No Beat)"; color="text-slate-400 border-slate-500/40"; }
+            else if(f<4) { txt="DELTA (1-4Hz) - Deep Healing"; color="text-blue-400 border-blue-500/40"; }
+            else if(f<8) { txt="THETA (4-8Hz) - Meditation"; color="text-emerald-400 border-emerald-500/40"; }
+            else if(f<14) { txt="ALPHA (8-14Hz) - Relaxation"; color="text-violet-400 border-violet-500/40"; }
+            else if(f<30) { txt="BETA (14-30Hz) - Focus & Alert"; color="text-yellow-400 border-yellow-500/40"; }
+            else { txt="GAMMA (30+Hz) - Peak Cognition"; color="text-fuchsia-400 border-fuchsia-500/40"; }
+            let el = document.getElementById('brainwaveState');
+            el.innerHTML=txt; 
+            el.className = `mt-4 text-center p-3 bg-slate-900/80 rounded-xl text-sm font-bold border shadow-inner ${color}`;
+        }
+
+        // --- Multi Track Mixer ---
+        function addTrack(freq, vol=0.4){ 
+            if(!ctx) initAudio(); 
+            let id=trackId++; 
+            let gain=ctx.createGain(); gain.gain.value=vol; gain.connect(masterGain); 
+            let track={id,freq,vol,gain,osc:null}; tracks.push(track); 
+            renderTracks(); 
+            if(isPlaying){ 
+                track.osc=ctx.createOscillator(); track.osc.frequency.value=freq; 
+                track.osc.connect(gain); track.osc.start(); 
+            } 
+        }
+
+        function removeTrack(id){ 
+            let idx=tracks.findIndex(t=>t.id===id); 
+            if(idx>-1){ 
+                let t=tracks[idx]; 
+                if(t.osc){ t.osc.stop(); t.osc.disconnect(); } 
+                t.gain.disconnect(); tracks.splice(idx,1); 
+                renderTracks(); 
+            } 
+        }
+
+        function startTracks(){ tracks.forEach(t=>{ t.osc=ctx.createOscillator(); t.osc.frequency.value=t.freq; t.osc.connect(t.gain); t.osc.start(); }); }
+        function stopTracks(){ tracks.forEach(t=>{ if(t.osc){ t.osc.stop(); t.osc.disconnect(); t.osc=null; } }); }
+
+        function renderTracks(){ 
+            let container=document.getElementById('layersContainer'); 
+            if(tracks.length===0){ 
+                container.innerHTML='<p class="text-xs text-slate-500 text-center italic py-6">Overlay Solfeggio or Rife frequencies. Click \'Add Layer\'.</p>'; return; 
+            }
+            container.innerHTML=''; 
+            tracks.forEach((t,idx)=>{ 
+                let div=document.createElement('div'); 
+                div.className="bg-slate-900/70 p-4 rounded-xl border border-slate-700/50 flex flex-col gap-3"; 
+                div.innerHTML=`
+                    <div class="flex justify-between items-center">
+                        <span class="text-[10px] font-bold text-violet-300 uppercase tracking-wider bg-violet-900/30 px-2 py-0.5 rounded">Track ${idx+1}</span>
+                        <span class="text-sm font-mono text-fuchsia-300 font-bold tracking-wide">${t.freq} Hz</span>
+                        <button onclick="removeTrack(${t.id})" class="text-slate-500 hover:text-red-400 transition"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="activity" class="text-slate-500 w-4 h-4"></i>
+                        <input type="range" class="track-f-slider" min="20" max="1000" step="1" value="${t.freq}">
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="volume-2" class="text-slate-500 w-4 h-4"></i>
+                        <input type="range" class="track-v-slider" min="0" max="1" step="0.01" value="${t.vol}">
+                    </div>`;
+                let fSlide=div.querySelector('.track-f-slider'); 
+                let vSlide=div.querySelector('.track-v-slider');
+                fSlide.addEventListener('input',e=>{ 
+                    t.freq=parseFloat(e.target.value); 
+                    div.querySelector('.font-mono').innerText=t.freq+' Hz'; 
+                    if(t.osc) t.osc.frequency.setTargetAtTime(t.freq, ctx.currentTime,0.05); 
+                });
+                vSlide.addEventListener('input',e=>{ 
+                    t.vol=parseFloat(e.target.value); 
+                    t.gain.gain.setTargetAtTime(t.vol, ctx.currentTime,0.05); 
+                });
+                container.appendChild(div); 
+            }); 
+            lucide.createIcons(); 
+        }
+
+        // --- Controls ---
+        function togglePlay(){ 
+            if(!ctx) initAudio(); 
+            if(ctx.state==='suspended') ctx.resume(); 
+            isPlaying=!isPlaying; 
+            if(isPlaying){ 
+                startMainTones(); startTracks(); 
+                document.getElementById('playIcon').classList.add('hidden'); 
+                document.getElementById('pauseIcon').classList.remove('hidden'); 
+                document.getElementById('masterPlayBtn').classList.add('active-btn');
+            } else { 
+                stopMainTones(); stopTracks(); 
+                document.getElementById('playIcon').classList.remove('hidden'); 
+                document.getElementById('pauseIcon').classList.add('hidden'); 
+                document.getElementById('masterPlayBtn').classList.remove('active-btn');
+            } 
+        }
+
+        window.applyPreset = function(carrier, beat, woofer, noiseType, noiseVol, addLayers=[]){
+            // Set Base & Beat
+            document.getElementById('baseFreq').value = carrier; state.baseFreq = carrier; 
+            document.getElementById('baseFreqVal').innerText = carrier+' Hz';
+            document.getElementById('beatFreq').value = beat; state.beatFreq = beat; 
+            document.getElementById('beatFreqVal').innerText = beat+' Hz';
+            updateToneFreq(); 
+            
+            // Set Woofer
+            state.wooferGain = woofer;
+            document.getElementById('wooferLevel').value = woofer; 
+            document.getElementById('wooferVal').innerText = Math.round((woofer/20)*100)+'%';
+            if(wooferFilter) wooferFilter.gain.setTargetAtTime(woofer, ctx?ctx.currentTime:0, 0.1);
+            
+            // Set Noises
+            ['brown','pink','white'].forEach(t=>{ 
+                let val = (t===noiseType) ? noiseVol : 0; 
+                document.querySelector(`.noise-slider[data-type="${t}"]`).value = val; 
+                state.noiseVol[t]=val; 
+                if(noiseGains[t] && ctx) noiseGains[t].gain.setTargetAtTime(val, ctx.currentTime, 0.05); 
+            });
+            
+            // Reset and add specific tracks
+            tracks.forEach(t=>{ if(t.osc) t.osc.stop(); t.gain.disconnect(); }); 
+            tracks = [];
+            addLayers.forEach(f => addTrack(f, 0.4));
+            
+            // Ensure audio plays
+            if(!isPlaying) togglePlay();
+            
+            // Scroll user up to visualize
+            window.scrollTo({ top: document.getElementById('visualizer').offsetTop - 100, behavior: 'smooth' });
+        };
+
+        // --- Bind Events ---
+        document.getElementById('masterPlayBtn').addEventListener('click', togglePlay);
+        
+        document.getElementById('masterVolume').addEventListener('input',e=>{ 
+            state.masterVol=parseFloat(e.target.value); 
+            if(masterGain) masterGain.gain.setTargetAtTime(state.masterVol, ctx.currentTime,0.05);
+        });
+        
+        document.getElementById('wooferLevel').addEventListener('input',e=>{ 
+            state.wooferGain=parseFloat(e.target.value); 
+            document.getElementById('wooferVal').innerText=Math.round(state.wooferGain/20*100)+'%'; 
+            if(wooferFilter) wooferFilter.gain.setTargetAtTime(state.wooferGain, ctx.currentTime,0.05);
+        });
+        
+        document.getElementById('baseFreq').addEventListener('input',e=>{ 
+            state.baseFreq=parseFloat(e.target.value); 
+            document.getElementById('baseFreqVal').innerText=state.baseFreq.toFixed(1)+' Hz'; updateToneFreq();
+        });
+        
+        document.getElementById('beatFreq').addEventListener('input',e=>{ 
+            state.beatFreq=parseFloat(e.target.value); 
+            document.getElementById('beatFreqVal').innerText=state.beatFreq.toFixed(1)+' Hz'; updateToneFreq();
+        });
+        
+        document.getElementById('addLayerBtn').addEventListener('click',()=> addTrack(528,0.4));
+        
+        document.querySelectorAll('.noise-slider').forEach(sl=>sl.addEventListener('input',e=>{ 
+            let t=e.target.dataset.type; let v=parseFloat(e.target.value); state.noiseVol[t]=v; 
+            if(noiseGains[t] && ctx) noiseGains[t].gain.setTargetAtTime(v, ctx.currentTime,0.05); 
+        }));
+
+        // --- Alarm ---
+        document.getElementById('setAlarmBtn').addEventListener('click',()=>{ 
+            let time=document.getElementById('alarmTime').value; 
+            if(!time) return; 
+            let now=new Date(); let [h,m]=time.split(':'); 
+            let alarm=new Date(now.getFullYear(),now.getMonth(),now.getDate(),h,m); 
+            if(alarm<=now) alarm.setDate(alarm.getDate()+1); 
+            
+            setTimeout(()=>{ 
+                if(!isPlaying) togglePlay(); 
+                if(masterGain && ctx) {
+                    masterGain.gain.setValueAtTime(0,ctx.currentTime); 
+                    masterGain.gain.linearRampToValueAtTime(state.masterVol, ctx.currentTime+10); 
+                }
+            }, alarm.getTime()-now.getTime()); 
+            
+            let btn = document.getElementById('setAlarmBtn');
+            btn.innerText = `Active for ${alarm.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+            btn.classList.replace('bg-gradient-to-r', 'bg-green-600');
+            setTimeout(()=> toggleModal('alarmModal'), 2000); 
+        });
+
+        // --- Visualizer (First Design Violet/Fuchsia Glow) ---
+        function startVisualizer(){ 
+            let canvas=document.getElementById('visualizer'), ctxC=canvas.getContext('2d'); 
+            function draw(){ 
+                requestAnimationFrame(draw); 
+                let w=canvas.width=canvas.offsetWidth, h=canvas.height=canvas.offsetHeight; 
+                ctxC.clearRect(0,0,w,h); 
+                
+                // Subtle Grid background
+                ctxC.strokeStyle = 'rgba(255, 255, 255, 0.02)';
+                ctxC.lineWidth = 1;
+                ctxC.beginPath();
+                for(let i=0; i<w; i+=30) { ctxC.moveTo(i, 0); ctxC.lineTo(i, h); }
+                for(let i=0; i<h; i+=30) { ctxC.moveTo(0, i); ctxC.lineTo(w, i); }
+                ctxC.stroke();
+
+                if(!analyser||!isPlaying){ 
+                    ctxC.strokeStyle='#334155'; ctxC.beginPath(); ctxC.moveTo(0,h/2); ctxC.lineTo(w,h/2); ctxC.stroke(); return; 
+                } 
+                
+                let data=new Uint8Array(analyser.frequencyBinCount); 
+                analyser.getByteTimeDomainData(data); 
+                
+                ctxC.lineWidth=3; 
+                // Neon Gradient Line
+                let grad = ctxC.createLinearGradient(0,0,w,0);
+                grad.addColorStop(0, '#8b5cf6'); // Violet
+                grad.addColorStop(0.5, '#ec4899'); // Pink
+                grad.addColorStop(1, '#8b5cf6'); // Violet
+                ctxC.strokeStyle = grad;
+                
+                ctxC.beginPath(); 
+                let slice=w/data.length; 
+                let x=0; 
+                for(let i=0;i<data.length;i++){ 
+                    let y=(data[i]/128.0)*h/2; 
+                    if(i===0) ctxC.moveTo(x,y); else ctxC.lineTo(x,y); 
+                    x+=slice; 
+                } 
+                ctxC.lineTo(w, h/2);
+                ctxC.stroke(); 
+            } 
+            draw(); 
+        }
+
+        // --- DeepSeek Chat (User provided logic) ---
+        const API_KEY = "sk-887e2e98f5be4b5fbc84f7300bd53b6a";
+        let chatMessages = document.getElementById('chatMessages');
+        async function sendChat(msg){ 
+            if(!msg.trim()) return; 
+            addMessage('user', msg); 
+            document.getElementById('chatInput').value=''; 
+            addTyping(); 
+            try{ 
+                let res = await fetch('https://api.deepseek.com/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${API_KEY}`},body:JSON.stringify({model:'deepseek-chat',messages:[{role:'system',content:`You are OmniFreq AI expert in Rife frequencies, solfeggio, sound healing, pleomorphism and water imprinting. Answer based on Rife Handbook, CAFL.`},{role:'user',content:msg}]})}); 
+                let data=await res.json(); 
+                removeTyping(); 
+                let reply=data.choices[0].message.content; 
+                addMessage('ai', reply); 
+                // Simple parser for suggested frequencies in chat
+                if(reply.includes('Hz')){ 
+                    let btn=document.createElement('button'); 
+                    btn.innerText='✨ Apply Suggested Frequency'; 
+                    btn.className='apply-suggestion-btn mt-2'; 
+                    btn.onclick=()=>{ 
+                        let match=reply.match(/(\d{2,4})\s*Hz/); 
+                        if(match) applyPreset(parseInt(match[1]),8,0,'brown',0.2,[]); 
+                    }; 
+                    document.querySelector('.msg-ai:last-child').appendChild(btn); 
+                } 
+            }catch(e){ 
+                removeTyping(); addMessage('ai','Error connecting to AI. Please try again later.'); 
+            } 
+        }
+        function addMessage(role,text){ let div=document.createElement('div'); div.className=`msg-bubble ${role==='user'?'msg-user':'msg-ai'}`; div.innerText=text; chatMessages.appendChild(div); chatMessages.scrollTop=chatMessages.scrollHeight; }
+        function addTyping(){ let div=document.createElement('div'); div.id='typing'; div.className='typing-indicator'; div.innerHTML='<span></span><span></span><span></span>'; chatMessages.appendChild(div); }
+        function removeTyping(){ let el=document.getElementById('typing'); if(el) el.remove(); }
+        document.getElementById('chatSendBtn').onclick=()=>sendChat(document.getElementById('chatInput').value);
+        document.querySelectorAll('.chat-chip').forEach(chip=>chip.addEventListener('click',()=>sendChat(chip.dataset.prompt)));
+        document.getElementById('chatFloatingBtn').onclick=()=>document.getElementById('chatPanel').classList.toggle('open');
+        document.getElementById('chatCloseBtn').onclick=()=>document.getElementById('chatPanel').classList.remove('open');
+        
+        // Final Boot
+        lucide.createIcons();
+        updateBrainwaveLabel();
+        initAudio(); // Optional: pre-init (often blocked until first interaction by browsers)
+    </script>
+</body>
+</html>
