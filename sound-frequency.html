@@ -821,7 +821,5 @@
         chatChipsEl.addEventListener('click', e => { const chip = e.target.closest('.chat-chip'); if(chip && !isAiThinking) { if(!isChatOpen) openChat(); sendMessage(chip.dataset.prompt); } });
         (function initDeepSeek() { chatBadgeDot.style.display = 'block'; logBehavior('session_init', { userAgent: navigator.userAgent.substring(0,80) }); })();
     </script>
-    <!-- Tawk.to Script -->
-    <script type="text/javascript">var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src='https://embed.tawk.to/6993fa897941b81c35293c7a/default';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();</script>
-</body>
+    </body>
 </html>
