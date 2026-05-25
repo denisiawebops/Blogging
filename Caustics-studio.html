@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FWP9BLNZK6');
+    </script>
+
+    <!-- Google Site Verification & Bing -->
+    <meta name="google-site-verification" content="82U62k4jtMBmS52po-sbJ12znmacAgq0Rg4NvMZLXMY">
+    <meta name="msvalidate.01" content="8250834873D72FFE4BABCD1B2C7B3173">
+
+    <!-- Clarity tracking -->
+    <script>
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vimok6xi57");
+    </script>
+
+    <!-- Canonical, SEO & AEO -->
+    <link rel="canonical" href="https://www.denisiawebops.org/caustics-studio.html">
+    <title>Caustics Studio – Interactive Light & Glass Simulator | Denisia Webops</title>
+    <meta name="description" content="Real‑time caustic light simulation with WebGL. Create ripples, tumbler glass effects, AR camera blending, and export HD snapshots. Free interactive tool.">
+    <meta name="keywords" content="caustics generator, webgl light simulation, interactive glass art, realtime caustics, procedural caustic pattern, light refraction simulator, online caustic editor, photorealistic glass, Denisia Webops">
+    <meta name="author" content="Denisia Webops Agency">
+    <meta name="robots" content="index, follow">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body, html { margin: 0; padding: 0; width: 100%; overflow-x: hidden; background: #000; }
+        .nav-link { color: #cbd5e1; font-weight: 500; transition: color 0.2s; }
+        .nav-link:hover, .nav-link.active { color: #a855f7; }
+        .burger-icon { color: #cbd5e1; background: #1e293b; padding: 8px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .burger-icon:hover { background: #334155; }
+        
+        /* Fixed App Wrapper */
+        #caustics-app-wrapper {
+            position: relative;
+            width: 100%;
+            height: 75vh;
+            min-height: 600px;
+            overflow: hidden;
+            background: #000;
+            touch-action: none; /* Crucial: Prevents page scroll when interacting with canvas */
+            border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+            border-top: 1px solid rgba(139, 92, 246, 0.3);
+        }
+        
+        #caustics-app-wrapper video, #caustics-app-wrapper canvas {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;
+        }
+        #caustics-app-wrapper canvas { z-index: 2; }
+        #caustics-app-wrapper .glass-panel { background: rgba(15, 15, 15, 0.65); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); }
+        #caustics-app-wrapper .preset-btn { transition: transform 0.2s, box-shadow 0.2s; border: 2px solid transparent; }
+        #caustics-app-wrapper .preset-btn:active { transform: scale(0.9); }
+        #caustics-app-wrapper .preset-btn.active { border-color: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(255,255,255,0.3); }
+        #caustics-app-wrapper .mode-tab { transition: all 0.3s ease; }
+        #caustics-app-wrapper .mode-tab.active { background: rgba(255,255,255,0.2); font-weight: bold; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+    </style>
+</head>
+<body class="bg-black flex flex-col min-h-screen">
+
+    <!-- Denisia Webops Navbar -->
+    <nav class="fixed w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-violet-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center">
+                    <div class="bg-gradient-to-br from-violet-600 to-fuchsia-600 p-2 rounded-lg"><i data-lucide="zap" class="h-6 w-6 text-white"></i></div>
+                    <span class="ml-3 text-xl font-bold text-white">Denisia Webops</span>
+                </a>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="nav-link text-sm">Home</a>
+                        <a href="projects.html" class="nav-link text-sm">Projects</a>
+                        <a href="blogs.html" class="nav-link text-sm">Blog</a>
+                        <a href="reviews.html" class="nav-link text-sm">Reviews</a>
+                        <a href="ai.html" class="nav-link text-sm">AI Models</a>
+                        <a href="why-ai-seo.html" class="nav-link text-sm">Why AI SEO</a>
+                        <a href="livecodepreview.html" class="nav-link text-sm">Code Preview</a>
+                        <a href="caustics-studio.html" class="text-violet-400 font-bold border-b-2 border-violet-400 pb-1">Caustics Studio</a>
+                        <a href="contact.html" class="bg-blue-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition shadow-sm text-sm">Get in Touch</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="burger-icon"><i id="mobile-menu-icon" data-lucide="menu" class="h-6 w-6"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-t border-slate-800 absolute w-full z-40">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base text-gray-300">Home</a>
+                <a href="caustics-studio.html" class="block px-3 py-2 rounded-md text-base font-bold text-violet-400">Caustics Studio</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base text-gray-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative bg-gradient-to-r from-slate-950 via-purple-950 to-black pt-28 pb-6">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="inline-flex items-center gap-2 bg-violet-900/30 border border-violet-500/30 rounded-full px-4 py-2 text-violet-200 text-sm mb-4"><i data-lucide="sparkles"></i> Real‑time WebGL Simulation</div>
+            <h1 class="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Caustics Studio</h1>
+            <p class="text-slate-400 max-w-2xl mx-auto mt-4">Interactive light refraction & glass simulation. Ripples, tumbler glass, and AR camera blending.</p>
+        </div>
+    </div>
+
+    <!-- Caustics App Container -->
+    <div id="caustics-app-wrapper">
+        <video id="cameraFeed" autoplay playsinline muted></video>
+        <canvas id="glcanvas"></canvas>
+
+        <!-- FIX: Changed from fixed to absolute so it stays in the wrapper -->
+        <div id="hint" class="absolute inset-x-0 top-1/4 flex items-center justify-center pointer-events-none z-10 transition-opacity duration-1000">
+            <div id="hintText" class="bg-black/50 text-white px-6 py-3 rounded-full backdrop-blur-md border border-white/20 tracking-widest text-sm uppercase shadow-2xl">
+                Tap & Drag to interact
+            </div>
+        </div>
+
+        <!-- FIX: Changed from fixed to absolute -->
+        <div id="uiContainer" class="absolute bottom-0 left-0 right-0 p-4 z-20 flex flex-col items-center pointer-events-none transition-transform duration-500 ease-in-out" style="transform: translateY(0);">
+            
+            <button onclick="togglePanel()" class="mb-3 bg-black/50 hover:bg-black/70 backdrop-blur-xl rounded-full p-2 pointer-events-auto border border-white/20 text-white shadow-2xl transition-colors">
+                <svg id="toggleIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+            
+            <div class="w-full max-w-sm glass-panel rounded-3xl p-5 shadow-2xl pointer-events-auto flex flex-col gap-4">
+                <div class="flex bg-white/5 rounded-xl p-1 border border-white/10">
+                    <button onclick="setMode(0)" id="mode0" class="mode-tab active flex-1 py-1.5 text-xs text-white uppercase tracking-wider rounded-lg">Studio</button>
+                    <button onclick="setMode(1)" id="mode1" class="mode-tab flex-1 py-1.5 text-xs text-white uppercase tracking-wider rounded-lg">Tumbler</button>
+                    <button onclick="setMode(2)" id="mode2" class="mode-tab flex-1 py-1.5 text-xs text-white uppercase tracking-wider rounded-lg flex items-center justify-center gap-1">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                        AR Cam
+                    </button>
+                </div>
+
+                <div class="flex justify-between items-center mt-1">
+                    <h1 class="text-white font-semibold text-lg tracking-wide">Caustic Editor</h1>
+                    <div class="flex gap-2" id="presetContainer"></div>
+                </div>
+
+                <div class="flex justify-between items-center bg-black/30 rounded-2xl p-3 border border-white/5" id="colorPanel">
+                    <div class="flex items-center gap-3">
+                        <input type="color" id="colorBase" value="#999999">
+                        <span class="text-xs text-white/70 uppercase tracking-wider font-medium">Floor</span>
+                    </div>
+                    <div class="w-px h-8 bg-white/10"></div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs text-white/70 uppercase tracking-wider font-medium">Light</span>
+                        <input type="color" id="colorLight" value="#ffffff">
+                    </div>
+                </div>
+
+                <div id="surfacePanel" class="hidden justify-between items-center bg-white/5 rounded-xl p-1 border border-white/10">
+                    <button onclick="setSurface(0)" id="surf0" class="surface-tab active flex-1 py-1.5 text-xs text-white uppercase tracking-wider rounded-lg bg-white/20 shadow font-bold">Paper</button>
+                    <button onclick="setSurface(1)" id="surf1" class="surface-tab flex-1 py-1.5 text-xs text-white uppercase tracking-wider rounded-lg">Wood</button>
+                    <button onclick="setSurface(2)" id="surf2" class="surface-tab flex-1 py-1.5 text-xs text-white uppercase tracking-wider rounded-lg">Marble</button>
+                </div>
+
+                <div class="flex flex-col gap-4 mt-1">
+                    <div class="flex flex-col gap-2">
+                        <div class="flex justify-between"><span class="text-xs text-white/70 uppercase tracking-wider font-medium">Scale & Zoom</span></div>
+                        <input type="range" id="zoom" min="0.5" max="5.0" step="0.1" value="3.0">
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <div class="flex justify-between"><span class="text-xs text-white/70 uppercase tracking-wider font-medium">Fluidity Speed</span></div>
+                        <input type="range" id="speed" min="0.0" max="1.5" step="0.05" value="0.3">
+                    </div>
+                </div>
+
+                <button onclick="saveHighRes()" class="w-full mt-2 bg-white text-black py-3 rounded-xl font-bold tracking-wide shadow-lg active:scale-[0.98] transition-transform flex items-center justify-center gap-2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Export HD Snapshot
+                </button>
+            </div>
+        </div>
+
+        <!-- WebGL Shaders -->
+        <script id="vertexShader" type="x-shader/x-vertex">
+            attribute vec2 a_position; void main() { gl_Position = vec4(a_position, 0.0, 1.0); }
+        </script>
+
+        <script id="fragmentShader" type="x-shader/x-fragment">
+            #ifdef GL_FRAGMENT_PRECISION_HIGH
+                precision highp float;
+            #else
+                precision mediump float;
+            #endif
+
+            uniform vec2 u_resolution; uniform float u_time; uniform vec2 u_mouse; uniform float u_isMouseDown;
+            uniform vec3 u_colorBase; uniform vec3 u_colorLight; uniform float u_zoom; uniform float u_speed;
+            uniform float u_mode; uniform float u_isAR; uniform float u_surfaceType; 
+            uniform vec2 u_tilt; uniform float u_shake; uniform vec3 u_ripples[10]; 
+
+            float caustic(vec2 uv, float time) {
+                float complexity = 5.0;
+                vec2 p = mod(uv * 6.28318530718, 6.28318530718) - 250.0;
+                float time2 = time * u_speed; vec2 i = vec2(p); float c = 1.0; float inten = 0.005;
+                for (int n = 0; n < 5; n++) {
+                    float t = time2 * (1.0 - (3.5 / float(n+1)));
+                    i = p + vec2(cos(t - i.x) + sin(t + i.y), sin(t - i.y) + cos(t + i.x));
+                    c += 1.0/length(vec2(p.x / (sin(i.x+t)/inten), p.y / (cos(i.y+t)/inten)));
+                }
+                c /= complexity; c = 1.17 - pow(c, 1.4); return pow(max(c, 0.0), 8.0);
+            }
+
+            float hash(vec2 p) { return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453); }
+            float smoothNoise(vec2 uv) {
+                vec2 id = floor(uv); vec2 lv = fract(uv); lv = lv * lv * (3.0 - 2.0 * lv);
+                float bl = hash(id), br = hash(id + vec2(1.0, 0.0)); float b = mix(bl, br, lv.x);
+                float tl = hash(id + vec2(0.0, 1.0)), tr = hash(id + vec2(1.0, 1.0)); float t = mix(tl, tr, lv.x);
+                return mix(b, t, lv.y);
+            }
+
+            void main() {
+                vec2 p = gl_FragCoord.xy / u_resolution.xy;
+                vec2 aspect = vec2(u_resolution.x / u_resolution.y, 1.0);
+                vec2 uv = (p - 0.5) * aspect;
+
+                vec2 distortion = vec2(0.0);
+                vec2 centerMouse = (u_mouse / u_resolution.xy - 0.5) * aspect;
+                if (length(u_mouse) < 1.0) centerMouse = vec2(0.0, 0.0);
+
+                float glassMask = 0.0; float shadowMask = 0.0; vec3 bgColor = u_colorBase;
+
+                if (u_mode == 1.0) {
+                    if (u_surfaceType == 0.0) {
+                        float n = hash(uv * 300.0); bgColor = mix(vec3(0.92, 0.92, 0.88), vec3(1.0, 0.98, 0.95), n);
+                    } else if (u_surfaceType == 1.0) {
+                        vec2 wuv = uv * vec2(25.0, 2.0); float n = smoothNoise(wuv + smoothNoise(wuv)*2.0);
+                        bgColor = mix(vec3(0.12, 0.05, 0.02), vec3(0.25, 0.12, 0.04), smoothstep(0.2, 0.8, n));
+                    } else if (u_surfaceType == 2.0) {
+                        vec2 muv = uv * 4.0; float n = smoothNoise(muv); n += smoothNoise(muv * 2.0) * 0.5;
+                        n = abs(sin(muv.x * 2.0 + muv.y * 2.0 + n * 4.0)); bgColor = mix(vec3(0.04, 0.05, 0.06), vec3(0.18, 0.20, 0.22), n);
+                    }
+                    
+                    vec2 tc = uv - centerMouse; tc -= u_tilt * 0.1;
+                    float radius = 0.15; float dGlass = length(tc) - radius;
+                    vec2 shadowVec = vec2(-0.4, 0.8) + u_tilt * 0.7;
+                    vec2 lineProj = tc - shadowVec * clamp(dot(tc, shadowVec) / dot(shadowVec, shadowVec), 0.0, 1.5);
+                    float dShadow = length(lineProj) - radius * (1.0 - tc.y * 0.3);
+                    if (dGlass < 0.0) {
+                        glassMask = 1.0;
+                        float slosh = sin(u_time * 25.0 + tc.x * 35.0) * u_shake * 0.15;
+                        distortion += vec2(sin(tc.x * 120.0)*0.01 + slosh, cos(tc.y * 120.0)*0.01 + slosh);
+                        distortion += normalize(tc) * 0.1 * (1.0 - length(tc)/radius);
+                    } else if (dShadow < 0.0 && tc.y < 0.0) {
+                        shadowMask = 1.0; distortion -= normalize(tc) * 0.05;
+                    }
+                    float focusBeam = smoothstep(0.0, 0.05, -dShadow) * smoothstep(0.05, 0.0, dGlass);
+                    bgColor *= mix(0.1, 0.8, focusBeam);
+                    if (glassMask > 0.5) bgColor = mix(bgColor, vec3(0.0, 0.05, 0.1), 0.5);
+                    if (shadowMask > 0.5) bgColor *= 0.4;
+                } else {
+                    for(int i = 0; i < 10; i++) {
+                        float age = u_ripples[i].z;
+                        if(age >= 0.0 && age < 3.0) { 
+                            vec2 rp = (u_ripples[i].xy / u_resolution.xy - 0.5) * aspect; float dist = length(uv - rp);
+                            float wave = sin(dist * 50.0 - age * 20.0); float env = max(0.0, 1.0 - age / 3.0); 
+                            float influence = exp(-dist * 12.0); 
+                            if (dist > 0.0) distortion += normalize(uv - rp) * wave * env * influence * 0.04;
+                        }
+                    }
+                    if (u_isMouseDown > 0.5) {
+                        float dist = length(uv - centerMouse); float radius = 0.2;
+                        if (dist < radius) {
+                            float z = sqrt(radius*radius - dist*dist); vec3 normal = normalize(vec3(uv.x - centerMouse.x, uv.y - centerMouse.y, z));
+                            distortion -= normal.xy * 0.08 * (1.0 - dist/radius);
+                        }
+                    }
+                }
+
+                vec2 displacedUV = uv + distortion;
+                float cR = caustic((displacedUV + distortion * 1.05) * u_zoom, u_time);
+                float cG = caustic(displacedUV * u_zoom, u_time);
+                float cB = caustic((displacedUV - distortion * 1.05) * u_zoom, u_time);
+                vec3 causticIntensity = vec3(cR, cG, cB);
+                
+                if (u_mode == 1.0) {
+                    float causticMask = smoothstep(0.05, 0.0, length(uv - centerMouse) - 0.15) * 1.5;
+                    causticMask += shadowMask * 2.5; causticMask += 0.1; causticIntensity *= causticMask;
+                    float rim = smoothstep(0.01, 0.0, abs(length(uv - centerMouse) - 0.15)); causticIntensity += vec3(rim) * 2.0;
+                } else {
+                    causticIntensity *= 1.2;
+                }
+
+                vec3 causticLight = u_colorLight * causticIntensity; vec3 finalColor;
+                
+                if (u_isAR > 0.5) {
+                    finalColor = causticLight;
+                } else {
+                    finalColor = bgColor + causticLight; finalColor = 1.0 - exp(-finalColor * 1.1);
+                    float vignette = 1.0 - smoothstep(0.4, 1.5, length(uv)); finalColor *= mix(0.6, 1.0, vignette);
+                }
+                gl_FragColor = vec4(finalColor, 1.0);
+            }
+        </script>
+
+        <script>
+            // --- WebGL Setup ---
+            const canvas = document.getElementById('glcanvas');
+            const gl = canvas.getContext('webgl', { preserveDrawingBuffer: true, alpha: true });
+            if (!gl) alert('Your browser does not support WebGL.');
+
+            function compileShader(gl, type, sourceId) {
+                const source = document.getElementById(sourceId).text; const shader = gl.createShader(type);
+                gl.shaderSource(shader, source); gl.compileShader(shader);
+                if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) return null;
+                return shader;
+            }
+
+            const program = gl.createProgram();
+            gl.attachShader(program, compileShader(gl, gl.VERTEX_SHADER, 'vertexShader'));
+            gl.attachShader(program, compileShader(gl, gl.FRAGMENT_SHADER, 'fragmentShader'));
+            gl.linkProgram(program); gl.useProgram(program);
+
+            const vertices = new Float32Array([-1, -1,  1, -1,  -1, 1,  1, 1]);
+            const vertexBuffer = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
+            gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
+
+            const positionLocation = gl.getAttribLocation(program, "a_position");
+            gl.enableVertexAttribArray(positionLocation); gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+
+            const uniforms = {
+                u_resolution: gl.getUniformLocation(program, "u_resolution"), u_time: gl.getUniformLocation(program, "u_time"),
+                u_mouse: gl.getUniformLocation(program, "u_mouse"), u_isMouseDown: gl.getUniformLocation(program, "u_isMouseDown"),
+                u_colorBase: gl.getUniformLocation(program, "u_colorBase"), u_colorLight: gl.getUniformLocation(program, "u_colorLight"),
+                u_zoom: gl.getUniformLocation(program, "u_zoom"), u_speed: gl.getUniformLocation(program, "u_speed"),
+                u_ripples: gl.getUniformLocation(program, "u_ripples"), u_mode: gl.getUniformLocation(program, "u_mode"),
+                u_isAR: gl.getUniformLocation(program, "u_isAR"), u_surfaceType: gl.getUniformLocation(program, "u_surfaceType"),
+                u_tilt: gl.getUniformLocation(program, "u_tilt"), u_shake: gl.getUniformLocation(program, "u_shake")
+            };
+
+            const wrapper = document.getElementById('caustics-app-wrapper');
+
+            function resize() {
+                const pixelRatio = window.devicePixelRatio || 1;
+                // FIX: Use wrapper dimensions instead of window dimensions
+                const rect = wrapper.getBoundingClientRect();
+                canvas.width = rect.width * pixelRatio; canvas.height = rect.height * pixelRatio;
+                canvas.style.width = rect.width + 'px'; canvas.style.height = rect.height + 'px';
+                gl.viewport(0, 0, canvas.width, canvas.height); gl.uniform2f(uniforms.u_resolution, canvas.width, canvas.height);
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            // --- Input & Interaction ---
+            const maxRipples = 10; const ripplesData = new Float32Array(maxRipples * 3).fill(-1.0);
+            let currentRippleIdx = 0, isDown = false, mouseX = 0, mouseY = 0, lastRx = -999, lastRy = -999;
+            let currentAppMode = 0; let targetTiltX = 0, targetTiltY = 0, currentTiltX = 0, currentTiltY = 0, shakeIntensity = 0;
+
+            function showHint(text) {
+                const hint = document.getElementById('hint'); document.getElementById('hintText').innerText = text;
+                hint.style.opacity = '1'; setTimeout(() => hint.style.opacity = '0', 2500);
+            }
+
+            function addRipple(x, y) {
+                if(currentAppMode === 1) return;
+                const idx = (currentRippleIdx % maxRipples) * 3;
+                ripplesData[idx] = x; ripplesData[idx+1] = y; ripplesData[idx+2] = 0.0;
+                currentRippleIdx++;
+            }
+
+            // FIX: Correct Coordinate Calculation relative to the embedded Wrapper
+            function updatePointer(e) {
+                const rect = wrapper.getBoundingClientRect();
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                
+                mouseX = (clientX - rect.left) * (window.devicePixelRatio || 1);
+                mouseY = (rect.height - (clientY - rect.top)) * (window.devicePixelRatio || 1); // Flip Y correctly within wrapper
+                
+                gl.uniform2f(uniforms.u_mouse, mouseX, mouseY);
+                return {x: mouseX, y: mouseY};
+            }
+
+            canvas.addEventListener('mousedown', (e) => { isDown = true; updatePointer(e); gl.uniform1f(uniforms.u_isMouseDown, 1.0); addRipple(mouseX, mouseY); lastRx = mouseX; lastRy = mouseY; document.getElementById('hint').style.opacity = '0'; });
+            canvas.addEventListener('mousemove', (e) => { 
+                if(!isDown) return; const p = updatePointer(e); 
+                if(Math.hypot(p.x-lastRx, p.y-lastRy) > 40 * window.devicePixelRatio) { addRipple(p.x, p.y); lastRx = p.x; lastRy = p.y; }
+            });
+            window.addEventListener('mouseup', () => { isDown = false; gl.uniform1f(uniforms.u_isMouseDown, 0.0); });
+            
+            canvas.addEventListener('touchstart', (e) => { isDown = true; updatePointer(e); gl.uniform1f(uniforms.u_isMouseDown, 1.0); addRipple(mouseX, mouseY); lastRx = mouseX; lastRy = mouseY; document.getElementById('hint').style.opacity = '0'; }, {passive: false});
+            canvas.addEventListener('touchmove', (e) => { if(!isDown) return; const p = updatePointer(e); if(Math.hypot(p.x-lastRx, p.y-lastRy) > 40 * window.devicePixelRatio) { addRipple(p.x, p.y); lastRx = p.x; lastRy = p.y; } }, {passive: false});
+            window.addEventListener('touchend', () => { isDown = false; gl.uniform1f(uniforms.u_isMouseDown, 0.0); });
+
+            let videoStream = null; let isSensorsActive = false;
+            
+            async function setMode(modeIndex) {
+                currentAppMode = modeIndex;
+                document.getElementById('colorPanel').style.display = 'flex';
+                document.getElementById('surfacePanel').style.display = modeIndex === 1 ? 'flex' : 'none';
+                if (modeIndex === 1) document.getElementById('surfacePanel').classList.remove('hidden');
+
+                if (modeIndex === 1 && !isSensorsActive) {
+                    if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+                        try { const state = await DeviceOrientationEvent.requestPermission(); if (state === 'granted') attachSensors(); } catch (e) { }
+                    } else attachSensors();
+                }
+                
+                document.querySelectorAll('.mode-tab').forEach((el, idx) => {
+                    el.classList.toggle('active', idx === modeIndex); el.classList.toggle('bg-white/20', idx === modeIndex); el.classList.toggle('shadow', idx === modeIndex);
+                });
+
+                if (modeIndex === 2) {
+                    try {
+                        videoStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+                        const videoEl = document.getElementById('cameraFeed'); videoEl.srcObject = videoStream; videoEl.style.display = 'block';
+                        canvas.style.mixBlendMode = 'screen'; gl.uniform1f(uniforms.u_isAR, 1.0); gl.uniform1f(uniforms.u_mode, 0.0); showHint("Point camera at a dark surface");
+                    } catch (err) { alert("Camera access denied. Reverting to Studio mode."); setMode(0); }
+                } else {
+                    if (videoStream) { videoStream.getTracks().forEach(t => t.stop()); videoStream = null; document.getElementById('cameraFeed').style.display = 'none'; }
+                    canvas.style.mixBlendMode = 'normal'; gl.uniform1f(uniforms.u_isAR, 0.0); gl.uniform1f(uniforms.u_mode, modeIndex === 1 ? 1.0 : 0.0);
+                    if (modeIndex === 1) showHint("Drag to move Tumbler"); else showHint("Tap & Drag to create waves");
+                }
+            }
+            
+            function attachSensors() {
+                if (isSensorsActive) return; isSensorsActive = true;
+                window.addEventListener('deviceorientation', e => {
+                    let g = e.gamma || 0; let b = e.beta || 0; let ori = window.orientation || 0;
+                    if (ori === 90) { g = e.beta; b = -e.gamma; } else if (ori === -90) { g = -e.beta; b = e.gamma; }
+                    targetTiltX = Math.max(-45, Math.min(45, g)) / 45.0; targetTiltY = Math.max(-45, Math.min(45, b - 45)) / 45.0;
+                });
+                window.addEventListener('devicemotion', e => {
+                    if (e.acceleration) {
+                        let acc = Math.abs(e.acceleration.x || 0) + Math.abs(e.acceleration.y || 0) + Math.abs(e.acceleration.z || 0);
+                        shakeIntensity = Math.min(1.0, shakeIntensity + acc * 0.05);
+                    }
+                });
+            }
+            
+            function setSurface(idx) {
+                gl.uniform1f(uniforms.u_surfaceType, idx);
+                document.querySelectorAll('.surface-tab').forEach((el, i) => {
+                    el.classList.toggle('active', i === idx); el.classList.toggle('bg-white/20', i === idx); el.classList.toggle('shadow', i === idx); el.classList.toggle('font-bold', i === idx);
+                });
+            }
+
+            const hexToRGB = h => [parseInt(h.slice(1,3),16)/255, parseInt(h.slice(3,5),16)/255, parseInt(h.slice(5,7),16)/255];
+            const bindIn = (id, key, isColor=false) => document.getElementById(id).addEventListener('input', e => {
+                isColor ? gl.uniform3fv(uniforms[key], hexToRGB(e.target.value)) : gl.uniform1f(uniforms[key], parseFloat(e.target.value));
+            });
+            bindIn('zoom', 'u_zoom'); bindIn('speed', 'u_speed'); bindIn('colorBase', 'u_colorBase', true); bindIn('colorLight', 'u_colorLight', true);
+
+            const presets = {
+                daylight: { name: 'Daylight', base: '#999999', light: '#ffffff', zoom: 3.0, speed: 0.3, color: 'bg-gray-300' },
+                ocean: { name: 'Ocean', base: '#03254c', light: '#4fd2f7', zoom: 2.0, speed: 0.5, color: 'bg-blue-500' },
+                gold: { name: 'Molten', base: '#3a1500', light: '#ffb300', zoom: 1.5, speed: 0.3, color: 'bg-yellow-500' }
+            };
+
+            const presetBox = document.getElementById('presetContainer');
+            Object.keys(presets).forEach(k => {
+                const btn = document.createElement('button'); btn.className = `w-7 h-7 rounded-full ${presets[k].color} preset-btn shadow-md border border-white/20`;
+                btn.onclick = () => {
+                    document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active', 'border-white', 'scale-110'));
+                    btn.classList.add('active', 'border-white', 'scale-110');
+                    const p = presets[k];
+                    
+                    // FIX: Resolves Bug 2 (Incorrect Object key targeting due to string replace)
+                    ['colorBase','colorLight','zoom','speed'].forEach(id => {
+                        const el = document.getElementById(id); 
+                        if (el) { 
+                            let presetKey = id.replace('color', '').toLowerCase();
+                            if(id === 'zoom' || id === 'speed') presetKey = id;
+                            el.value = p[presetKey]; 
+                            el.dispatchEvent(new Event('input')); 
+                        }
+                    });
+                };
+                presetBox.appendChild(btn);
+            });
+            if(presetBox.children[0]) presetBox.children[0].click();
+
+            gl.uniform1f(uniforms.u_isAR, 0.0); gl.uniform1f(uniforms.u_mode, 0.0); gl.uniform1f(uniforms.u_surfaceType, 0.0);
+
+            let pVisible = true;
+            function togglePanel() {
+                pVisible = !pVisible;
+                document.getElementById('uiContainer').style.transform = pVisible ? 'translateY(0)' : 'translateY(85%)';
+                document.getElementById('toggleIcon').style.transform = pVisible ? 'rotate(0deg)' : 'rotate(180deg)';
+            }
+
+            function saveHighRes() {
+                if(currentAppMode === 2) { alert("Screenshots in AR Mode require taking a native screenshot with your phone buttons."); return; }
+                const origTrans = document.getElementById('uiContainer').style.transform; document.getElementById('uiContainer').style.transform = 'translateY(120%)';
+                setTimeout(() => {
+                    const w = canvas.width, h = canvas.height; const eW = 2400, eH = Math.floor(eW * (h/w));
+                    canvas.width = eW; canvas.height = eH; gl.viewport(0,0,eW,eH); gl.uniform2f(uniforms.u_resolution, eW, eH);
+                    render(performance.now()*0.001, true);
+                    const link = document.createElement('a'); link.download = `caustic-${Date.now()}.png`; link.href = canvas.toDataURL('image/png'); link.click();
+                    canvas.width = w; canvas.height = h; gl.viewport(0,0,w,h); gl.uniform2f(uniforms.u_resolution, w, h);
+                    document.getElementById('uiContainer').style.transform = origTrans;
+                }, 100);
+            }
+
+            let lastTime = 0;
+            function render(time, force = false) {
+                const dt = time - lastTime; lastTime = time; gl.uniform1f(uniforms.u_time, time);
+                currentTiltX += (targetTiltX - currentTiltX) * 0.1; currentTiltY += (targetTiltY - currentTiltY) * 0.1; shakeIntensity *= 0.95;
+                gl.uniform2f(uniforms.u_tilt, currentTiltX, currentTiltY); gl.uniform1f(uniforms.u_shake, shakeIntensity);
+                for(let i=0; i<maxRipples; i++) {
+                    if(ripplesData[i*3+2] >= 0.0) { ripplesData[i*3+2] += dt; if(ripplesData[i*3+2] > 3.0) ripplesData[i*3+2] = -1.0; }
+                }
+                gl.uniform3fv(uniforms.u_ripples, ripplesData);
+                gl.clearColor(0.0, 0.0, 0.0, currentAppMode === 2 ? 0.0 : 1.0); gl.clear(gl.COLOR_BUFFER_BIT); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+                if(!force) requestAnimationFrame(t => render(t*0.001));
+            }
+            requestAnimationFrame(t => render(t*0.001));
+
+            window.setMode = setMode; window.setSurface = setSurface; window.saveHighRes = saveHighRes; window.togglePanel = togglePanel;
+        </script>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 pt-6 pb-4 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center text-slate-500 text-xs">
+            © 2025 Denisia Webops Agency. Interactive WebGL caustic simulator. For educational and creative use.
+        </div>
+    </footer>
+
+    <!-- Tawk.to Script -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function(){
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true; s1.src = 'https://embed.tawk.to/6993fa897941b81c35293c7a/default'; s1.charset = 'UTF-8'; s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu'); const icon = document.getElementById('mobile-menu-icon');
+            if (menu.classList.contains('hidden')) { menu.classList.remove('hidden'); icon.setAttribute('data-lucide', 'x'); } 
+            else { menu.classList.add('hidden'); icon.setAttribute('data-lucide', 'menu'); }
+            lucide.createIcons();
+        }
+        lucide.createIcons();
+    </script>
+</body>
+</html>
