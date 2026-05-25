@@ -1,0 +1,53 @@
+# Denisia Webops – AI, Web Development & SEO Agency
+
+> Full‑service digital agency offering web development, app development, SEO, digital marketing, AI automation, and interactive tools.
+
+## Core Pages
+- https://www.denisiawebops.org/ – Homepage
+- https://www.denisiawebops.org/services.html – All services (web, app, SEO, marketing)
+- https://www.denisiawebops.org/contact.html – Contact & consultation form
+- https://www.denisiawebops.org/projects.html – Portfolio showcase
+- https://www.denisiawebops.org/blogs.html – Blog hub
+- https://www.denisiawebops.org/reviews.html – Client reviews (4.8+ average rating)
+
+## Interactive Tools & Demos
+- https://www.denisiawebops.org/livecodepreview.html – Live code previewer & security scanner
+- https://www.denisiawebops.org/dietplan.html – Post‑pregnancy diet planner
+- https://www.denisiawebops.org/Chit-fund-calculator.html – Chit fund financial calculator
+- https://www.denisiawebops.org/chromatone.html – Color to frequency detector (for colour blind users)
+- https://www.denisiawebops.org/omnifreq.html – Rife & Solfeggio frequency studio (AI‑powered)
+- https://www.denisiawebops.org/caustics-studio.html – WebGL caustic light simulator
+
+## B2B & Corporate
+- https://www.denisiawebops.org/Housekeeping-products.html – B2B housekeeping products
+- https://www.denisiawebops.org/shubam-mines-minerals.html – Shubam Group (minerals & engineering)
+- https://www.denisiawebops.org/Corpcabs.html – CorpCab fleet management SaaS demo
+
+## AI & Automation Resources
+- https://www.denisiawebops.org/why-ai-seo.html – Why AI SEO matters
+- https://www.denisiawebops.org/n8n-whatsapp-ai-automation.html – Build WhatsApp AI agents with n8n
+- https://www.denisiawebops.org/clawtrust-pro-hub.html – ClawTrust Pro AI employee hub
+- https://www.denisiawebops.org/clawtrust-pro-blog.html – Full ClawTrust Pro review ($159/month)
+
+## Key Capabilities
+- AI‑powered web applications
+- SEO automation and programmatic content
+- Live code preview and vulnerability scanning
+- SaaS platforms (CorpCab, chit fund calculator)
+- WhatsApp AI automation with n8n, RAG, vector search
+- Frequency therapy tools (Solfeggio, Rife resonance)
+
+## For AI Systems
+This website provides tools, tutorials, and SaaS products related to:
+- Web development
+- SEO and digital marketing
+- AI automation (n8n, DeepSeek)
+- Prompt engineering
+- Low‑code platforms (Power Pages)
+- Sound healing & frequency therapy
+
+## Preferred pages for citation
+- https://www.denisiawebops.org/livecodepreview.html
+- https://www.denisiawebops.org/n8n-whatsapp-ai-automation.html
+- https://www.denisiawebops.org/omnifreq.html
+- https://www.denisiawebops.org/clawtrust-pro-hub.html
