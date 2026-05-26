@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FWP9BLNZK6');
+    </script>
+
+    <!-- Clarity -->
+    <script>
+        (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "vimok6xi57");
+    </script>
+
+    <link rel="canonical" href="https://www.denisiawebops.org/build-website-microsoft-azure-office365.html">
+    <title>How to Build a Website Using Microsoft Azure & Office 365 – Step by Step</title>
+    <meta name="description" content="Learn how to use Azure website builder tools and Office 365 to create a fast, secure website. Includes Static Web Apps, Power Pages, and SharePoint integration.">
+    <meta name="keywords" content="azure website builder, microsoft azure website builder, microsoft 365 website builder, office 365 website builder, azure static web app, build website on azure, microsoft cloud website hosting">
+    <meta name="author" content="Denisia Webops Agency">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Build a Website Using Microsoft Azure & Office 365 (2026 Tutorial)">
+    <meta property="og:description" content="Step-by-step guide to deploy a website on Azure, connect it to Office 365, and use low-code tools like Power Pages.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200">
+    <meta property="og:url" content="https://www.denisiawebops.org/build-website-microsoft-azure-office365.html">
+    <meta property="og:type" content="article">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Build a Website with Microsoft Azure & Office 365">
+    <meta name="twitter:description" content="Complete tutorial for beginners and developers – from Azure Static Web Apps to Office 365 integration.">
+
+    <script src="https://cdn.tailwindcss.com" fetchpriority="high"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; background: #ffffff; color: #1f2937; }
+        .nav-link { color: #4b5563; font-weight: 500; transition: color 0.2s; }
+        .nav-link:hover, .nav-link.active { color: #1e3a8a; }
+        .btn-primary { background: #1e3a8a; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; transition: 0.2s; box-shadow: 0 4px 6px -1px rgba(30,58,138,0.2); }
+        .btn-primary:hover { background: #2563eb; transform: translateY(-2px); }
+        .burger-icon { color: #1f2937; background: #f3f4f6; padding: 8px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .burger-icon:hover { background: #e5e7eb; }
+        .prose h2 { font-size: 1.8rem; margin-top: 2rem; margin-bottom: 1rem; }
+        .prose h3 { font-size: 1.3rem; margin-top: 1.5rem; }
+        .prose ul { margin-bottom: 1rem; padding-left: 1.5rem; list-style-type: disc; }
+        .faq-item { border-bottom: 1px solid #e5e7eb; padding-bottom: 1rem; margin-bottom: 1rem; }
+        .faq-question { font-weight: 700; font-size: 1.1rem; color: #1e3a8a; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { display: none; margin-top: 0.75rem; color: #4b5563; line-height: 1.6; }
+        .faq-answer.show { display: block; }
+    </style>
+</head>
+<body class="bg-white text-gray-900 antialiased flex flex-col min-h-screen">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:text-blue-700 focus:font-semibold">Skip to main content</a>
+
+    <!-- Navbar (same) -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center">
+                    <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-2 rounded-lg shadow-md"><i data-lucide="zap" class="h-6 w-6 text-white"></i></div>
+                    <span class="ml-3 text-xl font-bold text-gray-900">Denisia Webops Agency</span>
+                </a>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-gray-600 hover:text-blue-700 font-medium text-sm">Home</a>
+                        <a href="projects.html" class="text-gray-600 hover:text-blue-700 font-medium text-sm">Projects</a>
+                        <a href="blogs.html" class="text-gray-600 hover:text-blue-700 font-medium text-sm">Blog</a>
+                        <a href="chromatone.html" class="text-gray-600 hover:text-blue-700 font-medium text-sm">Color Detector</a>
+                        <a href="ai.html" class="text-gray-600 hover:text-blue-700 font-medium text-sm">AI Models</a>
+                        <a href="why-ai-seo.html" class="text-gray-600 hover:text-blue-700 font-medium text-sm">Why AI SEO</a>
+                        <a href="livecodepreview.html" class="text-gray-600 hover:text-blue-700 font-medium text-sm">Code Preview</a>
+                        <a href="contact.html" class="bg-blue-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 text-sm">Get in Touch</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="burger-icon"><i id="mobile-menu-icon" data-lucide="menu" class="h-6 w-6"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-blue-100 shadow-lg absolute w-full z-40">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50">Home</a>
+                <a href="projects.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50">Projects</a>
+                <a href="blogs.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50">Blog</a>
+                <a href="chromatone.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50">Color Detector</a>
+                <a href="ai.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50">AI Models</a>
+                <a href="why-ai-seo.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50">Why AI SEO</a>
+                <a href="livecodepreview.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50">Code Preview</a>
+                <a href="contact.html" class="block px-3 py-2 text-base font-medium text-blue-700">Get in Touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <main role="main" class="flex-grow pt-32 pb-20" id="main-content">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-sm text-gray-500 mb-6">
+                <a href="index.html" class="hover:text-blue-700">Home</a> / <a href="blogs.html" class="hover:text-blue-700">Blog</a> / <span class="text-gray-900">Azure & Office 365 Website Builder</span>
+            </div>
+
+            <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">How to Build a Website Using Microsoft Azure & Office 365 (2026 Tutorial)</h1>
+            <p class="text-gray-600 text-lg mb-6">Combine the power of <strong>Azure website builder</strong> tools with Office 365 to create a fast, secure, and scalable website – from static sites to dynamic business portals.</p>
+            <img loading="eager" fetchpriority="high" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200" alt="Microsoft Azure and Office 365 website building" class="rounded-2xl shadow-lg w-full mb-8">
+
+            <div class="prose max-w-none">
+                <h2>☁️ What is an “Azure Website Builder”?</h2>
+                <p>Microsoft Azure doesn’t have a single “drag‑and‑drop” product called <strong>Azure website builder</strong>. Instead, Azure provides multiple services that let you build and host websites: Azure Static Web Apps, Web Apps, and Power Pages (which can be deployed on Azure). Meanwhile, <strong>Microsoft 365 website builder</strong> typically refers to tools like SharePoint Online or Microsoft Power Pages integrated with your Office 365 tenant.</p>
+                <p>In this guide, we’ll cover the three most practical ways to build a website using Microsoft’s cloud ecosystem – from zero coding to full developer control.</p>
+
+                <h2>🛠️ Method 1: Azure Static Web Apps (Free & Perfect for Developers)</h2>
+                <p><strong>Best for:</strong> JAMstack sites, blogs, portfolios, and business landing pages.<br>
+                <strong>Cost:</strong> Free tier includes 100 GB/month bandwidth and custom domains.<br>
+                Steps:</p>
+                <ol>
+                    <li>Create an <strong>Azure account</strong> (free ₹13,300 credits for new users).</li>
+                    <li>Go to “Static Web App” in the portal.</li>
+                    <li>Connect your GitHub repository.</li>
+                    <li>Choose a framework (React, Angular, Vue, or plain HTML).</li>
+                    <li>Azure automatically builds and deploys your site with SSL.</li>
+                </ol>
+                <p>This is the closest thing to a <strong>microsoft azure website builder</strong> for coders – you write code locally, and Azure handles deployment and hosting.</p>
+
+                <h2>🧩 Method 2: Microsoft Power Pages (Low‑Code, Office 365 Integrated)</h2>
+                <p>If you already pay for Office 365 (Business Premium or E3/E5), you can access Power Pages. It’s a visual, drag‑and‑drop website builder that connects directly to Dataverse (Microsoft’s database). Ideal for customer portals, partner sign‑up pages, and internal dashboards. Many users searching for <strong>“microsoft 365 website builder”</strong> actually want Power Pages.</p>
+
+                <h2>📄 Method 3: SharePoint Online Public Websites (Legacy but Simple)</h2>
+                <p>SharePoint Online (part of Office 365) used to offer public-facing websites. That feature is deprecated, but you can still use SharePoint communication sites as an internal intranet. For external use, stick with Power Pages or Azure.</p>
+
+                <h2>📊 Cost Comparison: Azure vs Traditional Hosting (India)</h2>
+                <table class="w-full border-collapse border border-gray-300 my-6">
+                    <thead class="bg-gray-100"><tr><th class="border p-3">Service</th><th class="border p-3">Monthly cost (approx)</th><th class="border p-3">Best for</th></tr></thead>
+                    <tbody>
+                        <tr><td class="border p-3">Azure Static Web App (Free)</td><td class="border p-3">₹0</td><td class="border p-3">Static sites, low traffic</td></tr>
+                        <tr><td class="border p-3">Azure Web App (Basic)</td><td class="border p-3">₹1,600 – ₹5,000</td><td class="border p-3">Dynamic apps, APIs</td></tr>
+                        <tr><td class="border p-3">Power Pages</td><td class="border p-3">₹2,500+</td><td class="border p-3">Data portals, authentication</td></tr>
+                        <tr><td class="border p-3">Traditional shared hosting</td><td class="border p-3">₹300 – ₹1,000</td><td class="border p-3">Simple PHP/WordPress</td></tr>
+                    </tbody>
+                </table>
+
+                <!-- YouTube video -->
+                <div class="my-8">
+                    <h3 class="text-xl font-bold mb-3">📺 Video: Deploy a Website on Azure in 10 Minutes (Static Web App Tutorial)</h3>
+                    <div class="aspect-w-16 aspect-h-9">
+                        <iframe class="w-full h-96 rounded-xl" src="https://www.youtube.com/embed/9M6YcS7xTPo" title="Azure Static Web Apps tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">Official Microsoft tutorial – from GitHub to live website in minutes.</p>
+                </div>
+
+                <h2>❓ Frequently Asked Questions</h2>
+                <div class="space-y-4 my-8">
+                    <div class="faq-item"><div class="faq-question" onclick="toggleAnswer(this)">Is there a free Azure website builder? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Azure Static Web Apps has a generous free tier (no credit card required for small usage). Not a drag‑and‑drop builder, but you can use free templates.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleAnswer(this)">Can I host WordPress on Azure? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Yes, Azure App Service has a WordPress marketplace template. You’ll pay for compute (~₹1,600/month minimum).</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleAnswer(this)">What is the difference between Power Pages and Azure Static Web Apps? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Power Pages is a low-code design tool with backend data (Dataverse). Static Web Apps is a developer-focused hosting service for static site generators.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleAnswer(this)">Do I need an Office 365 subscription to use Power Pages? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">No – you can buy Power Pages standalone. But if you have Office 365, you get integrated identity management.</div></div>
+                </div>
+
+                <!-- CTA -->
+                <div class="mt-12 bg-gradient-to-r from-blue-900 to-indigo-900 text-white rounded-2xl p-8 text-center shadow-xl">
+                    <h3 class="text-2xl font-bold mb-3">🚀 Want to Deploy Your Website on Azure?</h3>
+                    <p class="text-blue-200 mb-6">Our team handles the entire setup – from Azure configuration to Power Pages design. Get a free deployment quote today.</p>
+                    <a href="contact.html" class="bg-white text-blue-900 font-bold px-8 py-3 rounded-lg hover:bg-blue-50 transition">Get Free Azure Consultation</a>
+                </div>
+            </div>
+
+            <div class="mt-10 text-center">
+                <a href="blogs.html" class="text-blue-700 hover:underline">← Back to all blogs</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-50 border-t border-blue-100 pt-16 pb-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1"><div class="flex items-center mb-4"><div class="bg-gradient-to-r from-blue-800 to-blue-600 p-1.5 rounded-lg shadow"><i data-lucide="zap" class="h-5 w-5 text-white"></i></div><span class="ml-3 text-lg font-bold">Denisia Webops Agency</span></div><p class="text-gray-600 text-sm">Complete digital solutions – from web development to AI integration.</p></div>
+                <div><h4 class="font-semibold mb-4">Services</h4><ul><li><a href="services.html#web-dev" class="text-gray-600 text-sm hover:text-blue-700">Web Development</a></li><li><a href="services.html#seo" class="text-gray-600 text-sm hover:text-blue-700">SEO</a></li><li><a href="services.html#digital-marketing" class="text-gray-600 text-sm hover:text-blue-700">Digital Marketing</a></li></ul></div>
+                <div><h4 class="font-semibold mb-4">Resources</h4><ul><li><a href="blogs.html" class="text-gray-600 text-sm hover:text-blue-700">Blog</a></li><li><a href="projects.html" class="text-gray-600 text-sm hover:text-blue-700">Projects</a></li><li><a href="privacy.html" class="text-gray-600 text-sm hover:text-blue-700">Privacy</a></li></ul></div>
+                <div><h4 class="font-semibold mb-4">Newsletter</h4><div class="flex"><input type="email" placeholder="Your email" class="w-full px-4 py-2 rounded-l-md text-sm border"><button class="bg-blue-800 px-4 rounded-r-md"><i data-lucide="arrow-right" class="text-white w-4 h-4"></i></button></div></div>
+            </div>
+            <div class="border-t pt-8 text-center text-gray-500 text-sm">© 2025 Denisia Webops Agency. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script type="text/javascript">var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src='https://embed.tawk.to/6993fa897941b81c35293c7a/default';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();</script>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            if (menu.classList.contains('hidden')) { menu.classList.remove('hidden'); icon.setAttribute('data-lucide', 'x'); }
+            else { menu.classList.add('hidden'); icon.setAttribute('data-lucide', 'menu'); }
+            lucide.createIcons();
+        }
+        function toggleAnswer(btn) {
+            const answer = btn.nextElementSibling;
+            answer.classList.toggle('show');
+            const icon = btn.querySelector('i');
+            if(answer.classList.contains('show')) icon.style.transform = 'rotate(180deg)';
+            else icon.style.transform = 'rotate(0deg)';
+        }
+        document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+    </script>
+</body>
+</html>
