@@ -2,6 +2,10 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google tag (gtag.js) -->
@@ -35,8 +39,8 @@
     <meta name="robots" content="index, follow">
 
     <!-- Tailwind CSS & Lucide Icons -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com" fetchpriority="high"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <script>
         tailwind.config = {
@@ -84,11 +88,16 @@
     <meta property="og:title" content="AI Models Directory | Denisia Webops">
     <meta property="og:description" content="Explore the latest AI tools – ChatGPT, Gemini, Claude, Midjourney, Grok, Perplexity AI. Earn commissions through affiliate links.">
     <meta property="og:url" content="https://www.denisiawebops.org/ai.html">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="apple-touch-icon" href="/images/logo.png">
+    <link rel="manifest" href="/manifest.json">
 </head>
 <body class="bg-white text-gray-900 antialiased selection:bg-blue-200 selection:text-blue-900 flex flex-col min-h-screen">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:text-blue-700 focus:font-semibold">Skip to main content</a>
+
 
     <!-- ========== UNIFIED NAVBAR (with Color Frequency Detector) ========== -->
-<nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
+<nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm" aria-label="Main navigation">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
             <a href="index.html" class="flex items-center">
@@ -140,7 +149,7 @@
 </nav>
 
     <!-- Main Content -->
-    <main class="flex-grow pt-32 pb-20">
+    <main role="main" class="flex-grow pt-32 pb-20" id="main-content">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Header -->
             <div class="text-center mb-12">
@@ -154,66 +163,66 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- ChatGPT -->
                 <div class="card p-6 flex flex-col h-full group">
-                    <img src="https://images.unsplash.com/photo-1677442136019-21780a5b6e8e?auto=format&fit=crop&q=80&w=800" alt="ChatGPT" class="h-40 w-full object-cover rounded-lg mb-4">
+                    <img loading="eager" fetchpriority="high" src="https://images.unsplash.com/photo-1677442136019-21780a5b6e8e?auto=format&fit=crop&q=80&w=800" alt="ChatGPT" class="h-40 w-full object-cover rounded-lg mb-4">
                     <h3 class="text-xl font-bold text-gray-900 mb-2">ChatGPT</h3>
                     <p class="text-gray-600 text-sm mb-4 flex-1">OpenAI's conversational AI – write, code, brainstorm, and automate tasks.</p>
-                    <a href="https://openai.com/chatgpt" target="_blank" rel="nofollow sponsored" class="btn-primary text-center text-sm py-2">Learn More &amp; Buy</a>
+                    <a href="https://openai.com/chatgpt" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn-primary text-center text-sm py-2">Learn More &amp; Buy</a>
                 </div>
 
                 <!-- Gemini -->
                 <div class="card p-6 flex flex-col h-full group">
-                    <img src="https://images.unsplash.com/photo-1700839151303-7f1c25b81a8f?auto=format&fit=crop&q=80&w=800" alt="Gemini" class="h-40 w-full object-cover rounded-lg mb-4">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1700839151303-7f1c25b81a8f?auto=format&fit=crop&q=80&w=800" alt="Gemini" class="h-40 w-full object-cover rounded-lg mb-4">
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Gemini</h3>
                     <p class="text-gray-600 text-sm mb-4 flex-1">Google's multimodal AI – text, image, video, and code understanding.</p>
-                    <a href="https://deepmind.google/technologies/gemini/" target="_blank" rel="nofollow sponsored" class="btn-primary text-center text-sm py-2">Learn More &amp; Buy</a>
+                    <a href="https://deepmind.google/technologies/gemini/" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn-primary text-center text-sm py-2">Learn More &amp; Buy</a>
                 </div>
 
                 <!-- Claude -->
                 <div class="card p-6 flex flex-col h-full group">
-                    <img src="https://images.unsplash.com/photo-1677442136019-21780a5b6e8e?auto=format&fit=crop&q=80&w=800" alt="Claude" class="h-40 w-full object-cover rounded-lg mb-4">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1677442136019-21780a5b6e8e?auto=format&fit=crop&q=80&w=800" alt="Claude" class="h-40 w-full object-cover rounded-lg mb-4">
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Claude</h3>
                     <p class="text-gray-600 text-sm mb-4 flex-1">Anthropic's assistant – safe, helpful, and accurate conversational AI.</p>
-                    <a href="https://www.anthropic.com/claude" target="_blank" rel="nofollow sponsored" class="btn-primary text-center text-sm py-2">Learn More &amp; Buy</a>
+                    <a href="https://www.anthropic.com/claude" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn-primary text-center text-sm py-2">Learn More &amp; Buy</a>
                 </div>
 
                 <!-- Midjourney -->
                 <div class="card p-6 flex flex-col h-full group">
-                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800" alt="Midjourney" class="h-40 w-full object-cover rounded-lg mb-4">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800" alt="Midjourney" class="h-40 w-full object-cover rounded-lg mb-4">
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Midjourney</h3>
                     <p class="text-gray-600 text-sm mb-4 flex-1">AI image generation – stunning art, illustrations, and design concepts.</p>
-                    <a href="https://www.midjourney.com" target="_blank" rel="nofollow sponsored" class="btn-primary text-center text-sm py-2">Learn More &amp; Buy</a>
+                    <a href="https://www.midjourney.com" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn-primary text-center text-sm py-2">Learn More &amp; Buy</a>
                 </div>
 
                 <!-- DALL·E 3 -->
                 <div class="card p-6 flex flex-col h-full group">
-                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800" alt="DALL·E 3" class="h-40 w-full object-cover rounded-lg mb-4">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800" alt="DALL·E 3" class="h-40 w-full object-cover rounded-lg mb-4">
                     <h3 class="text-xl font-bold text-gray-900 mb-2">DALL·E 3</h3>
                     <p class="text-gray-600 text-sm mb-4 flex-1">OpenAI's image generator – create realistic images from natural language.</p>
-                    <a href="https://openai.com/dall-e-3" target="_blank" rel="nofollow sponsored" class="btn-primary text-center text-sm py-2">Learn More &amp; Buy</a>
+                    <a href="https://openai.com/dall-e-3" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn-primary text-center text-sm py-2">Learn More &amp; Buy</a>
                 </div>
 
                 <!-- Stable Diffusion -->
                 <div class="card p-6 flex flex-col h-full group">
-                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800" alt="Stable Diffusion" class="h-40 w-full object-cover rounded-lg mb-4">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800" alt="Stable Diffusion" class="h-40 w-full object-cover rounded-lg mb-4">
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Stable Diffusion</h3>
                     <p class="text-gray-600 text-sm mb-4 flex-1">Open‑source image generation – run locally or in the cloud.</p>
-                    <a href="https://stability.ai" target="_blank" rel="nofollow sponsored" class="btn-primary text-center text-sm py-2">Learn More &amp; Buy</a>
+                    <a href="https://stability.ai" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn-primary text-center text-sm py-2">Learn More &amp; Buy</a>
                 </div>
 
                 <!-- Grok -->
                 <div class="card p-6 flex flex-col h-full group">
-                    <img src="https://images.unsplash.com/photo-1700839151303-7f1c25b81a8f?auto=format&fit=crop&q=80&w=800" alt="Grok" class="h-40 w-full object-cover rounded-lg mb-4">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1700839151303-7f1c25b81a8f?auto=format&fit=crop&q=80&w=800" alt="Grok" class="h-40 w-full object-cover rounded-lg mb-4">
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Grok</h3>
                     <p class="text-gray-600 text-sm mb-4 flex-1">xAI's conversational model – witty, real‑time knowledge.</p>
-                    <a href="https://x.ai" target="_blank" rel="nofollow sponsored" class="btn-primary text-center text-sm py-2">Learn More &amp; Buy</a>
+                    <a href="https://x.ai" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn-primary text-center text-sm py-2">Learn More &amp; Buy</a>
                 </div>
 
                 <!-- Perplexity AI -->
                 <div class="card p-6 flex flex-col h-full group">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="Perplexity AI" class="h-40 w-full object-cover rounded-lg mb-4">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="Perplexity AI" class="h-40 w-full object-cover rounded-lg mb-4">
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Perplexity AI</h3>
                     <p class="text-gray-600 text-sm mb-4 flex-1">AI‑powered search engine – answers with citations.</p>
-                    <a href="https://www.perplexity.ai" target="_blank" rel="nofollow sponsored" class="btn-primary text-center text-sm py-2">Learn More &amp; Buy</a>
+                    <a href="https://www.perplexity.ai" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn-primary text-center text-sm py-2">Learn More &amp; Buy</a>
                 </div>
             </div>
 

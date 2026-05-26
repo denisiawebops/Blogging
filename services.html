@@ -2,6 +2,10 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
@@ -30,8 +34,8 @@
     }
     </script>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com" fetchpriority="high"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     <style>
         body { font-family: 'Inter', system-ui, sans-serif; background-color: #ffffff; color: #1f2937; }
         .nav-link { color: #4b5563; font-weight: 500; transition: color 0.2s; }
@@ -46,11 +50,16 @@
         .burger-icon { color: #1f2937; background: #f3f4f6; padding: 8px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
         .burger-icon:hover { background: #e5e7eb; }
     </style>
+    <meta name="theme-color" content="#0f172a">
+    <link rel="apple-touch-icon" href="/images/logo.png">
+    <link rel="manifest" href="/manifest.json">
 </head>
 <body class="bg-white text-gray-900 antialiased flex flex-col min-h-screen">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:text-blue-700 focus:font-semibold">Skip to main content</a>
+
 
     <!-- Same unified navbar as index.html (copy from index) -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm" aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <a href="index.html" class="flex items-center">
@@ -94,7 +103,7 @@
         </div>
     </nav>
 
-    <main class="flex-grow pt-32 pb-20">
+    <main role="main" class="flex-grow pt-32 pb-20" id="main-content">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Services</h1>

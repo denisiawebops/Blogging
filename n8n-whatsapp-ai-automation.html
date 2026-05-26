@@ -2,6 +2,11 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google Analytics -->
@@ -36,8 +41,8 @@
     <meta name="twitter:description" content="Full tutorial: n8n + WhatsApp + OpenAI/Gemini + MongoDB vector + RAG. Process PDFs, images, voice, Google Docs. Build autonomous AI agents.">
 
     <!-- Tailwind + Lucide -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com" fetchpriority="high"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -56,11 +61,16 @@
         .faq-answer { display: none; margin-top: 0.75rem; color: #4b5563; line-height: 1.6; }
         .faq-answer.show { display: block; }
     </style>
+    <meta name="theme-color" content="#0f172a">
+    <link rel="apple-touch-icon" href="/images/logo.png">
+    <link rel="manifest" href="/manifest.json">
 </head>
 <body class="bg-white text-gray-900 antialiased flex flex-col min-h-screen">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:text-blue-700 focus:font-semibold">Skip to main content</a>
+
 
     <!-- Denisia Webops Navbar (unified) -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm" aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <a href="index.html" class="flex items-center">
@@ -98,7 +108,7 @@
         </div>
     </nav>
 
-    <main class="flex-grow pt-32 pb-20">
+    <main role="main" class="flex-grow pt-32 pb-20" id="main-content">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Breadcrumb -->
             <div class="text-sm text-gray-500 mb-6">
@@ -107,7 +117,7 @@
 
             <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">Build a Document‑Aware WhatsApp AI Agent with n8n, RAG, and Vector Search</h1>
             <p class="text-gray-600 text-lg mb-6">Automate customer support, bookings, document processing, and payments – all through WhatsApp. A complete guide using n8n, OpenAI/Gemini, MongoDB vector store, and multimodal AI.</p>
-            <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&q=80&w=1200" alt="n8n WhatsApp AI automation workflow" class="rounded-2xl shadow-lg w-full mb-8">
+            <img loading="eager" fetchpriority="high" src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&q=80&w=1200" alt="n8n WhatsApp AI automation workflow" class="rounded-2xl shadow-lg w-full mb-8">
 
             <!-- ========== EMOTIONAL HOOK & PROBLEM STATEMENT ========== -->
             <div class="prose max-w-none">
@@ -137,7 +147,7 @@
                 <!-- ========== EMBEDDED WORKFLOW DIAGRAM (from user's image) ========== -->
                 <div class="my-10 bg-gray-50 p-6 rounded-2xl border border-gray-200 text-center">
                     <h3 class="text-xl font-bold mb-4">⚡ Example n8n Workflow: Document‑Aware RAG Agent</h3>
-                    <img src="https://via.placeholder.com/800x400?text=Workflow+Diagram+Placeholder" alt="n8n workflow for document processing and RAG" class="rounded-lg shadow-md mx-auto">
+                    <img loading="lazy" src="https://via.placeholder.com/800x400?text=Workflow+Diagram+Placeholder" alt="n8n workflow for document processing and RAG" class="rounded-lg shadow-md mx-auto">
                     <p class="text-sm text-gray-500 mt-3">Nodes: Google Data Importer → Document Chunker → OpenAI Embeddings → MongoDB Vector Search → Gemini Completion → WhatsApp Reply</p>
                     <p class="text-xs text-gray-400 mt-2"><em>Replace placeholder with your actual workflow screenshot. The architecture below mirrors the “Execute Workspace” flow you shared.</em></p>
                 </div>
@@ -208,7 +218,7 @@
                 <!-- ========== TECH STACK ========== -->
                 <h2>🔧 Full Tech Stack for Your n8n WhatsApp AI Agent</h2>
                 <ul>
-                    <li><strong>n8n</strong> – Workflow automation (<a href="https://n8n.io" target="_blank" rel="noopener">n8n.io</a>)</li>
+                    <li><strong>n8n</strong> – Workflow automation (<a href="https://n8n.io" target="_blank" rel="noopener noopener noreferrer">n8n.io</a>)</li>
                     <li><strong>WhatsApp Cloud API</strong> – Official Meta API</li>
                     <li><strong>OpenAI</strong> – GPT‑4o for LLM + embeddings</li>
                     <li><strong>Google Gemini</strong> – Alternative LLM (cheaper, strong reasoning)</li>

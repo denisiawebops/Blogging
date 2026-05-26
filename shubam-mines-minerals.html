@@ -2,16 +2,20 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shubam Group | Engineering & Minerals Global Solutions</title>
     <meta name="description" content="Shubam Group provides advanced EPC engineering solutions and high-quality mineral processing, exporting globally. ISO certified.">
 
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com">
+    <script src="https://cdn.tailwindcss.com" fetchpriority="high">
     </script>
 
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest">
+    <script src="https://unpkg.com/lucide@latest" defer>
     </script>
 
     <!-- Google Fonts -->
@@ -176,8 +180,14 @@
     <meta property="og:title" content="Shubam Group | Engineering & Minerals Global Solutions">
     <meta property="og:description" content="Shubam Group provides advanced EPC engineering solutions and high-quality mineral processing, exporting globally. ISO certified.">
     <meta property="og:url" content="https://www.denisiawebops.org/shubam-mines-minerals.html">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="apple-touch-icon" href="/images/logo.png">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="manifest" href="/manifest.json">
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans selection:bg-amber-500 selection:text-white antialiased overflow-x-hidden">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:text-blue-700 focus:font-semibold">Skip to main content</a>
+
 
     <!-- ============ SIDEBAR OVERLAY ============ -->
     <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-40 hidden transition-opacity" aria-hidden="true"></div>
@@ -201,7 +211,7 @@
         </div>
 
         <!-- Sidebar Nav Links -->
-        <nav class="flex-1 py-4 px-3 space-y-2">
+        <nav class="flex-1 py-4 px-3 space-y-2" aria-label="Main navigation">
             <a href="#" data-page="home" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 font-semibold text-sm uppercase tracking-wide transition-all active">
                 <i data-lucide="home" class="w-5 h-5 text-amber-500"></i> Home
             </a>

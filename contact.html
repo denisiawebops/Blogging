@@ -2,6 +2,11 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
@@ -16,8 +21,8 @@
     <meta name="description" content="Get in touch with Denisia Webops Agency for web development, SEO, digital marketing, and AI solutions.">
     <meta name="robots" content="index, follow">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com" fetchpriority="high"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     <style>/* same unified styles as index */</style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -34,14 +39,19 @@
     <meta property="og:title" content="Contact Denisia Webops | Web, SEO & AI Consultation">
     <meta property="og:description" content="Get in touch with Denisia Webops for web development, SEO, digital marketing, and AI solutions.">
     <meta property="og:url" content="https://www.denisiawebops.org/contact.html">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="apple-touch-icon" href="/images/logo.png">
+    <link rel="manifest" href="/manifest.json">
 </head>
 <body class="bg-white text-gray-900 antialiased flex flex-col min-h-screen">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:text-blue-700 focus:font-semibold">Skip to main content</a>
+
 
     <!-- Unified navbar (copy from index) -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">...</nav>
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm" aria-label="Main navigation">...</nav>
     <!-- For brevity, use the same navbar code as in index.html – paste it exactly -->
 
-    <main class="flex-grow pt-32 pb-20">
+    <main role="main" class="flex-grow pt-32 pb-20" id="main-content">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h1 class="text-4xl font-bold text-gray-900 mb-4">Get in Touch</h1>

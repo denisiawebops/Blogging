@@ -2,6 +2,11 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google tag (gtag.js) -->
@@ -56,8 +61,8 @@
     </script>
 
     <!-- Tailwind CSS & Lucide -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com" fetchpriority="high"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -74,11 +79,16 @@
         .card { background: white; border: 1px solid #e5e7eb; border-radius: 1rem; transition: all 0.3s; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
         .card:hover { border-color: #3b82f6; box-shadow: 0 20px 25px -5px rgba(59,130,246,0.1); transform: scale(1.02); }
     </style>
+    <meta name="theme-color" content="#0f172a">
+    <link rel="apple-touch-icon" href="/images/logo.png">
+    <link rel="manifest" href="/manifest.json">
 </head>
 <body class="bg-white text-gray-900 antialiased selection:bg-blue-200 selection:text-blue-900 flex flex-col min-h-screen">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:text-blue-700 focus:font-semibold">Skip to main content</a>
+
 
     <!-- Unified Navbar -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm" aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <a href="index.html" class="flex items-center">
@@ -122,7 +132,7 @@
         </div>
     </nav>
 
-    <main class="flex-grow pt-32 pb-20">
+    <main role="main" class="flex-grow pt-32 pb-20" id="main-content">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Hero Header -->
             <div class="text-center mb-12">
@@ -136,7 +146,7 @@
                 <!-- Blog Card 1 – Full Review -->
                 <a href="clawtrust-pro-blog.html" class="card overflow-hidden flex flex-col h-full group">
                     <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=800" alt="ClawTrust Pro review" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        <img loading="eager" fetchpriority="high" src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=800" alt="ClawTrust Pro review" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
                         <div class="flex items-center justify-between mb-2">

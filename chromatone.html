@@ -2,6 +2,13 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
     <!-- Google tag (gtag.js) -->
@@ -70,8 +77,8 @@
     </script>
 
     <!-- Tailwind & Lucide -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com" fetchpriority="high"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -101,18 +108,23 @@
         input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
         input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%; background: #ffffff; cursor: pointer; margin-top: -8px; box-shadow: 0 0 10px rgba(0,0,0,0.5); }
         input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 6px; cursor: pointer; background: #3f3f46; border-radius: 4px; }
-        input[type="color"] { -webkit-appearance: none; border: none; width: 100%; height: 100%; border-radius: 12px; cursor: pointer; padding: 0; background: transparent; }
+        input[type=&display=swap"color"] { -webkit-appearance: none; border: none; width: 100%; height: 100%; border-radius: 12px; cursor: pointer; padding: 0; background: transparent; }
         input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
         input[type="color"]::-webkit-color-swatch { border: 2px solid #3f3f46; border-radius: 12px; }
         .hide-scroll::-webkit-scrollbar { display: none; }
         #video-feed, #snap-canvas, #uploaded-img { object-fit: cover; width: 100%; height: 100%; }
         .compass-ring { background: conic-gradient(red, yellow, lime, cyan, blue, magenta, red); border-radius: 50%; }
     </style>
+    <meta name="theme-color" content="#0f172a">
+    <link rel="apple-touch-icon" href="/images/logo.png">
+    <link rel="manifest" href="/manifest.json">
 </head>
 <body class="bg-white text-gray-900 antialiased selection:bg-blue-200 selection:text-blue-900 flex flex-col min-h-screen">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:text-blue-700 focus:font-semibold">Skip to main content</a>
+
 
     <!-- ========== UNIFIED DENISIA WEBOPS NAVBAR ========== -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm" aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <a href="index.html" class="flex items-center">
@@ -160,7 +172,7 @@
     </nav>
 
     <!-- ========== CHROMATONE APP ========== -->
-    <main class="pt-20 flex-grow w-full">
+    <main role="main" class="pt-20 flex-grow w-full" id="main-content">
         <!-- Start Overlay -->
         <div id="start-overlay" class="fixed inset-0 z-50 bg-white flex flex-col items-center justify-center p-6 text-center">
             <div class="w-24 h-24 rounded-3xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 mb-6 flex items-center justify-center shadow-[0_0_50px_rgba(168,85,247,0.4)]">
@@ -213,7 +225,7 @@
                     </div>
                     <video id="video-feed" autoplay playsinline muted class="absolute inset-0 w-full h-full object-cover"></video>
                     <canvas id="snap-canvas" class="absolute inset-0 hidden w-full h-full"></canvas>
-                    <img id="uploaded-img" class="absolute inset-0 hidden object-contain bg-black w-full h-full">
+                    <img alt="" loading="eager" fetchpriority="high" id="uploaded-img" class="absolute inset-0 hidden object-contain bg-black w-full h-full">
                     <div class="absolute inset-0 pointer-events-none flex items-center justify-center z-10">
                         <div class="w-16 h-16 border-2 border-white/70 rounded-full flex items-center justify-center shadow-md">
                             <div class="w-2 h-2 bg-white rounded-full shadow-sm"></div>

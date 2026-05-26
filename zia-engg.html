@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zia Engineering Works | Premium Bakery Machinery</title>
     <meta name="description" content="Zia Engineering Works - ISO 9001:2015 Certified Bakery Machinery Manufacturer. Rotary Rack Ovens, Spiral Mixers, Dough Sheeters & more." />
@@ -41,11 +45,11 @@
     </script>
 
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com">
+    <script src="https://cdn.tailwindcss.com" fetchpriority="high">
     </script>
 
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest">
+    <script src="https://unpkg.com/lucide@latest" defer>
     </script>
 
     <!-- Twak.io Chatbot Integration -->
@@ -334,13 +338,19 @@
             width: 100%;
         }
     </style>
+    <meta name="theme-color" content="#0f172a">
+    <link rel="apple-touch-icon" href="/images/logo.png">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="manifest" href="/manifest.json">
 </head>
 <body class="font-sans text-zinc-900 bg-zinc-50 flex flex-col min-h-screen selection:bg-amber-200">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:text-blue-700 focus:font-semibold">Skip to main content</a>
+
 
     <!-- ============================================================ -->
     <!-- NAVBAR -->
     <!-- ============================================================ -->
-    <nav class="bg-zinc-900 text-white sticky top-0 z-50 shadow-xl border-b border-zinc-800">
+    <nav class="bg-zinc-900 text-white sticky top-0 z-50 shadow-xl border-b border-zinc-800" aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <!-- Brand -->
@@ -402,7 +412,7 @@
     <!-- ============================================================ -->
     <!-- MAIN CONTENT -->
     <!-- ============================================================ -->
-    <main class="flex-grow">
+    <main role="main" class="flex-grow" id="main-content">
 
         <!-- ========== HOME VIEW ========== -->
         <section id="view-home" class="page-view active">
@@ -434,7 +444,7 @@
                             <div class="absolute -top-4 -right-4 bg-amber-500 text-zinc-900 font-black p-4 rounded-full shadow-lg transform rotate-12 text-center leading-tight text-sm">
                                 MAKE IN<br />INDIA
                             </div>
-                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop&crop=center&q=80" alt="Zia Rotary Rack Oven" class="rounded-xl w-full object-cover shadow-inner" />
+                            <img loading="eager" fetchpriority="high" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop&crop=center&q=80" alt="Zia Rotary Rack Oven" class="rounded-xl w-full object-cover shadow-inner" />
                         </div>
                     </div>
                 </div>
@@ -782,7 +792,7 @@
     <!-- ============================================================ -->
     <div class="fab-container" id="fab-container">
         <!-- Floating Map -->
-        <a href="https://www.google.com/maps/place/Electronic+Complex,+Kushaiguda,+Hyderabad" target="_blank" rel="noopener" class="fab-btn fab-map" title="Find us on Google Maps">
+        <a href="https://www.google.com/maps/place/Electronic+Complex,+Kushaiguda,+Hyderabad" target="_blank" rel="noopener noopener noreferrer" class="fab-btn fab-map" title="Find us on Google Maps">
             <i data-lucide="map" class="w-7 h-7"></i>
         </a>
         <!-- Floating Call (visible only on contact page) -->
@@ -1260,7 +1270,7 @@
             const html = PROJECTS.slice(0, 3).map(p => `
                 <div class="bg-white rounded-2xl shadow-lg border border-zinc-100 overflow-hidden project-card">
                     <div class="h-40 overflow-hidden">
-                        <img src="${p.logo}" alt="${p.name}" class="w-full h-full object-cover" />
+                        <img height="50" width="200" loading="lazy" src="${p.logo}" alt="${p.name}" class="w-full h-full object-cover" />
                     </div>
                     <div class="p-6">
                         <div class="flex items-center justify-between mb-2">
@@ -1329,7 +1339,7 @@
                 return `
                 <article class="bg-white rounded-2xl shadow-lg border border-zinc-100 overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
                     <div class="h-48 bg-zinc-800 relative overflow-hidden flex items-center justify-center">
-                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop&crop=center&q=80" alt="${p.model}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop&crop=center&q=80" alt="${p.model}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                         <div class="absolute top-4 right-4 bg-amber-500 text-xs font-black px-2 py-1 rounded shadow text-zinc-900 uppercase">${p.category}</div>
                         <div class="absolute bottom-4 left-4 bg-black/60 text-white px-3 py-1 rounded text-xs font-bold backdrop-blur-sm">${p.model}</div>
                     </div>
@@ -1364,7 +1374,7 @@
             const html = PROJECTS.map(p => `
                 <div class="bg-white rounded-2xl shadow-lg border border-zinc-100 overflow-hidden project-card">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="${p.logo}" alt="${p.name}" class="w-full h-full object-cover" />
+                        <img height="50" width="200" loading="lazy" src="${p.logo}" alt="${p.name}" class="w-full h-full object-cover" />
                         <div class="absolute top-4 right-4 bg-amber-500 text-white text-xs font-black px-3 py-1 rounded-full shadow-lg">${p.year}</div>
                     </div>
                     <div class="p-6">

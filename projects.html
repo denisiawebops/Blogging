@@ -2,6 +2,10 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google tag (gtag.js) -->
@@ -35,8 +39,8 @@
     <meta name="robots" content="index, follow">
 
     <!-- Tailwind CSS & Lucide Icons -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com" fetchpriority="high"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <script>
         tailwind.config = {
@@ -84,11 +88,16 @@
     <meta property="og:title" content="Our Projects | Denisia Webops – Web, App & Software Showcase">
     <meta property="og:description" content="Browse our portfolio of websites, web apps, PWAs, and enterprise solutions built for clients across industries.">
     <meta property="og:url" content="https://www.denisiawebops.org/projects.html">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="apple-touch-icon" href="/images/logo.png">
+    <link rel="manifest" href="/manifest.json">
 </head>
 <body class="bg-white text-gray-900 antialiased selection:bg-blue-200 selection:text-blue-900 flex flex-col min-h-screen">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:text-blue-700 focus:font-semibold">Skip to main content</a>
+
 
     <!-- ========== UNIFIED NAVBAR (with Color Frequency Detector) ========== -->
-<nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
+<nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm" aria-label="Main navigation">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
             <a href="index.html" class="flex items-center">
@@ -140,7 +149,7 @@
 </nav>
 
     <!-- Main Content -->
-    <main class="flex-grow pt-32 pb-20">
+    <main role="main" class="flex-grow pt-32 pb-20" id="main-content">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Header -->
             <div class="text-center mb-12">
@@ -164,7 +173,7 @@
                             <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">HTML</span>
                             <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">React</span>
                         </div>
-                        <a href="https://henry-paul.github.io/ROAMIFY/" target="_blank" rel="noopener" class="btn-primary text-center text-sm py-2">
+                        <a href="https://henry-paul.github.io/ROAMIFY/" target="_blank" rel="noopener noopener noreferrer" class="btn-primary text-center text-sm py-2">
                             View Project <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
                         </a>
                     </div>
@@ -184,7 +193,7 @@
                             <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Tailwind CSS</span>
                             <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">HTML5</span>
                         </div>
-                        <a href="https://denisiawebops.org/Corpcabs.html" target="_blank" rel="noopener" class="btn-primary text-center text-sm py-2">
+                        <a href="https://denisiawebops.org/Corpcabs.html" target="_blank" rel="noopener noopener noreferrer" class="btn-primary text-center text-sm py-2">
                             View Project <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
                         </a>
                     </div>
@@ -202,7 +211,7 @@
                             <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">POWERAPP</span>
                             <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">POWERBI</span>
                         </div>
-                        <a href="https://henry-paul.github.io/Forecast-and-Capacity-Planning/" target="_blank" rel="noopener" class="btn-primary text-center text-sm py-2">
+                        <a href="https://henry-paul.github.io/Forecast-and-Capacity-Planning/" target="_blank" rel="noopener noopener noreferrer" class="btn-primary text-center text-sm py-2">
                             View Project <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
                         </a>
                     </div>
@@ -221,7 +230,7 @@
                             <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">JAVA</span>
                             <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">JS</span>
                         </div>
-                        <a href="https://stvincents.lovable.app/auth" target="_blank" rel="noopener" class="btn-primary text-center text-sm py-2">
+                        <a href="https://stvincents.lovable.app/auth" target="_blank" rel="noopener noopener noreferrer" class="btn-primary text-center text-sm py-2">
                             View Project <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
                         </a>
                     </div>
@@ -239,7 +248,7 @@
                             <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Next.js</span>
                             <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">HTML</span>
                         </div>
-                        <a href="https://henry-paul.github.io/Lorven-Elevators/" target="_blank" rel="noopener" class="btn-primary text-center text-sm py-2">
+                        <a href="https://henry-paul.github.io/Lorven-Elevators/" target="_blank" rel="noopener noopener noreferrer" class="btn-primary text-center text-sm py-2">
                             View Project <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
                         </a>
                     </div>
@@ -257,7 +266,7 @@
                             <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">React</span>
                             <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">HTML &amp; CSS &amp; JS</span>
                         </div>
-                        <a href="https://www.corefitnessstudios.in/" target="_blank" rel="noopener" class="btn-primary text-center text-sm py-2">
+                        <a href="https://www.corefitnessstudios.in/" target="_blank" rel="noopener noopener noreferrer" class="btn-primary text-center text-sm py-2">
                             View Project <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
                         </a>
                     </div>
@@ -275,7 +284,7 @@
                             <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">React</span>
                             <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">HTML &amp; CSS &amp; JS</span>
                         </div>
-                        <a href="https://denisiawebops.org/dietplan.html" target="_blank" rel="noopener" class="btn-primary text-center text-sm py-2">
+                        <a href="https://denisiawebops.org/dietplan.html" target="_blank" rel="noopener noopener noreferrer" class="btn-primary text-center text-sm py-2">
                             View Project <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
                         </a>
                     </div>
@@ -294,7 +303,7 @@
                             <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">HTML5</span>
                             <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">CSS3</span>
                         </div>
-                        <a href="https://denisiawebops.org/livecodepreview.html" target="_blank" rel="noopener" class="btn-primary text-center text-sm py-2">
+                        <a href="https://denisiawebops.org/livecodepreview.html" target="_blank" rel="noopener noopener noreferrer" class="btn-primary text-center text-sm py-2">
                             View Project <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
                         </a>
                     </div>
@@ -320,7 +329,7 @@
             <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">HTML5</span>
             <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Multi‑page SPA</span>
         </div>
-        <a href="shubam-mines-minerals.html" target="_blank" rel="noopener" class="btn-primary text-center text-sm py-2">
+        <a href="shubam-mines-minerals.html" target="_blank" rel="noopener noopener noreferrer" class="btn-primary text-center text-sm py-2">
             View Live Demo <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
         </a>
         <p class="text-xs text-gray-400 mt-2">*Demo link to be added once deployed (or use localhost)</p>
@@ -340,7 +349,7 @@
             <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Chart.js</span>
             <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">PDF Export</span>
         </div>
-        <a href="https://www.denisiawebops.org/Chit-fund-calculator.html" target="_blank" rel="noopener" class="btn-primary text-center text-sm py-2">
+        <a href="https://www.denisiawebops.org/Chit-fund-calculator.html" target="_blank" rel="noopener noopener noreferrer" class="btn-primary text-center text-sm py-2">
             View Project <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
         </a>
     </div>
@@ -359,7 +368,7 @@
             <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Security Volunarbility Scanner</span>
             <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">HTML, CSS, JS</span>
         </div>
-        <a href="https://www.denisiawebops.org/livecodepreview.html" target="_blank" rel="noopener" class="btn-primary text-center text-sm py-2">
+        <a href="https://www.denisiawebops.org/livecodepreview.html" target="_blank" rel="noopener noopener noreferrer" class="btn-primary text-center text-sm py-2">
             View Project <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
         </a>
     </div>

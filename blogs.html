@@ -2,6 +2,10 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google tag (gtag.js) -->
@@ -83,8 +87,8 @@
     </script>
 
     <!-- Tailwind CSS & Lucide Icons -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com" fetchpriority="high"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <script>
         tailwind.config = {
@@ -100,12 +104,17 @@
     <meta property="og:description" content="Latest articles on AI, SEO, web development, automation, and digital marketing from Denisia Webops.">
     <meta property="og:url" content="https://www.denisiawebops.org/blogs.html">
     <meta property="og:image" content="https://www.denisiawebops.org/images/logo.png">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="apple-touch-icon" href="/images/logo.png">
+    <link rel="manifest" href="/manifest.json">
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans antialiased flex flex-col min-h-screen">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:text-blue-700 focus:font-semibold">Skip to main content</a>
+
 
     <!-- Unified Navbar -->
     <!-- ========== UNIFIED NAVBAR (with Color Frequency Detector) ========== -->
-<nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
+<nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm" aria-label="Main navigation">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
             <a href="index.html" class="flex items-center">
@@ -214,7 +223,7 @@
         <a href="n8n-whatsapp-ai-automation.html" class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group flex flex-col border border-gray-100">
             <div class="h-48 bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center overflow-hidden relative">
                 <div class="absolute inset-0 bg-indigo-600 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-                <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover" alt="n8n WhatsApp AI automation workflow">
+                <img loading="eager" fetchpriority="high" src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover" alt="n8n WhatsApp AI automation workflow">
             </div>
             <div class="p-6 flex flex-col flex-grow">
                 <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-2">AI Automation</span>
@@ -231,14 +240,14 @@
     </div>
 </div>
     <!-- Blog Grid -->
-    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 -mt-10 relative z-20">
+    <main role="main" class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 -mt-10 relative z-20" id="main-content">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             <!-- Blog Card 1 -->
             <a href="apps.html" class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group flex flex-col border border-gray-100">
                 <div class="h-48 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center overflow-hidden relative">
                     <div class="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-                    <img src="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
+                    <img alt="photo 1579621970588 a35d0e7ab9b6?auto=format&fit=crop&q=80&w=800" loading="lazy" src="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
                 </div>
                 <div class="p-6 flex flex-col flex-grow">
                     <span class="text-xs font-bold text-blue-600 uppercase tracking-wider mb-2">App Development</span>
@@ -255,7 +264,7 @@
             <a href="automation-seo.html" class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group flex flex-col border border-gray-100">
                 <div class="h-48 bg-gradient-to-br from-indigo-50 to-indigo-100 flex items-center justify-center overflow-hidden relative">
                     <div class="absolute inset-0 bg-indigo-600 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
+                    <img alt="photo 1460925895917 afdab827c52f?auto=format&fit=crop&q=80&w=800" loading="lazy" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
                 </div>
                 <div class="p-6 flex flex-col flex-grow">
                     <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-2">Automation & SEO</span>
@@ -272,7 +281,7 @@
             <a href="ai.html" class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group flex flex-col border border-gray-100">
                 <div class="h-48 bg-gradient-to-br from-cyan-50 to-cyan-100 flex items-center justify-center overflow-hidden relative">
                     <div class="absolute inset-0 bg-cyan-600 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-                    <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
+                    <img alt="photo 1555949963 ff9fe0c870eb?auto=format&fit=crop&q=80&w=800" loading="lazy" src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
                 </div>
                 <div class="p-6 flex flex-col flex-grow">
                     <span class="text-xs font-bold text-cyan-600 uppercase tracking-wider mb-2">Operations & AI</span>
@@ -290,7 +299,7 @@
 <a href="powerpages.html" class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group flex flex-col border border-gray-100">
     <div class="h-48 bg-gradient-to-br from-indigo-50 to-indigo-100 flex items-center justify-center overflow-hidden relative">
         <div class="absolute inset-0 bg-indigo-600 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
+        <img alt="photo 1551288049 bebda4e38f71?auto=format&fit=crop&q=80&w=800" loading="lazy" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
     </div>
     <div class="p-6 flex flex-col flex-grow">
         <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-2">Low‑Code Development</span>
@@ -307,7 +316,7 @@
 <a href="employee-transportion.html" class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group flex flex-col border border-gray-100">
     <div class="h-48 bg-gradient-to-br from-emerald-50 to-emerald-100 flex items-center justify-center overflow-hidden relative">
         <div class="absolute inset-0 bg-emerald-600 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-        <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
+        <img alt="photo 1549317661 bd32c8ce0db2?auto=format&fit=crop&q=80&w=800" loading="lazy" src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
     </div>
     <div class="p-6 flex flex-col flex-grow">
         <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider mb-2">Transport Management</span>
@@ -324,7 +333,7 @@
 <a href="dietplan.html" class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group flex flex-col border border-gray-100">
     <div class="h-48 bg-gradient-to-br from-rose-50 to-rose-100 flex items-center justify-center overflow-hidden relative">
         <div class="absolute inset-0 bg-rose-600 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover" alt="Healthy postpartum meal">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover" alt="Healthy postpartum meal">
     </div>
     <div class="p-6 flex flex-col flex-grow">
         <span class="text-xs font-bold text-rose-600 uppercase tracking-wider mb-2">Postpartum Health</span>
@@ -345,7 +354,7 @@
 <a href="livecodepreview.html" class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group flex flex-col border border-gray-100">
     <div class="h-48 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center overflow-hidden relative">
         <div class="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover" alt="Code editor with live preview">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover" alt="Code editor with live preview">
     </div>
     <div class="p-6 flex flex-col flex-grow">
         <span class="text-xs font-bold text-blue-600 uppercase tracking-wider mb-2">Developer Tool</span>
@@ -366,7 +375,7 @@
 <a href="chromatone-blog.html" class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group flex flex-col border border-gray-100">
     <div class="h-48 bg-gradient-to-br from-purple-50 to-pink-50 flex items-center justify-center overflow-hidden relative">
         <div class="absolute inset-0 bg-purple-600 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover" alt="Chromatone color frequency detector interface">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover" alt="Chromatone color frequency detector interface">
     </div>
     <div class="p-6 flex flex-col flex-grow">
         <span class="text-xs font-bold text-purple-600 uppercase tracking-wider mb-2">Accessibility Tool</span>
@@ -437,9 +446,9 @@
     <!-- Social & Expert Credit (optional) -->
     <div class="text-center mt-8 pt-4 border-t border-violet-200">
         <p class="text-sm text-gray-500">🎧 Follow <span class="font-bold text-violet-600">@VibeYourReality</span> on 
-            <a href="https://instagram.com/VibeYourReality" target="_blank" class="text-violet-500 hover:underline">Instagram</a>, 
-            <a href="https://youtube.com/@VibeYourReality" target="_blank" class="text-violet-500 hover:underline">YouTube</a>, 
-            <a href="https://tiktok.com/@VibeYourReality" target="_blank" class="text-violet-500 hover:underline">TikTok</a> for daily frequency tutorials.
+            <a href="https://instagram.com/VibeYourReality" target="_blank" rel="noopener noreferrer" class="text-violet-500 hover:underline">Instagram</a>, 
+            <a href="https://youtube.com/@VibeYourReality" target="_blank" rel="noopener noreferrer" class="text-violet-500 hover:underline">YouTube</a>, 
+            <a href="https://tiktok.com/@VibeYourReality" target="_blank" rel="noopener noreferrer" class="text-violet-500 hover:underline">TikTok</a> for daily frequency tutorials.
         </p>
     </div>
 </div>

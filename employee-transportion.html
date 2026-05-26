@@ -2,6 +2,10 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google tag (gtag.js) -->
@@ -100,8 +104,8 @@
     <meta property="og:image" content="https://www.denisiawebops.org/images/logo.png">
 
     <!-- Tailwind CSS & Lucide Icons -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com" fetchpriority="high"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <script>
         tailwind.config = {
@@ -126,11 +130,17 @@
     <meta property="og:title" content="Automated Employee Transport Management System">
     <meta property="og:description" content="How Automated Employee Transport Software solves routing, billing, and safety for hospitals, hotels, and IT parks.">
     <meta property="og:url" content="https://www.denisiawebops.org/employee-transportion.html">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="apple-touch-icon" href="/images/logo.png">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="manifest" href="/manifest.json">
 </head>
 <body class="bg-white text-gray-900 antialiased selection:bg-blue-200 selection:text-blue-900 flex flex-col min-h-screen">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:text-blue-700 focus:font-semibold">Skip to main content</a>
+
 
     <!-- ========== UNIFIED NAVBAR (with Color Frequency Detector) ========== -->
-<nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
+<nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm" aria-label="Main navigation">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
             <a href="index.html" class="flex items-center">
@@ -182,7 +192,7 @@
 </nav>
 
     <!-- Main Blog Content -->
-    <main class="flex-grow pt-32 pb-20">
+    <main role="main" class="flex-grow pt-32 pb-20" id="main-content">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Breadcrumb -->
             <nav class="text-sm text-gray-500 mb-6 flex items-center">
@@ -201,7 +211,7 @@
                     <span>8 min read</span>
                 </div>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-6">Beyond Manual Rosters: Why Global Businesses Are Switching to Automated Employee Transport Management Systems</h1>
-                <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=1200" alt="Corporate cab fleet management dashboard concept" class="w-full h-auto rounded-2xl shadow-lg object-cover max-h-[400px]">
+                <img loading="eager" fetchpriority="high" src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=1200" alt="Corporate cab fleet management dashboard concept" class="w-full h-auto rounded-2xl shadow-lg object-cover max-h-[400px]">
             </div>
 
             <!-- Blog Article -->

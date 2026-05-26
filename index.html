@@ -2,6 +2,10 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google tag (gtag.js) -->
@@ -52,10 +56,10 @@
     <meta id="tw-image" property="twitter:image" content="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1200">
 
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com" fetchpriority="high"></script>
     
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <!-- Custom Tailwind Config -->
     <script>
@@ -171,12 +175,17 @@
             transform: scale(1.02);
         }
     </style>
+    <meta name="theme-color" content="#0f172a">
+    <link rel="apple-touch-icon" href="/images/logo.png">
+    <link rel="manifest" href="/manifest.json">
 </head>
 <body class="bg-white text-gray-900 antialiased selection:bg-blue-200 selection:text-blue-900 flex flex-col min-h-screen">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:text-blue-700 focus:font-semibold">Skip to main content</a>
+
 
     <!-- Navbar -->
     <!-- Navbar (SEO‑friendly with static links) -->
-<nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
+<nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm" aria-label="Main navigation">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
             <!-- Logo (links to homepage) -->
@@ -235,7 +244,7 @@
 </nav>
 
     <!-- Main Content Area -->
-    <main id="app-root" class="flex-grow pt-20">
+    <main role="main" id="app-root" class="flex-grow pt-20" id="main-content">
         <!-- Content injected via JS -->
     </main>
 
@@ -824,7 +833,7 @@
                             </div>
                             <div class="mt-12 lg:mt-0 relative">
                                 <div class="absolute -inset-4 bg-gradient-to-r from-blue-200 to-blue-100 rounded-2xl blur-lg opacity-70"></div>
-                                <img src="${service.image}" alt="${service.title}" class="relative rounded-2xl shadow-xl border border-blue-100 w-full" />
+                                <img loading="eager" fetchpriority="high" src="${service.image}" alt="${service.title}" class="relative rounded-2xl shadow-xl border border-blue-100 w-full" />
                             </div>
                         </div>
                     </div>
@@ -951,10 +960,10 @@
 
             const cards = models.map(m => `
                 <div class="card p-6 flex flex-col h-full">
-                    <img src="${m.image}" alt="${m.name}" class="h-40 w-full object-cover rounded-lg mb-4">
+                    <img loading="lazy" src="${m.image}" alt="${m.name}" class="h-40 w-full object-cover rounded-lg mb-4">
                     <h3 class="text-xl font-bold text-gray-900 mb-2">${m.name}</h3>
                     <p class="text-gray-600 text-sm mb-4 flex-1">${m.description}</p>
-                    <a href="${m.link}" target="_blank" rel="nofollow sponsored" class="btn-primary text-center text-sm py-2">Learn More & Buy</a>
+                    <a href="${m.link}" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn-primary text-center text-sm py-2">Learn More & Buy</a>
                 </div>
             `).join('');
 
@@ -988,7 +997,7 @@
                         <div class="flex flex-wrap gap-2 mb-4">
                             ${p.tags.map(tag => `<span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">${tag}</span>`).join('')}
                         </div>
-                        <a href="${p.url}" target="_blank" rel="noopener" class="btn-primary text-center text-sm py-2">
+                        <a href="${p.url}" target="_blank" rel="noopener noopener noreferrer" class="btn-primary text-center text-sm py-2">
                             View Project <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
                         </a>
                     </div>
