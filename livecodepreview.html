@@ -2,11 +2,6 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
-    <link rel="dns-prefetch" href="https://unpkg.com">
-    <link rel="preconnect" href="https://unpkg.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google tag (gtag.js) -->
@@ -78,9 +73,9 @@
     <meta name="description" content="Preview full HTML or separate HTML/CSS/JS live, scan for real-world security issues, and export reports locally without server uploads.">
 
     <!-- Tailwind CSS, Lucide Icons, html2canvas -->
-    <script src="https://cdn.tailwindcss.com" fetchpriority="high"></script>
-    <script src="https://unpkg.com/lucide@latest" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <script>
         tailwind.config = {
@@ -149,17 +144,11 @@
     <meta property="og:title" content="Live Code Previewer & Security Scanner | Denisia Webops">
     <meta property="og:description" content="Preview HTML/CSS/JS live, scan for security issues, export reports locally without server uploads.">
     <meta property="og:url" content="https://www.denisiawebops.org/livecodepreview.html">
-    <meta name="theme-color" content="#0f172a">
-    <link rel="apple-touch-icon" href="/images/logo.png">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <link rel="manifest" href="/manifest.json">
 </head>
 <body class="antialiased flex flex-col min-h-screen">
-<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:text-blue-700 focus:font-semibold">Skip to main content</a>
-
 
     <!-- ========== UNIFIED NAVBAR (with Color Frequency Detector) ========== -->
-<nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm" aria-label="Main navigation">
+<nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
             <a href="index.html" class="flex items-center">
@@ -239,7 +228,7 @@
     </header>
 
     <!-- WORKSPACE MAIN -->
-    <main role="main" class="flex-grow max-w-[1600px] mx-auto w-full px-4 sm:px-6 lg:px-8 py-8" id="main-content">
+    <main class="flex-grow max-w-[1600px] mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
         <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
             
             <!-- LEFT PANEL: EDITOR -->
@@ -697,7 +686,7 @@
         function renderPreviewOnly(){
             const doc = buildPreviewDocument();
             state.lastPreviewHtml = doc;
-            el.outputFrame.srcdoc = doc || "<!doctype html><html lang="en"><body style='font-family:sans-serif;padding:20px;color:#9ca3af;'>Workspace is empty.</body></html>";
+            el.outputFrame.srcdoc = doc || "<!doctype html><html><body style='font-family:sans-serif;padding:20px;color:#9ca3af;'>Workspace is empty.</body></html>";
         }
 
         function escapeHtml(str){
