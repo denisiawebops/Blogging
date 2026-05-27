@@ -4,7 +4,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.denisiawebops.org/</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,43 +12,43 @@
   <!-- Core Static Pages -->
   <url>
     <loc>https://www.denisiawebops.org/services.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.denisiawebops.org/contact.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.denisiawebops.org/projects.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.denisiawebops.org/blogs.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.denisiawebops.org/reviews.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.denisiawebops.org/ai.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.denisiawebops.org/privacy.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -56,31 +56,31 @@
   <!-- SEO & AI SEO Pages -->
   <url>
     <loc>https://www.denisiawebops.org/why-ai-seo.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.denisiawebops.org/the_local_visibility_fix.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.denisiawebops.org/ecommerce-growth-playbook.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.denisiawebops.org/seo-tips-cheat-sheet.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.denisiawebops.org/automation-seo.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -88,101 +88,147 @@
   <!-- Interactive Tools & Demos -->
   <url>
     <loc>https://www.denisiawebops.org/livecodepreview.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.denisiawebops.org/dietplan.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.denisiawebops.org/Corpcabs.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.denisiawebops.org/Chit-fund-calculator.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.denisiawebops.org/chromatone.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.denisiawebops.org/omnifreq.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.denisiawebops.org/Caustics-studio.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.denisiawebops.org/app.html</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- B2B & Corporate Sites -->
   <url>
     <loc>https://www.denisiawebops.org/Housekeeping-products.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.denisiawebops.org/shubam-mines-minerals.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.denisiawebops.org/zia-engg.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
-  <!-- Blog Posts & Articles -->
+  <!-- Blog Posts & Articles (Existing) -->
   <url>
     <loc>https://www.denisiawebops.org/apps.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.denisiawebops.org/powerpages.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.denisiawebops.org/employee-transportion.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.denisiawebops.org/chromatone-blog.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.denisiawebops.org/clawtrust-pro-blog.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.denisiawebops.org/n8n-whatsapp-ai-automation.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- NEW: Microsoft & Low‑Code Website Builder Guides -->
+  <url>
+    <loc>https://www.denisiawebops.org/what-is-microsoft-power-pages-guide.html</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.denisiawebops.org/best-microsoft-website-builder-software-windows.html</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.denisiawebops.org/build-website-microsoft-azure-office365.html</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- NEW: Employee Transport & Fleet Management Blogs -->
+  <url>
+    <loc>https://www.denisiawebops.org/employee-transport-management-system-billing.html</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.denisiawebops.org/corpcab-real-time-tracking-dispatch.html</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.denisiawebops.org/employee-commute-software-shuttle-app.html</loc>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -190,7 +236,7 @@
   <!-- Dedicated Hubs / Landing Pages -->
   <url>
     <loc>https://www.denisiawebops.org/clawtrust-pro-hub.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
