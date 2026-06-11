@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+<!-- Google Analytics-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-FWP9BLNZK6');
+</script>
+
+
+    <!-- clarity -->
+    <script>
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r); t.async=1; t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+    y=l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "vimok6xi57");
+</script>
     <meta charset="UTF-8">
     <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <link rel="dns-prefetch" href="https://unpkg.com">
@@ -10,10 +28,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FWP9BLNZK6');</script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-FWP9BLNZK6');
+    </script>
     <meta name="google-site-verification" content="82U62k4jtMBmS52po-sbJ12znmacAgq0Rg4NvMZLXMY">
     <meta name="msvalidate.01" content="8250834873D72FFE4BABCD1B2C7B3173">
-    <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "vimok6xi57");</script>
+    <script>
+        (function(c, l, a, r, i, t, y) {
+            c[a] = c[a] || function() { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r);
+            t.async = 1;
+            t.src = "https://www.clarity.ms/tag/" + i + "?ref=bwt";
+            y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "vimok6xi57");
+    </script>
 
     <link rel="canonical" href="https://www.denisiawebops.org/contact.html">
     <meta property="og:image" content="https://www.denisiawebops.org/images/logo.png">
@@ -23,17 +56,134 @@
 
     <script src="https://cdn.tailwindcss.com" fetchpriority="high"></script>
     <script src="https://unpkg.com/lucide@latest" defer></script>
-    <style>/* same unified styles as index */</style>
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: 'Inter', system-ui, sans-serif; background-color: #ffffff; color: #1f2937; }
-        .nav-link { color: #4b5563; font-weight: 500; transition: color 0.2s; }
-        .nav-link:hover, .nav-link.active { color: #1e3a8a; }
-        .btn-primary { background-color: #1e3a8a; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; transition: all 0.2s; box-shadow: 0 4px 6px -1px rgba(30,58,138,0.2); }
-        .btn-primary:hover { background-color: #2563eb; transform: translateY(-2px); }
-        .burger-icon { color: #1f2937; background: #f3f4f6; padding: 8px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
-        .burger-icon:hover { background: #e5e7eb; }
-        .glass-panel { background: rgba(255,255,255,0.8); backdrop-filter: blur(8px); border: 1px solid rgba(59,130,246,0.2); }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: #ffffff;
+            color: #1f2937;
+        }
+        .nav-link {
+            color: #4b5563;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-link:hover,
+        .nav-link.active {
+            color: #1e3a8a;
+        }
+        .btn-primary {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            box-shadow: 0 4px 6px -1px rgba(30, 58, 138, 0.2);
+        }
+        .btn-primary:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+        }
+        .btn-primary:disabled {
+            opacity: 0.6;
+            transform: none;
+            cursor: not-allowed;
+        }
+        .burger-icon {
+            color: #1f2937;
+            background: #f3f4f6;
+            padding: 8px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .burger-icon:hover {
+            background: #e5e7eb;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        /* Toast notification */
+        #toast {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform: translateY(100px);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #toast.show {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        #toast.success {
+            background: #065f46;
+            border-color: #34d399;
+        }
+        #toast.error {
+            background: #991b1b;
+            border-color: #f87171;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #1e3a8a;
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.15);
+        }
+
+        .form-input {
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            width: 100%;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            background: white;
+        }
+        .form-input:focus {
+            border-color: #1e3a8a;
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.12);
+        }
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 0.375rem;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .footer-link {
+            color: #6b7280;
+            transition: color 0.2s;
+        }
+        .footer-link:hover {
+            color: #1e3a8a;
+        }
     </style>
     <meta property="og:type" content="website">
     <meta property="og:title" content="Contact Denisia Webops | Web, SEO & AI Consultation">
@@ -44,51 +194,317 @@
     <link rel="manifest" href="/manifest.json">
 </head>
 <body class="bg-white text-gray-900 antialiased flex flex-col min-h-screen">
-<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:text-blue-700 focus:font-semibold">Skip to main content</a>
 
+    <!-- Skip to content -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:text-blue-700 focus:font-semibold">
+        Skip to main content
+    </a>
 
-    <!-- Unified navbar (copy from index) -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm" aria-label="Main navigation">...</nav>
-    <!-- For brevity, use the same navbar code as in index.html – paste it exactly -->
+    <!-- ===== NAVBAR ===== -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center gap-2" aria-label="Denisia Webops Home">
+                        <img src="/images/logo.png" alt="Denisia Webops Logo" class="h-10 w-10 rounded-lg object-cover" width="40" height="40">
+                        <span class="text-xl font-bold text-gray-900 hidden sm:block">Denisia <span class="text-blue-700">Webops</span></span>
+                    </a>
+                </div>
 
+                <!-- Desktop nav -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="/services.html" class="nav-link">Services</a>
+                    <a href="/portfolio.html" class="nav-link">Portfolio</a>
+                    <a href="/about.html" class="nav-link">About</a>
+                    <a href="/contact.html" class="nav-link active" aria-current="page">Contact</a>
+                    <a href="/contact.html" class="btn-primary text-sm">Start Project</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden burger-icon" aria-label="Toggle navigation menu">
+                    <svg id="menuIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white/95 backdrop-blur-sm border-t border-blue-100 px-4 py-4">
+            <div class="flex flex-col gap-3">
+                <a href="/" class="nav-link px-3 py-2 rounded hover:bg-blue-50">Home</a>
+                <a href="/services.html" class="nav-link px-3 py-2 rounded hover:bg-blue-50">Services</a>
+                <a href="/portfolio.html" class="nav-link px-3 py-2 rounded hover:bg-blue-50">Portfolio</a>
+                <a href="/about.html" class="nav-link px-3 py-2 rounded hover:bg-blue-50">About</a>
+                <a href="/contact.html" class="nav-link active px-3 py-2 rounded hover:bg-blue-50">Contact</a>
+                <a href="/contact.html" class="btn-primary text-center text-sm mt-2">Start Project</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== MAIN CONTENT ===== -->
     <main role="main" class="flex-grow pt-32 pb-20" id="main-content">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h1 class="text-4xl font-bold text-gray-900 mb-4">Get in Touch</h1>
-                <p class="text-gray-600 text-lg">Tell us about your project and we'll get back to you within 24h.</p>
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">Get in Touch</h1>
+                <p class="text-gray-600 text-lg max-w-lg mx-auto">Tell us about your project and we'll get back to you within 24 hours.</p>
             </div>
+
             <div class="glass-panel rounded-2xl p-8 md:p-10 shadow-xl relative overflow-hidden">
-                <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-6 relative z-10">
+                <!-- Toast notification -->
+                <div id="toast" class="fixed top-24 right-4 z-[100] px-5 py-3 rounded-xl text-white font-medium shadow-xl border border-white/20 flex items-center gap-3 max-w-sm">
+                    <span id="toastIcon" class="text-xl">✓</span>
+                    <span id="toastMessage">Success!</span>
+                </div>
+
+                <form id="contact-form" class="space-y-6 relative z-10">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div><label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label><input type="text" name="name" required class="w-full px-4 py-3 rounded-lg border" placeholder="John Doe"></div>
-                        <div><label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label><input type="email" name="email" required class="w-full px-4 py-3 rounded-lg border" placeholder="john@company.com"></div>
+                        <div>
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe" class="form-input">
+                        </div>
+                        <div>
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="john@company.com" class="form-input">
+                        </div>
                     </div>
-                    <div><label class="block text-sm font-medium text-gray-700 mb-2">Service Interested In</label><select name="service" class="w-full px-4 py-3 rounded-lg border"><option value="">Select a service</option><option value="web-dev">Web Development</option><option value="app-dev">App Development</option><option value="seo">SEO</option><option value="digital-marketing">Digital Marketing</option></select></div>
-                    <div><label class="block text-sm font-medium text-gray-700 mb-2">Message</label><textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-lg border" placeholder="Tell us about your project..."></textarea></div>
-                    <button type="submit" class="w-full btn-primary flex justify-center items-center">Send Inquiry <i data-lucide="send" class="ml-2 h-5 w-5"></i></button>
+
+                    <div>
+                        <label for="service" class="form-label">Service Interested In</label>
+                        <select id="service" name="service" class="form-input">
+                            <option value="">Select a service</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="App Development">App Development</option>
+                            <option value="SEO">SEO</option>
+                            <option value="Digital Marketing">Digital Marketing</option>
+                            <option value="AI Solutions">AI Solutions</option>
+                            <option value="Consulting">Consulting</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" rows="4" required placeholder="Tell us about your project..." class="form-input resize-y"></textarea>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="w-full btn-primary flex justify-center items-center gap-2 text-base">
+                        <span id="btnText">Send Inquiry</span>
+                        <i data-lucide="send" id="btnIcon" class="h-5 w-5"></i>
+                        <span id="btnSpinner" class="spinner hidden"></span>
+                    </button>
+
+                    <p class="text-xs text-gray-500 text-center mt-2">We'll respond within 24 hours. You'll also receive a WhatsApp confirmation.</p>
                 </form>
-                <div class="absolute -top-24 -right-24 w-64 h-64 bg-blue-100 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-blue-100 rounded-full blur-3xl pointer-events-none"></div>
+
+                <!-- Decorative blurs -->
+                <div class="absolute -top-24 -right-24 w-64 h-64 bg-blue-100 rounded-full blur-3xl pointer-events-none opacity-60"></div>
+                <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-blue-100 rounded-full blur-3xl pointer-events-none opacity-60"></div>
             </div>
         </div>
     </main>
 
-    <!-- Footer same as index -->
-    <footer class="bg-gray-50 border-t border-blue-100 pt-16 pb-8 mt-auto">...</footer>
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-gray-50 border-t border-blue-100 pt-16 pb-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <!-- Brand -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <img src="/images/logo.png" alt="Denisia Webops" class="h-10 w-10 rounded-lg object-cover">
+                        <span class="text-xl font-bold text-gray-900">Denisia <span class="text-blue-700">Webops</span></span>
+                    </div>
+                    <p class="text-gray-600 text-sm max-w-sm">Empowering businesses with AI-driven web solutions, SEO, and digital marketing. We build, optimize, and scale.</p>
+                    <div class="flex gap-4 mt-4">
+                        <a href="#" class="footer-link" aria-label="Facebook"><i class="fab fa-facebook-f text-lg"></i></a>
+                        <a href="#" class="footer-link" aria-label="Twitter"><i class="fab fa-twitter text-lg"></i></a>
+                        <a href="#" class="footer-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-lg"></i></a>
+                        <a href="#" class="footer-link" aria-label="Instagram"><i class="fab fa-instagram text-lg"></i></a>
+                    </div>
+                </div>
 
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-3">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/services.html" class="footer-link">Services</a></li>
+                        <li><a href="/portfolio.html" class="footer-link">Portfolio</a></li>
+                        <li><a href="/about.html" class="footer-link">About Us</a></li>
+                        <li><a href="/contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-3">Contact</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center gap-2"><i data-lucide="mail" class="h-4 w-4 text-blue-600"></i> hello@denisiawebops.org</li>
+                        <li class="flex items-center gap-2"><i data-lucide="phone" class="h-4 w-4 text-blue-600"></i> +91 8317581308</li>
+                        <li class="flex items-center gap-2"><i data-lucide="map-pin" class="h-4 w-4 text-blue-600"></i> India</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-gray-500">
+                <p>&copy; 2026 Denisia Webops. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="/privacy.html" class="footer-link">Privacy Policy</a>
+                    <a href="/terms.html" class="footer-link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
     <script>
-        function toggleMobileMenu() { /* same as index */ }
-        function handleContactSubmit(e) {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            const data = Object.fromEntries(formData);
-            const phoneNumber = "918317581308";
-            const message = `Hello, I'm interested in your services.%0A%0A*Name:* ${encodeURIComponent(data.name)}%0A*Email:* ${encodeURIComponent(data.email)}%0A*Service:* ${encodeURIComponent(data.service || 'Not specified')}%0A*Message:* ${encodeURIComponent(data.message)}`;
-            window.location.href = `https://wa.me/${phoneNumber}?text=${message}`;
+        // ---- Mobile menu ----
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('menuIcon');
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.innerHTML =
+                    `<line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line>`;
+            } else {
+                icon.innerHTML =
+                    `<line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>`;
+            }
         }
-        document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+
+        // ---- Toast ----
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMessage');
+            const toastIcon = document.getElementById('toastIcon');
+            toast.className = `fixed top-24 right-4 z-[100] px-5 py-3 rounded-xl text-white font-medium shadow-xl border border-white/20 flex items-center gap-3 max-w-sm transition-all duration-400`;
+            toastMsg.textContent = message;
+            toastIcon.textContent = type === 'success' ? '✓' : '✕';
+            toast.classList.add('show', type);
+            setTimeout(() => { toast.classList.remove('show'); }, 4500);
+        }
+
+        // ---- EmailJS Integration ----
+        // Initialize EmailJS with your Public Key
+        (function initEmailJS() {
+            try {
+                emailjs.init('TSALc5V0aPQoQNp6z');
+                console.log('EmailJS initialized successfully');
+            } catch (err) {
+                console.error('EmailJS init error:', err);
+            }
+        })();
+
+        // ---- Form Handler ----
+        async function handleContactSubmit(e) {
+            e.preventDefault();
+
+            const form = document.getElementById('contact-form');
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const btnIcon = document.getElementById('btnIcon');
+            const btnSpinner = document.getElementById('btnSpinner');
+
+            // Gather form data
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+
+            // Validate
+            if (!data.name || !data.email || !data.message) {
+                showToast('Please fill in all required fields.', 'error');
+                return;
+            }
+
+            // Disable button & show spinner
+            submitBtn.disabled = true;
+            btnText.textContent = 'Sending...';
+            btnIcon.classList.add('hidden');
+            btnSpinner.classList.remove('hidden');
+
+            try {
+                // === SEND VIA EMAILJS ===
+                // Using your Service ID and Template ID
+                const templateParams = {
+                    from_name: data.name,
+                    from_email: data.email,
+                    service: data.service || 'Not specified',
+                    message: data.message,
+                };
+
+                // Send using the provided template ID
+                const response = await emailjs.send(
+                    'service_avghp1d', // Service ID
+                    'template_2plsegm', // Template ID (updated)
+                    templateParams,
+                    'TSALc5V0aPQoQNp6z' // Public Key
+                );
+
+                if (response.status === 200) {
+                    showToast('✅ Message sent successfully! We\'ll get back to you shortly.', 'success');
+
+                    // WhatsApp fallback (commented out – enable if needed)
+                    // const phoneNumber = "918317581308";
+                    // const waMsg = `Hello, I just submitted a contact form on Denisia Webops.%0A%0A*Name:* ${encodeURIComponent(data.name)}%0A*Email:* ${encodeURIComponent(data.email)}%0A*Service:* ${encodeURIComponent(data.service || 'Not specified')}%0A*Message:* ${encodeURIComponent(data.message)}`;
+                    // window.location.href = `https://wa.me/${phoneNumber}?text=${waMsg}`;
+                } else {
+                    throw new Error('EmailJS response status: ' + response.status);
+                }
+
+            } catch (error) {
+                console.error('EmailJS Error:', error);
+                showToast('⚠️ Something went wrong. Please try again or message us on WhatsApp.', 'error');
+
+                // Fallback WhatsApp (commented out – enable if needed)
+                // const phoneNumber = "918317581308";
+                // const data2 = Object.fromEntries(new FormData(form));
+                // const waMsg = `Hello, I'm interested in your services (email failed).%0A%0A*Name:* ${encodeURIComponent(data2.name)}%0A*Email:* ${encodeURIComponent(data2.email)}%0A*Service:* ${encodeURIComponent(data2.service || 'Not specified')}%0A*Message:* ${encodeURIComponent(data2.message)}`;
+                // window.location.href = `https://wa.me/${phoneNumber}?text=${waMsg}`;
+
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                btnText.textContent = 'Send Inquiry';
+                btnIcon.classList.remove('hidden');
+                btnSpinner.classList.add('hidden');
+            }
+        }
+
+        // ---- Attach form handler ----
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contact-form');
+            if (form) {
+                form.addEventListener('submit', handleContactSubmit);
+            }
+
+            // Init Lucide icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+
+        // ---- Expose to global scope for inline onclick ----
         window.handleContactSubmit = handleContactSubmit;
+        window.toggleMobileMenu = toggleMobileMenu;
+
+        // ---- Tawk.to Chat ----
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/6993fa897941b81c35293c7a/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
     </script>
-    <script type="text/javascript">var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src='https://embed.tawk.to/6993fa897941b81c35293c7a/default';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();</script>
+
+    <!--
+    ════════════════════════════════════════════════════════════
+    EMAILJS CONFIGURATION (all set)
+    Service ID : service_avghp1d
+    Template ID: template_2plsegm
+    Public Key : TSALc5V0aPQoQNp6z
+    ════════════════════════════════════════════════════════════
+    -->
 </body>
 </html>
