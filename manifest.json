@@ -1,34 +1,57 @@
 {
-  "name": "Denisia Webops",
-  "short_name": "Denisia",
-  "description": "AI-powered web development, SEO automation & SaaS solutions",
+  "name": "Denisia Webops Agency",
+  "short_name": "Denisia Webops",
+  "description": "Customer-first web development, SEO, AI automation, Microsoft Power Pages, Power Apps, CRM, ERP, and business growth solutions",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait-primary",
   "background_color": "#0f172a",
   "theme_color": "#0f172a",
   "lang": "en",
+  "dir": "ltr",
   "icons": [
     {
       "src": "/images/logo.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
       "src": "/images/logo.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
-  "categories": ["business", "productivity", "utilities"],
+  "categories": [
+    "business",
+    "productivity",
+    "developer",
+    "education",
+    "utilities"
+  ],
   "screenshots": [
     {
       "src": "/images/logo.png",
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Homepage – Denisia Webops Agency"
+      "label": "Denisia Webops Agency homepage"
     }
-  ]
+  ],
+  "prefer_related_applications": false
 }
