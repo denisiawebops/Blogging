@@ -192,36 +192,33 @@
 <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:text-blue-700 focus:font-semibold">Skip to main content</a>
 
 
-    <!-- Navbar -->
     <!-- Navbar (SEO‑friendly with static links) -->
 <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm" aria-label="Main navigation">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
             <!-- Logo (links to homepage) -->
-            <a href="index.html" class="flex items-center">
+            <a href="index.html" class="flex items-center shrink-0">
                 <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-2 rounded-lg shadow-md">
                     <i data-lucide="zap" class="h-6 w-6 text-white"></i>
                 </div>
-                <span class="ml-3 text-xl font-bold text-gray-900">Denisia Webops Agency</span>
+                <span class="ml-3 text-xl font-bold text-gray-900 whitespace-nowrap">Denisia Webops Agency</span>
             </a>
 
-            <!-- Desktop Menu (static links) -->
-            <div class="hidden md:block">
-                <div class="ml-10 flex items-baseline space-x-8">
-                    <a href="index.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Home</a>
-                    <a href="projects.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Projects</a>
-                    <a href="blogs.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Blog</a>
-                    <a href="reviews.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Reviews</a>
-                    <a href="qr-code-stand-generator.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">QR Stand Generator</a>
-                    <a href="why-ai-seo.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Why AI SEO</a>
-                    <a href="livecodepreview.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Code Preview</a>
-                    <a href="seo-tips-cheat-sheet.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">SEO Cheat Sheet</a>
-                    <a href="contact.html" class="bg-blue-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition shadow-sm text-sm">Get in Touch</a>
-                </div>
+            <!-- Desktop Menu (hidden on mobile, shown on md+) -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-600 hover:text-blue-700 font-medium text-sm transition-colors">Home</a>
+                <a href="projects.html" class="text-gray-600 hover:text-blue-700 font-medium text-sm transition-colors">Projects</a>
+                <a href="blogs.html" class="text-gray-600 hover:text-blue-700 font-medium text-sm transition-colors">Blog</a>
+                <a href="reviews.html" class="text-gray-600 hover:text-blue-700 font-medium text-sm transition-colors">Reviews</a>
+                <a href="qr-code-stand-generator.html" class="text-gray-600 hover:text-blue-700 font-medium text-sm transition-colors">QR Stand Generator</a>
+                <a href="why-ai-seo.html" class="text-gray-600 hover:text-blue-700 font-medium text-sm transition-colors">Why AI SEO</a>
+                <a href="livecodepreview.html" class="text-gray-600 hover:text-blue-700 font-medium text-sm transition-colors">Code Preview</a>
+                <a href="seo-tips-cheat-sheet.html" class="text-gray-600 hover:text-blue-700 font-medium text-sm transition-colors">SEO Cheat Sheet</a>
+                <a href="contact.html" class="bg-blue-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition shadow-sm text-sm">Get in Touch</a>
             </div>
 
-            <!-- Mobile Menu Button (visible) -->
-            <div class="md:hidden">
+            <!-- Mobile Menu Button (visible on all screen sizes – now also on desktop if user wants) -->
+            <div class="flex md:hidden">
                 <button onclick="toggleMobileMenu()" class="burger-icon focus:outline-none">
                     <i id="mobile-menu-icon" data-lucide="menu" class="h-6 w-6 text-gray-700"></i>
                 </button>
@@ -229,29 +226,84 @@
         </div>
     </div>
 
-    <!-- Mobile Menu Dropdown (static links) -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-blue-100 shadow-lg absolute w-full z-40">
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-blue-100 shadow-lg absolute w-full z-40">
-    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-        <a href="index.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">Home</a>
-        <a href="projects.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">Projects</a>
-        <a href="blogs.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">Blog</a>
-        <a href="reviews.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">Reviews</a>
-        <a href="qr-code-stand-generator.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">QR Stand Generator</a>
-        <a href="why-ai-seo.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">Why AI SEO</a>
-        <a href="livecodepreview.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">Code Preview</a>
-        <a href="seo-tips-cheat-sheet.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">SEO Cheat Sheet</a>
-        <a href="dietplan.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">🍽️ Diet Plan</a>
-        <a href="Corpcabs.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">🚌 CorpCab Demo</a>
-        <a href="Chit-fund-calculator.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">💰 Chit Fund Calc</a>
-        <a href="chromatone.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">🎨 ChromaTone</a>
-        <a href="omnifreq.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">🎵 OmniFreq</a>
-        <a href="Caustics-studio.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">✨ Caustics Studio</a>
-        <a href="privacy.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors">📄 Privacy</a>
-        <a href="contact.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-blue-700 bg-blue-50 hover:bg-blue-100 hover:text-blue-800 transition-colors">Get in Touch</a>
+    <!-- Mobile Menu Dropdown (static links, same as desktop) -->
+    <div id="mobile-menu" class="hidden bg-white border-b border-blue-100 shadow-lg absolute w-full z-40">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="index.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Home</a>
+            <a href="projects.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Projects</a>
+            <a href="blogs.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Blog</a>
+            <a href="reviews.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Reviews</a>
+            <a href="qr-code-stand-generator.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">QR Stand Generator</a>
+            <a href="why-ai-seo.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Why AI SEO</a>
+            <a href="livecodepreview.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Code Preview</a>
+            <a href="seo-tips-cheat-sheet.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">SEO Cheat Sheet</a>
+            <a href="dietplan.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">🍽️ Diet Plan</a>
+            <a href="Corpcabs.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">🚌 CorpCab Demo</a>
+            <a href="Chit-fund-calculator.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">💰 Chit Fund Calc</a>
+            <a href="chromatone.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">🎨 ChromaTone</a>
+            <a href="omnifreq.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">🎵 OmniFreq</a>
+            <a href="Caustics-studio.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">✨ Caustics Studio</a>
+            <a href="privacy.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">📄 Privacy</a>
+            <a href="contact.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-blue-700 bg-blue-50 hover:bg-blue-100">Get in Touch</a>
+        </div>
     </div>
-</div>
 </nav>
+
+<style>
+    /* Force consistent font family across all nav items */
+    nav, nav * {
+        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+    .burger-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f3f4f6;
+        padding: 8px;
+        border-radius: 8px;
+        transition: background 0.2s;
+    }
+    .burger-icon:hover {
+        background: #e5e7eb;
+    }
+    /* Ensure no white-space overflow on mobile */
+    .max-w-7xl {
+        max-width: 80rem;
+    }
+    nav a {
+        transition: all 0.2s ease;
+    }
+</style>
+
+<script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('mobile-menu-icon');
+        if (menu.classList.contains('hidden')) {
+            menu.classList.remove('hidden');
+            if (icon) icon.setAttribute('data-lucide', 'x');
+        } else {
+            menu.classList.add('hidden');
+            if (icon) icon.setAttribute('data-lucide', 'menu');
+        }
+        if (typeof lucide !== 'undefined' && lucide.createIcons) {
+            lucide.createIcons();
+        }
+    }
+
+    // Close mobile menu on window resize if screen becomes large (optional)
+    window.addEventListener('resize', function() {
+        if (window.innerWidth >= 768) {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            if (menu && !menu.classList.contains('hidden')) {
+                menu.classList.add('hidden');
+                if (icon) icon.setAttribute('data-lucide', 'menu');
+                if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
+            }
+        }
+    });
+</script>
     <!-- Main Content Area -->
     <main role="main" id="app-root" class="flex-grow pt-20" id="main-content">
         <!-- Content injected via JS -->
