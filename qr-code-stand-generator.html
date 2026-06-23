@@ -155,38 +155,120 @@
 
     <div class="w-full max-w-[100vw] overflow-x-hidden flex flex-col min-h-screen">
 
+
         <!-- ========== NAVBAR ========== -->
-        <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100 shadow-sm transition-all duration-300">
+        <nav class="fixed w-full z-50 bg-white/85 backdrop-blur-lg border-b border-slate-200/80 shadow-sm transition-all duration-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-20">
-                    <a href="index.html" class="flex items-center shrink-0 group">
+                    <a href="#top" class="flex items-center shrink-0 group">
                         <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-2.5 rounded-xl shadow-md">
                             <i data-lucide="zap" class="h-6 w-6 text-white"></i>
                         </div>
-                        <span class="ml-3 text-xl font-extrabold tracking-tight text-gray-900">Denisia Webops</span>
+                        <div class="ml-3">
+                            <span class="block text-xl font-extrabold tracking-tight text-slate-900 group-hover:text-blue-700 transition-colors">Denisia Webops</span>
+                            <span class="block text-[11px] font-semibold text-slate-500">ECHO Restaurant OS</span>
+                        </div>
                     </a>
+
+                    <div class="hidden lg:flex items-center space-x-6">
+                        <a href="#designer" class="text-slate-600 hover:text-blue-700 font-medium text-sm transition-colors">Builder</a>
+                        <a href="#guide" class="text-slate-600 hover:text-blue-700 font-medium text-sm transition-colors">Guide</a>
+                        <a href="#quick-answers" class="text-slate-600 hover:text-blue-700 font-medium text-sm transition-colors">FAQ</a>
+                        <a href="#order-root" class="text-slate-600 hover:text-blue-700 font-medium text-sm transition-colors">Order</a>
+                        <a href="blogs.html" class="text-slate-600 hover:text-blue-700 font-medium text-sm transition-colors">Blogs</a>
+                        <a href="google-products-hub.html" class="text-slate-600 hover:text-blue-700 font-medium text-sm transition-colors">Google Hub</a>
+                        <a href="contact.html" class="text-slate-600 hover:text-blue-700 font-medium text-sm transition-colors">Contact</a>
+                        <button onclick="window.openGuideModal && window.openGuideModal()" class="bg-slate-900 text-white px-4 py-2.5 rounded-xl font-semibold hover:bg-blue-700 transition shadow-sm text-sm">How it works</button>
+                    </div>
+
+                    <div class="lg:hidden">
+                        <button onclick="toggleMobileMenu()" class="burger-icon focus:outline-none">
+                            <i id="mobile-menu-icon" data-lucide="menu" class="h-6 w-6 text-gray-700"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden lg:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-2xl absolute w-full z-40">
+                <div class="px-4 pt-2 pb-6 space-y-2 sm:px-6">
+                    <a href="#designer" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700">Builder</a>
+                    <a href="#guide" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700">Guide</a>
+                    <a href="#quick-answers" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700">FAQ</a>
+                    <a href="#order-root" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700">Order</a>
+                    <a href="blogs.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700">Blogs</a>
+                    <a href="google-products-hub.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700">Google Hub</a>
+                    <a href="contact.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700">Contact</a>
+                    <button onclick="window.openGuideModal && window.openGuideModal(); toggleMobileMenu();" class="w-full text-left block px-3 py-2.5 rounded-lg text-base font-bold text-white bg-slate-900 mt-3">How it works</button>
                 </div>
             </div>
         </nav>
 
         <!-- ========== HERO SECTION ========== -->
-        <div class="relative hero-pattern text-white pt-36 pb-24 overflow-hidden w-full">
+        <div id="top" class="relative hero-pattern text-white pt-36 pb-20 overflow-hidden w-full">
             <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
             <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
-                <span class="inline-block py-1 px-3 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 font-semibold text-sm mb-6">SMART QR SYSTEMS FOR RESTAURANTS</span>
+                <span class="inline-flex items-center gap-2 py-1 px-3 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 font-semibold text-sm mb-6">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                    SMART QR SYSTEMS FOR RESTAURANTS, HOTELS & CAFÉS
+                </span>
                 <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight tracking-tight">
                     ECHO OS + Immersive <br/>
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-400">QR Builder Engine</span>
                 </h1>
-                <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-300 mb-10 font-light">Design Acrylic Stands or Vinyl Stickers for your Tables and Counters in full 3D.</p>
-                
-                <button onclick="document.getElementById('designer').scrollIntoView({behavior: 'smooth'})" class="w-full sm:w-auto bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-bold px-8 py-4 rounded-xl shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center mx-auto">
-                    <i data-lucide="brush" class="mr-2 h-5 w-5"></i> Enter the Builder
-                </button>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-300 mb-10 font-light">
+                    Build a premium acrylic stand in India or launch a functional QR menu with live order tracking worldwide.
+                    Outside India, only the functional QR menu + live tracking system is available.
+                </p>
+
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <button onclick="document.getElementById('designer').scrollIntoView({behavior: 'smooth'})" class="w-full sm:w-auto bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-bold px-8 py-4 rounded-xl shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center">
+                        <i data-lucide="brush" class="mr-2 h-5 w-5"></i> Open Builder
+                    </button>
+                    <button onclick="window.openGuideModal && window.openGuideModal()" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-8 py-4 rounded-xl backdrop-blur-sm transition-all duration-300 flex items-center justify-center">
+                        <i data-lucide="book-open" class="mr-2 h-5 w-5"></i> Step-by-step guide
+                    </button>
+                    <button onclick="window.openInternationalOrderModal && window.openInternationalOrderModal()" class="w-full sm:w-auto bg-blue-700/90 hover:bg-blue-600 border border-blue-400/40 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center">
+                        <i data-lucide="globe" class="mr-2 h-5 w-5"></i> Outside India
+                    </button>
+                </div>
+
+                <div class="mt-8 flex flex-wrap justify-center items-center gap-4 md:gap-6 text-sm text-gray-300 font-medium">
+                    <span class="flex items-center"><i data-lucide="check-circle" class="h-4 w-4 text-cyan-400 mr-1.5"></i> India: Stand + Functional Menu</span>
+                    <span class="flex items-center"><i data-lucide="check-circle" class="h-4 w-4 text-cyan-400 mr-1.5"></i> Outside India: Functional Menu + Live Tracking</span>
+                    <span class="flex items-center"><i data-lucide="check-circle" class="h-4 w-4 text-cyan-400 mr-1.5"></i> 5‑Day Delivery & Full Training</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 py-5">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-700 flex items-start gap-3">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-blue-700 mt-0.5"></i>
+                        <div>
+                            <p class="font-bold text-slate-900">India only</p>
+                            <p>1 acrylic stand + functional QR menu per table.</p>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-700 flex items-start gap-3">
+                        <i data-lucide="globe" class="w-5 h-5 text-blue-700 mt-0.5"></i>
+                        <div>
+                            <p class="font-bold text-slate-900">Outside India</p>
+                            <p>Functional QR menu with live order tracking only.</p>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-700 flex items-start gap-3">
+                        <i data-lucide="truck" class="w-5 h-5 text-blue-700 mt-0.5"></i>
+                        <div>
+                            <p class="font-bold text-slate-900">Setup & support</p>
+                            <p>Delivery in 5 days, full training, no subscription.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- ========== REACT: DUAL IMMERSIVE 3D BUILDER (STAND & STICKER) ========== -->
+
         <div class="bg-gray-50 border-b border-gray-200">
             <div class="max-w-[1400px] mx-auto px-0 md:px-4 py-12 w-full" id="designer">
                 <div class="text-center mb-8 px-4">
@@ -201,10 +283,88 @@
                     </div>
                 </div>
                 <div id="order-root" class="w-full"></div>
+                <div id="guide-root" class="w-full"></div>
             </div>
         </div>
 
     </div>
+
+        <!-- ========== QUICK ANSWERS ========== -->
+        <div id="quick-answers" class="max-w-7xl mx-auto px-4 py-20 w-full">
+            <div class="text-center mb-10">
+                <span class="inline-block px-3 py-1 bg-indigo-100 text-indigo-700 font-bold rounded-full text-xs mb-3 uppercase tracking-wider">Quick answers</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">What restaurant owners ask before buying</h2>
+                <p class="text-slate-600 mt-3 max-w-2xl mx-auto">Clear answers, faster decisions, and the right path for India and international customers.</p>
+            </div>
+
+            <div class="grid gap-6 md:grid-cols-3">
+                <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-700 flex items-center justify-center mb-4"><i data-lucide="map-pin" class="w-6 h-6"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Need a stand in India?</h3>
+                    <p class="text-slate-600 leading-relaxed">Choose the acrylic QR stand plus the functional menu. It is built for tables, counters, and premium restaurant presentation.</p>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm">
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-700 flex items-center justify-center mb-4"><i data-lucide="globe" class="w-6 h-6"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Outside India?</h3>
+                    <p class="text-slate-600 leading-relaxed">Only the Functional QR Menu with live order tracking system is available. No physical stand offer is shown.</p>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-4"><i data-lucide="clock-3" class="w-6 h-6"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">How long does it take?</h3>
+                    <p class="text-slate-600 leading-relaxed">Up to 5 days for delivery, full training, and ongoing support. No monthly or yearly subscription.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== FOOTER ========== -->
+        <footer class="bg-slate-950 text-slate-300 border-t border-white/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-2 rounded-lg shadow">
+                                <i data-lucide="zap" class="h-5 w-5 text-white"></i>
+                            </div>
+                            <span class="ml-3 text-lg font-bold text-white">Denisia Webops</span>
+                        </div>
+                        <p class="text-sm leading-relaxed text-slate-400">
+                            ECHO Restaurant OS for modern restaurants, cafés, and hotel dining teams.
+                            India gets the stand + functional menu. Outside India gets the functional QR menu with live order tracking only.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-semibold mb-4">Explore</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="#designer" class="hover:text-cyan-300 transition">Open Builder</a></li>
+                            <li><a href="#guide" class="hover:text-cyan-300 transition">Step-by-step guide</a></li>
+                            <li><a href="#quick-answers" class="hover:text-cyan-300 transition">Quick answers</a></li>
+                            <li><a href="#order-root" class="hover:text-cyan-300 transition">Order request</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-semibold mb-4">Internal links</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="blogs.html" class="hover:text-cyan-300 transition">Blogs</a></li>
+                            <li><a href="google-products-hub.html" class="hover:text-cyan-300 transition">Google Products Hub</a></li>
+                            <li><a href="why-ai-seo.html" class="hover:text-cyan-300 transition">Why AI SEO</a></li>
+                            <li><a href="contact.html" class="hover:text-cyan-300 transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-semibold mb-4">Need help?</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-4">Open the guide modal for a step-by-step walkthrough of the setup and order flow.</p>
+                        <button onclick="window.openGuideModal && window.openGuideModal()" class="w-full bg-white text-slate-900 font-bold px-4 py-3 rounded-xl hover:bg-cyan-300 transition">Open Guide</button>
+                    </div>
+                </div>
+                <div class="border-t border-white/10 pt-8 mt-10 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-sm text-slate-500">© 2026 Denisia Webops Agency. All rights reserved.</p>
+                    <div class="flex flex-wrap gap-4 text-sm">
+                        <button onclick="window.openInternationalOrderModal && window.openInternationalOrderModal()" class="text-cyan-300 hover:text-white transition">Outside India setup</button>
+                        <button onclick="window.openGuideModal && window.openGuideModal()" class="text-cyan-300 hover:text-white transition">How it works</button>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
     <!-- Initialization Scripts -->
     <script>
@@ -546,11 +706,11 @@
           );
         }
 
+
         // --- 2. ORDER MODAL APP ---
         function OrderFlow() {
             const [isOpen, setIsOpen] = useState(false);
-            const [defaultMode, setDefaultMode] = useState('stand');
-            
+            const [activeRegion, setActiveRegion] = useState('india');
             const [standeeQty, setStandeeQty] = useState(1);
             const [stickerQty, setStickerQty] = useState(0);
             const [hasFunctionalMenu, setHasFunctionalMenu] = useState(true);
@@ -559,21 +719,51 @@
             const [isSuccess, setIsSuccess] = useState(false);
 
             useEffect(() => {
-                window.openOrderModal = (mode = 'stand') => { 
-                    setDefaultMode(mode);
-                    if(mode === 'sticker') { setStandeeQty(0); setStickerQty(5); } 
-                    else { setStandeeQty(1); setStickerQty(0); }
-                    setIsOpen(true); setIsSuccess(false); 
+                window.openOrderModal = (mode = 'stand') => {
+                    setActiveRegion('india');
+                    if (mode === 'sticker') {
+                        setStandeeQty(0);
+                        setStickerQty(5);
+                    } else {
+                        setStandeeQty(1);
+                        setStickerQty(0);
+                    }
+                    setHasFunctionalMenu(true);
+                    setIsOpen(true);
+                    setIsSuccess(false);
                 };
-                return () => { delete window.openOrderModal; };
+
+                window.openInternationalOrderModal = () => {
+                    setActiveRegion('international');
+                    setStandeeQty(0);
+                    setStickerQty(0);
+                    setHasFunctionalMenu(true);
+                    setIsOpen(true);
+                    setIsSuccess(false);
+                };
+
+                return () => {
+                    delete window.openOrderModal;
+                    delete window.openInternationalOrderModal;
+                };
             }, []);
 
-            const EMAILJS_SERVICE_ID = 'service_avghp1d';
-            const EMAILJS_TEMPLATE_ID = 'template_2plsegm'; 
+            useEffect(() => {
+                if (activeRegion === 'international') {
+                    setStandeeQty(0);
+                    setStickerQty(0);
+                    setHasFunctionalMenu(true);
+                }
+            }, [activeRegion]);
 
-            const subtotal = (standeeQty * 350) + (stickerQty * 45) + (hasFunctionalMenu ? 1950 : 0);
+            const EMAILJS_SERVICE_ID = 'service_avghp1d';
+            const EMAILJS_TEMPLATE_ID = 'template_2plsegm';
+
+            const subtotal = activeRegion === 'international'
+                ? (hasFunctionalMenu ? 1950 : 0)
+                : (standeeQty * 350) + (stickerQty * 45) + (hasFunctionalMenu ? 1950 : 0);
             const tax = subtotal * 0.18;
-            const shipping = (standeeQty > 0 || stickerQty > 0) ? 150 : 0; 
+            const shipping = activeRegion === 'international' ? 0 : ((standeeQty > 0 || stickerQty > 0) ? 150 : 0);
             const total = subtotal + tax + shipping;
             const formatMoney = (val) => `₹${val.toFixed(2)}`;
 
@@ -581,22 +771,34 @@
                 e.preventDefault();
                 setIsSubmitting(true);
                 const templateParams = {
-                    from_name: formData.name, customer_email: formData.email, customer_phone: formData.phone,
-                    customer_whatsapp: formData.whatsapp || 'N/A', delivery_address: `${formData.address}, ${formData.state} - ${formData.pincode}`,
-                    standee_qty: standeeQty, sticker_qty: stickerQty, functional_menu: hasFunctionalMenu ? 'Yes (₹1,950)' : 'No',
+                    from_name: formData.name,
+                    customer_email: formData.email,
+                    customer_phone: formData.phone,
+                    customer_whatsapp: formData.whatsapp || 'N/A',
+                    delivery_address: `${formData.address}, ${formData.state} - ${formData.pincode}`,
+                    region: activeRegion,
+                    standee_qty: activeRegion === 'international' ? 0 : standeeQty,
+                    sticker_qty: activeRegion === 'international' ? 0 : stickerQty,
+                    functional_menu: hasFunctionalMenu ? 'Yes (₹1,950)' : 'No',
                     total_amount: total.toFixed(2)
                 };
 
                 try {
-                    if(window.emailjs && EMAILJS_SERVICE_ID !== 'YOUR_SERVICE_ID') {
+                    if (window.emailjs && EMAILJS_SERVICE_ID !== 'YOUR_SERVICE_ID') {
                         await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
                         setIsSuccess(true);
-                    } else { setTimeout(() => setIsSuccess(true), 1200); }
-                } catch (error) { alert("There was an issue processing your order."); }
+                    } else {
+                        setTimeout(() => setIsSuccess(true), 1200);
+                    }
+                } catch (error) {
+                    alert("There was an issue processing your order.");
+                }
                 setIsSubmitting(false);
             };
 
             if (!isOpen) return null;
+
+            const isInternational = activeRegion === 'international';
 
             return (
                 <div className="fixed inset-0 z-[100] bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4">
@@ -607,32 +809,55 @@
                            <div className="w-full h-full flex flex-col items-center justify-center p-8 text-center bg-indigo-50">
                                <div className="w-24 h-24 bg-green-500 rounded-full flex items-center justify-center mb-6 text-white shadow-lg shadow-green-500/30"><Icons.Check /></div>
                                <h2 className="text-4xl font-black text-slate-900 mb-4">Request Received!</h2>
-                               <p className="text-lg text-slate-600 max-w-md mb-8">Thank you, {formData.name}. We securely received your custom setup request. Our team will contact you on {formData.phone} shortly.</p>
+                               <p className="text-lg text-slate-600 max-w-md mb-8">Thank you, {formData.name}. We securely received your setup request. Our team will contact you on {formData.phone} shortly.</p>
                                <button onClick={() => setIsOpen(false)} className="bg-indigo-600 text-white font-bold px-8 py-3 rounded-lg shadow-md hover:bg-indigo-700 transition">Close Checkout</button>
                            </div>
                        ) : (
                            <>
                                <div className="w-full md:w-1/2 bg-slate-50 border-r border-slate-200 flex flex-col h-full overflow-y-auto p-6 md:p-8 custom-scrollbar">
-                                  <h3 className="text-2xl font-black mb-6 text-slate-900 border-b border-slate-200 pb-4">1. Hardware & System</h3>
+                                  <h3 className="text-2xl font-black mb-6 text-slate-900 border-b border-slate-200 pb-4">1. Choose your setup</h3>
+
                                   <div className="space-y-4">
+                                       <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                                            <label className="block text-[10px] font-bold text-slate-500 uppercase mb-2">Region</label>
+                                            <select
+                                                value={activeRegion}
+                                                onChange={e => setActiveRegion(e.target.value)}
+                                                className="input-field"
+                                            >
+                                                <option value="india">India</option>
+                                                <option value="international">Outside India</option>
+                                            </select>
+                                       </div>
+
+                                       {isInternational ? (
+                                           <div className="p-4 rounded-xl border border-cyan-200 bg-cyan-50 text-cyan-900">
+                                               <div className="font-bold mb-1 flex items-center gap-2"><i data-lucide="globe" className="w-4 h-4"></i> Outside India option</div>
+                                               <p className="text-sm leading-relaxed">Only the Functional QR code menu with live order tracking system is available. Physical standee and sticker options are hidden for international customers.</p>
+                                           </div>
+                                       ) : null}
+
                                        <label className="flex items-start gap-3 p-4 bg-white rounded-xl border border-blue-200 cursor-pointer shadow-sm hover:border-blue-400 transition">
                                             <input type="checkbox" checked={hasFunctionalMenu} onChange={e => setHasFunctionalMenu(e.target.checked)} className="mt-1 w-5 h-5 text-blue-600 rounded border-gray-300" />
                                             <div>
                                                 <div className="font-bold text-slate-900">ECHO Software License (₹1,950/table)</div>
-                                                <div className="text-xs text-slate-500 mt-1">Full digital dashboard, live reports, custom Google Maps linking, & AI SEO schema integration.</div>
+                                                <div className="text-xs text-slate-500 mt-1">Full digital dashboard, live order tracking, customer insights, and AI SEO schema integration.</div>
                                             </div>
                                         </label>
-                                        <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-4">
-                                            <div className="flex justify-between items-center">
-                                                <div><div className="font-bold text-slate-900">Premium Acrylic Standee</div><div className="text-xs text-slate-500 mt-0.5">Physical print (India only) • ₹350/ea</div></div>
-                                                <input type="number" min="0" value={standeeQty} onChange={e => setStandeeQty(parseInt(e.target.value)||0)} className="w-16 p-2 border rounded-lg text-center font-bold" />
+
+                                        {!isInternational && (
+                                            <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                                                <div className="flex justify-between items-center">
+                                                    <div><div className="font-bold text-slate-900">Premium Acrylic Standee</div><div className="text-xs text-slate-500 mt-0.5">Physical print (India only) • ₹350/ea</div></div>
+                                                    <input type="number" min="0" value={standeeQty} onChange={e => setStandeeQty(parseInt(e.target.value)||0)} className="w-16 p-2 border rounded-lg text-center font-bold" />
+                                                </div>
+                                                <hr className="border-slate-100"/>
+                                                <div className="flex justify-between items-center">
+                                                    <div><div className="font-bold text-slate-900">Vinyl QR Stickers</div><div className="text-xs text-slate-500 mt-0.5">Die-cut table/window decals • ₹45/ea</div></div>
+                                                    <input type="number" min="0" value={stickerQty} onChange={e => setStickerQty(parseInt(e.target.value)||0)} className="w-16 p-2 border rounded-lg text-center font-bold" />
+                                                </div>
                                             </div>
-                                            <hr className="border-slate-100"/>
-                                            <div className="flex justify-between items-center">
-                                                <div><div className="font-bold text-slate-900">Vinyl QR Stickers</div><div className="text-xs text-slate-500 mt-0.5">Die-cut table/window decals • ₹45/ea</div></div>
-                                                <input type="number" min="0" value={stickerQty} onChange={e => setStickerQty(parseInt(e.target.value)||0)} className="w-16 p-2 border rounded-lg text-center font-bold" />
-                                            </div>
-                                        </div>
+                                        )}
                                   </div>
                                </div>
 
@@ -664,8 +889,9 @@
                                                 <span>{formatMoney(total)}</span>
                                              </div>
                                              <button type="submit" disabled={isSubmitting || total === 0} className="w-full bg-blue-600 hover:bg-blue-500 text-white font-black text-lg py-4 rounded-xl mt-6 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed">
-                                                {isSubmitting ? 'SENDING REQUEST...' : 'SUBMIT PRE-ORDER'}
+                                                {isSubmitting ? 'SENDING REQUEST...' : (isInternational ? 'SUBMIT INTERNATIONAL REQUEST' : 'SUBMIT PRE-ORDER')}
                                              </button>
+                                             {isInternational && <p className="text-xs text-cyan-200 mt-3 leading-relaxed">Outside India customers receive the functional QR code menu + live order tracking system only.</p>}
                                         </div>
                                     </form>
                                </div>
@@ -676,8 +902,85 @@
             );
         }
 
+        function GuideModal() {
+            const [isOpen, setIsOpen] = useState(false);
+
+            useEffect(() => {
+                window.openGuideModal = () => setIsOpen(true);
+                return () => { delete window.openGuideModal; };
+            }, []);
+
+            if (!isOpen) return null;
+
+            const steps = [
+                {
+                    title: 'Step 1 — Choose your region',
+                    body: 'India customers can order the acrylic stand + functional QR menu. Outside India customers receive the functional QR menu with live order tracking only.'
+                },
+                {
+                    title: 'Step 2 — Pick your use case',
+                    body: 'Select Smart Menu, Google Review, WhatsApp, UPI Payment, or Social Connect and personalize the label for your business.'
+                },
+                {
+                    title: 'Step 3 — Add your branding',
+                    body: 'Upload your logo, set colors, edit the headline, and change the CTA so the stand feels like your brand.'
+                },
+                {
+                    title: 'Step 4 — Submit the form',
+                    body: 'Fill your name, contact details, restaurant address, and delivery information. The system prepares your request instantly.'
+                },
+                {
+                    title: 'Step 5 — Delivery and support',
+                    body: 'We deliver in up to 5 days, provide full training, and support your launch with the setup that matches your region.'
+                }
+            ];
+
+            return (
+                <div className="fixed inset-0 z-[110] bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4">
+                    <div className="bg-white w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden relative max-h-[90vh] flex flex-col">
+                        <button onClick={() => setIsOpen(false)} className="absolute top-4 right-4 z-30 bg-white text-slate-800 p-2 rounded-full shadow-lg hover:bg-slate-100 transition">
+                            <Icons.X />
+                        </button>
+                        <div className="p-6 md:p-8 border-b border-slate-100 bg-gradient-to-r from-blue-50 to-white">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-xs font-bold uppercase tracking-wider mb-3">
+                                <i data-lucide="book-open" className="w-4 h-4"></i> Step-by-step guide
+                            </div>
+                            <h2 className="text-3xl md:text-4xl font-black text-slate-900">How the QR Builder works</h2>
+                            <p className="text-slate-600 mt-2 max-w-2xl">A quick walkthrough for restaurant, hotel, café, and menu-based businesses.</p>
+                        </div>
+                        <div className="p-6 md:p-8 overflow-y-auto custom-scrollbar">
+                            <div className="grid gap-4 md:grid-cols-2">
+                                {steps.map((step, idx) => (
+                                    <div key={idx} className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                                        <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-black mb-4">{idx + 1}</div>
+                                        <h3 className="text-lg font-bold text-slate-900 mb-2">{step.title}</h3>
+                                        <p className="text-sm leading-relaxed text-slate-600">{step.body}</p>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div className="mt-6 rounded-2xl border border-cyan-200 bg-cyan-50 p-5 text-cyan-950">
+                                <p className="font-bold mb-1">Important note</p>
+                                <p className="text-sm leading-relaxed">Outside India customers can only opt for the Functional QR code menu with live order tracking system. Physical standee and sticker options are for India only.</p>
+                            </div>
+
+                            <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                                <button onClick={() => { setIsOpen(false); document.getElementById('designer').scrollIntoView({ behavior: 'smooth' }); }} className="bg-slate-900 text-white px-5 py-3 rounded-xl font-bold hover:bg-blue-700 transition">
+                                    Open Builder
+                                </button>
+                                <button onClick={() => { setIsOpen(false); window.openOrderModal && window.openOrderModal('stand'); }} className="bg-cyan-500 text-slate-900 px-5 py-3 rounded-xl font-bold hover:bg-cyan-400 transition">
+                                    India Order Setup
+                                </button>
+                                <button onClick={() => { setIsOpen(false); window.openInternationalOrderModal && window.openInternationalOrderModal(); }} className="border border-slate-300 text-slate-700 px-5 py-3 rounded-xl font-bold hover:bg-slate-100 transition">
+                                    Outside India Setup
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
         ReactDOM.createRoot(document.getElementById('qr-designer-root')).render(<App />);
         ReactDOM.createRoot(document.getElementById('order-root')).render(<OrderFlow />);
-    </script>
-</body>
-</html>
+        ReactDOM.createRoot(document.getElementById('guide-root')).render(<GuideModal />);
