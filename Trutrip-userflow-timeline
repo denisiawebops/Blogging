@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>Trutrip CRM - Workflow & Timeline</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-dark: #071b3d;
+            --primary-blue: #1d4ed8;
+            --soft-bg: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--soft-bg);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { height: 6px; width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* Timeline specific */
+        .phase-box {
+            padding: 6px 8px;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            font-size: 0.6rem;
+            text-align: center;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 60px;
+        }
+        .phase-box h4 { font-size: 0.7rem; margin-bottom: 2px; line-height: 1.1; }
+        .phase-box p { font-size: 0.5rem; opacity: 0.8; line-height: 1.1; }
+
+        .timeline-head { background-color: #0b1c3f; color: white; }
+        
+        .day-circle {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: bold; color: white; font-size: 0.8rem;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 10;
+            position: relative;
+        }
+        
+        .deliverable-box {
+            background: #0b1c3f;
+            color: white;
+            border-radius: 8px;
+            padding: 12px;
+            position: relative;
+        }
+        
+        .userflow-step {
+            border-radius: 12px;
+            padding: 16px 12px;
+            background: white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            border: 1px solid #e2e8f0;
+            min-width: 180px;
+            flex-shrink: 0;
+            text-align: center;
+        }
+        .userflow-step .num {
+            width: 40px; height: 40px;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: bold; font-size: 1.2rem;
+            margin: 0 auto 8px;
+        }
+        .userflow-step .icon {
+            color: #0b1c3f;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+        .userflow-step h4 { font-size: 0.8rem; font-weight: bold; color: #0b1c3f; }
+        .userflow-step ul { text-align: left; font-size: 0.6rem; color: #475569; line-height: 1.4; margin-top: 8px; list-style: none; padding: 0; }
+        .userflow-step ul li { margin-bottom: 3px; position: relative; padding-left: 12px; }
+        .userflow-step ul li::before { content: "•"; position: absolute; left: 0; color: #3b82f6; }
+        .userflow-step .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 0.6rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Custom colors for timeline phases */
+        .bg-phase-1 { background-color: #5b21b6; } /* Purple */
+        .bg-phase-2 { background-color: #1d4ed8; } /* Blue */
+        .bg-phase-3 { background-color: #1e3a8a; } /* Dark Blue */
+        .bg-phase-4 { background-color: #0d9488; } /* Teal */
+        .bg-phase-5 { background-color: #ea580c; } /* Orange */
+
+        /* Responsive Grids */
+        @media (max-width: 1024px) {
+            .workflow-grid { display: flex; overflow-x: auto; gap: 12px; padding-bottom: 12px; scroll-snap-type: x mandatory; }
+            .workflow-grid > * { scroll-snap-align: start; }
+        }
+        @media (min-width: 1025px) {
+            .workflow-grid { display: grid; grid-template-columns: repeat(9, 1fr); gap: 8px; }
+        }
+        
+        @media (max-width: 640px) {
+            .detailed-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+            .visa-box { grid-column: span 2; }
+        }
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .detailed-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+            .visa-box { grid-column: span 1; }
+        }
+        @media (min-width: 1025px) {
+            .detailed-grid { display: grid; grid-template-columns: repeat(9, 1fr); gap: 8px; }
+            .visa-box { grid-column: span 2; }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        // --- MAIN APP COMPONENT ---
+        function App() {
+            const [activeTab, setActiveTab] = useState('userflow');
+
+            return (
+                <div className="min-h-screen bg-[#f8fafc] pb-12">
+                    
+                    {/* Header / Navigation */}
+                    <div className="bg-[#0b1c3f] text-white px-6 py-4 flex items-center justify-between shadow-md sticky top-0 z-50">
+                        <div className="flex items-center gap-4">
+                            <div className="h-12 w-12 bg-white/10 rounded-xl flex items-center justify-center">
+                                <i className="fa-solid fa-cube text-2xl text-blue-300"></i>
+                            </div>
+                            <div>
+                                <h1 className="text-xl font-bold tracking-tight">TRUTRIP CRM</h1>
+                                <p className="text-[10px] text-blue-300 uppercase tracking-wider">Smart. Simple. Complete.</p>
+                            </div>
+                        </div>
+                        <div className="flex bg-white/10 rounded-lg p-1 gap-1">
+                            <button onClick={() => setActiveTab('userflow')} className={`px-4 py-1.5 text-xs font-bold rounded-md transition-colors ${activeTab === 'userflow' ? 'bg-white text-[#0b1c3f] shadow-sm' : 'text-blue-100 hover:bg-white/10'}`}>
+                                <i className="fa-solid fa-diagram-project mr-2"></i>User Flow
+                            </button>
+                            <button onClick={() => setActiveTab('timeline')} className={`px-4 py-1.5 text-xs font-bold rounded-md transition-colors ${activeTab === 'timeline' ? 'bg-white text-[#0b1c3f] shadow-sm' : 'text-blue-100 hover:bg-white/10'}`}>
+                                <i className="fa-solid fa-calendar-days mr-2"></i>Timeline
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* --- TAB 1: USERFLOW WORKFLOW --- */}
+                    {activeTab === 'userflow' && (
+                        <div className="max-w-[1400px] mx-auto p-4 md:p-8 space-y-8">
+                            
+                            {/* Header Section */}
+                            <div className="bg-[#0b1c3f] text-white rounded-xl p-6 flex flex-col lg:flex-row justify-between items-center gap-6 relative overflow-hidden shadow-lg">
+                                <div className="z-10 flex items-center gap-6">
+                                    <div className="bg-white/10 p-4 rounded-xl"><i className="fa-solid fa-diagram-project text-3xl text-blue-300"></i></div>
+                                    <div>
+                                        <h2 className="text-2xl md:text-3xl font-bold">END TO END WORKFLOW</h2>
+                                        <p className="text-blue-200 text-sm">From Client Request to Voucher, Reconfirmation & Invoicing</p>
+                                    </div>
+                                </div>
+                                <div className="z-10 grid grid-cols-2 gap-2 w-full lg:w-auto">
+                                    <div className="bg-blue-500/20 border border-blue-500/30 rounded-lg px-3 py-1 text-center flex items-center gap-2 text-[10px] font-bold"><i className="fa-solid fa-rocket text-blue-300"></i> Faster Response</div>
+                                    <div className="bg-green-500/20 border border-green-500/30 rounded-lg px-3 py-1 text-center flex items-center gap-2 text-[10px] font-bold"><i className="fa-solid fa-check-circle text-green-300"></i> Zero Missed</div>
+                                    <div className="bg-purple-500/20 border border-purple-500/30 rounded-lg px-3 py-1 text-center flex items-center gap-2 text-[10px] font-bold"><i className="fa-solid fa-face-smile text-purple-300"></i> Happy Clients</div>
+                                    <div className="bg-amber-500/20 border border-amber-500/30 rounded-lg px-3 py-1 text-center flex items-center gap-2 text-[10px] font-bold"><i className="fa-solid fa-arrow-trend-up text-amber-300"></i> Better Revenue</div>
+                                </div>
+                            </div>
+
+                            {/* Top Workflow Steps (1-9) */}
+                            <div className="workflow-grid">
+                                {[
+                                    { id: 1, icon: 'fa-envelope-open-text', title: 'Lead Intake', sub: 'Capture Request', tag: 'Lead Created', desc: ['Client sends email with requirement', 'Email auto-ingested or manual upload', 'Extract key details', 'Create lead in CRM'] },
+                                    { id: 2, icon: 'fa-pen-to-square', title: 'Review & Assign', sub: 'Quality & Assign', tag: 'Assigned', desc: ['Review extracted details', 'Check duplicates', 'Assign to Executive', 'Set priority & SLA'] },
+                                    { id: 3, icon: 'fa-paper-plane', title: 'Send Options', sub: 'Share Hotels', tag: 'Options Sent', desc: ['Send hotel options (email template)', 'Track email opens & responses', 'Status: Options Sent - Awaiting Response'] },
+                                    { id: 4, icon: 'fa-clock', title: 'Waiting for Client', sub: 'Track Follow-up', tag: 'Awaiting Response', desc: ['Daily pending list (auto)', 'Reminder tasks & alerts', 'Client responds with preferred option'] },
+                                    { id: 5, icon: 'fa-check-double', title: 'Booking Confirmation', sub: 'Enter Hotel Details', tag: 'Booking Confirmed', desc: ['Confirm booking from supplier/website', 'Enter confirmation number & details', 'Status: Booking Confirmed'] },
+                                    { id: 6, icon: 'fa-file-pdf', title: 'Voucher Generation', sub: 'Auto PDF + Email', tag: 'Voucher Generated', desc: ['Generate voucher (PDF) from template', 'Auto email to our mail ID with PDF', 'Email body as per format'] },
+                                    { id: 7, icon: 'fa-rotate', title: 'Reconfirmation', sub: 'Hotel & 48H Reminder', tag: 'Reconfirmed', desc: ['Auto mail to hotel for reconfirmation', '48 Hours before check-in reminder', 'Update confirmation status'] },
+                                    { id: 8, icon: 'fa-file-invoice', title: 'Check-out & Invoicing', sub: 'Invoice & Payment', tag: 'Invoice Pending', desc: ['After check-out, system marks completed', 'Auto invoice generation', 'Reminder to client for payment'] },
+                                    { id: 9, icon: 'fa-chart-pie', title: 'Reports & Analytics', sub: 'Track & Improve', tag: 'Closed / Reported', desc: ['Dashboard & KPIs', 'Employee performance', 'Client OS & P/L', 'Export & Insights'] }
+                                ].map(step => (
+                                    <div key={step.id} className="userflow-step relative">
+                                        <div className="num">{step.id}</div>
+                                        <div className="icon"><i className={`fa-solid ${step.icon}`}></i></div>
+                                        <h4>{step.title}</h4>
+                                        <p className="text-[10px] font-semibold text-slate-500 mb-1">{step.sub}</p>
+                                        <ul>
+                                            {step.desc.map((d, i) => <li key={i}>{d}</li>)}
+                                        </ul>
+                                        <div className={`tag ${step.id === 1 ? 'bg-blue-600 text-white' : step.id === 2 ? 'bg-green-600 text-white' : step.id === 3 ? 'bg-amber-500 text-white' : step.id === 4 ? 'bg-rose-500 text-white' : step.id === 5 ? 'bg-blue-800 text-white' : step.id === 6 ? 'bg-slate-900 text-white' : step.id === 7 ? 'bg-teal-600 text-white' : step.id === 8 ? 'bg-indigo-600 text-white' : 'bg-slate-800 text-white'}`}>
+                                            {step.tag}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Workflow Highlights & Automations */}
+                            <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+                                <div className="flex items-center gap-4 border-b pb-4 mb-6">
+                                    <h3 className="text-xl font-bold text-slate-800">WORKFLOW HIGHLIGHTS & AUTOMATIONS</h3>
+                                    <div className="h-0.5 flex-1 bg-slate-200"></div>
+                                </div>
+                                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                                    {[
+                                        { icon: 'fa-envelope', title: 'Email Ingestion', desc: 'Auto read emails or manual upload (EML/PDF/Forward)' },
+                                        { icon: 'fa-hashtag', title: 'Reference Number', desc: 'Auto unique Ref ID (TT + YYYYMMDD + Seq)' },
+                                        { icon: 'fa-envelope-open-text', title: 'Daily Pending Mail', desc: 'Every morning pending bookings summary' },
+                                        { icon: 'fa-file-pen', title: 'Email Templates', desc: 'Prefilled mail formats for all processes' },
+                                        { icon: 'fa-file-pdf', title: 'PDF Voucher', desc: 'Auto PDF generation with all details' },
+                                        { icon: 'fa-rotate-right', title: 'Auto Reconfirmation', desc: 'Hotel reconfirmation & 48H reminder mails' },
+                                        { icon: 'fa-file-invoice-dollar', title: 'Auto Invoicing', desc: 'Invoice auto create after check-out & send reminder' },
+                                        { icon: 'fa-chart-pie', title: 'Reports & Dashboards', desc: 'Real-time insights, performance & revenue' }
+                                    ].map((item, idx) => (
+                                        <div key={idx} className="flex items-center gap-4 bg-slate-50/50 p-4 rounded-xl border border-slate-100">
+                                            <div className="h-12 w-12 rounded-full bg-emerald-500/10 text-emerald-600 flex items-center justify-center text-xl flex-shrink-0">
+                                                <i className={`fa-solid ${item.icon}`}></i>
+                                            </div>
+                                            <div>
+                                                <h4 className="font-bold text-slate-800 text-sm">{item.title}</h4>
+                                                <p className="text-[10px] text-slate-500 leading-tight mt-0.5">{item.desc}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Detailed Workflow Blocks */}
+                            <div className="detailed-grid">
+                                {/* Block 1: Lead Intake */}
+                                <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm relative flex flex-col">
+                                    <h4 className="text-[10px] font-bold text-blue-600 mb-2 flex items-center gap-1"><i className="fa-solid fa-1"></i> LEAD INTAKE</h4>
+                                    <div className="flex-1 bg-slate-50 rounded-lg p-2 border border-slate-100 text-[9px] leading-tight text-slate-600">
+                                        <p className="mb-1 font-semibold text-slate-900">From Client Email</p>
+                                        <p>From: Accommodation Row</p>
+                                        <p>Subject: Hotel request</p>
+                                        <p>Associate name: Mircea Anghel</p>
+                                        <p>Work location: 1410 Olympic...</p>
+                                        <p>Check in: 08-July-26</p>
+                                        <p>Check out: 09-July-26</p>
+                                        <p>Nights: 1, Occupancy: 1</p>
+                                        <p>Budget: 153 CAD</p>
+                                    </div>
+                                    <div className="mt-2 flex justify-between text-[8px] text-slate-400 font-medium uppercase">
+                                        <span>Actions: [Upload] [Email] [Parse]</span>
+                                        <span>Status: New</span>
+                                    </div>
+                                    <div className="absolute -bottom-2 left-0 right-0 flex justify-center">
+                                        <i className="fa-solid fa-circle-chevron-down text-blue-500 bg-white px-2 text-sm"></i>
+                                    </div>
+                                </div>
+
+                                {/* Block 2: Reference Number */}
+                                <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm relative flex flex-col bg-[#f0fdf4]">
+                                    <h4 className="text-[10px] font-bold text-green-700 mb-2 flex items-center gap-1"><i className="fa-solid fa-2"></i> REFERENCE NUMBER</h4>
+                                    <div className="flex-1 bg-white rounded-lg p-3 border border-green-200 text-[9px] leading-tight text-slate-700 shadow-inner">
+                                        <p className="font-bold text-slate-900 text-center mb-1">Reference Number</p>
+                                        <div className="bg-slate-100 p-2 rounded text-center font-mono text-[10px] border border-slate-200">TT25062800123</div>
+                                        <div className="mt-2 flex justify-between text-slate-500">
+                                            <span>Created On: 28-Jun-2026</span>
+                                            <span className="font-semibold text-green-600">Status: New</span>
+                                        </div>
+                                    </div>
+                                    <div className="mt-2 flex justify-between text-[8px] text-slate-400 font-medium uppercase">
+                                        <span>Actions: [Generate] [Save]</span>
+                                        <span><i className="fa-regular fa-circle-check text-green-600"></i></span>
+                                    </div>
+                                    <div className="absolute -bottom-2 left-0 right-0 flex justify-center">
+                                        <i className="fa-solid fa-circle-chevron-down text-green-500 bg-white px-2 text-sm"></i>
+                                    </div>
+                                </div>
+
+                                {/* Block 3: Send Options */}
+                                <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm relative flex flex-col">
+                                    <h4 className="text-[10px] font-bold text-amber-600 mb-2 flex items-center gap-1"><i className="fa-solid fa-3"></i> SEND OPTIONS</h4>
+                                    <div className="flex-1 bg-slate-50 rounded-lg p-2 border border-slate-100 text-[9px] leading-tight text-slate-600">
+                                        <p className="font-semibold text-slate-900 mb-1">Email Preview (Options)</p>
+                                        <p className="text-[8px]">Dear Mr. Mircea Anghel,</p>
+                                        <p className="text-[8px]">Please find the best available options...</p>
+                                        <div className="mt-1 bg-white p-1 rounded border border-slate-200 flex justify-between text-[8px]">
+                                            <span>1. Comfort Inn - 553 CAD</span>
+                                            <span>2. Days Inn - 439 CAD</span>
+                                        </div>
+                                    </div>
+                                    <div className="mt-2 flex justify-between text-[8px] text-slate-400 font-medium uppercase">
+                                        <span>Actions: [Send] [Log]</span>
+                                        <span className="text-amber-600">Options Sent</span>
+                                    </div>
+                                    <div className="absolute -bottom-2 left-0 right-0 flex justify-center">
+                                        <i className="fa-solid fa-circle-chevron-down text-amber-500 bg-white px-2 text-sm"></i>
+                                    </div>
+                                </div>
+
+                                {/* Block 4: Waiting for client */}
+                                <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm relative flex flex-col">
+                                    <h4 className="text-[10px] font-bold text-rose-600 mb-2 flex items-center gap-1"><i className="fa-solid fa-4"></i> AWAITING RESPONSE</h4>
+                                    <div className="flex-1 bg-slate-50 rounded-lg p-2 border border-slate-100 text-[9px] leading-tight text-slate-600">
+                                        <p className="font-semibold text-slate-900 mb-1">System tracks status</p>
+                                        <div className="flex justify-between border-b border-slate-200 pb-1 mb-1 text-[8px]">
+                                            <span>28 Jun 08:33 PM</span>
+                                            <span className="text-amber-600">New Request</span>
+                                        </div>
+                                        <div className="flex justify-between border-b border-slate-200 pb-1 mb-1 text-[8px]">
+                                            <span>28 Jun 08:40 PM</span>
+                                            <span className="text-blue-600">Options Sent</span>
+                                        </div>
+                                        <div className="flex justify-between text-[8px]">
+                                            <span>28 Jun 08:50 PM</span>
+                                            <span className="text-rose-600">Waiting for client response</span>
+                                        </div>
+                                        <div className="mt-2 bg-rose-50 p-1 rounded text-[8px] text-rose-700 border border-rose-100 flex items-center justify-between">
+                                            <span><i className="fa-regular fa-clock mr-1"></i> Auto Reminders</span>
+                                            <span>SLA-based reminders</span>
+                                        </div>
+                                    </div>
+                                    <div className="mt-2 flex justify-between text-[8px] text-slate-400 font-medium uppercase">
+                                        <span>Actions: [Add Note] [Follow-up]</span>
+                                        <span className="text-rose-600">Awaiting Response</span>
+                                    </div>
+                                    <div className="absolute -bottom-2 left-0 right-0 flex justify-center">
+                                        <i className="fa-solid fa-circle-chevron-down text-rose-500 bg-white px-2 text-sm"></i>
+                                    </div>
+                                </div>
+
+                                {/* Block 5: Booking Confirmed */}
+                                <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm relative flex flex-col">
+                                    <h4 className="text-[10px] font-bold text-blue-800 mb-2 flex items-center gap-1"><i className="fa-solid fa-5"></i> BOOKING CONFIRMED</h4>
+                                    <div className="flex-1 bg-slate-50 rounded-lg p-2 border border-slate-100 text-[9px] leading-tight text-slate-600">
+                                        <p className="font-semibold text-slate-900 mb-1">Enter hotel confirmation</p>
+                                        <div className="bg-white p-2 rounded border border-slate-200 shadow-sm text-[8px]">
+                                            <p><span className="font-bold">Hotel:</span> Ibis Paris La Défense</p>
+                                            <p><span className="font-bold">Location:</span> Puteaux, France</p>
+                                            <p><span className="font-bold">Check-in:</span> 15 Aug 2026 20:12</p>
+                                            <p><span className="font-bold">Check-out:</span> 22 Aug 2026 20:12</p>
+                                            <p><span className="font-bold">Tariff / Night:</span> 190.00 EUR</p>
+                                            <p><span className="font-bold">Cancel Policy:</span> Free until 14 Aug 2026</p>
+                                        </div>
+                                    </div>
+                                    <div className="mt-2 flex justify-between text-[8px] text-slate-400 font-medium uppercase">
+                                        <span>Actions: [Save] [Confirm]</span>
+                                        <span className="text-blue-700">Booking Confirmed</span>
+                                    </div>
+                                    <div className="absolute -bottom-2 left-0 right-0 flex justify-center">
+                                        <i className="fa-solid fa-circle-chevron-down text-blue-800 bg-white px-2 text-sm"></i>
+                                    </div>
+                                </div>
+
+                                {/* Block 6: Voucher Generation */}
+                                <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm relative flex flex-col">
+                                    <h4 className="text-[10px] font-bold text-slate-900 mb-2 flex items-center gap-1"><i className="fa-solid fa-6"></i> VOUCHER GENERATION</h4>
+                                    <div className="flex-1 bg-slate-50 rounded-lg p-2 border border-slate-100 text-[9px] leading-tight text-slate-600">
+                                        <p className="font-semibold text-slate-900 mb-1">Voucher Generated (PDF)</p>
+                                        <div className="bg-white p-2 rounded border border-slate-200 shadow-sm text-[8px] mb-2">
+                                            <p className="font-bold border-b pb-1 border-slate-100">Voucher: QLZLDMKM</p>
+                                            <p>Guest: Sudhanshu Bhatnagar</p>
+                                            <p>Hotel: Ibis Paris La Défense</p>
+                                            <p>Check-in: 15 Aug 2026</p>
+                                            <p>Check-out: 22 Aug 2026</p>
+                                            <p>Total Amount: 1330.00 EUR</p>
+                                        </div>
+                                        <div className="flex justify-between text-[8px] text-slate-600">
+                                            <span><i className="fa-regular fa-file-pdf text-red-500 mr-1"></i> PDF attached</span>
+                                            <span>Email body per format</span>
+                                        </div>
+                                    </div>
+                                    <div className="mt-2 flex justify-between text-[8px] text-slate-400 font-medium uppercase">
+                                        <span>Actions: [Preview] [PDF]</span>
+                                        <span className="text-slate-900">Voucher Generated</span>
+                                    </div>
+                                    <div className="absolute -bottom-2 left-0 right-0 flex justify-center">
+                                        <i className="fa-solid fa-circle-chevron-down text-slate-900 bg-white px-2 text-sm"></i>
+                                    </div>
+                                </div>
+
+                                {/* Block 7: Reconfirmation */}
+                                <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm relative flex flex-col">
+                                    <h4 className="text-[10px] font-bold text-teal-700 mb-2 flex items-center gap-1"><i className="fa-solid fa-7"></i> RECONFIRMATION FLOW</h4>
+                                    <div className="flex-1 bg-slate-50 rounded-lg p-2 border border-slate-100 text-[9px] leading-tight text-slate-600">
+                                        <p className="font-semibold text-slate-900 mb-1">A. Hotel Reconfirmation Mail</p>
+                                        <div className="bg-white p-2 rounded border border-slate-200 text-[8px] shadow-sm">
+                                            <p>Dear Reservations,</p>
+                                            <p>Kindly note we have confirmed...</p>
+                                        </div>
+                                        <div className="mt-2 text-[8px] flex items-center gap-2">
+                                            <i className="fa-regular fa-clock text-amber-500"></i>
+                                            <span><span className="font-bold">B. 48Hrs</span> Before Check-in to Hotel</span>
+                                        </div>
+                                    </div>
+                                    <div className="mt-2 flex justify-between text-[8px] text-slate-400 font-medium uppercase">
+                                        <span>Actions: [Track] [Reconfirm]</span>
+                                        <span className="text-teal-600">Reconfirmed</span>
+                                    </div>
+                                    <div className="absolute -bottom-2 left-0 right-0 flex justify-center">
+                                        <i className="fa-solid fa-circle-chevron-down text-teal-500 bg-white px-2 text-sm"></i>
+                                    </div>
+                                </div>
+
+                                {/* Block 8: Invoicing */}
+                                <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm relative flex flex-col">
+                                    <h4 className="text-[10px] font-bold text-indigo-700 mb-2 flex items-center gap-1"><i className="fa-solid fa-8"></i> CHECK-OUT & INVOICING</h4>
+                                    <div className="flex-1 bg-slate-50 rounded-lg p-2 border border-slate-100 text-[9px] leading-tight text-slate-600">
+                                        <div className="bg-white p-2 rounded border border-slate-200 text-[8px] mb-2">
+                                            <p><i className="fa-regular fa-circle-check text-green-500 mr-1"></i> Check-out completed</p>
+                                            <p><i className="fa-regular fa-file-lines text-blue-500 mr-1"></i> Auto invoice generation</p>
+                                            <p><i className="fa-regular fa-bell text-amber-500 mr-1"></i> Payment reminder</p>
+                                        </div>
+                                        <div className="text-[8px] text-slate-600 flex items-center gap-2">
+                                            <i className="fa-solid fa-bolt text-yellow-500"></i> Mark payment received, close case.
+                                        </div>
+                                    </div>
+                                    <div className="mt-2 flex justify-between text-[8px] text-slate-400 font-medium uppercase">
+                                        <span>Actions: [Close] [Payment]</span>
+                                        <span className="text-indigo-600">Invoice Pending</span>
+                                    </div>
+                                    <div className="absolute -bottom-2 left-0 right-0 flex justify-center">
+                                        <i className="fa-solid fa-circle-chevron-down text-indigo-500 bg-white px-2 text-sm"></i>
+                                    </div>
+                                </div>
+
+                                {/* Block 9: Reports */}
+                                <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm relative flex flex-col">
+                                    <h4 className="text-[10px] font-bold text-slate-800 mb-2 flex items-center gap-1"><i className="fa-solid fa-9"></i> REPORTS & INSIGHTS</h4>
+                                    <div className="flex-1 bg-slate-50 rounded-lg p-2 border border-slate-100 text-[9px] leading-tight text-slate-600">
+                                        <p className="font-semibold text-slate-900 mb-1">Real-time visibility</p>
+                                        <ul className="text-[8px] space-y-1 text-slate-600">
+                                            <li><i className="fa-solid fa-check-circle text-green-500 w-4"></i> Bookings by Status</li>
+                                            <li><i className="fa-solid fa-check-circle text-green-500 w-4"></i> Revenue & Insights</li>
+                                            <li><i className="fa-solid fa-check-circle text-green-500 w-4"></i> Employee Performance</li>
+                                            <li><i className="fa-solid fa-check-circle text-green-500 w-4"></i> Client OS & P/L</li>
+                                            <li><i className="fa-solid fa-check-circle text-green-500 w-4"></i> P&L Summary</li>
+                                            <li><i className="fa-solid fa-check-circle text-green-500 w-4"></i> Export / PDF / Excel</li>
+                                        </ul>
+                                    </div>
+                                    <div className="mt-2 flex justify-between text-[8px] text-slate-400 font-medium uppercase">
+                                        <span>Actions: [Export] [Share]</span>
+                                        <span className="text-slate-800">Closed / Reported</span>
+                                    </div>
+                                </div>
+
+                                {/* Visa Booking Workflow Block (Spanning 2 cols on desktop) */}
+                                <div className="visa-box bg-purple-50 border-2 border-purple-200 rounded-xl p-4 shadow-sm relative flex flex-col mt-2">
+                                    <h4 className="text-[10px] font-bold text-purple-800 mb-2 flex items-center gap-1"><i className="fa-solid fa-passport"></i> VISA BOOKING WORKFLOW (Parallel Flow)</h4>
+                                    <div className="grid grid-cols-2 gap-2 mt-1">
+                                        <div className="flex flex-col items-center bg-white p-2 rounded border border-purple-100 text-[8px] text-slate-600">
+                                            <div className="h-6 w-6 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center text-[8px] font-bold mb-1">1</div>
+                                            <p className="font-semibold text-slate-800">VISA REQUEST RECEIVED</p>
+                                            <p className="text-center leading-tight mt-0.5">Client requests visa voucher (Email format)</p>
+                                        </div>
+                                        <div className="flex flex-col items-center bg-white p-2 rounded border border-purple-100 text-[8px] text-slate-600">
+                                            <div className="h-6 w-6 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center text-[8px] font-bold mb-1">2</div>
+                                            <p className="font-semibold text-slate-800">MANUAL ENTRY</p>
+                                            <p className="text-center leading-tight mt-0.5">Enter details in CRM (Create lead)</p>
+                                        </div>
+                                        <div className="flex flex-col items-center bg-white p-2 rounded border border-purple-100 text-[8px] text-slate-600">
+                                            <div className="h-6 w-6 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center text-[8px] font-bold mb-1">3</div>
+                                            <p className="font-semibold text-slate-800">BOOKING CONFIRM</p>
+                                            <p className="text-center leading-tight mt-0.5">Book directly from hotel website / channel</p>
+                                        </div>
+                                        <div className="flex flex-col items-center bg-white p-2 rounded border border-purple-100 text-[8px] text-slate-600">
+                                            <div className="h-6 w-6 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center text-[8px] font-bold mb-1">4</div>
+                                            <p className="font-semibold text-slate-800">VISA VOUCHER</p>
+                                            <p className="text-center leading-tight mt-0.5">Generate Visa Voucher (PDF) & Send Email (PDF attached)</p>
+                                        </div>
+                                    </div>
+                                    <div className="mt-2 flex justify-end text-[8px] text-purple-700 font-medium uppercase">
+                                        <span>Actions: [Entry] [Send] [Email]</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Bottom Information Grid */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+                                {/* Key Data Entities */}
+                                <div className="bg-white rounded-xl border border-slate-200 p-4">
+                                    <h4 className="text-[10px] font-bold text-blue-600 mb-2"><i className="fa-regular fa-database mr-2"></i>KEY DATA ENTITIES</h4>
+                                    <div className="grid grid-cols-2 gap-2 text-[9px] text-slate-600 bg-slate-50 p-2 rounded">
+                                        <div>Leads</div><div>Bookings</div>
+                                        <div>Hotel Options</div><div>Vouchers</div>
+                                        <div>Emails</div><div>Invoices</div>
+                                        <div>Tasks</div><div>Payments</div>
+                                        <div>Users</div><div>Audits</div>
+                                    </div>
+                                </div>
+                                {/* User Roles */}
+                                <div className="bg-white rounded-xl border border-slate-200 p-4">
+                                    <h4 className="text-[10px] font-bold text-emerald-600 mb-2"><i className="fa-regular fa-user mr-2"></i>USER ROLES</h4>
+                                    <div className="space-y-1 text-[9px] text-slate-600 bg-slate-50 p-2 rounded">
+                                        <div><span className="font-bold text-emerald-700">Operations Executive</span><br/>Manage booking & confirmations</div>
+                                        <div><span className="font-bold text-emerald-700">Team Leader / Manager</span><br/>Review, Approve, Evaluate</div>
+                                        <div><span className="font-bold text-emerald-700">Admin</span><br/>Users, Settings, Reports</div>
+                                    </div>
+                                </div>
+                                {/* System Capabilities */}
+                                <div className="bg-white rounded-xl border border-slate-200 p-4">
+                                    <h4 className="text-[10px] font-bold text-indigo-600 mb-2"><i className="fa-regular fa-gear mr-2"></i>SYSTEM CAPABILITIES</h4>
+                                    <ul className="text-[9px] text-slate-600 space-y-1 bg-slate-50 p-2 rounded list-disc pl-3">
+                                        <li>Email intake & parsing</li>
+                                        <li>SLA, reminders & escalations</li>
+                                        <li>PDF generation & email</li>
+                                        <li>Real-time dashboards</li>
+                                        <li>Audit logs & activity trail</li>
+                                        <li>Secure role-based access</li>
+                                    </ul>
+                                </div>
+                                {/* Integrations */}
+                                <div className="bg-white rounded-xl border border-slate-200 p-4">
+                                    <h4 className="text-[10px] font-bold text-amber-600 mb-2"><i className="fa-regular fa-plug mr-2"></i>INTEGRATIONS (Optional)</h4>
+                                    <ul className="text-[9px] text-slate-600 space-y-1 bg-slate-50 p-2 rounded list-disc pl-3">
+                                        <li>Email (Gmail / Outlook)</li>
+                                        <li>Google Sheets / Drive</li>
+                                        <li>Slack / Teams Integration</li>
+                                        <li>Accounting / Payment Gateway</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            {/* Escalation Matrix */}
+                            <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm mt-2">
+                                <div className="flex items-center gap-4 border-b pb-2 mb-4">
+                                    <h4 className="text-[10px] font-bold text-slate-800">ESCALATION MATRIX (In Hours)</h4>
+                                    <div className="h-0.5 flex-1 bg-slate-200"></div>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-4 gap-2 text-[9px] text-slate-600 leading-relaxed">
+                                    <div className="bg-slate-50 p-2 rounded border border-slate-100"><span className="font-bold text-blue-600">1st Level:</span> Mr. Karthik <br/>(+91 7824867007)<br/>karthik@easestay.com</div>
+                                    <div className="bg-slate-50 p-2 rounded border border-slate-100"><span className="font-bold text-purple-600">2nd Level:</span> Mr. Sangeeth Samson<br/>(+91 7824867003)<br/>sangeeth@easestay.com</div>
+                                    <div className="bg-slate-50 p-2 rounded border border-slate-100"><span className="font-bold text-amber-600">3rd Level:</span> Mr. Sukumar<br/>(+91 7305888567)<br/>sukumar@easestay.com</div>
+                                    <div className="bg-slate-50 p-2 rounded border border-slate-100 text-center text-[8px] text-slate-400">Support contact & sign-off<br/>Procedures at each level</div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* --- TAB 2: IMPLEMENTATION TIMELINE --- */}
+                    {activeTab === 'timeline' && (
+                        <div className="max-w-[1400px] mx-auto p-4 md:p-8 space-y-8 bg-white shadow-xl rounded-xl mt-4 p-6 md:p-10">
+                            
+                            {/* Header */}
+                            <div className="bg-[#0f172a] text-white rounded-xl p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 relative overflow-hidden shadow-lg">
+                                <div className="z-10 flex items-center gap-6">
+                                    <div className="bg-white/10 p-3 rounded-xl"><i className="fa-solid fa-cube text-2xl text-blue-300"></i></div>
+                                    <div>
+                                        <h2 className="text-2xl md:text-3xl font-bold">20-DAY IMPLEMENTATION TIMELINE</h2>
+                                        <p className="text-blue-200 text-sm">Trutrip Operations CRM — From Vision to Production</p>
+                                    </div>
+                                </div>
+                                <div className="z-10 grid grid-cols-2 gap-2 w-full md:w-auto">
+                                    <div className="bg-amber-500/20 border border-amber-500/30 rounded-lg px-3 py-1 text-center text-[10px] font-bold"><i className="fa-solid fa-bolt text-amber-300"></i> Agile Delivery</div>
+                                    <div className="bg-emerald-500/20 border border-emerald-500/30 rounded-lg px-3 py-1 text-center text-[10px] font-bold"><i className="fa-solid fa-shield-halved text-emerald-300"></i> Quality First</div>
+                                    <div className="bg-cyan-500/20 border border-cyan-500/30 rounded-lg px-3 py-1 text-center text-[10px] font-bold"><i className="fa-solid fa-eye text-cyan-300"></i> Transparent</div>
+                                    <div className="bg-purple-500/20 border border-purple-500/30 rounded-lg px-3 py-1 text-center text-[10px] font-bold"><i className="fa-solid fa-rocket text-purple-300"></i> On-Time Launch</div>
+                                </div>
+                            </div>
+
+                            {/* Phases Row */}
+                            <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+                                <div className="flex flex-col items-center text-center">
+                                    <div className="bg-phase-1 h-8 w-8 rounded-full text-white flex items-center justify-center font-bold text-sm mb-1">1</div>
+                                    <div className="phase-box bg-phase-1"><h4>DISCOVER & PLAN</h4><p>Analyze & Plan right solution</p><span className="text-[8px] bg-black/20 px-1 rounded mt-1">Day 1-3</span></div>
+                                </div>
+                                <div className="flex flex-col items-center text-center">
+                                    <div className="bg-phase-2 h-8 w-8 rounded-full text-white flex items-center justify-center font-bold text-sm mb-1">2</div>
+                                    <div className="phase-box bg-phase-2"><h4>DESIGN & ARCHITECT</h4><p>Design UX, Architecture & Blueprint</p><span className="text-[8px] bg-black/20 px-1 rounded mt-1">Day 4-6</span></div>
+                                </div>
+                                <div className="flex flex-col items-center text-center">
+                                    <div className="bg-phase-3 h-8 w-8 rounded-full text-white flex items-center justify-center font-bold text-sm mb-1">3</div>
+                                    <div className="phase-box bg-phase-3"><h4>DEVELOP & DEPLOY</h4><p>Build Core, Integrations & Automations</p><span className="text-[8px] bg-black/20 px-1 rounded mt-1">Day 7-13</span></div>
+                                </div>
+                                <div className="flex flex-col items-center text-center">
+                                    <div className="bg-phase-4 h-8 w-8 rounded-full text-white flex items-center justify-center font-bold text-sm mb-1">4</div>
+                                    <div className="phase-box bg-phase-4"><h4>TESTING & QA</h4><p>Ensure Quality, Security & Performance</p><span className="text-[8px] bg-black/20 px-1 rounded mt-1">Day 14-17</span></div>
+                                </div>
+                                <div className="flex flex-col items-center text-center">
+                                    <div className="bg-phase-5 h-8 w-8 rounded-full text-white flex items-center justify-center font-bold text-sm mb-1">5</div>
+                                    <div className="phase-box bg-phase-5"><h4>DEPLOY & LAUNCH</h4><p>Go Live, Monitor & Optimize</p><span className="text-[8px] bg-black/20 px-1 rounded mt-1">Day 18-20</span></div>
+                                </div>
+                            </div>
+
+                            {/* Timeline Bar (Days 1-20) */}
+                            <div className="relative pt-4 pb-8 px-4 overflow-x-auto scroll-smooth" style={{ scrollbarWidth: 'thin' }}>
+                                <div className="absolute top-[32px] left-4 right-4 h-0.5 bg-slate-200 z-0"></div>
+                                <div className="flex gap-4 min-w-[1200px] relative z-10">
+                                    {Array.from({ length: 20 }, (_, i) => i + 1).map(day => {
+                                        const colorClass = day <= 3 ? 'bg-phase-1' : day <= 6 ? 'bg-phase-2' : day <= 13 ? 'bg-phase-3' : day <= 17 ? 'bg-phase-4' : 'bg-phase-5';
+                                        return (
+                                            <div key={day} className="flex flex-col items-center w-14 flex-shrink-0 text-center">
+                                                <div className="bg-slate-50 h-8 w-8 rounded-full flex items-center justify-center text-slate-500 border border-slate-200 shadow-sm mb-1">
+                                                    <i className={`fa-solid ${day === 1 ? 'fa-compass' : day === 2 ? 'fa-list-check' : day === 3 ? 'fa-file-pen' : day === 4 ? 'fa-pencil-ruler' : day === 5 ? 'fa-palette' : day === 6 ? 'fa-layer-group' : day === 7 ? 'fa-server' : day === 8 ? 'fa-code' : day === 9 ? 'fa-envelope' : day === 10 ? 'fa-message' : day === 11 ? 'fa-bell' : day === 12 ? 'fa-cloud' : day === 13 ? 'fa-file-invoice' : day === 14 ? 'fa-vial' : day === 15 ? 'fa-circle-check' : day === 16 ? 'fa-chart-simple' : day === 17 ? 'fa-thumbs-up' : day === 18 ? 'fa-rocket' : day === 19 ? 'fa-globe' : 'fa-medal'} text-[10px]`}></i>
+                                                </div>
+                                                <div className={`day-circle ${colorClass}`}>{day}</div>
+                                                <div className="text-[8px] font-bold text-slate-800 leading-tight mt-1 h-6 overflow-hidden">
+                                                    {day === 1 ? 'Project Kickoff' : day === 2 ? 'Requirement' : day === 3 ? 'Plan Approved' : day === 4 ? 'UX Research' : day === 5 ? 'UI/UX' : day === 6 ? 'Tech Arch' : day === 7 ? 'Env Setup' : day === 8 ? 'Core Modules' : day === 9 ? 'Email Engine' : day === 10 ? 'Booking Module' : day === 11 ? 'Notifications' : day === 12 ? 'Reconfirm' : day === 13 ? 'Invoicing' : day === 14 ? 'Unit Tests' : day === 15 ? 'Integration' : day === 16 ? 'Perf & Sec' : day === 17 ? 'UAT Sign-off' : day === 18 ? 'Pre-Prod' : day === 19 ? 'Launch' : 'Hypercare'}
+                                                </div>
+                                                <div className="text-[6px] text-slate-400 leading-tight h-8 overflow-hidden">
+                                                    {day === 1 ? 'Stakeholder meetings' : day === 2 ? 'Feature prioritization' : day === 3 ? 'Resource allocation' : day === 4 ? 'Wireframes, personas' : day === 5 ? 'High-fidelity designs' : day === 6 ? 'API contracts, schema' : day === 7 ? 'CI/CD pipelines' : day === 8 ? 'Auth, intake modules' : day === 9 ? 'Auto extraction' : day === 10 ? 'Voucher PDF gen' : day === 11 ? 'SLA triggers' : day === 12 ? 'Drive storage' : day === 13 ? 'Payment tracking' : day === 14 ? 'UI validation' : day === 15 ? 'End-to-end tests' : day === 16 ? 'Vulnerability scan' : day === 17 ? 'Client feedback' : day === 18 ? 'Data migration' : day === 19 ? 'Product release' : 'Monitoring'}
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+
+                            {/* Key Milestones */}
+                            <div className="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                                <h4 className="font-bold text-xs text-slate-600 uppercase tracking-wider mb-3">KEY MILESTONES</h4>
+                                <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
+                                    {[
+                                        { day: 3, text: 'Project Plan Approved' },
+                                        { day: 6, text: 'Design & Architecture Sign-off' },
+                                        { day: 10, text: 'Core Systems Ready' },
+                                        { day: 13, text: 'All Modules Implemented' },
+                                        { day: 17, text: 'UAT Sign-off Received' },
+                                        { day: 20, text: 'Production Launch' }
+                                    ].map(m => (
+                                        <div key={m.day} className="bg-white p-2 rounded-lg border border-slate-200 shadow-sm flex items-center gap-2 text-[9px] font-medium text-slate-700">
+                                            <div className="h-6 w-6 rounded-full bg-blue-600 text-white flex items-center justify-center text-[8px] font-bold flex-shrink-0">{m.day}</div>
+                                            <i className="fa-solid fa-circle-check text-green-500 text-[8px]"></i>
+                                            <span>{m.text}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Deliverables */}
+                            <div>
+                                <h4 className="font-bold text-xs text-slate-600 uppercase tracking-wider mb-3">DELIVERABLES</h4>
+                                <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
+                                    {[
+                                        { phase: 1, items: ['Project Charter & Plan', 'Requirement Document', 'Feature List & Prioritization', 'Technical Feasibility Report'] },
+                                        { phase: 2, items: ['UX Wireframes & User Flows', 'High-Fidelity UI Design', 'Design System', 'Technical Architecture Document', 'Database Schema'] },
+                                        { phase: 3, items: ['Working CRM System', 'All Core Modules', 'Google Sheets Data Integration', 'Email Automation', 'PDF & Voucher Generator', 'Role-Based Access Control'] },
+                                        { phase: 4, items: ['Test Cases & Test Reports', 'UAT Report', 'Security & Performance Report', 'Bug Fix Report', 'Final System Sign-off'] },
+                                        { phase: 5, items: ['Live Production System', 'User Training & Guides', 'Go-Live Report', 'Support & SLA', 'Project Closure Report'] }
+                                    ].map(del => (
+                                        <div key={del.phase} className="deliverable-box shadow-sm">
+                                            <div className="absolute -top-2 -left-2 bg-blue-500 text-white text-[8px] font-bold px-2 py-0.5 rounded-full shadow-md">Phase {del.phase}</div>
+                                            <ul className="mt-2 space-y-1 text-[8px] text-slate-100 list-disc pl-3">
+                                                {del.items.map((item, i) => <li key={i}>{item}</li>)}
+                                            </ul>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Development Infrastructure */}
+                            <div className="border-t pt-6">
+                                <h4 className="font-bold text-xs text-slate-600 uppercase tracking-wider mb-4">DEVELOPMENT INFRASTRUCTURE</h4>
+                                <div className="grid grid-cols-3 md:grid-cols-9 gap-3">
+                                    {[
+                                        { label: 'Frontend', icon: 'fa-code', tech: 'HTML, CSS, JS, React, Bootstrap 5' },
+                                        { label: 'Backend', icon: 'fa-server', tech: 'Google Apps Script' },
+                                        { label: 'Database', icon: 'fa-database', tech: 'Google Sheets' },
+                                        { label: 'Storage', icon: 'fa-cloud', tech: 'Google Drive' },
+                                        { label: 'Email', icon: 'fa-envelope', tech: 'Gmail API' },
+                                        { label: 'Auth', icon: 'fa-shield-halved', tech: 'Google Workspace (SSO)' },
+                                        { label: 'Version', icon: 'fa-code-branch', tech: 'GitHub' },
+                                        { label: 'CI/CD', icon: 'fa-gears', tech: 'GitHub Actions' },
+                                        { label: 'Monitor', icon: 'fa-chart-line', tech: 'Google Workspace + Logs' }
+                                    ].map((infra, idx) => (
+                                        <div key={idx} className="bg-white border border-slate-200 rounded-lg p-3 text-center shadow-sm hover:shadow-md transition-shadow">
+                                            <div className="text-blue-600 text-lg mb-1"><i className={`fa-solid ${infra.icon}`}></i></div>
+                                            <div className="text-[9px] font-bold text-slate-800">{infra.label}</div>
+                                            <div className="text-[7px] text-slate-500 mt-0.5 leading-tight min-h-[20px]">{infra.tech}</div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Bottom Sections (Agile & Support) */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-t pt-6">
+                                <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 shadow-sm">
+                                    <h4 className="font-bold text-sm text-blue-800 mb-3 flex items-center gap-2"><i className="fa-solid fa-arrows-spin text-blue-500"></i> AGILE DELIVERY APPROACH</h4>
+                                    <div className="grid grid-cols-2 gap-4 text-[9px] text-slate-700">
+                                        <div className="bg-white/60 p-3 rounded-lg border border-blue-100"><span className="font-bold block text-[10px] mb-1"><i className="fa-regular fa-clock text-blue-500 mr-1"></i>Daily</span>Standups<br/>15-min sync</div>
+                                        <div className="bg-white/60 p-3 rounded-lg border border-blue-100"><span className="font-bold block text-[10px] mb-1"><i className="fa-regular fa-pen-to-square text-blue-500 mr-1"></i>Iterative</span>Iterative Development<br/>Small & frequent releases</div>
+                                        <div className="bg-white/60 p-3 rounded-lg border border-blue-100"><span className="font-bold block text-[10px] mb-1"><i className="fa-regular fa-diagram-project text-blue-500 mr-1"></i>Integration</span>Continuous Integration<br/>Automated build & test</div>
+                                        <div className="bg-white/60 p-3 rounded-lg border border-blue-100"><span className="font-bold block text-[10px] mb-1"><i className="fa-regular fa-comments text-blue-500 mr-1"></i>Feedback</span>Stakeholder Feedback<br/>in every iteration</div>
+                                    </div>
+                                </div>
+                                <div className="bg-orange-50 border border-orange-200 rounded-xl p-5 shadow-sm">
+                                    <h4 className="font-bold text-sm text-orange-800 mb-3 flex items-center gap-2"><i className="fa-solid fa-headset text-orange-500"></i> POST LAUNCH SUPPORT (HYPERCARE)</h4>
+                                    <div className="grid grid-cols-2 gap-2 text-[9px] text-slate-700">
+                                        <div className="bg-white/70 p-2 rounded border border-orange-100 flex items-center gap-2"><i className="fa-regular fa-clock text-orange-500"></i> <span><span className="font-bold block">2 Days</span> Hypercare Support</span></div>
+                                        <div className="bg-white/70 p-2 rounded border border-orange-100 flex items-center gap-2"><i className="fa-regular fa-circle-check text-orange-500"></i> <span><span className="font-bold block">Quick Issue</span> Resolution</span></div>
+                                        <div className="bg-white/70 p-2 rounded border border-orange-100 flex items-center gap-2"><i className="fa-regular fa-chart-line text-orange-500"></i> <span><span className="font-bold block">Real-time</span> Monitoring</span></div>
+                                        <div className="bg-white/70 p-2 rounded border border-orange-100 flex items-center gap-2"><i className="fa-regular fa-user text-orange-500"></i> <span><span className="font-bold block">User Feedback</span> Loop</span></div>
+                                        <div className="bg-white/70 p-2 rounded border border-orange-100 flex items-center gap-2"><i className="fa-regular fa-wrench text-orange-500"></i> <span><span className="font-bold block">SLA</span> Monitoring</span></div>
+                                        <div className="bg-white/70 p-2 rounded border border-orange-100 flex items-center gap-2"><i className="fa-regular fa-repeat text-orange-500"></i> <span><span className="font-bold block">Continuous</span> Improvements</span></div>
+                                    </div>
+                                    <div className="mt-2 text-[9px] bg-white/80 p-2 rounded border border-orange-200 text-slate-600 text-center font-medium">
+                                        Ensure business continuity & seamless post-launch operations.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            );
+        }
+
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+</body>
+</html>
