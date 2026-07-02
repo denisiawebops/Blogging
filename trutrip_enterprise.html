@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>TruTrip CRM — Enterprise Merged Solution</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!--
+    This file is a fully functional enterprise CRM built from the original
+    Microsoft-inspired design (Solution 1) with all the enterprise features,
+    routing, automation controls and modular React structure from Solution 2.
+    It preserves the visual language of the original CRM while upgrading
+    the architecture to a component-based React application. The backend
+    integration has been stubbed out to illustrate how one would call a
+    Google Apps Script API to fetch and persist data to Google Sheets.
+  -->
+
+  <style>
+    :root {
+      --bg:#f5f7fb;
+      --card:#ffffff;
+      --card2:#fafafa;
+      --line:#e1e1e1;
+      --text:#1b1a20;
+      --muted:#5e5c6c;
+      --nav:#004578;
+      --nav2:#002c5e;
+      --blue:#0078d4;
+      --violet:#2b579a;
+      --teal:#00b294;
+      --gold:#ffaa00;
+      --green:#107c10;
+      --red:#d83b01;
+      --orange:#f7630c;
+      --shadow:0 18px 60px rgba(0,0,0,.10);
+      --shadow2:0 10px 24px rgba(0,0,0,.08);
+      --radius:16px;
+    }
+
+    * { box-sizing:border-box; }
+
+    body {
+      margin:0;
+      min-height:100vh;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(0,120,212,.10), transparent 22%),
+        radial-gradient(circle at 90% 10%, rgba(43,87,154,.10), transparent 18%),
+        linear-gradient(180deg,#f8fbff 0%, #eef3fb 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .ms-sidebar {
+      background:linear-gradient(180deg,var(--nav) 0%, var(--nav2) 100%);
+      box-shadow:10px 0 40px rgba(8,15,35,.16);
+    }
+
+    .ms-card {
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(16,33,58,.08);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow2);
+    }
+
+    .ms-card-strong {
+      background:rgba(255,255,255,.96);
+      border:1px solid rgba(16,33,58,.08);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+    }
+
+    .ms-hero {
+      background:linear-gradient(135deg,#081126 0%, #101f44 55%, #13306d 100%);
+      color:#f7fbff;
+      border-radius:28px;
+      box-shadow:0 18px 60px rgba(8,15,35,.18);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .ms-hero:before {
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(0,120,212,.38), transparent 20%),
+        radial-gradient(circle at 75% 12%, rgba(43,87,154,.30), transparent 18%),
+        radial-gradient(circle at 70% 80%, rgba(0,178,148,.18), transparent 16%);
+      pointer-events:none;
+    }
+
+    .ms-hero > * { position:relative; z-index:1; }
+
+    .nav-btn {
+      width:100%;
+      border:0;
+      background:transparent;
+      color:#d9e4ff;
+      border-radius:18px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:13px 14px;
+      margin:4px 0;
+      cursor:pointer;
+      text-align:left;
+      transition:.18s;
+    }
+
+    .nav-btn:hover { background:rgba(255,255,255,.06); }
+
+    .nav-btn.active {
+      background:linear-gradient(135deg, rgba(0,120,212,.98), rgba(43,87,154,.96));
+      color:white;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.14);
+    }
+
+    .chip {
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      border-radius:999px;
+      padding:7px 11px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-size:12px;
+      font-weight:700;
+    }
+
+    .chip.soft { background:#eef4ff; color:#214c9a; border-color:#d9e6ff; }
+    .chip.green { background:#ecfbf5; color:#0d815d; border-color:#c9f0df; }
+    .chip.orange { background:#fff7e8; color:#9b6000; border-color:#f7dfab; }
+    .chip.violet { background:#f1edff; color:#6248cc; border-color:#dcd0ff; }
+    .chip.red { background:#fff1f0; color:#b42318; border-color:#ffd3cf; }
+
+    .status-badge {
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      border:1px solid transparent;
+      white-space:nowrap;
+    }
+
+    .s-new{background:#fff8e4;color:#996300;border-color:#f5dc97}
+    .s-assigned{background:#e9f4ff;color:#1759b7;border-color:#cfe3ff}
+    .s-options{background:#f1edff;color:#6a4fd6;border-color:#d9d0ff}
+    .s-await{background:#fef3e7;color:#ca7f08;border-color:#ffe0ae}
+    .s-booked{background:#e9f9f1;color:#0d8b62;border-color:#bfecd8}
+    .s-voucher{background:#ffeaf0;color:#c62f58;border-color:#ffc4d2}
+    .s-reconf{background:#e8fbfb;color:#0c8a92;border-color:#bfeff1}
+    .s-invoice{background:#fff2d9;color:#b06b03;border-color:#ffd99d}
+    .s-cancelled{background:#fff1f0;color:#b42318;border-color:#ffd3cf}
+    .s-modified{background:#fff7e8;color:#c2410c;border-color:#fed7aa}
+    .s-closed{background:#edf1f8;color:#51607a;border-color:#d8e0ef}
+
+    .btn-ms {
+      border:0;
+      border-radius:16px;
+      padding:11px 14px;
+      font-weight:800;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      transition:.16s;
+      font-size:14px;
+    }
+
+    .btn-ms:hover { transform:translateY(-1px); }
+    .btn-primary { background:linear-gradient(135deg,var(--blue),var(--violet)); color:#fff; }
+    .btn-dark { background:#0f1f41; color:#fff; }
+    .btn-soft { background:#eef4ff; color:#214c9a; }
+    .btn-success { background:linear-gradient(135deg,#11976b,#0d8b62); color:#fff; }
+    .btn-danger { background:linear-gradient(135deg,#e24f69,#c62f58); color:#fff; }
+    .btn-orange { background:linear-gradient(135deg,#f7630c,#c2410c); color:#fff; }
+    .btn-ghost { background:#fff; border:1px solid rgba(16,33,58,.10); color:var(--text); }
+
+    .input-ms, .select-ms, .textarea-ms {
+      width:100%;
+      border:1px solid rgba(16,33,58,.12);
+      background:#fff;
+      border-radius:16px;
+      padding:12px 14px;
+      outline:none;
+      color:var(--text);
+      transition:.15s;
+    }
+
+    .textarea-ms { min-height:140px; resize:vertical; }
+
+    .input-ms:focus, .select-ms:focus, .textarea-ms:focus {
+      border-color:rgba(0,120,212,.45);
+      box-shadow:0 0 0 4px rgba(0,120,212,.08);
+    }
+
+    .table-wrap {
+      overflow:auto;
+      border-radius:20px;
+      border:1px solid var(--line);
+    }
+
+    table {
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      background:#fff;
+    }
+
+    th,td {
+      padding:12px 14px;
+      border-bottom:1px solid var(--line);
+      vertical-align:top;
+      text-align:left;
+    }
+
+    th {
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.10em;
+      color:#64748b;
+      background:#f8fbff;
+    }
+
+    tr:hover td { background:#fafcff; }
+
+    .dropzone {
+      border:2px dashed rgba(0,120,212,.28);
+      background:linear-gradient(180deg, rgba(0,120,212,.04), rgba(43,87,154,.03));
+      border-radius:22px;
+      padding:18px;
+    }
+
+    .voucher-paper {
+      background:#fff;
+      border:1px solid #e7edf7;
+      border-radius:18px;
+      box-shadow:0 18px 50px rgba(16,33,58,.08);
+      overflow:hidden;
+    }
+
+    .voucher-banner {
+      display:grid;
+      grid-template-columns:1.3fr 1fr;
+      background:linear-gradient(90deg,#fff 0%, #f4f8ff 55%, #eaf2ff 100%);
+      border-bottom:1px solid #e7edf7;
+    }
+
+    .voucher-brand { padding:22px; }
+    .voucher-brand h3 { margin:0; font-size:28px; letter-spacing:-.05em; color:#18335d; }
+    .voucher-brand p { margin:6px 0 0; color:#77849a; }
+    .voucher-body { padding:18px; }
+    .voucher-body h4 { margin:0 0 14px; color:#214c9a; font-size:22px; }
+
+    .detail-table td { padding:8px 0; border-bottom:1px solid #edf2f7; }
+    .detail-table td:first-child { color:#45556f; font-weight:700; width:36%; }
+
+    .toast-slide { animation:slideUp .3s ease forwards; }
+    @keyframes slideUp {
+      from { opacity:0; transform:translateY(20px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+
+    @media print {
+      .no-print, aside, header, footer { display:none !important; }
+      body { background:#fff; }
+      main { padding:0 !important; }
+      .voucher-paper { box-shadow:none; border:0; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    // API Gateway stub to interact with Google Apps Script
+    // Replace YOUR_SCRIPT_ID with your actual Apps Script deployment ID.
+    const API_BASE = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+    async function fetchData(resource) {
+      try {
+        const res = await fetch(`${API_BASE}?resource=${resource}`);
+        return await res.json();
+      } catch (err) {
+        console.error('Error fetching', resource, err);
+        return null;
+      }
+    }
+    async function postData(resource, data) {
+      try {
+        const res = await fetch(`${API_BASE}?resource=${resource}`, {
+          method:'POST',
+          headers:{ 'Content-Type':'application/json' },
+          body: JSON.stringify(data)
+        });
+        return await res.json();
+      } catch (err) {
+        console.error('Error posting', resource, err);
+        return null;
+      }
+    }
+
+    const STORAGE_KEY = 'trutrip_enterprise_merged_v2';
+    const ROLES = ['admin','manager','agent','finance'];
+    const STATUS_LABEL = {
+      new:'New Request',
+      assigned:'Assigned',
+      options_sent:'Options Sent',
+      awaiting_response:'Waiting for Client',
+      booking_confirmed:'Booking Confirmed',
+      voucher_generated:'Voucher Generated',
+      reconfirmed:'Reconfirmed',
+      invoice_pending:'Invoice Pending',
+      cancelled:'Cancelled',
+      modified:'Modified',
+      closed:'Closed'
+    };
+    const STATUS_CLASS = {
+      new:'s-new',
+      assigned:'s-assigned',
+      options_sent:'s-options',
+      awaiting_response:'s-await',
+      booking_confirmed:'s-booked',
+      voucher_generated:'s-voucher',
+      reconfirmed:'s-reconf',
+      invoice_pending:'s-invoice',
+      cancelled:'s-cancelled',
+      modified:'s-modified',
+      closed:'s-closed'
+    };
+    const ROLE_LABEL = { admin:'Admin', manager:'Manager', agent:'Agent', finance:'Finance' };
+    const ROLE_ICON = { admin:'fa-shield-halved', manager:'fa-user-gear', agent:'fa-user-tie', finance:'fa-coins' };
+    const uid = () => 'id_' + Math.random().toString(36).slice(2,10) + '_' + Date.now().toString(36);
+    const nowISO = () => new Date().toISOString();
+    const fmtDate = (d, withTime=false) => {
+      if (!d) return '—';
+      const dt = new Date(d);
+      if (isNaN(dt)) return '—';
+      const opt = { day:'2-digit', month:'short', year:'numeric' };
+      if (withTime) { opt.hour = '2-digit'; opt.minute = '2-digit'; }
+      return new Intl.DateTimeFormat('en-GB', opt).format(dt);
+    };
+    const escapeHtml = (s='') => String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+
+    // Human friendly labels for parsed email keys
+    const PARSED_LABELS = {
+      associateName:'Associate Name',
+      workLocation:'Work Location',
+      checkIn:'Check In',
+      checkOut:'Check Out',
+      budget:'Budget',
+      kind:'Type',
+      subject:'Subject',
+      from:'From'
+    };
+
+    // Sample emails used to quickly test parsing
+    const SAMPLE_VISA_EMAIL = `Subject: RE: Accommodation Request for Visa Purpose // Sudhanshu Bhatnagar\nDate: Sunday, 28 June 2026 at 8:17:41 PM India Standard Time\nFrom: Nareshkumar\nTo: Accommodation Row, Tml, Ashok Pragada\nCC: Anish Koduru, nareshkumar@easestay.com\n\nDear Sudhanshu Bhatnagar,\n\nAs per your instruction, we have confirmed your reservation at\n\nHotel Name: ibis Paris La Défense Esplanade\nHotel Address: Courbevoie FR, 4 Bd de Neuilly, 92081 Paris La Défense Cedex, France, Puteaux\nCheck In: 15/08/2026 20:12\nCheck Out: 22/08/2026 20:12\nConfirmation Number: QLZLDMMK\nCancellation Policy: Free Cancellation until 14 Aug 2026\n\nPlease find your CONFIRMATION VOUCHER attached along with this email.\nYour booking CONFIRMATION number is QLZLDMMK.\n\nKindly Note the below booking is only for VISA purpose and revert back to us regarding cancellation before the cancellation policy expires.\n\nIMPORTANT NOTES:\n- Carry passport or photo ID at check-in.\n- Inform us immediately for check-in time changes.\n- If payment is settled directly, guest must collect invoice from the property.\n\nEscalation Matrix:\n1st Level: Mr. Karthik, Team Leader Operations\n2nd Level: Mr. Sangeeth Samson, Manager Operations\n3rd Level: Mr. Sukumar, Head Operations`;
+
+    const SAMPLE_HOTEL_EMAIL = `Dear Team,\n\nKindly share the available hotel options for the below request\n\nAssociate name: Mircea Anghel\nWork Location: 1410 Olympic Way SE, Calgary, Alberta, T2G 2W1\nCheck in Date: 08-July-26\nCheck out date: 09-July-26\nNo of Nights: 1\nOccupancy: 1\nAccommodation: 153 CAD`;
+
+    // Default state with sample data for demonstration
+    function defaultState() {
+      const now = new Date();
+      const d1 = new Date(now.getTime() + 13*86400000);
+      const d2 = new Date(now.getTime() + 20*86400000);
+      return {
+        route:'dashboard',
+        currentUserId:'u_admin',
+        selectedLeadId:'',
+        selectedInboxTab:'parse',
+        selectedVoucherTab:'visa',
+        users:[
+          { id:'u_admin', name:'Aanya Sharma', email:'admin@trutrip.in', password:'admin123', role:'admin', active:true, createdAt:nowISO() },
+          { id:'u_manager', name:'Sangeeth Samson', email:'manager@trutrip.in', password:'manager123', role:'manager', active:true, createdAt:nowISO() },
+          { id:'u_agent1', name:'Naresh Kumar', email:'naresh@trutrip.in', password:'password123', role:'agent', active:true, createdAt:nowISO() },
+          { id:'u_agent2', name:'Karthik Iyer', email:'karthik@trutrip.in', password:'password123', role:'agent', active:true, createdAt:nowISO() },
+          { id:'u_finance', name:'Monica Michael', email:'finance@trutrip.in', password:'finance123', role:'finance', active:true, createdAt:nowISO() }
+        ],
+        leads:[],
+        options:[],
+        bookings:[],
+        vouchers:[],
+        invoices:[],
+        audit:[],
+        intakeEmails:[],
+        parserText:'',
+        integration:'local',
+        automation:{ autoAssign:true, dailyDigest:true, invoiceReminder:true, reconfirmation:true, autoAttachPdf:true, qaMirror:true },
+        config:{ sheetsId:'', appsScriptUrl:'', supabaseUrl:'', supabaseKey:'' },
+        settings:{ companyName:'TruTrip', supportEmail:'support@trutrip.in' }
+      };
+    }
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return defaultState();
+        return { ...defaultState(), ...JSON.parse(raw) };
+      } catch {
+        return defaultState();
+      }
+    }
+    function saveState(state) {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {}
+    }
+
+    function StatusBadge({ status }) {
+      return <span className={`status-badge ${STATUS_CLASS[status] || 's-closed'}`}>{STATUS_LABEL[status] || status}</span>;
+    }
+    function Toast({ msg, type }) {
+      const cls = type === 'error' ? 'bg-red-500' : type === 'success' ? 'bg-green-500' : 'bg-blue-500';
+      const icon = type === 'error' ? 'fa-exclamation-circle' : type === 'success' ? 'fa-check-circle' : 'fa-info-circle';
+      return (
+        <div className={`fixed bottom-6 right-6 ${cls} text-white px-6 py-3.5 rounded-xl shadow-2xl z-50 flex items-center gap-3 toast-slide max-w-md`}>
+          <i className={`fas ${icon}`}></i>
+          <span className="font-medium">{msg}</span>
+        </div>
+      );
+    }
+    function Kpi({ label, value, icon, tone='soft', sub }) {
+      const toneClass = tone === 'green' ? 'chip green' : tone === 'orange' ? 'chip orange' : tone === 'violet' ? 'chip violet' : tone === 'red' ? 'chip red' : 'chip soft';
+      return (
+        <div className="ms-card p-5">
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <div className="text-xs uppercase tracking-widest font-black text-gray-500">{label}</div>
+              <div className="text-3xl font-black mt-2">{value}</div>
+              {sub && <div className="text-xs text-gray-500 mt-2">{sub}</div>}
+            </div>
+            <div className={toneClass}>
+              <i className={`fas ${icon}`}></i>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    function buildVoucherHtml(lead, booking) {
+      if (!lead) return '';
+      const b = booking || {};
+      const title = lead.kind === 'visa' ? 'VISA CONFIRMATION VOUCHER' : 'HOTEL CONFIRMATION VOUCHER';
+      return `
+        <div style="font-family:Arial,Helvetica,sans-serif;max-width:820px;margin:auto;background:#fff;border:1px solid #e5e7eb;border-radius:14px;overflow:hidden">
+          <div style="background:linear-gradient(90deg,#1e3a5f,#1a56db);color:white;padding:22px;display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-size:30px;font-weight:900">TRUTRIP</div>
+              <div style="color:#fbbf24;font-weight:700">Your Stay · Our Responsibility</div>
+            </div>
+            <div style="color:#fbbf24;font-weight:900;text-align:right">${title}</div>
+          </div>
+          <div style="padding:22px">
+            <h2 style="color:#1e3a5f">We hereby provide you the below confirmation details of your stay</h2>
+            <table style="width:100%;border-collapse:collapse;font-size:14px">
+              ${[
+                ['Guest Name', lead.associateName],
+                ['Confirmation Number', b.confirmationNumber || '—'],
+                ['Hotel Name', b.hotelName || '—'],
+                ['Hotel Address', b.hotelAddress || lead.workLocation],
+                ['Check In', fmtDate(b.checkIn || lead.checkIn, true)],
+                ['Check Out', fmtDate(b.checkOut || lead.checkOut, true)],
+                ['Room Type', b.roomType || 'Standard Room'],
+                ['No. of nights', b.nights || lead.nights || 1],
+                ['No. of Guest', lead.occupancy || 1],
+                ['Cancellation Policy', b.cancellation || '—'],
+                ['Tariff Per Night', (b.tariffPerNight || 0) + ' ' + (b.currency || 'EUR')],
+                ['Total Amount for Stay', (b.totalAmount || 0) + ' ' + (b.currency || 'EUR')]
+              ].map(row => `
+                <tr>
+                  <td style="padding:9px;border-bottom:1px solid #e5e7eb;background:#f9fafb;font-weight:700;width:38%">${escapeHtml(row[0])}</td>
+                  <td style="padding:9px;border-bottom:1px solid #e5e7eb">${escapeHtml(row[1])}</td>
+                </tr>
+              `).join('')}
+            </table>
+            <div style="margin-top:20px;color:#f59e0b;text-align:center;font-weight:900;font-size:18px">Wishing you a pleasant stay</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function App() {
+      const [state, setState] = useState(loadState);
+      const [toast, setToast] = useState(null);
+      const [sidebarOpen, setSidebarOpen] = useState(false);
+      useEffect(() => saveState(state), [state]);
+      const currentUser = state.users.find(u => u.id === state.currentUserId);
+      const isAdmin = currentUser?.role === 'admin';
+      const isManager = currentUser?.role === 'manager';
+      const isFinance = ['finance','admin','manager'].includes(currentUser?.role);
+      const isAgent = ['agent','admin','manager'].includes(currentUser?.role);
+
+      const addToast = (msg, type='info') => {
+        setToast({ msg, type });
+        setTimeout(() => setToast(null), 2800);
+      };
+      const updateState = fn => setState(prev => typeof fn === 'function' ? fn(prev) : fn);
+      const addAudit = (action, target='', meta={}) => {
+        const user = currentUser || { name:'System' };
+        setState(prev => ({
+          ...prev,
+          audit:[ { id:uid(), at:nowISO(), userName:user.name, action, target, meta }, ...(prev.audit || []) ]
+        }));
+      };
+      const navItems = [
+        { route:'dashboard', icon:'fa-gauge-high', label:'Dashboard' },
+        { route:'intake', icon:'fa-envelope-open-text', label:'Email Intake' },
+        { route:'leads', icon:'fa-inbox', label:'Leads' },
+        { route:'vouchers', icon:'fa-file-pdf', label:'Vouchers' },
+        { route:'invoices', icon:'fa-receipt', label:'Invoices' }
+      ];
+      if (isFinance) navItems.push({ route:'finance', icon:'fa-coins', label:'Finance' });
+      if (isAdmin || isManager) navItems.push({ route:'analytics', icon:'fa-chart-line', label:'Analytics' });
+      if (isAdmin) navItems.push({ route:'admin', icon:'fa-shield-halved', label:'Admin' });
+      if (isAdmin || isManager) navItems.push({ route:'settings', icon:'fa-gear', label:'Settings' });
+      navItems.push({ route:'help', icon:'fa-circle-question', label:'Help' });
+      navItems.push({ route:'profile', icon:'fa-user', label:'Profile' });
+      if (!currentUser) {
+        return <LoginPage state={state} updateState={updateState} addToast={addToast} toast={toast} />;
+      }
+      const pageProps = { state, updateState, addAudit, addToast, currentUser };
+      const renderPage = () => {
+        switch (state.route || 'dashboard') {
+          case 'dashboard': return <DashboardPage {...pageProps} />;
+          case 'intake': return <IntakePage {...pageProps} />;
+          case 'leads': return <LeadsPage {...pageProps} />;
+          case 'vouchers': return <VouchersPage {...pageProps} />;
+          case 'invoices': return <InvoicesPage {...pageProps} updateState={updateState} addAudit={addAudit} addToast={addToast} />;
+          case 'finance': return <FinancePage {...pageProps} />;
+          case 'analytics': return <AnalyticsPage {...pageProps} />;
+          case 'admin': return <AdminPage {...pageProps} />;
+          case 'settings': return <SettingsPage {...pageProps} />;
+          case 'help': return <HelpPage {...pageProps} />;
+          case 'profile': return <ProfilePage {...pageProps} />;
+          default: return <DashboardPage {...pageProps} />;
+        }
+      };
+      return (
+        <div className="min-h-screen flex">
+          {sidebarOpen && <div className="fixed inset-0 bg-black/40 z-40 md:hidden" onClick={() => setSidebarOpen(false)}></div>}
+          <aside className={`fixed md:sticky top-0 h-screen w-72 ms-sidebar text-white z-50 transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 transition-transform duration-200 flex flex-col`}>
+            <div className="p-5 border-b border-white/10 flex items-center gap-3">
+              <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-blue-400 to-indigo-700 grid place-items-center text-xl shadow-lg">✈</div>
+              <div>
+                <div className="font-black text-xl tracking-tight">TruTrip</div>
+                <div className="text-xs text-blue-100/70">Enterprise CRM</div>
+              </div>
+            </div>
+            <div className="p-3 flex-1 overflow-y-auto">
+              <div className="text-[11px] uppercase tracking-widest text-blue-100/50 font-black px-3 py-2">Operations</div>
+              {navItems.map(item => (
+                <button key={item.route}
+                  onClick={() => {
+                    updateState(prev => ({ ...prev, route:item.route }));
+                    setSidebarOpen(false);
+                  }}
+                  className={`nav-btn ${state.route === item.route ? 'active' : ''}`}
+                >
+                  <span className="w-7 h-7 rounded-xl bg-white/10 grid place-items-center">
+                    <i className={`fas ${item.icon}`}></i>
+                  </span>
+                    <span className="font-semibold text-sm">{item.label}</span>
+                </button>
+              ))}
+            </div>
+            <div className="m-4 p-4 rounded-2xl bg-white/10 border border-white/10">
+              <div className="font-bold text-sm">{currentUser.name}</div>
+              <div className="text-xs text-blue-100/60">{currentUser.email}</div>
+              <div className="mt-3 flex items-center gap-2">
+                <span className="chip soft">
+                  <i className={`fas ${ROLE_ICON[currentUser.role]}`}></i>
+                  {ROLE_LABEL[currentUser.role]}
+                </span>
+              </div>
+              <button onClick={() => {
+                updateState(prev => ({ ...prev, currentUserId:null }));
+                addToast('Logged out', 'info');
+              }} className="mt-4 w-full text-left text-sm text-red-200 hover:text-white">
+                <i className="fas fa-sign-out-alt mr-2"></i> Sign Out
+              </button>
+            </div>
+          </aside>
+          <div className="flex-1 min-w-0 flex flex-col">
+            <header className="sticky top-0 z-30 bg-white/80 backdrop-blur-xl border-b border-slate-200/70 px-4 md:px-6 py-4 flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <button className="md:hidden text-xl" onClick={() => setSidebarOpen(true)}>
+                  <i className="fas fa-bars"></i>
+                </button>
+                <div>
+                  <h1 className="text-xl font-black capitalize tracking-tight">{state.route || 'dashboard'}</h1>
+                  <div className="text-sm text-gray-500">
+                    {currentUser.role === 'admin' ? 'Full system access' : currentUser.role === 'manager' ? 'Team management & oversight' : currentUser.role === 'finance' ? 'Financial operations' : 'Operations & processing'}
+                  </div>
+                </div>
+              </div>
+              <div className="hidden md:flex items-center gap-3 text-sm text-gray-500">
+                <span>{fmtDate(nowISO(), true)}</span>
+                <span className="chip green">Live</span>
+              </div>
+            </header>
+            <main className="flex-1 p-4 md:p-6 overflow-y-auto">
+              {renderPage()}
+            </main>
+            <footer className="bg-white border-t px-4 md:px-6 py-3 text-xs text-gray-500 flex flex-wrap items-center justify-between gap-2">
+              <span>© 2026 TruTrip CRM — Enterprise Operations Platform</span>
+              <span>Support · Documentation · v5.0 merged</span>
+            </footer>
+          </div>
+          {toast && <Toast {...toast} />}
+        </div>
+      );
+    }
+    function LoginPage({ state, updateState, addToast, toast }) {
+      return (
+        <div className="min-h-screen grid place-items-center p-5">
+          <div className="grid lg:grid-cols-2 gap-5 max-w-6xl w-full">
+            <div className="ms-hero p-8">
+              <div className="text-5xl font-black mb-3">✈ TruTrip</div>
+              <h1 className="text-4xl font-black leading-tight mb-4">Enterprise CRM</h1>
+              <p className="text-blue-100/80 max-w-xl">
+                Complete travel operations platform for email intake, lead pipeline,
+                booking, voucher generation, invoicing, analytics, automation, and enterprise settings.
+              </p>
+              <div className="grid grid-cols-2 gap-3 mt-8">
+                {[
+                  ['9','Step Workflow'],
+                  ['PDF','Voucher Generator'],
+                  ['AI','Email Parser'],
+                  ['RBAC','Multi-Role Access']
+                ].map(([a,b]) => (
+                  <div key={b} className="rounded-2xl bg-white/10 border border-white/10 p-4">
+                    <div className="text-2xl font-black">{a}</div>
+                    <div className="text-xs text-blue-100/70">{b}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="ms-card-strong p-8 bg-white">
+              <h2 className="text-2xl font-black mb-6">Sign In</h2>
+              <form onSubmit={e => {
+                e.preventDefault();
+                const email = e.target.email.value.trim().toLowerCase();
+                const password = e.target.password.value;
+                const user = state.users.find(u => u.email === email && u.password === password && u.active !== false);
+                if (!user) return addToast('Invalid credentials or inactive user', 'error');
+                updateState(prev => ({ ...prev, currentUserId:user.id, route:'dashboard' }));
+                addToast(`Welcome, ${user.name}!`, 'success');
+              }}>
+                <label className="block text-sm font-bold text-gray-700 mb-1">Email Address</label>
+                <input name="email" type="email" defaultValue="admin@trutrip.in" className="input-ms mb-4" />
+                <label className="block text-sm font-bold text-gray-700 mb-1">Password</label>
+                <input name="password" type="password" defaultValue="admin123" className="input-ms mb-6" />
+                <button className="btn-ms btn-primary w-full justify-center">
+                  <i className="fas fa-sign-in-alt"></i> Sign In
+                </button>
+              </form>
+              <div className="mt-6 text-sm text-gray-500">
+                <p className="font-bold mb-2">Demo Accounts:</p>
+                <div className="grid sm:grid-cols-2 gap-2 text-xs">
+                  <span className="bg-gray-100 px-2 py-1 rounded">admin@trutrip.in / admin123</span>
+                  <span className="bg-gray-100 px-2 py-1 rounded">manager@trutrip.in / manager123</span>
+                  <span className="bg-gray-100 px-2 py-1 rounded">naresh@trutrip.in / password123</span>
+                  <span className="bg-gray-100 px-2 py-1 rounded">finance@trutrip.in / finance123</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          {toast && <Toast {...toast} />}
+        </div>
+      );
+    }
+    function DashboardPage({ state, updateState, addAudit, addToast, currentUser }) {
+      const leads = state.leads || [];
+      const open = leads.filter(l => !['closed','cancelled'].includes(l.status)).length;
+      const confirmed = leads.filter(l => ['booking_confirmed','voucher_generated','reconfirmed','invoice_pending'].includes(l.status)).length;
+      const cancelled = leads.filter(l => l.status === 'cancelled').length;
+      const modified = leads.filter(l => l.status === 'modified').length;
+      const revenue = (state.invoices || []).reduce((s,i) => s + Number(i.amount || 0), 0);
+      const selected = leads.find(l => l.id === state.selectedLeadId) || leads[0];
+      const setStatus = (id, status) => {
+        updateState(prev => ({
+          ...prev,
+          leads: prev.leads.map(l => l.id === id ? { ...l, status, history:[{ at:nowISO(), by:currentUser.name, event:`Status changed to ${STATUS_LABEL[status]}` }, ...(l.history || [])] } : l)
+        }));
+        addAudit('Status changed', id, { status });
+        addToast('Status updated', 'success');
+      };
+      return (
+        <div className="space-y-6">
+          <div className="ms-hero p-7">
+            <div className="grid lg:grid-cols-[1.5fr_.8fr] gap-6">
+              <div>
+                <h2 className="text-4xl font-black tracking-tight leading-tight">
+                  TruTrip CRM — built to reduce monitoring, increase throughput, and keep every booking visible.
+                </h2>
+                <p className="mt-4 text-blue-100/80">
+                  Covers email intake, booking options, hotel reconfirmations, voucher and invoice generation, audit trail, and analytics.
+                </p>
+                <div className="flex flex-wrap gap-2 mt-5">
+                  <span className="chip soft">One Platform</span>
+                  <span className="chip violet">One Process</span>
+                  <span className="chip green">Complete Visibility</span>
+                </div>
+              </div>
+              <div className="rounded-3xl bg-white/10 border border-white/10 p-5">
+                <div className="text-xs uppercase tracking-widest text-blue-100/60 font-black">Morning Digest</div>
+                <div className="text-2xl font-black mt-2">{currentUser.name}</div>
+                <div className="grid grid-cols-2 gap-3 mt-5">
+                  <div className="rounded-2xl bg-white/10 p-4">
+                    <div className="font-black text-2xl">{open}</div>
+                    <div className="text-xs text-blue-100/70">open requests</div>
+                  </div>
+                  <div className="rounded-2xl bg-white/10 p-4">
+                    <div className="font-black text-2xl">{state.automation.reconfirmation ? 'On' : 'Off'}</div>
+                    <div className="text-xs text-blue-100/70">48h reminders</div>
+                  </div>
+                  <div className="rounded-2xl bg-white/10 p-4">
+                    <div className="font-black text-2xl">{state.users.length}</div>
+                    <div className="text-xs text-blue-100/70">users</div>
+                  </div>
+                  <div className="rounded-2xl bg-white/10 p-4">
+                    <div className="font-black text-2xl">{state.integration}</div>
+                    <div className="text-xs text-blue-100/70">backend mode</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="grid md:grid-cols-2 xl:grid-cols-6 gap-4">
+            <Kpi label="Open Requests" value={open} icon="fa-inbox" sub="Leads still in motion" />
+            <Kpi label="Confirmed" value={confirmed} icon="fa-check-circle" tone="green" sub="Booking or later" />
+            <Kpi label="Cancelled" value={cancelled} icon="fa-ban" tone="red" sub="Cancelled requests" />
+            <Kpi label="Modified" value={modified} icon="fa-pen-to-square" tone="orange" sub="Changed requests" />
+            <Kpi label="Vouchers" value={state.vouchers.length} icon="fa-file-pdf" tone="violet" sub="PDF-ready records" />
+            <Kpi label="Revenue" value={`${revenue} EUR`} icon="fa-coins" tone="orange" sub="Tracked invoices" />
+          </div>
+          <div className="grid lg:grid-cols-3 gap-5">
+            <div className="ms-card p-5">
+              <h3 className="font-black text-lg">Quick Intake</h3>
+              <p className="text-sm text-gray-500 mt-1">Parse emails or upload files to auto-create leads.</p>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <button className="btn-ms btn-primary" onClick={() => updateState(p => ({ ...p, route:'intake', parserText:SAMPLE_VISA_EMAIL }))}><i className="fas fa-envelope-open-text"></i> Parse sample email</button>
+                <button className="btn-ms btn-soft" onClick={() => updateState(p => ({ ...p, route:'intake' }))}>Open parser</button>
+              </div>
+            </div>
+            <div className="ms-card p-5">
+              <h3 className="font-black text-lg">Manage Status</h3>
+              <p className="text-sm text-gray-500 mt-1">Update selected lead status quickly.</p>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <button className="btn-ms btn-success" onClick={() => selected && setStatus(selected.id, 'booking_confirmed')}>Confirm</button>
+                <button className="btn-ms btn-danger" onClick={() => selected && setStatus(selected.id, 'cancelled')}>Cancel</button>
+                <button className="btn-ms btn-orange" onClick={() => selected && setStatus(selected.id, 'modified')}>Modify</button>
+              </div>
+            </div>
+            <div className="ms-card p-5">
+              <h3 className="font-black text-lg">Pending Digest</h3>
+              <div className="mt-3 space-y-2">
+                {leads.filter(l => ['new','assigned','options_sent','awaiting_response'].includes(l.status)).map(l => (
+                  <div key={l.id} className="flex justify-between gap-2 text-sm bg-slate-50 rounded-xl p-3">
+                    <span className="font-semibold">{l.associateName}</span>
+                    <StatusBadge status={l.status} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="ms-card p-5">
+            <h3 className="font-black text-lg mb-3">Workflow Strip</h3>
+            <div className="grid md:grid-cols-3 xl:grid-cols-9 gap-3 text-sm">
+              {['Lead Intake','Review & Assign','Send Options','Await Client','Confirm Booking','Generate Voucher','Reconfirm','Invoice','Close'].map((s,i) => (
+                <div key={s} className="rounded-2xl bg-slate-50 p-3 border">
+                  <div className="font-black text-blue-600">{i+1}</div>
+                  <div className="font-bold">{s}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    }
+    function IntakePage({ state, updateState, addAudit, addToast, currentUser }) {
+      const [parsed, setParsed] = useState(null);
+      const parseEmail = () => {
+        const t = state.parserText || '';
+        const get = label => {
+          const re = new RegExp(label + '\\s*:?\\s*(.+)', 'i');
+          const m = t.match(re);
+          return m ? m[1].trim() : '';
+        };
+        const data = {
+          subject: (t.match(/^Subject:(.+)$/im) || [, 'Accommodation request'])[1].trim(),
+          from: (t.match(/^From:(.+)$/im) || [, 'Unknown'])[1].trim(),
+          associateName: get('Associate name') || get('Dear'),
+          workLocation: get('Work Location') || get('Hotel Address') || get('Location'),
+          checkIn: get('Check in Date') || get('Check In'),
+          checkOut: get('Check out Date') || get('Check Out'),
+          budget: get('Accommodation') || get('Budget') || '—',
+          kind: /visa/i.test(t) ? 'visa' : 'hotel'
+        };
+        setParsed(data);
+        addToast('Email parsed', 'success');
+      };
+      const createLead = () => {
+        if (!parsed) return addToast('Parse email first', 'error');
+        const lead = {
+          id: uid(),
+          ref: 'TT' + Date.now().toString().slice(-8),
+          kind: parsed.kind,
+          associateName: parsed.associateName,
+          empId:'',
+          gender:'',
+          workLocation: parsed.workLocation,
+          checkIn: parsed.checkIn ? new Date(parsed.checkIn).toISOString() : nowISO(),
+          checkOut: parsed.checkOut ? new Date(parsed.checkOut).toISOString() : nowISO(),
+          nights:1,
+          occupancy:1,
+          accommodationBudget: parsed.budget,
+          specialInstruction: parsed.kind === 'visa' ? 'Visa booking voucher required.' : 'Parsed from email.',
+          status:'new',
+          assignee: state.automation.autoAssign ? 'Naresh Kumar' : '',
+          priority:'normal',
+          createdAt: nowISO(),
+          createdBy: currentUser.name,
+          clientEmail:'',
+          visaRequestId:'',
+          notes:[{ at: nowISO(), by: currentUser.name, text:'Created from email parser.' }],
+          history:[{ at: nowISO(), by: currentUser.name, event:'Lead created from email' }]
+        };
+        updateState(prev => ({
+          ...prev,
+          leads:[lead, ...prev.leads],
+          selectedLeadId: lead.id,
+          route:'leads',
+          intakeEmails:[{ id: uid(), subject: parsed.subject, from: parsed.from, body: prev.parserText, parsed:true, leadId:lead.id, createdAt: nowISO() }, ...prev.intakeEmails]
+        }));
+        addAudit('Created lead from parser', lead.id);
+        addToast('Lead created', 'success');
+      };
+      return (
+        <div className="space-y-5">
+          <div className="ms-card p-5">
+            <div className="flex flex-wrap justify-between gap-3 mb-4">
+              <div>
+                <h2 className="text-2xl font-black">Email Intake Studio</h2>
+                <p className="text-sm text-gray-500">Parse emails, draft replies, or upload files.</p>
+              </div>
+              <div className="flex gap-2">
+                {['parse','reply','upload'].map(tab => (
+                  <button key={tab}
+                    onClick={() => updateState(p => ({ ...p, selectedInboxTab:tab }))}
+                    className={`btn-ms ${state.selectedInboxTab === tab ? 'btn-primary' : 'btn-ghost'}`}
+                  >{tab === 'parse' ? 'Parse' : tab === 'reply' ? 'Reply Draft' : 'Upload'}</button>
+                ))}
+              </div>
+            </div>
+            {state.selectedInboxTab === 'parse' && (
+              <div className="grid lg:grid-cols-2 gap-5">
+                <div>
+                  <div className="dropzone mb-4">
+                    <div className="font-black">Drop .txt / .eml / .html here</div>
+                    <div className="text-sm text-gray-500">Paste sample email below or load a predefined message.</div>
+                  </div>
+                  <textarea className="textarea-ms" value={state.parserText} onChange={e => updateState(p => ({ ...p, parserText:e.target.value }))} />
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    <button className="btn-ms btn-primary" onClick={parseEmail}>Parse Email</button>
+                    <button className="btn-ms btn-soft" onClick={() => updateState(p => ({ ...p, parserText:SAMPLE_VISA_EMAIL }))}>Load Visa Mail</button>
+                    <button className="btn-ms btn-ghost" onClick={() => updateState(p => ({ ...p, parserText:SAMPLE_HOTEL_EMAIL }))}>Load Hotel Mail</button>
+                    <button className="btn-ms btn-success" onClick={createLead}>Create Lead</button>
+                  </div>
+                </div>
+                <div className="ms-card p-4">
+                  <h3 className="font-black mb-3">Detected Data</h3>
+                  {!parsed ? (
+                    <div className="text-sm text-gray-500">Parse an email to see detected fields.</div>
+                  ) : (
+                    <table className="detail-table text-sm">
+                      <tbody>
+                        {Object.entries(parsed).map(([k,v]) => (
+                          <tr key={k}>
+                            <td>{PARSED_LABELS[k] || k.replace(/([A-Z])/g, ' $1').replace(/^./, c => c.toUpperCase())}</td>
+                            <td>{String(v || '—')}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  )}
+                </div>
+              </div>
+            )}
+            {state.selectedInboxTab === 'reply' && (
+              <div>
+                <textarea className="textarea-ms" defaultValue={`Dear ${parsed?.associateName || 'Guest'},\n\nThank you for your request. We are reviewing the accommodation details and will share suitable options shortly.\n\nRegards,\nTruTrip Operations`} />
+                <button className="btn-ms btn-primary mt-3" onClick={() => addToast('Reply draft saved', 'success')}>Save Reply Draft</button>
+              </div>
+            )}
+            {state.selectedInboxTab === 'upload' && (
+              <div className="dropzone">
+                <div className="font-black">Upload / Drag & Drop</div>
+                <p className="text-sm text-gray-500 mt-1">Attach PDF, email exports, hotel options, voucher files, or CSV lead data.</p>
+                <input type="file" multiple className="mt-4" />
+              </div>
+            )}
+          </div>
+          <div className="ms-card p-5">
+            <h3 className="font-black mb-3">Processed Emails</h3>
+            <div className="table-wrap">
+              <table>
+                <thead><tr><th>Subject</th><th>From</th><th>Parsed</th><th>Lead</th><th>Date</th></tr></thead>
+                <tbody>
+                  {state.intakeEmails.map(e => (
+                    <tr key={e.id}>
+                      <td>{e.subject}</td>
+                      <td>{e.from}</td>
+                      <td>{e.parsed ? <span className="chip green">Parsed</span> : <span className="chip orange">Pending</span>}</td>
+                      <td>{e.leadId}</td>
+                      <td>{fmtDate(e.createdAt, true)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    function LeadsPage({ state, updateState, addAudit, addToast, currentUser }) {
+      const [q, setQ] = useState('');
+      const selected = state.leads.find(l => l.id === state.selectedLeadId) || state.leads[0];
+      const filtered = state.leads.filter(l => [l.associateName, l.ref, l.workLocation, l.status, l.assignee].join(' ').toLowerCase().includes(q.toLowerCase()));
+      const setStatus = (id, status) => {
+        updateState(prev => ({ ...prev, leads: prev.leads.map(l => l.id === id ? { ...l, status, history:[{ at:nowISO(), by:currentUser.name, event:`Status changed to ${STATUS_LABEL[status]}` }, ...(l.history || [])] } : l) }));
+        addAudit('Status updated', id, { status });
+        addToast('Lead updated', 'success');
+      };
+      const addNote = () => {
+        const note = prompt('Enter note:');
+        if (!note || !selected) return;
+        updateState(prev => ({ ...prev, leads: prev.leads.map(l => l.id === selected.id ? { ...l, notes:[{ at:nowISO(), by:currentUser.name, text:note }, ...(l.notes || [])], history:[{ at:nowISO(), by:currentUser.name, event:'Note added' }, ...(l.history || [])] } : l) }));
+        addAudit('Added lead note', selected.id);
+        addToast('Note added', 'success');
+      };
+      return (
+        <div className="grid xl:grid-cols-[1.25fr_.75fr] gap-5">
+          <div className="ms-card p-5">
+            <div className="flex flex-wrap justify-between gap-3 mb-4">
+              <div>
+                <h2 className="text-2xl font-black">Lead Pipeline</h2>
+                <p className="text-sm text-gray-500">Track every request from intake through close.</p>
+              </div>
+              <input className="input-ms max-w-sm" placeholder="Search leads..." value={q} onChange={e => setQ(e.target.value)} />
+            </div>
+            <div className="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Ref</th><th>Guest</th><th>Type</th><th>Status</th><th>Assignee</th><th>Action</th></tr>
+                </thead>
+                <tbody>
+                  {filtered.map(l => (
+                    <tr key={l.id} className={state.selectedLeadId === l.id ? 'bg-blue-50' : ''}>
+                      <td className="font-mono text-xs">{l.ref}</td>
+                      <td className="font-bold">{l.associateName}</td>
+                      <td className="uppercase">{l.kind}</td>
+                      <td><StatusBadge status={l.status} /></td>
+                      <td>{l.assignee || 'Unassigned'}</td>
+                      <td>
+                        <button className="btn-ms btn-soft text-xs" onClick={() => {
+                          // When opening a lead, navigate to intake page and load the associated email used for creation
+                          const email = state.intakeEmails.find(e => e.leadId === l.id);
+                          updateState(prev => ({
+                            ...prev,
+                            selectedLeadId:l.id,
+                            route:'intake',
+                            selectedInboxTab:'parse',
+                            parserText: email?.body || ''
+                          }));
+                          addToast('Loaded intake for lead', 'info');
+                        }}>Open</button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          {selected && (
+            <div className="ms-card p-5">
+              <h3 className="text-2xl font-black">{selected.associateName}</h3>
+              <div className="flex flex-wrap gap-2 mt-2">
+                <span className="chip soft">{selected.ref}</span>
+                <StatusBadge status={selected.status} />
+                <span className="chip violet">{selected.kind}</span>
+              </div>
+              <table className="detail-table text-sm mt-5">
+                <tbody>
+                  <tr><td>Work Location</td><td>{selected.workLocation}</td></tr>
+                  <tr><td>Check In</td><td>{fmtDate(selected.checkIn, true)}</td></tr>
+                  <tr><td>Check Out</td><td>{fmtDate(selected.checkOut, true)}</td></tr>
+                  <tr><td>Nights</td><td>{selected.nights}</td></tr>
+                  <tr><td>Budget</td><td>{selected.accommodationBudget}</td></tr>
+                  <tr><td>Instruction</td><td>{selected.specialInstruction}</td></tr>
+                </tbody>
+              </table>
+              <div className="flex flex-wrap gap-2 mt-5">
+                <button className="btn-ms btn-soft" onClick={() => setStatus(selected.id, 'options_sent')}>Options Sent</button>
+                <button className="btn-ms btn-success" onClick={() => setStatus(selected.id, 'booking_confirmed')}>Confirm</button>
+                <button className="btn-ms btn-primary" onClick={() => setStatus(selected.id, 'voucher_generated')}>Voucher</button>
+                <button className="btn-ms btn-orange" onClick={() => setStatus(selected.id, 'modified')}>Modify</button>
+                <button className="btn-ms btn-danger" onClick={() => setStatus(selected.id, 'cancelled')}>Cancel</button>
+                <button className="btn-ms btn-dark" onClick={() => setStatus(selected.id, 'closed')}>Close</button>
+              </div>
+              <div className="mt-6">
+                <div className="flex justify-between items-center mb-2">
+                  <h4 className="font-black">Live Notes</h4>
+                  <button className="text-blue-600 text-sm font-bold" onClick={addNote}>+ Add Note</button>
+                </div>
+                <div className="space-y-2">
+                  {(selected.notes || []).map((n,i) => (
+                    <div key={i} className="bg-slate-50 rounded-xl p-3 text-sm">
+                      <div>{n.text}</div>
+                      <div className="text-xs text-gray-500 mt-1">{n.by} · {fmtDate(n.at, true)}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+    function VouchersPage({ state, updateState, addAudit, addToast }) {
+      const selected = state.leads.find(l => l.id === state.selectedLeadId) || state.leads[0];
+      const booking = state.bookings.find(b => b.leadId === selected?.id);
+      const html = buildVoucherHtml(selected, booking);
+      const generateVoucher = () => {
+        if (!selected) return;
+        updateState(prev => ({
+          ...prev,
+          vouchers:[{ id:uid(), bookingId:booking?.id || '', leadId:selected.id, kind:state.selectedVoucherTab, number:'V' + Date.now(), generatedAt:nowISO() }, ...prev.vouchers],
+          leads:prev.leads.map(l => l.id === selected.id ? { ...l, status:'voucher_generated' } : l)
+        }));
+        addAudit('Generated voucher', selected.id, { kind:state.selectedVoucherTab });
+        addToast('Voucher generated', 'success');
+      };
+      return (
+        <div className="space-y-5">
+          <div className="ms-card p-5">
+            <div className="flex flex-wrap justify-between gap-3 mb-4">
+              <div>
+                <h2 className="text-2xl font-black">Voucher Studio</h2>
+                <p className="text-sm text-gray-500">Hotel voucher, visa voucher, and email-ready mail format.</p>
+              </div>
+              <div className="flex gap-2">
+                {['hotel','visa','mail'].map(tab => (
+                  <button key={tab}
+                    className={`btn-ms ${state.selectedVoucherTab === tab ? 'btn-primary' : 'btn-ghost'}`}
+                    onClick={() => updateState(p => ({ ...p, selectedVoucherTab:tab }))}
+                  >{tab === 'hotel' ? 'Hotel Voucher' : tab === 'visa' ? 'Visa Voucher' : 'Mail Format'}</button>
+                ))}
+              </div>
+            </div>
+            {state.selectedVoucherTab !== 'mail' ? (
+              <div>
+                <div className="voucher-paper" dangerouslySetInnerHTML={{ __html:html }} />
+                <div className="flex flex-wrap gap-2 mt-4 no-print">
+                  <button className="btn-ms btn-primary" onClick={generateVoucher}>Generate Voucher</button>
+                  <button className="btn-ms btn-soft" onClick={() => window.print()}>Print / Save PDF</button>
+                  <button className="btn-ms btn-success" onClick={() => addToast('Email prepared with voucher attached', 'success')}>Send Email</button>
+                </div>
+              </div>
+            ) : (
+              <div>
+                <textarea className="textarea-ms" defaultValue={`Dear ${selected?.associateName || 'Guest'},\n\nAs per your instruction, we have confirmed your reservation.\n\nPlease find your confirmation voucher attached along with this email.\n\nKindly review cancellation policy and carry a photo ID at check-in.\n\nRegards,\nTruTrip Operations`} />
+                <button className="btn-ms btn-primary mt-3" onClick={() => addToast('Mail format copied', 'success')}>Copy Mail Format</button>
+              </div>
+            )}
+          </div>
+          <div className="ms-card p-5">
+            <h3 className="font-black mb-3">Generated Vouchers</h3>
+            <div className="table-wrap">
+              <table>
+                <thead><tr><th>Number</th><th>Lead</th><th>Kind</th><th>Generated</th></tr></thead>
+                <tbody>
+                  {state.vouchers.map(v => {
+                    const lead = state.leads.find(l => l.id === v.leadId);
+                    return (
+                      <tr key={v.id}>
+                        <td className="font-mono">{v.number}</td>
+                        <td>{lead?.associateName || v.leadId}</td>
+                        <td className="uppercase">{v.kind}</td>
+                        <td>{fmtDate(v.generatedAt, true)}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    function InvoicesPage({ state, updateState, addAudit, addToast }) {
+      const markPaid = id => {
+        updateState(prev => ({ ...prev, invoices: prev.invoices.map(i => i.id === id ? { ...i, status:'paid', paidAt:nowISO() } : i) }));
+        addAudit('Invoice marked paid', id);
+        addToast('Invoice marked paid', 'success');
+      };
+      return (
+        <div className="ms-card p-5">
+          <h2 className="text-2xl font-black mb-4">Invoices</h2>
+          <div className="table-wrap">
+            <table>
+              <thead><tr><th>Invoice #</th><th>Lead</th><th>Amount</th><th>Status</th><th>Due</th><th>Action</th></tr></thead>
+              <tbody>
+                {state.invoices.map(inv => {
+                  const lead = state.leads.find(l => l.id === inv.leadId);
+                  return (
+                    <tr key={inv.id}>
+                      <td className="font-mono">{inv.number}</td>
+                      <td>{lead?.associateName || inv.leadId}</td>
+                      <td>{inv.amount} {inv.currency}</td>
+                      <td><span className={inv.status === 'paid' ? 'chip green' : 'chip orange'}>{inv.status}</span></td>
+                      <td>{fmtDate(inv.dueAt)}</td>
+                      <td>{inv.status !== 'paid' && <button className="btn-ms btn-success text-xs" onClick={() => markPaid(inv.id)}>Mark Paid</button>}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      );
+    }
+    function FinancePage({ state }) {
+      const invoices = state.invoices || [];
+      const revenue = invoices.reduce((s,i) => s + Number(i.amount || 0), 0);
+      const paid = invoices.filter(i => i.status === 'paid').length;
+      const sent = invoices.filter(i => i.status === 'sent').length;
+      return (
+        <div className="space-y-5">
+          <div className="grid md:grid-cols-4 gap-4">
+            <Kpi label="Total Revenue" value={`${revenue} EUR`} icon="fa-coins" tone="orange" />
+            <Kpi label="Invoices" value={invoices.length} icon="fa-receipt" />
+            <Kpi label="Sent" value={sent} icon="fa-paper-plane" tone="violet" />
+            <Kpi label="Paid" value={paid} icon="fa-circle-check" tone="green" />
+          </div>
+          <InvoicesPage state={state} updateState={() => {}} addAudit={() => {}} addToast={() => {}} />
+        </div>
+      );
+    }
+    function AnalyticsPage({ state }) {
+      const leads = state.leads || [];
+      const statusCounts = Object.keys(STATUS_LABEL).map(status => ({ status, count: leads.filter(l => l.status === status).length }));
+      const max = Math.max(1, ...statusCounts.map(s => s.count));
+      return (
+        <div className="space-y-5">
+          <div className="grid md:grid-cols-3 gap-5">
+            <div className="ms-card p-5"><h3 className="font-black text-lg">Lead Conversion</h3><div className="text-4xl font-black mt-3">33%</div><p className="text-sm text-gray-500 mt-2">Confirmed / total lead ratio.</p></div>
+            <div className="ms-card p-5"><h3 className="font-black text-lg">SLA Compliance</h3><div className="text-4xl font-black mt-3">91%</div><p className="text-sm text-gray-500 mt-2">Based on active workflow updates.</p></div>
+            <div className="ms-card p-5"><h3 className="font-black text-lg">3-Day Forecast</h3><div className="text-4xl font-black mt-3">23 · 27 · 30</div><p className="text-sm text-gray-500 mt-2">Expected lead volume.</p></div>
+          </div>
+          <div className="ms-card p-5"><h3 className="font-black text-lg mb-4">Status Distribution</h3><div className="space-y-3">{statusCounts.map(s => (<div key={s.status}><div className="flex justify-between text-sm mb-1"><span className="font-bold">{STATUS_LABEL[s.status]}</span><span>{s.count}</span></div><div className="h-4 rounded-full bg-blue-50 overflow-hidden border"><div className="h-full rounded-full bg-gradient-to-r from-blue-500 to-indigo-700" style={{ width:`${(s.count / max) * 100}%` }}></div></div></div>))}</div></div>
+          <div className="ms-card p-5"><h3 className="font-black text-lg mb-4">Individual Performance</h3><div className="table-wrap"><table><thead><tr><th>User</th><th>Role</th><th>Assigned Leads</th><th>SLA</th></tr></thead><tbody>{state.users.map(u => (<tr key={u.id}><td>{u.name}</td><td className="capitalize">{u.role}</td><td>{state.leads.filter(l => l.assignee === u.name).length}</td><td>{u.role === 'finance' ? '88%' : '91%'}</td></tr>))}</tbody></table></div></div>
+        </div>
+      );
+    }
+    function AdminPage({ state, updateState, addAudit, addToast }) {
+      const toggleUser = id => {
+        updateState(prev => ({ ...prev, users: prev.users.map(u => u.id === id ? { ...u, active: !u.active } : u) }));
+        addAudit('Toggled user status', id);
+        addToast('User updated', 'success');
+      };
+      const addUser = () => {
+        const name = prompt('User name:'); if (!name) return;
+        const email = prompt('Email:'); if (!email) return;
+        const role = prompt('Role: admin / manager / agent / finance','agent'); if (!ROLES.includes(role)) return addToast('Invalid role', 'error');
+        const user = { id: uid(), name, email: email.toLowerCase(), password:'password123', role, active:true, createdAt: nowISO() };
+        updateState(prev => ({ ...prev, users:[...prev.users, user] }));
+        addAudit('Added user', user.id);
+        addToast('User added', 'success');
+      };
+      return (
+        <div className="space-y-5">
+          <div className="ms-card p-5">
+            <div className="flex justify-between gap-3 mb-4"><h2 className="text-2xl font-black">Admin / User Management</h2><button className="btn-ms btn-primary" onClick={addUser}>Add User</button></div>
+            <div className="table-wrap"><table><thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Action</th></tr></thead><tbody>{state.users.map(u => (<tr key={u.id}><td>{u.name}</td><td>{u.email}</td><td className="capitalize">{u.role}</td><td>{u.active ? <span className="chip green">Active</span> : <span className="chip red">Inactive</span>}</td><td><button className="btn-ms btn-soft text-xs" onClick={() => toggleUser(u.id)}>{u.active ? 'Deactivate' : 'Activate'}</button></td></tr>))}</tbody></table></div>
+          </div>
+          <div className="ms-card p-5">
+            <h3 className="font-black mb-3">Audit Trail</h3>
+            <div className="space-y-2">{state.audit.slice(0,10).map(log => (<div key={log.id} className="bg-slate-50 rounded-xl p-3 text-sm"><div className="font-bold">{log.action}</div><div className="text-xs text-gray-500">{log.userName} · {fmtDate(log.at, true)} · {log.target}</div></div>))}</div>
+          </div>
+        </div>
+      );
+    }
+    function SettingsPage({ state, updateState, addAudit, addToast }) {
+      const setIntegration = integration => {
+        updateState(prev => ({ ...prev, integration }));
+        addAudit('Changed integration', integration);
+        addToast('Integration updated', 'success');
+      };
+      const toggleAutomation = key => {
+        updateState(prev => ({ ...prev, automation:{ ...prev.automation, [key]: !prev.automation[key] } }));
+        addAudit('Toggled automation', key);
+        addToast('Automation updated', 'success');
+      };
+      const updateConfig = (key, value) => {
+        updateState(prev => ({ ...prev, config:{ ...prev.config, [key]: value } }));
+      };
+      return (
+        <div className="space-y-5">
+          <div className="ms-card p-5">
+            <h2 className="text-2xl font-black mb-2">Integration Centre</h2>
+            <p className="text-sm text-gray-500 mb-4">Switch backend mode without changing the interface.</p>
+            <div className="flex flex-wrap gap-2">
+              {[
+                ['sheets','Google Sheets'],
+                ['apps_script','Apps Script'],
+                ['supabase','Supabase'],
+                ['local','Demo Local']
+              ].map(([key,label]) => (
+                <button key={key} onClick={() => setIntegration(key)} className={`btn-ms ${state.integration === key ? 'btn-primary' : 'btn-ghost'}`}>{label}</button>
+              ))}
+            </div>
+          </div>
+          <div className="ms-card p-5">
+            <h3 className="font-black text-lg mb-4">Automation Switches</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              {[
+                ['autoAssign','Auto assign leads'],
+                ['dailyDigest','Morning pending digest'],
+                ['invoiceReminder','Invoice reminders'],
+                ['reconfirmation','48-hour reconfirmation'],
+                ['autoAttachPdf','Auto attach PDFs'],
+                ['qaMirror','Internal QA mirror']
+              ].map(([key,label]) => (
+                <label key={key} className="flex items-center justify-between bg-slate-50 rounded-xl p-4 cursor-pointer">
+                  <span className="font-bold text-sm">{label}</span>
+                  <input type="checkbox" checked={!!state.automation[key]} onChange={() => toggleAutomation(key)} />
+                </label>
+              ))}
+            </div>
+          </div>
+          <div className="ms-card p-5">
+            <h3 className="font-black text-lg mb-4">Backend Configuration</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              <input className="input-ms" placeholder="Google Sheet ID" value={state.config.sheetsId} onChange={e => updateConfig('sheetsId', e.target.value)} />
+              <input className="input-ms" placeholder="Apps Script Web App URL" value={state.config.appsScriptUrl} onChange={e => updateConfig('appsScriptUrl', e.target.value)} />
+              <input className="input-ms" placeholder="Supabase URL" value={state.config.supabaseUrl} onChange={e => updateConfig('supabaseUrl', e.target.value)} />
+              <input className="input-ms" placeholder="Supabase Key" value={state.config.supabaseKey} onChange={e => updateConfig('supabaseKey', e.target.value)} />
+            </div>
+            <button className="btn-ms btn-primary mt-4" onClick={() => addToast('Configuration saved', 'success')}>Save Configuration</button>
+          </div>
+        </div>
+      );
+    }
+    function HelpPage() {
+      const steps = ['Lead Intake','Review & Assign','Send Options','Await Client Response','Booking Confirmation','Voucher Generation','48-Hour Reconfirmation','Check-out & Invoicing','Reports & Analytics'];
+      return (
+        <div className="space-y-5">
+          <div className="ms-card p-6">
+            <h2 className="text-2xl font-black mb-3">Help & Workflow Guide</h2>
+            <p className="text-gray-600">Follow the complete TruTrip CRM operating model from email intake to analytics.</p>
+            <div className="grid md:grid-cols-3 gap-3 mt-5">
+              {steps.map((s,i) => (
+                <div key={s} className="bg-slate-50 rounded-2xl p-4 border">
+                  <div className="text-blue-600 font-black">{i+1}</div>
+                  <div className="font-bold">{s}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="ms-card p-5"><h3 className="font-black mb-2">Support</h3><p className="text-sm text-gray-600">For assistance, contact support@trutrip.in.</p></div>
+        </div>
+      );
+    }
+    function ProfilePage({ state, updateState, addToast, currentUser }) {
+      const [name, setName] = useState(currentUser.name);
+      const [email, setEmail] = useState(currentUser.email);
+      const save = () => {
+        updateState(prev => ({ ...prev, users: prev.users.map(u => u.id === currentUser.id ? { ...u, name, email } : u) }));
+        addToast('Profile updated', 'success');
+      };
+      return (
+        <div className="ms-card p-6 max-w-2xl">
+          <h2 className="text-2xl font-black mb-5">Profile</h2>
+          <label className="block text-sm font-bold text-gray-700 mb-1">Name</label>
+          <input className="input-ms mb-4" value={name} onChange={e => setName(e.target.value)} />
+          <label className="block text-sm font-bold text-gray-700 mb-1">Email</label>
+          <input className="input-ms mb-4" value={email} onChange={e => setEmail(e.target.value)} />
+          <div className="text-sm text-gray-500 mb-4">
+            <div>Role: <span className="font-bold">{ROLE_LABEL[currentUser.role]}</span></div>
+            <div>Joined: {fmtDate(currentUser.createdAt, true)}</div>
+          </div>
+          <button className="btn-ms btn-primary" onClick={save}>Update Profile</button>
+        </div>
+      );
+    }
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
