@@ -1,2 +1,2 @@
 # Blogging
-Building solutions
+Trending topics

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FWP9BLNZK6');
+    </script>
+
+    <!-- Clarity -->
+    <script>
+        (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "vimok6xi57");
+    </script>
+
+    <link rel="canonical" href="https://www.denisiawebops.org/n8n-whatsapp-ai-automation.html">
+    <title>n8n WhatsApp AI Bot: Build Document‑Aware RAG Agent with Gemini, OpenAI, MongoDB</title>
+    <meta name="description" content="Learn how to build a powerful n8n WhatsApp AI agent that processes PDFs, images, voice, and Google Docs. RAG + vector search + multimodal automation – full tutorial.">
+    <meta name="keywords" content="n8n whatsapp, n8n whatsapp bot, n8n ai agent, whatsapp ai chatbot, n8n workflow, n8n rag, n8n gemini, document ai whatsapp, build whatsapp knowledge base chatbot n8n, n8n multimodal whatsapp agent pdf images, n8n rag whatsapp customer support workflow, whatsapp ai assistant n8n gemini openai, n8n workflow document processing whatsapp, ai powered whatsapp chatbot n8n template, n8n vector store mongodb whatsapp bot, customer support whatsapp bot n8n google docs, n8n whatsapp trigger document download ai">
+    <meta name="author" content="Denisia Webops Agency">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="n8n WhatsApp AI Bot: Build Document‑Aware RAG Agent">
+    <meta property="og:description" content="Step‑by‑step guide to create an AI‑powered WhatsApp assistant with n8n, OpenAI, Gemini, MongoDB vector search, and document processing – automate support, bookings, and more.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&q=80&w=1200">
+    <meta property="og:url" content="https://www.denisiawebops.org/n8n-whatsapp-ai-automation.html">
+    <meta property="og:type" content="article">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="n8n WhatsApp AI Bot: Document‑Aware RAG Agent">
+    <meta name="twitter:description" content="Full tutorial: n8n + WhatsApp + OpenAI/Gemini + MongoDB vector + RAG. Process PDFs, images, voice, Google Docs. Build autonomous AI agents.">
+
+    <!-- Tailwind + Lucide -->
+    <script src="https://cdn.tailwindcss.com" fetchpriority="high"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; background: #ffffff; color: #1f2937; }
+        .nav-link { color: #4b5563; font-weight: 500; transition: color 0.2s; }
+        .nav-link:hover, .nav-link.active { color: #1e3a8a; }
+        .btn-primary { background: #1e3a8a; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; transition: 0.2s; box-shadow: 0 4px 6px -1px rgba(30,58,138,0.2); }
+        .btn-primary:hover { background: #2563eb; transform: translateY(-2px); }
+        .burger-icon { color: #1f2937; background: #f3f4f6; padding: 8px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .burger-icon:hover { background: #e5e7eb; }
+        .prose h2 { font-size: 1.8rem; margin-top: 2rem; margin-bottom: 1rem; }
+        .prose h3 { font-size: 1.3rem; margin-top: 1.5rem; }
+        .prose ul { margin-bottom: 1rem; padding-left: 1.5rem; list-style-type: disc; }
+        .faq-item { border-bottom: 1px solid #e5e7eb; padding-bottom: 1rem; margin-bottom: 1rem; }
+        .faq-question { font-weight: 700; font-size: 1.1rem; color: #1e3a8a; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { display: none; margin-top: 0.75rem; color: #4b5563; line-height: 1.6; }
+        .faq-answer.show { display: block; }
+    </style>
+    <meta name="theme-color" content="#0f172a">
+    <link rel="apple-touch-icon" href="/images/logo.png">
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body class="bg-white text-gray-900 antialiased flex flex-col min-h-screen">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:text-blue-700 focus:font-semibold">Skip to main content</a>
+
+
+    <!-- Denisia Webops Navbar (unified) -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center">
+                    <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-2 rounded-lg shadow-md"><i data-lucide="zap" class="h-6 w-6 text-white"></i></div>
+                    <span class="ml-3 text-xl font-bold text-gray-900">Denisia Webops Agency</span>
+                </a>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-gray-600 hover:text-blue-700 font-medium text-sm">Home</a>
+                        <a href="projects.html" class="text-gray-600 hover:text-blue-700 font-medium text-sm">Projects</a>
+                        <a href="blogs.html" class="text-gray-600 hover:text-blue-700 font-medium text-sm">Blog</a>
+                        <a href="chromatone.html" class="text-gray-600 hover:text-blue-700 font-medium text-sm">Color Detector</a>
+                        <a href="ai.html" class="text-gray-600 hover:text-blue-700 font-medium text-sm">AI Models</a>
+                        <a href="why-ai-seo.html" class="text-gray-600 hover:text-blue-700 font-medium text-sm">Why AI SEO</a>
+                        <a href="livecodepreview.html" class="text-gray-600 hover:text-blue-700 font-medium text-sm">Code Preview</a>
+                        <a href="contact.html" class="bg-blue-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 text-sm">Get in Touch</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="burger-icon"><i id="mobile-menu-icon" data-lucide="menu" class="h-6 w-6"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-blue-100 shadow-lg absolute w-full z-40">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50">Home</a>
+                <a href="projects.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50">Projects</a>
+                <a href="blogs.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50">Blog</a>
+                <a href="chromatone.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50">Color Detector</a>
+                <a href="ai.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50">AI Models</a>
+                <a href="why-ai-seo.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50">Why AI SEO</a>
+                <a href="livecodepreview.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50">Code Preview</a>
+                <a href="contact.html" class="block px-3 py-2 text-base font-medium text-blue-700">Get in Touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <main role="main" class="flex-grow pt-32 pb-20" id="main-content">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Breadcrumb -->
+            <div class="text-sm text-gray-500 mb-6">
+                <a href="index.html" class="hover:text-blue-700">Home</a> / <a href="blogs.html" class="hover:text-blue-700">Blog</a> / <span class="text-gray-900">n8n WhatsApp AI Agent</span>
+            </div>
+
+            <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">Build a Document‑Aware WhatsApp AI Agent with n8n, RAG, and Vector Search</h1>
+            <p class="text-gray-600 text-lg mb-6">Automate customer support, bookings, document processing, and payments – all through WhatsApp. A complete guide using n8n, OpenAI/Gemini, MongoDB vector store, and multimodal AI.</p>
+            <img loading="eager" fetchpriority="high" src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&q=80&w=1200" alt="n8n WhatsApp AI automation workflow" class="rounded-2xl shadow-lg w-full mb-8">
+
+            <!-- ========== EMOTIONAL HOOK & PROBLEM STATEMENT ========== -->
+            <div class="prose max-w-none">
+                <h2>💔 The Silent Revenue Killer: Manual WhatsApp Chaos</h2>
+                <p>Every ping on WhatsApp is a potential sale, a frustrated customer, or a missed opportunity. Yet most businesses handle it manually – or worse, ignore it.</p>
+                <ul>
+                    <li><strong>Missed leads</strong> – Messages go unanswered for hours, prospects buy from competitors.</li>
+                    <li><strong>Delayed responses</strong> – Customers expect instant replies; delays kill trust.</li>
+                    <li><strong>Repetitive tasks</strong> – Your team answers the same questions 50 times a day.</li>
+                    <li><strong>Employee burnout</strong> – Support agents drown in volume, churn rates spike.</li>
+                    <li><strong>No scalability</strong> – Hiring more people just adds cost, not efficiency.</li>
+                </ul>
+                <p>The result? Operational chaos, higher costs, and a terrible customer experience.</p>
+
+                <h2>🚀 What If Your WhatsApp Could Think Like a Human – 24/7?</h2>
+                <p>That’s exactly what <strong>n8n WhatsApp AI automation</strong> delivers. It’s not a dumb chatbot. It’s an <strong>AI agent</strong> that understands documents, images, voice, and PDFs – and takes action.</p>
+                <p>With n8n (open‑source workflow automation), OpenAI/Gemini, and vector databases, you can build a <strong>document‑aware WhatsApp assistant</strong> that:</p>
+                <ul>
+                    <li>Answers from your knowledge base (Google Docs, PDFs, website).</li>
+                    <li>Books appointments, processes payments, sends invoices.</li>
+                    <li>Extracts data from uploaded PDFs/images.</li>
+                    <li>Handles hundreds of conversations simultaneously – zero delay.</li>
+                    <li>Integrates with your CRM, calendar, and internal tools.</li>
+                </ul>
+                <p><strong>n8n workflows</strong> are the backbone: visual, low‑code, infinitely flexible.</p>
+
+                <!-- ========== EMBEDDED WORKFLOW DIAGRAM (from user's image) ========== -->
+                <div class="my-10 bg-gray-50 p-6 rounded-2xl border border-gray-200 text-center">
+                    <h3 class="text-xl font-bold mb-4">⚡ Example n8n Workflow: Document‑Aware RAG Agent</h3>
+                    <img loading="lazy" src="https://via.placeholder.com/800x400?text=Workflow+Diagram+Placeholder" alt="n8n workflow for document processing and RAG" class="rounded-lg shadow-md mx-auto">
+                    <p class="text-sm text-gray-500 mt-3">Nodes: Google Data Importer → Document Chunker → OpenAI Embeddings → MongoDB Vector Search → Gemini Completion → WhatsApp Reply</p>
+                    <p class="text-xs text-gray-400 mt-2"><em>Replace placeholder with your actual workflow screenshot. The architecture below mirrors the “Execute Workspace” flow you shared.</em></p>
+                </div>
+
+                <h2>🧠 What is a “Document‑Aware” WhatsApp AI Agent?</h2>
+                <p>Most WhatsApp bots are hard‑coded: they only recognise a few keywords. A <strong>document‑aware AI agent</strong> uses <strong>Retrieval‑Augmented Generation (RAG)</strong>. Here’s how it works:</p>
+                <ol>
+                    <li><strong>Ingest documents</strong> – Google Docs, PDFs, websites, spreadsheets.</li>
+                    <li><strong>Chunk & embed</strong> – Break content into pieces and convert them into vectors (embeddings).</li>
+                    <li><strong>Store in vector database</strong> – MongoDB Atlas Vector Search or Pinecone.</li>
+                    <li><strong>User asks a question on WhatsApp</strong> – n8n triggers the agent.</li>
+                    <li><strong>Semantic search</strong> – Finds the most relevant document chunks using cosine similarity.</li>
+                    <li><strong>LLM (OpenAI / Gemini) generates answer</strong> – grounded in your actual documents, not hallucinations.</li>
+                </ol>
+                <p>This is <strong>n8n RAG</strong> in action. Your WhatsApp bot becomes a true subject matter expert.</p>
+
+                <h2>🛠️ Step‑by‑Step Implementation Guide</h2>
+                <h3>📌 Level 1: Beginner (Auto‑replies & Lead Capture)</h3>
+                <ul>
+                    <li><strong>Trigger:</strong> WhatsApp Cloud API → n8n webhook.</li>
+                    <li><strong>Action:</strong> Use a simple “switch” node to reply based on keywords (“menu”, “price”).</li>
+                    <li><strong>Lead capture:</strong> Save name/phone to Google Sheets or Airtable.</li>
+                    <li><strong>Booking automation:</strong> Integrate with Cal.com / Google Calendar.</li>
+                </ul>
+
+                <h3>⚙️ Level 2: Intermediate (Document Download & Knowledge Base)</h3>
+                <ul>
+                    <li><strong>Document download:</strong> User sends “send brochure” → n8n fetches PDF from Google Drive and replies with a link.</li>
+                    <li><strong>Google Docs knowledge base:</strong> Use n8n’s Google Docs node to read content, then OpenAI to answer questions.</li>
+                    <li><strong>Customer support routing:</strong> Classify intent (billing vs technical) and forward to appropriate human if needed.</li>
+                </ul>
+
+                <h3>🧪 Level 3: Advanced (Multimodal RAG + AI Memory)</h3>
+                <ul>
+                    <li><strong>Multimodal AI:</strong> Receive images/PDFs on WhatsApp → extract text using OCR (Tesseract or OpenAI Vision) → embed → answer questions about the uploaded file.</li>
+                    <li><strong>Voice processing:</strong> Convert voice message to text (AssemblyAI) → process with LLM → reply with text or voice.</li>
+                    <li><strong>MongoDB vector search:</strong> Store all interactions and document chunks for long‑term memory.</li>
+                    <li><strong>Autonomous AI agents:</strong> Use n8n’s “AI Agent” node (beta) to let the agent decide which tool to call (calendar, DB, email).</li>
+                </ul>
+                <p>All of this runs on <strong>n8n workflows</strong> – no custom code required (just glue logic).</p>
+
+                <!-- ========== REAL BUSINESS USE CASES ========== -->
+                <h2>🎯 Real‑World Use Cases That Save Money & Time</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                    <div class="bg-blue-50 p-5 rounded-xl"><strong>🍽️ Restaurant:</strong> Table booking, menu PDF, daily specials, order status – all automated via WhatsApp.</div>
+                    <div class="bg-blue-50 p-5 rounded-xl"><strong>🚕 Cab Operator:</strong> Ride booking, fare estimate, driver tracking, receipt sharing – 24/7.</div>
+                    <div class="bg-blue-50 p-5 rounded-xl"><strong>🏥 Clinic:</strong> Appointment scheduling, prescription downloads, lab result delivery, payment reminders.</div>
+                    <div class="bg-blue-50 p-5 rounded-xl"><strong>📈 Agency / SaaS:</strong> Onboarding document collection, support ticket creation, demo scheduling.</div>
+                    <div class="bg-blue-50 p-5 rounded-xl"><strong>🛒 E‑commerce:</strong> Order tracking, return initiation, product recommendations based on chat history.</div>
+                    <div class="bg-blue-50 p-5 rounded-xl"><strong>📊 Project Management:</strong> Status updates via WhatsApp, automatic Jira/Trello card creation.</div>
+                </div>
+
+                <!-- ========== COST COMPARISON: AI vs Human Employee ========== -->
+                <h2>💰 Time Saved vs. Hiring: The Numbers Don’t Lie</h2>
+                <p>A customer support agent in India costs ~₹25,000/month. In the US, it’s $3,000‑5,000/month. n8n + AI costs a fraction.</p>
+                <table class="w-full border-collapse border border-gray-300 my-6">
+                    <thead class="bg-gray-100"><tr><th class="border p-3">Metric</th><th class="border p-3">Human Agent</th><th class="border p-3">n8n AI Agent</th></tr></thead>
+                    <tbody>
+                        <tr class="border-b"><td class="border p-3">Monthly cost (US)</td><td class="border p-3">$3,000 – $5,000</td><td class="border p-3">$30 – $200 (API + n8n)</td></tr>
+                        <tr class="border-b"><td class="border p-3">Response time</td><td class="border p-3">1‑10 minutes (daytime only)</td><td class="border p-3">&lt;2 seconds, 24/7</td></tr>
+                        <tr class="border-b"><td class="border p-3">Scalability</td><td class="border p-3">Hire more people</td><td class="border p-3">Zero incremental cost</td></tr>
+                        <tr class="border-b"><td class="border p-3">Document processing</td><td class="border p-3">Manual, error‑prone</td><td class="border p-3">AI‑powered extraction & summarisation</td></tr>
+                        <tr><td class="border p-3">Annual saving (per agent)</td><td class="border p-3">–</td><td class="border p-3">$35,000 – $60,000</td></tr>
+                    </tbody>
+                </table>
+                <p><strong>ROI is immediate.</strong> The first month of automation typically pays for itself in saved employee hours.</p>
+
+                <!-- ========== TECH STACK ========== -->
+                <h2>🔧 Full Tech Stack for Your n8n WhatsApp AI Agent</h2>
+                <ul>
+                    <li><strong>n8n</strong> – Workflow automation (<a href="https://n8n.io" target="_blank" rel="noopener noopener noreferrer">n8n.io</a>)</li>
+                    <li><strong>WhatsApp Cloud API</strong> – Official Meta API</li>
+                    <li><strong>OpenAI</strong> – GPT‑4o for LLM + embeddings</li>
+                    <li><strong>Google Gemini</strong> – Alternative LLM (cheaper, strong reasoning)</li>
+                    <li><strong>MongoDB Atlas</strong> – Vector search + document storage</li>
+                    <li><strong>Google Docs / Drive</strong> – Knowledge base source</li>
+                    <li><strong>Tesseract / OpenAI Vision</strong> – OCR for images/PDFs</li>
+                    <li><strong>AssemblyAI</strong> – Voice‑to‑text</li>
+                </ul>
+
+                <!-- ========== FAQ (Schema ready) ========== -->
+                <h2>❓ Frequently Asked Questions</h2>
+                <div class="space-y-4 my-8">
+                    <div class="faq-item"><div class="faq-question" onclick="toggleAnswer(this)">What is n8n WhatsApp automation? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">n8n lets you connect WhatsApp to AI models, databases, and external APIs using visual workflows. It turns WhatsApp into an intelligent automation hub.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleAnswer(this)">How much does WhatsApp AI automation cost? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Cost depends on usage. n8n self‑hosted is free; cloud starts at $20/month. OpenAI API ~$0.01‑0.03 per conversation. Total under $100/month for most SMBs.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleAnswer(this)">Can n8n build AI agents? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Yes! n8n has built‑in “AI Agent” nodes that can use tools (calendar, database, email) and make decisions autonomously.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleAnswer(this)">Can WhatsApp bots process PDFs and images? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Absolutely. Use n8n’s HTTP Request node to download media, then OCR or OpenAI Vision to extract information.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleAnswer(this)">What is RAG in n8n? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">RAG (Retrieval‑Augmented Generation) uses vector search to find relevant information from your documents and injects it into the AI’s prompt – making answers accurate and grounded.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleAnswer(this)">How do vector databases improve AI chatbots? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Vector databases store embeddings (numerical representations of text). They enable semantic search – finding meaning, not just keywords. Your chatbot can answer nuanced questions.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleAnswer(this)">Is n8n better than traditional chatbot builders? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Traditional builders (ManyChat, etc.) are limited to pre‑defined flows. n8n is a full automation platform – you can integrate with any API, process documents, run code, and orchestrate complex logic.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleAnswer(this)">Can AI reduce customer support hiring? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Yes. A well‑built n8n WhatsApp AI agent handles 70‑80% of tier‑1 support (FAQs, order status, account updates). Your human team focuses on high‑value issues only.</div></div>
+                </div>
+
+                <!-- ========== CONVERSION CTA ========== -->
+                <div class="mt-12 bg-gradient-to-r from-blue-900 to-indigo-900 text-white rounded-2xl p-8 text-center shadow-xl">
+                    <h3 class="text-2xl font-bold mb-3">🚀 Ready to Automate Your WhatsApp?</h3>
+                    <p class="text-blue-200 mb-6">Stop losing leads and burning cash on manual support. Let’s build your custom n8n AI agent – or download our ready‑to‑use workflow template.</p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="contact.html" class="bg-white text-blue-900 font-bold px-8 py-3 rounded-lg hover:bg-blue-50 transition">Book a Free Consultation</a>
+                        <a href="#" class="bg-transparent border border-white text-white px-8 py-3 rounded-lg hover:bg-white/10 transition">Download Workflow Template</a>
+                    </div>
+                    <p class="text-xs text-blue-200 mt-4">✔ Tailored for your industry ✔ 30‑day money‑back guarantee ✔ n8n experts</p>
+                </div>
+            </div>
+
+            <!-- Back to blog list -->
+            <div class="mt-10 text-center">
+                <a href="blogs.html" class="text-blue-700 hover:underline">← Back to all blogs</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Unified Footer (same as other pages) -->
+    <footer class="bg-gray-50 border-t border-blue-100 pt-16 pb-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1"><div class="flex items-center mb-4"><div class="bg-gradient-to-r from-blue-800 to-blue-600 p-1.5 rounded-lg shadow"><i data-lucide="zap" class="h-5 w-5 text-white"></i></div><span class="ml-3 text-lg font-bold">Denisia Webops Agency</span></div><p class="text-gray-600 text-sm">Complete digital solutions – from web development to AI integration.</p></div>
+                <div><h4 class="font-semibold mb-4">Services</h4><ul><li><a href="services.html#web-dev" class="text-gray-600 text-sm hover:text-blue-700">Web Development</a></li><li><a href="services.html#seo" class="text-gray-600 text-sm hover:text-blue-700">SEO</a></li><li><a href="services.html#digital-marketing" class="text-gray-600 text-sm hover:text-blue-700">Digital Marketing</a></li></ul></div>
+                <div><h4 class="font-semibold mb-4">Resources</h4><ul><li><a href="blogs.html" class="text-gray-600 text-sm hover:text-blue-700">Blog</a></li><li><a href="projects.html" class="text-gray-600 text-sm hover:text-blue-700">Projects</a></li><li><a href="privacy.html" class="text-gray-600 text-sm hover:text-blue-700">Privacy</a></li></ul></div>
+                <div><h4 class="font-semibold mb-4">Newsletter</h4><div class="flex"><input type="email" placeholder="Your email" class="w-full px-4 py-2 rounded-l-md text-sm border"><button class="bg-blue-800 px-4 rounded-r-md"><i data-lucide="arrow-right" class="text-white w-4 h-4"></i></button></div></div>
+            </div>
+            <div class="border-t pt-8 text-center text-gray-500 text-sm">© 2025 Denisia Webops Agency. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- Tawk.to -->
+    <script type="text/javascript">var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src='https://embed.tawk.to/6993fa897941b81c35293c7a/default';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();</script>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            if (menu.classList.contains('hidden')) { menu.classList.remove('hidden'); icon.setAttribute('data-lucide', 'x'); }
+            else { menu.classList.add('hidden'); icon.setAttribute('data-lucide', 'menu'); }
+            lucide.createIcons();
+        }
+        function toggleAnswer(btn) {
+            const answer = btn.nextElementSibling;
+            answer.classList.toggle('show');
+            const icon = btn.querySelector('i');
+            if(answer.classList.contains('show')) icon.style.transform = 'rotate(180deg)';
+            else icon.style.transform = 'rotate(0deg)';
+        }
+        document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+    </script>
+</body>
+</html>

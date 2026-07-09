@@ -1,0 +1,986 @@
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="theme-color" content="#0f172a">
+    
+    <title>ECHO Restaurant OS | Build Your Smart QR Stand & Sticker</title>
+    <meta name="description" content="Design your 3D stand or sticker live and order today.">
+
+        <!-- Canonical Tag -->
+    <link rel="canonical" href="https://www.denisiawebops.org/qr-code-stand-generator.html">
+    
+    <!-- Tailwind CSS & Lucide -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- React, ReactDOM, Babel & Third-Party Libs (Cross-Origin Removed for Local Viewing) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.6/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <!-- EmailJS (Wrapped safely) -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        try { emailjs.init("TSALc5V0aPQoQNp6z"); } catch(e) { console.warn("EmailJS not initialized yet."); }
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } }
+        }
+    </script>
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body { overflow-x: hidden !important; width: 100%; background: #fafafa; scroll-behavior: smooth; }
+        
+        .input-field { width: 100%; padding: 0.65rem 1rem; border: 1px solid #cbd5e1; border-radius: 0.5rem; font-size: 0.875rem; background: white; transition: all 0.3s ease; }
+        .input-field:focus { outline: none; border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
+        
+        .hero-pattern { background-color: #0f172a; background-image: radial-gradient(circle at 20% 50%, rgba(14, 165, 233, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%); }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* Immersive Mockup Backgrounds */
+        .immersive-cafe-bg {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=1200&blur=200');
+            background-size: cover; background-position: center;
+        }
+        .immersive-counter-table {
+            background: linear-gradient(to bottom, #8B5A2B, #5C4033);
+            border-top: 3px solid #A07855;
+            box-shadow: inset 0 20px 40px rgba(0,0,0,0.6);
+            transform-origin: top; transform: perspective(1000px) rotateX(45deg);
+        }
+
+        /* Container Queries for responsive text scaling */
+        .paper-insert { container-type: inline-size; }
+
+        /* Stand Specific CSS */
+        .acrylic-panel {
+            position: relative; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 255, 255, 0.6); border-top: 3px solid rgba(255, 255, 255, 0.8); border-left: 2px solid rgba(255, 255, 255, 0.7);
+            border-radius: 12px 12px 0 0; box-shadow: inset 2px 2px 5px rgba(255,255,255,0.7), inset -2px -2px 10px rgba(0,0,0,0.05), 0 15px 35px rgba(0,0,0,0.25);
+            overflow: hidden; padding: 16px; 
+        }
+        .acrylic-glare {
+            position: absolute; top: 0; left: -100%; right: 0; bottom: 0; width: 200%;
+            background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.7) 25%, transparent 35%); pointer-events: none; z-index: 20;
+        }
+        .stand-base {
+            width: calc(100% + 24px); height: 30px; margin-left: -12px; border-radius: 4px;
+            background: linear-gradient(to bottom, #d4d4d8, #a1a1aa); position: relative; z-index: 30;
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.8), 0 -2px 10px rgba(0,0,0,0.1), 0 20px 30px -10px rgba(0,0,0,0.4);
+            border-bottom: 2px solid #71717a;
+        }
+        .stand-drop-shadow { background: radial-gradient(ellipse at center, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 70%); }
+
+        /* Sticker Specific CSS */
+        .sticker-panel {
+            position: relative; background: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3), inset 0 0 0 1px rgba(0,0,0,0.05);
+            border: 6px solid white; overflow: hidden; transition: border-radius 0.3s ease;
+        }
+        .sticker-glare {
+            position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.1) 100%);
+            pointer-events: none; z-index: 20;
+        }
+        .sticker-shadow { background: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 70%); }
+
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 16px; width: 16px; border-radius: 50%; background: #4f46e5; cursor: pointer; margin-top: -6px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 4px; cursor: pointer; background: #e2e8f0; border-radius: 2px; }
+        
+        .template-card { border: 2px solid transparent; transition: all 0.2s; cursor: pointer; }
+        .template-card:hover { border-color: #cbd5e1; transform: translateY(-2px); }
+        .template-card.active { border-color: #4f46e5; background-color: #e0e7ff; }
+
+        /* Loading pulse for React mount point */
+        .loading-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+    </style>
+
+    <!-- ====== ANALYTICS & TRACKING ====== -->
+
+<!-- Google Site Verification (Search Console) -->
+<meta name="google-site-verification" content="82U62k4jtMBmS52po-sbJ12znmacAgq0Rg4NvMZLXMY">
+
+<!-- Bing Webmaster Tools Verification -->
+<meta name="msvalidate.01" content="8250834873D72FFE4BABCD1B2C7B3173">
+
+<!-- Google Analytics (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-FWP9BLNZK6');
+</script>
+
+<!-- Microsoft Clarity -->
+<script>
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r); t.async=1; t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+    y=l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "vimok6xi57");
+</script>
+
+<!-- Tawk.to Live Chat (Engagement & Tracking) -->
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/6993fa897941b81c35293c7a/default';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin', '*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
+</head>
+<body class="text-gray-900 antialiased flex flex-col min-h-screen overflow-x-hidden">
+
+    <div class="w-full max-w-[100vw] overflow-x-hidden flex flex-col min-h-screen">
+
+
+        <!-- ========== NAVBAR ========== -->
+        <nav class="fixed w-full z-50 bg-white/85 backdrop-blur-lg border-b border-slate-200/80 shadow-sm transition-all duration-300">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20">
+                    <a href="#top" class="flex items-center shrink-0 group">
+                        <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-2.5 rounded-xl shadow-md">
+                            <i data-lucide="zap" class="h-6 w-6 text-white"></i>
+                        </div>
+                        <div class="ml-3">
+                            <span class="block text-xl font-extrabold tracking-tight text-slate-900 group-hover:text-blue-700 transition-colors">Denisia Webops</span>
+                            <span class="block text-[11px] font-semibold text-slate-500">ECHO Restaurant OS</span>
+                        </div>
+                    </a>
+
+                    <div class="hidden lg:flex items-center space-x-6">
+                        <a href="#designer" class="text-slate-600 hover:text-blue-700 font-medium text-sm transition-colors">Builder</a>
+                        <a href="#guide" class="text-slate-600 hover:text-blue-700 font-medium text-sm transition-colors">Guide</a>
+                        <a href="#quick-answers" class="text-slate-600 hover:text-blue-700 font-medium text-sm transition-colors">FAQ</a>
+                        <a href="#order-root" class="text-slate-600 hover:text-blue-700 font-medium text-sm transition-colors">Order</a>
+                        <a href="blogs.html" class="text-slate-600 hover:text-blue-700 font-medium text-sm transition-colors">Blogs</a>
+                        <a href="google-products-hub.html" class="text-slate-600 hover:text-blue-700 font-medium text-sm transition-colors">Google Hub</a>
+                        <a href="contact.html" class="text-slate-600 hover:text-blue-700 font-medium text-sm transition-colors">Contact</a>
+                        <button onclick="window.openGuideModal && window.openGuideModal()" class="bg-slate-900 text-white px-4 py-2.5 rounded-xl font-semibold hover:bg-blue-700 transition shadow-sm text-sm">How it works</button>
+                    </div>
+
+                    <div class="lg:hidden">
+                        <button onclick="toggleMobileMenu()" class="burger-icon focus:outline-none">
+                            <i id="mobile-menu-icon" data-lucide="menu" class="h-6 w-6 text-gray-700"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden lg:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-2xl absolute w-full z-40">
+                <div class="px-4 pt-2 pb-6 space-y-2 sm:px-6">
+                    <a href="#designer" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700">Builder</a>
+                    <a href="#guide" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700">Guide</a>
+                    <a href="#quick-answers" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700">FAQ</a>
+                    <a href="#order-root" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700">Order</a>
+                    <a href="blogs.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700">Blogs</a>
+                    <a href="google-products-hub.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700">Google Hub</a>
+                    <a href="contact.html" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-700">Contact</a>
+                    <button onclick="window.openGuideModal && window.openGuideModal(); toggleMobileMenu();" class="w-full text-left block px-3 py-2.5 rounded-lg text-base font-bold text-white bg-slate-900 mt-3">How it works</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ========== HERO SECTION ========== -->
+        <div id="top" class="relative hero-pattern text-white pt-36 pb-20 overflow-hidden w-full">
+            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+            <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
+                <span class="inline-flex items-center gap-2 py-1 px-3 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 font-semibold text-sm mb-6">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                    SMART QR SYSTEMS FOR RESTAURANTS, HOTELS & CAFÉS
+                </span>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight tracking-tight">
+                    ECHO OS + Immersive <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-400">QR Builder Engine</span>
+                </h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-300 mb-10 font-light">
+                    Build a premium acrylic stand in India or launch a functional QR menu with live order tracking worldwide.
+                    Outside India, only the functional QR menu + live tracking system is available.
+                </p>
+
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <button onclick="document.getElementById('designer').scrollIntoView({behavior: 'smooth'})" class="w-full sm:w-auto bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-bold px-8 py-4 rounded-xl shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center">
+                        <i data-lucide="brush" class="mr-2 h-5 w-5"></i> Open Builder
+                    </button>
+                    <button onclick="window.openGuideModal && window.openGuideModal()" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-8 py-4 rounded-xl backdrop-blur-sm transition-all duration-300 flex items-center justify-center">
+                        <i data-lucide="book-open" class="mr-2 h-5 w-5"></i> Step-by-step guide
+                    </button>
+                    <button onclick="window.openInternationalOrderModal && window.openInternationalOrderModal()" class="w-full sm:w-auto bg-blue-700/90 hover:bg-blue-600 border border-blue-400/40 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center">
+                        <i data-lucide="globe" class="mr-2 h-5 w-5"></i> Outside India
+                    </button>
+                </div>
+
+                <div class="mt-8 flex flex-wrap justify-center items-center gap-4 md:gap-6 text-sm text-gray-300 font-medium">
+                    <span class="flex items-center"><i data-lucide="check-circle" class="h-4 w-4 text-cyan-400 mr-1.5"></i> India: Stand + Functional Menu</span>
+                    <span class="flex items-center"><i data-lucide="check-circle" class="h-4 w-4 text-cyan-400 mr-1.5"></i> Outside India: Functional Menu + Live Tracking</span>
+                    <span class="flex items-center"><i data-lucide="check-circle" class="h-4 w-4 text-cyan-400 mr-1.5"></i> 5‑Day Delivery & Full Training</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-b border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 py-5">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-700 flex items-start gap-3">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-blue-700 mt-0.5"></i>
+                        <div>
+                            <p class="font-bold text-slate-900">India only</p>
+                            <p>1 acrylic stand + functional QR menu per table.</p>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-700 flex items-start gap-3">
+                        <i data-lucide="globe" class="w-5 h-5 text-blue-700 mt-0.5"></i>
+                        <div>
+                            <p class="font-bold text-slate-900">Outside India</p>
+                            <p>Functional QR menu with live order tracking only.</p>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-700 flex items-start gap-3">
+                        <i data-lucide="truck" class="w-5 h-5 text-blue-700 mt-0.5"></i>
+                        <div>
+                            <p class="font-bold text-slate-900">Setup & support</p>
+                            <p>Delivery in 5 days, full training, no subscription.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== REACT: DUAL IMMERSIVE 3D BUILDER (STAND & STICKER) ========== -->
+
+        <div class="bg-gray-50 border-b border-gray-200">
+            <div class="max-w-[1400px] mx-auto px-0 md:px-4 py-12 w-full" id="designer">
+                <div class="text-center mb-8 px-4">
+                    <span class="inline-block px-3 py-1 bg-indigo-100 text-indigo-700 font-bold rounded-full text-xs mb-3 uppercase tracking-wider">Interactive Experience</span>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900">🎨 Master Configurator</h2>
+                </div>
+                
+                <!-- If JS is broken, this loading text will stay visible -->
+                <div id="qr-designer-root" class="w-full mb-12 flex justify-center">
+                    <div class="loading-pulse text-indigo-600 font-bold text-lg bg-indigo-50 px-6 py-4 rounded-xl border border-indigo-100">
+                        <i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Loading 3D Engine...
+                    </div>
+                </div>
+                <div id="order-root" class="w-full"></div>
+                <div id="guide-root" class="w-full"></div>
+            </div>
+        </div>
+
+    </div>
+
+        <!-- ========== QUICK ANSWERS ========== -->
+        <div id="quick-answers" class="max-w-7xl mx-auto px-4 py-20 w-full">
+            <div class="text-center mb-10">
+                <span class="inline-block px-3 py-1 bg-indigo-100 text-indigo-700 font-bold rounded-full text-xs mb-3 uppercase tracking-wider">Quick answers</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">What restaurant owners ask before buying</h2>
+                <p class="text-slate-600 mt-3 max-w-2xl mx-auto">Clear answers, faster decisions, and the right path for India and international customers.</p>
+            </div>
+
+            <div class="grid gap-6 md:grid-cols-3">
+                <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-700 flex items-center justify-center mb-4"><i data-lucide="map-pin" class="w-6 h-6"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Need a stand in India?</h3>
+                    <p class="text-slate-600 leading-relaxed">Choose the acrylic QR stand plus the functional menu. It is built for tables, counters, and premium restaurant presentation.</p>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm">
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-700 flex items-center justify-center mb-4"><i data-lucide="globe" class="w-6 h-6"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Outside India?</h3>
+                    <p class="text-slate-600 leading-relaxed">Only the Functional QR Menu with live order tracking system is available. No physical stand offer is shown.</p>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-4"><i data-lucide="clock-3" class="w-6 h-6"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">How long does it take?</h3>
+                    <p class="text-slate-600 leading-relaxed">Up to 5 days for delivery, full training, and ongoing support. No monthly or yearly subscription.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== FOOTER ========== -->
+        <footer class="bg-slate-950 text-slate-300 border-t border-white/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-2 rounded-lg shadow">
+                                <i data-lucide="zap" class="h-5 w-5 text-white"></i>
+                            </div>
+                            <span class="ml-3 text-lg font-bold text-white">Denisia Webops</span>
+                        </div>
+                        <p class="text-sm leading-relaxed text-slate-400">
+                            ECHO Restaurant OS for modern restaurants, cafés, and hotel dining teams.
+                            India gets the stand + functional menu. Outside India gets the functional QR menu with live order tracking only.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-semibold mb-4">Explore</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="#designer" class="hover:text-cyan-300 transition">Open Builder</a></li>
+                            <li><a href="#guide" class="hover:text-cyan-300 transition">Step-by-step guide</a></li>
+                            <li><a href="#quick-answers" class="hover:text-cyan-300 transition">Quick answers</a></li>
+                            <li><a href="#order-root" class="hover:text-cyan-300 transition">Order request</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-semibold mb-4">Internal links</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="blogs.html" class="hover:text-cyan-300 transition">Blogs</a></li>
+                            <li><a href="google-products-hub.html" class="hover:text-cyan-300 transition">Google Products Hub</a></li>
+                            <li><a href="why-ai-seo.html" class="hover:text-cyan-300 transition">Why AI SEO</a></li>
+                            <li><a href="contact.html" class="hover:text-cyan-300 transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-semibold mb-4">Need help?</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-4">Open the guide modal for a step-by-step walkthrough of the setup and order flow.</p>
+                        <button onclick="window.openGuideModal && window.openGuideModal()" class="w-full bg-white text-slate-900 font-bold px-4 py-3 rounded-xl hover:bg-cyan-300 transition">Open Guide</button>
+                    </div>
+                </div>
+                <div class="border-t border-white/10 pt-8 mt-10 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-sm text-slate-500">© 2026 Denisia Webops Agency. All rights reserved.</p>
+                    <div class="flex flex-wrap gap-4 text-sm">
+                        <button onclick="window.openInternationalOrderModal && window.openInternationalOrderModal()" class="text-cyan-300 hover:text-white transition">Outside India setup</button>
+                        <button onclick="window.openGuideModal && window.openGuideModal()" class="text-cyan-300 hover:text-white transition">How it works</button>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    <!-- Initialization Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            if(window.lucide) lucide.createIcons();
+        });
+    </script>
+
+    <!-- ========== REACT APP (Babel Compilation) ========== -->
+    <script type="text/babel">
+        const { useState, useRef, useEffect } = React;
+
+        const Icons = {
+            Layout: () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>,
+            Type: () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>,
+            QrCode: () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><rect x="7" y="7" width="3" height="3"/><rect x="14" y="7" width="3" height="3"/><rect x="7" y="14" width="3" height="3"/><rect x="14" y="14" width="3" height="3"/></svg>,
+            Download: () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>,
+            Check: () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>,
+            Link: () => <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>,
+            MapPin: () => <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>,
+            ZoomIn: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>,
+            ZoomOut: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>,
+            X: () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>,
+            ShoppingCart: () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>,
+            Sticker: () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+        };
+
+        const STAND_SIZES = [
+          { id: 'a6', name: 'Standard Stand (A6)', w_in: 4.1, h_in: 5.8 },
+          { id: 'a5', name: 'Large Menu Stand (A5)', w_in: 5.8, h_in: 8.3 },
+        ];
+
+        const STICKER_SHAPES = [
+            { id: 'square', name: 'Square Decal', w_in: 4.0, h_in: 4.0, radius: '16px' },
+            { id: 'circle', name: 'Circle Sticker', w_in: 4.0, h_in: 4.0, radius: '50%' },
+            { id: 'portrait', name: 'Portrait Sticker', w_in: 4.0, h_in: 5.5, radius: '16px' }
+        ];
+
+        const THEMES = [
+          { name: 'Minimal White', bg: 'bg-white', primaryText: '#0f172a', subText: '#475569' },
+          { name: 'Midnight Dark', bg: 'bg-slate-900', primaryText: '#ffffff', subText: '#94a3b8' },
+          { name: 'Google Review', bg: 'bg-white', primaryText: '#1a73e8', subText: '#5f6368' },
+          { name: 'WhatsApp Green', bg: 'bg-[#dcf8c6]', primaryText: '#075e54', subText: '#128c7e' },
+          { name: 'Social Connect', bg: 'bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-500', primaryText: '#ffffff', subText: '#ffe4e6' }
+        ];
+
+        const TEMPLATES = [
+            { id: 'menu', icon: '🍽️', name: 'Smart Menu', title: 'SCAN TO ORDER', subtitle: 'View our live digital menu', ctaText: 'VIEW MENU', ctaIcon: 'Link', theme: THEMES[0] },
+            { id: 'review', icon: '⭐', name: 'Google Review', title: 'RATE US', subtitle: 'Love our food? Leave a review!', ctaText: 'LEAVE REVIEW', ctaIcon: 'fa-google', theme: THEMES[2] },
+            { id: 'whatsapp', icon: '💬', name: 'WhatsApp', title: 'ORDER NOW', subtitle: 'Scan to send us a message directly.', ctaText: 'CHAT NOW', ctaIcon: 'fa-whatsapp', theme: THEMES[3] },
+            { id: 'payment', icon: '💸', name: 'UPI Payment', title: 'SCAN TO PAY', subtitle: 'Google Pay, PhonePe, Paytm', ctaText: 'SECURE PAY', ctaIcon: 'Link', theme: THEMES[1] },
+            { id: 'social', icon: '📸', name: 'Social Media', title: 'FOLLOW US', subtitle: 'Tag us in your stories!', ctaText: 'CONNECT', ctaIcon: 'fa-instagram', theme: THEMES[4] },
+        ];
+
+        function App() {
+          const [buildMode, setBuildMode] = useState('stand'); 
+          
+          const [selectedStandSize, setSelectedStandSize] = useState('a6');
+          const [selectedStickerShape, setSelectedStickerShape] = useState('square');
+          
+          const [theme, setTheme] = useState(THEMES[0]);
+          const [activeTemplate, setActiveTemplate] = useState('menu');
+          
+          const [title, setTitle] = useState(TEMPLATES[0].title);
+          const [subtitle, setSubtitle] = useState(TEMPLATES[0].subtitle);
+          const [qrUrl, setQrUrl] = useState('https://example.com');
+          const [qrSize, setQrSize] = useState(55);
+          const [logo, setLogo] = useState(null);
+          const [displayUrl, setDisplayUrl] = useState('example.com/menu');
+          const [location, setLocation] = useState('Table 12');
+          const [ctaIcon, setCtaIcon] = useState(TEMPLATES[0].ctaIcon);
+          const [ctaText, setCtaText] = useState(TEMPLATES[0].ctaText);
+          
+          const [previewZoom, setPreviewZoom] = useState(1);
+          const paperRef = useRef(null);
+
+          const activeSize = buildMode === 'stand' 
+            ? STAND_SIZES.find(s => s.id === selectedStandSize) 
+            : STICKER_SHAPES.find(s => s.id === selectedStickerShape);
+
+          const qrImageSrc = `https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${encodeURIComponent(qrUrl)}&margin=10`;
+
+          const applyTemplate = (t) => {
+              setActiveTemplate(t.id); setTheme(t.theme); setTitle(t.title); 
+              setSubtitle(t.subtitle); setCtaText(t.ctaText); setCtaIcon(t.ctaIcon);
+          };
+
+          const handleLogoUpload = (e) => {
+            const file = e.target.files[0];
+            if (file) {
+              const reader = new FileReader();
+              reader.onload = (e) => setLogo(e.target.result);
+              reader.readAsDataURL(file);
+            }
+          };
+
+          const handleDownload = async () => {
+              if (paperRef.current && window.html2canvas) {
+                const canvas = await window.html2canvas(paperRef.current, { 
+                    useCORS: true, scale: 3, backgroundColor: null,
+                    onclone: (clonedDoc) => {
+                        const el = clonedDoc.querySelector('.paper-insert');
+                        if(el) { 
+                            if(buildMode === 'sticker' && selectedStickerShape === 'circle') {
+                                el.style.borderRadius = '50%';
+                            } else {
+                                el.style.borderRadius = '0';
+                            }
+                            el.style.boxShadow = 'none'; 
+                        }
+                    }
+                });
+                const link = document.createElement('a');
+                link.download = `ECHO_${buildMode}_${location.replace(' ','_')}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+              }
+          };
+
+          const proceedToOrder = () => { if(window.openOrderModal) window.openOrderModal(buildMode); };
+
+          const renderCtaIcon = () => {
+              if (ctaIcon.startsWith('fa-')) return <i className={`fa-brands ${ctaIcon} text-sm`}></i>;
+              return React.createElement(Icons[ctaIcon] || Icons.Link);
+          };
+
+          return (
+            <div className="flex flex-col lg:flex-row text-slate-800 bg-white lg:rounded-2xl shadow-2xl overflow-hidden border-y lg:border border-slate-200 lg:h-[880px]">
+              
+              {/* LEFT: Configurator Panel */}
+              <div className="w-full lg:w-[450px] xl:w-[480px] bg-white border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col h-[750px] lg:h-full z-30 overflow-hidden relative">
+                
+                <div className="p-4 sm:p-5 border-b border-slate-100 bg-gradient-to-r from-blue-50 to-white shrink-0">
+                  <h1 className="text-xl font-extrabold flex items-center gap-2 text-slate-900">Configurator Engine</h1>
+                  
+                  {/* Mode Toggle */}
+                  <div className="flex bg-slate-200/50 p-1.5 rounded-xl mt-4 border border-slate-200">
+                    <button onClick={() => setBuildMode('stand')} className={`flex-1 py-2.5 text-sm font-extrabold rounded-lg flex items-center justify-center gap-2 transition-all ${buildMode === 'stand' ? 'bg-white shadow text-blue-700' : 'text-slate-500 hover:text-slate-700'}`}>
+                        <Icons.Layout /> Acrylic Stand
+                    </button>
+                    <button onClick={() => setBuildMode('sticker')} className={`flex-1 py-2.5 text-sm font-extrabold rounded-lg flex items-center justify-center gap-2 transition-all ${buildMode === 'sticker' ? 'bg-white shadow text-blue-700' : 'text-slate-500 hover:text-slate-700'}`}>
+                        <Icons.Sticker /> Vinyl Sticker
+                    </button>
+                  </div>
+                </div>
+                
+                <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-6 custom-scrollbar">
+                  
+                  {/* Step 1: Pre-Built Templates */}
+                  <section>
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">1. Select Use Case</h3>
+                      <div className="grid grid-cols-2 gap-2">
+                          {TEMPLATES.map(t => (
+                              <div key={t.id} onClick={() => applyTemplate(t)} className={`template-card p-3 rounded-xl flex items-center gap-3 ${activeTemplate === t.id ? 'active' : 'bg-slate-50'}`}>
+                                  <span className="text-2xl">{t.icon}</span>
+                                  <span className="font-bold text-[13px] text-slate-700 leading-tight">{t.name}</span>
+                              </div>
+                          ))}
+                      </div>
+                  </section>
+
+                  <hr className="border-slate-100"/>
+
+                  {/* Step 2: Form/Shape */}
+                  <section>
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">2. Dimensions & Colors</h3>
+                    <div className="space-y-4">
+                        <div className="flex gap-3">
+                            <div className="flex-1">
+                                <label className="text-[10px] font-bold text-slate-500 uppercase block mb-1">Format Type</label>
+                                {buildMode === 'stand' ? (
+                                    <select value={selectedStandSize} onChange={(e) => setSelectedStandSize(e.target.value)} className="input-field text-xs font-bold">
+                                        {STAND_SIZES.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+                                    </select>
+                                ) : (
+                                    <select value={selectedStickerShape} onChange={(e) => setSelectedStickerShape(e.target.value)} className="input-field text-xs font-bold">
+                                        {STICKER_SHAPES.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+                                    </select>
+                                )}
+                            </div>
+                            <div className="flex-1">
+                                <label className="text-[10px] font-bold text-slate-500 uppercase block mb-1">Color Theme</label>
+                                <select value={theme.name} onChange={(e) => setTheme(THEMES.find(t => t.name === e.target.value))} className="input-field text-xs font-bold">
+                                    {THEMES.map(t => <option key={t.name} value={t.name}>{t.name}</option>)}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                            <label className="text-[10px] font-bold text-slate-500 uppercase block mb-2">Upload Brand Logo</label>
+                            <input type="file" accept="image/*" onChange={handleLogoUpload} className="w-full text-xs file:mr-3 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:font-bold file:bg-blue-100 file:text-blue-700 cursor-pointer"/>
+                            {logo && <button onClick={() => setLogo(null)} className="text-[10px] text-red-500 font-bold mt-2">Remove Logo</button>}
+                        </div>
+                    </div>
+                  </section>
+
+                  <hr className="border-slate-100"/>
+
+                  {/* Step 3: Content */}
+                  <section className="pb-4">
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">3. Text & QR Destination</h3>
+                    <div className="space-y-3">
+                      <div><label className="block text-[10px] font-bold text-slate-500 uppercase mb-1">Main Headline</label><input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="input-field font-bold" /></div>
+                      <div><label className="block text-[10px] font-bold text-slate-500 uppercase mb-1">Instructions / Subtitle</label><input type="text" value={subtitle} onChange={(e) => setSubtitle(e.target.value)} className="input-field text-sm" /></div>
+                      
+                      <div className="bg-blue-50 border border-blue-100 p-3 rounded-lg">
+                          <label className="block text-[10px] font-bold text-blue-700 uppercase mb-1">Destination URL</label>
+                          <input type="url" value={qrUrl} onChange={(e) => setQrUrl(e.target.value)} className="input-field text-xs font-mono" placeholder="https://..." />
+                      </div>
+
+                      <div className="bg-slate-50 p-3 rounded-lg border border-slate-200"><div className="flex justify-between items-center mb-2"><label className="block text-[10px] font-bold text-slate-500 uppercase">QR Size Adjust</label><span className="text-xs font-bold text-indigo-600">{qrSize}%</span></div><input type="range" min="30" max="85" value={qrSize} onChange={(e) => setQrSize(e.target.value)} /></div>
+                      
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-[10px] font-bold text-slate-500 uppercase mb-1">CTA Icon</label>
+                          <select value={ctaIcon} onChange={(e) => setCtaIcon(e.target.value)} className="input-field text-xs font-bold">
+                            <option value="Link">Web Link</option>
+                            <option value="fa-google">Google</option>
+                            <option value="fa-instagram">Instagram</option>
+                            <option value="fa-facebook">Facebook</option>
+                            <option value="fa-whatsapp">WhatsApp</option>
+                          </select>
+                        </div>
+                        <div><label className="block text-[10px] font-bold text-slate-500 uppercase mb-1">CTA Label</label><input type="text" value={ctaText} onChange={(e) => setCtaText(e.target.value)} className="input-field text-xs font-bold" /></div>
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div><label className="block text-[10px] font-bold text-slate-500 uppercase mb-1">Footer Link Tag</label><input type="text" value={displayUrl} onChange={(e) => setDisplayUrl(e.target.value)} className="input-field text-xs" /></div>
+                        <div><label className="block text-[10px] font-bold text-slate-500 uppercase mb-1">Location / Table</label><input type="text" value={location} onChange={(e) => setLocation(e.target.value)} className="input-field text-xs" /></div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                
+                {/* Checkouts */}
+                <div className="p-5 bg-white border-t border-slate-200 z-10 shrink-0 shadow-[0_-10px_20px_rgba(0,0,0,0.03)]">
+                  <button onClick={proceedToOrder} className="w-full bg-blue-700 hover:bg-blue-800 text-white font-extrabold py-4 px-4 rounded-xl shadow-lg flex items-center justify-center gap-2 transition-all transform hover:-translate-y-0.5 active:translate-y-0">
+                    <Icons.ShoppingCart /> Pre-Order This Setup
+                  </button>
+                  <button onClick={handleDownload} className="w-full text-xs text-slate-500 font-bold py-3 mt-1 hover:text-blue-600 transition flex items-center justify-center gap-1">
+                     <Icons.Download /> Just download the image (Free)
+                  </button>
+                </div>
+              </div>
+
+              {/* RIGHT: Immersive 3D Render Area */}
+              <div className="flex-1 relative overflow-hidden flex items-center justify-center min-h-[500px] lg:h-full w-full immersive-cafe-bg">
+                <div className="absolute bottom-0 left-0 right-0 h-[45%] immersive-counter-table z-0"></div>
+                <div className="absolute bottom-0 w-full h-[30%] bg-gradient-to-t from-black/80 to-transparent z-0 pointer-events-none"></div>
+
+                {/* Zoom Controls */}
+                <div className="absolute top-4 right-4 z-50 flex items-center gap-1 bg-white/20 backdrop-blur-md border border-white/30 p-1.5 rounded-xl shadow-lg text-white">
+                    <button onClick={() => setPreviewZoom(z => Math.max(0.5, z - 0.1))} className="p-2 hover:bg-white/20 rounded-lg transition"><Icons.ZoomOut /></button>
+                    <span className="text-xs font-bold w-12 text-center drop-shadow-md">{Math.round(previewZoom * 100)}%</span>
+                    <button onClick={() => setPreviewZoom(z => Math.min(2.0, z + 0.1))} className="p-2 hover:bg-white/20 rounded-lg transition"><Icons.ZoomIn /></button>
+                </div>
+                
+                {/* Dynamic Container Based on Mode */}
+                <div className="relative z-10 flex flex-col items-center justify-center transition-all duration-500 ease-out pb-8" 
+                     style={{ 
+                         height: buildMode === 'stand' ? 'min(65vh, 700px)' : 'min(50vh, 550px)', 
+                         aspectRatio: `${activeSize.w_in} / ${activeSize.h_in + (buildMode === 'stand' ? 0.5 : 0)}`, 
+                         maxHeight: '800px', maxWidth: '85vw', 
+                         transform: buildMode === 'sticker' 
+                             ? `scale(${previewZoom}) rotateX(35deg) translateZ(10px) translateY(50px)` 
+                             : `scale(${previewZoom})`, 
+                         transformOrigin: 'bottom center' 
+                     }}>
+                  
+                  {/* Standee Rendering */}
+                  {buildMode === 'stand' && (
+                      <>
+                      <div className="acrylic-panel w-full h-full flex items-center justify-center relative shadow-glass">
+                        <div className="acrylic-glare"></div>
+                        <div ref={paperRef} className={`paper-insert w-full h-full flex flex-col items-center p-3 sm:p-5 rounded-lg ${theme.bg} overflow-hidden`}>
+                            <div className={`relative w-full h-full flex flex-col items-center justify-between rounded-xl p-4 sm:p-6 bg-white shadow-sm border border-slate-100`}>
+                                <div className="absolute -top-8 sm:-top-10 left-0 right-0 mx-auto w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full shadow-md border-[4px] border-white flex items-center justify-center p-1 z-20 overflow-hidden box-border">
+                                    {logo ? <div className="w-full h-full rounded-full" style={{ backgroundImage: `url(${logo})`, backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}></div> 
+                                          : <div className="text-slate-300 font-bold text-[10px] text-center leading-tight">LOGO<br/>HERE</div>}
+                                </div>
+                                <div className="w-full flex flex-col items-center text-center z-10 shrink-0 pt-6 sm:pt-8">
+                                    <h2 className="font-extrabold tracking-tight leading-[1.1]" style={{ color: theme.primaryText, fontSize: `clamp(1rem, ${activeSize.w_in * 1.5}cqw, 2.5rem)` }}>{title}</h2>
+                                    {subtitle && <p className="font-medium opacity-90 leading-snug mt-2 px-2" style={{ color: theme.subText, fontSize: `clamp(0.6rem, ${activeSize.w_in * 0.5}cqw, 0.9rem)` }}>{subtitle}</p>}
+                                </div>
+                                <div className="w-full flex justify-center my-2 sm:my-4 z-10 relative shrink-0">
+                                    <div className={`p-2.5 sm:p-3 rounded-2xl shadow-sm bg-white border border-slate-100 flex flex-col items-center justify-center relative`} style={{ width: `${qrSize}%`, aspectRatio: '1/1', minWidth: '90px' }}>
+                                        <img src={qrImageSrc} alt="QR" className="w-full h-full object-contain mix-blend-multiply" crossOrigin="anonymous" />
+                                        {ctaText && <div className="absolute -bottom-3 sm:-bottom-4 bg-indigo-600 text-white font-bold px-3 py-1 sm:py-1.5 rounded-full border-2 border-white shadow-sm z-20 flex items-center gap-1 whitespace-nowrap" style={{ fontSize: `clamp(0.5rem, ${activeSize.w_in * 0.35}cqw, 0.9rem)` }}>
+                                            {renderCtaIcon()} {ctaText}
+                                        </div>}
+                                    </div>
+                                </div>
+                                <div className="w-full pt-3 sm:pt-4 border-t border-current/10 flex flex-row items-center justify-between z-10 mt-auto shrink-0" style={{ color: theme.subText, fontSize: `clamp(0.5rem, ${activeSize.w_in * 0.4}cqw, 0.8rem)` }}>
+                                   <div className="flex items-center gap-1.5 font-bold tracking-wide opacity-80">{renderCtaIcon()}<span className="truncate max-w-[120px]">{displayUrl}</span></div>
+                                   <div className="flex items-center gap-1.5 font-bold tracking-wide bg-current/5 px-2 py-1 rounded-md opacity-90"><Icons.MapPin /><span className="truncate">{location}</span></div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      <div className="stand-base"></div>
+                      <div className="absolute -bottom-10 w-[130%] h-16 stand-drop-shadow blur-xl rounded-[100%] z-0"></div>
+                      </>
+                  )}
+
+                  {/* Vinyl Sticker Rendering */}
+                  {buildMode === 'sticker' && (
+                      <div className="w-full h-full flex items-center justify-center relative z-10 group">
+                          <div ref={paperRef} className={`paper-insert sticker-panel w-full h-full flex flex-col items-center justify-center p-3 sm:p-5 ${theme.bg} overflow-hidden relative shadow-[0_10px_20px_rgba(0,0,0,0.2)]`} style={{ borderRadius: activeSize.radius || '0px' }}>
+                             <div className="sticker-glare"></div>
+                             
+                             <div className="w-full h-full flex flex-col items-center justify-between p-2 relative z-30">
+                                 {logo && <img src={logo} alt="Logo" className="w-12 h-12 sm:w-16 sm:h-16 object-contain drop-shadow-sm shrink-0"/>}
+                                 
+                                 <div className="text-center w-full my-auto flex flex-col items-center justify-center">
+                                     {title && <h2 className="font-black tracking-tighter leading-[1.1] w-[90%]" style={{ color: theme.primaryText, fontSize: `clamp(0.9rem, ${activeSize.w_in * 1.8}cqw, 2.5rem)` }}>{title}</h2>}
+                                     {subtitle && <p className="font-semibold leading-tight mt-1 mb-2 opacity-90 w-[85%]" style={{ color: theme.subText, fontSize: `clamp(0.5rem, ${activeSize.w_in * 0.5}cqw, 0.8rem)` }}>{subtitle}</p>}
+                                     
+                                     <div className="bg-white p-2 sm:p-3 rounded-xl shadow-sm border border-slate-200 flex flex-col items-center justify-center relative mt-2" style={{ width: `${qrSize}%`, aspectRatio: '1/1', minWidth: '80px', maxWidth: '200px' }}>
+                                         <img src={qrImageSrc} alt="QR" className="w-full h-full object-contain mix-blend-multiply" crossOrigin="anonymous" />
+                                         {ctaText && <div className="absolute -bottom-3 bg-black text-white font-bold px-2.5 py-1 rounded-full border border-white shadow-md z-20 flex items-center gap-1 whitespace-nowrap" style={{ fontSize: `clamp(0.45rem, ${activeSize.w_in * 0.35}cqw, 0.8rem)` }}>
+                                            {renderCtaIcon()} {ctaText}
+                                         </div>}
+                                     </div>
+                                 </div>
+
+                                 {activeSize.id !== 'circle' && (
+                                     <div className="w-full mt-3 pt-2 border-t border-black/10 flex justify-between font-bold" style={{ color: theme.primaryText, fontSize: `clamp(0.5rem, ${activeSize.w_in * 0.4}cqw, 0.75rem)` }}>
+                                        <span>{displayUrl}</span><span>{location}</span>
+                                     </div>
+                                 )}
+                             </div>
+                          </div>
+                          <div className="absolute -bottom-2 w-[90%] h-4 sticker-shadow blur-md rounded-full z-0 pointer-events-none"></div>
+                      </div>
+                  )}
+
+                </div>
+              </div>
+            </div>
+          );
+        }
+
+
+        // --- 2. ORDER MODAL APP ---
+        function OrderFlow() {
+            const [isOpen, setIsOpen] = useState(false);
+            const [activeRegion, setActiveRegion] = useState('india');
+            const [standeeQty, setStandeeQty] = useState(1);
+            const [stickerQty, setStickerQty] = useState(0);
+            const [hasFunctionalMenu, setHasFunctionalMenu] = useState(true);
+            const [formData, setFormData] = useState({ name: '', email: '', phone: '', whatsapp: '', address: '', state: '', pincode: '' });
+            const [isSubmitting, setIsSubmitting] = useState(false);
+            const [isSuccess, setIsSuccess] = useState(false);
+
+            useEffect(() => {
+                window.openOrderModal = (mode = 'stand') => {
+                    setActiveRegion('india');
+                    if (mode === 'sticker') {
+                        setStandeeQty(0);
+                        setStickerQty(5);
+                    } else {
+                        setStandeeQty(1);
+                        setStickerQty(0);
+                    }
+                    setHasFunctionalMenu(true);
+                    setIsOpen(true);
+                    setIsSuccess(false);
+                };
+
+                window.openInternationalOrderModal = () => {
+                    setActiveRegion('international');
+                    setStandeeQty(0);
+                    setStickerQty(0);
+                    setHasFunctionalMenu(true);
+                    setIsOpen(true);
+                    setIsSuccess(false);
+                };
+
+                return () => {
+                    delete window.openOrderModal;
+                    delete window.openInternationalOrderModal;
+                };
+            }, []);
+
+            useEffect(() => {
+                if (activeRegion === 'international') {
+                    setStandeeQty(0);
+                    setStickerQty(0);
+                    setHasFunctionalMenu(true);
+                }
+            }, [activeRegion]);
+
+            const EMAILJS_SERVICE_ID = 'service_avghp1d';
+            const EMAILJS_TEMPLATE_ID = 'template_2plsegm';
+
+            const subtotal = activeRegion === 'international'
+                ? (hasFunctionalMenu ? 1950 : 0)
+                : (standeeQty * 350) + (stickerQty * 45) + (hasFunctionalMenu ? 1950 : 0);
+            const tax = subtotal * 0.18;
+            const shipping = activeRegion === 'international' ? 0 : ((standeeQty > 0 || stickerQty > 0) ? 150 : 0);
+            const total = subtotal + tax + shipping;
+            const formatMoney = (val) => `₹${val.toFixed(2)}`;
+
+            const handleFormSubmit = async (e) => {
+                e.preventDefault();
+                setIsSubmitting(true);
+                const templateParams = {
+                    from_name: formData.name,
+                    customer_email: formData.email,
+                    customer_phone: formData.phone,
+                    customer_whatsapp: formData.whatsapp || 'N/A',
+                    delivery_address: `${formData.address}, ${formData.state} - ${formData.pincode}`,
+                    region: activeRegion,
+                    standee_qty: activeRegion === 'international' ? 0 : standeeQty,
+                    sticker_qty: activeRegion === 'international' ? 0 : stickerQty,
+                    functional_menu: hasFunctionalMenu ? 'Yes (₹1,950)' : 'No',
+                    total_amount: total.toFixed(2)
+                };
+
+                try {
+                    if (window.emailjs && EMAILJS_SERVICE_ID !== 'YOUR_SERVICE_ID') {
+                        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+                        setIsSuccess(true);
+                    } else {
+                        setTimeout(() => setIsSuccess(true), 1200);
+                    }
+                } catch (error) {
+                    alert("There was an issue processing your order.");
+                }
+                setIsSubmitting(false);
+            };
+
+            if (!isOpen) return null;
+
+            const isInternational = activeRegion === 'international';
+
+            return (
+                <div className="fixed inset-0 z-[100] bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4">
+                   <div className="bg-white w-full max-w-5xl h-[90vh] rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row relative">
+                       <button onClick={() => setIsOpen(false)} className="absolute top-4 right-4 z-30 bg-white text-slate-800 p-2 rounded-full shadow-lg hover:bg-slate-100 transition"><Icons.X /></button>
+
+                       {isSuccess ? (
+                           <div className="w-full h-full flex flex-col items-center justify-center p-8 text-center bg-indigo-50">
+                               <div className="w-24 h-24 bg-green-500 rounded-full flex items-center justify-center mb-6 text-white shadow-lg shadow-green-500/30"><Icons.Check /></div>
+                               <h2 className="text-4xl font-black text-slate-900 mb-4">Request Received!</h2>
+                               <p className="text-lg text-slate-600 max-w-md mb-8">Thank you, {formData.name}. We securely received your setup request. Our team will contact you on {formData.phone} shortly.</p>
+                               <button onClick={() => setIsOpen(false)} className="bg-indigo-600 text-white font-bold px-8 py-3 rounded-lg shadow-md hover:bg-indigo-700 transition">Close Checkout</button>
+                           </div>
+                       ) : (
+                           <>
+                               <div className="w-full md:w-1/2 bg-slate-50 border-r border-slate-200 flex flex-col h-full overflow-y-auto p-6 md:p-8 custom-scrollbar">
+                                  <h3 className="text-2xl font-black mb-6 text-slate-900 border-b border-slate-200 pb-4">1. Choose your setup</h3>
+
+                                  <div className="space-y-4">
+                                       <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                                            <label className="block text-[10px] font-bold text-slate-500 uppercase mb-2">Region</label>
+                                            <select
+                                                value={activeRegion}
+                                                onChange={e => setActiveRegion(e.target.value)}
+                                                className="input-field"
+                                            >
+                                                <option value="india">India</option>
+                                                <option value="international">Outside India</option>
+                                            </select>
+                                       </div>
+
+                                       {isInternational ? (
+                                           <div className="p-4 rounded-xl border border-cyan-200 bg-cyan-50 text-cyan-900">
+                                               <div className="font-bold mb-1 flex items-center gap-2"><i data-lucide="globe" className="w-4 h-4"></i> Outside India option</div>
+                                               <p className="text-sm leading-relaxed">Only the Functional QR code menu with live order tracking system is available. Physical standee and sticker options are hidden for international customers.</p>
+                                           </div>
+                                       ) : null}
+
+                                       <label className="flex items-start gap-3 p-4 bg-white rounded-xl border border-blue-200 cursor-pointer shadow-sm hover:border-blue-400 transition">
+                                            <input type="checkbox" checked={hasFunctionalMenu} onChange={e => setHasFunctionalMenu(e.target.checked)} className="mt-1 w-5 h-5 text-blue-600 rounded border-gray-300" />
+                                            <div>
+                                                <div className="font-bold text-slate-900">ECHO Software License (₹1,950/table)</div>
+                                                <div className="text-xs text-slate-500 mt-1">Full digital dashboard, live order tracking, customer insights, and AI SEO schema integration.</div>
+                                            </div>
+                                        </label>
+
+                                        {!isInternational && (
+                                            <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                                                <div className="flex justify-between items-center">
+                                                    <div><div className="font-bold text-slate-900">Premium Acrylic Standee</div><div className="text-xs text-slate-500 mt-0.5">Physical print (India only) • ₹350/ea</div></div>
+                                                    <input type="number" min="0" value={standeeQty} onChange={e => setStandeeQty(parseInt(e.target.value)||0)} className="w-16 p-2 border rounded-lg text-center font-bold" />
+                                                </div>
+                                                <hr className="border-slate-100"/>
+                                                <div className="flex justify-between items-center">
+                                                    <div><div className="font-bold text-slate-900">Vinyl QR Stickers</div><div className="text-xs text-slate-500 mt-0.5">Die-cut table/window decals • ₹45/ea</div></div>
+                                                    <input type="number" min="0" value={stickerQty} onChange={e => setStickerQty(parseInt(e.target.value)||0)} className="w-16 p-2 border rounded-lg text-center font-bold" />
+                                                </div>
+                                            </div>
+                                        )}
+                                  </div>
+                               </div>
+
+                               <div className="w-full md:w-1/2 bg-white flex flex-col h-full overflow-y-auto p-6 md:p-8 custom-scrollbar">
+                                    <h3 className="text-2xl font-black mb-6 text-slate-900 border-b border-slate-100 pb-4">2. Delivery Details</h3>
+                                    <form onSubmit={handleFormSubmit} className="flex flex-col flex-1 h-full">
+                                        <div className="space-y-3 mb-6 flex-1">
+                                             <div className="grid grid-cols-2 gap-3">
+                                                 <input type="text" placeholder="Full Name" value={formData.name} onChange={e=>setFormData({...formData, name: e.target.value})} className="p-3 text-sm border border-slate-300 rounded-lg w-full outline-none focus:border-blue-500" required />
+                                                 <input type="email" placeholder="Email" value={formData.email} onChange={e=>setFormData({...formData, email: e.target.value})} className="p-3 text-sm border border-slate-300 rounded-lg w-full outline-none focus:border-blue-500" required />
+                                             </div>
+                                             <div className="grid grid-cols-2 gap-3">
+                                                 <input type="tel" placeholder="Phone Number" value={formData.phone} onChange={e=>setFormData({...formData, phone: e.target.value})} className="p-3 text-sm border border-slate-300 rounded-lg w-full outline-none focus:border-blue-500" required />
+                                                 <input type="tel" placeholder="WhatsApp" value={formData.whatsapp} onChange={e=>setFormData({...formData, whatsapp: e.target.value})} className="p-3 text-sm border border-slate-300 rounded-lg w-full outline-none focus:border-blue-500" />
+                                             </div>
+                                             <textarea placeholder="Delivery Address / Restaurant Details..." value={formData.address} onChange={e=>setFormData({...formData, address: e.target.value})} className="p-3 text-sm border border-slate-300 rounded-lg w-full outline-none resize-none focus:border-blue-500" rows="2" required></textarea>
+                                             <div className="grid grid-cols-2 gap-3">
+                                                 <input type="text" placeholder="State/City" value={formData.state} onChange={e=>setFormData({...formData, state: e.target.value})} className="p-3 text-sm border border-slate-300 rounded-lg w-full outline-none focus:border-blue-500" required />
+                                                 <input type="text" placeholder="PIN Code" value={formData.pincode} onChange={e=>setFormData({...formData, pincode: e.target.value})} className="p-3 text-sm border border-slate-300 rounded-lg w-full outline-none focus:border-blue-500" required />
+                                             </div>
+                                        </div>
+
+                                        <div className="bg-slate-900 text-white p-5 rounded-xl shrink-0 shadow-lg">
+                                             <div className="flex justify-between text-sm mb-2"><span className="text-slate-400">Items Total</span><span className="font-medium">{formatMoney(subtotal)}</span></div>
+                                             <div className="flex justify-between text-sm mb-2"><span className="text-slate-400">Shipping</span><span className="font-medium">{formatMoney(shipping)}</span></div>
+                                             <div className="flex justify-between text-sm mb-4"><span className="text-slate-400">GST (18%)</span><span className="font-medium">{formatMoney(tax)}</span></div>
+                                             <div className="flex justify-between font-black text-2xl pt-4 border-t border-slate-700 text-cyan-400">
+                                                <span>Total Expected</span>
+                                                <span>{formatMoney(total)}</span>
+                                             </div>
+                                             <button type="submit" disabled={isSubmitting || total === 0} className="w-full bg-blue-600 hover:bg-blue-500 text-white font-black text-lg py-4 rounded-xl mt-6 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed">
+                                                {isSubmitting ? 'SENDING REQUEST...' : (isInternational ? 'SUBMIT INTERNATIONAL REQUEST' : 'SUBMIT PRE-ORDER')}
+                                             </button>
+                                             {isInternational && <p className="text-xs text-cyan-200 mt-3 leading-relaxed">Outside India customers receive the functional QR code menu + live order tracking system only.</p>}
+                                        </div>
+                                    </form>
+                               </div>
+                           </>
+                       )}
+                   </div>
+               </div>
+            );
+        }
+
+        function GuideModal() {
+            const [isOpen, setIsOpen] = useState(false);
+
+            useEffect(() => {
+                window.openGuideModal = () => setIsOpen(true);
+                return () => { delete window.openGuideModal; };
+            }, []);
+
+            if (!isOpen) return null;
+
+            const steps = [
+                {
+                    title: 'Step 1 — Choose your region',
+                    body: 'India customers can order the acrylic stand + functional QR menu. Outside India customers receive the functional QR menu with live order tracking only.'
+                },
+                {
+                    title: 'Step 2 — Pick your use case',
+                    body: 'Select Smart Menu, Google Review, WhatsApp, UPI Payment, or Social Connect and personalize the label for your business.'
+                },
+                {
+                    title: 'Step 3 — Add your branding',
+                    body: 'Upload your logo, set colors, edit the headline, and change the CTA so the stand feels like your brand.'
+                },
+                {
+                    title: 'Step 4 — Submit the form',
+                    body: 'Fill your name, contact details, restaurant address, and delivery information. The system prepares your request instantly.'
+                },
+                {
+                    title: 'Step 5 — Delivery and support',
+                    body: 'We deliver in up to 5 days, provide full training, and support your launch with the setup that matches your region.'
+                }
+            ];
+
+            return (
+                <div className="fixed inset-0 z-[110] bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4">
+                    <div className="bg-white w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden relative max-h-[90vh] flex flex-col">
+                        <button onClick={() => setIsOpen(false)} className="absolute top-4 right-4 z-30 bg-white text-slate-800 p-2 rounded-full shadow-lg hover:bg-slate-100 transition">
+                            <Icons.X />
+                        </button>
+                        <div className="p-6 md:p-8 border-b border-slate-100 bg-gradient-to-r from-blue-50 to-white">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-xs font-bold uppercase tracking-wider mb-3">
+                                <i data-lucide="book-open" className="w-4 h-4"></i> Step-by-step guide
+                            </div>
+                            <h2 className="text-3xl md:text-4xl font-black text-slate-900">How the QR Builder works</h2>
+                            <p className="text-slate-600 mt-2 max-w-2xl">A quick walkthrough for restaurant, hotel, café, and menu-based businesses.</p>
+                        </div>
+                        <div className="p-6 md:p-8 overflow-y-auto custom-scrollbar">
+                            <div className="grid gap-4 md:grid-cols-2">
+                                {steps.map((step, idx) => (
+                                    <div key={idx} className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                                        <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-black mb-4">{idx + 1}</div>
+                                        <h3 className="text-lg font-bold text-slate-900 mb-2">{step.title}</h3>
+                                        <p className="text-sm leading-relaxed text-slate-600">{step.body}</p>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div className="mt-6 rounded-2xl border border-cyan-200 bg-cyan-50 p-5 text-cyan-950">
+                                <p className="font-bold mb-1">Important note</p>
+                                <p className="text-sm leading-relaxed">Outside India customers can only opt for the Functional QR code menu with live order tracking system. Physical standee and sticker options are for India only.</p>
+                            </div>
+
+                            <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                                <button onClick={() => { setIsOpen(false); document.getElementById('designer').scrollIntoView({ behavior: 'smooth' }); }} className="bg-slate-900 text-white px-5 py-3 rounded-xl font-bold hover:bg-blue-700 transition">
+                                    Open Builder
+                                </button>
+                                <button onClick={() => { setIsOpen(false); window.openOrderModal && window.openOrderModal('stand'); }} className="bg-cyan-500 text-slate-900 px-5 py-3 rounded-xl font-bold hover:bg-cyan-400 transition">
+                                    India Order Setup
+                                </button>
+                                <button onClick={() => { setIsOpen(false); window.openInternationalOrderModal && window.openInternationalOrderModal(); }} className="border border-slate-300 text-slate-700 px-5 py-3 rounded-xl font-bold hover:bg-slate-100 transition">
+                                    Outside India Setup
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        ReactDOM.createRoot(document.getElementById('qr-designer-root')).render(<App />);
+        ReactDOM.createRoot(document.getElementById('order-root')).render(<OrderFlow />);
+        ReactDOM.createRoot(document.getElementById('guide-root')).render(<GuideModal />);

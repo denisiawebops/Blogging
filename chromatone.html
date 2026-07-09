@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FWP9BLNZK6');
+    </script>
+
+    <!-- Google Site Verification & Bing -->
+    <meta name="google-site-verification" content="82U62k4jtMBmS52po-sbJ12znmacAgq0Rg4NvMZLXMY">
+    <meta name="msvalidate.01" content="8250834873D72FFE4BABCD1B2C7B3173">
+
+    <!-- Clarity tracking code -->
+    <script>
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vimok6xi57");
+    </script>
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://www.denisiawebops.org/chromatone.html">
+
+    <!-- Primary SEO -->
+    <title>ChromaTone Pro – Color to Frequency Converter | Denisia Webops</title>
+    <meta name="description" content="Turn any color into sound. Use your camera, motion sensors, or mixer to translate colors into physical audio frequencies in real time. Free interactive tool.">
+    <meta name="keywords" content="color to frequency, sound from color, chroma tone, audio synthesis, camera color sensor, motion sensor music, interactive audio tool, Denisia Webops">
+    <meta name="author" content="Denisia Webops Agency">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="ChromaTone Pro – Color to Frequency Converter">
+    <meta property="og:description" content="Translate any color into a pure sine wave frequency. Use your camera, device motion, or custom mixer – instant sonic feedback.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=1200">
+    <meta property="og:url" content="https://www.denisiawebops.org/chromatone.html">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ChromaTone Pro – Color to Frequency Converter">
+    <meta name="twitter:description" content="Turn any color into a pure audio frequency. Real‑time camera, motion sensor, and mixer modes.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=1200">
+
+    <!-- Schema: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "ChromaTone Pro",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Web",
+      "url": "https://www.denisiawebops.org/chromatone.html",
+      "description": "Real‑time color to frequency converter using camera, device motion sensors, or manual mixer. Produces pure sine wave audio.",
+      "creator": {
+        "@type": "Organization",
+        "name": "Denisia Webops Agency",
+        "url": "https://www.denisiawebops.org"
+      },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "featureList": "Camera color picker, motion sensor hue detection, multi‑track mixer, WAV recording, real‑time audio synthesis"
+    }
+    </script>
+
+    <!-- Tailwind & Lucide -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1f2937;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Unified navbar/footer overrides */
+        .nav-link { color: #4b5563; font-weight: 500; transition: color 0.2s; }
+        .nav-link:hover, .nav-link.active { color: #1e3a8a; }
+        .btn-primary {
+            background-color: #1e3a8a; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem;
+            font-weight: 600; transition: all 0.2s; box-shadow: 0 4px 6px -1px rgba(30,58,138,0.2);
+        }
+        .btn-primary:hover { background-color: #2563eb; transform: translateY(-2px); }
+        .burger-icon { color: #1f2937; background: #f3f4f6; padding: 8px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .burger-icon:hover { background: #e5e7eb; }
+
+        /* App‑specific styles */
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%; background: #ffffff; cursor: pointer; margin-top: -8px; box-shadow: 0 0 10px rgba(0,0,0,0.5); }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 6px; cursor: pointer; background: #3f3f46; border-radius: 4px; }
+        input[type="color"] { -webkit-appearance: none; border: none; width: 100%; height: 100%; border-radius: 12px; cursor: pointer; padding: 0; background: transparent; }
+        input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+        input[type="color"]::-webkit-color-swatch { border: 2px solid #3f3f46; border-radius: 12px; }
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        #video-feed, #snap-canvas, #uploaded-img { object-fit: cover; width: 100%; height: 100%; }
+        .compass-ring { background: conic-gradient(red, yellow, lime, cyan, blue, magenta, red); border-radius: 50%; }
+    </style>
+</head>
+<body class="bg-white text-gray-900 antialiased selection:bg-blue-200 selection:text-blue-900 flex flex-col min-h-screen">
+
+    <!-- ========== UNIFIED DENISIA WEBOPS NAVBAR ========== -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center">
+                    <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-2 rounded-lg shadow-md">
+                        <i data-lucide="zap" class="h-6 w-6 text-white"></i>
+                    </div>
+                    <span class="ml-3 text-xl font-bold text-gray-900">Denisia Webops Agency</span>
+                </a>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Home</a>
+                        <a href="projects.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Projects</a>
+                        <a href="blogs.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Blog</a>
+                        <a href="ai.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">AI Models</a>
+                        <a href="why-ai-seo.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Why AI SEO</a>
+                        <a href="livecodepreview.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Code Preview</a>
+                        <a href="Housekeeping-products.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">B2B Products</a>
+                        <a href="contact.html" class="bg-blue-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition shadow-sm text-sm">Get in Touch</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="burger-icon focus:outline-none">
+                        <i id="mobile-menu-icon" data-lucide="menu" class="h-6 w-6 text-gray-700"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-blue-100 shadow-lg absolute w-full z-40">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Home</a>
+                <a href="projects.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Projects</a>
+                <a href="blogs.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Blog</a>
+                <a href="ai.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">AI Models</a>
+                <a href="why-ai-seo.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Why AI SEO</a>
+                <a href="livecodepreview.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Code Preview</a>
+                <a href="Housekeeping-products.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">B2B Products</a>
+                <a href="dietplan.html" class="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50">🍽️ Diet Plan</a>
+                <a href="Corpcabs.html" class="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50">🚌 CorpCab Demo</a>
+                <a href="Chit-fund-calculator.html" class="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50">💰 Chit Fund Calc</a>
+                <a href="privacy.html" class="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50">📄 Privacy</a>
+                <a href="contact.html" class="block w-full text-left px-3 py-2 text-base font-medium text-blue-700">Get in Touch</a>
+                <a href="chromatone.html" class="block w-full text-left px-3 py-2 rounded-md text-sm font-bold text-blue-700 bg-blue-50">🎨 ChromaTone Pro</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== CHROMATONE APP ========== -->
+    <main class="pt-20 flex-grow w-full">
+        <!-- Start Overlay -->
+        <div id="start-overlay" class="fixed inset-0 z-50 bg-white flex flex-col items-center justify-center p-6 text-center">
+            <div class="w-24 h-24 rounded-3xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 mb-6 flex items-center justify-center shadow-[0_0_50px_rgba(168,85,247,0.4)]">
+                <i data-lucide="waves" class="text-white w-12 h-12"></i>
+            </div>
+            <h1 class="text-4xl font-extrabold mb-2 tracking-tight text-gray-900">ChromaTone Pro</h1>
+            <p class="text-gray-600 mb-10 max-w-sm">Use your camera, motion sensors, or mixer to translate colors into physical sound frequencies.</p>
+            <button id="btn-start" class="bg-blue-800 text-white font-bold text-lg px-8 py-4 rounded-full flex items-center gap-3 hover:scale-105 transition-transform active:scale-95 shadow-lg">
+                <i data-lucide="play" class="w-6 h-6"></i> Initialize Engine
+            </button>
+        </div>
+
+        <!-- Main App -->
+        <div id="app-wrapper" class="hidden w-full">
+            <!-- App Header -->
+            <div class="bg-gray-100 border-b border-gray-200 px-4 py-3 flex items-center justify-between shadow-sm">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="aperture" class="text-indigo-600"></i>
+                    <span class="font-bold tracking-wide text-gray-800">ChromaTone Pro</span>
+                </div>
+                <button id="btn-record-master" class="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-full text-sm font-semibold transition-colors">
+                    <div class="w-2.5 h-2.5 bg-red-500 rounded-full" id="record-dot"></div>
+                    <span id="record-text">Record WAV</span>
+                </button>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex bg-white border-b border-gray-200 shrink-0 overflow-x-auto hide-scroll">
+                <button class="flex-1 min-w-[120px] py-3 text-sm font-semibold text-blue-700 border-b-2 border-blue-600 tab-btn" data-target="view-camera">
+                    <i data-lucide="camera" class="inline-block w-4 h-4 mr-1"></i> Lens
+                </button>
+                <button class="flex-1 min-w-[120px] py-3 text-sm font-semibold text-gray-500 border-b-2 border-transparent tab-btn" data-target="view-sensor">
+                    <i data-lucide="compass" class="inline-block w-4 h-4 mr-1"></i> Motion
+                </button>
+                <button class="flex-1 min-w-[120px] py-3 text-sm font-semibold text-gray-500 border-b-2 border-transparent tab-btn" data-target="view-mixer">
+                    <i data-lucide="sliders-horizontal" class="inline-block w-4 h-4 mr-1"></i> Mixer
+                </button>
+            </div>
+
+            <!-- Camera View -->
+            <main id="view-camera" class="view-section w-full">
+                <div class="relative w-full bg-black aspect-video flex items-center justify-center">
+                    <div id="camera-error-ui" class="absolute inset-0 z-20 bg-gray-900 flex flex-col items-center justify-center p-6 text-center hidden">
+                        <i data-lucide="camera-off" class="w-12 h-12 text-gray-500 mb-4"></i>
+                        <p class="text-gray-400 mb-6 max-w-xs text-sm">Live camera access blocked. Use your native camera app instead!</p>
+                        <label class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-6 rounded-xl flex items-center gap-2 cursor-pointer shadow-lg">
+                            <i data-lucide="image-plus" class="w-5 h-5"></i> Open Native Camera
+                            <input type="file" id="native-camera-input" accept="image/*" capture="environment" class="hidden">
+                        </label>
+                    </div>
+                    <video id="video-feed" autoplay playsinline muted class="absolute inset-0 w-full h-full object-cover"></video>
+                    <canvas id="snap-canvas" class="absolute inset-0 hidden w-full h-full"></canvas>
+                    <img id="uploaded-img" class="absolute inset-0 hidden object-contain bg-black w-full h-full">
+                    <div class="absolute inset-0 pointer-events-none flex items-center justify-center z-10">
+                        <div class="w-16 h-16 border-2 border-white/70 rounded-full flex items-center justify-center shadow-md">
+                            <div class="w-2 h-2 bg-white rounded-full shadow-sm"></div>
+                        </div>
+                    </div>
+                    <canvas id="sampler-canvas" width="1" height="1" class="hidden"></canvas>
+                </div>
+
+                <!-- Dashboard -->
+                <div class="bg-white border-t border-gray-200 p-5 shadow-md">
+                    <div class="flex justify-between items-end mb-6">
+                        <div class="flex gap-4 items-center">
+                            <div id="cam-color-swatch" class="w-16 h-16 rounded-2xl border-4 border-gray-200 shadow-inner bg-black transition-colors"></div>
+                            <div>
+                                <p id="cam-color-name" class="text-2xl font-bold tracking-tight text-gray-900">Detecting...</p>
+                                <p id="cam-hex" class="text-sm font-semibold text-gray-600 mt-1">#000000</p>
+                                <p id="cam-rgb" class="text-xs text-gray-400 font-mono mt-0.5">RGB(0, 0, 0)</p>
+                            </div>
+                        </div>
+                        <button id="btn-snap" class="p-3 bg-gray-100 rounded-xl text-gray-700 transition-colors flex items-center gap-2 font-medium hover:bg-gray-200">
+                            <i data-lucide="camera" class="w-5 h-5"></i> Snap
+                        </button>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200 flex justify-between items-center">
+                        <div>
+                            <p class="text-xs text-indigo-600 font-semibold uppercase tracking-wider mb-1">Pure Freq</p>
+                            <div class="flex items-baseline gap-1">
+                                <span id="cam-freq" class="text-3xl font-bold text-gray-900">0.0</span>
+                                <span class="text-gray-500 font-medium">Hz</span>
+                            </div>
+                        </div>
+                        <button id="btn-cam-mute" class="p-3 bg-indigo-50 text-indigo-600 rounded-xl hover:bg-indigo-100">
+                            <i data-lucide="volume-2" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Motion Sensor View -->
+            <main id="view-sensor" class="view-section hidden w-full bg-gray-50 relative overflow-hidden">
+                <div class="absolute inset-0 opacity-20 pointer-events-none transition-colors duration-200" id="sensor-bg"></div>
+                <div class="flex flex-col items-center justify-center p-6 min-h-[60vh] z-10 relative">
+                    <div class="text-center mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2">Motion Color Sensor</h2>
+                        <p class="text-gray-600 text-sm max-w-xs">Rotate your phone. The compass direction translates into the color spectrum.</p>
+                    </div>
+                    <div class="relative w-64 h-64 flex items-center justify-center mb-8">
+                        <div class="absolute inset-0 compass-ring opacity-50 blur-xl"></div>
+                        <div class="absolute inset-0 compass-ring shadow-inner"></div>
+                        <div class="w-48 h-48 bg-white rounded-full flex flex-col items-center justify-center z-10 border-4 border-gray-200 shadow-2xl relative transition-colors duration-100" id="sensor-center">
+                            <span id="sensor-deg" class="text-3xl font-mono font-bold text-gray-900 mb-1">0°</span>
+                            <span class="text-xs text-gray-500 uppercase font-semibold">Heading</span>
+                        </div>
+                        <div id="compass-pointer" class="absolute w-full h-full flex justify-center transition-transform duration-75" style="transform: rotate(0deg);">
+                            <div class="w-4 h-8 bg-blue-600 rounded-t-full -mt-2 shadow-md"></div>
+                        </div>
+                    </div>
+                    <div class="bg-white/90 backdrop-blur-md p-4 rounded-2xl border border-gray-200 w-full max-w-sm flex justify-between items-center shadow-sm">
+                        <div>
+                            <p id="sensor-color-name" class="text-xl font-bold text-gray-900">Red</p>
+                            <p id="sensor-hex" class="text-sm font-mono font-semibold text-gray-500 mt-1">#FF0000</p>
+                            <p class="text-xs text-indigo-600 font-semibold uppercase mt-1">Generated Freq</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="flex items-baseline gap-1 justify-end">
+                                <span id="sensor-freq" class="text-2xl font-bold text-gray-900">389.0</span>
+                                <span class="text-gray-500 font-medium">Hz</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pb-8 text-center relative z-10">
+                    <button id="btn-activate-sensor" class="bg-blue-800 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-full shadow-md inline-flex items-center gap-2 transition">
+                        <i data-lucide="compass"></i> Activate Sensors
+                    </button>
+                </div>
+            </main>
+
+            <!-- Mixer View -->
+            <main id="view-mixer" class="view-section hidden w-full bg-gray-50">
+                <div class="p-4 border-b border-gray-200 bg-white shadow-sm">
+                    <p class="text-sm text-gray-600 mb-3">Add color tracks to mix frequencies in real time.</p>
+                    <button id="btn-add-track" class="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-colors">
+                        <i data-lucide="plus" class="w-5 h-5"></i> Add Color Track
+                    </button>
+                </div>
+                <div id="mixer-tracks" class="p-4 space-y-4 pb-24"></div>
+            </main>
+        </div>
+    </main>
+
+    <!-- ========== UNIFIED FOOTER ========== -->
+    <footer class="bg-gray-50 border-t border-blue-100 pt-16 pb-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-1.5 rounded-lg shadow">
+                            <i data-lucide="zap" class="h-5 w-5 text-white"></i>
+                        </div>
+                        <span class="ml-3 text-lg font-bold text-gray-900">Denisia Webops Agency</span>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">Complete digital solutions – from web development to AI integration.</p>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="services.html#web-dev" class="hover:text-blue-700">Web Development</a></li>
+                        <li><a href="services.html#app-dev" class="hover:text-blue-700">App Development</a></li>
+                        <li><a href="services.html#seo" class="hover:text-blue-700">SEO</a></li>
+                        <li><a href="services.html#digital-marketing" class="hover:text-blue-700">Digital Marketing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="blogs.html" class="hover:text-blue-700">Blog</a></li>
+                        <li><a href="projects.html" class="hover:text-blue-700">Projects</a></li>
+                        <li><a href="privacy.html" class="hover:text-blue-700">Privacy Policy</a></li>
+                        <li><a href="contact.html" class="hover:text-blue-700">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-600 text-sm mb-4">Get weekly insights.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Enter email" class="w-full px-4 py-2 rounded-l-md text-sm border border-gray-300" />
+                        <button class="bg-blue-800 px-4 py-2 rounded-r-md hover:bg-blue-700 transition-colors">
+                            <i data-lucide="arrow-right" class="h-4 w-4 text-white"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-blue-100 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">© 2025 Denisia Webops Agency. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <i data-lucide="twitter" class="h-5 w-5 text-gray-500 hover:text-blue-700 cursor-pointer transition"></i>
+                    <i data-lucide="linkedin" class="h-5 w-5 text-gray-500 hover:text-blue-700 cursor-pointer transition"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Hidden download link -->
+    <a id="download-link" class="hidden"></a>
+
+    <!-- App JavaScript -->
+    <script>
+        // PHYSICS & COLOR MATH UTILS
+        function rgbToHsl(r, g, b) {
+            r /= 255; g /= 255; b /= 255;
+            const max = Math.max(r, g, b), min = Math.min(r, g, b);
+            let h, s, l = (max + min) / 2;
+            if (max === min) {
+                h = s = 0; // achromatic
+            } else {
+                const d = max - min;
+                s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                switch (max) {
+                    case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                    case g: h = (b - r) / d + 2; break;
+                    case b: h = (r - g) / d + 4; break;
+                }
+                h /= 6;
+            }
+            return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
+        }
+
+        function getColorName(h, s, l) {
+            if (l < 15) return "Black";
+            if (l > 85) return "White";
+            if (s < 15) return "Gray";
+            if (h < 15 || h >= 345) return "Red";
+            if (h < 45) return "Orange";
+            if (h < 75) return "Yellow";
+            if (h < 160) return "Green";
+            if (h < 210) return "Cyan";
+            if (h < 260) return "Blue";
+            if (h < 315) return "Purple";
+            return "Pink";
+        }
+
+        function hueToRgbHex(hue) {
+            let h = hue / 360;
+            let r, g, b;
+            let i = Math.floor(h * 6);
+            let f = h * 6 - i;
+            let q = 1 - f;
+            switch(i % 6){
+                case 0: r = 1, g = f, b = 0; break;
+                case 1: r = q, g = 1, b = 0; break;
+                case 2: r = 0, g = 1, b = f; break;
+                case 3: r = 0, g = q, b = 1; break;
+                case 4: r = f, g = 0, b = 1; break;
+                case 5: r = 1, g = 0, b = q; break;
+            }
+            const toHex = x => {
+                const hex = Math.round(x * 255).toString(16);
+                return hex.length === 1 ? '0' + hex : hex;
+            };
+            return `#${toHex(r)}${toHex(g)}${toHex(b)}`.toUpperCase();
+        }
+
+        function hexToRgb(hex) {
+            let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result ? { r: parseInt(result[1], 16), g: parseInt(result[2], 16), b: parseInt(result[3], 16) } : {r:0, g:0, b:0};
+        }
+
+        function hueToPhysicalFrequency(hue) {
+            let h = hue % 360;
+            if (h > 300) h = 300 - (h - 300);
+            const wavelengthNm = 700 - (h / 300) * 300; 
+            const c = 299792458e9; 
+            const lightFreqHz = c / wavelengthNm;
+            const audioFreq = lightFreqHz / Math.pow(2, 40);
+            return Math.round(audioFreq * 10) / 10;
+        }
+
+        // App State
+        const State = {
+            audioCtx: null, masterGain: null, scriptNode: null,
+            isRecording: false, audioChunks: [], recordTimer: null, recordSecs: 0,
+            mainOsc: null, mainGain: null, mainMuted: false, activeMode: 'camera',
+            camActive: false, isSnapped: false, usingNativeImg: false,
+            sensorActive: false, sensorHue: 0,
+            mixerTracks: [], trackCounter: 0
+        };
+
+        // Audio init
+        function initAudio() {
+            if (State.audioCtx) return;
+            const AC = window.AudioContext || window.webkitAudioContext;
+            State.audioCtx = new AC();
+            State.masterGain = State.audioCtx.createGain();
+            State.masterGain.gain.value = 1.0;
+            State.scriptNode = State.audioCtx.createScriptProcessor(4096, 1, 1);
+            State.masterGain.connect(State.scriptNode);
+            State.scriptNode.connect(State.audioCtx.destination);
+            State.masterGain.connect(State.audioCtx.destination);
+            State.scriptNode.onaudioprocess = (e) => {
+                if (State.isRecording) State.audioChunks.push(new Float32Array(e.inputBuffer.getChannelData(0)));
+            };
+            State.mainOsc = State.audioCtx.createOscillator();
+            State.mainGain = State.audioCtx.createGain();
+            State.mainOsc.type = 'sine';
+            State.mainOsc.frequency.value = 440;
+            State.mainGain.gain.value = 0;
+            State.mainOsc.connect(State.mainGain);
+            State.mainGain.connect(State.masterGain);
+            State.mainOsc.start();
+        }
+
+        function updateMainFreq(freq) { if (State.mainOsc) State.mainOsc.frequency.setTargetAtTime(freq, State.audioCtx.currentTime, 0.05); }
+        function updateMainVol(vol) { if (State.mainGain) State.mainGain.gain.setTargetAtTime(vol, State.audioCtx.currentTime, 0.05); }
+
+        // Camera & native fallback
+        const videoEl = document.getElementById('video-feed');
+        const snapCanvas = document.getElementById('snap-canvas');
+        const uploadedImg = document.getElementById('uploaded-img');
+        const samplerCtx = document.getElementById('sampler-canvas').getContext('2d', { willReadFrequently: true });
+        
+        async function startCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: 'environment' } } });
+                videoEl.srcObject = stream;
+                State.camActive = true;
+                document.getElementById('camera-error-ui').classList.add('hidden');
+                requestAnimationFrame(processFrame);
+            } catch (err) {
+                document.getElementById('camera-error-ui').classList.remove('hidden');
+            }
+        }
+
+        function processFrame() {
+            if (State.activeMode !== 'camera') return;
+            let source = null;
+            if (State.usingNativeImg && uploadedImg.complete) source = uploadedImg;
+            else if (State.camActive && !State.isSnapped && videoEl.readyState >= 2) source = videoEl;
+            if (source) {
+                samplerCtx.drawImage(source, source.width/2 || source.videoWidth/2, source.height/2 || source.videoHeight/2, 1, 1, 0, 0, 1, 1);
+                const [r, g, b] = samplerCtx.getImageData(0, 0, 1, 1).data;
+                updateColorData(r, g, b);
+            }
+            if (State.camActive) requestAnimationFrame(processFrame);
+        }
+
+        function updateColorData(r, g, b) {
+            const hex = '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('').toUpperCase();
+            
+            // Generate Color Name and Frequency based on HSL
+            const [h, s, l] = rgbToHsl(r, g, b);
+            const colorName = getColorName(h, s, l);
+            const freq = hueToPhysicalFrequency(h);
+            
+            // DOM Updates
+            document.getElementById('cam-color-swatch').style.backgroundColor = hex;
+            document.getElementById('cam-color-name').innerText = colorName;
+            document.getElementById('cam-hex').innerText = hex;
+            document.getElementById('cam-rgb').innerText = `RGB(${r}, ${g}, ${b})`;
+            document.getElementById('cam-freq').innerText = freq.toFixed(1);
+            
+            // Audio Updates
+            if (State.activeMode === 'camera') updateMainFreq(freq);
+        }
+
+        // Native camera input fallback
+        document.getElementById('native-camera-input').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const url = URL.createObjectURL(file);
+                uploadedImg.src = url;
+                uploadedImg.onload = () => {
+                    document.getElementById('camera-error-ui').classList.add('hidden');
+                    uploadedImg.classList.remove('hidden');
+                    videoEl.classList.add('hidden');
+                    State.usingNativeImg = true;
+                    State.isSnapped = true;
+                    document.getElementById('btn-snap').classList.add('hidden');
+                    processFrame();
+                };
+            }
+        });
+
+        document.getElementById('btn-snap').addEventListener('click', () => {
+            if(State.usingNativeImg) return;
+            State.isSnapped = !State.isSnapped;
+            if (State.isSnapped) {
+                snapCanvas.width = videoEl.videoWidth; snapCanvas.height = videoEl.videoHeight;
+                snapCanvas.getContext('2d').drawImage(videoEl, 0, 0);
+                videoEl.classList.add('hidden'); snapCanvas.classList.remove('hidden');
+                document.getElementById('btn-snap').innerHTML = `<i data-lucide="play" class="w-5 h-5"></i> Live`;
+            } else {
+                videoEl.classList.remove('hidden'); snapCanvas.classList.add('hidden');
+                document.getElementById('btn-snap').innerHTML = `<i data-lucide="camera" class="w-5 h-5"></i> Snap`;
+                requestAnimationFrame(processFrame);
+            }
+            lucide.createIcons();
+        });
+
+        // Motion sensor
+        const btnSensor = document.getElementById('btn-activate-sensor');
+        function handleOrientation(e) {
+            if (State.activeMode !== 'sensor') return;
+            let alpha = e.alpha || 0;
+            State.sensorHue = Math.round(alpha);
+            
+            const hex = hueToRgbHex(State.sensorHue);
+            const freq = hueToPhysicalFrequency(State.sensorHue);
+            const colorName = getColorName(State.sensorHue, 100, 50); // Sensor colours are 100% saturation
+            
+            document.getElementById('compass-pointer').style.transform = `rotate(${alpha}deg)`;
+            document.getElementById('sensor-deg').innerText = `${Math.round(alpha)}°`;
+            
+            document.getElementById('sensor-color-name').innerText = colorName;
+            document.getElementById('sensor-hex').innerText = hex;
+            document.getElementById('sensor-freq').innerText = freq.toFixed(1);
+            
+            document.getElementById('sensor-center').style.borderColor = hex;
+            document.getElementById('sensor-bg').style.backgroundColor = hex;
+            
+            updateMainFreq(freq);
+        }
+
+        btnSensor.addEventListener('click', () => {
+            if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+                DeviceOrientationEvent.requestPermission().then(res => {
+                    if (res === 'granted') {
+                        window.addEventListener('deviceorientation', handleOrientation);
+                        btnSensor.classList.add('hidden');
+                        State.sensorActive = true;
+                    } else alert('Motion sensors denied.');
+                }).catch(console.error);
+            } else {
+                window.addEventListener('deviceorientation', handleOrientation);
+                btnSensor.classList.add('hidden');
+                State.sensorActive = true;
+            }
+        });
+
+        // Mixer
+        function addMixerTrack() {
+            const id = `track_${State.trackCounter++}`;
+            const hex = '#FF0000';
+            const freq = hueToPhysicalFrequency(0);
+            const osc = State.audioCtx.createOscillator();
+            const gain = State.audioCtx.createGain();
+            osc.frequency.value = freq;
+            gain.gain.value = 0.5;
+            osc.connect(gain); gain.connect(State.masterGain); osc.start();
+            const trackObj = { id, osc, gain, vol: 0.5, muted: false };
+            State.mixerTracks.push(trackObj);
+            const div = document.createElement('div');
+            div.className = "bg-white border border-gray-200 rounded-2xl p-4 flex flex-col gap-4 shadow-sm";
+            div.innerHTML = `
+                <div class="flex items-center gap-4">
+                    <div class="relative w-16 h-16 rounded-xl overflow-hidden border-2 border-gray-300">
+                        <input type="color" class="trk-col absolute inset-0 w-full h-full" value="${hex}">
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex justify-between mb-2"><span class="trk-hex font-mono font-bold text-gray-800">${hex}</span><span class="trk-freq text-indigo-600 font-bold text-sm">${freq.toFixed(1)} Hz</span></div>
+                        <input type="range" class="trk-vol w-full" min="0" max="100" value="50">
+                    </div>
+                    <button class="trk-del p-2 text-gray-400 hover:text-red-500"><i data-lucide="x"></i></button>
+                </div>
+            `;
+            document.getElementById('mixer-tracks').appendChild(div);
+            lucide.createIcons();
+            
+            div.querySelector('.trk-col').addEventListener('input', e => {
+                const val = e.target.value.toUpperCase();
+                const rgb = hexToRgb(val);
+                const h = rgbToHsl(rgb.r, rgb.g, rgb.b)[0];
+                const f = hueToPhysicalFrequency(h);
+                
+                div.querySelector('.trk-hex').innerText = val;
+                div.querySelector('.trk-freq').innerText = f.toFixed(1) + ' Hz';
+                osc.frequency.setTargetAtTime(f, State.audioCtx.currentTime, 0.05);
+            });
+            
+            div.querySelector('.trk-vol').addEventListener('input', e => {
+                trackObj.vol = e.target.value / 100;
+                gain.gain.setTargetAtTime(trackObj.vol, State.audioCtx.currentTime, 0.05);
+            });
+            div.querySelector('.trk-del').addEventListener('click', () => {
+                osc.stop(); osc.disconnect(); gain.disconnect(); div.remove();
+                State.mixerTracks = State.mixerTracks.filter(t => t.id !== id);
+            });
+        }
+
+        // WAV Encoding & Recording
+        function encodeWAV(audioDataArrays, sampleRate) {
+            const totalLength = audioDataArrays.reduce((acc, arr) => acc + arr.length, 0);
+            const result = new Float32Array(totalLength);
+            let offset = 0;
+            for (let i = 0; i < audioDataArrays.length; i++) {
+                result.set(audioDataArrays[i], offset); offset += audioDataArrays[i].length;
+            }
+            const buffer = new ArrayBuffer(44 + result.length * 2);
+            const view = new DataView(buffer);
+            const writeString = (v, o, s) => { for (let i = 0; i < s.length; i++) v.setUint8(o + i, s.charCodeAt(i)); };
+            writeString(view, 0, 'RIFF'); view.setUint32(4, 36 + result.length * 2, true);
+            writeString(view, 8, 'WAVE'); writeString(view, 12, 'fmt ');
+            view.setUint32(16, 16, true); view.setUint16(20, 1, true); view.setUint16(22, 1, true);
+            view.setUint32(24, sampleRate, true); view.setUint32(28, sampleRate * 2, true);
+            view.setUint16(32, 2, true); view.setUint16(34, 16, true);
+            writeString(view, 36, 'data'); view.setUint32(40, result.length * 2, true);
+            let pcmOffset = 44;
+            for (let i = 0; i < result.length; i++, pcmOffset += 2) {
+                let s = Math.max(-1, Math.min(1, result[i]));
+                view.setInt16(pcmOffset, s < 0 ? s * 0x8000 : s * 0x7FFF, true);
+            }
+            return new Blob([view], { type: 'audio/wav' });
+        }
+
+        document.getElementById('btn-record-master').addEventListener('click', () => {
+            const btn = document.getElementById('btn-record-master');
+            const txt = document.getElementById('record-text');
+            const dot = document.getElementById('record-dot');
+            if (!State.isRecording) {
+                State.audioChunks = []; State.recordSecs = 0; State.isRecording = true;
+                btn.classList.add('bg-red-600', 'text-white'); btn.classList.remove('bg-gray-200', 'text-gray-800');
+                dot.classList.replace('bg-red-500', 'bg-white');
+                State.recordTimer = setInterval(() => txt.innerText = `Rec ${++State.recordSecs}s`, 1000);
+            } else {
+                State.isRecording = false; clearInterval(State.recordTimer);
+                btn.classList.remove('bg-red-600', 'text-white'); btn.classList.add('bg-gray-200', 'text-gray-800');
+                dot.classList.replace('bg-white', 'bg-red-500'); txt.innerText = "Processing...";
+                setTimeout(() => {
+                    if (State.audioChunks.length > 0) {
+                        const url = URL.createObjectURL(encodeWAV(State.audioChunks, State.audioCtx.sampleRate));
+                        const a = document.getElementById('download-link');
+                        a.href = url; a.download = `chromatone_${new Date().getTime()}.wav`; a.click();
+                        URL.revokeObjectURL(url);
+                    }
+                    txt.innerText = "Record WAV";
+                }, 100);
+            }
+        });
+
+        // Tab switching & UI initialisation
+        const startBtn = document.getElementById('btn-start');
+        const startOverlay = document.getElementById('start-overlay');
+        const appWrapper = document.getElementById('app-wrapper');
+        startBtn.addEventListener('click', () => {
+            startOverlay.style.display = 'none';
+            appWrapper.classList.remove('hidden');
+            initAudio();
+            startCamera();
+        });
+
+        const tabs = document.querySelectorAll('.tab-btn');
+        const views = document.querySelectorAll('.view-section');
+        tabs.forEach(btn => {
+            btn.addEventListener('click', e => {
+                tabs.forEach(b => { b.classList.remove('border-blue-600', 'text-blue-700'); b.classList.add('border-transparent', 'text-gray-500'); });
+                e.currentTarget.classList.add('border-blue-600', 'text-blue-700');
+                e.currentTarget.classList.remove('border-transparent', 'text-gray-500');
+                const target = e.currentTarget.dataset.target;
+                views.forEach(v => v.classList.add('hidden'));
+                document.getElementById(target).classList.remove('hidden');
+                State.activeMode = target.replace('view-', '');
+                if (State.activeMode === 'mixer') updateMainVol(0);
+                else if (!State.mainMuted) updateMainVol(0.5);
+            });
+        });
+
+        document.getElementById('btn-cam-mute').addEventListener('click', e => {
+            State.mainMuted = !State.mainMuted;
+            const btn = e.currentTarget;
+            if (State.mainMuted) {
+                btn.classList.replace('bg-indigo-50', 'bg-gray-100'); btn.classList.replace('text-indigo-600', 'text-gray-500');
+                btn.innerHTML = `<i data-lucide="volume-x" class="w-6 h-6"></i>`; updateMainVol(0);
+            } else {
+                btn.classList.replace('bg-gray-100', 'bg-indigo-50'); btn.classList.replace('text-gray-500', 'text-indigo-600');
+                btn.innerHTML = `<i data-lucide="volume-2" class="w-6 h-6"></i>`; updateMainVol(0.5);
+            }
+            lucide.createIcons();
+        });
+
+        document.getElementById('btn-add-track').addEventListener('click', addMixerTrack);
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                menu.classList.add('hidden');
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        }
+        window.toggleMobileMenu = toggleMobileMenu;
+        document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+    </script>
+
+    <!-- Tawk.to Script -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function(){
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/6993fa897941b81c35293c7a/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+</body>
+</html>

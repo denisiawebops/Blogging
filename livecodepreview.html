@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FWP9BLNZK6');
+    </script>
+
+    <!-- Google Site Verification & Bing -->
+    <meta name="google-site-verification" content="82U62k4jtMBmS52po-sbJ12znmacAgq0Rg4NvMZLXMY">
+    <meta name="msvalidate.01" content="8250834873D72FFE4BABCD1B2C7B3173">
+
+    <!-- Clarity tracking code -->
+    <script>
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vimok6xi57");
+    </script>
+
+    <!-- AEO Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.denisiawebops.org/#organization",
+          "name": "Denisia Webops Agency",
+          "url": "https://www.denisiawebops.org/"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.denisiawebops.org/#website",
+          "url": "https://www.denisiawebops.org/",
+          "name": "Denisia Webops Agency",
+          "publisher": { "@id": "https://www.denisiawebops.org/#organization" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.denisiawebops.org/livecodepreview.html#webpage",
+          "url": "https://www.denisiawebops.org/livecodepreview.html",
+          "name": "Live Code Previewer & Security Scanner",
+          "description": "Local HTML/CSS/JS preview tool with security scanning and export features.",
+          "isPartOf": { "@id": "https://www.denisiawebops.org/#website" }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://www.denisiawebops.org/livecodepreview.html#softwareapplication",
+          "name": "Live Code Previewer & Security Scanner",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Web",
+          "url": "https://www.denisiawebops.org/livecodepreview.html",
+          "description": "Local HTML/CSS/JS preview tool with security scanning and export features.",
+          "creator": { "@id": "https://www.denisiawebops.org/#organization" }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="canonical" href="https://www.denisiawebops.org/livecodepreview.html">
+    <meta property="og:image" content="https://www.denisiawebops.org/images/logo.png">
+    
+    <title>Live Code Previewer & Security Scanner | Denisia Webops</title>
+    <meta name="description" content="Preview full HTML or separate HTML/CSS/JS live, scan for real-world security issues, and export reports locally without server uploads.">
+
+    <!-- Tailwind CSS, Lucide Icons, html2canvas -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: { colors: { primary: '#1e3a8a', secondary: '#3b82f6', accent: '#dbeafe' } }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #f8fafc; color: #1f2937; }
+        
+        /* Editor Styles – Fixed height with scroll, no auto-expand */
+        .editor-shell {
+            display: flex;
+            background: #0f172a;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            border: 1px solid #334155;
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+            height: 400px;
+        }
+        .line-numbers {
+            width: 3rem;
+            background: #0b1120;
+            color: #475569;
+            padding: 1rem 0.25rem 1rem 0;
+            text-align: right;
+            user-select: none;
+            overflow: hidden;
+            white-space: pre;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border-right: 1px solid #1e293b;
+            height: 100%;
+            overflow-y: auto;
+        }
+        textarea.code {
+            flex-grow: 1;
+            background: #0f172a;
+            color: #38bdf8;
+            padding: 1rem;
+            border: none;
+            outline: none;
+            resize: none;
+            white-space: pre;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            tab-size: 2;
+            height: 100%;
+            overflow-y: auto;
+        }
+        textarea.code::placeholder { color: #475569; }
+        
+        /* Scrollbars */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .editor-shell ::-webkit-scrollbar-track { background: #0f172a; }
+        .editor-shell ::-webkit-scrollbar-thumb { background: #334155; }
+    </style>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Live Code Previewer & Security Scanner | Denisia Webops">
+    <meta property="og:description" content="Preview HTML/CSS/JS live, scan for security issues, export reports locally without server uploads.">
+    <meta property="og:url" content="https://www.denisiawebops.org/livecodepreview.html">
+</head>
+<body class="antialiased flex flex-col min-h-screen">
+
+    <!-- ========== UNIFIED NAVBAR (with Color Frequency Detector) ========== -->
+<nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+            <a href="index.html" class="flex items-center">
+                <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-2 rounded-lg shadow-md">
+                    <i data-lucide="zap" class="h-6 w-6 text-white"></i>
+                </div>
+                <span class="ml-3 text-xl font-bold text-gray-900">Denisia Webops Agency</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:block">
+                <div class="ml-10 flex items-baseline space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Home</a>
+                    <a href="projects.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Projects</a>
+                    <a href="blogs.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Blog</a>
+                    <a href="chromatone.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Color Frequency Detector</a>
+                    <a href="ai.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">AI Models</a>
+                    <a href="why-ai-seo.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Why AI SEO</a>
+                    <a href="livecodepreview.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Code Preview</a>
+                    <a href="dietplan.html" class="text-gray-600 hover:text-blue-700 font-medium transition text-sm">Build Dietplan</a>
+                    <a href="contact.html" class="bg-blue-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition shadow-sm text-sm">Get in Touch</a>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button onclick="toggleMobileMenu()" class="burger-icon focus:outline-none">
+                    <i id="mobile-menu-icon" data-lucide="menu" class="h-6 w-6 text-gray-700"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-blue-100 shadow-lg absolute w-full z-40">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="index.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Home</a>
+            <a href="projects.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Projects</a>
+            <a href="blogs.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Blog</a>
+            <a href="chromatone.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Color Frequency Detector</a>
+            <a href="ai.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">AI Models</a>
+            <a href="why-ai-seo.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Why AI SEO</a>
+            <a href="livecodepreview.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50">Code Preview</a>
+            <a href="dietplan.html" class="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50">🍽️ Diet Plan</a>
+            <a href="Corpcabs.html" class="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50">🚌 CorpCab Demo</a>
+            <a href="contact.html" class="block w-full text-left px-3 py-2 text-base font-medium text-blue-700">Get in Touch</a>
+        </div>
+    </div>
+</nav>
+
+    <!-- Header -->
+    <header class="bg-blue-900 pt-32 pb-16 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M0 40V0H40" fill="none" stroke="white" stroke-width="1"></path></pattern></defs>
+                <rect width="100%" height="100%" fill="url(#grid)"></rect>
+            </svg>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-center md:text-left">
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-800 border border-blue-700 text-blue-200 text-xs font-mono mb-4">
+                    <i data-lucide="shield-check" class="w-4 h-4"></i> Local Execution Engine
+                </span>
+                <h1 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-3">
+                    Live Preview &amp; Security Scanner
+                </h1>
+                <p class="text-blue-200 max-w-2xl text-sm md:text-base">
+                    Paste HTML/CSS/JS code to render it live. Scan for real-world vulnerabilities like XSS, injections, and exposed secrets locally without server uploads.
+                </p>
+            </div>
+            <div class="flex flex-wrap justify-center md:justify-end gap-3">
+                <button class="bg-blue-800 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition border border-blue-700" onclick="loadSample('full')">Load Full HTML</button>
+                <button class="bg-blue-800 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition border border-blue-700" onclick="loadSample('split')">Load Split App</button>
+                <button class="bg-red-900/50 hover:bg-red-800 text-red-200 px-4 py-2 rounded-lg text-sm font-semibold transition border border-red-800" onclick="clearAll()">Reset</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- WORKSPACE MAIN -->
+    <main class="flex-grow max-w-[1600px] mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+            
+            <!-- LEFT PANEL: EDITOR -->
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-5 md:p-6 flex flex-col">
+                
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                    <div>
+                        <h2 class="text-xl font-bold text-gray-900">Workspace Editor</h2>
+                        <p class="text-xs text-gray-500 mt-1">Select mode to write code (fixed height, scrollable)</p>
+                    </div>
+                    <div class="flex bg-gray-100 p-1 rounded-lg border border-gray-200">
+                        <button id="modeCombinedBtn" onclick="setMode('combined')" class="px-4 py-1.5 text-sm font-semibold rounded-md transition-colors bg-white text-blue-700 shadow-sm border border-gray-200">Combined HTML</button>
+                        <button id="modeSplitBtn" onclick="setMode('split')" class="px-4 py-1.5 text-sm font-semibold rounded-md transition-colors text-gray-600 hover:text-gray-900 border border-transparent">Split Files</button>
+                    </div>
+                </div>
+
+                <!-- Combined Editor -->
+                <div id="combinedPanel" class="flex-grow flex flex-col">
+                    <div class="editor-shell flex-grow">
+                        <pre id="combinedLines" class="line-numbers">1</pre>
+                        <textarea id="combinedCode" class="code" placeholder="&lt;!-- Paste a complete HTML document here... --&gt;"></textarea>
+                    </div>
+                </div>
+
+                <!-- Split Editor -->
+                <div id="splitPanel" class="hidden flex-grow flex flex-col">
+                    <div class="flex gap-2 mb-3">
+                        <button id="tabHtmlBtn" onclick="setSplitTab('html')" class="px-3 py-1 text-sm font-bold rounded-md bg-blue-100 text-blue-700 border border-blue-200">index.html</button>
+                        <button id="tabCssBtn" onclick="setSplitTab('css')" class="px-3 py-1 text-sm font-bold rounded-md text-gray-600 bg-gray-100 border border-transparent hover:bg-gray-200">styles.css</button>
+                        <button id="tabJsBtn" onclick="setSplitTab('js')" class="px-3 py-1 text-sm font-bold rounded-md text-gray-600 bg-gray-100 border border-transparent hover:bg-gray-200">app.js</button>
+                    </div>
+
+                    <div id="splitHtml" class="flex-grow flex flex-col">
+                        <div class="editor-shell flex-grow">
+                            <pre id="htmlLines" class="line-numbers">1</pre>
+                            <textarea id="htmlCode" class="code" placeholder="&lt;!-- Write your HTML structure... --&gt;"></textarea>
+                        </div>
+                    </div>
+                    <div id="splitCss" class="hidden flex-grow flex flex-col">
+                        <div class="editor-shell flex-grow">
+                            <pre id="cssLines" class="line-numbers">1</pre>
+                            <textarea id="cssCode" class="code" placeholder="/* Write your CSS... */"></textarea>
+                        </div>
+                    </div>
+                    <div id="splitJs" class="hidden flex-grow flex flex-col">
+                        <div class="editor-shell flex-grow">
+                            <pre id="jsLines" class="line-numbers">1</pre>
+                            <textarea id="jsCode" class="code" placeholder="// Write your JavaScript..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Editor Toolbars -->
+                <div class="mt-6 flex flex-wrap gap-2 items-center justify-between bg-gray-50 p-3 rounded-xl border border-gray-200">
+                    <div class="flex gap-2">
+                        <button onclick="saveCurrent()" class="p-2 text-gray-600 hover:bg-blue-100 hover:text-blue-700 rounded-lg transition" title="Save File"><i data-lucide="save" class="w-5 h-5"></i></button>
+                        <button onclick="openFileDialog()" class="p-2 text-gray-600 hover:bg-blue-100 hover:text-blue-700 rounded-lg transition" title="Open File"><i data-lucide="folder-open" class="w-5 h-5"></i></button>
+                        <input id="fileInput" type="file" class="hidden" accept=".html,.htm,.css,.js,.txt">
+                    </div>
+                    <div class="flex items-center gap-2 w-full sm:w-auto mt-2 sm:mt-0">
+                        <div class="relative flex items-center w-full sm:w-64">
+                            <i data-lucide="search" class="w-4 h-4 absolute left-3 text-gray-400"></i>
+                            <input id="searchText" class="w-full pl-9 pr-3 py-2 rounded-lg border border-gray-300 text-sm focus:outline-none focus:border-blue-500" placeholder="Search in editor...">
+                        </div>
+                        <button onclick="findInCurrent()" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-3 py-2 rounded-lg text-sm font-medium transition">Find</button>
+                    </div>
+                </div>
+
+                <button onclick="runPreviewAndScan()" class="mt-4 w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 rounded-xl shadow-md transition flex justify-center items-center">
+                    <i data-lucide="play-circle" class="w-5 h-5 mr-2"></i> Compile, Preview &amp; Scan
+                </button>
+            </section>
+
+            <!-- RIGHT PANEL: PREVIEW & SCANNER -->
+            <section class="flex flex-col gap-6">
+                
+                <!-- Live Preview Block -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-5 md:p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h2 class="text-xl font-bold text-gray-900">Live Render</h2>
+                            <p class="text-xs text-gray-500">Local iframe execution output</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="downloadFullWidget()" class="p-1.5 text-gray-500 hover:bg-gray-100 hover:text-blue-600 rounded transition" title="Download Standalone HTML"><i data-lucide="download" class="w-5 h-5"></i></button>
+                            <button onclick="launchPreviewNewTab()" class="p-1.5 text-gray-500 hover:bg-gray-100 hover:text-blue-600 rounded transition" title="Launch in New Tab"><i data-lucide="external-link" class="w-5 h-5"></i></button>
+                            <button onclick="captureWidget()" class="p-1.5 text-gray-500 hover:bg-gray-100 hover:text-blue-600 rounded transition" title="Screenshot UI"><i data-lucide="camera" class="w-5 h-5"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div id="widget" class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-inner h-[300px] relative">
+                        <iframe id="outputFrame" class="w-full h-full border-0 absolute inset-0" sandbox="allow-scripts allow-forms allow-modals allow-popups"></iframe>
+                    </div>
+                </div>
+
+                <!-- Scanner Results Block -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-5 md:p-6 flex-grow flex flex-col">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <h2 class="text-xl font-bold text-gray-900">Security Report</h2>
+                            <p id="scanSummary" class="text-xs text-gray-500 mt-1">Awaiting code scan...</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="exportJSON()" class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1.5 rounded font-medium transition">Export JSON</button>
+                            <button onclick="copyReport()" class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1.5 rounded font-medium transition">Copy Text</button>
+                        </div>
+                    </div>
+
+                    <!-- Severity KPIs -->
+                    <div class="grid grid-cols-4 gap-3 mb-6">
+                        <div class="bg-red-50 border border-red-100 rounded-xl p-3 text-center">
+                            <div id="countCrit" class="text-2xl font-black text-red-600">0</div>
+                            <div class="text-[10px] uppercase font-bold text-red-800 mt-1">Critical</div>
+                        </div>
+                        <div class="bg-orange-50 border border-orange-100 rounded-xl p-3 text-center">
+                            <div id="countHigh" class="text-2xl font-black text-orange-600">0</div>
+                            <div class="text-[10px] uppercase font-bold text-orange-800 mt-1">High</div>
+                        </div>
+                        <div class="bg-blue-50 border border-blue-100 rounded-xl p-3 text-center">
+                            <div id="countMed" class="text-2xl font-black text-blue-600">0</div>
+                            <div class="text-[10px] uppercase font-bold text-blue-800 mt-1">Medium</div>
+                        </div>
+                        <div class="bg-green-50 border border-green-100 rounded-xl p-3 text-center">
+                            <div id="countLow" class="text-2xl font-black text-green-600">0</div>
+                            <div class="text-[10px] uppercase font-bold text-green-800 mt-1">Low</div>
+                        </div>
+                    </div>
+
+                    <!-- Table -->
+                    <div class="border border-gray-200 rounded-xl overflow-hidden flex-grow relative">
+                        <div class="overflow-y-auto absolute inset-0">
+                            <table class="w-full text-left text-sm whitespace-nowrap">
+                                <thead class="bg-gray-50 text-gray-600 text-xs uppercase sticky top-0 border-b border-gray-200 shadow-sm z-10">
+                                    <tr>
+                                        <th class="px-4 py-3 font-semibold">Severity</th>
+                                        <th class="px-4 py-3 font-semibold">Location</th>
+                                        <th class="px-4 py-3 font-semibold">Vulnerability</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="resultsBody" class="divide-y divide-gray-100 text-gray-700">
+                                    <tr>
+                                        <td colspan="3" class="px-4 py-12 text-center text-gray-400">
+                                            <i data-lucide="shield-check" class="w-8 h-8 mx-auto mb-2 text-gray-300"></i>
+                                            Run preview and scan to see results.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-3 mt-4">
+                        <button onclick="redirectToWhatsApp()" class="flex-1 bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-xl shadow-md transition flex justify-center items-center">
+                            <i data-lucide="message-circle" class="w-5 h-5 mr-2"></i> Discuss Fixes with an Expert
+                        </button>
+                        <button onclick="fixAllIssues()" class="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl shadow-md transition flex justify-center items-center">
+                            <i data-lucide="shield-alert" class="w-5 h-5 mr-2"></i> Fix All Issues
+                        </button>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+        <!-- STEP-BY-STEP GUIDE & BLOG CITATIONS -->
+        <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Left: Step-by-Step Guide -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2"><i data-lucide="book-open" class="w-6 h-6 text-blue-600"></i> How to Use This Tool</h2>
+                <div class="space-y-4">
+                    <div class="border-l-4 border-blue-600 pl-4">
+                        <h3 class="font-bold text-gray-800">1. Generate a full web app using AI</h3>
+                        <p class="text-sm text-gray-600 mb-2">Copy one of these prompts into your favourite AI assistant:</p>
+                        <div class="bg-gray-50 rounded-lg p-3 text-xs font-mono text-gray-700 overflow-x-auto">
+                            <strong>Gemini / ChatGPT / Copilot:</strong><br>
+                            "Build a complete, self-contained HTML/CSS/JS web application with a modern UI. Include interactive features, responsive design, and no external dependencies. Add local storage or demo data. Make it a functional dashboard/todo/calculator/crud app. Output only the full HTML file."
+                        </div>
+                        <button onclick="copyPrompt()" class="mt-2 text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded hover:bg-blue-200 transition">Copy Prompt</button>
+                    </div>
+                    <div class="border-l-4 border-green-600 pl-4">
+                        <h3 class="font-bold text-gray-800">2. Paste the code into the editor</h3>
+                        <p class="text-sm text-gray-600">Switch to <strong>Combined HTML</strong> mode and paste the entire output. Or use <strong>Split Files</strong> for separate HTML/CSS/JS.</p>
+                    </div>
+                    <div class="border-l-4 border-purple-600 pl-4">
+                        <h3 class="font-bold text-gray-800">3. Click <strong>Compile, Preview & Scan</strong></h3>
+                        <p class="text-sm text-gray-600">The tool renders your app live and runs a real‑world security audit (XSS, secrets, dangerous patterns).</p>
+                    </div>
+                    <div class="border-l-4 border-red-600 pl-4">
+                        <h3 class="font-bold text-gray-800">4. Address vulnerabilities</h3>
+                        <p class="text-sm text-gray-600">Use the report table to identify issues, then click <strong>Fix All Issues</strong> to contact us for a professional security review.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Premium Blog Citations -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2"><i data-lucide="newspaper" class="w-6 h-6 text-blue-600"></i> Premium Insights</h2>
+                <div class="grid grid-cols-1 gap-4">
+                    <!-- Blog Card 1 -->
+                    <a href="app.html" class="group block border border-gray-100 rounded-xl p-4 hover:shadow-md transition-all hover:-translate-y-0.5">
+                        <div class="flex items-start gap-3">
+                            <div class="bg-blue-100 p-2 rounded-lg"><i data-lucide="wallet" class="w-5 h-5 text-blue-700"></i></div>
+                            <div>
+                                <h3 class="font-bold text-gray-800 group-hover:text-blue-700">Budget Money Manager App</h3>
+                                <p class="text-xs text-gray-500 mt-1">Automate the 50/30/20 rule and fix cash flow.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="automation-seo.html" class="group block border border-gray-100 rounded-xl p-4 hover:shadow-md transition-all hover:-translate-y-0.5">
+                        <div class="flex items-start gap-3">
+                            <div class="bg-purple-100 p-2 rounded-lg"><i data-lucide="trending-up" class="w-5 h-5 text-purple-700"></i></div>
+                            <div>
+                                <h3 class="font-bold text-gray-800 group-hover:text-purple-700">Automate B2B SaaS Affiliate Marketing</h3>
+                                <p class="text-xs text-gray-500 mt-1">Programmatic SEO with AI – scale your commissions.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="ai.html" class="group block border border-gray-100 rounded-xl p-4 hover:shadow-md transition-all hover:-translate-y-0.5">
+                        <div class="flex items-start gap-3">
+                            <div class="bg-cyan-100 p-2 rounded-lg"><i data-lucide="brain" class="w-5 h-5 text-cyan-700"></i></div>
+                            <div>
+                                <h3 class="font-bold text-gray-800 group-hover:text-cyan-700">Prompt Engineering Frameworks</h3>
+                                <p class="text-xs text-gray-500 mt-1">R‑C‑T‑O method for enterprise automation.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="powerpages.html" class="group block border border-gray-100 rounded-xl p-4 hover:shadow-md transition-all hover:-translate-y-0.5">
+                        <div class="flex items-start gap-3">
+                            <div class="bg-indigo-100 p-2 rounded-lg"><i data-lucide="code-2" class="w-5 h-5 text-indigo-700"></i></div>
+                            <div>
+                                <h3 class="font-bold text-gray-800 group-hover:text-indigo-700">Microsoft Power Pages Guide</h3>
+                                <p class="text-xs text-gray-500 mt-1">Low‑code external websites with Dataverse.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="Corpcabs.html" class="group block border border-gray-100 rounded-xl p-4 hover:shadow-md transition-all hover:-translate-y-0.5">
+                        <div class="flex items-start gap-3">
+                            <div class="bg-emerald-100 p-2 rounded-lg"><i data-lucide="bus" class="w-5 h-5 text-emerald-700"></i></div>
+                            <div>
+                                <h3 class="font-bold text-gray-800 group-hover:text-emerald-700">Employee Transport Management</h3>
+                                <p class="text-xs text-gray-500 mt-1">Automated routing, billing & safety for fleets.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <p class="text-xs text-gray-400 mt-4 text-center">📌 More articles coming soon – stay tuned.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Unified Footer -->
+    <footer class="bg-gray-50 border-t border-blue-100 pt-16 pb-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-1.5 rounded-lg shadow">
+                            <i data-lucide="zap" class="h-5 w-5 text-white"></i>
+                        </div>
+                        <span class="ml-3 text-lg font-bold text-gray-900">DENISIA WEBOPS</span>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">Complete digital solutions – from web development to AI integration.</p>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="index.html#web-dev" class="hover:text-blue-700 transition-colors">Web Development</a></li>
+                        <li><a href="index.html#app-dev" class="hover:text-blue-700 transition-colors">App Development</a></li>
+                        <li><a href="index.html#seo" class="hover:text-blue-700 transition-colors">SEO</a></li>
+                        <li><a href="index.html#digital-marketing" class="hover:text-blue-700 transition-colors">Digital Marketing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="blogs.html" class="hover:text-blue-700 transition-colors">Blog</a></li>
+                        <li><a href="livecodepreview.html" class="hover:text-blue-700 transition-colors">Scanner Tool</a></li>
+                        <li><a href="index.html#projects" class="hover:text-blue-700 transition-colors">Projects</a></li>
+                        <li><a href="index.html#contact" class="hover:text-blue-700 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 font-semibold mb-4">Newsletter</h4>
+                    <div class="flex">
+                        <input type="email" placeholder="Enter email" id="newsletterEmail" class="w-full px-4 py-2 rounded-l-md text-sm border border-gray-300 focus:outline-none focus:border-blue-500">
+                        <button class="bg-blue-800 px-4 py-2 rounded-r-md hover:bg-blue-700 transition-colors">
+                            <i data-lucide="arrow-right" class="h-4 w-4 text-white"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-blue-100 pt-8 text-center">
+                <p class="text-gray-500 text-sm">© 2026 Denisia Webops Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Enhanced Scanner & Preview Logic -->
+    <script>
+        const WHATSAPP_NUMBER = "918317581308";
+        const END_SCRIPT = "<\\/script>";
+        const CONTACT_URL = "https://www.denisiawebops.org/index.html#contact";
+        const EMAIL_SUBJECT = "Security Scan Report – Need Fixes";
+        
+        const state = {
+            mode: "combined",
+            splitTab: "html",
+            findings: [],
+            lastPreviewHtml: "",
+            lastReport: "",
+            lastOpenedFileName: ""
+        };
+
+        const el = {
+            modeCombinedBtn: document.getElementById("modeCombinedBtn"),
+            modeSplitBtn: document.getElementById("modeSplitBtn"),
+            combinedPanel: document.getElementById("combinedPanel"),
+            splitPanel: document.getElementById("splitPanel"),
+            combinedCode: document.getElementById("combinedCode"),
+            combinedLines: document.getElementById("combinedLines"),
+            htmlCode: document.getElementById("htmlCode"),
+            cssCode: document.getElementById("cssCode"),
+            jsCode: document.getElementById("jsCode"),
+            htmlLines: document.getElementById("htmlLines"),
+            cssLines: document.getElementById("cssLines"),
+            jsLines: document.getElementById("jsLines"),
+            outputFrame: document.getElementById("outputFrame"),
+            resultsBody: document.getElementById("resultsBody"),
+            scanSummary: document.getElementById("scanSummary"),
+            fileInput: document.getElementById("fileInput"),
+            searchText: document.getElementById("searchText"),
+            countCrit: document.getElementById("countCrit"),
+            countHigh: document.getElementById("countHigh"),
+            countMed: document.getElementById("countMed"),
+            countLow: document.getElementById("countLow")
+        };
+
+        // Helper: copy prompt
+        window.copyPrompt = function() {
+            const promptText = `"Build a complete, self-contained HTML/CSS/JS web application with a modern UI. Include interactive features, responsive design, and no external dependencies. Add local storage or demo data. Make it a functional dashboard/todo/calculator/crud app. Output only the full HTML file."`;
+            navigator.clipboard.writeText(promptText);
+            alert("Prompt copied to clipboard! Paste it into Gemini, ChatGPT, or Copilot.");
+        };
+
+        // Download full standalone HTML widget (includes current preview)
+        window.downloadFullWidget = function() {
+            const doc = buildPreviewDocument();
+            const blob = new Blob([doc], { type: "text/html" });
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = "webapp-widget.html";
+            a.click();
+            URL.revokeObjectURL(a.href);
+        };
+
+        // Launch preview in new tab using blob
+        window.launchPreviewNewTab = function() {
+            const doc = buildPreviewDocument();
+            const blob = new Blob([doc], { type: "text/html" });
+            const url = URL.createObjectURL(blob);
+            window.open(url, "_blank");
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+        };
+
+        // Fix All Issues – send email and open contact page
+        window.fixAllIssues = function() {
+            const critical = state.findings.filter(f => f.severity === "Critical").length;
+            const total = state.findings.length;
+            const body = `I scanned my code with your Live Preview & Scanner and found ${total} issues (${critical} critical).\n\nPlease help me fix them securely.\n\nFirst few issues:\n${state.findings.slice(0,3).map(f => `- ${f.title} at ${f.file}:${f.line}`).join("\n")}\n\nThank you.`;
+            const mailto = `mailto:contact@denisiawebops.com?subject=${encodeURIComponent(EMAIL_SUBJECT)}&body=${encodeURIComponent(body)}`;
+            window.open(mailto, "_blank");
+            setTimeout(() => {
+                window.open(CONTACT_URL, "_blank");
+            }, 500);
+        };
+
+        // --- Existing functions (kept as is) ---
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                menu.classList.add('hidden');
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        }
+
+        function setMode(mode){
+            state.mode = mode;
+            el.modeCombinedBtn.className = mode === "combined" 
+                ? "px-4 py-1.5 text-sm font-semibold rounded-md transition-colors bg-white text-blue-700 shadow-sm border border-gray-200"
+                : "px-4 py-1.5 text-sm font-semibold rounded-md transition-colors text-gray-600 hover:text-gray-900 border border-transparent";
+            el.modeSplitBtn.className = mode === "split"
+                ? "px-4 py-1.5 text-sm font-semibold rounded-md transition-colors bg-white text-blue-700 shadow-sm border border-gray-200"
+                : "px-4 py-1.5 text-sm font-semibold rounded-md transition-colors text-gray-600 hover:text-gray-900 border border-transparent";
+            el.combinedPanel.classList.toggle("hidden", mode !== "combined");
+            el.splitPanel.classList.toggle("hidden", mode !== "split");
+            updateAllLineNumbers();
+            runPreviewAndScan();
+        }
+
+        function setSplitTab(tab){
+            state.splitTab = tab;
+            const btnClassActive = "px-3 py-1 text-sm font-bold rounded-md bg-blue-100 text-blue-700 border border-blue-200";
+            const btnClassInactive = "px-3 py-1 text-sm font-bold rounded-md text-gray-600 bg-gray-100 border border-transparent hover:bg-gray-200";
+            document.getElementById("tabHtmlBtn").className = tab === "html" ? btnClassActive : btnClassInactive;
+            document.getElementById("tabCssBtn").className = tab === "css" ? btnClassActive : btnClassInactive;
+            document.getElementById("tabJsBtn").className = tab === "js" ? btnClassActive : btnClassInactive;
+            document.getElementById("splitHtml").classList.toggle("hidden", tab !== "html");
+            document.getElementById("splitCss").classList.toggle("hidden", tab !== "css");
+            document.getElementById("splitJs").classList.toggle("hidden", tab !== "js");
+            updateAllLineNumbers();
+            runPreviewAndScan();
+        }
+
+        function updateLineNumbers(textarea, lineEl){
+            if(!textarea || !lineEl) return;
+            const lines = (textarea.value || "").split("\n").length || 1;
+            let out = "";
+            for(let i=1; i<=lines; i++) out += i + "\n";
+            lineEl.textContent = out || "1";
+        }
+
+        function updateAllLineNumbers(){
+            updateLineNumbers(el.combinedCode, el.combinedLines);
+            updateLineNumbers(el.htmlCode, el.htmlLines);
+            updateLineNumbers(el.cssCode, el.cssLines);
+            updateLineNumbers(el.jsCode, el.jsLines);
+        }
+
+        function bindLineNumbers(textarea, lineEl){
+            if(!textarea || !lineEl) return;
+            textarea.addEventListener("input", () => updateLineNumbers(textarea, lineEl));
+            textarea.addEventListener("scroll", () => lineEl.scrollTop = textarea.scrollTop);
+        }
+
+        bindLineNumbers(el.combinedCode, el.combinedLines);
+        bindLineNumbers(el.htmlCode, el.htmlLines);
+        bindLineNumbers(el.cssCode, el.cssLines);
+        bindLineNumbers(el.jsCode, el.jsLines);
+
+        function buildPreviewDocument(){
+            if(state.mode === "combined"){
+                return el.combinedCode.value || "";
+            }
+            const html = el.htmlCode.value || "";
+            const css = el.cssCode.value || "";
+            const js = el.jsCode.value || "";
+            return `<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<style>\n${css}\n</style>\n</head>\n<body>\n${html}\n<script>\n${js.replace(/<\/script>/gi, "<\\/script>")}\n${END_SCRIPT}\n</body>\n</html>`;
+        }
+
+        function renderPreviewOnly(){
+            const doc = buildPreviewDocument();
+            state.lastPreviewHtml = doc;
+            el.outputFrame.srcdoc = doc || "<!doctype html><html><body style='font-family:sans-serif;padding:20px;color:#9ca3af;'>Workspace is empty.</body></html>";
+        }
+
+        function escapeHtml(str){
+            return String(str || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;");
+        }
+
+        function lineFromIndex(source, index){
+            return source.slice(0, index).split("\n").length;
+        }
+
+        function entropy(value){
+            if(!value) return 0;
+            const map = {};
+            for(const ch of value) map[ch] = (map[ch] || 0) + 1;
+            let e = 0;
+            for(const ch in map){
+                const p = map[ch] / value.length;
+                e -= p * Math.log2(p);
+            }
+            return e;
+        }
+
+        function scanText(source, fileName){
+            const findings = [];
+            const addFinding = (sev, title, snippet, detail, line) => {
+                findings.push({ file: fileName, line, severity: sev, title, snippet, detail });
+            };
+
+            const rules = [
+                { sev: "Critical", title: "eval() Usage", rx: /\beval\s*\(/g, detail: "Executes dynamically generated code. High risk of XSS." },
+                { sev: "Critical", title: "Function Constructor", rx: /\bnew\s+Function\s*\(/g, detail: "Behaves like eval(). Can lead to code injection." },
+                { sev: "High", title: "innerHTML Manipulation", rx: /\.innerHTML\s*=/g, detail: "Direct DOM writes. Ensure data is sanitized." },
+                { sev: "High", title: "document.write()", rx: /\bdocument\.write(?:ln)?\s*\(/g, detail: "Blocks rendering and opens injection vectors." },
+                { sev: "Medium", title: "String Timeout", rx: /\bsetTimeout\s*\(\s*['"`]/g, detail: "String timers are evaluated as code." },
+                { sev: "Medium", title: "String Interval", rx: /\bsetInterval\s*\(\s*['"`]/g, detail: "String intervals are evaluated as code." },
+                { sev: "High", title: "javascript: URL", rx: /javascript:/gi, detail: "javascript: URLs in links/redirects are dangerous." },
+                { sev: "High", title: "Inline Event Handler", rx: /\son\w+\s*=/gi, detail: "Inline handlers (onclick=...) increase XSS attack surface." },
+                { sev: "High", title: "Unsafe Embed", rx: /<\s*(iframe|object|embed)\b/gi, detail: "Embedding external content broadens trust boundaries." },
+                { sev: "Medium", title: "Remote Script", rx: /<script[^>]+src\s*=\s*["'][^"']+["']/gi, detail: "Verify external scripts via Subresource Integrity (SRI)." },
+                { sev: "High", title: "Hardcoded Secret", rx: /\b(?:api[_-]?key|secret|token|password|auth[_-]?token)\b\s*[:=]\s*["'`][^"'`]{12,}["'`]/gi, detail: "Move hardcoded secrets to server-side environments." },
+            ];
+
+            for(const rule of rules){
+                rule.rx.lastIndex = 0;
+                let m;
+                while((m = rule.rx.exec(source)) !== null){
+                    const line = lineFromIndex(source, m.index);
+                    const snippet = (source.split("\n")[line - 1] || "").trim();
+                    addFinding(rule.sev, rule.title, snippet, rule.detail, line);
+                }
+            }
+
+            const stringRx = /(["'`])((?:\\[\s\S]|(?!\1)[\s\S]){15,120})\1/g;
+            let s;
+            while((s = stringRx.exec(source)) !== null){
+                const value = s[2];
+                if(value.includes(" ")) continue;
+                const e = entropy(value);
+                const hasContext = /key|secret|token|auth|password|credential/i.test(source.slice(Math.max(0, s.index - 120), s.index + 120));
+                if(e >= 4.5 && hasContext){
+                    const line = lineFromIndex(source, s.index);
+                    const snippet = (source.split("\n")[line - 1] || "").trim();
+                    addFinding("Critical", "High Entropy Secret", snippet, `Suspicious high entropy string detected (${e.toFixed(2)}).`, line);
+                }
+            }
+            return findings;
+        }
+
+        function buildScanTargets(){
+            if(state.mode === "combined"){
+                return [{ file: "workspace.html", code: el.combinedCode.value || "" }];
+            }
+            return [
+                { file: "index.html", code: el.htmlCode.value || "" },
+                { file: "styles.css", code: el.cssCode.value || "" },
+                { file: "app.js", code: el.jsCode.value || "" }
+            ];
+        }
+
+        function runPreviewAndScan(){
+            renderPreviewOnly();
+            const targets = buildScanTargets();
+            let findings = [];
+            for(const t of targets){
+                findings = findings.concat(scanText(t.code, t.file));
+            }
+            const seen = new Set();
+            findings = findings.filter(x => {
+                const key = [x.file, x.line, x.title, x.snippet].join("|");
+                if(seen.has(key)) return false;
+                seen.add(key);
+                return true;
+            });
+            findings.sort((a,b) => {
+                const weight = { Critical:4, High:3, Medium:2, Low:1 };
+                return (weight[b.severity] - weight[a.severity]) || (a.file.localeCompare(b.file)) || (a.line - b.line);
+            });
+            state.findings = findings;
+            state.lastReport = JSON.stringify({ generatedAt: new Date().toISOString(), mode: state.mode, findings }, null, 2);
+            renderResults();
+        }
+
+        function renderResults(){
+            const f = state.findings;
+            const critical = f.filter(x => x.severity === "Critical").length;
+            const high = f.filter(x => x.severity === "High").length;
+            const medium = f.filter(x => x.severity === "Medium").length;
+            const low = f.filter(x => x.severity === "Low").length;
+            el.countCrit.textContent = critical;
+            el.countHigh.textContent = high;
+            el.countMed.textContent = medium;
+            el.countLow.textContent = low;
+            el.scanSummary.textContent = f.length ? `${f.length} issue(s) detected. Review report below.` : "Scan complete. No major issues found.";
+            if(!f.length){
+                el.resultsBody.innerHTML = `<tr><td colspan="3" class="px-4 py-12 text-center text-gray-500"><i data-lucide="check-circle" class="w-8 h-8 mx-auto mb-2 text-green-500"></i> No major vulnerabilities detected in the current workspace.</td></tr>`;
+                lucide.createIcons();
+                return;
+            }
+            const sevStyles = {
+                "Critical": "bg-red-100 text-red-700 border-red-200",
+                "High": "bg-orange-100 text-orange-700 border-orange-200",
+                "Medium": "bg-blue-100 text-blue-700 border-blue-200",
+                "Low": "bg-green-100 text-green-700 border-green-200"
+            };
+            el.resultsBody.innerHTML = f.map(item => `
+                <tr class="hover:bg-gray-50 transition">
+                    <td class="px-4 py-4 whitespace-nowrap"><span class="px-2.5 py-1 text-xs font-bold rounded-full border ${sevStyles[item.severity]}">${item.severity}</span></td>
+                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 font-mono">${escapeHtml(item.file)} : ${item.line}</td>
+                    <td class="px-4 py-4 min-w-[300px] whitespace-normal">
+                        <div class="font-bold text-gray-900">${escapeHtml(item.title)}</div>
+                        <div class="text-xs text-gray-500 mt-0.5 mb-2">${escapeHtml(item.detail)}</div>
+                        <code class="block bg-gray-100 text-gray-800 px-2 py-1.5 rounded-md font-mono text-[11px] overflow-x-auto border border-gray-200">${escapeHtml((item.snippet || "").slice(0, 150))}</code>
+                    </td>
+                </tr>
+            `).join("");
+        }
+
+        function clearAll(){
+            el.combinedCode.value = "";
+            el.htmlCode.value = "";
+            el.cssCode.value = "";
+            el.jsCode.value = "";
+            state.findings = [];
+            state.lastReport = "";
+            el.outputFrame.srcdoc = "<!doctype html><html><body style='font-family:sans-serif;padding:20px;color:#9ca3af;'>Workspace cleared.</body></html>";
+            el.resultsBody.innerHTML = `<tr><td colspan="3" class="px-4 py-12 text-center text-gray-400"><i data-lucide="shield-check" class="w-8 h-8 mx-auto mb-2 text-gray-300"></i> Run preview and scan to see results.</td></tr>`;
+            el.scanSummary.textContent = "Awaiting code scan...";
+            el.countCrit.textContent = "0"; el.countHigh.textContent = "0"; el.countMed.textContent = "0"; el.countLow.textContent = "0";
+            updateAllLineNumbers();
+            lucide.createIcons();
+        }
+
+        function loadSample(type){
+            const sampleFull = `<!doctype html>\n<html lang="en">\n<head>\n  <meta charset="utf-8">\n  <title>Sample App</title>\n  <style>\n    body { font-family: sans-serif; padding: 40px; background: #f0f9ff; }\n    .card { max-width: 600px; margin: auto; background: white; padding: 28px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }\n  </style>\n</head>\n<body>\n  <div class="card">\n    <h1 style="color:#0369a1">Welcome to Scanner</h1>\n    <p onclick="alert('Inline event handler')">Click me to see an inline handler warning.</p>\n    <script>\n      const token = "sk_live_ABC1234567890SECRET";\n      document.body.innerHTML += "<p>Unsafe innerHTML demo</p>";\n      setTimeout("console.log('string timer')", 1000);\n    <\/script>\n  </div>\n</body>\n</html>`;
+            const sampleHtml = `<div class="p-8 text-center">\n  <h1 class="text-2xl font-bold text-blue-800">Split Mode App</h1>\n  <p class="mt-4 text-gray-600">HTML is structured here.</p>\n</div>`;
+            const sampleCss = `body { background: #f8fafc; font-family: system-ui; }\n.p-8 { padding: 2rem; }\n.text-center { text-align: center; }\n.text-2xl { font-size: 1.5rem; }\n.font-bold { font-weight: bold; }\n.text-blue-800 { color: #1e40af; }\n.mt-4 { margin-top: 1rem; }\n.text-gray-600 { color: #4b5563; }`;
+            const sampleJs = `const apiKey = "AIzaSyA-EXAMPLE-SECRET-KEY-123456";\ndocument.querySelector(".text-center").innerHTML += "<p>Unsafe DOM write added via JS.</p>";`;
+            if(type === "full"){
+                setMode("combined");
+                el.combinedCode.value = sampleFull;
+                updateLineNumbers(el.combinedCode, el.combinedLines);
+            } else {
+                setMode("split");
+                setSplitTab("html");
+                el.htmlCode.value = sampleHtml;
+                el.cssCode.value = sampleCss;
+                el.jsCode.value = sampleJs;
+                updateAllLineNumbers();
+            }
+            runPreviewAndScan();
+        }
+
+        function saveCurrent(){
+            const blob = new Blob([state.mode === "combined" ? el.combinedCode.value : buildPreviewDocument()], { type: "text/html" });
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = state.mode === "combined" ? "code.html" : "workspace-preview.html";
+            a.click();
+        }
+
+        function openFileDialog(){ el.fileInput.click(); }
+        el.fileInput.addEventListener("change", (e) => {
+            const file = e.target.files[0];
+            if(!file) return;
+            const reader = new FileReader();
+            reader.onload = ev => {
+                const text = String(ev.target.result || "");
+                const ext = (file.name.split(".").pop() || "").toLowerCase();
+                if(ext === "css"){ setMode("split"); setSplitTab("css"); el.cssCode.value = text; }
+                else if(ext === "js"){ setMode("split"); setSplitTab("js"); el.jsCode.value = text; }
+                else { setMode("combined"); el.combinedCode.value = text; }
+                updateAllLineNumbers();
+                runPreviewAndScan();
+            };
+            reader.readAsText(file);
+            el.fileInput.value = "";
+        });
+
+        function captureWidget(){
+            html2canvas(document.getElementById("widget")).then(canvas => {
+                const a = document.createElement("a");
+                a.href = canvas.toDataURL("image/png");
+                a.download = "preview-screenshot.png";
+                a.click();
+            });
+        }
+
+        function exportJSON(){
+            const blob = new Blob([state.lastReport || JSON.stringify({ findings: state.findings }, null, 2)], { type: "application/json" });
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = "security-scan-report.json";
+            a.click();
+        }
+
+        function copyReport(){
+            const text = state.lastReport || JSON.stringify({ generatedAt: new Date().toISOString(), findings: state.findings }, null, 2);
+            navigator.clipboard.writeText(text).then(() => alert("Report copied to clipboard!"));
+        }
+
+        function findInCurrent(){
+            const needle = (el.searchText.value || "").trim();
+            if(!needle){ alert("Type a search term first."); return; }
+            let editor;
+            if(state.mode === "combined") editor = el.combinedCode;
+            else if(state.splitTab === "html") editor = el.htmlCode;
+            else if(state.splitTab === "css") editor = el.cssCode;
+            else editor = el.jsCode;
+            const idx = editor.value.indexOf(needle);
+            if(idx === -1) alert("Text not found.");
+            else { editor.focus(); editor.setSelectionRange(idx, idx + needle.length); }
+        }
+
+        function redirectToWhatsApp(){
+            const critical = state.findings.filter(x => x.severity === "Critical").length;
+            const total = state.findings.length;
+            const msg = `Hi, I ran the AI code scan on my workspace.\n\nFindings: ${total}\nCritical: ${critical}\n\nI need expert help fixing these vulnerabilities.`;
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            loadSample('full');
+        });
+    </script>
+    
+    <!-- Tawk.to Script -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function(){
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/6993fa897941b81c35293c7a/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+</body>
+</html>
