@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+  <title>MilkSync | Digital Delivery Management for Dairy and Daily Delivery Businesses</title>
+  <meta
+    name="description"
+    content="MilkSync helps dairy vendors and daily delivery businesses move from manual chaos to digital control with customer tracking, admin delivery updates, cancellations, analytics, and better purchasing decisions."
+  />
+  <meta
+    name="keywords"
+    content="MilkSync, dairy delivery management, milk delivery app, customer delivery tracking, admin delivery system, daily delivery analytics, delivery cancellations, local business automation, business operations, one time payment system, digital dairy management, delivery history, recurring delivery app"
+  />
+  <link rel="canonical" href="https://www.denisiawebops.org/milksync-digital-delivery-management.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="MilkSync | Digital Delivery Management for Dairy and Daily Delivery Businesses" />
+  <meta
+    property="og:description"
+    content="Move daily delivery operations from manual work to digital control. Track deliveries, manage cancellations, reduce wastage, and grow with better analytics."
+  />
+  <meta property="og:url" content="https://www.denisiawebops.org/milksync-digital-delivery-management.html" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1400" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MilkSync | Digital Delivery Management" />
+  <meta
+    name="twitter:description"
+    content="Customer-facing and admin-facing delivery system for dairy and recurring delivery businesses."
+  />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1400" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FWP9BLNZK6');
+  </script>
+
+  <meta name="google-site-verification" content="82U62k4jtMBmS52po-sbJ12znmacAgq0Rg4NvMZLXMY" />
+  <meta name="msvalidate.01" content="8250834873D72FFE4BABCD1B2C7B3173" />
+
+  <script>
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "vimok6xi57");
+  </script>
+
+  <script src="https://cdn.tailwindcss.com" fetchpriority="high"></script>
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, system-ui, sans-serif; background: #f8fafc; color: #1f2937; }
+    .section { scroll-margin-top: 110px; }
+    .nav-link { color: #4b5563; font-weight: 500; transition: color .2s; }
+    .nav-link:hover, .nav-link.active { color: #2563eb; }
+    .btn-primary {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      color: #fff;
+      padding: .85rem 1.25rem;
+      border-radius: .875rem;
+      font-weight: 700;
+      box-shadow: 0 10px 25px rgba(37,99,235,.18);
+      transition: transform .2s, box-shadow .2s, background .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 32px rgba(37,99,235,.24); }
+    .btn-secondary {
+      background: #fff;
+      color: #1e3a8a;
+      border: 1px solid #dbeafe;
+      padding: .85rem 1.25rem;
+      border-radius: .875rem;
+      font-weight: 700;
+      transition: background .2s, transform .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .btn-secondary:hover { background: #eff6ff; transform: translateY(-1px); }
+    .card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 1.5rem;
+      box-shadow: 0 10px 25px rgba(15,23,42,.05);
+    }
+    .card-soft {
+      background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(248,250,252,.98));
+      border: 1px solid #e5e7eb;
+      border-radius: 1.5rem;
+      box-shadow: 0 10px 25px rgba(15,23,42,.05);
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      border-radius: 9999px;
+      padding: .35rem .8rem;
+      font-size: .73rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .glass {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(12px);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .slide-dot.active { background: #2563eb; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "headline": "MilkSync: From Manual Dairy Chaos to Digital Control",
+        "description": "A storytelling, SEO-ready blog page about MilkSync, a digital delivery management system for dairy vendors and recurring delivery businesses.",
+        "author": {
+          "@type": "Organization",
+          "name": "Denisia Webops"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Denisia Webops"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.denisiawebops.org/milksync-digital-delivery-management.html"
+        },
+        "about": [
+          "digital delivery management",
+          "dairy business automation",
+          "customer-facing delivery app",
+          "admin-facing delivery system",
+          "business analytics",
+          "waste reduction"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is MilkSync?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "MilkSync is a digital delivery management system that helps dairy and delivery businesses manage delivery status, customer cancellations, analytics, and operations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can customers cancel deliveries for specific dates?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Customers can send delivery cancellations for specific days or dates so vendors can plan better and reduce wastage."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does MilkSync include analytics?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. It supports day-on-day, week-on-week, month-on-month, and year-on-year analytics with charts and comparison insights."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is MilkSync useful outside dairy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Any business with recurring deliveries, cancellations, or daily customer scheduling can use it."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:text-blue-700 focus:font-semibold">
+    Skip to main content
+  </a>
+
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <a href="index.html" class="flex items-center">
+          <div class="bg-gradient-to-r from-blue-800 to-cyan-600 p-2 rounded-xl shadow-md">
+            <i data-lucide="zap" class="h-6 w-6 text-white"></i>
+          </div>
+          <span class="ml-3 text-lg md:text-xl font-bold text-gray-900">Denisia Webops Agency</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="blogs.html" class="nav-link active text-blue-700">Blogs</a>
+          <a href="projects.html" class="nav-link">Projects</a>
+          <a href="contact.html" class="btn-primary">Get in Touch</a>
+        </div>
+
+        <button onclick="toggleMobileMenu()" class="md:hidden rounded-lg bg-gray-100 p-2">
+          <i id="mobile-menu-icon" data-lucide="menu" class="h-6 w-6 text-gray-700"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg">
+      <div class="px-4 py-3 space-y-1">
+        <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50">Home</a>
+        <a href="services.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50">Services</a>
+        <a href="blogs.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50">Blogs</a>
+        <a href="projects.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50">Projects</a>
+        <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-blue-700 bg-blue-50">Get in Touch</a>
+      </div>
+    </div>
+
+    <div class="hidden md:block border-t border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex gap-6 py-3 text-sm whitespace-nowrap overflow-x-auto">
+          <a href="#story" class="hover:text-blue-700">Story</a>
+          <a href="#problem" class="hover:text-blue-700">Problem</a>
+          <a href="#solution" class="hover:text-blue-700">Solution</a>
+          <a href="#benefits" class="hover:text-blue-700">Benefits</a>
+          <a href="#usecases" class="hover:text-blue-700">Use Cases</a>
+          <a href="#testimonials" class="hover:text-blue-700">Reviews</a>
+          <a href="#presentation" class="hover:text-blue-700">Presentation</a>
+          <a href="#faq" class="hover:text-blue-700">FAQ</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="bg-gradient-to-r from-slate-950 via-blue-950 to-cyan-800 text-white py-16 px-4">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <nav aria-label="Breadcrumb" class="mb-4 text-sm text-white/80">
+          <a href="index.html" class="hover:text-white">Home</a>
+          <span class="mx-2">/</span>
+          <a href="blogs.html" class="hover:text-white">Blogs</a>
+          <span class="mx-2">/</span>
+          <a href="blogs.html#milksync" class="hover:text-white">MilkSync Hub</a>
+          <span class="mx-2">/</span>
+          <span class="text-white font-semibold">MilkSync Blog</span>
+        </nav>
+
+        <p class="pill bg-white/15 text-white mb-4">
+          <i data-lucide="truck" class="w-4 h-4"></i>
+          Delivery Automation • Dairy • Analytics
+        </p>
+
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">
+          From Manual Dairy Chaos to
+          <span class="gradient-text">Digital Control</span>
+        </h1>
+
+        <h2 class="text-xl md:text-2xl font-semibold opacity-95 mb-4">
+          A customer-facing and admin-facing system built for daily delivery businesses
+        </h2>
+
+        <p class="text-lg opacity-90 max-w-2xl leading-8">
+          MilkSync replaces notebooks, guesswork, and repeated calls with a clear system where customers can track daily deliveries, cancel for specific dates, and vendors can update status, reduce wastage, and make smarter buying decisions.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="https://henry-paul.github.io/Milk-Sync-Appscript/" class="btn-primary bg-white text-blue-700 hover:bg-blue-50">
+            Open Customer App
+          </a>
+          <a href="https://henry-paul.github.io/Milk-Sync-Appscript/admin" class="btn-secondary">
+            Open Admin App
+          </a>
+          <a href="blogs.html" class="btn-secondary">
+            Back to Blogs Hub
+          </a>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-4 text-sm text-white/85">
+          <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4"></i> One-time ownership</div>
+          <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4"></i> Customer tracking</div>
+          <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4"></i> Delivery analytics</div>
+        </div>
+      </div>
+
+      <div class="card-soft p-6 md:p-8 text-gray-900">
+        <div class="rounded-3xl bg-gradient-to-br from-slate-900 to-blue-900 p-6 text-white">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-white/70 text-sm uppercase tracking-widest">The reality</p>
+              <h3 class="text-2xl font-bold mt-1">Manual work creates waste</h3>
+            </div>
+            <div class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center">
+              <i data-lucide="receipt-text" class="w-7 h-7"></i>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 mt-6 text-sm">
+            <div class="glass rounded-2xl p-4">Notebook updates</div>
+            <div class="glass rounded-2xl p-4">WhatsApp chaos</div>
+            <div class="glass rounded-2xl p-4">Missed cancellations</div>
+            <div class="glass rounded-2xl p-4">Extra ordering</div>
+          </div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-3 gap-3">
+          <div class="rounded-2xl bg-blue-50 p-4">
+            <div class="text-2xl font-bold text-blue-700">1</div>
+            <div class="text-sm text-gray-700 mt-1">Customer login</div>
+          </div>
+          <div class="rounded-2xl bg-green-50 p-4">
+            <div class="text-2xl font-bold text-green-700">2</div>
+            <div class="text-sm text-gray-700 mt-1">Admin updates</div>
+          </div>
+          <div class="rounded-2xl bg-amber-50 p-4">
+            <div class="text-2xl font-bold text-amber-700">3</div>
+            <div class="text-sm text-gray-700 mt-1">Analytics drive decisions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+
+    <!-- Intro -->
+    <section class="card p-6 md:p-8">
+      <div class="grid lg:grid-cols-3 gap-8 items-start">
+        <div class="lg:col-span-2">
+          <span class="pill bg-blue-100 text-blue-700 mb-4">
+            <i data-lucide="book-open-text" class="w-4 h-4"></i>
+            Story mode
+          </span>
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">A small story. A big shift.</h2>
+          <p class="text-gray-700 leading-8 mb-4">
+            Raju runs a dairy route. Every morning he checks deliveries in a notebook. A customer forgets to tell him they are out of town. Another customer cancels by message late at night. A third customer asks for a different count. By noon, Raju is already guessing, and guessing is expensive.
+          </p>
+          <p class="text-gray-700 leading-8 mb-4">
+            Some days he sends extra product. Some days he falls short. Some days he loses time to calls. Some days he loses money to wastage. And some days customers lose trust because the system feels messy.
+          </p>
+          <p class="text-gray-700 leading-8">
+            MilkSync changes that story. Customers see their daily delivery status. They can cancel for a specific date. Vendors manage delivery updates in an admin tool. History stays visible. Decisions become smarter. Work becomes calmer.
+          </p>
+        </div>
+
+        <div class="card-soft p-5">
+          <h3 class="text-xl font-bold text-gray-900 mb-4">What this solves</h3>
+          <div class="space-y-3">
+            <div class="flex gap-3">
+              <i data-lucide="x-circle" class="w-5 h-5 text-red-500 mt-0.5"></i>
+              <span class="text-gray-700">Manual documentation chaos</span>
+            </div>
+            <div class="flex gap-3">
+              <i data-lucide="x-circle" class="w-5 h-5 text-red-500 mt-0.5"></i>
+              <span class="text-gray-700">Missed delivery changes</span>
+            </div>
+            <div class="flex gap-3">
+              <i data-lucide="x-circle" class="w-5 h-5 text-red-500 mt-0.5"></i>
+              <span class="text-gray-700">Extra ordering and waste</span>
+            </div>
+            <div class="flex gap-3">
+              <i data-lucide="x-circle" class="w-5 h-5 text-red-500 mt-0.5"></i>
+              <span class="text-gray-700">No history or insights</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem -->
+    <section id="problem" class="section card p-6 md:p-8">
+      <h2 class="text-3xl font-bold mb-4">Why manual delivery systems fail</h2>
+      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
+        <div class="card-soft p-5">
+          <div class="w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center mb-4">
+            <i data-lucide="notebook-pen" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2">Paper records break</h3>
+          <p class="text-gray-600 text-sm leading-6">Notes get lost, updated late, or written inconsistently.</p>
+        </div>
+        <div class="card-soft p-5">
+          <div class="w-12 h-12 rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center mb-4">
+            <i data-lucide="phone-call" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2">Calls take time</h3>
+          <p class="text-gray-600 text-sm leading-6">The same questions repeat every morning and every night.</p>
+        </div>
+        <div class="card-soft p-5">
+          <div class="w-12 h-12 rounded-2xl bg-yellow-50 text-yellow-700 flex items-center justify-center mb-4">
+            <i data-lucide="package-x" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2">Wastage rises</h3>
+          <p class="text-gray-600 text-sm leading-6">Unknown cancellations lead to excess purchase and loss.</p>
+        </div>
+        <div class="card-soft p-5">
+          <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-700 flex items-center justify-center mb-4">
+            <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2">Insights stay hidden</h3>
+          <p class="text-gray-600 text-sm leading-6">No day-on-day or month-on-month view to guide action.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solution -->
+    <section id="solution" class="section card p-6 md:p-8">
+      <div class="grid lg:grid-cols-2 gap-8 items-start">
+        <div>
+          <span class="pill bg-green-100 text-green-700 mb-4">
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+            Digital shift
+          </span>
+          <h2 class="text-3xl font-bold mb-4">MilkSync turns delivery chaos into control</h2>
+          <p class="text-gray-700 leading-8 mb-4">
+            MilkSync gives vendors and customers a shared system. The vendor updates delivery status in the admin tool. The customer logs in and sees the current state. If the customer needs to cancel for a specific day, that change becomes clear before waste happens.
+          </p>
+          <p class="text-gray-700 leading-8 mb-4">
+            This creates a clean flow. Less manual follow-up. Less confusion. More satisfied customers. More time for real work.
+          </p>
+          <p class="text-gray-700 leading-8">
+            The best part is the system keeps a history layer. That means you are not only handling today. You are learning from yesterday, this week, this month, and this year.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="rounded-2xl border border-gray-200 p-5">
+            <div class="text-blue-700 font-bold mb-2">Customer facing</div>
+            <p class="text-gray-600 text-sm leading-6">View delivery status, send cancellations for specific dates, and track history.</p>
+            <a href="https://henry-paul.github.io/Milk-Sync-Appscript/" class="inline-flex items-center gap-2 text-blue-700 font-semibold mt-3 text-sm">
+              Open app <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-5">
+            <div class="text-blue-700 font-bold mb-2">Admin facing</div>
+            <p class="text-gray-600 text-sm leading-6">Manage delivery records, updates, customer changes, and analytics.</p>
+            <a href="https://henry-paul.github.io/Milk-Sync-Appscript/admin" class="inline-flex items-center gap-2 text-blue-700 font-semibold mt-3 text-sm">
+              Open admin <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-5">
+            <div class="text-green-700 font-bold mb-2">Charts</div>
+            <p class="text-gray-600 text-sm leading-6">Bar chart, pie chart, graph chart, and comparison views.</p>
+          </div>
+          <div class="rounded-2xl border border-gray-200 p-5">
+            <div class="text-amber-700 font-bold mb-2">One-time access</div>
+            <p class="text-gray-600 text-sm leading-6">₹9,500 one time payment with full system ownership.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step by step -->
+    <section class="card p-6 md:p-8">
+      <h2 class="text-3xl font-bold mb-4">Step by step: how the system works</h2>
+      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
+        <div class="card-soft p-5">
+          <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center mb-4 font-bold">1</div>
+          <h3 class="font-bold mb-2">Customer logs in</h3>
+          <p class="text-gray-600 text-sm leading-6">A customer sees the login-linked delivery view and daily delivery status.</p>
+        </div>
+        <div class="card-soft p-5">
+          <div class="w-10 h-10 rounded-xl bg-green-100 text-green-700 flex items-center justify-center mb-4 font-bold">2</div>
+          <h3 class="font-bold mb-2">Customer cancels a date</h3>
+          <p class="text-gray-600 text-sm leading-6">A specific day can be paused so the vendor can plan accordingly.</p>
+        </div>
+        <div class="card-soft p-5">
+          <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-4 font-bold">3</div>
+          <h3 class="font-bold mb-2">Admin updates delivery</h3>
+          <p class="text-gray-600 text-sm leading-6">The vendor marks status, reviews changes, and controls the route flow.</p>
+        </div>
+        <div class="card-soft p-5">
+          <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center mb-4 font-bold">4</div>
+          <h3 class="font-bold mb-2">Analytics guide action</h3>
+          <p class="text-gray-600 text-sm leading-6">Trends show what happened yesterday, this week, this month, and this year.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section id="benefits" class="section card p-6 md:p-8">
+      <h2 class="text-3xl font-bold mb-4">Benefits for vendors and customers</h2>
+      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+        <div class="rounded-2xl border border-gray-200 p-5">
+          <h3 class="font-bold text-gray-900 mb-2">More time</h3>
+          <p class="text-gray-600 text-sm leading-6">Less calling, less checking, less writing, less chasing.</p>
+        </div>
+        <div class="rounded-2xl border border-gray-200 p-5">
+          <h3 class="font-bold text-gray-900 mb-2">More deliveries</h3>
+          <p class="text-gray-600 text-sm leading-6">Operational clarity helps the business serve more customers without extra confusion.</p>
+        </div>
+        <div class="rounded-2xl border border-gray-200 p-5">
+          <h3 class="font-bold text-gray-900 mb-2">Greater satisfaction</h3>
+          <p class="text-gray-600 text-sm leading-6">Customers trust a business that keeps them informed.</p>
+        </div>
+        <div class="rounded-2xl border border-gray-200 p-5">
+          <h3 class="font-bold text-gray-900 mb-2">Reduced wastage</h3>
+          <p class="text-gray-600 text-sm leading-6">Clear cancellations lead to better purchase planning and lower spoilage.</p>
+        </div>
+        <div class="rounded-2xl border border-gray-200 p-5">
+          <h3 class="font-bold text-gray-900 mb-2">Better decisions</h3>
+          <p class="text-gray-600 text-sm leading-6">Historical analytics show what is growing, falling, or repeating.</p>
+        </div>
+        <div class="rounded-2xl border border-gray-200 p-5">
+          <h3 class="font-bold text-gray-900 mb-2">Full ownership</h3>
+          <p class="text-gray-600 text-sm leading-6">₹9,500 one time payment. No monthly dependence. Full access.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use cases -->
+    <section id="usecases" class="section card p-6 md:p-8">
+      <h2 class="text-3xl font-bold mb-4">Where this system fits beyond dairy</h2>
+      <p class="text-gray-700 leading-8 mb-6">
+        The idea works anywhere recurring delivery, scheduled fulfillment, or customer-specific pause logic matters.
+      </p>
+      <div class="grid sm:grid-cols-2 xl:grid-cols-5 gap-4">
+        <div class="rounded-2xl bg-slate-50 border border-gray-200 p-5">
+          <h3 class="font-bold">Milk vendors</h3>
+          <p class="text-sm text-gray-600 mt-2">Daily milk counts, route status, cancellations.</p>
+        </div>
+        <div class="rounded-2xl bg-slate-50 border border-gray-200 p-5">
+          <h3 class="font-bold">Water can suppliers</h3>
+          <p class="text-sm text-gray-600 mt-2">Repeating deliveries and refill planning.</p>
+        </div>
+        <div class="rounded-2xl bg-slate-50 border border-gray-200 p-5">
+          <h3 class="font-bold">Tiffin services</h3>
+          <p class="text-sm text-gray-600 mt-2">Pause-for-date logic and recurring customers.</p>
+        </div>
+        <div class="rounded-2xl bg-slate-50 border border-gray-200 p-5">
+          <h3 class="font-bold">Bakery routes</h3>
+          <p class="text-sm text-gray-600 mt-2">Pre-orders, route lists, and daily demand control.</p>
+        </div>
+        <div class="rounded-2xl bg-slate-50 border border-gray-200 p-5">
+          <h3 class="font-bold">Local distributors</h3>
+          <p class="text-sm text-gray-600 mt-2">Any business that delivers repeatedly can use it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expert card -->
+    <section class="bg-gradient-to-r from-slate-950 to-blue-950 rounded-3xl p-8 text-white shadow-xl">
+      <div class="grid lg:grid-cols-3 gap-6 items-center">
+        <div class="lg:col-span-2">
+          <span class="pill bg-white/10 text-white mb-3">
+            <i data-lucide="badge-check" class="w-4 h-4"></i>
+            Expert Card
+          </span>
+          <h2 class="text-3xl font-bold">Built for growth, not just display</h2>
+          <p class="mt-3 text-white/80 leading-7">
+            MilkSync is designed to help businesses shift from manual tracking to a digital operating model. That means better delivery flow, clearer customer communication, stronger data ownership, and less waste.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <a href="https://www.linkedin.com/posts/henry-paul-a199013a6_milksync-digital-sysyem-ugcPost-7475281192720875521-8RAZ/?utm_source=social_share_send&utm_medium=android_app&rcm=ACoAAGNyGHUB6SNub1lUCRsE8bEoTaOe0Zw18c&utm_campaign=copy_link" class="btn-secondary">
+              View LinkedIn Post
+            </a>
+            <a href="contact.html" class="btn-primary bg-white text-blue-700 hover:bg-blue-50">
+              Ask for Demo
+            </a>
+          </div>
+        </div>
+
+        <div class="glass rounded-3xl p-6">
+          <div class="text-sm text-white/70">Price</div>
+          <div class="text-4xl font-extrabold mt-1">₹9,500</div>
+          <div class="text-white/80 mt-2">One time payment</div>
+          <div class="mt-5 space-y-2 text-sm text-white/80">
+            <div class="flex gap-2"><i data-lucide="check" class="w-4 h-4 mt-0.5"></i><span>Full access</span></div>
+            <div class="flex gap-2"><i data-lucide="check" class="w-4 h-4 mt-0.5"></i><span>Own the system</span></div>
+            <div class="flex gap-2"><i data-lucide="check" class="w-4 h-4 mt-0.5"></i><span>Customer and admin tools</span></div>
+            <div class="flex gap-2"><i data-lucide="check" class="w-4 h-4 mt-0.5"></i><span>Analytics support</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section card p-6 md:p-8">
+      <div class="flex items-center justify-between gap-4 mb-6">
+        <div>
+          <span class="pill bg-amber-100 text-amber-700 mb-3">
+            <i data-lucide="star" class="w-4 h-4"></i>
+            Review slider
+          </span>
+          <h2 class="text-3xl font-bold">Five niche reviews</h2>
+        </div>
+        <div class="flex gap-2">
+          <button onclick="prevTestimonial()" class="w-10 h-10 rounded-xl border border-gray-200 hover:bg-gray-50">
+            <i data-lucide="arrow-left" class="w-4 h-4 mx-auto"></i>
+          </button>
+          <button onclick="nextTestimonial()" class="w-10 h-10 rounded-xl border border-gray-200 hover:bg-gray-50">
+            <i data-lucide="arrow-right" class="w-4 h-4 mx-auto"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="relative overflow-hidden">
+        <div id="testimonialSlider" class="flex transition-transform duration-500 ease-in-out">
+          <div class="min-w-full">
+            <div class="card-soft p-6 md:p-8">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-700">D</div>
+                <div>
+                  <div class="font-bold">Milk Vendor</div>
+                  <div class="text-sm text-gray-500">Daily route business</div>
+                </div>
+              </div>
+              <p class="text-gray-700 leading-8">“Now I can see which customers canceled and which deliveries were completed. It saved time and reduced confusion every morning.”</p>
+            </div>
+          </div>
+
+          <div class="min-w-full">
+            <div class="card-soft p-6 md:p-8">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center font-bold text-green-700">W</div>
+                <div>
+                  <div class="font-bold">Water Can Dealer</div>
+                  <div class="text-sm text-gray-500">Refill and delivery service</div>
+                </div>
+              </div>
+              <p class="text-gray-700 leading-8">“The admin view helps us track deliveries better and plan routes without depending on random calls and reminders.”</p>
+            </div>
+          </div>
+
+          <div class="min-w-full">
+            <div class="card-soft p-6 md:p-8">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center font-bold text-amber-700">T</div>
+                <div>
+                  <div class="font-bold">Tiffin Service Owner</div>
+                  <div class="text-sm text-gray-500">Meal subscription business</div>
+                </div>
+              </div>
+              <p class="text-gray-700 leading-8">“Customers can pause for specific dates without calling me every time. This made my service feel more premium and cleaner.”</p>
+            </div>
+          </div>
+
+          <div class="min-w-full">
+            <div class="card-soft p-6 md:p-8">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center font-bold text-purple-700">B</div>
+                <div>
+                  <div class="font-bold">Bakery Owner</div>
+                  <div class="text-sm text-gray-500">Daily prep and dispatch</div>
+                </div>
+              </div>
+              <p class="text-gray-700 leading-8">“Our ordering became smarter. We stopped making too much stock and started watching demand more closely.”</p>
+            </div>
+          </div>
+
+          <div class="min-w-full">
+            <div class="card-soft p-6 md:p-8">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 rounded-full bg-cyan-100 flex items-center justify-center font-bold text-cyan-700">I</div>
+                <div>
+                  <div class="font-bold">Ice Cream Distributor</div>
+                  <div class="text-sm text-gray-500">Seasonal dispatch business</div>
+                </div>
+              </div>
+              <p class="text-gray-700 leading-8">“The analytics revealed which weeks had more demand and where the stock was getting wasted. That changed our planning.”</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-center gap-2 mt-5">
+          <button class="slide-dot w-3 h-3 rounded-full bg-gray-300" onclick="goToTestimonial(0)"></button>
+          <button class="slide-dot w-3 h-3 rounded-full bg-gray-300" onclick="goToTestimonial(1)"></button>
+          <button class="slide-dot w-3 h-3 rounded-full bg-gray-300" onclick="goToTestimonial(2)"></button>
+          <button class="slide-dot w-3 h-3 rounded-full bg-gray-300" onclick="goToTestimonial(3)"></button>
+          <button class="slide-dot w-3 h-3 rounded-full bg-gray-300" onclick="goToTestimonial(4)"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Presentation -->
+    <section id="presentation" class="section card p-6 md:p-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+        <div>
+          <span class="pill bg-indigo-100 text-indigo-700 mb-3">
+            <i data-lucide="presentation" class="w-4 h-4"></i>
+            9-slide presentation
+          </span>
+          <h2 class="text-3xl font-bold">Deck preview with download option</h2>
+          <p class="text-gray-600 mt-2">Add your PDF path here and connect this CTA to your presentation file.</p>
+        </div>
+        <a href="/assets/milksync-presentation.pdf" class="btn-primary">
+          <i data-lucide="download" class="w-4 h-4"></i>
+          Download PDF
+        </a>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-4 items-start">
+        <div class="lg:col-span-2 card-soft p-5">
+          <div id="presentationFrame" class="rounded-2xl border border-gray-200 p-6 min-h-[280px] bg-gradient-to-br from-slate-50 to-blue-50">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <div class="text-sm font-semibold text-blue-700">Slide 1</div>
+                <h3 id="presentationTitle" class="text-2xl font-bold mt-1">MilkSync Overview</h3>
+                <p id="presentationDesc" class="text-gray-700 mt-3 leading-7 max-w-2xl">
+                  A system that moves daily delivery operations from manual work to a digital workflow with customer and admin access.
+                </p>
+              </div>
+              <div class="w-16 h-16 rounded-2xl bg-white shadow flex items-center justify-center">
+                <i id="presentationIcon" data-lucide="sparkles" class="w-8 h-8 text-blue-700"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <button onclick="setPresentation(0)" class="presentation-btn w-full text-left rounded-2xl border border-gray-200 p-4 hover:bg-blue-50 transition">
+            1. Overview
+          </button>
+          <button onclick="setPresentation(1)" class="presentation-btn w-full text-left rounded-2xl border border-gray-200 p-4 hover:bg-blue-50 transition">
+            2. The problem
+          </button>
+          <button onclick="setPresentation(2)" class="presentation-btn w-full text-left rounded-2xl border border-gray-200 p-4 hover:bg-blue-50 transition">
+            3. Customer app
+          </button>
+          <button onclick="setPresentation(3)" class="presentation-btn w-full text-left rounded-2xl border border-gray-200 p-4 hover:bg-blue-50 transition">
+            4. Admin app
+          </button>
+          <button onclick="setPresentation(4)" class="presentation-btn w-full text-left rounded-2xl border border-gray-200 p-4 hover:bg-blue-50 transition">
+            5. Analytics
+          </button>
+          <button onclick="setPresentation(5)" class="presentation-btn w-full text-left rounded-2xl border border-gray-200 p-4 hover:bg-blue-50 transition">
+            6. Benefits
+          </button>
+          <button onclick="setPresentation(6)" class="presentation-btn w-full text-left rounded-2xl border border-gray-200 p-4 hover:bg-blue-50 transition">
+            7. Use cases
+          </button>
+          <button onclick="setPresentation(7)" class="presentation-btn w-full text-left rounded-2xl border border-gray-200 p-4 hover:bg-blue-50 transition">
+            8. Pricing
+          </button>
+          <button onclick="setPresentation(8)" class="presentation-btn w-full text-left rounded-2xl border border-gray-200 p-4 hover:bg-blue-50 transition">
+            9. Call to action
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="text-center py-4">
+      <div class="bg-gradient-to-r from-blue-700 via-cyan-600 to-emerald-500 text-white rounded-3xl shadow-xl p-8 md:p-12">
+        <p class="pill bg-white/15 text-white mx-auto mb-4">
+          <i data-lucide="badge-indian-rupee" class="w-4 h-4"></i>
+          One-time ownership
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Own MilkSync for ₹9,500 one time</h2>
+        <p class="max-w-3xl mx-auto text-white/90 leading-8 mb-6">
+          No monthly pressure. No rented system. Full access to the delivery workflow that helps reduce manual work, improve customer satisfaction, and make better purchasing decisions.
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a href="contact.html" class="btn-primary bg-white text-blue-700 hover:bg-blue-50">
+            <i data-lucide="message-circle-more" class="w-4 h-4"></i>
+            Contact Denisia Webops
+          </a>
+          <a href="blogs.html" class="btn-secondary">
+            Back to Blogs Hub
+          </a>
+          <a href="https://henry-paul.github.io/Milk-Sync-Appscript/" class="btn-secondary">
+            Customer App
+          </a>
+          <a href="https://henry-paul.github.io/Milk-Sync-Appscript/admin" class="btn-secondary">
+            Admin App
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section card p-6 md:p-8">
+      <span class="pill bg-sky-100 text-sky-700 mb-4">
+        <i data-lucide="help-circle" class="w-4 h-4"></i>
+        FAQ
+      </span>
+      <h2 class="text-3xl font-bold mb-6">Frequently asked questions</h2>
+
+      <div class="space-y-4">
+        <details class="rounded-2xl border border-gray-200 p-5">
+          <summary class="font-semibold cursor-pointer">What is MilkSync?</summary>
+          <p class="mt-3 text-gray-600 leading-7">MilkSync is a digital delivery management system for recurring delivery businesses, built to reduce manual work and improve visibility.</p>
+        </details>
+        <details class="rounded-2xl border border-gray-200 p-5">
+          <summary class="font-semibold cursor-pointer">Can customers cancel for specific dates?</summary>
+          <p class="mt-3 text-gray-600 leading-7">Yes. That is one of the main features. It helps vendors plan and reduce wastage before product is dispatched.</p>
+        </details>
+        <details class="rounded-2xl border border-gray-200 p-5">
+          <summary class="font-semibold cursor-pointer">Does MilkSync support analytics?</summary>
+          <p class="mt-3 text-gray-600 leading-7">Yes. It supports day-on-day, week-on-week, month-on-month, and year-on-year insights with charts and comparisons.</p>
+        </details>
+        <details class="rounded-2xl border border-gray-200 p-5">
+          <summary class="font-semibold cursor-pointer">Is MilkSync only for dairy vendors?</summary>
+          <p class="mt-3 text-gray-600 leading-7">No. It can work for any business that handles repeated deliveries, pauses, cancellations, and recurring customers.</p>
+        </details>
+        <details class="rounded-2xl border border-gray-200 p-5">
+          <summary class="font-semibold cursor-pointer">What are the app links?</summary>
+          <p class="mt-3 text-gray-600 leading-7">
+            Customer app: <a class="text-blue-700 hover:underline" href="https://henry-paul.github.io/Milk-Sync-Appscript/">https://henry-paul.github.io/Milk-Sync-Appscript/</a><br/>
+            Admin app: <a class="text-blue-700 hover:underline" href="https://henry-paul.github.io/Milk-Sync-Appscript/admin">https://henry-paul.github.io/Milk-Sync-Appscript/admin</a>
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Related links -->
+    <section class="section card p-6 md:p-8">
+      <h2 class="text-3xl font-bold mb-4">Related links</h2>
+      <p class="text-gray-700 leading-8 mb-6">
+        Move between the blog, the hub, and the landing pages without losing context.
+      </p>
+      <div class="grid md:grid-cols-3 gap-4">
+        <a href="blogs.html" class="card-soft p-5 hover:shadow-xl transition-shadow">
+          <h3 class="text-lg font-bold text-blue-700 mb-2">Back to Blogs</h3>
+          <p class="text-gray-600 text-sm">Return to the main blog index and topic hubs.</p>
+        </a>
+        <a href="blogs.html#milksync" class="card-soft p-5 hover:shadow-xl transition-shadow">
+          <h3 class="text-lg font-bold text-blue-700 mb-2">MilkSync Hub</h3>
+          <p class="text-gray-600 text-sm">Go to the hub section for this solution and related content.</p>
+        </a>
+        <a href="contact.html" class="card-soft p-5 hover:shadow-xl transition-shadow">
+          <h3 class="text-lg font-bold text-blue-700 mb-2">Contact</h3>
+          <p class="text-gray-600 text-sm">Request a demo, custom build, or deployment help.</p>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <div class="flex items-center mb-4">
+            <div class="bg-gradient-to-r from-blue-800 to-cyan-600 p-2 rounded-xl shadow-md">
+              <i data-lucide="zap" class="h-5 w-5 text-white"></i>
+            </div>
+            <span class="ml-3 text-lg font-bold text-white">Denisia Webops Agency</span>
+          </div>
+          <p class="text-sm leading-7">
+            Web development, SEO, AI automation, business systems, and digital growth pages that help businesses move from manual work to structured operations.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-4">Services</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="services.html" class="hover:text-white">Web Development</a></li>
+            <li><a href="services.html" class="hover:text-white">SEO</a></li>
+            <li><a href="services.html" class="hover:text-white">AI Automation</a></li>
+            <li><a href="services.html" class="hover:text-white">Business Portals</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="blogs.html" class="hover:text-white">Blogs</a></li>
+            <li><a href="projects.html" class="hover:text-white">Projects</a></li>
+            <li><a href="contact.html" class="hover:text-white">Contact</a></li>
+            <li><a href="privacy.html" class="hover:text-white">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 mt-8 pt-6 text-sm flex flex-col md:flex-row justify-between gap-3">
+        <p>© 2026 Denisia Webops Agency. All rights reserved.</p>
+        <p class="opacity-70">MilkSync blog page • SEO ready • SPA layout</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Tawk chat -->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function(){
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/6993fa897941b81c35293c7a/default';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+
+  <script>
+    const testimonials = document.getElementById('testimonialSlider');
+    const testimonialDots = Array.from(document.querySelectorAll('.slide-dot'));
+    let currentTestimonial = 0;
+    let testimonialTimer = null;
+
+    const presentationData = [
+      {
+        title: 'MilkSync Overview',
+        desc: 'A digital delivery system that brings customer visibility and admin control into one simple workflow.',
+        icon: 'sparkles'
+      },
+      {
+        title: 'The manual problem',
+        desc: 'Paper notes, calls, and repeated messages create confusion, waste, and lost time.',
+        icon: 'triangle-alert'
+      },
+      {
+        title: 'Customer facing app',
+        desc: 'Customers log in, see daily delivery status, and cancel for specific dates without confusion.',
+        icon: 'smartphone'
+      },
+      {
+        title: 'Admin facing app',
+        desc: 'The vendor manages delivery updates, customer changes, and route decisions from one place.',
+        icon: 'layout-dashboard'
+      },
+      {
+        title: 'Analytics',
+        desc: 'Bar charts, pie charts, trend charts, and comparison views reveal what the business is really doing.',
+        icon: 'bar-chart-3'
+      },
+      {
+        title: 'Benefits',
+        desc: 'Less manual work, less wastage, better customer satisfaction, and more time for business growth.',
+        icon: 'badge-check'
+      },
+      {
+        title: 'Use cases',
+        desc: 'Milk vendors, water cans, tiffins, bakeries, ice cream distributors, and other recurring delivery businesses.',
+        icon: 'layers-3'
+      },
+      {
+        title: 'Pricing',
+        desc: '₹9,500 one time payment. Full access. No monthly ownership loss.',
+        icon: 'badge-indian-rupee'
+      },
+      {
+        title: 'Call to action',
+        desc: 'Open the app, review the workflow, and bring the system into your business.',
+        icon: 'arrow-right-circle'
+      }
+    ];
+
+    let currentPresentation = 0;
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.getElementById('mobile-menu-icon');
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        icon.setAttribute('data-lucide', 'x');
+      } else {
+        menu.classList.add('hidden');
+        icon.setAttribute('data-lucide', 'menu');
+      }
+      lucide.createIcons();
+    }
+
+    function updateTestimonial() {
+      testimonials.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+      testimonialDots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentTestimonial);
+        dot.classList.toggle('bg-blue-700', i === currentTestimonial);
+        dot.classList.toggle('bg-gray-300', i !== currentTestimonial);
+      });
+    }
+
+    function nextTestimonial() {
+      currentTestimonial = (currentTestimonial + 1) % 5;
+      updateTestimonial();
+      restartTestimonialTimer();
+    }
+
+    function prevTestimonial() {
+      currentTestimonial = (currentTestimonial - 1 + 5) % 5;
+      updateTestimonial();
+      restartTestimonialTimer();
+    }
+
+    function goToTestimonial(index) {
+      currentTestimonial = index;
+      updateTestimonial();
+      restartTestimonialTimer();
+    }
+
+    function startTestimonialTimer() {
+      testimonialTimer = setInterval(nextTestimonial, 6000);
+    }
+
+    function restartTestimonialTimer() {
+      clearInterval(testimonialTimer);
+      startTestimonialTimer();
+    }
+
+    function setPresentation(index) {
+      currentPresentation = index;
+      const data = presentationData[index];
+      document.getElementById('presentationTitle').textContent = data.title;
+      document.getElementById('presentationDesc').textContent = data.desc;
+      document.getElementById('presentationIcon').setAttribute('data-lucide', data.icon);
+      lucide.createIcons();
+
+      document.querySelectorAll('.presentation-btn').forEach((btn, i) => {
+        if (i === index) {
+          btn.classList.add('bg-blue-50', 'border-blue-300');
+        } else {
+          btn.classList.remove('bg-blue-50', 'border-blue-300');
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      updateTestimonial();
+      startTestimonialTimer();
+      setPresentation(0);
+    });
+  </script>
+</body>
+</html>
