@@ -1,0 +1,3783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SFDC UX · Enterprise Event Platform</title>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest">
+    </script>
+
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            background: #F4F6F9;
+            color: #1e293b;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== COLOR TOKENS ===== */
+        :root {
+            --sf-blue-dark: #032D60;
+            --sf-blue: #0070D2;
+            --sf-blue-light: #00A1E0;
+            --sf-green: #04844B;
+            --sf-bg: #F4F6F9;
+            --sf-border: #e2e8f0;
+            --sf-white: #ffffff;
+            --sf-slate-50: #f8fafc;
+            --sf-slate-100: #f1f5f9;
+            --sf-slate-200: #e2e8f0;
+            --sf-slate-400: #94a3b8;
+            --sf-slate-500: #64748b;
+            --sf-slate-600: #475569;
+            --sf-slate-700: #334155;
+            --sf-slate-800: #1e293b;
+            --sf-slate-900: #0f172a;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.10), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --radius: 16px;
+            --radius-sm: 8px;
+            --radius-full: 9999px;
+            --transition: 0.25s ease;
+        }
+
+        /* ===== UTILITY ===== */
+        .hidden {
+            display: none !important;
+        }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(32px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes pulseDot {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.2;
+            }
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes slideDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-12px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        .animate-in-fast {
+            animation: fadeIn 0.35s ease forwards;
+        }
+
+        /* ===== HEADER ===== */
+        .app-header {
+            background: var(--sf-blue-dark);
+            color: white;
+            box-shadow: 0 2px 8px rgba(3, 45, 96, 0.25);
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            height: 68px;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid rgba(0, 161, 224, 0.3);
+        }
+        .app-header .inner {
+            max-width: 1280px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .app-header .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .app-header .brand .logo-icon {
+            background: var(--sf-blue-light);
+            padding: 6px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .app-header .brand .logo-icon svg {
+            width: 22px;
+            height: 22px;
+            color: white;
+        }
+        .app-header .brand span {
+            font-weight: 800;
+            font-size: 1.3rem;
+            letter-spacing: -0.02em;
+        }
+        .app-header .brand span .light {
+            font-weight: 300;
+            color: #93c5fd;
+        }
+
+        .app-header .nav {
+            display: none;
+            gap: 4px;
+            margin-left: 32px;
+        }
+        @media (min-width: 768px) {
+            .app-header .nav {
+                display: flex;
+            }
+        }
+        .app-header .nav button {
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: none;
+            background: transparent;
+            color: #93c5fd;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+        .app-header .nav button:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+        }
+        .app-header .nav button.active {
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+        }
+        .app-header .nav button.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 3px;
+            background: var(--sf-blue-light);
+            border-radius: 2px;
+        }
+
+        .app-header .actions {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .app-header .voucher-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: var(--radius-full);
+            font-size: 0.813rem;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.1);
+            color: #93c5fd;
+        }
+        .app-header .voucher-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .app-header .voucher-btn.has-vouchers {
+            background: var(--sf-green);
+            color: white;
+            animation: pulseDot 2s infinite;
+        }
+        .app-header .voucher-btn.has-vouchers:hover {
+            background: #036b3d;
+        }
+        .app-header .voucher-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+        .app-header .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sf-blue-light), #818cf8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            flex-shrink: 0;
+            user-select: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .app-header .avatar:hover {
+            transform: scale(1.05);
+            border-color: white;
+        }
+
+        /* ===== HAMBURGER MENU ===== */
+        .hamburger-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 4px;
+            transition: var(--transition);
+            border-radius: 6px;
+        }
+        .hamburger-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .hamburger-btn svg {
+            width: 28px;
+            height: 28px;
+        }
+        @media (min-width: 768px) {
+            .hamburger-btn {
+                display: none;
+            }
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 45;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            display: none;
+            animation: fadeIn 0.25s ease;
+        }
+        .mobile-menu-overlay.open {
+            display: block;
+        }
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 300px;
+            max-width: 80vw;
+            height: 100%;
+            background: white;
+            z-index: 46;
+            box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
+            transform: translateX(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            padding: 24px 20px;
+            overflow-y: auto;
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        .mobile-menu .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--sf-border);
+            margin-bottom: 16px;
+        }
+        .mobile-menu .menu-header .brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--sf-blue-dark);
+        }
+        .mobile-menu .menu-header .brand .light {
+            font-weight: 300;
+            color: var(--sf-blue-light);
+        }
+        .mobile-menu .menu-header .close-btn {
+            background: none;
+            border: none;
+            color: var(--sf-slate-400);
+            cursor: pointer;
+            padding: 4px;
+            transition: var(--transition);
+        }
+        .mobile-menu .menu-header .close-btn:hover {
+            color: var(--sf-slate-700);
+        }
+        .mobile-menu .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.938rem;
+            color: var(--sf-slate-700);
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            font-family: inherit;
+        }
+        .mobile-menu .menu-item:hover {
+            background: var(--sf-slate-50);
+            color: var(--sf-blue);
+        }
+        .mobile-menu .menu-item.active {
+            background: #eff6ff;
+            color: var(--sf-blue);
+        }
+        .mobile-menu .menu-item svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            color: var(--sf-slate-400);
+        }
+        .mobile-menu .menu-item.active svg {
+            color: var(--sf-blue);
+        }
+        .mobile-menu .menu-divider {
+            height: 1px;
+            background: var(--sf-border);
+            margin: 8px 0;
+        }
+        .mobile-menu .menu-footer {
+            margin-top: auto;
+            padding-top: 16px;
+            border-top: 1px solid var(--sf-border);
+            font-size: 0.813rem;
+            color: var(--sf-slate-500);
+        }
+        .mobile-menu .menu-footer .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+        .mobile-menu .menu-footer .user-info .av {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--sf-blue-dark);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+        .mobile-menu .menu-footer .user-info .name {
+            font-weight: 600;
+            color: var(--sf-slate-800);
+        }
+        .mobile-menu .menu-footer .user-info .email {
+            font-size: 0.75rem;
+            color: var(--sf-slate-400);
+        }
+
+        /* ===== MAIN ===== */
+        .app-main {
+            flex: 1;
+            max-width: 1280px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 32px 24px;
+            position: relative;
+        }
+
+        /* ===== VIEWS ===== */
+        .view {
+            display: none;
+        }
+        .view.active {
+            display: block;
+            animation: fadeIn 0.45s ease forwards;
+        }
+
+        /* ===== FOOTER ===== */
+        .app-footer {
+            background: white;
+            border-top: 1px solid var(--sf-border);
+            margin-top: auto;
+            padding: 20px 24px;
+        }
+        .app-footer .inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            font-size: 0.875rem;
+            color: var(--sf-slate-500);
+        }
+        @media (min-width: 768px) {
+            .app-footer .inner {
+                flex-direction: row;
+            }
+        }
+        .app-footer .inner .left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .app-footer .inner .left .divider {
+            width: 1px;
+            height: 20px;
+            background: var(--sf-border);
+        }
+        .app-footer .inner .branding {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .app-footer .inner .branding strong {
+            color: var(--sf-blue-dark);
+            font-weight: 700;
+        }
+        .app-footer .inner .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--sf-green);
+            display: inline-block;
+            animation: pulseDot 2s infinite;
+        }
+
+        /* ===== HOME: LIVE HERO ===== */
+        .live-hero {
+            background: #0f172a;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #1e293b;
+            margin-bottom: 48px;
+        }
+        @media (min-width: 1024px) {
+            .live-hero {
+                flex-direction: row;
+                height: 500px;
+            }
+        }
+
+        .live-hero .video-area {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            min-height: 280px;
+        }
+        .live-hero .video-area .badge-live {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            backdrop-filter: blur(8px);
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+        }
+        .live-hero .video-area .badge-live .dot {
+            width: 8px;
+            height: 8px;
+            background: #ef4444;
+            border-radius: 50%;
+            animation: pulseDot 1.4s infinite;
+        }
+        .live-hero .video-area .badge-live span {
+            color: #fca5a5;
+            font-size: 0.688rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .live-hero .video-area .badge-viewers {
+            position: absolute;
+            top: 16px;
+            left: 130px;
+            z-index: 20;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .live-hero .video-area .badge-viewers svg {
+            width: 14px;
+            height: 14px;
+        }
+        .live-hero .video-area .badge-recording {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            z-index: 20;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.688rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .live-hero .video-area .badge-recording svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .live-hero .video-area .center-content {
+            text-align: center;
+            z-index: 10;
+            padding: 24px;
+        }
+        .live-hero .video-area .center-content .icon-wrap {
+            width: 80px;
+            height: 80px;
+            background: #1e293b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            border: 1px solid #334155;
+        }
+        .live-hero .video-area .center-content .icon-wrap svg {
+            width: 32px;
+            height: 32px;
+            color: #60a5fa;
+        }
+        .live-hero .video-area .center-content h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+        }
+        @media (min-width: 768px) {
+            .live-hero .video-area .center-content h1 {
+                font-size: 2.25rem;
+            }
+        }
+        .live-hero .video-area .center-content p {
+            color: #60a5fa;
+            font-size: 1.125rem;
+        }
+        .live-hero .video-area .center-content .speaker-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 4px 16px 4px 4px;
+            border-radius: var(--radius-full);
+            margin-top: 8px;
+        }
+        .live-hero .video-area .center-content .speaker-tag .av {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--sf-blue-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.688rem;
+            color: white;
+        }
+        .live-hero .video-area .center-content .speaker-tag span {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.813rem;
+        }
+
+        /* Hero CTA Buttons */
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .hero-actions .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 0.875rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+            text-decoration: none;
+        }
+        .hero-actions .hero-btn.primary {
+            background: var(--sf-blue);
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 112, 210, 0.35);
+        }
+        .hero-actions .hero-btn.primary:hover {
+            background: #005aab;
+            transform: scale(1.03);
+        }
+        .hero-actions .hero-btn.secondary {
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(4px);
+        }
+        .hero-actions .hero-btn.secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.03);
+        }
+        .hero-actions .hero-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .live-hero .video-area .controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 16px 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            display: flex;
+            justify-content: space-between;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .live-hero .video-area .controls svg {
+            cursor: pointer;
+            transition: var(--transition);
+            width: 20px;
+            height: 20px;
+        }
+        .live-hero .video-area .controls svg:hover {
+            color: white;
+        }
+
+        /* Chat sidebar */
+        .live-hero .chat-side {
+            width: 100%;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            border-top: 1px solid var(--sf-border);
+        }
+        @media (min-width: 1024px) {
+            .live-hero .chat-side {
+                width: 340px;
+                border-top: 0;
+                border-left: 1px solid var(--sf-border);
+            }
+        }
+        .live-hero .chat-side .chat-header {
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--sf-border);
+            background: var(--sf-slate-50);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 0.875rem;
+            color: var(--sf-blue-dark);
+        }
+        .live-hero .chat-side .chat-header .left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .live-hero .chat-side .chat-header .left svg {
+            width: 16px;
+            height: 16px;
+            color: var(--sf-blue);
+        }
+        .live-hero .chat-side .chat-header .count {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--sf-slate-400);
+            background: var(--sf-slate-100);
+            padding: 2px 10px;
+            border-radius: var(--radius-full);
+        }
+        .live-hero .chat-side .chat-messages {
+            flex: 1;
+            padding: 16px 20px;
+            background: rgba(248, 250, 252, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            gap: 8px;
+            min-height: 140px;
+            max-height: 260px;
+            overflow-y: auto;
+        }
+        .live-hero .chat-side .chat-messages .msg {
+            font-size: 0.875rem;
+            animation: fadeIn 0.3s ease;
+        }
+        .live-hero .chat-side .chat-messages .msg .name {
+            font-weight: 700;
+            color: var(--sf-slate-700);
+            font-size: 0.75rem;
+            margin-right: 6px;
+        }
+        .live-hero .chat-side .chat-messages .msg .bubble {
+            background: var(--sf-slate-100);
+            padding: 4px 14px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+        .live-hero .chat-side .chat-messages .msg .bubble.me {
+            background: var(--sf-blue);
+            color: white;
+        }
+        .live-hero .chat-side .chat-input {
+            padding: 12px 20px;
+            border-top: 1px solid var(--sf-border);
+            background: white;
+        }
+        .live-hero .chat-side .chat-input .row {
+            display: flex;
+            background: var(--sf-slate-100);
+            border-radius: var(--radius-full);
+            padding: 4px;
+            border: 1px solid var(--sf-border);
+            transition: var(--transition);
+        }
+        .live-hero .chat-side .chat-input .row:focus-within {
+            border-color: var(--sf-blue);
+            box-shadow: 0 0 0 3px rgba(0, 112, 210, 0.15);
+        }
+        .live-hero .chat-side .chat-input .row input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            padding: 8px 14px;
+            font-size: 0.875rem;
+            outline: none;
+            font-family: inherit;
+        }
+        .live-hero .chat-side .chat-input .row button {
+            background: var(--sf-blue);
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            padding: 8px 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+        .live-hero .chat-side .chat-input .row button:hover {
+            background: #005aab;
+        }
+        .live-hero .chat-side .chat-input .row button svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ===== SECTION HEADERS ===== */
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .section-head .left h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--sf-blue-dark);
+        }
+        .section-head .left p {
+            color: var(--sf-slate-600);
+            margin-top: 4px;
+            font-size: 1.063rem;
+        }
+        .section-head .right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-head .right .view-all {
+            color: var(--sf-blue);
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: var(--transition);
+            border: none;
+            background: none;
+            font-family: inherit;
+        }
+        .section-head .right .view-all:hover {
+            color: #005aab;
+        }
+        .section-head .right .view-all svg {
+            width: 16px;
+            height: 16px;
+        }
+        @media (max-width: 640px) {
+            .section-head {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .section-head .left h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* ===== SESSION CARDS ===== */
+        .session-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        @media (min-width: 640px) {
+            .session-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 1024px) {
+            .session-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .session-card {
+            background: white;
+            border-radius: var(--radius);
+            border: 1px solid var(--sf-border);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        .session-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+        }
+        .session-card .body {
+            padding: 24px;
+            flex: 1;
+        }
+        .session-card .body .top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        .session-card .body .top-row .cat {
+            background: #eff6ff;
+            color: var(--sf-blue);
+            font-size: 0.688rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+        .session-card .body .top-row .price {
+            color: var(--sf-green);
+            font-weight: 800;
+            font-size: 1.125rem;
+        }
+        .session-card .body h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--sf-slate-900);
+            margin-bottom: 8px;
+            transition: var(--transition);
+            line-height: 1.3;
+        }
+        .session-card .body h3:hover {
+            color: var(--sf-blue);
+        }
+        .session-card .body .meta {
+            display: flex;
+            gap: 16px;
+            font-size: 0.875rem;
+            color: var(--sf-slate-500);
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .session-card .body .meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .session-card .body .meta svg {
+            width: 14px;
+            height: 14px;
+        }
+        .session-card .body .speaker-chip {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--sf-slate-50);
+            border-radius: 12px;
+            border: 1px solid var(--sf-border);
+        }
+        .session-card .body .speaker-chip .av {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--sf-blue-dark);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.813rem;
+            flex-shrink: 0;
+        }
+        .session-card .body .speaker-chip .info .name {
+            font-weight: 700;
+            font-size: 0.875rem;
+            color: var(--sf-slate-800);
+        }
+        .session-card .body .speaker-chip .info .role {
+            font-size: 0.75rem;
+            color: var(--sf-slate-500);
+        }
+        .session-card .footer {
+            padding: 16px 24px;
+            border-top: 1px solid var(--sf-border);
+            background: var(--sf-slate-50);
+        }
+        .session-card .footer button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            font-weight: 700;
+            border: 2px solid var(--sf-blue);
+            background: white;
+            color: var(--sf-blue);
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+            font-size: 0.875rem;
+        }
+        .session-card .footer button:hover {
+            background: var(--sf-blue);
+            color: white;
+        }
+
+        /* ===== PAST RECORDINGS (Home) ===== */
+        .past-home-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media (min-width: 640px) {
+            .past-home-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 1024px) {
+            .past-home-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .past-home-card {
+            background: white;
+            border-radius: var(--radius);
+            border: 1px solid var(--sf-border);
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        .past-home-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+        }
+        .past-home-card .thumb {
+            background: #1e293b;
+            height: 140px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .past-home-card .thumb .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.15);
+            transition: var(--transition);
+        }
+        .past-home-card:hover .thumb .overlay {
+            background: rgba(0, 0, 0, 0.35);
+        }
+        .past-home-card .thumb .play-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            transition: var(--transition);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        .past-home-card:hover .thumb .play-icon {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.05);
+        }
+        .past-home-card .thumb .play-icon svg {
+            width: 20px;
+            height: 20px;
+            color: white;
+        }
+        .past-home-card .thumb .duration {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            font-size: 0.688rem;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 4px;
+            z-index: 2;
+            backdrop-filter: blur(4px);
+        }
+        .past-home-card .info {
+            padding: 14px 16px;
+        }
+        .past-home-card .info h4 {
+            font-size: 0.938rem;
+            font-weight: 700;
+            color: var(--sf-slate-900);
+            margin-bottom: 2px;
+            transition: var(--transition);
+            line-height: 1.3;
+        }
+        .past-home-card:hover .info h4 {
+            color: var(--sf-blue);
+        }
+        .past-home-card .info .meta {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            color: var(--sf-slate-500);
+            flex-wrap: wrap;
+        }
+        .past-home-card .info .meta svg {
+            width: 12px;
+            height: 12px;
+        }
+        .past-home-card .info .speaker-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-top: 8px;
+            border-top: 1px solid var(--sf-border);
+            margin-top: 8px;
+        }
+        .past-home-card .info .speaker-row .av {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--sf-blue-dark);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.625rem;
+            flex-shrink: 0;
+        }
+        .past-home-card .info .speaker-row .name {
+            font-weight: 600;
+            font-size: 0.75rem;
+            color: var(--sf-slate-700);
+        }
+
+        /* ===== SPEAKERS GRID ===== */
+        .speaker-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        @media (min-width: 640px) {
+            .speaker-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 1024px) {
+            .speaker-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .speaker-card {
+            background: white;
+            border-radius: var(--radius);
+            border: 1px solid var(--sf-border);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .speaker-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+        }
+        .speaker-card .head {
+            padding: 28px 24px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--sf-border);
+            position: relative;
+        }
+        .speaker-card .head .badge-company {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: var(--sf-slate-100);
+            color: var(--sf-slate-500);
+            font-size: 0.688rem;
+            font-weight: 600;
+            padding: 2px 12px;
+            border-radius: var(--radius-full);
+        }
+        .speaker-card .head .av {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sf-blue-light), var(--sf-blue-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin: 0 auto 12px;
+            box-shadow: 0 4px 12px rgba(0, 112, 210, 0.25);
+            border: 3px solid white;
+        }
+        .speaker-card .head h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--sf-slate-900);
+        }
+        .speaker-card .head .role {
+            color: var(--sf-blue);
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        .speaker-card .head .bio {
+            color: var(--sf-slate-500);
+            font-size: 0.875rem;
+            margin-top: 6px;
+            line-height: 1.5;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .speaker-card .body {
+            padding: 16px 24px 24px;
+            background: var(--sf-slate-50);
+        }
+        .speaker-card .body .label {
+            font-size: 0.688rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--sf-slate-400);
+            margin-bottom: 6px;
+        }
+        .speaker-card .body .future-item {
+            background: white;
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--sf-border);
+            font-size: 0.813rem;
+            font-weight: 600;
+            color: var(--sf-slate-800);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        .speaker-card .body .future-item:hover {
+            border-color: var(--sf-blue);
+        }
+        .speaker-card .body .future-item .price {
+            color: var(--sf-green);
+        }
+        .speaker-card .body .past-item {
+            font-size: 0.813rem;
+            font-weight: 500;
+            color: var(--sf-slate-600);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .speaker-card .body .past-item:hover {
+            color: var(--sf-blue);
+        }
+        .speaker-card .body .past-item svg {
+            width: 14px;
+            height: 14px;
+            color: var(--sf-slate-400);
+        }
+        .speaker-card .body .mt-2 {
+            margin-top: 12px;
+        }
+        .speaker-card .body .empty-state {
+            color: var(--sf-slate-400);
+            font-size: 0.875rem;
+            font-style: italic;
+        }
+        .speaker-card .footer {
+            padding: 12px 24px 20px;
+            background: white;
+            border-top: 1px solid var(--sf-border);
+            text-align: center;
+        }
+        .speaker-card .footer button {
+            background: var(--sf-blue);
+            color: white;
+            border: none;
+            padding: 8px 24px;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.813rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+        .speaker-card .footer button:hover {
+            background: #005aab;
+            transform: scale(1.03);
+        }
+
+        /* ===== SPEAKER DETAIL MODAL ===== */
+        .speaker-modal .modal-box {
+            max-width: 600px;
+        }
+        .speaker-modal .modal-body {
+            padding: 24px 28px;
+        }
+        .speaker-modal .modal-body .detail-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sf-blue-light), var(--sf-blue-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin: 0 auto 12px;
+            border: 3px solid white;
+            box-shadow: 0 4px 12px rgba(0, 112, 210, 0.25);
+        }
+        .speaker-modal .modal-body .detail-name {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--sf-blue-dark);
+        }
+        .speaker-modal .modal-body .detail-role {
+            text-align: center;
+            color: var(--sf-blue);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .speaker-modal .modal-body .detail-company {
+            text-align: center;
+            color: var(--sf-slate-500);
+            font-size: 0.875rem;
+            margin-bottom: 12px;
+        }
+        .speaker-modal .modal-body .detail-bio {
+            color: var(--sf-slate-700);
+            line-height: 1.6;
+            margin-bottom: 16px;
+            padding: 12px 16px;
+            background: var(--sf-slate-50);
+            border-radius: 8px;
+            border-left: 3px solid var(--sf-blue);
+        }
+        .speaker-modal .modal-body .detail-sessions h4 {
+            font-weight: 700;
+            color: var(--sf-slate-800);
+            margin-bottom: 8px;
+        }
+        .speaker-modal .modal-body .detail-sessions .session-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px solid var(--sf-border);
+            font-size: 0.875rem;
+        }
+        .speaker-modal .modal-body .detail-sessions .session-item .title {
+            font-weight: 500;
+        }
+        .speaker-modal .modal-body .detail-sessions .session-item .date {
+            color: var(--sf-slate-500);
+        }
+
+        /* ===== PAST EVENTS GRID (full page) ===== */
+        .past-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        @media (min-width: 640px) {
+            .past-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 1024px) {
+            .past-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .past-card {
+            background: white;
+            border-radius: var(--radius);
+            border: 1px solid var(--sf-border);
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        .past-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+        }
+        .past-card .thumb {
+            background: #1e293b;
+            height: 192px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .past-card .thumb .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.15);
+            transition: var(--transition);
+        }
+        .past-card:hover .thumb .overlay {
+            background: rgba(0, 0, 0, 0.35);
+        }
+        .past-card .thumb .play-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            transition: var(--transition);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        .past-card:hover .thumb .play-icon {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.05);
+        }
+        .past-card .thumb .play-icon svg {
+            width: 28px;
+            height: 28px;
+            color: white;
+        }
+        .past-card .thumb .duration {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 4px;
+            z-index: 2;
+            backdrop-filter: blur(4px);
+        }
+        .past-card .thumb .views-badge {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            background: rgba(0, 0, 0, 0.6);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.688rem;
+            padding: 4px 12px;
+            border-radius: 4px;
+            z-index: 2;
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .past-card .thumb .views-badge svg {
+            width: 12px;
+            height: 12px;
+        }
+        .past-card .info {
+            padding: 20px;
+        }
+        .past-card .info h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--sf-slate-900);
+            margin-bottom: 6px;
+            transition: var(--transition);
+            line-height: 1.3;
+        }
+        .past-card:hover .info h3 {
+            color: var(--sf-blue);
+        }
+        .past-card .info .meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            color: var(--sf-slate-500);
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .past-card .info .meta svg {
+            width: 14px;
+            height: 14px;
+        }
+        .past-card .info .speaker-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--sf-border);
+        }
+        .past-card .info .speaker-row .av {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--sf-blue-dark);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.688rem;
+            flex-shrink: 0;
+        }
+        .past-card .info .speaker-row .name {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--sf-slate-700);
+        }
+        .past-card .info .speaker-row .company {
+            font-size: 0.75rem;
+            color: var(--sf-slate-400);
+        }
+
+        /* ===== VOUCHERS ===== */
+        .voucher-empty {
+            padding: 80px 0;
+            text-align: center;
+        }
+        .voucher-empty svg {
+            width: 72px;
+            height: 72px;
+            color: var(--sf-slate-300);
+            margin: 0 auto 16px;
+        }
+        .voucher-empty h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--sf-blue-dark);
+            margin-bottom: 4px;
+        }
+        .voucher-empty p {
+            color: var(--sf-slate-500);
+        }
+        .voucher-empty .cta-btn {
+            margin-top: 16px;
+            padding: 12px 32px;
+            background: var(--sf-blue);
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+        .voucher-empty .cta-btn:hover {
+            background: #005aab;
+        }
+
+        .voucher-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+        @media (min-width: 768px) {
+            .voucher-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .voucher-card {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--sf-border);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+        .voucher-card:hover {
+            box-shadow: 0 24px 32px -12px rgba(3, 45, 96, 0.2);
+        }
+        @media (min-width: 640px) {
+            .voucher-card {
+                flex-direction: row;
+            }
+        }
+        .voucher-card .left {
+            background: linear-gradient(135deg, var(--sf-blue-dark), var(--sf-blue));
+            color: white;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+            min-height: 180px;
+        }
+        @media (min-width: 640px) {
+            .voucher-card .left {
+                width: 33.333%;
+                min-height: auto;
+            }
+        }
+        .voucher-card .left .deco1 {
+            position: absolute;
+            left: -24px;
+            bottom: -24px;
+            width: 96px;
+            height: 96px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 50%;
+        }
+        .voucher-card .left .deco2 {
+            position: absolute;
+            right: -12px;
+            top: -12px;
+            width: 64px;
+            height: 64px;
+            border: 2px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+        }
+        .voucher-card .left .content {
+            position: relative;
+            z-index: 2;
+        }
+        .voucher-card .left .content .star-icon {
+            color: #fcd34d;
+            margin-bottom: 10px;
+        }
+        .voucher-card .left .content .star-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+        .voucher-card .left .content .vip-label {
+            font-size: 0.688rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #93c5fd;
+            display: block;
+            margin-bottom: 2px;
+        }
+        .voucher-card .left .content .cat {
+            font-weight: 700;
+            font-size: 1.125rem;
+            line-height: 1.3;
+        }
+        .voucher-card .left .token {
+            position: relative;
+            z-index: 2;
+            margin-top: 16px;
+        }
+        .voucher-card .left .token .label {
+            display: block;
+            font-size: 0.625rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #93c5fd;
+            margin-bottom: 2px;
+        }
+        .voucher-card .left .token .code {
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            font-size: 0.938rem;
+            letter-spacing: 0.04em;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 4px 12px;
+            border-radius: 4px;
+            backdrop-filter: blur(4px);
+            display: inline-block;
+        }
+
+        .voucher-card .divider {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4px 0;
+            position: relative;
+        }
+        @media (min-width: 640px) {
+            .voucher-card .divider {
+                display: flex;
+            }
+        }
+        .voucher-card .divider .dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #F4F6F9;
+            border-bottom: 1px solid var(--sf-border);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .voucher-card .divider .dot.top {
+            top: -8px;
+        }
+        .voucher-card .divider .dot.bottom {
+            bottom: -8px;
+            border-top: 1px solid var(--sf-border);
+            border-bottom: 0;
+        }
+        .voucher-card .divider .line {
+            flex: 1;
+            border-left: 2px dashed var(--sf-border);
+            margin: 0 6px;
+        }
+
+        .voucher-card .right {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: white;
+            position: relative;
+        }
+        .voucher-card .right .status-stamp {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            border: 2px solid;
+            border-radius: 4px;
+            font-size: 0.688rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 2px 12px;
+            transform: rotate(8deg);
+            opacity: 0.8;
+        }
+        .voucher-card .right .status-stamp.valid {
+            border-color: var(--sf-green);
+            color: var(--sf-green);
+        }
+        .voucher-card .right .status-stamp.expired {
+            border-color: #ef4444;
+            color: #ef4444;
+        }
+        .voucher-card .right h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--sf-slate-900);
+            padding-right: 72px;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .voucher-card .right .details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 16px;
+            margin-bottom: 16px;
+        }
+        .voucher-card .right .details .label {
+            font-size: 0.625rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--sf-slate-400);
+        }
+        .voucher-card .right .details .value {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--sf-slate-800);
+        }
+        .voucher-card .right .details .value.green {
+            color: var(--sf-green);
+        }
+        .voucher-card .right .details .value.red {
+            color: #ef4444;
+        }
+        .voucher-card .right .footer-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 12px;
+            border-top: 1px solid var(--sf-border);
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .voucher-card .right .footer-row .qr {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--sf-slate-500);
+            font-size: 0.75rem;
+        }
+        .voucher-card .right .footer-row .qr svg {
+            width: 24px;
+            height: 24px;
+            color: var(--sf-slate-400);
+        }
+        .voucher-card .right .footer-row .join-btn {
+            background: var(--sf-blue);
+            color: white;
+            border: none;
+            padding: 8px 22px;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+        .voucher-card .right .footer-row .join-btn:hover {
+            background: #005aab;
+            transform: scale(1.02);
+        }
+
+        /* ===== MODAL (shared) ===== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(6px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            animation: fadeIn 0.2s ease;
+        }
+        .modal-overlay .modal-box {
+            background: white;
+            border-radius: var(--radius);
+            max-width: 520px;
+            width: 100%;
+            max-height: 90vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-xl);
+        }
+        .modal-overlay .modal-box .modal-header {
+            background: var(--sf-blue-dark);
+            color: white;
+            padding: 24px 28px;
+            position: relative;
+        }
+        .modal-overlay .modal-box .modal-header .close {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 4px;
+        }
+        .modal-overlay .modal-box .modal-header .close:hover {
+            color: white;
+            transform: rotate(90deg);
+        }
+        .modal-overlay .modal-box .modal-header .close svg {
+            width: 24px;
+            height: 24px;
+        }
+        .modal-overlay .modal-box .modal-header .cat {
+            background: var(--sf-blue-light);
+            font-size: 0.688rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 2px 12px;
+            border-radius: var(--radius-full);
+            display: inline-block;
+        }
+        .modal-overlay .modal-box .modal-header h2 {
+            font-size: 1.375rem;
+            font-weight: 700;
+            margin-top: 8px;
+            line-height: 1.3;
+        }
+        .modal-overlay .modal-box .modal-header .date-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #93c5fd;
+            font-size: 0.875rem;
+            margin-top: 4px;
+        }
+        .modal-overlay .modal-box .modal-header .date-row svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .modal-overlay .modal-box .modal-body {
+            padding: 24px 28px;
+            overflow-y: auto;
+            flex: 1;
+        }
+        .modal-overlay .modal-box .modal-body .processing {
+            padding: 48px 0;
+            text-align: center;
+        }
+        .modal-overlay .modal-box .modal-body .processing .spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid var(--sf-blue);
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 12px;
+        }
+        .modal-overlay .modal-box .modal-body .processing h3 {
+            font-weight: 700;
+            color: var(--sf-blue-dark);
+            font-size: 1.125rem;
+        }
+        .modal-overlay .modal-box .modal-body .processing p {
+            color: var(--sf-slate-500);
+            font-size: 0.875rem;
+            margin-top: 4px;
+        }
+
+        .modal-overlay .modal-box .modal-body .form-group {
+            margin-bottom: 16px;
+        }
+        .modal-overlay .modal-box .modal-body .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--sf-slate-700);
+            margin-bottom: 2px;
+        }
+        .modal-overlay .modal-box .modal-body .form-group input {
+            width: 100%;
+            padding: 10px 14px;
+            background: var(--sf-slate-50);
+            border: 1px solid var(--sf-border);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            outline: none;
+            color: var(--sf-slate-500);
+            cursor: not-allowed;
+            font-family: inherit;
+        }
+        .modal-overlay .modal-box .modal-body .form-group .hint {
+            font-size: 0.75rem;
+            color: var(--sf-slate-400);
+            margin-top: 2px;
+        }
+
+        .modal-overlay .modal-box .modal-body .payment-summary {
+            background: var(--sf-slate-50);
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 1px solid var(--sf-border);
+            margin: 8px 0 16px;
+        }
+        .modal-overlay .modal-box .modal-body .payment-summary .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-overlay .modal-box .modal-body .payment-summary .row+.row {
+            border-top: 1px solid var(--sf-border);
+            margin-top: 8px;
+            padding-top: 8px;
+        }
+        .modal-overlay .modal-box .modal-body .payment-summary .row .label {
+            color: var(--sf-slate-600);
+            font-weight: 500;
+        }
+        .modal-overlay .modal-box .modal-body .payment-summary .row .amount {
+            font-weight: 700;
+        }
+        .modal-overlay .modal-box .modal-body .payment-summary .row.total .label {
+            font-weight: 700;
+            color: var(--sf-blue-dark);
+            font-size: 1.063rem;
+        }
+        .modal-overlay .modal-box .modal-body .payment-summary .row.total .amount {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--sf-blue);
+        }
+
+        .modal-overlay .modal-box .modal-body .pay-btn {
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.063rem;
+            background: var(--sf-green);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: inherit;
+            box-shadow: var(--shadow-md);
+        }
+        .modal-overlay .modal-box .modal-body .pay-btn:hover {
+            background: #036b3d;
+            transform: scale(1.01);
+        }
+        .modal-overlay .modal-box .modal-body .pay-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .modal-overlay .modal-box .modal-body .pay-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+        .modal-overlay .modal-box .modal-body .secure {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--sf-slate-400);
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+        .modal-overlay .modal-box .modal-body .secure svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* ===== TOASTS ===== */
+        .toast-container {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 60;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            pointer-events: none;
+        }
+        .toast {
+            pointer-events: auto;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-xl);
+            border-left: 4px solid var(--sf-green);
+            width: 340px;
+            max-width: 90vw;
+            animation: slideInRight 0.35s ease forwards;
+        }
+        .toast.error {
+            border-left-color: #ef4444;
+        }
+        .toast.error svg {
+            color: #ef4444;
+        }
+        .toast svg {
+            width: 18px;
+            height: 18px;
+            color: var(--sf-green);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .toast .content .title {
+            font-weight: 700;
+            font-size: 0.875rem;
+            color: var(--sf-slate-800);
+        }
+        .toast .content .msg {
+            font-size: 0.875rem;
+            color: var(--sf-slate-600);
+            margin-top: 2px;
+            line-height: 1.4;
+        }
+
+        /* ===== CHATBOT (Floating) ===== */
+        .chatbot-toggle {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 100;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--sf-blue);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 16px rgba(0, 112, 210, 0.4);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: inherit;
+        }
+        .chatbot-toggle:hover {
+            transform: scale(1.08);
+            background: #005aab;
+        }
+        .chatbot-toggle svg {
+            width: 28px;
+            height: 28px;
+        }
+        .chatbot-toggle .badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: #ef4444;
+            color: white;
+            font-size: 0.688rem;
+            font-weight: 700;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid white;
+        }
+
+        .chatbot-window {
+            position: fixed;
+            bottom: 100px;
+            right: 28px;
+            z-index: 99;
+            width: 380px;
+            max-width: calc(100vw - 32px);
+            height: 500px;
+            max-height: calc(100vh - 140px);
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-xl);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid var(--sf-border);
+            animation: fadeIn 0.3s ease;
+            transform-origin: bottom right;
+        }
+        .chatbot-window.hidden {
+            display: none;
+        }
+        .chatbot-window .header {
+            background: var(--sf-blue-dark);
+            color: white;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+        .chatbot-window .header .title {
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .chatbot-window .header .title svg {
+            width: 20px;
+            height: 20px;
+        }
+        .chatbot-window .header .close-btn {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 4px;
+        }
+        .chatbot-window .header .close-btn:hover {
+            color: white;
+        }
+        .chatbot-window .messages {
+            flex: 1;
+            padding: 16px 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: var(--sf-slate-50);
+        }
+        .chatbot-window .messages .bot-msg,
+        .chatbot-window .messages .user-msg {
+            max-width: 85%;
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            line-height: 1.4;
+            animation: fadeIn 0.3s ease;
+        }
+        .chatbot-window .messages .bot-msg {
+            background: white;
+            border: 1px solid var(--sf-border);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+        .chatbot-window .messages .user-msg {
+            background: var(--sf-blue);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+        .chatbot-window .quick-replies {
+            padding: 8px 16px 4px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            border-top: 1px solid var(--sf-border);
+            background: white;
+        }
+        .chatbot-window .quick-replies button {
+            background: var(--sf-slate-100);
+            border: 1px solid var(--sf-border);
+            border-radius: var(--radius-full);
+            padding: 4px 14px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--sf-slate-700);
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+        .chatbot-window .quick-replies button:hover {
+            background: var(--sf-blue);
+            color: white;
+            border-color: var(--sf-blue);
+        }
+        .chatbot-window .input-area {
+            padding: 12px 16px;
+            border-top: 1px solid var(--sf-border);
+            background: white;
+            display: flex;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+        .chatbot-window .input-area input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid var(--sf-border);
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            outline: none;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+        .chatbot-window .input-area input:focus {
+            border-color: var(--sf-blue);
+            box-shadow: 0 0 0 3px rgba(0, 112, 210, 0.15);
+        }
+        .chatbot-window .input-area button {
+            background: var(--sf-blue);
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            padding: 0 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+        .chatbot-window .input-area button:hover {
+            background: #005aab;
+        }
+
+        /* ===== RESPONSIVE TWEAKS ===== */
+        @media (max-width: 480px) {
+            .app-header .inner {
+                padding: 0 12px;
+            }
+            .app-header .brand span {
+                font-size: 1rem;
+            }
+            .app-header .voucher-btn span {
+                display: none;
+            }
+            .app-main {
+                padding: 16px 12px;
+            }
+            .section-head .left h2 {
+                font-size: 1.25rem;
+            }
+            .modal-overlay .modal-box .modal-header {
+                padding: 16px 20px;
+            }
+            .modal-overlay .modal-box .modal-body {
+                padding: 16px 20px;
+            }
+            .voucher-card .right h3 {
+                font-size: 1rem;
+                padding-right: 56px;
+            }
+            .voucher-card .right .details {
+                grid-template-columns: 1fr 1fr;
+                gap: 6px 12px;
+            }
+            .voucher-card .right .details .value {
+                font-size: 0.75rem;
+            }
+            .live-hero .video-area .center-content h1 {
+                font-size: 1.25rem;
+            }
+            .live-hero .video-area .badge-viewers {
+                left: 100px;
+                font-size: 0.688rem;
+                padding: 4px 10px;
+            }
+            .live-hero .video-area .badge-recording {
+                display: none;
+            }
+            .chatbot-window {
+                width: 100%;
+                max-width: 100%;
+                right: 0;
+                bottom: 0;
+                max-height: 100vh;
+                border-radius: 0;
+                height: 100%;
+            }
+            .chatbot-toggle {
+                bottom: 16px;
+                right: 16px;
+                width: 52px;
+                height: 52px;
+            }
+            .hero-actions .hero-btn {
+                padding: 8px 16px;
+                font-size: 0.75rem;
+            }
+            .hero-actions .hero-btn svg {
+                width: 14px;
+                height: 14px;
+            }
+        }
+
+        /* Scrollbar styling */
+        .chat-messages::-webkit-scrollbar,
+        .modal-body::-webkit-scrollbar,
+        .chatbot-window .messages::-webkit-scrollbar,
+        .mobile-menu::-webkit-scrollbar {
+            width: 4px;
+        }
+        .chat-messages::-webkit-scrollbar-track,
+        .modal-body::-webkit-scrollbar-track,
+        .chatbot-window .messages::-webkit-scrollbar-track,
+        .mobile-menu::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .chat-messages::-webkit-scrollbar-thumb,
+        .modal-body::-webkit-scrollbar-thumb,
+        .chatbot-window .messages::-webkit-scrollbar-thumb,
+        .mobile-menu::-webkit-scrollbar-thumb {
+            background: var(--sf-border);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="app-header">
+        <div class="inner">
+            <div style="display:flex;align-items:center;gap:8px;">
+                <!-- Hamburger Button (mobile) -->
+                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+                </button>
+
+                <div class="brand" id="brandHome">
+                    <div class="logo-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <span>SFDC<span class="light">UX</span></span>
+                </div>
+            </div>
+
+            <nav class="nav" id="mainNav">
+                <button class="active" data-view="home">Live &amp; Upcoming</button>
+                <button data-view="speakers">Speakers</button>
+                <button data-view="past">Library</button>
+            </nav>
+
+            <div class="actions">
+                <button class="voucher-btn" id="voucherBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
+                    <span id="voucherCount">0</span>
+                </button>
+                <div class="avatar" id="avatarInitial" title="User Profile">D</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== MOBILE MENU (Overlay + Drawer) ===== -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="menu-header">
+            <div class="brand">
+                <span>SFDC<span class="light">UX</span></span>
+            </div>
+            <button class="close-btn" id="mobileMenuClose">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+
+        <button class="menu-item active" data-view="home">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Home
+        </button>
+        <button class="menu-item" data-view="speakers">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Speakers
+        </button>
+        <button class="menu-item" data-view="past">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Library
+        </button>
+        <button class="menu-item" data-view="vouchers">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
+            Vouchers
+        </button>
+
+        <div class="menu-divider"></div>
+
+        <div class="menu-footer">
+            <div class="user-info">
+                <div class="av" id="mobileAvatar">D</div>
+                <div>
+                    <div class="name" id="mobileUserName">Dada (VIP)</div>
+                    <div class="email" id="mobileUserEmail">dada@trailblazer.com</div>
+                </div>
+            </div>
+            <div style="font-size:0.75rem;color:var(--sf-slate-400);">v2.5.0 · Platform managed by Denisia Webops</div>
+        </div>
+    </div>
+
+    <!-- ===== MAIN ===== -->
+    <main class="app-main" id="appMain">
+
+        <!-- ===== VIEW: HOME ===== -->
+        <div class="view active" id="view-home">
+
+            <!-- LIVE HERO -->
+            <section class="live-hero">
+                <div class="video-area">
+                    <div class="badge-live">
+                        <span class="dot"></span>
+                        <span>Live</span>
+                    </div>
+                    <div class="badge-viewers" id="viewerBadge">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <span id="viewerCount">1,420</span>
+                    </div>
+                    <div class="badge-recording">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16 10,8"/></svg>
+                        Recording
+                    </div>
+
+                    <div class="center-content">
+                        <div class="icon-wrap">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="8" y1="2" x2="8" y2="22"/><line x1="16" y1="2" x2="16" y2="22"/><line x1="2" y1="8" x2="22" y2="8"/><line x1="2" y1="16" x2="22" y2="16"/></svg>
+                        </div>
+                        <h1 id="liveTitle">Salesforce UX Keynote: The AI Era</h1>
+                        <p id="liveSpeaker">Maya Lin is presenting live...</p>
+                        <div class="speaker-tag" id="speakerTag">
+                            <div class="av">ML</div>
+                            <span>Maya Lin · Principal UX Architect</span>
+                        </div>
+
+                        <!-- Hero Action Buttons -->
+                        <div class="hero-actions">
+                            <button class="hero-btn primary" id="heroSpeakersBtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                Meet Our Speakers
+                            </button>
+                            <button class="hero-btn secondary" id="heroLibraryBtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                On-Demand Library
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="controls">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16 10,8"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                    </div>
+                </div>
+
+                <div class="chat-side">
+                    <div class="chat-header">
+                        <div class="left">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            Live Engagement
+                        </div>
+                        <span class="count" id="chatCount">12 online</span>
+                    </div>
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="msg"><span class="name">Alex:</span><span class="bubble">This architecture is amazing!</span></div>
+                        <div class="msg"><span class="name">Sam:</span><span class="bubble">Are the paid sessions recorded?</span></div>
+                        <div class="msg"><span class="name">Priya:</span><span class="bubble">The AI integration demo was 🔥</span></div>
+                    </div>
+                    <div class="chat-input">
+                        <div class="row">
+                            <input type="text" placeholder="Type a message..." id="chatInput" />
+                            <button id="chatSendBtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PREMIUM MASTERCLASSES -->
+            <section>
+                <div class="section-head">
+                    <div class="left">
+                        <h2>Premium Masterclasses</h2>
+                        <p>Deep dive into specific topics. Limited seats available.</p>
+                    </div>
+                    <div class="right">
+                        <button class="view-all" id="viewAllSessions">
+                            View all <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="session-grid" id="sessionGrid">
+                    <!-- Rendered by JS -->
+                </div>
+            </section>
+
+            <!-- PAST RECORDINGS (Home) -->
+            <section style="margin-top: 48px;">
+                <div class="section-head">
+                    <div class="left">
+                        <h2>Recent Recordings</h2>
+                        <p>Catch up on sessions you might have missed.</p>
+                    </div>
+                    <div class="right">
+                        <button class="view-all" id="viewAllPast">
+                            View all <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="past-home-grid" id="pastHomeGrid">
+                    <!-- Rendered by JS -->
+                </div>
+            </section>
+        </div>
+
+        <!-- ===== VIEW: SPEAKERS ===== -->
+        <div class="view" id="view-speakers">
+            <div class="section-head">
+                <div class="left">
+                    <h2>Speakers Directory</h2>
+                    <p>Connect with the minds shaping enterprise design.</p>
+                </div>
+                <div class="right">
+                    <span style="font-size:0.875rem;color:var(--sf-slate-400);">
+                        <span id="speakerCount">5</span> speakers
+                    </span>
+                </div>
+            </div>
+            <div class="speaker-grid" id="speakerGrid">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
+
+        <!-- ===== VIEW: PAST ===== -->
+        <div class="view" id="view-past">
+            <div class="section-head">
+                <div class="left">
+                    <h2>On-Demand Library</h2>
+                    <p>Watch past recordings and catch up on missed keynotes.</p>
+                </div>
+                <div class="right">
+                    <span style="font-size:0.875rem;color:var(--sf-slate-400);">
+                        <span id="pastCount">5</span> recordings
+                    </span>
+                </div>
+            </div>
+            <div class="past-grid" id="pastGrid">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
+
+        <!-- ===== VIEW: VOUCHERS ===== -->
+        <div class="view" id="view-vouchers">
+            <div class="section-head">
+                <div class="left">
+                    <h2>My Digital Vouchers</h2>
+                    <p>Your premium access tokens for masterclasses.</p>
+                </div>
+            </div>
+            <div id="voucherContainer">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="app-footer">
+        <div class="inner">
+            <div class="left">
+                <span>&copy; 2026 Salesforce UX Team. All rights reserved.</span>
+                <span class="divider"></span>
+                <span style="display:flex;align-items:center;gap:6px;">
+                    <span class="status-dot"></span>
+                    System Online
+                </span>
+            </div>
+            <div class="branding">
+                <span>Platform managed by</span>
+                <strong>Denisia Webops</strong>
+                <span style="font-size:0.75rem;color:var(--sf-slate-400);padding-left:4px;">v2.5.1</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== MODAL: BOOKING ===== -->
+    <div class="modal-overlay hidden" id="bookingModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <button class="close" id="modalClose">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+                <span class="cat" id="modalCategory">Deep Dive</span>
+                <h2 id="modalTitle">Mastering SLDS Components</h2>
+                <div class="date-row">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    <span id="modalDate">Aug 20, 2026 10:00 AM</span>
+                </div>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL: SPEAKER DETAIL ===== -->
+    <div class="modal-overlay hidden speaker-modal" id="speakerDetailModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <button class="close" id="speakerModalClose">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+                <span class="cat">Speaker Profile</span>
+                <h2 id="speakerDetailName">Maya Lin</h2>
+                <div class="date-row" style="color:#93c5fd;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9.5"/><polyline points="16 2 22 8 16 8"/><line x1="10" y1="14" x2="21" y2="14"/><line x1="10" y1="18" x2="18" y2="18"/><line x1="3" y1="10" x2="8" y2="10"/></svg>
+                    <span id="speakerDetailCompany">Salesforce</span>
+                </div>
+            </div>
+            <div class="modal-body" id="speakerDetailBody">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== TOAST CONTAINER ===== -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- ===== CHATBOT ===== -->
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Chat with us">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span class="badge">1</span>
+    </button>
+
+    <div class="chatbot-window hidden" id="chatbotWindow">
+        <div class="header">
+            <div class="title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                Event Assistant
+            </div>
+            <button class="close-btn" id="chatbotClose">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <div class="messages" id="chatbotMessages">
+            <div class="bot-msg">👋 Hi! I'm your event assistant. How can I help you today?</div>
+            <div class="bot-msg">You can ask about sessions, speakers, or vouchers.</div>
+        </div>
+        <div class="quick-replies" id="quickReplies">
+            <button data-msg="Show upcoming sessions">Upcoming sessions</button>
+            <button data-msg="Tell me about speakers">Speakers</button>
+            <button data-msg="How do I get a voucher?">Vouchers</button>
+            <button data-msg="Contact support">Support</button>
+        </div>
+        <div class="input-area">
+            <input type="text" id="chatbotInput" placeholder="Type a message..." />
+            <button id="chatbotSend">Send</button>
+        </div>
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        (function() {
+            'use strict';
+
+            // ============================================================
+            // 1. DATA (Single Source of Truth) - 5 speakers
+            // ============================================================
+            const DB = {
+                user: {
+                    name: 'Dada (VIP)',
+                    email: 'dada@trailblazer.com',
+                    role: 'attendee',
+                    company: 'Trailblazer Inc.',
+                    joinDate: '2024-03-15'
+                },
+                liveEvent: {
+                    id: 'LIVE-001',
+                    title: 'Salesforce UX Keynote: The AI Era',
+                    speakerId: 's1',
+                    viewers: 1420,
+                    status: 'live',
+                    recording: true
+                },
+                speakers: [
+                    { id: 's1', name: 'Maya Lin', role: 'Principal UX Architect', company: 'Salesforce', avatar: 'ML',
+                        bio: 'Pioneer in enterprise design systems with 15+ years of experience. Led the design system transformation at Salesforce. Published author on design ethics.' },
+                    { id: 's2', name: 'Julian Foster', role: 'VP of Product Design', company: 'Salesforce',
+                        avatar: 'JF', bio: 'Leading the AI-driven UX transformation. Former design lead at Google and Figma. Passionate about human-centered AI.' },
+                    { id: 's3', name: 'Sarah Chen', role: 'Accessibility Lead', company: 'Salesforce', avatar: 'SC',
+                        bio: 'Championing inclusive design globally. Co-author of "Designing for All" and WCAG contributor. Advocates for neurodiversity in tech.' },
+                    { id: 's4', name: 'David Kim', role: 'Senior Design Researcher', company: 'Salesforce',
+                        avatar: 'DK', bio: 'Design researcher focusing on emerging markets. 10+ years in ethnographic research. Holds a PhD in Human-Computer Interaction.' },
+                    { id: 's5', name: 'Emma Watson', role: 'Design Ops Lead', company: 'Salesforce', avatar: 'EW',
+                        bio: 'Streamlining design workflows and tooling. Formerly at Adobe and Microsoft. Passionate about design systems and developer experience.' }
+                ],
+                paidSessions: [
+                    { id: 'ps1', title: 'Mastering SLDS Components', date: '2026-08-20T10:00:00Z', price: 2500,
+                        speakerId: 's1', category: 'Deep Dive', duration: 90, seats: 24 },
+                    { id: 'ps2', title: 'AI Prototyping Workshop', date: '2026-08-22T14:00:00Z', price: 4500,
+                        speakerId: 's2', category: 'Workshop', duration: 120, seats: 16 },
+                    { id: 'ps3', title: 'Inclusive UX Audits', date: '2026-08-25T09:00:00Z', price: 1500,
+                        speakerId: 's3', category: 'Masterclass', duration: 90, seats: 30 },
+                    { id: 'ps4', title: 'Research Methods for AI', date: '2026-08-28T11:00:00Z', price: 3000,
+                        speakerId: 's4', category: 'Deep Dive', duration: 120, seats: 20 },
+                    { id: 'ps5', title: 'Design Systems at Scale', date: '2026-08-30T13:00:00Z', price: 3500,
+                        speakerId: 's5', category: 'Workshop', duration: 90, seats: 25 }
+                ],
+                pastEvents: [
+                    { id: 'pe1', title: '2025 Design Leadership Summit', date: '2025-11-10T00:00:00Z', speakerId: 's2',
+                        duration: '45 mins', views: '12.4k', thumbnail: '🎯' },
+                    { id: 'pe2', title: 'Building for the Blind: Accessibility Deep Dive', date: '2026-02-15T00:00:00Z',
+                        speakerId: 's3', duration: '60 mins', views: '8.7k', thumbnail: '♿' },
+                    { id: 'pe3', title: 'Design Systems at Scale', date: '2026-01-20T00:00:00Z', speakerId: 's1',
+                        duration: '50 mins', views: '5.2k', thumbnail: '📐' },
+                    { id: 'pe4', title: 'Empathy in Design Research', date: '2025-12-05T00:00:00Z', speakerId: 's4',
+                        duration: '55 mins', views: '3.8k', thumbnail: '🔍' },
+                    { id: 'pe5', title: 'Design Ops Unlocked', date: '2026-03-10T00:00:00Z', speakerId: 's5',
+                        duration: '40 mins', views: '4.1k', thumbnail: '⚙️' }
+                ]
+            };
+
+            // ============================================================
+            // 2. STATE
+            // ============================================================
+            const state = {
+                currentView: 'home',
+                myVouchers: [],
+                bookingSession: null,
+                isProcessing: false,
+                notifications: [],
+                chatParticipants: 12,
+                analyticsQueue: []
+            };
+
+            // ============================================================
+            // 3. DOM REFS
+            // ============================================================
+            const $ = (sel) => document.querySelector(sel);
+            const $$ = (sel) => document.querySelectorAll(sel);
+
+            const views = {
+                home: $('#view-home'),
+                speakers: $('#view-speakers'),
+                past: $('#view-past'),
+                vouchers: $('#view-vouchers')
+            };
+            const navBtns = $$('#mainNav button');
+            const voucherBtn = $('#voucherBtn');
+            const voucherCount = $('#voucherCount');
+            const avatarInit = $('#avatarInitial');
+            const brandHome = $('#brandHome');
+
+            // Mobile menu
+            const hamburgerBtn = $('#hamburgerBtn');
+            const mobileMenu = $('#mobileMenu');
+            const mobileMenuOverlay = $('#mobileMenuOverlay');
+            const mobileMenuClose = $('#mobileMenuClose');
+            const mobileMenuItems = $$('#mobileMenu .menu-item');
+            const mobileAvatar = $('#mobileAvatar');
+            const mobileUserName = $('#mobileUserName');
+            const mobileUserEmail = $('#mobileUserEmail');
+
+            const sessionGrid = $('#sessionGrid');
+            const chatMessages = $('#chatMessages');
+            const chatInput = $('#chatInput');
+            const chatSendBtn = $('#chatSendBtn');
+            const chatCount = $('#chatCount');
+            const viewerCount = $('#viewerCount');
+            const liveTitle = $('#liveTitle');
+            const liveSpeaker = $('#liveSpeaker');
+            const speakerTag = $('#speakerTag');
+
+            const speakerGrid = $('#speakerGrid');
+            const speakerCount = $('#speakerCount');
+
+            const pastGrid = $('#pastGrid');
+            const pastCount = $('#pastCount');
+            const pastHomeGrid = $('#pastHomeGrid');
+
+            const voucherContainer = $('#voucherContainer');
+
+            const modal = $('#bookingModal');
+            const modalClose = $('#modalClose');
+            const modalCategory = $('#modalCategory');
+            const modalTitle = $('#modalTitle');
+            const modalDate = $('#modalDate');
+            const modalBody = $('#modalBody');
+
+            const speakerDetailModal = $('#speakerDetailModal');
+            const speakerModalClose = $('#speakerModalClose');
+            const speakerDetailName = $('#speakerDetailName');
+            const speakerDetailCompany = $('#speakerDetailCompany');
+            const speakerDetailBody = $('#speakerDetailBody');
+
+            const toastContainer = $('#toastContainer');
+
+            const viewAllSessions = $('#viewAllSessions');
+            const viewAllPast = $('#viewAllPast');
+
+            // Hero buttons
+            const heroSpeakersBtn = $('#heroSpeakersBtn');
+            const heroLibraryBtn = $('#heroLibraryBtn');
+
+            // Chatbot
+            const chatbotToggle = $('#chatbotToggle');
+            const chatbotWindow = $('#chatbotWindow');
+            const chatbotClose = $('#chatbotClose');
+            const chatbotMessages = $('#chatbotMessages');
+            const chatbotInput = $('#chatbotInput');
+            const chatbotSend = $('#chatbotSend');
+            const quickReplies = $('#quickReplies');
+
+            // ============================================================
+            // 4. ANALYTICS
+            // ============================================================
+            const Analytics = {
+                track: function(eventName, properties) {
+                    const payload = {
+                        event: eventName,
+                        timestamp: new Date().toISOString(),
+                        user: DB.user.email,
+                        session: state.currentView,
+                        properties: properties || {},
+                        platform: 'SFDC-UX-Web',
+                        version: '2.5.1'
+                    };
+                    console.log('[Analytics]', payload);
+                    state.analyticsQueue.push(payload);
+                    if (window.AppscriptIntegration && typeof window.AppscriptIntegration.send === 'function') {
+                        window.AppscriptIntegration.send(payload);
+                    }
+                    if (window.dataLayer) {
+                        window.dataLayer.push({
+                            event: 'event_tracking',
+                            eventName: eventName,
+                            properties: properties
+                        });
+                    }
+                    return payload;
+                },
+                pageView: function(viewName) {
+                    this.track('page_view', { view: viewName });
+                },
+                action: function(action, target, extra) {
+                    this.track('user_action', { action: action, target: target, ...extra });
+                },
+                payment: function(status, amount, sessionId) {
+                    this.track('payment_' + status, { amount: amount, sessionId: sessionId });
+                },
+                exportQueue: function() {
+                    const queue = state.analyticsQueue.slice();
+                    state.analyticsQueue = [];
+                    return queue;
+                }
+            };
+            window.SFDC_Analytics = Analytics;
+
+            // ============================================================
+            // 5. HELPERS
+            // ============================================================
+            function formatDate(iso) {
+                const d = new Date(iso);
+                return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            }
+
+            function formatDateTime(iso) {
+                const d = new Date(iso);
+                return d.toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit',
+                    minute: '2-digit' });
+            }
+
+            function formatTime(iso) {
+                const d = new Date(iso);
+                return d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+            }
+
+            function getSpeaker(id) {
+                return DB.speakers.find(s => s.id === id);
+            }
+
+            function generateVoucherId() {
+                return 'VCH-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+            }
+
+            function getInitials(name) {
+                return name.split(' ').map(w => w[0]).join('').toUpperCase().substring(0, 2);
+            }
+
+            // ============================================================
+            // 6. NOTIFICATIONS
+            // ============================================================
+            function notify(title, message, type) {
+                type = type || 'success';
+                const id = Date.now();
+                const toast = document.createElement('div');
+                toast.className = 'toast' + (type === 'error' ? ' error' : '');
+                toast.dataset.id = id;
+                toast.innerHTML = `
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <div class="content">
+                <div class="title">${title}</div>
+                <div class="msg">${message}</div>
+              </div>
+            `;
+                toastContainer.appendChild(toast);
+                state.notifications.push(id);
+                Analytics.action('notification_shown', 'toast', { title: title, type: type });
+                setTimeout(() => {
+                    const el = toastContainer.querySelector(`[data-id="${id}"]`);
+                    if (el) el.remove();
+                    state.notifications = state.notifications.filter(n => n !== id);
+                }, 5000);
+            }
+
+            // ============================================================
+            // 7. RENDER FUNCTIONS
+            // ============================================================
+
+            function renderSessions() {
+                let html = '';
+                DB.paidSessions.forEach((session) => {
+                    const speaker = getSpeaker(session.speakerId);
+                    if (!speaker) return;
+                    html += `
+                <article class="session-card" data-session-id="${session.id}">
+                  <div class="body">
+                    <div class="top-row">
+                      <span class="cat">${session.category}</span>
+                      <span class="price">₹${session.price}</span>
+                    </div>
+                    <h3>${session.title}</h3>
+                    <div class="meta">
+                      <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> ${formatDate(session.date)}</span>
+                      <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg> ${session.duration} min</span>
+                      <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> ${session.seats} seats</span>
+                    </div>
+                    <div class="speaker-chip">
+                      <div class="av">${speaker.avatar}</div>
+                      <div class="info">
+                        <div class="name">${speaker.name}</div>
+                        <div class="role">${speaker.role}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="footer">
+                    <button class="book-btn" data-id="${session.id}">Book Session Now</button>
+                  </div>
+                </article>
+              `;
+                });
+                sessionGrid.innerHTML = html;
+
+                sessionGrid.querySelectorAll('.book-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = this.dataset.id;
+                        const session = DB.paidSessions.find(s => s.id === id);
+                        if (session) {
+                            Analytics.action('book_click', 'session_card', { sessionId: session.id, title: session
+                                    .title });
+                            openBookingModal(session);
+                        }
+                    });
+                });
+            }
+
+            function renderSpeakers() {
+                let html = '';
+                DB.speakers.forEach(speaker => {
+                    const future = DB.paidSessions.filter(s => s.speakerId === speaker.id);
+                    const past = DB.pastEvents.filter(s => s.speakerId === speaker.id);
+                    html += `
+                <div class="speaker-card" data-speaker-id="${speaker.id}">
+                  <div class="head">
+                    <span class="badge-company">${speaker.company}</span>
+                    <div class="av">${speaker.avatar}</div>
+                    <h3>${speaker.name}</h3>
+                    <div class="role">${speaker.role}</div>
+                    <div class="bio">${speaker.bio.substring(0, 80)}${speaker.bio.length > 80 ? '...' : ''}</div>
+                  </div>
+                  <div class="body">
+                    ${future.length ? `<div><div class="label">Upcoming Masterclass</div>` : ''}
+                    ${future.map(s => `
+                      <div class="future-item">
+                        <span>${s.title}</span>
+                        <span class="price">₹${s.price}</span>
+                      </div>
+                    `).join('')}
+                    ${future.length ? `</div>` : ''}
+                    ${past.length ? `<div class="mt-2"><div class="label">Past Recordings</div>` : ''}
+                    ${past.slice(0, 2).map(s => `
+                      <div class="past-item" data-event-id="${s.id}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16 10,8"/></svg>
+                        <span>${s.title}</span>
+                      </div>
+                    `).join('')}
+                    ${past.length > 2 ? `<div style="font-size:0.75rem;color:var(--sf-slate-400);">+${past.length - 2} more</div>` : ''}
+                    ${past.length ? `</div>` : ''}
+                    ${!future.length && !past.length ? `<div class="empty-state">No sessions yet</div>` : ''}
+                  </div>
+                  <div class="footer">
+                    <button class="view-speaker-btn" data-id="${speaker.id}">View Details</button>
+                  </div>
+                </div>
+              `;
+                });
+                speakerGrid.innerHTML = html;
+                speakerCount.textContent = DB.speakers.length;
+
+                speakerGrid.querySelectorAll('.past-item').forEach(el => {
+                    el.addEventListener('click', function() {
+                        const eventId = this.dataset.eventId;
+                        Analytics.action('speaker_past_click', 'speaker_card', { eventId: eventId });
+                        switchView('past');
+                    });
+                });
+
+                speakerGrid.querySelectorAll('.view-speaker-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = this.dataset.id;
+                        const speaker = getSpeaker(id);
+                        if (speaker) openSpeakerDetail(speaker);
+                    });
+                });
+            }
+
+            function renderPast() {
+                let html = '';
+                DB.pastEvents.forEach(event => {
+                    const speaker = getSpeaker(event.speakerId);
+                    if (!speaker) return;
+                    html += `
+                <div class="past-card" data-event-id="${event.id}">
+                  <div class="thumb">
+                    <div class="overlay"></div>
+                    <div class="play-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16 10,8"/></svg>
+                    </div>
+                    <span class="duration">${event.duration}</span>
+                    <div class="views-badge">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                      ${event.views}
+                    </div>
+                    <div style="position:absolute;top:12px;left:12px;font-size:1.5rem;z-index:2;">${event.thumbnail || '🎬'}</div>
+                  </div>
+                  <div class="info">
+                    <h3>${event.title}</h3>
+                    <div class="meta">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                      ${formatDate(event.date)}
+                      <span>•</span>
+                      <span>${event.views} views</span>
+                    </div>
+                    <div class="speaker-row">
+                      <div class="av">${speaker.avatar}</div>
+                      <span class="name">${speaker.name}</span>
+                      <span class="company">· ${speaker.company}</span>
+                    </div>
+                  </div>
+                </div>
+              `;
+                });
+                pastGrid.innerHTML = html;
+                pastCount.textContent = DB.pastEvents.length;
+
+                pastGrid.querySelectorAll('.past-card').forEach(card => {
+                    card.addEventListener('click', function() {
+                        const eventId = this.dataset.eventId;
+                        Analytics.action('past_event_click', 'library', { eventId: eventId });
+                        notify('📺 Playback', 'Loading recording...', 'success');
+                    });
+                });
+            }
+
+            function renderPastHome() {
+                const recent = DB.pastEvents.slice(0, 4);
+                let html = '';
+                recent.forEach(event => {
+                    const speaker = getSpeaker(event.speakerId);
+                    if (!speaker) return;
+                    html += `
+                <div class="past-home-card" data-event-id="${event.id}">
+                  <div class="thumb">
+                    <div class="overlay"></div>
+                    <div class="play-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16 10,8"/></svg>
+                    </div>
+                    <span class="duration">${event.duration}</span>
+                    <div style="position:absolute;top:8px;left:8px;font-size:1.2rem;z-index:2;">${event.thumbnail || '🎬'}</div>
+                  </div>
+                  <div class="info">
+                    <h4>${event.title}</h4>
+                    <div class="meta">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                      ${formatDate(event.date)}
+                      <span>•</span>
+                      <span>${event.views}</span>
+                    </div>
+                    <div class="speaker-row">
+                      <div class="av">${speaker.avatar}</div>
+                      <span class="name">${speaker.name}</span>
+                    </div>
+                  </div>
+                </div>
+              `;
+                });
+                pastHomeGrid.innerHTML = html;
+
+                pastHomeGrid.querySelectorAll('.past-home-card').forEach(card => {
+                    card.addEventListener('click', function() {
+                        const eventId = this.dataset.eventId;
+                        Analytics.action('home_past_click', 'home', { eventId: eventId });
+                        notify('📺 Playback', 'Loading recording...', 'success');
+                    });
+                });
+            }
+
+            function renderVouchers() {
+                if (state.myVouchers.length === 0) {
+                    voucherContainer.innerHTML = `
+                <div class="voucher-empty">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
+                  <h2>No Active Vouchers</h2>
+                  <p>Book a premium session to generate your VIP access tokens.</p>
+                  <button class="cta-btn" id="browseSessionsBtn">Browse Sessions</button>
+                </div>
+              `;
+                    const browseBtn = voucherContainer.querySelector('#browseSessionsBtn');
+                    if (browseBtn) {
+                        browseBtn.addEventListener('click', function() {
+                            Analytics.action('browse_sessions', 'voucher_empty');
+                            switchView('home');
+                        });
+                    }
+                    return;
+                }
+
+                let html = '<div class="voucher-grid">';
+                state.myVouchers.forEach(voucher => {
+                    const speaker = getSpeaker(voucher.session.speakerId);
+                    if (!speaker) return;
+                    const isExpired = new Date() > new Date(voucher.expiryDate);
+                    const statusClass = isExpired ? 'expired' : 'valid';
+                    const statusText = isExpired ? 'Expired' : 'Valid';
+
+                    html += `
+                <div class="voucher-card">
+                  <div class="left">
+                    <div class="deco1"></div>
+                    <div class="deco2"></div>
+                    <div class="content">
+                      <div class="star-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                      <span class="vip-label">VIP Access</span>
+                      <span class="cat">${voucher.session.category}</span>
+                    </div>
+                    <div class="token">
+                      <span class="label">Token Number</span>
+                      <span class="code">${voucher.id}</span>
+                    </div>
+                  </div>
+                  <div class="divider">
+                    <div class="dot top"></div>
+                    <div class="line"></div>
+                    <div class="dot bottom"></div>
+                  </div>
+                  <div class="right">
+                    <div class="status-stamp ${statusClass}">${statusText}</div>
+                    <h3>${voucher.session.title}</h3>
+                    <div class="details">
+                      <div>
+                        <div class="label">Date &amp; Time</div>
+                        <div class="value">${formatDate(voucher.session.date)}</div>
+                        <div style="font-size:0.75rem;color:var(--sf-slate-500)">${formatTime(voucher.session.date)}</div>
+                      </div>
+                      <div>
+                        <div class="label">Speaker</div>
+                        <div class="value">${speaker.name}</div>
+                        <div style="font-size:0.75rem;color:var(--sf-slate-500)">${speaker.company}</div>
+                      </div>
+                      <div>
+                        <div class="label">Amount Paid</div>
+                        <div class="value green">₹${voucher.amount}</div>
+                      </div>
+                      <div>
+                        <div class="label">Expiry</div>
+                        <div class="value red">${formatDate(voucher.expiryDate)}</div>
+                      </div>
+                    </div>
+                    <div class="footer-row">
+                      <div class="qr">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/><line x1="6" y1="6" x2="6" y2="6"/><line x1="18" y1="6" x2="18" y2="6"/><line x1="6" y1="18" x2="6" y2="18"/><line x1="18" y1="18" x2="18" y2="18"/></svg>
+                        <span>Scan at login</span>
+                      </div>
+                      <button class="join-btn" data-session-id="${voucher.session.id}">Join Session</button>
+                    </div>
+                  </div>
+                </div>
+              `;
+                });
+                html += '</div>';
+                voucherContainer.innerHTML = html;
+
+                voucherContainer.querySelectorAll('.join-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const sessionId = this.dataset.sessionId;
+                        Analytics.action('voucher_join', 'voucher_card', { sessionId: sessionId });
+                        notify('🎫', 'Redirecting to session...', 'success');
+                    });
+                });
+            }
+
+            // ============================================================
+            // 8. MODAL: BOOKING
+            // ============================================================
+            function openBookingModal(session) {
+                state.bookingSession = session;
+                state.isProcessing = false;
+                modalCategory.textContent = session.category;
+                modalTitle.textContent = session.title;
+                modalDate.textContent = formatDateTime(session.date);
+                renderModalBody();
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                Analytics.action('modal_open', 'booking', { sessionId: session.id });
+            }
+
+            function closeBookingModal() {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+                state.bookingSession = null;
+                state.isProcessing = false;
+            }
+
+            function renderModalBody() {
+                const session = state.bookingSession;
+                if (!session) return;
+
+                if (state.isProcessing) {
+                    modalBody.innerHTML = `
+                <div class="processing">
+                  <div class="spinner"></div>
+                  <h3>Processing via Razorpay...</h3>
+                  <p>Generating your secure voucher</p>
+                </div>
+              `;
+                    return;
+                }
+
+                const speaker = getSpeaker(session.speakerId);
+                modalBody.innerHTML = `
+              <form id="paymentForm">
+                <div class="form-group">
+                  <label>Full Name</label>
+                  <input type="text" value="${DB.user.name}" readonly />
+                </div>
+                <div class="form-group">
+                  <label>Email Address</label>
+                  <input type="email" value="${DB.user.email}" readonly />
+                  <div class="hint">Voucher will be sent here.</div>
+                </div>
+                <div class="form-group">
+                  <label>Speaker</label>
+                  <input type="text" value="${speaker ? speaker.name : 'TBD'}" readonly />
+                </div>
+
+                <div style="margin-top:12px;">
+                  <div class="payment-summary">
+                    <div class="row">
+                      <span class="label">Session Fee</span>
+                      <span class="amount">₹${session.price}</span>
+                    </div>
+                    <div class="row">
+                      <span class="label">Duration</span>
+                      <span class="amount">${session.duration} min</span>
+                    </div>
+                    <div class="row total">
+                      <span class="label">Total to Pay</span>
+                      <span class="amount">₹${session.price}</span>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="pay-btn" id="payBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+                    Pay Securely via Cards / UPI
+                  </button>
+                  <div class="secure">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                    Encrypted by Razorpay · PCI-DSS compliant
+                  </div>
+                </div>
+              </form>
+            `;
+
+                const form = modalBody.querySelector('#paymentForm');
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    handlePayment();
+                });
+            }
+
+            function handlePayment() {
+                state.isProcessing = true;
+                renderModalBody();
+
+                const session = state.bookingSession;
+                Analytics.payment('initiated', session.price, session.id);
+
+                setTimeout(() => {
+                    state.isProcessing = false;
+                    if (!state.bookingSession) return;
+                    const sessionData = state.bookingSession;
+                    const newVoucher = {
+                        id: generateVoucherId(),
+                        session: sessionData,
+                        purchaseDate: new Date().toISOString(),
+                        expiryDate: sessionData.date,
+                        status: 'active',
+                        amount: sessionData.price
+                    };
+                    state.myVouchers.unshift(newVoucher);
+                    Analytics.payment('success', sessionData.price, sessionData.id);
+                    Analytics.action('voucher_generated', 'payment', { voucherId: newVoucher.id });
+                    closeBookingModal();
+                    notify('✅ Payment Successful', 'Your VIP voucher has been generated and emailed to you.');
+                    updateVoucherBadge();
+                    renderVouchers();
+                    switchView('vouchers');
+                }, 2200);
+            }
+
+            // ============================================================
+            // 9. MODAL: SPEAKER DETAIL
+            // ============================================================
+            function openSpeakerDetail(speaker) {
+                speakerDetailName.textContent = speaker.name;
+                speakerDetailCompany.textContent = speaker.company;
+                const future = DB.paidSessions.filter(s => s.speakerId === speaker.id);
+                const past = DB.pastEvents.filter(s => s.speakerId === speaker.id);
+                speakerDetailBody.innerHTML = `
+              <div style="text-align:center;">
+                <div class="detail-avatar">${speaker.avatar}</div>
+                <div class="detail-name">${speaker.name}</div>
+                <div class="detail-role">${speaker.role}</div>
+                <div class="detail-company">${speaker.company}</div>
+              </div>
+              <div class="detail-bio">${speaker.bio}</div>
+              <div class="detail-sessions">
+                <h4>Upcoming Masterclasses</h4>
+                ${future.length ? future.map(s => `
+                  <div class="session-item">
+                    <span class="title">${s.title}</span>
+                    <span class="date">${formatDate(s.date)} · ₹${s.price}</span>
+                  </div>
+                `).join('') : '<p style="color:var(--sf-slate-400);font-size:0.875rem;">No upcoming sessions</p>'}
+                <h4 style="margin-top:12px;">Past Recordings</h4>
+                ${past.length ? past.map(s => `
+                  <div class="session-item">
+                    <span class="title">${s.title}</span>
+                    <span class="date">${formatDate(s.date)} · ${s.views}</span>
+                  </div>
+                `).join('') : '<p style="color:var(--sf-slate-400);font-size:0.875rem;">No past recordings</p>'}
+              </div>
+            `;
+                speakerDetailModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                Analytics.action('speaker_detail_open', 'speaker', { speakerId: speaker.id });
+            }
+
+            function closeSpeakerDetail() {
+                speakerDetailModal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+
+            // ============================================================
+            // 10. NAVIGATION
+            // ============================================================
+            function switchView(view) {
+                state.currentView = view;
+                Object.values(views).forEach(v => v.classList.remove('active'));
+                const target = views[view];
+                if (target) target.classList.add('active');
+
+                navBtns.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.view === view);
+                });
+
+                // Update mobile menu items
+                mobileMenuItems.forEach(item => {
+                    item.classList.toggle('active', item.dataset.view === view);
+                });
+
+                updateVoucherBadge();
+                Analytics.pageView(view);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                // Close mobile menu if open
+                closeMobileMenu();
+            }
+
+            function updateVoucherBadge() {
+                const count = state.myVouchers.length;
+                voucherCount.textContent = count;
+                voucherBtn.classList.toggle('has-vouchers', count > 0);
+                if (count > 0) {
+                    voucherBtn.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
+                <span>${count}</span>
+              `;
+                } else {
+                    voucherBtn.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
+                <span>0</span>
+              `;
+                }
+            }
+
+            // ============================================================
+            // 11. MOBILE MENU
+            // ============================================================
+            function openMobileMenu() {
+                mobileMenu.classList.add('open');
+                mobileMenuOverlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMobileMenu() {
+                mobileMenu.classList.remove('open');
+                mobileMenuOverlay.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+
+            // ============================================================
+            // 12. CHAT (Live Event)
+            // ============================================================
+            function addChatMessage(name, text, isMe) {
+                const div = document.createElement('div');
+                div.className = 'msg';
+                div.innerHTML = `
+              <span class="name">${name}:</span>
+              <span class="bubble${isMe ? ' me' : ''}">${text}</span>
+            `;
+                chatMessages.appendChild(div);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                if (Math.random() > 0.7) {
+                    state.chatParticipants += Math.random() > 0.5 ? 1 : -1;
+                    if (state.chatParticipants < 5) state.chatParticipants = 5;
+                    chatCount.textContent = state.chatParticipants + ' online';
+                }
+            }
+
+            // ============================================================
+            // 13. CHATBOT
+            // ============================================================
+            function toggleChatbot() {
+                chatbotWindow.classList.toggle('hidden');
+                if (!chatbotWindow.classList.contains('hidden')) {
+                    Analytics.action('chatbot_open', 'chatbot', {});
+                    setTimeout(() => chatbotInput.focus(), 300);
+                } else {
+                    Analytics.action('chatbot_close', 'chatbot', {});
+                }
+            }
+
+            function addBotMessage(text) {
+                const div = document.createElement('div');
+                div.className = 'bot-msg';
+                div.textContent = text;
+                chatbotMessages.appendChild(div);
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }
+
+            function addUserMessage(text) {
+                const div = document.createElement('div');
+                div.className = 'user-msg';
+                div.textContent = text;
+                chatbotMessages.appendChild(div);
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }
+
+            function handleChatbotSend() {
+                const text = chatbotInput.value.trim();
+                if (!text) return;
+                addUserMessage(text);
+                chatbotInput.value = '';
+                Analytics.action('chatbot_message', 'chatbot', { message: text.substring(0, 30) });
+
+                const lower = text.toLowerCase();
+                let reply = "I'm here to help! Could you be more specific?";
+                if (lower.includes('session') || lower.includes('upcoming')) {
+                    reply =
+                        "You can find all upcoming sessions on the home page. They are listed under 'Premium Masterclasses'. Would you like me to take you there?";
+                } else if (lower.includes('speaker')) {
+                    reply =
+                    "Check out the Speakers page to see all our amazing speakers and their profiles. You can view details for each one by clicking 'View Details'.";
+                } else if (lower.includes('voucher') || lower.includes('ticket')) {
+                    reply =
+                    "You can get a voucher by booking a paid session. Once payment is successful, a voucher will be generated and stored in your Vouchers section.";
+                } else if (lower.includes('help') || lower.includes('support')) {
+                    reply =
+                    "I can assist with session info, speaker details, and voucher queries. You can also reach out to support@sfdcux.com for further help.";
+                } else {
+                    reply =
+                    "I'm your event assistant. I can help with sessions, speakers, and vouchers. What would you like to know?";
+                }
+                setTimeout(() => addBotMessage(reply), 600);
+            }
+
+            // ============================================================
+            // 14. EXTERNAL INTEGRATION
+            // ============================================================
+            window.AppscriptIntegration = {
+                send: function(data) {
+                    console.log('[Appscript] Received data:', data);
+                    window.__appscriptQueue = window.__appscriptQueue || [];
+                    window.__appscriptQueue.push(data);
+                },
+                getQueue: function() {
+                    return window.__appscriptQueue || [];
+                },
+                clearQueue: function() {
+                    window.__appscriptQueue = [];
+                }
+            };
+
+            // ============================================================
+            // 15. INIT
+            // ============================================================
+            function init() {
+                // Set live data
+                liveTitle.textContent = DB.liveEvent.title;
+                const speaker = getSpeaker(DB.liveEvent.speakerId);
+                liveSpeaker.textContent = speaker ? `${speaker.name} is presenting live...` : 'Live now';
+                viewerCount.textContent = DB.liveEvent.viewers.toLocaleString();
+                if (speaker) {
+                    speakerTag.innerHTML = `
+                <div class="av">${speaker.avatar}</div>
+                <span>${speaker.name} · ${speaker.role}</span>
+              `;
+                }
+
+                const initials = getInitials(DB.user.name);
+                avatarInit.textContent = initials;
+                mobileAvatar.textContent = initials;
+                mobileUserName.textContent = DB.user.name;
+                mobileUserEmail.textContent = DB.user.email;
+
+                renderSessions();
+                renderSpeakers();
+                renderPast();
+                renderPastHome();
+                renderVouchers();
+                updateVoucherBadge();
+
+                // ---- NAV EVENTS ----
+                navBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        switchView(this.dataset.view);
+                    });
+                });
+
+                brandHome.addEventListener('click', function() {
+                    switchView('home');
+                });
+
+                voucherBtn.addEventListener('click', function() {
+                    switchView('vouchers');
+                });
+
+                viewAllSessions.addEventListener('click', function() {
+                    Analytics.action('view_all_sessions', 'home');
+                    document.querySelector('.session-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+
+                viewAllPast.addEventListener('click', function() {
+                    Analytics.action('view_all_past', 'home');
+                    switchView('past');
+                });
+
+                // ---- HERO BUTTONS ----
+                heroSpeakersBtn.addEventListener('click', function() {
+                    Analytics.action('hero_speakers_click', 'hero');
+                    switchView('speakers');
+                });
+
+                heroLibraryBtn.addEventListener('click', function() {
+                    Analytics.action('hero_library_click', 'hero');
+                    switchView('past');
+                });
+
+                // ---- MOBILE MENU ----
+                hamburgerBtn.addEventListener('click', openMobileMenu);
+                mobileMenuClose.addEventListener('click', closeMobileMenu);
+                mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+
+                mobileMenuItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        const view = this.dataset.view;
+                        if (view) switchView(view);
+                    });
+                });
+
+                // ---- MODAL EVENTS ----
+                modalClose.addEventListener('click', closeBookingModal);
+                modal.addEventListener('click', function(e) {
+                    if (e.target === this) closeBookingModal();
+                });
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape') {
+                        closeBookingModal();
+                        closeSpeakerDetail();
+                        closeMobileMenu();
+                    }
+                });
+
+                // Speaker Detail Modal
+                speakerModalClose.addEventListener('click', closeSpeakerDetail);
+                speakerDetailModal.addEventListener('click', function(e) {
+                    if (e.target === this) closeSpeakerDetail();
+                });
+
+                // ---- CHAT EVENTS ----
+                function sendChat() {
+                    const text = chatInput.value.trim();
+                    if (!text) return;
+                    addChatMessage('You', text, true);
+                    Analytics.action('chat_message', 'chat', { message: text.substring(0, 30) });
+                    chatInput.value = '';
+                    setTimeout(() => {
+                        const replies = [
+                            'Great point!', 'Thanks for sharing!', 'Interesting take!',
+                            'Love that perspective!', 'Could you elaborate more?',
+                            'That resonates with me.', 'Awesome insight!'
+                        ];
+                        const reply = replies[Math.floor(Math.random() * replies.length)];
+                        const names = ['Moderator', 'Alex', 'Priya', 'Sam', 'Jordan'];
+                        const name = names[Math.floor(Math.random() * names.length)];
+                        addChatMessage(name, reply);
+                    }, 1200 + Math.random() * 800);
+                }
+                chatSendBtn.addEventListener('click', sendChat);
+                chatInput.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter') sendChat();
+                });
+
+                // ---- CHATBOT EVENTS ----
+                chatbotToggle.addEventListener('click', toggleChatbot);
+                chatbotClose.addEventListener('click', toggleChatbot);
+                chatbotSend.addEventListener('click', handleChatbotSend);
+                chatbotInput.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter') handleChatbotSend();
+                });
+
+                quickReplies.addEventListener('click', function(e) {
+                    const btn = e.target.closest('button');
+                    if (!btn) return;
+                    const msg = btn.dataset.msg;
+                    if (msg) {
+                        chatbotInput.value = msg;
+                        handleChatbotSend();
+                    }
+                });
+
+                // ---- INITIAL ANALYTICS ----
+                Analytics.pageView('home');
+                Analytics.track('session_start', { user: DB.user.email, platform: 'web' });
+
+                // ---- EXPOSE ----
+                window.__appState = state;
+                window.__appDB = DB;
+
+                console.log('🚀 SFDC UX Enterprise Platform initialized (v2.5.1)');
+                console.log('📊 Analytics ready. Use SFDC_Analytics.track() to send events.');
+                console.log('📦 State:', state);
+                console.log('📁 Data:', DB);
+            }
+
+            // Boot
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+
+        })();
+    </script>
+
+</body>
+</html>
