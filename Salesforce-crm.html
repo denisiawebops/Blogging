@@ -2445,6 +2445,164 @@
 
         })();
     </script>
+// ============================================================
+// APPS SCRIPT INTEGRATION - COMPLETE
+// ============================================================
 
+// ---------- CONFIGURATION ----------
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyJgsM4_WCNwEIV67uPmp-rzA8x13iiEVvjwGY5WF-gPpI0tCiOB0aeorZTOSS4DwdqHQ/exec';
+const API_KEY = 'sfdc-ux-2026-secret-2603';
+
+// ---------- API CLIENT ----------
+const APIClient = {
+  async get(action, params = {}) {
+    const url = new URL(APPS_SCRIPT_URL);
+    url.searchParams.append('action', action);
+    url.searchParams.append('apiKey', API_KEY);
+    Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+    try {
+      const response = await fetch(url.toString(), {
+        method: 'GET',
+        mode: 'cors',
+        headers: { 'Content-Type': 'application/json' }
+      });
+      return await response.json();
+    } catch (error) {
+      console.error('API GET Error:', error);
+      return { success: false, error: error.message };
+    }
+  },
+
+  async post(action, data = {}) {
+    try {
+      const payload = { action, apiKey: API_KEY, ...data };
+      const response = await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      return await response.json();
+    } catch (error) {
+      console.error('API POST Error:', error);
+      return { success: false, error: error.message };
+    }
+  },
+
+  // ---------- USERS ----------
+  async getUsers() { return this.get('getUsers'); },
+  async createUser(data) { return this.post('createUser', data); },
+  async updateUser(data) { return this.post('updateUser', data); },
+  async syncUserFromPlatform(data) { return this.post('syncUserFromPlatform', data); },
+
+  // ---------- EVENTS ----------
+  async getEvents() { return this.get('getEvents'); },
+  async createEvent(data) { return this.post('createEvent', data); },
+  async updateEvent(data) { return this.post('updateEvent', data); },
+
+  // ---------- INVOICES ----------
+  async getInvoices() { return this.get('getInvoices'); },
+  async createInvoice(data) { return this.post('createInvoice', data); },
+  async updateInvoice(data) { return this.post('updateInvoice', data); },
+
+  // ---------- TRANSACTIONS ----------
+  async getTransactions() { return this.get('getTransactions'); },
+  async createTransaction(data) { return this.post('createTransaction', data); },
+  async updateTransaction(data) { return this.post('updateTransaction', data); },
+
+  // ---------- CAMPAIGNS ----------
+  async getCampaigns() { return this.get('getCampaigns'); },
+  async createCampaign(data) { return this.post('createCampaign', data); },
+  async updateCampaign(data) { return this.post('updateCampaign', data); },
+
+  // ---------- DASHBOARD & ACTIVITY ----------
+  async getDashboardData() { return this.get('getDashboardData'); },
+  async getActivityLog() { return this.get('getActivityLog'); },
+  async recordActivity(action, module, details, userId = 'anonymous') {
+    return this.post('recordActivity', { action, module, details, userId });
+  }
+};
+
+// ---------- EVENT PLATFORM INTEGRATION ----------
+const EventPlatformIntegration = {
+  async recordUserAction(action, module, details, userEmail) {
+    return APIClient.recordActivity(action, module, details, userEmail);
+  },
+  async syncUser(userData) {
+    return APIClient.syncUserFromPlatform({
+      name: userData.name,
+      email: userData.email,
+      company: userData.company || '',
+      sessionsBooked: userData.sessionsBooked || 0,
+      totalSpent: userData.totalSpent || 0,
+      status: userData.status || 'active'
+    });
+  },
+  async recordBooking(sessionData, userData) {
+    const txResult = await APIClient.createTransaction({
+      customer: userData.name,
+      amount: sessionData.price,
+      method: sessionData.paymentMethod || 'Unknown',
+      status: 'success',
+      date: new Date().toISOString().split('T')[0],
+      sessionId: sessionData.id
+    });
+    if (txResult.success) {
+      await APIClient.createInvoice({
+        customer: userData.name,
+        session: sessionData.title,
+        amount: sessionData.price,
+        date: new Date().toISOString().split('T')[0],
+        status: 'paid',
+        method: sessionData.paymentMethod || 'Unknown'
+      });
+      await this.syncUser({
+        name: userData.name,
+        email: userData.email,
+        company: userData.company || '',
+        sessionsBooked: 1,
+        totalSpent: sessionData.price,
+        status: 'active'
+      });
+    }
+    return txResult;
+  }
+};
+
+// ---------- CRM INTEGRATION ----------
+const CRMIntegration = {
+  async loadDashboard() {
+    const result = await APIClient.getDashboardData();
+    if (result.success) {
+      // Update KPI cards (example)
+      document.querySelectorAll('.kpi-card .value').forEach(el => {
+        const label = el.closest('.kpi-card').querySelector('.label');
+        if (label) {
+          const labelText = label.textContent.trim();
+          if (labelText.includes('Attendees')) {
+            el.textContent = result.data.totalUsers.toLocaleString();
+          } else if (labelText.includes('Revenue')) {
+            el.textContent = '₹' + result.data.totalRevenue.toLocaleString();
+          } else if (labelText.includes('Sessions')) {
+            el.textContent = result.data.totalEvents;
+          }
+        }
+      });
+    }
+    return result;
+  },
+  async loadUsers() { return APIClient.getUsers(); },
+  async loadEvents() { return APIClient.getEvents(); },
+  async loadInvoices() { return APIClient.getInvoices(); },
+  async loadActivityLog() { return APIClient.getActivityLog(); },
+  async createCampaign(data) { return APIClient.createCampaign(data); }
+};
+
+// ---------- EXPOSE GLOBALLY ----------
+window.APIClient = APIClient;
+window.EventPlatformIntegration = EventPlatformIntegration;
+window.CRMIntegration = CRMIntegration;
+
+console.log('✅ Apps Script Integration loaded with API key');
 </body>
 </html>
