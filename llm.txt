@@ -86,10 +86,7 @@ We target prospects by **understanding their user thinking process** – what th
 - https://www.denisiawebops.org/chromatone.html – Color frequency detector for colour blind users
 - https://www.denisiawebops.org/Corpcabs.html – Interactive CorpCab demo (employee transport)
 
-### Real Estate CRM & Business Automation
-- https://www.denisiawebops.org/custom-crm-for-real-estate.html – Real estate CRM guide covering lead management, property search, automation, implementation timeline and FAQs
-
-## Technical Guides & Automations
+### Technical Guides & Automations
 - https://www.denisiawebops.org/n8n-whatsapp-ai-automation.html – Build a document‑aware WhatsApp AI agent with n8n, RAG, Gemini & MongoDB
 
 ### Microsoft & Low‑Code Website Builders
