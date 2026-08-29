@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#67e8f9">
+<meta name="description" content="AlphaTrace Pro by Denisia Webops is a playful, full-screen alphabet and number tracing experience for children. Practice a-z, A-Z and 0-9 with guided paths, glowing crayon trails, sounds and star rewards.">
+<meta name="keywords" content="alphabet tracing, letter tracing for kids, handwriting practice, preschool alphabet, kindergarten tracing, number tracing, a-z tracing, A-Z tracing, 0-9 tracing, educational game, AlphaTrace Pro, Denisia Webops">
+<meta name="author" content="Denisia Webops">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="application-name" content="AlphaTrace Pro">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="AlphaTrace Pro">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="canonical" href="https://www.denisiawebops.org/alphatrace-pro">
+<title>AlphaTrace Pro | Alphabet & Number Tracing for Kids | Denisia Webops</title>
+<meta property="og:type" content="website"><meta property="og:site_name" content="Denisia Webops">
+<meta property="og:title" content="AlphaTrace Pro — Fun Alphabet Tracing for Kids">
+<meta property="og:description" content="A responsive, full-screen tracing game for a-z, A-Z and 0-9 with magical trails, sounds and star rewards.">
+<meta property="og:url" content="https://www.denisiawebops.org/alphatrace-pro"><meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="AlphaTrace Pro — Denisia Webops">
+<meta name="twitter:description" content="Interactive alphabet and number tracing practice for children.">
+<meta name="ai-content-declaration" content="Educational web application created by Denisia Webops; content and interaction are generated from a fixed learning dataset.">
+<meta name="subject" content="Early childhood alphabet, handwriting and number tracing">
+<meta name="classification" content="Education, Educational Game, Early Childhood Learning">
+<meta name="category" content="Educational Application">
+<meta name="geo.region" content="IN"><meta name="geo.placename" content="India">
+<meta name="geo.position" content="20.5937;78.9629"><meta name="ICBM" content="20.5937, 78.9629">
+<script type="application/ld+json">{
+  "@context":"https://schema.org","@type":"WebApplication","name":"AlphaTrace Pro","url":"https://www.denisiawebops.org/alphatrace-pro",
+  "description":"Interactive alphabet and number tracing practice for children.","applicationCategory":"EducationalApplication","operatingSystem":"Web Browser","inLanguage":"en-IN",
+  "publisher":{"@type":"Organization","name":"Denisia Webops","url":"https://www.denisiawebops.org"},
+  "audience":{"@type":"EducationalAudience","educationalRole":["student","parent","teacher"]},
+  "featureList":["a-z tracing","A-Z tracing","0-9 tracing","touch and pen support","sound feedback","star rewards","responsive full-screen interface"]
+}</script>
+<script type="application/ld+json">{
+  "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is AlphaTrace Pro?","acceptedAnswer":{"@type":"Answer","text":"AlphaTrace Pro is a browser-based tracing game for children to practice lowercase letters, uppercase letters and numbers."}},
+    {"@type":"Question","name":"Does it work on phones and tablets?","acceptedAnswer":{"@type":"Answer","text":"Yes. AlphaTrace Pro uses the available browser viewport and supports touch, stylus and mouse input."}}
+  ]
+}</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@700;800;900&display=swap');
+:root{--green:#9acc14;--cyan:#67e8f9;--cyan-deep:#22d3ee;--yellow:#facc15;--yellow-deep:#ca8a04;--white:#fff;--ink:#365314;--blue:#083344;--mint:#4ade80;--pink:#f472b6}
+*{box-sizing:border-box}
+html,body{width:100%;height:100%;margin:0;overflow:hidden}
+body{font-family:Nunito,system-ui,sans-serif;background:var(--green);color:#fff;user-select:none;-webkit-user-select:none;overscroll-behavior:none}
+button{font:inherit;-webkit-tap-highlight-color:transparent}
+button:focus-visible{outline:4px solid rgba(250,204,21,.95);outline-offset:3px}
+.app{position:relative;width:100vw;height:100dvh;min-height:100vh;overflow:hidden;background:var(--green)}
+.view{position:absolute;inset:0;width:100%;height:100%;display:none}
+.view.active{display:flex;animation:fadeIn .22s ease-out}
+@keyframes fadeIn{from{opacity:0;transform:scale(.995)}to{opacity:1;transform:scale(1)}}
+/* Original AlphaTrace visual language, expanded to the full viewport. */
+.home{align-items:center;justify-content:center;padding:max(14px,env(safe-area-inset-top)) max(14px,env(safe-area-inset-right)) max(14px,env(safe-area-inset-bottom)) max(14px,env(safe-area-inset-left));background:var(--green)}
+.home-panel{width:100%;height:100%;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border:clamp(8px,1.3vw,16px) solid var(--cyan);border-radius:clamp(18px,3vw,34px);background:var(--green);box-shadow:inset 0 0 24px rgba(0,0,0,.12),0 10px 28px rgba(0,0,0,.16)}
+.home-card{width:min(92vw,850px);padding:clamp(20px,5vw,58px);border-radius:clamp(24px,5vw,42px);background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.34);backdrop-filter:blur(8px);text-align:center;box-shadow:0 18px 40px rgba(0,0,0,.12)}
+.brand-line{display:inline-flex;align-items:center;gap:9px;padding:8px 14px;border-radius:999px;background:rgba(0,0,0,.16);font-size:clamp(10px,1.6vw,14px);font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+.brand-dot{width:10px;height:10px;border-radius:50%;background:var(--yellow);box-shadow:0 0 16px rgba(250,204,21,.75)}
+.home h1{font:700 clamp(54px,12vw,132px)/.9 Fredoka;margin:18px 0 10px;text-shadow:0 6px 0 rgba(0,0,0,.08)}
+.home p{font-size:clamp(18px,3vw,30px);font-weight:900;color:#365314;margin:0 0 28px}
+.feature-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:700px;margin:0 auto 30px}.feature{padding:13px 10px;border-radius:18px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.25)}.feature b{display:block;font-size:12px}.feature span{display:block;font-size:10px;opacity:.78;margin-top:3px}
+.big-play{border:0;border-radius:999px;background:var(--yellow);color:#713f12;padding:17px 34px;min-width:min(76vw,310px);font:700 clamp(22px,3vw,30px) Fredoka;cursor:pointer;box-shadow:0 7px 0 var(--yellow-deep);transition:transform .16s,box-shadow .16s}.big-play:hover{transform:translateY(-2px)}.big-play:active{transform:translateY(7px);box-shadow:0 0 0 var(--yellow-deep)}
+.home-footer{margin-top:18px;font-size:11px;font-weight:800;opacity:.78}
+/* Picker: same original cyan/yellow/green language */
+.grid-view{flex-direction:column;background:#ecfeff}.picker-bar{flex:0 0 auto;min-height:74px;padding:10px max(12px,env(safe-area-inset-right)) 10px max(12px,env(safe-area-inset-left));display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--cyan);color:#fff;box-shadow:0 5px 18px rgba(0,0,0,.12);z-index:5}.circle-btn{width:46px;height:46px;border:0;border-radius:50%;background:rgba(0,0,0,.16);color:#fff;display:grid;place-items:center;cursor:pointer;font-size:23px;flex:none}.picker-title{display:flex;align-items:center;justify-content:center;min-width:0}.picker-title h2{font:700 clamp(18px,3vw,28px) Fredoka;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mode-toggle{display:flex;gap:4px;padding:4px;border-radius:999px;background:rgba(0,0,0,.16);flex:none}.mode-btn{width:40px;height:40px;border:0;border-radius:50%;background:transparent;color:rgba(255,255,255,.72);font-weight:900;cursor:pointer}.mode-btn.active{background:var(--mint);color:#14532d;box-shadow:0 3px 9px rgba(0,0,0,.14)}
+.grid-scroller{flex:1;overflow:auto;padding:clamp(14px,3vw,34px);background:#ecfeff}.alphabet-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(clamp(72px,12vw,132px),1fr));gap:clamp(10px,1.8vw,18px);max-width:1700px;margin:0 auto}.letter-btn{position:relative;border:2px solid rgba(255,255,255,.75);aspect-ratio:1;border-radius:24px;color:#fff;font:700 clamp(34px,5vw,62px) Fredoka;cursor:pointer;box-shadow:0 5px 0 rgba(0,0,0,.12),0 12px 24px rgba(0,0,0,.08);transition:transform .15s,box-shadow .15s}.letter-btn:nth-child(6n+1){background:#f472b6}.letter-btn:nth-child(6n+2){background:#a855f7}.letter-btn:nth-child(6n+3){background:#3b82f6}.letter-btn:nth-child(6n+4){background:#22c55e}.letter-btn:nth-child(6n+5){background:#eab308}.letter-btn:nth-child(6n){background:#f97316}.letter-btn:hover{transform:translateY(-3px);box-shadow:0 8px 0 rgba(0,0,0,.12),0 16px 26px rgba(0,0,0,.1)}.letter-btn:active{transform:translateY(5px);box-shadow:0 1px 0 rgba(0,0,0,.12)}.letter-btn .sub{display:block;font:900 10px Nunito;opacity:.95;margin-top:4px;text-shadow:0 1px 2px rgba(0,0,0,.16)}.letter-btn .check{position:absolute;right:7%;top:7%;width:27%;height:27%;border-radius:50%;display:grid;place-items:center;background:#4ade80;color:#14532d;font:900 58% Nunito;border:2px solid rgba(255,255,255,.9);box-shadow:0 3px 8px rgba(0,0,0,.15)}
+/* Trace: true viewport canvas, no artificial max-width/height. */
+.trace-view{flex-direction:column;background:var(--green)}.canvas-wrap{position:absolute;inset:0;touch-action:none;overflow:hidden}.canvas-wrap canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none}.trace-top{position:absolute;z-index:10;left:max(12px,env(safe-area-inset-left));right:max(12px,env(safe-area-inset-right));top:max(12px,env(safe-area-inset-top));display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:9px}.trace-brand{justify-self:center;max-width:min(78vw,520px);padding:10px 18px;border-radius:999px;background:rgba(0,0,0,.18);color:#fff;font:900 clamp(12px,2vw,18px) Nunito;letter-spacing:.02em;text-align:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}.trace-bottom{position:absolute;z-index:9;left:0;right:0;bottom:max(16px,env(safe-area-inset-bottom));display:flex;justify-content:center;padding:0 14px;pointer-events:none}.instruction{margin:0;padding:11px 18px;border-radius:999px;background:rgba(0,0,0,.18);backdrop-filter:blur(7px);font:700 clamp(15px,2.5vw,24px) Fredoka;text-align:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.1)}.dot-legend{position:absolute;z-index:9;left:14px;bottom:max(16px,env(safe-area-inset-bottom));display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(0,0,0,.14);backdrop-filter:blur(7px);font:900 10px Nunito;color:rgba(255,255,255,.88);pointer-events:none}.dot-legend span{width:9px;height:9px;border-radius:50%;background:var(--yellow);box-shadow:0 0 10px rgba(250,204,21,.75)}.dot-legend i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.62)}.demo-badge{position:absolute;z-index:10;left:50%;top:max(82px,calc(env(safe-area-inset-top) + 70px));transform:translateX(-50%);padding:9px 15px;border-radius:999px;background:rgba(0,0,0,.16);backdrop-filter:blur(7px);font:900 clamp(11px,2vw,15px) Nunito;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.95);pointer-events:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.1)}.demo-badge.hide{display:none}
+/* Important tester fix: the guide is centered ON the item, not outside it. The watermark is built from the same tracing geometry. */
+.success-overlay{position:absolute;inset:0;z-index:20;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(15,23,42,.55);backdrop-filter:blur(6px)}.success-overlay.show{display:flex}.success-card{width:min(92vw,640px);padding:clamp(22px,5vw,46px);border-radius:34px;background:var(--cyan);border:7px solid #fff;color:#fff;text-align:center;box-shadow:0 24px 65px rgba(0,0,0,.28)}.success-emoji{font-size:clamp(72px,13vw,150px);line-height:1;margin-bottom:8px}.success-card h2{font:700 clamp(34px,6vw,60px) Fredoka;margin:0;text-shadow:0 4px 0 rgba(0,0,0,.1)}.stars{font-size:clamp(36px,6vw,54px);letter-spacing:5px;margin:10px 0 2px;color:var(--yellow);text-shadow:0 4px 4px rgba(0,0,0,.18)}.success-meta{margin:0 0 20px;font-size:13px;font-weight:900}.success-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.action{border:0;border-radius:999px;padding:12px 18px;font-weight:900;cursor:pointer}.action.primary{background:var(--yellow);color:#713f12}.action.secondary{background:rgba(255,255,255,.18);color:#fff;border:2px solid rgba(255,255,255,.7)}
+.particle{position:absolute;width:8px;height:8px;border-radius:50%;background:var(--yellow);box-shadow:0 0 16px rgba(250,204,21,.9);pointer-events:none;animation:burst .7s ease-out forwards}@keyframes burst{to{transform:translate(var(--dx),var(--dy)) scale(0);opacity:0}}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+@media(max-width:640px){.feature-strip{grid-template-columns:1fr;max-width:260px}.feature:nth-child(n+2){display:none}.picker-title h2{font-size:18px}.trace-brand{padding:10px 13px}}
+@media(orientation:landscape) and (max-height:560px){.home-card{padding:16px 26px}.home h1{font-size:clamp(48px,13vw,88px)}.feature-strip{display:none}.big-play{padding:12px 26px}.picker-bar{min-height:60px}.success-card{padding:18px 28px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main id="app" class="app" aria-label="AlphaTrace Pro educational tracing game">
+<section id="view-home" class="view home active" aria-labelledby="home-title">
+ <div class="home-panel">
+  <div class="home-card">
+   <div class="brand-line"><span class="brand-dot"></span>DENISIA WEBOPS · ALPHATRACE PRO</div>
+   <h1 id="home-title">AlphaTrace</h1>
+   <p>Learn letters & numbers through magical tracing.</p>
+   <div class="feature-strip" aria-label="Features"><div class="feature"><b>✨ Magical Trails</b><span>Glow as you trace</span></div><div class="feature"><b>🔊 Friendly Sounds</b><span>Audio rewards</span></div><div class="feature"><b>⭐ Star Rewards</b><span>Build confidence</span></div></div>
+   <button class="big-play" onclick="navigate('grid')" aria-label="Start AlphaTrace Pro">▶ Start Playing</button>
+   <div class="home-footer">A–Z · a–z · 0–9 · responsive full-screen learning</div>
+  </div>
+ </div>
+</section>
+<section id="view-grid" class="view grid-view" aria-labelledby="picker-title">
+ <header class="picker-bar">
+  <button class="circle-btn" onclick="navigate('home')" aria-label="Back to home">←</button>
+  <div class="picker-title"><h2 id="picker-title">Choose a character</h2></div>
+  <div class="mode-toggle" role="group" aria-label="Character type"><button id="mode-lower" class="mode-btn active" onclick="setMode('lower')" aria-label="Lowercase letters">a</button><button id="mode-upper" class="mode-btn" onclick="setMode('upper')" aria-label="Uppercase letters">A</button><button id="mode-number" class="mode-btn" onclick="setMode('number')" aria-label="Numbers">1</button></div>
+ </header>
+ <div class="grid-scroller"><div id="alphabet-grid" class="alphabet-grid" aria-label="Available characters"></div></div>
+</section>
+<section id="view-trace" class="view trace-view" aria-labelledby="trace-heading">
+ <div id="canvas-wrapper" class="canvas-wrap"><canvas id="gameCanvas" aria-label="Tracing canvas"></canvas><div id="particle-layer" aria-hidden="true"></div></div>
+ <div class="trace-top"><button class="circle-btn" onclick="navigate('grid')" aria-label="Back to characters">←</button><div id="trace-heading" class="trace-brand">DENISIA WEBOPS · ALPHATRACE PRO</div><button class="circle-btn" onclick="resetCurrentLetter()" aria-label="Restart tracing">↻</button></div>
+ <div class="trace-bottom"><p id="instruction-text" class="instruction">Follow the golden arrow.</p></div>
+ <div id="demo-badge" class="demo-badge">👀 Watch me · Follow the arrow</div>
+ <div class="dot-legend" aria-hidden="true"><span></span><b>START</b><i></i><b>FOLLOW THE FLOW</b></div>
+ <div id="success-overlay" class="success-overlay" role="dialog" aria-modal="true" aria-labelledby="success-title">
+  <div class="success-card"><div id="success-emoji" class="success-emoji" aria-hidden="true">🎉</div><h2 id="success-title">Beautiful!</h2><div id="star-rating" class="stars" aria-label="3 out of 3 stars">★★★</div><p id="success-meta" class="success-meta">Wonderful tracing!</p><div class="success-actions"><button class="action primary" onclick="nextCharacter()">Next →</button><button class="action secondary" onclick="resetCurrentLetter()">Trace Again</button></div></div>
+ </div>
+</section>
+</main>
+<noscript><div style="padding:20px;background:#fff;color:#111">AlphaTrace Pro needs JavaScript enabled.</div></noscript>
+<script>
+const letterDB = {
+            lower: {
+                'a': "80,50|50,30|20,50|50,90|80,80; 80,30|80,90",
+                'b': "20,10|20,90; 20,50|50,30|80,50|80,70|50,90|20,70",
+                'c': "80,40|50,25|20,50|50,85|80,70",
+                'd': "80,50|50,30|20,50|50,90|80,90; 80,10|80,90",
+                'e': "20,60|80,60|70,30|40,30|20,60|30,90|80,90",
+                'f': "80,20|60,10|50,20|50,90; 30,50|70,50",
+                'g': "80,50|50,30|20,50|50,90|80,80; 80,40|80,90|60,110|30,100",
+                'h': "20,10|20,90; 20,50|50,30|80,50|80,90",
+                'i': "50,40|50,90; 50,15|50,16",
+                'j': "50,40|50,90|30,110|10,100; 50,15|50,16",
+                'k': "20,10|20,90; 80,40|30,60; 40,55|80,90",
+                'l': "50,10|50,90",
+                'm': "10,90|10,40|30,30|50,50|50,90; 50,50|70,30|90,50|90,90",
+                'n': "20,90|20,40|50,30|80,50|80,90",
+                'o': "50,30|20,60|50,90|80,60|50,30",
+                'p': "20,30|20,110; 20,50|50,30|80,50|80,70|50,90|20,70",
+                'q': "80,50|50,30|20,50|50,90|80,90; 80,30|80,110",
+                'r': "30,30|30,90; 30,50|50,30|80,40",
+                's': "80,40|50,30|30,45|50,60|70,75|50,90|20,80",
+                't': "50,10|50,85|70,90; 20,40|80,40",
+                'u': "20,30|20,80|50,90|80,80|80,30; 80,30|80,90",
+                'v': "20,30|50,90|80,30",
+                'w': "10,30|30,90|50,50|70,90|90,30",
+                'x': "20,30|80,90; 80,30|20,90",
+                'y': "20,30|50,70|80,30; 50,70|50,90|20,110",
+                'z': "20,30|80,30|20,90|80,90"
+            },
+            upper: {
+                'A': "50,10|20,90; 50,10|80,90; 35,60|65,60",
+                'B': "20,10|20,90; 20,10|60,10|80,30|60,50|20,50; 20,50|70,50|90,70|70,90|20,90",
+                'C': "80,20|60,10|30,10|10,30|10,70|30,90|60,90|80,80",
+                'D': "20,10|20,90; 20,10|60,10|80,30|80,70|60,90|20,90",
+                'E': "80,10|20,10|20,90|80,90; 20,50|60,50",
+                'F': "20,90|20,10|80,10; 20,50|60,50",
+                'G': "80,20|60,10|30,10|10,30|10,70|30,90|60,90|80,70|80,50|50,50",
+                'H': "20,10|20,90; 80,10|80,90; 20,50|80,50",
+                'I': "20,10|80,10; 50,10|50,90; 20,90|80,90",
+                'J': "80,10|50,10|50,70|40,90|20,80",
+                'K': "20,10|20,90; 80,10|20,50|80,90",
+                'L': "20,10|20,90|80,90",
+                'M': "10,90|10,10|50,50|90,10|90,90",
+                'N': "20,90|20,10|80,90|80,10",
+                'O': "50,10|20,30|20,70|50,90|80,70|80,30|50,10",
+                'P': "20,90|20,10|60,10|80,30|60,50|20,50",
+                'Q': "50,10|20,30|20,70|50,90|80,70|80,30|50,10; 60,70|90,90",
+                'R': "20,90|20,10|60,10|80,30|60,50|20,50; 50,50|80,90",
+                'S': "80,20|60,10|30,10|10,30|40,50|80,60|80,80|50,90|20,80",
+                'T': "20,10|80,10; 50,10|50,90",
+                'U': "20,10|20,70|50,90|80,70|80,10",
+                'V': "10,10|50,90|90,10",
+                'W': "10,10|30,90|50,50|70,90|90,10",
+                'X': "10,10|90,90; 90,10|10,90",
+                'Y': "10,10|50,50|90,10; 50,50|50,90",
+                'Z': "10,10|90,10|10,90|90,90"
+            },
+            number: {
+                '0': "50,10|20,30|20,70|50,90|80,70|80,30|50,10",
+                '1': "30,30|50,10|50,90",
+                '2': "20,30|50,10|80,30|80,50|20,90|80,90",
+                '3': "20,25|50,10|80,25|70,50|50,50|80,65|50,90|20,75",
+                '4': "80,70|20,70|60,10|60,90",
+                '5': "80,10|20,10|20,50|80,50|80,90|20,90",
+                '6': "80,10|20,50|20,90|80,90|80,50|20,50",
+                '7': "20,10|80,10|40,90",
+                '8': "50,50|20,20|80,20|50,50|80,90|20,90|50,50",
+                '9': "80,50|20,50|20,10|80,10|80,90"
+            }
+        };
+
+const wordDB = {
+            'a': {word: 'Apple', emoji: '🍎'}, 'b': {word: 'Bear', emoji: '🐻'},
+            'c': {word: 'Cat', emoji: '🐱'}, 'd': {word: 'Dog', emoji: '🐶'},
+            'e': {word: 'Elephant', emoji: '🐘'}, 'f': {word: 'Frog', emoji: '🐸'},
+            'g': {word: 'Giraffe', emoji: '🦒'}, 'h': {word: 'Horse', emoji: '🐴'},
+            'i': {word: 'Ice Cream', emoji: '🍦'}, 'j': {word: 'Jellyfish', emoji: '🪼'},
+            'k': {word: 'Kangaroo', emoji: '🦘'}, 'l': {word: 'Lion', emoji: '🦁'},
+            'm': {word: 'Monkey', emoji: '🐵'}, 'n': {word: 'Nest', emoji: '🪺'},
+            'o': {word: 'Octopus', emoji: '🐙'}, 'p': {word: 'Penguin', emoji: '🐧'},
+            'q': {word: 'Queen', emoji: '👑'}, 'r': {word: 'Rabbit', emoji: '🐰'},
+            's': {word: 'Sun', emoji: '☀️'}, 't': {word: 'Tiger', emoji: '🐯'},
+            'u': {word: 'Umbrella', emoji: '☂️'}, 'v': {word: 'Volcano', emoji: '🌋'},
+            'w': {word: 'Whale', emoji: '🐳'}, 'x': {word: 'Xylophone', emoji: '🎹'},
+            'y': {word: 'Yo-yo', emoji: '🪀'}, 'z': {word: 'Zebra', emoji: '🦓'},
+            '0': {word: 'Zero', emoji: '0️⃣'}, '1': {word: 'One', emoji: '1️⃣'},
+            '2': {word: 'Two', emoji: '2️⃣'}, '3': {word: 'Three', emoji: '3️⃣'},
+            '4': {word: 'Four', emoji: '4️⃣'}, '5': {word: 'Five', emoji: '5️⃣'},
+            '6': {word: 'Six', emoji: '6️⃣'}, '7': {word: 'Seven', emoji: '7️⃣'},
+            '8': {word: 'Eight', emoji: '8️⃣'}, '9': {word: 'Nine', emoji: '9️⃣'}
+        };
+
+
+const canvas=document.getElementById('gameCanvas');
+const ctx=canvas.getContext('2d',{alpha:false,desynchronized:true});
+const wrapper=document.getElementById('canvas-wrapper');
+const particleLayer=document.getElementById('particle-layer');
+const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let currentMode='lower',currentLetter='a';
+let parsedStrokes=[],currentStrokeIndex=0,currentDotIndex=0;
+let pointer={x:0,y:0,down:false,tracing:false,id:null};
+let rect={left:0,top:0,w:0,h:0},dpr=1,rafId=0,resizeObserver=null,audioCtx=null;
+let completedLifts=0,completionShown=false,resizeTimer=0;
+let celebrationTimer=0;
+let lastSpeechAt=0;
+let demoActive=false,demoStartedAt=0,demoDuration=1500,demoFrame=0;
+const THEME={bg:'#9acc14',guide:'rgba(255,255,255,.48)',ghost:'rgba(255,255,255,.13)',trail:'#4ade80',trailHi:'#86efac',trailShadow:'#22c55e',arrow:'#facc15',dot:'#ffffff',dotDone:'#86efac',dotGlow:'rgba(250,204,21,.45)'};
+const completionSet=new Set(JSON.parse(sessionStorage.getItem('alphatrace-completed')||'[]'));
+
+function catmullRom(p0,p1,p2,p3,t,tension=.5){const t2=t*t,t3=t2*t,m1x=(p2.x-p0.x)*tension,m1y=(p2.y-p0.y)*tension,m2x=(p3.x-p1.x)*tension,m2y=(p3.y-p1.y)*tension;return{x:(2*p1.x-2*p2.x+m1x+m2x)*t3+(-3*p1.x+3*p2.x-2*m1x-m2x)*t2+m1x*t+p1.x,y:(2*p1.y-2*p2.y+m1y+m2y)*t3+(-3*p1.y+3*p2.y-2*m1y-m2y)*t2+m1y*t+p1.y}}
+function getCurvePoints(pts,segments=12){const res=[],pp=[pts[0],...pts,pts[pts.length-1]];for(let i=1;i<pp.length-2;i++){for(let t=0;t<=segments;t++)res.push(catmullRom(pp[i-1],pp[i],pp[i+1],pp[i+2],t/segments))}return res}
+function getLinePoints(p1,p2,segments=24){const res=[];for(let i=0;i<=segments;i++){const t=i/segments;res.push({x:p1.x+(p2.x-p1.x)*t,y:p1.y+(p2.y-p1.y)*t})}return res}
+function safeKey(){return currentMode+':'+currentLetter}
+function saveCompletion(){completionSet.add(safeKey());sessionStorage.setItem('alphatrace-completed',JSON.stringify([...completionSet]))}
+
+function buildGrid(){const grid=document.getElementById('alphabet-grid');grid.innerHTML='';Object.keys(letterDB[currentMode]).forEach(letter=>{const btn=document.createElement('button');btn.className='letter-btn';btn.setAttribute('aria-label',`Trace ${letter}`);const wordText=wordDB[letter.toLowerCase()]?.word||'Practice';btn.innerHTML=`${letter}<span class="sub">${wordText}</span>${completionSet.has(currentMode+':'+letter)?'<span class="check" aria-hidden="true">✓</span>':''}`;btn.onclick=()=>{selectCharacter(letter)};grid.appendChild(btn)})}
+function setMode(mode){currentMode=mode;hideSuccessOverlay();['lower','upper','number'].forEach(m=>document.getElementById('mode-'+m).classList.toggle('active',m===mode));currentLetter=Object.keys(letterDB[currentMode])[0];buildGrid()}
+function selectCharacter(letter){hideSuccessOverlay();currentLetter=letter;stopRenderLoop();navigate('trace',true)}
+
+function init(){buildGrid();resizeObserver=new ResizeObserver(()=>scheduleResize());resizeObserver.observe(wrapper);window.addEventListener('resize',scheduleResize,{passive:true});window.visualViewport?.addEventListener('resize',scheduleResize,{passive:true});canvas.addEventListener('pointerdown',pointerDown,{passive:false});canvas.addEventListener('pointermove',pointerMove,{passive:false});canvas.addEventListener('pointerup',pointerUp,{passive:false});canvas.addEventListener('pointercancel',pointerCancel,{passive:false});document.addEventListener('visibilitychange',()=>{if(document.hidden){stopRenderLoop();speechSynthesis?.cancel()}else if(document.getElementById('view-trace').classList.contains('active'))startRenderLoop()});window.addEventListener('pagehide',cleanup,{once:true})}
+function cleanup(){stopRenderLoop();resizeObserver?.disconnect();window.removeEventListener('resize',scheduleResize);window.visualViewport?.removeEventListener('resize',scheduleResize);clearTimeout(resizeTimer);clearTimeout(celebrationTimer);speechSynthesis?.cancel()}
+function stopRenderLoop(){if(rafId){cancelAnimationFrame(rafId);rafId=0}}
+function startRenderLoop(){stopRenderLoop();const loop=()=>{if(!document.getElementById('view-trace').classList.contains('active')){rafId=0;return}render();rafId=requestAnimationFrame(loop)};loop()}
+function scheduleResize(){clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{if(document.getElementById('view-trace').classList.contains('active'))handleResize()},24)}
+function hideSuccessOverlay(){completionShown=false;const overlay=document.getElementById('success-overlay');overlay.classList.remove('show');overlay.setAttribute('aria-hidden','true');clearTimeout(celebrationTimer)}
+function navigate(viewId,skipSpeech=false){stopRenderLoop();hideSuccessOverlay();cancelDemo();document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById('view-'+viewId).classList.add('active');if(viewId==='trace')requestAnimationFrame(()=>{handleResize();resetCurrentLetter(!skipSpeech,true);startRenderLoop()})}
+
+function handleResize(){const r=wrapper.getBoundingClientRect();if(r.width<2||r.height<2)return;rect={left:r.left,top:r.top,w:r.width,h:r.height};dpr=Math.min(window.devicePixelRatio||1,3);canvas.width=Math.round(r.width*dpr);canvas.height=Math.round(r.height*dpr);canvas.style.width=r.width+'px';canvas.style.height=r.height+'px';ctx.setTransform(dpr,0,0,dpr,0,0);loadLetterData();render()}
+function loadLetterData(){const raw=letterDB[currentMode][currentLetter];if(!raw)return;const ys=raw.split(';').flatMap(s=>s.trim().split('|').map(p=>Number(p.split(',')[1])));const maxY=Math.max(100,...ys);const minScale=Math.min(rect.w/100,rect.h/maxY);const scale=minScale*.78;const ox=(rect.w-100*scale)/2;const oy=(rect.h-maxY*scale)/2+rect.h*.02;const map=(x,y)=>({x:ox+x*scale,y:oy+y*scale});parsedStrokes=raw.split(';').map(s=>{const pts=s.trim().split('|').map(p=>{const [x,y]=p.split(',').map(Number);return map(x,y)});return pts.length>2?getCurvePoints(pts):getLinePoints(pts[0],pts[1],24)})}
+function resetCurrentLetter(announce=true,showDemo=true){hideSuccessOverlay();cancelDemo();completedLifts=0;currentStrokeIndex=0;currentDotIndex=0;pointer={x:0,y:0,down:false,tracing:false,id:null};document.getElementById('instruction-text').textContent=`Trace “${currentLetter}” by following the golden arrow.`;document.getElementById('demo-badge').classList.toggle('hide',!showDemo);loadLetterData();render();if(announce)speakCharacter('before');if(showDemo)startDemo()}
+function getDemoDuration(){const pointCount=parsedStrokes.reduce((sum,s)=>sum+s.length,0);return Math.max(1050,Math.min(1900,950+pointCount*2.4))}
+function startDemo(){if(!parsedStrokes.length)return;demoActive=true;demoStartedAt=performance.now();demoDuration=getDemoDuration();demoFrame=0;document.getElementById('demo-badge').classList.remove('hide');document.getElementById('instruction-text').textContent='Watch the arrow flow… then you try!';tone(440,.08,'sine',.012)}
+function cancelDemo(){demoActive=false;demoFrame=0;const badge=document.getElementById('demo-badge');if(badge)badge.classList.add('hide')}
+function finishDemo(){demoActive=false;demoFrame=0;const badge=document.getElementById('demo-badge');if(badge)badge.classList.add('hide');if(!completionShown)document.getElementById('instruction-text').textContent=`Now trace “${currentLetter}”! Follow the golden arrow.`;strokeChime()}
+function drawDemo(){if(!demoActive||!parsedStrokes.length)return;const elapsed=performance.now()-demoStartedAt;const progress=Math.min(1,elapsed/demoDuration);const lw=Math.max(8,Math.min(rect.w,rect.h)*.055);const total=parsedStrokes.reduce((sum,stroke)=>sum+Math.max(1,stroke.length-1),0);let remaining=progress*total;let targetStroke=null,targetIndex=0;for(let s=0;s<parsedStrokes.length;s++){const stroke=parsedStrokes[s];const segs=Math.max(1,stroke.length-1);if(remaining<=segs){targetStroke=stroke;targetIndex=Math.max(1,Math.min(stroke.length-1,Math.floor(remaining)));pathStroke(stroke,targetIndex,lw,THEME.arrow);pathStroke(stroke,targetIndex,lw*.28,'rgba(255,255,255,.72)');break}pathStroke(stroke,stroke.length-1,lw,THEME.arrow);pathStroke(stroke,stroke.length-1,lw*.28,'rgba(255,255,255,.72)');remaining-=segs}if(targetStroke){const target=targetStroke[targetIndex];const next=targetStroke[Math.min(targetIndex+3,targetStroke.length-1)]||target;const ang=Math.atan2(next.y-target.y,next.x-target.x);drawDemoArrow(target,ang,lw)}if(progress>=1)finishDemo()}
+function drawDemoArrow(target,angle,lw){const sz=lw*.72*(reducedMotion?1:1+Math.sin(performance.now()/120)*.1);ctx.save();ctx.translate(target.x,target.y);ctx.rotate(angle);ctx.beginPath();ctx.moveTo(sz,0);ctx.lineTo(-sz,sz*.72);ctx.lineTo(-sz*.34,0);ctx.lineTo(-sz,-sz*.72);ctx.closePath();ctx.fillStyle=THEME.arrow;ctx.shadowColor='rgba(0,0,0,.4)';ctx.shadowBlur=10;ctx.fill();ctx.restore()}
+function eventPoint(e){return{x:e.clientX-rect.left,y:e.clientY-rect.top}}
+function dist(a,b){return Math.hypot(b.x-a.x,b.y-a.y)}
+function ensureAudio(){try{if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();if(audioCtx.state==='suspended')audioCtx.resume()}catch(_e){}}
+function tone(freq,dur=.08,type='sine',gain=.025,delay=0){try{ensureAudio();if(!audioCtx)return;const now=audioCtx.currentTime+delay,o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type=type;o.frequency.setValueAtTime(freq,now);g.gain.setValueAtTime(0,now);g.gain.linearRampToValueAtTime(gain,now+.01);g.gain.exponentialRampToValueAtTime(.0001,now+dur);o.connect(g).connect(audioCtx.destination);o.start(now);o.stop(now+dur+.03)}catch(_e){}}
+function startChime(){tone(520,.05,'triangle',.015);tone(720,.07,'sine',.014,.035)}
+function strokeChime(){tone(660,.07,'sine',.018);tone(880,.09,'sine',.013,.05)}
+function successSound(stars){(stars===3?[523,659,784,1047]:stars===2?[523,659,880]:[523,659]).forEach((n,i)=>tone(n,.16,'sine',.03,i*.085))}
+
+function speakCharacter(stage){
+  if(!('speechSynthesis' in window))return;
+  const now=Date.now(); if(now-lastSpeechAt<120)return; lastSpeechAt=now;
+  speechSynthesis.cancel();
+  const key=currentLetter.toLowerCase();
+  const vocab=wordDB[key];
+  let text='';
+  if(currentMode==='number') text=stage==='before'?`${vocab?.word||currentLetter}.`:`${vocab?.word||currentLetter}. Great job!`;
+  else if(stage==='before') text=`${currentLetter}.`;
+  else text=`${currentLetter}. ${currentLetter} is for ${vocab?.word||'a great word'}.`;
+  const u=new SpeechSynthesisUtterance(text);u.lang='en-IN';u.rate=.78;u.pitch=1.15;u.volume=.95;
+  speechSynthesis.speak(u);
+}
+
+function pointerDown(e){e.preventDefault();if(pointer.down||completionShown)return;if(demoActive)cancelDemo();ensureAudio();const p=eventPoint(e);pointer={x:p.x,y:p.y,down:true,tracing:false,id:e.pointerId};try{canvas.setPointerCapture(e.pointerId)}catch(_e){}const active=parsedStrokes[currentStrokeIndex]?.[currentDotIndex];const tol=Math.max(42,Math.min(rect.w,rect.h)*.068);if(active&&dist(pointer,active)<=tol){pointer.tracing=true;startChime();spawnParticles(pointer.x,pointer.y,3)}}
+function pointerMove(e){if(!pointer.down||pointer.id!==e.pointerId||completionShown)return;e.preventDefault();const events=e.getCoalescedEvents?e.getCoalescedEvents():[e];for(const ev of events){const p=eventPoint(ev);pointer.x=p.x;pointer.y=p.y;if(pointer.tracing)advanceTracing(p)}}
+function advanceTracing(p){const stroke=parsedStrokes[currentStrokeIndex];if(!stroke)return;const tol=Math.max(34,Math.min(rect.w,rect.h)*.06);const lookAhead=Math.min(currentDotIndex+16,stroke.length-1);for(let i=currentDotIndex;i<=lookAhead;i++){if(dist(p,stroke[i])<=tol){currentDotIndex=i;if(i%4===0)spawnParticles(stroke[i].x,stroke[i].y,reducedMotion?1:2);if(i===stroke.length-1){pointer.tracing=false;currentStrokeIndex++;currentDotIndex=0;strokeChime();spawnTrailBurst(stroke[i].x,stroke[i].y);if(currentStrokeIndex>=parsedStrokes.length){celebrate();return}}break}}}
+function pointerUp(e){if(pointer.id!==e.pointerId)return;e.preventDefault();const wasTracing=pointer.tracing;pointer.down=false;pointer.tracing=false;try{canvas.releasePointerCapture(e.pointerId)}catch(_e){}if(wasTracing&&!completionShown){completedLifts++;currentDotIndex=0}}
+function pointerCancel(e){if(pointer.id!==e.pointerId)return;e.preventDefault();pointer.down=false;pointer.tracing=false;try{canvas.releasePointerCapture(e.pointerId)}catch(_e){}if(!completionShown)currentDotIndex=0}
+
+function pathStroke(stroke,upTo,width,style,dash=[]){if(!stroke||upTo<=0)return;ctx.save();ctx.beginPath();ctx.moveTo(stroke[0].x,stroke[0].y);for(let i=1;i<=upTo;i++)ctx.lineTo(stroke[i].x,stroke[i].y);ctx.lineWidth=width;ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle=style;if(dash.length)ctx.setLineDash(dash);ctx.stroke();ctx.restore()}
+function drawFlowDots(){
+  const lw=Math.max(8,Math.min(rect.w,rect.h)*.055);
+  parsedStrokes.forEach((stroke,sIdx)=>{
+    const step=Math.max(3,Math.floor(stroke.length/10));
+    for(let i=0;i<stroke.length;i+=step){
+      const p=stroke[i];
+      const done=sIdx<currentStrokeIndex||(sIdx===currentStrokeIndex&&i<=currentDotIndex);
+      const isStart=i===0;
+      const r=isStart?lw*.27:lw*.14;
+      ctx.save();
+      ctx.beginPath();ctx.arc(p.x,p.y,r*1.65,0,Math.PI*2);
+      ctx.fillStyle=isStart?'rgba(250,204,21,.18)':done?'rgba(74,222,128,.16)':'rgba(255,255,255,.09)';ctx.fill();
+      ctx.beginPath();ctx.arc(p.x,p.y,r,0,Math.PI*2);
+      ctx.fillStyle=done?THEME.dotDone:THEME.dot;ctx.globalAlpha=done?.9:.54;ctx.fill();
+      if(isStart){ctx.beginPath();ctx.arc(p.x,p.y,r*1.35,0,Math.PI*2);ctx.strokeStyle=THEME.arrow;ctx.lineWidth=2;ctx.globalAlpha=.9;ctx.stroke()}
+      ctx.restore();
+    }
+  });
+}
+function renderGhostAndGuide(){const lw=Math.max(8,Math.min(rect.w,rect.h)*.055);parsedStrokes.forEach(stroke=>{pathStroke(stroke,stroke.length-1,lw*1.75,THEME.ghost);pathStroke(stroke,stroke.length-1,lw*.60,THEME.guide,[lw*.45,lw*1.0])});if(!demoActive)drawFlowDots()}
+function drawArrow(stroke){const idx=pointer.tracing?Math.min(currentDotIndex+2,stroke.length-1):0;const target=stroke[idx];const next=stroke[Math.min(idx+5,stroke.length-1)];if(!target)return;const ang=Math.atan2((next?.y??target.y)-target.y,(next?.x??target.x)-target.x);const lw=Math.max(8,Math.min(rect.w,rect.h)*.055);const pulse=reducedMotion?1:1+Math.sin(performance.now()/160)*.12;const sz=lw*.72*pulse;ctx.save();ctx.translate(target.x,target.y);ctx.rotate(ang);ctx.beginPath();ctx.moveTo(sz,0);ctx.lineTo(-sz,sz*.72);ctx.lineTo(-sz*.34,0);ctx.lineTo(-sz,-sz*.72);ctx.closePath();ctx.fillStyle=THEME.arrow;ctx.shadowColor='rgba(0,0,0,.35)';ctx.shadowBlur=9;ctx.fill();ctx.restore()}
+function render(){if(!rect.w)return;ctx.fillStyle=THEME.bg;ctx.fillRect(0,0,rect.w,rect.h);renderGhostAndGuide();if(demoActive){drawDemo();return}const lw=Math.max(8,Math.min(rect.w,rect.h)*.055);for(let i=0;i<currentStrokeIndex;i++){pathStroke(parsedStrokes[i],parsedStrokes[i].length-1,lw,THEME.trail);pathStroke(parsedStrokes[i],parsedStrokes[i].length-1,lw*.28,THEME.trailHi)}if(currentStrokeIndex<parsedStrokes.length){const stroke=parsedStrokes[currentStrokeIndex];pathStroke(stroke,currentDotIndex,lw,THEME.trail);if(pointer.tracing&&currentDotIndex<stroke.length-1){const p=stroke[currentDotIndex];ctx.save();ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(pointer.x,pointer.y);ctx.lineWidth=lw;ctx.strokeStyle=THEME.trail;ctx.lineCap='round';ctx.shadowColor=THEME.trailShadow;ctx.shadowBlur=18;ctx.stroke();ctx.restore()}drawArrow(stroke)}}
+
+function spawnParticles(x,y,count=3){if(reducedMotion)return;for(let i=0;i<count;i++){const el=document.createElement('span');el.className='particle';el.style.left=x+'px';el.style.top=y+'px';el.style.setProperty('--dx',((Math.random()-.5)*58)+'px');el.style.setProperty('--dy',((Math.random()-.5)*58-12)+'px');particleLayer.appendChild(el);setTimeout(()=>el.remove(),720)}}
+function spawnTrailBurst(x,y){spawnParticles(x,y,14)}
+function starsForLifts(lifts){if(lifts<=1)return 3;if(lifts<=3)return 2;return 1}
+function celebrate(){if(completionShown)return;completionShown=true;saveCompletion();const stars=starsForLifts(completedLifts);const vocab=wordDB[currentLetter.toLowerCase()]||{word:'Great job!',emoji:'🎉'};const emoji=document.getElementById('success-emoji');const title=document.getElementById('success-title');const rating=document.getElementById('star-rating');const meta=document.getElementById('success-meta');emoji.textContent=vocab.emoji;title.textContent=`${currentLetter} is for ${vocab.word}`;rating.textContent='★'.repeat(stars)+'☆'.repeat(3-stars);rating.setAttribute('aria-label',`${stars} out of 3 stars`);meta.textContent=stars===3?'Perfect flow! Amazing tracing!':stars===2?'Great tracing! Keep your finger on the path.':'Nice work! Try another smooth run.';document.getElementById('instruction-text').textContent='Beautiful! Letter complete!';document.getElementById('success-overlay').classList.add('show');document.getElementById('success-overlay').setAttribute('aria-hidden','false');successSound(stars);speakCharacter('after');buildGrid();if(!reducedMotion){for(let i=0;i<44;i++)spawnParticles(rect.w/2+(Math.random()-.5)*180,rect.h/2+(Math.random()-.5)*100,1)}}
+function nextCharacter(){const keys=Object.keys(letterDB[currentMode]),i=keys.indexOf(currentLetter);currentLetter=keys[(i+1)%keys.length];hideSuccessOverlay();resetCurrentLetter(true,true)}
+window.addEventListener('load',init);
+</script>
+</body>
+</html>
