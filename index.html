@@ -2,6 +2,8 @@
 
 <html class="scroll-smooth" lang="en">
 <head>
+<script>if(location.pathname==="/index.html"){location.replace("/"+location.search+location.hash);}</script>
+<base href="/">
 <meta charset="utf-8"/>
 <link href="https://cdn.tailwindcss.com" rel="dns-prefetch"/>
 <link href="https://unpkg.com" rel="dns-prefetch"/>
@@ -43,7 +45,7 @@
 <meta content="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&amp;fit=crop&amp;q=80&amp;w=1200" id="og-image" property="og:image"/>
 <!-- Twitter -->
 <meta content="summary_large_image" property="twitter:card"/>
-<meta content="https://www.youragency.local/" id="tw-url" property="twitter:url"/>
+<meta content="https://www.denisiawebops.org/" id="tw-url" property="twitter:url"/>
 <meta content="Denisia Webops Agency – Web, App, SEO &amp; AI" id="tw-title" property="twitter:title"/>
 <meta content="Complete digital solutions to grow your business." id="tw-desc" property="twitter:description"/>
 <meta content="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&amp;fit=crop&amp;q=80&amp;w=1200" id="tw-image" property="twitter:image"/>
@@ -169,14 +171,14 @@
 <link href="/manifest.json" rel="manifest"/>
 <style>.audit-table-scroll{max-width:100%;overflow-x:auto} img,video,canvas{max-width:100%} :focus-visible{outline:3px solid #2563eb;outline-offset:3px} @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}} #mobile-menu{max-height:calc(100dvh - 80px);overflow-y:auto}</style></head>
 <body class="bg-white text-gray-900 antialiased selection:bg-blue-200 selection:text-blue-900 flex flex-col min-h-screen">
-<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:text-blue-700 focus:font-semibold" href="#app-root">Skip to main content</a>
+<a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:text-blue-700 focus:font-semibold" href="/#app-root">Skip to main content</a>
 <!-- Navbar -->
 <!-- Navbar (SEO‑friendly with static links) -->
 <nav aria-label="Main navigation" class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex items-center justify-between h-20">
 <!-- Logo (links to homepage) -->
-<a class="flex items-center" href="index.html">
+<a class="flex items-center" href="/">
 <div class="bg-gradient-to-r from-blue-800 to-blue-600 p-2 rounded-lg shadow-md">
 <i class="h-6 w-6 text-white" data-lucide="zap"></i>
 </div>
@@ -185,16 +187,16 @@
 <!-- Desktop Menu (static links) -->
 <div class="hidden md:block">
 <div class="ml-10 flex items-baseline space-x-8">
-<a class="text-gray-600 hover:text-blue-700 font-medium transition text-sm" href="index.html">Home</a>
-<a class="text-gray-600 hover:text-blue-700 font-medium transition text-sm" href="projects.html">Projects</a>
-<a class="text-gray-600 hover:text-blue-700 font-medium transition text-sm" href="blogs.html">Blog</a>
-<a class="text-gray-600 hover:text-blue-700 font-medium transition text-sm" href="reviews.html">Reviews</a>
-<a class="text-gray-600 hover:text-blue-700 font-medium transition text-sm" href="qr-code-stand-generator.html">QR Stand Generator</a>
-<a class="text-gray-600 hover:text-blue-700 font-medium transition text-sm" href="why-ai-seo.html">Why AI SEO</a>
-<a class="text-gray-600 hover:text-blue-700 font-medium transition text-sm" href="livecodepreview.html">Code Preview</a>
-<a class="text-gray-600 hover:text-blue-700 font-medium transition text-sm" href="seo-tips-cheat-sheet.html">SEO Cheat Sheet</a>
-<a class="bg-blue-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition shadow-sm text-sm" href="contact.html">Get in Touch</a>
-<a class="bg-blue-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition shadow-sm text-sm" href="alphatrace.html">Alpha Trace</a>
+<a class="text-gray-600 hover:text-blue-700 font-medium transition text-sm" href="/">Home</a>
+<a class="text-gray-600 hover:text-blue-700 font-medium transition text-sm" href="/projects/">Projects</a>
+<a class="text-gray-600 hover:text-blue-700 font-medium transition text-sm" href="/blogs/">Blog</a>
+<a class="text-gray-600 hover:text-blue-700 font-medium transition text-sm" href="/reviews/">Reviews</a>
+<a class="text-gray-600 hover:text-blue-700 font-medium transition text-sm" href="/qr-code-stand-generator/">QR Stand Generator</a>
+<a class="text-gray-600 hover:text-blue-700 font-medium transition text-sm" href="/why-ai-seo/">Why AI SEO</a>
+<a class="text-gray-600 hover:text-blue-700 font-medium transition text-sm" href="/livecodepreview/">Code Preview</a>
+<a class="text-gray-600 hover:text-blue-700 font-medium transition text-sm" href="/seo-tips-cheat-sheet/">SEO Cheat Sheet</a>
+<a class="bg-blue-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition shadow-sm text-sm" href="/contact/">Get in Touch</a>
+<a class="bg-blue-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition shadow-sm text-sm" href="/alphatrace/">Alpha Trace</a>
 </div>
 </div>
 <!-- Mobile Menu Button (visible) -->
@@ -208,23 +210,23 @@
 <!-- Mobile Menu Dropdown (static links) -->
 <div class="hidden md:hidden bg-white border-b border-blue-100 shadow-lg absolute w-full z-40" id="mobile-menu">
 <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-<a class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50" href="index.html">Home</a>
-<a class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50" href="projects.html">Projects</a>
-<a class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50" href="blogs.html">Blog</a>
-<a class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50" href="reviews.html">Reviews</a>
-<a class="text-gray-600 hover:text-blue-700 font-medium transition text-sm" href="qr-code-stand-generator.html">QR Stand Generator</a>
-<a class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50" href="why-ai-seo.html">Why AI SEO</a>
-<a class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50" href="livecodepreview.html">Code Preview</a>
-<a class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50" href="seo-tips-cheat-sheet.html">SEO Cheat Sheet</a>
-<a class="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50" href="dietplan.html">🍽️ Diet Plan</a>
-<a class="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50" href="Corpcabs.html">🚌 CorpCab Demo</a>
-<a class="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50" href="Chit-fund-calculator.html">💰 Chit Fund Calc</a>
-<a class="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50" href="chromatone.html">🎨 ChromaTone</a>
-<a class="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50" href="omnifreq.html">🎵 OmniFreq</a>
-<a class="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50" href="Caustics-studio.html">✨ Caustics Studio</a>
-<a class="block w-full text-left px-3 py-2 text-base font-medium text-blue-700" href="alphatrace.html">Alpha Trace</a>
-<a class="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50" href="privacy.html">📄 Privacy</a>
-<a class="block w-full text-left px-3 py-2 text-base font-medium text-blue-700" href="contact.html">Get in Touch</a>
+<a class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50" href="/">Home</a>
+<a class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50" href="/projects/">Projects</a>
+<a class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50" href="/blogs/">Blog</a>
+<a class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50" href="/reviews/">Reviews</a>
+<a class="text-gray-600 hover:text-blue-700 font-medium transition text-sm" href="/qr-code-stand-generator/">QR Stand Generator</a>
+<a class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50" href="/why-ai-seo/">Why AI SEO</a>
+<a class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50" href="/livecodepreview/">Code Preview</a>
+<a class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50" href="/seo-tips-cheat-sheet/">SEO Cheat Sheet</a>
+<a class="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50" href="/dietplan/">🍽️ Diet Plan</a>
+<a class="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50" href="/Corpcabs/">🚌 CorpCab Demo</a>
+<a class="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50" href="/Chit-fund-calculator/">💰 Chit Fund Calc</a>
+<a class="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50" href="/chromatone/">🎨 ChromaTone</a>
+<a class="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50" href="/omnifreq/">🎵 OmniFreq</a>
+<a class="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50" href="/Caustics-studio/">✨ Caustics Studio</a>
+<a class="block w-full text-left px-3 py-2 text-base font-medium text-blue-700" href="/alphatrace/">Alpha Trace</a>
+<a class="block w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-blue-50" href="/privacy/">📄 Privacy</a>
+<a class="block w-full text-left px-3 py-2 text-base font-medium text-blue-700" href="/contact/">Get in Touch</a>
 </div>
 </div>
 </nav>
@@ -259,7 +261,7 @@
 <div>
 <h4 class="text-gray-900 font-semibold mb-4">Resources</h4>
 <ul class="space-y-2 text-sm text-gray-600">
-<li><a class="hover:text-blue-700 transition-colors" href="blogs.html">Blog</a></li>
+<li><a class="hover:text-blue-700 transition-colors" href="/blogs/">Blog</a></li>
 <li><button class="hover:text-blue-700 transition-colors" onclick="router.navigate('projects')">Projects</button></li>
 <li><button class="hover:text-blue-700 transition-colors" onclick="router.navigate('privacy')">Privacy Policy</button></li>
 <li><button class="hover:text-blue-700 transition-colors" onclick="router.navigate('contact')">Contact</button></li>
@@ -268,7 +270,7 @@
 <div>
 <h4 class="text-gray-900 font-semibold mb-4">Latest articles</h4>
 <p class="text-gray-600 text-sm mb-4">Get weekly insights.</p>
-<div class="flex"><a class="text-blue-800 font-semibold" href="blogs.html">Browse the latest articles</a></div>
+<div class="flex"><a class="text-blue-800 font-semibold" href="/blogs/">Browse the latest articles</a></div>
 </div>
 </div>
 <div class="border-t border-blue-100 pt-8 flex flex-col md:flex-row justify-between items-center">
@@ -693,7 +695,7 @@
                                 From web development to AI chatbots, we provide everything you need to succeed online.
                             </p>
                             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                                <a href="blogs.html" class="btn-primary">
+                                <a href="/blogs/" class="btn-primary">
                                     Read Our Blog <i data-lucide="arrow-right" class="ml-2 h-5 w-5 inline"></i>
                                 </a>
                                 <button onclick="navigateToSection('services-section')" class="btn-outline">
