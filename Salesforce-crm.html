@@ -1,56 +1,48 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Salesforce UX · CRM Dashboard</title>
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Salesforce UX · CRM Dashboard</title>
 <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
-    <script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
+<script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-FWP9BLNZK6');
     </script>
-
-    <!-- Google Site Verification -->
-    <meta name="google-site-verification" content="82U62k4jtMBmS52po-sbJ12znmacAgq0Rg4NvMZLXMY" />
-
-    <!-- Binge Webmaster Tool -->
-    <meta name="msvalidate.01" content="8250834873D72FFE4BABCD1B2C7B3173" />
-
-    <!-- Clarity tracking code -->
-    <script>
+<!-- Google Site Verification -->
+<meta content="82U62k4jtMBmS52po-sbJ12znmacAgq0Rg4NvMZLXMY" name="google-site-verification"/>
+<!-- Binge Webmaster Tool -->
+<meta content="8250834873D72FFE4BABCD1B2C7B3173" name="msvalidate.01"/>
+<!-- Clarity tracking code -->
+<script>
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
             t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "vimok6xi57");
     </script>
-    
-    <!-- Dynamic SEO Tags (Updated via JS) -->
-    <title id="page-title">Denisia Webops Agency | Web, App, SEO & AI</title>
-    <meta id="meta-desc" name="description" content="Full‑service digital agency offering website development, app development, SEO, digital marketing, chatbot integration, automation, analytics, and more.">
-    <meta name="keywords" content="web development, app development, SEO, digital marketing, Google Maps, chatbot, automation, AdSense, content writing">
-    <meta name="author" content="Denisia Webops | Henry Paul | CEO">
-    <meta name="robots" content="index, follow">
-    <link id="canonical-link" rel="canonical" href="https://www.denisiawebops.org/">
-    
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest">
-    </script>
-
-    <!-- Google Fonts (Inter) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
-
-    <!-- Chart.js for visualizations -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js">
-    </script>
-
-    <style>
+<!-- Dynamic SEO Tags (Updated via JS) -->
+<title id="page-title">Denisia Webops Agency | Web, App, SEO &amp; AI</title>
+<meta content="Full‑service digital agency offering website development, app development, SEO, digital marketing, chatbot integration, automation, analytics, and more." id="meta-desc" name="description"/>
+<meta content="web development, app development, SEO, digital marketing, Google Maps, chatbot, automation, AdSense, content writing" name="keywords"/>
+<meta content="Denisia Webops | Henry Paul | CEO" name="author"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://www.denisiawebops.org/" id="canonical-link" rel="canonical"/>
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest">
+</script>
+<!-- Google Fonts (Inter) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&amp;display=swap" rel="stylesheet"/>
+<!-- Chart.js for visualizations -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js">
+</script>
+<style>
         /* ===== RESET & BASE ===== */
         *,
         *::before,
@@ -1245,598 +1237,549 @@
             border-radius: 4px;
         }
     </style>
-</head>
+<style>.audit-table-scroll{max-width:100%;overflow-x:auto} img,video,canvas{max-width:100%} :focus-visible{outline:3px solid #2563eb;outline-offset:3px} @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}} #mobile-menu{max-height:calc(100dvh - 80px);overflow-y:auto}</style></head>
 <body>
-
-    <!-- ===== HEADER ===== -->
-    <header class="app-header">
-        <div class="inner">
-            <div style="display:flex;align-items:center;gap:8px;">
-                <!-- Hamburger Button (mobile) -->
-                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
-                </button>
-
-                <a href="#" class="brand" id="brandHome">
-                    <div class="logo-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                    </div>
-                    <span>SFDC<span class="light">UX</span></span>
-                </a>
-            </div>
-
-            <nav class="nav" id="mainNav">
-                <a href="Salesforce.html">Event Platform</a>
-                <a href="#" class="active">CRM</a>
-            </nav>
-
-            <div class="actions">
-                <span class="date-badge" id="dateBadge">Loading...</span>
-                <div class="avatar" id="avatarInitial" title="Admin">A</div>
-            </div>
-        </div>
-    </header>
-
-    <!-- ===== MOBILE MENU ===== -->
-    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="menu-header">
-            <div class="brand">
-                <span>SFDC<span class="light">UX</span></span>
-                <span style="font-size:0.75rem;font-weight:400;color:var(--sf-slate-400);">· CRM</span>
-            </div>
-            <button class="close-btn" id="mobileMenuClose">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            </button>
-        </div>
-
-        <button class="menu-item active" data-view="dashboard">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+<!-- ===== HEADER ===== -->
+<header class="app-header">
+<div class="inner">
+<div style="display:flex;align-items:center;gap:8px;">
+<!-- Hamburger Button (mobile) -->
+<button aria-label="Open menu" class="hamburger-btn" id="hamburgerBtn">
+<svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="28" xmlns="http://www.w3.org/2000/svg"><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+</button>
+<a class="brand" href="#" id="brandHome">
+<div class="logo-icon">
+<svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg"><rect height="14" rx="2" ry="2" width="20" x="2" y="3"></rect><line x1="8" x2="16" y1="21" y2="21"></line><line x1="12" x2="12" y1="17" y2="21"></line></svg>
+</div>
+<span>SFDC<span class="light">UX</span></span>
+</a>
+</div>
+<nav class="nav" id="mainNav">
+<a href="Salesforce.html">Event Platform</a>
+<a class="active" href="#">CRM</a>
+</nav>
+<div class="actions">
+<span class="date-badge" id="dateBadge">Loading...</span>
+<div class="avatar" id="avatarInitial" title="Admin">A</div>
+</div>
+</div>
+</header>
+<!-- ===== MOBILE MENU ===== -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+<div class="menu-header">
+<div class="brand">
+<span>SFDC<span class="light">UX</span></span>
+<span style="font-size:0.75rem;font-weight:400;color:var(--sf-slate-400);">· CRM</span>
+</div>
+<button class="close-btn" id="mobileMenuClose">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><line x1="18" x2="6" y1="6" y2="18"></line><line x1="6" x2="18" y1="6" y2="18"></line></svg>
+</button>
+</div>
+<button class="menu-item active" data-view="dashboard">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><rect height="7" rx="1" width="7" x="3" y="3"></rect><rect height="7" rx="1" width="7" x="14" y="3"></rect><rect height="7" rx="1" width="7" x="3" y="14"></rect><rect height="7" rx="1" width="7" x="14" y="14"></rect></svg>
             Dashboard
         </button>
-        <button class="menu-item" data-view="events">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+<button class="menu-item" data-view="events">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
             Events
             <span class="badge">12</span>
-        </button>
-        <button class="menu-item" data-view="users">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+</button>
+<button class="menu-item" data-view="users">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
             Users
             <span class="badge">156</span>
-        </button>
-        <button class="menu-item" data-view="billing">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+</button>
+<button class="menu-item" data-view="billing">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><rect height="16" rx="2" width="22" x="1" y="4"></rect><path d="M1 10h22"></path></svg>
             Billing
             <span class="badge">42</span>
-        </button>
-        <button class="menu-item" data-view="email">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+</button>
+<button class="menu-item" data-view="email">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
             Email Marketing
             <span class="badge">8</span>
-        </button>
-        <button class="menu-item" data-view="admin">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+</button>
+<button class="menu-item" data-view="admin">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
             Admin
         </button>
-
-        <div class="menu-divider"></div>
-
-        <div class="menu-footer">
-            <div class="user-info">
-                <div class="av" id="mobileAvatar">A</div>
-                <div>
-                    <div class="name" id="mobileUserName">Admin</div>
-                    <div class="email" id="mobileUserEmail">admin@sfdcux.com</div>
-                </div>
-            </div>
-            <div style="font-size:0.75rem;color:var(--sf-slate-400);">v2.6.0 · Denisia Webops</div>
-        </div>
-    </div>
-    <!-- ===== LAYOUT ===== -->
-    <div class="app-layout">
-
-        <!-- ===== SIDEBAR ===== -->
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-label">CRM Modules</div>
-
-            <button class="sidebar-item active" data-view="dashboard">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+<div class="menu-divider"></div>
+<div class="menu-footer">
+<div class="user-info">
+<div class="av" id="mobileAvatar">A</div>
+<div>
+<div class="name" id="mobileUserName">Admin</div>
+<div class="email" id="mobileUserEmail">admin@sfdcux.com</div>
+</div>
+</div>
+<div style="font-size:0.75rem;color:var(--sf-slate-400);">v2.6.0 · Denisia Webops</div>
+</div>
+</div>
+<!-- ===== LAYOUT ===== -->
+<div class="app-layout">
+<!-- ===== SIDEBAR ===== -->
+<aside class="sidebar" id="sidebar">
+<div class="sidebar-label">CRM Modules</div>
+<button class="sidebar-item active" data-view="dashboard">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><rect height="7" rx="1" width="7" x="3" y="3"></rect><rect height="7" rx="1" width="7" x="14" y="3"></rect><rect height="7" rx="1" width="7" x="3" y="14"></rect><rect height="7" rx="1" width="7" x="14" y="14"></rect></svg>
                 Dashboard
             </button>
-
-            <button class="sidebar-item" data-view="events">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+<button class="sidebar-item" data-view="events">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
                 Events
                 <span class="badge">12</span>
-            </button>
-
-            <button class="sidebar-item" data-view="users">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+</button>
+<button class="sidebar-item" data-view="users">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                 Users
                 <span class="badge">156</span>
-            </button>
-
-            <button class="sidebar-item" data-view="billing">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+</button>
+<button class="sidebar-item" data-view="billing">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><rect height="16" rx="2" width="22" x="1" y="4"></rect><path d="M1 10h22"></path></svg>
                 Billing
                 <span class="badge">42</span>
-            </button>
-
-            <button class="sidebar-item" data-view="email">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+</button>
+<button class="sidebar-item" data-view="email">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                 Email Marketing
                 <span class="badge">8</span>
-            </button>
-
-            <div class="sidebar-divider"></div>
-
-            <button class="sidebar-item" data-view="admin">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+</button>
+<div class="sidebar-divider"></div>
+<button class="sidebar-item" data-view="admin">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
                 Admin
             </button>
-        </aside>
-
-        <!-- ===== MAIN CONTENT ===== -->
-        <main class="main-content" id="mainContent">
-
-            <!-- ===== HERO SECTION (Quick Access) ===== -->
-            <div class="crm-hero">
-                <div class="hero-title">📊 CRM Command Center</div>
-                <div class="hero-sub">Quick access to all business modules — manage events, users, billing, and more.</div>
-                <div class="hero-grid">
-                    <a class="hero-card active" data-view="dashboard">
-                        <span class="icon">📊</span>
-                        <div class="label">Dashboard</div>
-                    </a>
-                    <a class="hero-card" data-view="events">
-                        <span class="icon">📅</span>
-                        <div class="label">Events</div>
-                        <span class="badge-count">12</span>
-                    </a>
-                    <a class="hero-card" data-view="users">
-                        <span class="icon">👥</span>
-                        <div class="label">Users</div>
-                        <span class="badge-count">156</span>
-                    </a>
-                    <a class="hero-card" data-view="billing">
-                        <span class="icon">💳</span>
-                        <div class="label">Billing</div>
-                        <span class="badge-count">42</span>
-                    </a>
-                    <a class="hero-card" data-view="email">
-                        <span class="icon">✉️</span>
-                        <div class="label">Email</div>
-                        <span class="badge-count">8</span>
-                    </a>
-                    <a class="hero-card" data-view="admin">
-                        <span class="icon">⚙️</span>
-                        <div class="label">Admin</div>
-                    </a>
-                </div>
-            </div>
-
-            <!-- ========================================================== -->
-            <!-- VIEW: DASHBOARD -->
-            <!-- ========================================================== -->
-            <div class="crm-view active" id="view-dashboard">
-
-                <div class="page-header">
-                    <div>
-                        <h1>Dashboard</h1>
-                        <p>Real-time overview of your event business performance.</p>
-                    </div>
-                    <div class="actions">
-                        <button class="btn-outline" onclick="refreshData()">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+</aside>
+<!-- ===== MAIN CONTENT ===== -->
+<main class="main-content" id="mainContent">
+<!-- ===== HERO SECTION (Quick Access) ===== -->
+<div class="crm-hero">
+<div class="hero-title">📊 CRM Command Center</div>
+<div class="hero-sub">Quick access to all business modules — manage events, users, billing, and more.</div>
+<div class="hero-grid">
+<a class="hero-card active" data-view="dashboard">
+<span class="icon">📊</span>
+<div class="label">Dashboard</div>
+</a>
+<a class="hero-card" data-view="events">
+<span class="icon">📅</span>
+<div class="label">Events</div>
+<span class="badge-count">12</span>
+</a>
+<a class="hero-card" data-view="users">
+<span class="icon">👥</span>
+<div class="label">Users</div>
+<span class="badge-count">156</span>
+</a>
+<a class="hero-card" data-view="billing">
+<span class="icon">💳</span>
+<div class="label">Billing</div>
+<span class="badge-count">42</span>
+</a>
+<a class="hero-card" data-view="email">
+<span class="icon">✉️</span>
+<div class="label">Email</div>
+<span class="badge-count">8</span>
+</a>
+<a class="hero-card" data-view="admin">
+<span class="icon">⚙️</span>
+<div class="label">Admin</div>
+</a>
+</div>
+</div>
+<!-- ========================================================== -->
+<!-- VIEW: DASHBOARD -->
+<!-- ========================================================== -->
+<div class="crm-view active" id="view-dashboard">
+<div class="page-header">
+<div>
+<h1>Dashboard</h1>
+<p>Real-time overview of your event business performance.</p>
+</div>
+<div class="actions">
+<button class="btn-outline" onclick="refreshData()">
+<svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
                             Refresh
                         </button>
-                        <button class="btn-primary" onclick="exportReport()">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+<button class="btn-primary" onclick="exportReport()">
+<svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
                             Export Report
                         </button>
-                    </div>
-                </div>
-
-                <!-- KPI Cards -->
-                <div class="kpi-grid" id="kpiGrid">
-                    <div class="kpi-card">
-                        <div class="icon-wrap">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                        </div>
-                        <div class="label">Total Attendees</div>
-                        <div class="value" id="kpiAttendees">1,284</div>
-                        <span class="change up">↑ 12.5% from last month</span>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="icon-wrap" style="background:#e6f7ed;color:var(--sf-green);">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
-                        </div>
-                        <div class="label">Total Revenue</div>
-                        <div class="value" id="kpiRevenue">₹8,42,500</div>
-                        <span class="change up">↑ 18.3% from last month</span>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="icon-wrap" style="background:#fef3c7;color:#d97706;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
-                        </div>
-                        <div class="label">Sessions Sold</div>
-                        <div class="value" id="kpiSessions">342</div>
-                        <span class="change up">↑ 8.2% from last month</span>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="icon-wrap" style="background:#ede9fe;color:#7c3aed;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                        </div>
-                        <div class="label">Conversion Rate</div>
-                        <div class="value" id="kpiConversion">68.4%</div>
-                        <span class="change up">↑ 5.1% from last month</span>
-                    </div>
-                </div>
-
-                <!-- Charts -->
-                <div class="charts-row">
-                    <div class="chart-card">
-                        <div class="chart-header">
-                            <h3>Revenue &amp; Attendance Trends</h3>
-                            <span class="period">Last 6 months</span>
-                        </div>
-                        <canvas id="trendChart"></canvas>
-                    </div>
-                    <div class="chart-card">
-                        <div class="chart-header">
-                            <h3>Session Performance</h3>
-                            <span class="period">By category</span>
-                        </div>
-                        <canvas id="sessionChart"></canvas>
-                    </div>
-                </div>
-
-                <!-- Recent Invoices -->
-                <div class="table-container">
-                    <div class="table-header">
-                        <h3>Recent Transactions</h3>
-                        <div class="search-box">
-                            <input type="text" placeholder="Search invoices..." id="invoiceSearch" />
-                            <button onclick="searchInvoices()">Search</button>
-                        </div>
-                    </div>
-                    <div class="table-wrap">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Invoice #</th>
-                                    <th>Customer</th>
-                                    <th>Session</th>
-                                    <th>Amount</th>
-                                    <th>Date</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody id="invoiceTableBody">
-                                <!-- Rendered by JS -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- ========================================================== -->
-            <!-- VIEW: EVENTS -->
-            <!-- ========================================================== -->
-            <div class="crm-view" id="view-events">
-
-                <div class="page-header">
-                    <div>
-                        <h1>Event Management</h1>
-                        <p>Create, manage, and track all your sessions and events.</p>
-                    </div>
-                    <div class="actions">
-                        <button class="btn-primary">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</div>
+</div>
+<!-- KPI Cards -->
+<div class="kpi-grid" id="kpiGrid">
+<div class="kpi-card">
+<div class="icon-wrap">
+<svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+</div>
+<div class="label">Total Attendees</div>
+<div class="value" id="kpiAttendees">1,284</div>
+<span class="change up">↑ 12.5% from last month</span>
+</div>
+<div class="kpi-card">
+<div class="icon-wrap" style="background:#e6f7ed;color:var(--sf-green);">
+<svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"></circle><polyline points="12,6 12,12 16,14"></polyline></svg>
+</div>
+<div class="label">Total Revenue</div>
+<div class="value" id="kpiRevenue">₹8,42,500</div>
+<span class="change up">↑ 18.3% from last month</span>
+</div>
+<div class="kpi-card">
+<div class="icon-wrap" style="background:#fef3c7;color:#d97706;">
+<svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"></path><path d="M13 5v2"></path><path d="M13 17v2"></path><path d="M13 11v2"></path></svg>
+</div>
+<div class="label">Sessions Sold</div>
+<div class="value" id="kpiSessions">342</div>
+<span class="change up">↑ 8.2% from last month</span>
+</div>
+<div class="kpi-card">
+<div class="icon-wrap" style="background:#ede9fe;color:#7c3aed;">
+<svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+</div>
+<div class="label">Conversion Rate</div>
+<div class="value" id="kpiConversion">68.4%</div>
+<span class="change up">↑ 5.1% from last month</span>
+</div>
+</div>
+<!-- Charts -->
+<div class="charts-row">
+<div class="chart-card">
+<div class="chart-header">
+<h3>Revenue &amp; Attendance Trends</h3>
+<span class="period">Last 6 months</span>
+</div>
+<canvas id="trendChart"></canvas>
+</div>
+<div class="chart-card">
+<div class="chart-header">
+<h3>Session Performance</h3>
+<span class="period">By category</span>
+</div>
+<canvas id="sessionChart"></canvas>
+</div>
+</div>
+<!-- Recent Invoices -->
+<div class="table-container">
+<div class="table-header">
+<h3>Recent Transactions</h3>
+<div class="search-box">
+<input id="invoiceSearch" placeholder="Search invoices..." type="text"/>
+<button onclick="searchInvoices()">Search</button>
+</div>
+</div>
+<div class="table-wrap">
+<div aria-label="Scrollable data table" class="audit-table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Invoice #</th>
+<th>Customer</th>
+<th>Session</th>
+<th>Amount</th>
+<th>Date</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody id="invoiceTableBody">
+<!-- Rendered by JS -->
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<!-- ========================================================== -->
+<!-- VIEW: EVENTS -->
+<!-- ========================================================== -->
+<div class="crm-view" id="view-events">
+<div class="page-header">
+<div>
+<h1>Event Management</h1>
+<p>Create, manage, and track all your sessions and events.</p>
+</div>
+<div class="actions">
+<button class="btn-primary">
+<svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><line x1="12" x2="12" y1="5" y2="19"></line><line x1="5" x2="19" y1="12" y2="12"></line></svg>
                             Create Event
                         </button>
-                    </div>
-                </div>
-
-                <div class="table-container">
-                    <div class="table-header">
-                        <h3>All Events</h3>
-                        <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                            <select class="filter-select" id="eventFilter" onchange="filterEvents()">
-                                <option value="all">All Status</option>
-                                <option value="upcoming">Upcoming</option>
-                                <option value="live">Live</option>
-                                <option value="completed">Completed</option>
-                                <option value="cancelled">Cancelled</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="table-wrap">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Event</th>
-                                    <th>Category</th>
-                                    <th>Date</th>
-                                    <th>Speaker</th>
-                                    <th>Seats</th>
-                                    <th>Sold</th>
-                                    <th>Revenue</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody id="eventTableBody">
-                                <!-- Rendered by JS -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ========================================================== -->
-            <!-- VIEW: USERS -->
-            <!-- ========================================================== -->
-            <div class="crm-view" id="view-users">
-
-                <div class="page-header">
-                    <div>
-                        <h1>User Management</h1>
-                        <p>Manage all attendees and their activity.</p>
-                    </div>
-                    <div class="actions">
-                        <button class="btn-primary">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</div>
+</div>
+<div class="table-container">
+<div class="table-header">
+<h3>All Events</h3>
+<div style="display:flex;gap:8px;flex-wrap:wrap;">
+<select class="filter-select" id="eventFilter" onchange="filterEvents()">
+<option value="all">All Status</option>
+<option value="upcoming">Upcoming</option>
+<option value="live">Live</option>
+<option value="completed">Completed</option>
+<option value="cancelled">Cancelled</option>
+</select>
+</div>
+</div>
+<div class="table-wrap">
+<div aria-label="Scrollable data table" class="audit-table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Category</th>
+<th>Date</th>
+<th>Speaker</th>
+<th>Seats</th>
+<th>Sold</th>
+<th>Revenue</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody id="eventTableBody">
+<!-- Rendered by JS -->
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<!-- ========================================================== -->
+<!-- VIEW: USERS -->
+<!-- ========================================================== -->
+<div class="crm-view" id="view-users">
+<div class="page-header">
+<div>
+<h1>User Management</h1>
+<p>Manage all attendees and their activity.</p>
+</div>
+<div class="actions">
+<button class="btn-primary">
+<svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><line x1="12" x2="12" y1="5" y2="19"></line><line x1="5" x2="19" y1="12" y2="12"></line></svg>
                             Add User
                         </button>
-                    </div>
-                </div>
-
-                <div class="table-container">
-                    <div class="table-header">
-                        <h3>All Attendees</h3>
-                        <div class="search-box">
-                            <input type="text" placeholder="Search users..." id="userSearch" />
-                            <button onclick="searchUsers()">Search</button>
-                        </div>
-                    </div>
-                    <div class="table-wrap">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>User</th>
-                                    <th>Email</th>
-                                    <th>Company</th>
-                                    <th>Sessions Booked</th>
-                                    <th>Total Spent</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody id="userTableBody">
-                                <!-- Rendered by JS -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ========================================================== -->
-            <!-- VIEW: BILLING -->
-            <!-- ========================================================== -->
-            <div class="crm-view" id="view-billing">
-
-                <div class="page-header">
-                    <div>
-                        <h1>Billing &amp; Invoices</h1>
-                        <p>Track all payments, invoices, and revenue streams.</p>
-                    </div>
-                    <div class="actions">
-                        <button class="btn-outline">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+</div>
+</div>
+<div class="table-container">
+<div class="table-header">
+<h3>All Attendees</h3>
+<div class="search-box">
+<input id="userSearch" placeholder="Search users..." type="text"/>
+<button onclick="searchUsers()">Search</button>
+</div>
+</div>
+<div class="table-wrap">
+<div aria-label="Scrollable data table" class="audit-table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>User</th>
+<th>Email</th>
+<th>Company</th>
+<th>Sessions Booked</th>
+<th>Total Spent</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody id="userTableBody">
+<!-- Rendered by JS -->
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<!-- ========================================================== -->
+<!-- VIEW: BILLING -->
+<!-- ========================================================== -->
+<div class="crm-view" id="view-billing">
+<div class="page-header">
+<div>
+<h1>Billing &amp; Invoices</h1>
+<p>Track all payments, invoices, and revenue streams.</p>
+</div>
+<div class="actions">
+<button class="btn-outline">
+<svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
                             Export CSV
                         </button>
-                    </div>
-                </div>
-
-                <!-- Billing KPIs -->
-                <div class="kpi-grid" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr));margin-bottom:20px;">
-                    <div class="kpi-card">
-                        <div class="label">Total Revenue</div>
-                        <div class="value" style="font-size:1.5rem;">₹8,42,500</div>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="label">Paid Invoices</div>
-                        <div class="value" style="font-size:1.5rem;color:var(--sf-green);">312</div>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="label">Pending</div>
-                        <div class="value" style="font-size:1.5rem;color:#d97706;">18</div>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="label">Failed</div>
-                        <div class="value" style="font-size:1.5rem;color:#ef4444;">8</div>
-                    </div>
-                </div>
-
-                <div class="table-container">
-                    <div class="table-header">
-                        <h3>All Invoices</h3>
-                        <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                            <select class="filter-select" id="invoiceFilter" onchange="filterInvoices()">
-                                <option value="all">All Status</option>
-                                <option value="paid">Paid</option>
-                                <option value="pending">Pending</option>
-                                <option value="failed">Failed</option>
-                                <option value="refunded">Refunded</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="table-wrap">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Invoice #</th>
-                                    <th>Customer</th>
-                                    <th>Session</th>
-                                    <th>Amount</th>
-                                    <th>Date</th>
-                                    <th>Method</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody id="invoiceFullTableBody">
-                                <!-- Rendered by JS -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ========================================================== -->
-            <!-- VIEW: EMAIL MARKETING -->
-            <!-- ========================================================== -->
-            <div class="crm-view" id="view-email">
-
-                <div class="page-header">
-                    <div>
-                        <h1>Email Marketing</h1>
-                        <p>Create and manage email campaigns for your audience.</p>
-                    </div>
-                    <div class="actions">
-                        <button class="btn-primary">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</div>
+</div>
+<!-- Billing KPIs -->
+<div class="kpi-grid" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr));margin-bottom:20px;">
+<div class="kpi-card">
+<div class="label">Total Revenue</div>
+<div class="value" style="font-size:1.5rem;">₹8,42,500</div>
+</div>
+<div class="kpi-card">
+<div class="label">Paid Invoices</div>
+<div class="value" style="font-size:1.5rem;color:var(--sf-green);">312</div>
+</div>
+<div class="kpi-card">
+<div class="label">Pending</div>
+<div class="value" style="font-size:1.5rem;color:#d97706;">18</div>
+</div>
+<div class="kpi-card">
+<div class="label">Failed</div>
+<div class="value" style="font-size:1.5rem;color:#ef4444;">8</div>
+</div>
+</div>
+<div class="table-container">
+<div class="table-header">
+<h3>All Invoices</h3>
+<div style="display:flex;gap:8px;flex-wrap:wrap;">
+<select class="filter-select" id="invoiceFilter" onchange="filterInvoices()">
+<option value="all">All Status</option>
+<option value="paid">Paid</option>
+<option value="pending">Pending</option>
+<option value="failed">Failed</option>
+<option value="refunded">Refunded</option>
+</select>
+</div>
+</div>
+<div class="table-wrap">
+<div aria-label="Scrollable data table" class="audit-table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Invoice #</th>
+<th>Customer</th>
+<th>Session</th>
+<th>Amount</th>
+<th>Date</th>
+<th>Method</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody id="invoiceFullTableBody">
+<!-- Rendered by JS -->
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<!-- ========================================================== -->
+<!-- VIEW: EMAIL MARKETING -->
+<!-- ========================================================== -->
+<div class="crm-view" id="view-email">
+<div class="page-header">
+<div>
+<h1>Email Marketing</h1>
+<p>Create and manage email campaigns for your audience.</p>
+</div>
+<div class="actions">
+<button class="btn-primary">
+<svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><line x1="12" x2="12" y1="5" y2="19"></line><line x1="5" x2="19" y1="12" y2="12"></line></svg>
                             New Campaign
                         </button>
-                        <button class="btn-outline">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+<button class="btn-outline">
+<svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
                             Export List
                         </button>
-                    </div>
-                </div>
-
-                <div class="campaign-grid" id="campaignGrid">
-                    <!-- Rendered by JS -->
-                </div>
-
-                <div class="table-container">
-                    <div class="table-header">
-                        <h3>Campaign History</h3>
-                    </div>
-                    <div class="table-wrap">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Campaign</th>
-                                    <th>Recipients</th>
-                                    <th>Opened</th>
-                                    <th>Clicked</th>
-                                    <th>Bounced</th>
-                                    <th>Sent Date</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody id="emailTableBody">
-                                <!-- Rendered by JS -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ========================================================== -->
-            <!-- VIEW: ADMIN -->
-            <!-- ========================================================== -->
-            <div class="crm-view" id="view-admin">
-
-                <div class="page-header">
-                    <div>
-                        <h1>Admin Settings</h1>
-                        <p>Configure your CRM, integrations, and system preferences.</p>
-                    </div>
-                    <div class="actions">
-                        <button class="btn-success" onclick="saveSettings()">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+</div>
+</div>
+<div class="campaign-grid" id="campaignGrid">
+<!-- Rendered by JS -->
+</div>
+<div class="table-container">
+<div class="table-header">
+<h3>Campaign History</h3>
+</div>
+<div class="table-wrap">
+<div aria-label="Scrollable data table" class="audit-table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th>Campaign</th>
+<th>Recipients</th>
+<th>Opened</th>
+<th>Clicked</th>
+<th>Bounced</th>
+<th>Sent Date</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody id="emailTableBody">
+<!-- Rendered by JS -->
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<!-- ========================================================== -->
+<!-- VIEW: ADMIN -->
+<!-- ========================================================== -->
+<div class="crm-view" id="view-admin">
+<div class="page-header">
+<div>
+<h1>Admin Settings</h1>
+<p>Configure your CRM, integrations, and system preferences.</p>
+</div>
+<div class="actions">
+<button class="btn-success" onclick="saveSettings()">
+<svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
                             Save Settings
                         </button>
-                    </div>
-                </div>
-
-                <div style="display:grid;grid-template-columns:1fr;gap:20px;max-width:720px;">
-                    <div style="background:white;border-radius:var(--radius);border:1px solid var(--sf-border);padding:24px;">
-                        <h3 style="font-weight:700;color:var(--sf-slate-800);margin-bottom:16px;">General Settings</h3>
-                        <div style="display:grid;gap:16px;">
-                            <div><label style="font-weight:600;font-size:0.875rem;color:var(--sf-slate-700);">Platform Name</label><input type="text" value="SFDC UX Event Platform" style="width:100%;padding:10px 14px;border:1px solid var(--sf-border);border-radius:8px;font-family:inherit;font-size:0.875rem;margin-top:4px;" /></div>
-                            <div><label style="font-weight:600;font-size:0.875rem;color:var(--sf-slate-700);">Currency</label><select style="width:100%;padding:10px 14px;border:1px solid var(--sf-border);border-radius:8px;font-family:inherit;font-size:0.875rem;margin-top:4px;background:white;"><option>INR (₹)</option><option>USD ($)</option><option>EUR (€)</option></select></div>
-                            <div><label style="font-weight:600;font-size:0.875rem;color:var(--sf-slate-700);">Timezone</label><select style="width:100%;padding:10px 14px;border:1px solid var(--sf-border);border-radius:8px;font-family:inherit;font-size:0.875rem;margin-top:4px;background:white;"><option>Asia/Kolkata (UTC+5:30)</option><option>America/New_York (UTC-5)</option><option>Europe/London (UTC+0)</option></select></div>
-                        </div>
-                    </div>
-
-                    <div style="background:white;border-radius:var(--radius);border:1px solid var(--sf-border);padding:24px;">
-                        <h3 style="font-weight:700;color:var(--sf-slate-800);margin-bottom:16px;">Integrations</h3>
-                        <div style="display:grid;gap:12px;">
-                            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--sf-border);">
-                                <span style="font-weight:500;">Razorpay</span>
-                                <span style="color:var(--sf-green);font-size:0.813rem;">● Connected</span>
-                            </div>
-                            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--sf-border);">
-                                <span style="font-weight:500;">Google Analytics</span>
-                                <span style="color:var(--sf-green);font-size:0.813rem;">● Connected</span>
-                            </div>
-                            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--sf-border);">
-                                <span style="font-weight:500;">Appscript (CRM)</span>
-                                <span style="color:var(--sf-slate-400);font-size:0.813rem;">○ Not Connected</span>
-                            </div>
-                            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;">
-                                <span style="font-weight:500;">Salesforce (Core)</span>
-                                <span style="color:var(--sf-slate-400);font-size:0.813rem;">○ Not Connected</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="background:white;border-radius:var(--radius);border:1px solid var(--sf-border);padding:24px;">
-                        <h3 style="font-weight:700;color:var(--sf-slate-800);margin-bottom:16px;">Data &amp; Export</h3>
-                        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-                            <button class="btn-outline" style="padding:10px 24px;">Export All Data</button>
-                            <button class="btn-outline" style="padding:10px 24px;border-color:#ef4444;color:#ef4444;">Clear Cache</button>
-                            <button class="btn-outline" style="padding:10px 24px;border-color:#ef4444;color:#ef4444;">Reset Settings</button>
-                        </div>
-                    </div>
-
-                    <div style="background:white;border-radius:var(--radius);border:1px solid var(--sf-border);padding:24px;">
-                        <h3 style="font-weight:700;color:var(--sf-slate-800);margin-bottom:16px;">System Status</h3>
-                        <div style="display:grid;gap:8px;font-size:0.875rem;">
-                            <div style="display:flex;justify-content:space-between;padding:4px 0;"><span>Database</span><span style="color:var(--sf-green);">● Operational</span></div>
-                            <div style="display:flex;justify-content:space-between;padding:4px 0;border-top:1px solid var(--sf-border);"><span>API Gateway</span><span style="color:var(--sf-green);">● Operational</span></div>
-                            <div style="display:flex;justify-content:space-between;padding:4px 0;border-top:1px solid var(--sf-border);"><span>Email Service</span><span style="color:var(--sf-green);">● Operational</span></div>
-                            <div style="display:flex;justify-content:space-between;padding:4px 0;border-top:1px solid var(--sf-border);"><span>Payment Gateway</span><span style="color:var(--sf-green);">● Operational</span></div>
-                            <div style="display:flex;justify-content:space-between;padding:4px 0;border-top:1px solid var(--sf-border);"><span>Last Backup</span><span style="color:var(--sf-slate-500);">Today, 02:30 AM</span></div>
-                            <div style="display:flex;justify-content:space-between;padding:4px 0;border-top:1px solid var(--sf-border);"><span>Uptime</span><span style="color:var(--sf-green);">99.97% (30 days)</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </main>
-    </div>
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="app-footer">
-        <div class="inner">
-            <span>&copy; 2026 Salesforce UX Team · CRM v2.6.0</span>
-            <div class="branding">
-                <span>Platform managed by</span>
-                <strong>Denisia Webops</strong>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ===== TOAST CONTAINER ===== -->
-    <div class="toast-container" id="toastContainer"></div>
-
-
-    <!-- ============================================================ -->
-    <!-- ===== JAVASCRIPT ===== -->
-    <script>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:1fr;gap:20px;max-width:720px;">
+<div style="background:white;border-radius:var(--radius);border:1px solid var(--sf-border);padding:24px;">
+<h3 style="font-weight:700;color:var(--sf-slate-800);margin-bottom:16px;">General Settings</h3>
+<div style="display:grid;gap:16px;">
+<div><label style="font-weight:600;font-size:0.875rem;color:var(--sf-slate-700);">Platform Name</label><input style="width:100%;padding:10px 14px;border:1px solid var(--sf-border);border-radius:8px;font-family:inherit;font-size:0.875rem;margin-top:4px;" type="text" value="SFDC UX Event Platform"/></div>
+<div><label style="font-weight:600;font-size:0.875rem;color:var(--sf-slate-700);">Currency</label><select style="width:100%;padding:10px 14px;border:1px solid var(--sf-border);border-radius:8px;font-family:inherit;font-size:0.875rem;margin-top:4px;background:white;"><option>INR (₹)</option><option>USD ($)</option><option>EUR (€)</option></select></div>
+<div><label style="font-weight:600;font-size:0.875rem;color:var(--sf-slate-700);">Timezone</label><select style="width:100%;padding:10px 14px;border:1px solid var(--sf-border);border-radius:8px;font-family:inherit;font-size:0.875rem;margin-top:4px;background:white;"><option>Asia/Kolkata (UTC+5:30)</option><option>America/New_York (UTC-5)</option><option>Europe/London (UTC+0)</option></select></div>
+</div>
+</div>
+<div style="background:white;border-radius:var(--radius);border:1px solid var(--sf-border);padding:24px;">
+<h3 style="font-weight:700;color:var(--sf-slate-800);margin-bottom:16px;">Integrations</h3>
+<div style="display:grid;gap:12px;">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--sf-border);">
+<span style="font-weight:500;">Razorpay</span>
+<span style="color:var(--sf-green);font-size:0.813rem;">● Connected</span>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--sf-border);">
+<span style="font-weight:500;">Google Analytics</span>
+<span style="color:var(--sf-green);font-size:0.813rem;">● Connected</span>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--sf-border);">
+<span style="font-weight:500;">Appscript (CRM)</span>
+<span style="color:var(--sf-slate-400);font-size:0.813rem;">○ Not Connected</span>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;">
+<span style="font-weight:500;">Salesforce (Core)</span>
+<span style="color:var(--sf-slate-400);font-size:0.813rem;">○ Not Connected</span>
+</div>
+</div>
+</div>
+<div style="background:white;border-radius:var(--radius);border:1px solid var(--sf-border);padding:24px;">
+<h3 style="font-weight:700;color:var(--sf-slate-800);margin-bottom:16px;">Data &amp; Export</h3>
+<div style="display:flex;gap:12px;flex-wrap:wrap;">
+<button class="btn-outline" style="padding:10px 24px;">Export All Data</button>
+<button class="btn-outline" style="padding:10px 24px;border-color:#ef4444;color:#ef4444;">Clear Cache</button>
+<button class="btn-outline" style="padding:10px 24px;border-color:#ef4444;color:#ef4444;">Reset Settings</button>
+</div>
+</div>
+<div style="background:white;border-radius:var(--radius);border:1px solid var(--sf-border);padding:24px;">
+<h3 style="font-weight:700;color:var(--sf-slate-800);margin-bottom:16px;">System Status</h3>
+<div style="display:grid;gap:8px;font-size:0.875rem;">
+<div style="display:flex;justify-content:space-between;padding:4px 0;"><span>Database</span><span style="color:var(--sf-green);">● Operational</span></div>
+<div style="display:flex;justify-content:space-between;padding:4px 0;border-top:1px solid var(--sf-border);"><span>API Gateway</span><span style="color:var(--sf-green);">● Operational</span></div>
+<div style="display:flex;justify-content:space-between;padding:4px 0;border-top:1px solid var(--sf-border);"><span>Email Service</span><span style="color:var(--sf-green);">● Operational</span></div>
+<div style="display:flex;justify-content:space-between;padding:4px 0;border-top:1px solid var(--sf-border);"><span>Payment Gateway</span><span style="color:var(--sf-green);">● Operational</span></div>
+<div style="display:flex;justify-content:space-between;padding:4px 0;border-top:1px solid var(--sf-border);"><span>Last Backup</span><span style="color:var(--sf-slate-500);">Today, 02:30 AM</span></div>
+<div style="display:flex;justify-content:space-between;padding:4px 0;border-top:1px solid var(--sf-border);"><span>Uptime</span><span style="color:var(--sf-green);">99.97% (30 days)</span></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- ===== FOOTER ===== -->
+<footer class="app-footer">
+<div class="inner">
+<span>© 2026 Salesforce UX Team · CRM v2.6.0</span>
+<div class="branding">
+<span>Platform managed by</span>
+<strong>Denisia Webops</strong>
+</div>
+</div>
+</footer>
+<!-- ===== TOAST CONTAINER ===== -->
+<div class="toast-container" id="toastContainer"></div>
+<!-- ============================================================ -->
+<!-- ===== JAVASCRIPT ===== -->
+<script>
         (function() {
             'use strict';
 
@@ -2605,5 +2548,14 @@ window.CRMIntegration = CRMIntegration;
 
 console.log('✅ Apps Script Integration loaded with API key');
 </script>
-</body>
+<script>document.addEventListener('DOMContentLoaded',()=>{
+ const menu=document.getElementById('mobile-menu');
+ const triggers=[...document.querySelectorAll('button')].filter(b=>(b.getAttribute('onclick')||'').includes('toggleMobileMenu'));
+ if(menu&&triggers.length){
+  const setOpen=open=>{menu.classList.toggle('hidden',!open);triggers.forEach(b=>{b.setAttribute('aria-expanded',String(open));b.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');const icon=b.querySelector('[data-lucide]');if(icon)icon.setAttribute('data-lucide',open?'x':'menu')});if(window.lucide)window.lucide.createIcons();};
+  triggers.forEach(b=>{b.removeAttribute('onclick');b.setAttribute('aria-controls','mobile-menu');b.setAttribute('aria-expanded','false');b.addEventListener('click',()=>setOpen(menu.classList.contains('hidden')))});
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setOpen(false)));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!menu.classList.contains('hidden')){setOpen(false);triggers[0].focus()}});
+ }
+});</script></body>
 </html>

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#0b2742">
-  <title>Trutrip CRM</title>
-  <style>:root {
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="light" name="color-scheme"/>
+<meta content="#0b2742" name="theme-color"/>
+<title>Trutrip CRM</title>
+<style>:root {
   color-scheme: light;
   --navy: #0b2742;
   --navy-2: #123b61;
@@ -1613,20 +1614,20 @@ tbody tr:last-child td {
   }
 }
 </style>
-</head>
+<style>.audit-table-scroll{max-width:100%;overflow-x:auto} img,video,canvas{max-width:100%} :focus-visible{outline:3px solid #2563eb;outline-offset:3px} @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}} #mobile-menu{max-height:calc(100dvh - 80px);overflow-y:auto}</style></head>
 <body>
-  <div id="root">
-    <main class="boot-screen" data-trutrip-boot="static-shell">
-      <section class="boot-card" role="status" aria-live="polite">
-        <div class="brand"><div class="brand-mark">TT</div><div class="brand-copy"><strong>Trutrip CRM</strong><span>Secure travel operations</span></div></div>
-        <div class="boot-progress"></div>
-        <h1>Loading application</h1>
-        <p class="muted">Preparing the interface. Your saved CRM records are not being changed.</p>
-      </section>
-    </main>
-  </div>
-  <noscript><main class="boot-screen"><section class="boot-card"><h1>JavaScript is required</h1><p>Enable JavaScript and reload the Trutrip CRM.</p></section></main></noscript>
-  <script>
+<div id="root">
+<main class="boot-screen" data-trutrip-boot="static-shell">
+<section aria-live="polite" class="boot-card" role="status">
+<div class="brand"><div class="brand-mark">TT</div><div class="brand-copy"><strong>Trutrip CRM</strong><span>Secure travel operations</span></div></div>
+<div class="boot-progress"></div>
+<h1>Loading application</h1>
+<p class="muted">Preparing the interface. Your saved CRM records are not being changed.</p>
+</section>
+</main>
+</div>
+<noscript><main class="boot-screen"><section class="boot-card"><h1>JavaScript is required</h1><p>Enable JavaScript and reload the Trutrip CRM.</p></section></main></noscript>
+<script>
       /* Boot markers checked by runTruTripWebAppBootSelfTest:
      react_runtime_complete
      reactdom_runtime_complete
@@ -15326,5 +15327,14 @@ ${(t==null?void 0:t.componentStack)||""}`,applicationVersion:Rr,occurredAt:new D
     )();
 
   </script>
-</body>
+<script>document.addEventListener('DOMContentLoaded',()=>{
+ const menu=document.getElementById('mobile-menu');
+ const triggers=[...document.querySelectorAll('button')].filter(b=>(b.getAttribute('onclick')||'').includes('toggleMobileMenu'));
+ if(menu&&triggers.length){
+  const setOpen=open=>{menu.classList.toggle('hidden',!open);triggers.forEach(b=>{b.setAttribute('aria-expanded',String(open));b.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');const icon=b.querySelector('[data-lucide]');if(icon)icon.setAttribute('data-lucide',open?'x':'menu')});if(window.lucide)window.lucide.createIcons();};
+  triggers.forEach(b=>{b.removeAttribute('onclick');b.setAttribute('aria-controls','mobile-menu');b.setAttribute('aria-expanded','false');b.addEventListener('click',()=>setOpen(menu.classList.contains('hidden')))});
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setOpen(false)));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!menu.classList.contains('hidden')){setOpen(false);triggers[0].focus()}});
+ }
+});</script></body>
 </html>

@@ -1,43 +1,39 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
-    <script>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport"/>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-FWP9BLNZK6"></script>
+<script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-FWP9BLNZK6');
     </script>
-
-    <!-- Google Site Verification & Bing -->
-    <meta name="google-site-verification" content="82U62k4jtMBmS52po-sbJ12znmacAgq0Rg4NvMZLXMY">
-    <meta name="msvalidate.01" content="8250834873D72FFE4BABCD1B2C7B3173">
-
-    <!-- Clarity tracking -->
-    <script>
+<!-- Google Site Verification & Bing -->
+<meta content="82U62k4jtMBmS52po-sbJ12znmacAgq0Rg4NvMZLXMY" name="google-site-verification"/>
+<meta content="8250834873D72FFE4BABCD1B2C7B3173" name="msvalidate.01"/>
+<!-- Clarity tracking -->
+<script>
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
             t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "vimok6xi57");
     </script>
-
-    <!-- Canonical, SEO & AEO -->
-    <link rel="canonical" href="https://www.denisiawebops.org/Caustics-studio.html">
-    <title>Caustics Studio – Interactive Light & Glass Simulator | Denisia Webops</title>
-    <meta name="description" content="Real‑time caustic light simulation with WebGL. Create ripples, tumbler glass effects, AR camera blending, and export HD snapshots. Free interactive tool.">
-    <meta name="keywords" content="caustics generator, webgl light simulation, interactive glass art, realtime caustics, procedural caustic pattern, light refraction simulator, online caustic editor, photorealistic glass, Denisia Webops">
-    <meta name="author" content="Denisia Webops Agency">
-    <meta name="robots" content="index, follow">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
+<!-- Canonical, SEO & AEO -->
+<link href="https://www.denisiawebops.org/Caustics-studio.html" rel="canonical"/>
+<title>Caustics Studio – Interactive Light &amp; Glass Simulator | Denisia Webops</title>
+<meta content="Real‑time caustic light simulation with WebGL. Create ripples, tumbler glass effects, AR camera blending, and export HD snapshots. Free interactive tool." name="description"/>
+<meta content="caustics generator, webgl light simulation, interactive glass art, realtime caustics, procedural caustic pattern, light refraction simulator, online caustic editor, photorealistic glass, Denisia Webops" name="keywords"/>
+<meta content="Denisia Webops Agency" name="author"/>
+<meta content="index, follow" name="robots"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
         body, html { margin: 0; padding: 0; width: 100%; overflow-x: hidden; background: #000; }
         .nav-link { color: #cbd5e1; font-weight: 500; transition: color 0.2s; }
         .nav-link:hover, .nav-link.active { color: #a855f7; }
@@ -68,140 +64,126 @@
         #caustics-app-wrapper .mode-tab { transition: all 0.3s ease; }
         #caustics-app-wrapper .mode-tab.active { background: rgba(255,255,255,0.2); font-weight: bold; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
     </style>
-    <meta property="og:image" content="https://www.denisiawebops.org/images/logo.png">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Caustics Studio – Interactive Light & Glass Simulator | Denisia Webops">
-    <meta property="og:description" content="Real-time caustic light simulation with WebGL. Create ripples, glass effects, AR camera blending, and export HD snapshots. Free interactive tool.">
-    <meta property="og:url" content="https://www.denisiawebops.org/Caustics-studio.html">
-</head>
+<meta content="https://www.denisiawebops.org/images/logo.png" property="og:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Caustics Studio – Interactive Light &amp; Glass Simulator | Denisia Webops" property="og:title"/>
+<meta content="Real-time caustic light simulation with WebGL. Create ripples, glass effects, AR camera blending, and export HD snapshots. Free interactive tool." property="og:description"/>
+<meta content="https://www.denisiawebops.org/Caustics-studio.html" property="og:url"/>
+<style>.audit-table-scroll{max-width:100%;overflow-x:auto} img,video,canvas{max-width:100%} :focus-visible{outline:3px solid #2563eb;outline-offset:3px} @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}} #mobile-menu{max-height:calc(100dvh - 80px);overflow-y:auto}</style></head>
 <body class="bg-black flex flex-col min-h-screen">
-
-    <!-- Denisia Webops Navbar -->
-    <nav class="fixed w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-violet-900/30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <a href="index.html" class="flex items-center">
-                    <div class="bg-gradient-to-br from-violet-600 to-fuchsia-600 p-2 rounded-lg"><i data-lucide="zap" class="h-6 w-6 text-white"></i></div>
-                    <span class="ml-3 text-xl font-bold text-white">Denisia Webops</span>
-                </a>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="index.html" class="nav-link text-sm">Home</a>
-                        <a href="projects.html" class="nav-link text-sm">Projects</a>
-                        <a href="blogs.html" class="nav-link text-sm">Blog</a>
-                        <a href="reviews.html" class="nav-link text-sm">Reviews</a>
-                        <a href="ai.html" class="nav-link text-sm">AI Models</a>
-                        <a href="why-ai-seo.html" class="nav-link text-sm">Why AI SEO</a>
-                        <a href="livecodepreview.html" class="nav-link text-sm">Code Preview</a>
-                        <a href="Caustics-studio.html" class="text-violet-400 font-bold border-b-2 border-violet-400 pb-1">Caustics Studio</a>
-                        <a href="contact.html" class="bg-blue-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition shadow-sm text-sm">Get in Touch</a>
-                    </div>
-                </div>
-                <div class="md:hidden">
-                    <button onclick="toggleMobileMenu()" class="burger-icon"><i id="mobile-menu-icon" data-lucide="menu" class="h-6 w-6"></i></button>
-                </div>
+<!-- Denisia Webops Navbar -->
+<nav class="fixed w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-violet-900/30">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<a class="flex items-center" href="index.html">
+<div class="bg-gradient-to-br from-violet-600 to-fuchsia-600 p-2 rounded-lg"><i class="h-6 w-6 text-white" data-lucide="zap"></i></div>
+<span class="ml-3 text-xl font-bold text-white">Denisia Webops</span>
+</a>
+<div class="hidden md:block">
+<div class="ml-10 flex items-baseline space-x-8">
+<a class="nav-link text-sm" href="index.html">Home</a>
+<a class="nav-link text-sm" href="projects.html">Projects</a>
+<a class="nav-link text-sm" href="blogs.html">Blog</a>
+<a class="nav-link text-sm" href="reviews.html">Reviews</a>
+<a class="nav-link text-sm" href="ai.html">AI Models</a>
+<a class="nav-link text-sm" href="why-ai-seo.html">Why AI SEO</a>
+<a class="nav-link text-sm" href="livecodepreview.html">Code Preview</a>
+<a class="text-violet-400 font-bold border-b-2 border-violet-400 pb-1" href="Caustics-studio.html">Caustics Studio</a>
+<a class="bg-blue-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition shadow-sm text-sm" href="contact.html">Get in Touch</a>
+</div>
+</div>
+<div class="md:hidden">
+<button aria-label="Open navigation menu" class="burger-icon" onclick="toggleMobileMenu()"><i class="h-6 w-6" data-lucide="menu" id="mobile-menu-icon"></i></button>
+</div>
+</div>
+</div>
+<div class="hidden md:hidden bg-slate-900 border-t border-slate-800 absolute w-full z-40" id="mobile-menu">
+<div class="px-2 pt-2 pb-3 space-y-1">
+<a class="block px-3 py-2 rounded-md text-base text-gray-300" href="index.html">Home</a>
+<a class="block px-3 py-2 rounded-md text-base font-bold text-violet-400" href="Caustics-studio.html">Caustics Studio</a>
+<a class="block px-3 py-2 rounded-md text-base text-gray-300" href="contact.html">Contact</a>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<div class="relative bg-gradient-to-r from-slate-950 via-purple-950 to-black pt-28 pb-6">
+<div class="max-w-7xl mx-auto px-4 text-center">
+<div class="inline-flex items-center gap-2 bg-violet-900/30 border border-violet-500/30 rounded-full px-4 py-2 text-violet-200 text-sm mb-4"><i data-lucide="sparkles"></i> Real‑time WebGL Simulation</div>
+<h1 class="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Caustics Studio</h1>
+<p class="text-slate-400 max-w-2xl mx-auto mt-4">Interactive light refraction &amp; glass simulation. Ripples, tumbler glass, and AR camera blending.</p>
+</div>
+</div>
+<!-- Caustics App Container -->
+<div id="caustics-app-wrapper">
+<video autoplay="" id="cameraFeed" muted="" playsinline=""></video>
+<canvas id="glcanvas"></canvas>
+<!-- FIX: Changed from fixed to absolute so it stays in the wrapper -->
+<div class="absolute inset-x-0 top-1/4 flex items-center justify-center pointer-events-none z-10 transition-opacity duration-1000" id="hint">
+<div class="bg-black/50 text-white px-6 py-3 rounded-full backdrop-blur-md border border-white/20 tracking-widest text-sm uppercase shadow-2xl" id="hintText">
+                Tap &amp; Drag to interact
             </div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-t border-slate-800 absolute w-full z-40">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="index.html" class="block px-3 py-2 rounded-md text-base text-gray-300">Home</a>
-                <a href="Caustics-studio.html" class="block px-3 py-2 rounded-md text-base font-bold text-violet-400">Caustics Studio</a>
-                <a href="contact.html" class="block px-3 py-2 rounded-md text-base text-gray-300">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <div class="relative bg-gradient-to-r from-slate-950 via-purple-950 to-black pt-28 pb-6">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <div class="inline-flex items-center gap-2 bg-violet-900/30 border border-violet-500/30 rounded-full px-4 py-2 text-violet-200 text-sm mb-4"><i data-lucide="sparkles"></i> Real‑time WebGL Simulation</div>
-            <h1 class="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Caustics Studio</h1>
-            <p class="text-slate-400 max-w-2xl mx-auto mt-4">Interactive light refraction & glass simulation. Ripples, tumbler glass, and AR camera blending.</p>
-        </div>
-    </div>
-
-    <!-- Caustics App Container -->
-    <div id="caustics-app-wrapper">
-        <video id="cameraFeed" autoplay playsinline muted></video>
-        <canvas id="glcanvas"></canvas>
-
-        <!-- FIX: Changed from fixed to absolute so it stays in the wrapper -->
-        <div id="hint" class="absolute inset-x-0 top-1/4 flex items-center justify-center pointer-events-none z-10 transition-opacity duration-1000">
-            <div id="hintText" class="bg-black/50 text-white px-6 py-3 rounded-full backdrop-blur-md border border-white/20 tracking-widest text-sm uppercase shadow-2xl">
-                Tap & Drag to interact
-            </div>
-        </div>
-
-        <!-- FIX: Changed from fixed to absolute -->
-        <div id="uiContainer" class="absolute bottom-0 left-0 right-0 p-4 z-20 flex flex-col items-center pointer-events-none transition-transform duration-500 ease-in-out" style="transform: translateY(0);">
-            
-            <button onclick="togglePanel()" class="mb-3 bg-black/50 hover:bg-black/70 backdrop-blur-xl rounded-full p-2 pointer-events-auto border border-white/20 text-white shadow-2xl transition-colors">
-                <svg id="toggleIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300">
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-            </button>
-            
-            <div class="w-full max-w-sm glass-panel rounded-3xl p-5 shadow-2xl pointer-events-auto flex flex-col gap-4">
-                <div class="flex bg-white/5 rounded-xl p-1 border border-white/10">
-                    <button onclick="setMode(0)" id="mode0" class="mode-tab active flex-1 py-1.5 text-xs text-white uppercase tracking-wider rounded-lg">Studio</button>
-                    <button onclick="setMode(1)" id="mode1" class="mode-tab flex-1 py-1.5 text-xs text-white uppercase tracking-wider rounded-lg">Tumbler</button>
-                    <button onclick="setMode(2)" id="mode2" class="mode-tab flex-1 py-1.5 text-xs text-white uppercase tracking-wider rounded-lg flex items-center justify-center gap-1">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+</div>
+<!-- FIX: Changed from fixed to absolute -->
+<div class="absolute bottom-0 left-0 right-0 p-4 z-20 flex flex-col items-center pointer-events-none transition-transform duration-500 ease-in-out" id="uiContainer" style="transform: translateY(0);">
+<button class="mb-3 bg-black/50 hover:bg-black/70 backdrop-blur-xl rounded-full p-2 pointer-events-auto border border-white/20 text-white shadow-2xl transition-colors" onclick="togglePanel()">
+<svg class="transition-transform duration-300" fill="none" height="24" id="toggleIcon" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24">
+<polyline points="6 9 12 15 18 9"></polyline>
+</svg>
+</button>
+<div class="w-full max-w-sm glass-panel rounded-3xl p-5 shadow-2xl pointer-events-auto flex flex-col gap-4">
+<div class="flex bg-white/5 rounded-xl p-1 border border-white/10">
+<button class="mode-tab active flex-1 py-1.5 text-xs text-white uppercase tracking-wider rounded-lg" id="mode0" onclick="setMode(0)">Studio</button>
+<button class="mode-tab flex-1 py-1.5 text-xs text-white uppercase tracking-wider rounded-lg" id="mode1" onclick="setMode(1)">Tumbler</button>
+<button class="mode-tab flex-1 py-1.5 text-xs text-white uppercase tracking-wider rounded-lg flex items-center justify-center gap-1" id="mode2" onclick="setMode(2)">
+<svg fill="none" height="12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="12"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                         AR Cam
                     </button>
-                </div>
-
-                <div class="flex justify-between items-center mt-1">
-                    <h2 class="text-white font-semibold text-lg tracking-wide">Caustic Editor</h2>
-                    <div class="flex gap-2" id="presetContainer"></div>
-                </div>
-
-                <div class="flex justify-between items-center bg-black/30 rounded-2xl p-3 border border-white/5" id="colorPanel">
-                    <div class="flex items-center gap-3">
-                        <input type="color" id="colorBase" value="#999999">
-                        <span class="text-xs text-white/70 uppercase tracking-wider font-medium">Floor</span>
-                    </div>
-                    <div class="w-px h-8 bg-white/10"></div>
-                    <div class="flex items-center gap-3">
-                        <span class="text-xs text-white/70 uppercase tracking-wider font-medium">Light</span>
-                        <input type="color" id="colorLight" value="#ffffff">
-                    </div>
-                </div>
-
-                <div id="surfacePanel" class="hidden justify-between items-center bg-white/5 rounded-xl p-1 border border-white/10">
-                    <button onclick="setSurface(0)" id="surf0" class="surface-tab active flex-1 py-1.5 text-xs text-white uppercase tracking-wider rounded-lg bg-white/20 shadow font-bold">Paper</button>
-                    <button onclick="setSurface(1)" id="surf1" class="surface-tab flex-1 py-1.5 text-xs text-white uppercase tracking-wider rounded-lg">Wood</button>
-                    <button onclick="setSurface(2)" id="surf2" class="surface-tab flex-1 py-1.5 text-xs text-white uppercase tracking-wider rounded-lg">Marble</button>
-                </div>
-
-                <div class="flex flex-col gap-4 mt-1">
-                    <div class="flex flex-col gap-2">
-                        <div class="flex justify-between"><span class="text-xs text-white/70 uppercase tracking-wider font-medium">Scale & Zoom</span></div>
-                        <input type="range" id="zoom" min="0.5" max="5.0" step="0.1" value="3.0">
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <div class="flex justify-between"><span class="text-xs text-white/70 uppercase tracking-wider font-medium">Fluidity Speed</span></div>
-                        <input type="range" id="speed" min="0.0" max="1.5" step="0.05" value="0.3">
-                    </div>
-                </div>
-
-                <button onclick="saveHighRes()" class="w-full mt-2 bg-white text-black py-3 rounded-xl font-bold tracking-wide shadow-lg active:scale-[0.98] transition-transform flex items-center justify-center gap-2">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="7 10 12 15 17 10"></polyline>
-                        <line x1="12" y1="15" x2="12" y2="3"></line>
-                    </svg>
+</div>
+<div class="flex justify-between items-center mt-1">
+<h2 class="text-white font-semibold text-lg tracking-wide">Caustic Editor</h2>
+<div class="flex gap-2" id="presetContainer"></div>
+</div>
+<div class="flex justify-between items-center bg-black/30 rounded-2xl p-3 border border-white/5" id="colorPanel">
+<div class="flex items-center gap-3">
+<input id="colorBase" type="color" value="#999999"/>
+<span class="text-xs text-white/70 uppercase tracking-wider font-medium">Floor</span>
+</div>
+<div class="w-px h-8 bg-white/10"></div>
+<div class="flex items-center gap-3">
+<span class="text-xs text-white/70 uppercase tracking-wider font-medium">Light</span>
+<input id="colorLight" type="color" value="#ffffff"/>
+</div>
+</div>
+<div class="hidden justify-between items-center bg-white/5 rounded-xl p-1 border border-white/10" id="surfacePanel">
+<button class="surface-tab active flex-1 py-1.5 text-xs text-white uppercase tracking-wider rounded-lg bg-white/20 shadow font-bold" id="surf0" onclick="setSurface(0)">Paper</button>
+<button class="surface-tab flex-1 py-1.5 text-xs text-white uppercase tracking-wider rounded-lg" id="surf1" onclick="setSurface(1)">Wood</button>
+<button class="surface-tab flex-1 py-1.5 text-xs text-white uppercase tracking-wider rounded-lg" id="surf2" onclick="setSurface(2)">Marble</button>
+</div>
+<div class="flex flex-col gap-4 mt-1">
+<div class="flex flex-col gap-2">
+<div class="flex justify-between"><span class="text-xs text-white/70 uppercase tracking-wider font-medium">Scale &amp; Zoom</span></div>
+<input id="zoom" max="5.0" min="0.5" step="0.1" type="range" value="3.0"/>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between"><span class="text-xs text-white/70 uppercase tracking-wider font-medium">Fluidity Speed</span></div>
+<input id="speed" max="1.5" min="0.0" step="0.05" type="range" value="0.3"/>
+</div>
+</div>
+<button class="w-full mt-2 bg-white text-black py-3 rounded-xl font-bold tracking-wide shadow-lg active:scale-[0.98] transition-transform flex items-center justify-center gap-2" onclick="saveHighRes()">
+<svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18">
+<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+<polyline points="7 10 12 15 17 10"></polyline>
+<line x1="12" x2="12" y1="15" y2="3"></line>
+</svg>
                     Export HD Snapshot
                 </button>
-            </div>
-        </div>
-
-        <!-- WebGL Shaders -->
-        <script id="vertexShader" type="x-shader/x-vertex">
+</div>
+</div>
+<!-- WebGL Shaders -->
+<script id="vertexShader" type="x-shader/x-vertex">
             attribute vec2 a_position; void main() { gl_Position = vec4(a_position, 0.0, 1.0); }
         </script>
-
-        <script id="fragmentShader" type="x-shader/x-fragment">
+<script id="fragmentShader" type="x-shader/x-fragment">
             #ifdef GL_FRAGMENT_PRECISION_HIGH
                 precision highp float;
             #else
@@ -316,8 +298,7 @@
                 gl_FragColor = vec4(finalColor, 1.0);
             }
         </script>
-
-        <script>
+<script>
             // --- WebGL Setup ---
             const canvas = document.getElementById('glcanvas');
             const gl = canvas.getContext('webgl', { preserveDrawingBuffer: true, alpha: true });
@@ -532,17 +513,15 @@
 
             window.setMode = setMode; window.setSurface = setSurface; window.saveHighRes = saveHighRes; window.togglePanel = togglePanel;
         </script>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-slate-900 border-t border-slate-800 pt-6 pb-4 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 text-center text-slate-500 text-xs">
+</div>
+<!-- Footer -->
+<footer class="bg-slate-900 border-t border-slate-800 pt-6 pb-4 mt-auto">
+<div class="max-w-7xl mx-auto px-4 text-center text-slate-500 text-xs">
             © 2025 Denisia Webops Agency. Interactive WebGL caustic simulator. For educational and creative use.
         </div>
-    </footer>
-
-    <!-- Tawk.to Script -->
-    <script type="text/javascript">
+</footer>
+<!-- Tawk.to Script -->
+<script type="text/javascript">
         var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
         (function(){
             var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
@@ -550,7 +529,7 @@
             s0.parentNode.insertBefore(s1, s0);
         })();
     </script>
-    <script>
+<script>
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu'); const icon = document.getElementById('mobile-menu-icon');
             if (menu.classList.contains('hidden')) { menu.classList.remove('hidden'); icon.setAttribute('data-lucide', 'x'); } 
@@ -559,5 +538,14 @@
         }
         lucide.createIcons();
     </script>
-</body>
+<script>document.addEventListener('DOMContentLoaded',()=>{
+ const menu=document.getElementById('mobile-menu');
+ const triggers=[...document.querySelectorAll('button')].filter(b=>(b.getAttribute('onclick')||'').includes('toggleMobileMenu'));
+ if(menu&&triggers.length){
+  const setOpen=open=>{menu.classList.toggle('hidden',!open);triggers.forEach(b=>{b.setAttribute('aria-expanded',String(open));b.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');const icon=b.querySelector('[data-lucide]');if(icon)icon.setAttribute('data-lucide',open?'x':'menu')});if(window.lucide)window.lucide.createIcons();};
+  triggers.forEach(b=>{b.removeAttribute('onclick');b.setAttribute('aria-controls','mobile-menu');b.setAttribute('aria-expanded','false');b.addEventListener('click',()=>setOpen(menu.classList.contains('hidden')))});
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setOpen(false)));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!menu.classList.contains('hidden')){setOpen(false);triggers[0].focus()}});
+ }
+});</script></body>
 </html>
