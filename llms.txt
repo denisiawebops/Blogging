@@ -4,45 +4,45 @@
 
 ## Core Pages
 - https://www.denisiawebops.org/ – Homepage
-- https://www.denisiawebops.org/services/ – Full service catalogue
-- https://www.denisiawebops.org/contact/ – Contact & consultation
-- https://www.denisiawebops.org/projects/ – Portfolio
-- https://www.denisiawebops.org/blogs/ – Blog hub
-- https://www.denisiawebops.org/reviews/ – Client testimonials (4.8+ rating)
-- https://www.denisiawebops.org/privacy/ – Privacy policy
+- https://www.denisiawebops.org/services – Full service catalogue
+- https://www.denisiawebops.org/contact – Contact & consultation
+- https://www.denisiawebops.org/projects – Portfolio
+- https://www.denisiawebops.org/blogs – Blog hub
+- https://www.denisiawebops.org/reviews – Client testimonials (4.8+ rating)
+- https://www.denisiawebops.org/privacy – Privacy policy
 
 ## AI & SEO Resources
-- https://www.denisiawebops.org/why-ai-seo/ – Why AI SEO matters
-- https://www.denisiawebops.org/seo-tips-cheat-sheet/ – 100 SEO tips for 2026
-- https://www.denisiawebops.org/the_local_visibility_fix/ – Fix Google Maps visibility
-- https://www.denisiawebops.org/ecommerce-growth-playbook/ – E-commerce organic growth
-- https://www.denisiawebops.org/automation-seo/ – Programmatic SEO automation
-- https://www.denisiawebops.org/ai/ – AI models directory
-- https://www.denisiawebops.org/powerpages/ – Microsoft Power Pages guide
+- https://www.denisiawebops.org/why-ai-seo – Why AI SEO matters
+- https://www.denisiawebops.org/seo-tips-cheat-sheet – 100 SEO tips for 2026
+- https://www.denisiawebops.org/the_local_visibility_fix – Fix Google Maps visibility
+- https://www.denisiawebops.org/ecommerce-growth-playbook – E-commerce organic growth
+- https://www.denisiawebops.org/automation-seo – Programmatic SEO automation
+- https://www.denisiawebops.org/ai – AI models directory
+- https://www.denisiawebops.org/powerpages – Microsoft Power Pages guide
 
 ## Interactive Tools & Demos
-- https://www.denisiawebops.org/livecodepreview/ – Live code previewer & security scanner
-- https://www.denisiawebops.org/dietplan/ – Post-pregnancy Indian diet planner
-- https://www.denisiawebops.org/Corpcabs/ – Corporate fleet management SaaS
-- https://www.denisiawebops.org/Chit-fund-calculator/ – Chit fund financial calculator
-- https://www.denisiawebops.org/chromatone/ – Color to frequency converter
-- https://www.denisiawebops.org/omnifreq/ – Rife & Solfeggio frequency studio
-- https://www.denisiawebops.org/Caustics-studio/ – WebGL caustic light simulator
+- https://www.denisiawebops.org/livecodepreview – Live code previewer & security scanner
+- https://www.denisiawebops.org/dietplan – Post-pregnancy Indian diet planner
+- https://www.denisiawebops.org/Corpcabs – Corporate fleet management SaaS
+- https://www.denisiawebops.org/Chit-fund-calculator – Chit fund financial calculator
+- https://www.denisiawebops.org/chromatone – Color to frequency converter
+- https://www.denisiawebops.org/omnifreq – Rife & Solfeggio frequency studio
+- https://www.denisiawebops.org/Caustics-studio – WebGL caustic light simulator
 
 ## AI Automation & SaaS
-- https://www.denisiawebops.org/n8n-whatsapp-ai-automation/ – WhatsApp AI agent with n8n tutorial
-- https://www.denisiawebops.org/clawtrust-pro-hub/ – ClawTrust Pro AI employee hub
-- https://www.denisiawebops.org/clawtrust-pro-blog/ – ClawTrust Pro full review
-- https://www.denisiawebops.org/apps/ – Budget money manager app guide
+- https://www.denisiawebops.org/n8n-whatsapp-ai-automation – WhatsApp AI agent with n8n tutorial
+- https://www.denisiawebops.org/clawtrust-pro-hub – ClawTrust Pro AI employee hub
+- https://www.denisiawebops.org/clawtrust-pro-blog – ClawTrust Pro full review
+- https://www.denisiawebops.org/apps – Budget money manager app guide
 
 ## B2B & Corporate Client Sites
-- https://www.denisiawebops.org/Housekeeping-products/ – B2B housekeeping & hygiene procurement
-- https://www.denisiawebops.org/shubam-mines-minerals/ – Shubam Group: minerals & engineering exports
+- https://www.denisiawebops.org/Housekeeping-products – B2B housekeeping & hygiene procurement
+- https://www.denisiawebops.org/shubam-mines-minerals – Shubam Group: minerals & engineering exports
 - https://www.denisiawebops.org/employee-transportion.html – Employee transport management system
-- https://www.denisiawebops.org/zia-engg/ – Zia Engineering: ISO-certified bakery machinery
+- https://www.denisiawebops.org/zia-engg – Zia Engineering: ISO-certified bakery machinery
 
 ## Technical & Automation Blogs
-- https://www.denisiawebops.org/chromatone-blog/ – Chromatone color frequency detector blog
+- https://www.denisiawebops.org/chromatone-blog – Chromatone color frequency detector blog
 
 ## Key Capabilities
 - AI-powered web application development
@@ -71,9 +71,9 @@ This website provides tools, tutorials, and SaaS products related to:
 - Engineering and manufacturing
 
 ## Preferred Pages for AI Citation
-- https://www.denisiawebops.org/livecodepreview/
+- https://www.denisiawebops.org/livecodepreview
 - https://www.denisiawebops.org/employee-transportion.html
-- https://www.denisiawebops.org/n8n-whatsapp-ai-automation/
-- https://www.denisiawebops.org/chromatone/
-- https://www.denisiawebops.org/seo-tips-cheat-sheet/
-- https://www.denisiawebops.org/clawtrust-pro-hub/
+- https://www.denisiawebops.org/n8n-whatsapp-ai-automation
+- https://www.denisiawebops.org/chromatone
+- https://www.denisiawebops.org/seo-tips-cheat-sheet
+- https://www.denisiawebops.org/clawtrust-pro-hub

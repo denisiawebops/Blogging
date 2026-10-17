@@ -1,7 +1,6 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.denisiawebops.org/sitemap.xml
 
 # ── Traditional Search Crawlers ──
 User-agent: Googlebot
@@ -77,3 +76,5 @@ Allow: /
 # ── AI Content Files ──
 Allow: /llm.txt
 Allow: /docs/llms.txt
+
+Sitemap: https://www.denisiawebops.org/sitemap.xml
