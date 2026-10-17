@@ -2,6 +2,8 @@
 
 <html class="scroll-smooth" lang="en">
 <head>
+<script>if(location.pathname==="/Caustics-studio.html"){location.replace("/Caustics-studio/"+location.search+location.hash);}</script>
+<base href="/">
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport"/>
 <!-- Google tag (gtag.js) -->
@@ -24,7 +26,7 @@
         })(window, document, "clarity", "script", "vimok6xi57");
     </script>
 <!-- Canonical, SEO & AEO -->
-<link href="https://www.denisiawebops.org/Caustics-studio.html" rel="canonical"/>
+<link href="https://www.denisiawebops.org/Caustics-studio/" rel="canonical"/>
 <title>Caustics Studio – Interactive Light &amp; Glass Simulator | Denisia Webops</title>
 <meta content="Real‑time caustic light simulation with WebGL. Create ripples, tumbler glass effects, AR camera blending, and export HD snapshots. Free interactive tool." name="description"/>
 <meta content="caustics generator, webgl light simulation, interactive glass art, realtime caustics, procedural caustic pattern, light refraction simulator, online caustic editor, photorealistic glass, Denisia Webops" name="keywords"/>
@@ -68,40 +70,44 @@
 <meta content="website" property="og:type"/>
 <meta content="Caustics Studio – Interactive Light &amp; Glass Simulator | Denisia Webops" property="og:title"/>
 <meta content="Real-time caustic light simulation with WebGL. Create ripples, glass effects, AR camera blending, and export HD snapshots. Free interactive tool." property="og:description"/>
-<meta content="https://www.denisiawebops.org/Caustics-studio.html" property="og:url"/>
-<style>.audit-table-scroll{max-width:100%;overflow-x:auto} img,video,canvas{max-width:100%} :focus-visible{outline:3px solid #2563eb;outline-offset:3px} @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}} #mobile-menu{max-height:calc(100dvh - 80px);overflow-y:auto}</style></head>
+<meta content="https://www.denisiawebops.org/Caustics-studio/" property="og:url"/>
+<style>.audit-table-scroll{max-width:100%;overflow-x:auto} img,video,canvas{max-width:100%} :focus-visible{outline:3px solid #2563eb;outline-offset:3px} @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}} #mobile-menu{max-height:calc(100dvh - 80px);overflow-y:auto}</style><style>main section[id]{scroll-margin-top:105px}</style></head>
 <body class="bg-black flex flex-col min-h-screen">
 <!-- Denisia Webops Navbar -->
-<nav class="fixed w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-violet-900/30">
+<nav aria-label="Main navigation" class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex items-center justify-between h-20">
-<a class="flex items-center" href="index.html">
-<div class="bg-gradient-to-br from-violet-600 to-fuchsia-600 p-2 rounded-lg"><i class="h-6 w-6 text-white" data-lucide="zap"></i></div>
-<span class="ml-3 text-xl font-bold text-white">Denisia Webops</span>
+<a class="flex items-center" href="/">
+<div class="bg-gradient-to-r from-blue-800 to-blue-600 p-2 rounded-lg shadow-md"><i class="h-6 w-6 text-white" data-lucide="zap"></i></div>
+<span class="ml-3 text-xl font-bold text-gray-900">Denisia Webops Agency</span>
 </a>
-<div class="hidden md:block">
+<div class="hidden xl:block">
 <div class="ml-10 flex items-baseline space-x-8">
-<a class="nav-link text-sm" href="index.html">Home</a>
-<a class="nav-link text-sm" href="projects.html">Projects</a>
-<a class="nav-link text-sm" href="blogs.html">Blog</a>
-<a class="nav-link text-sm" href="reviews.html">Reviews</a>
-<a class="nav-link text-sm" href="ai.html">AI Models</a>
-<a class="nav-link text-sm" href="why-ai-seo.html">Why AI SEO</a>
-<a class="nav-link text-sm" href="livecodepreview.html">Code Preview</a>
-<a class="text-violet-400 font-bold border-b-2 border-violet-400 pb-1" href="Caustics-studio.html">Caustics Studio</a>
-<a class="bg-blue-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition shadow-sm text-sm" href="contact.html">Get in Touch</a>
+<a class="text-gray-600 hover:text-blue-700 font-medium text-sm" href="/">Home</a>
+<a class="text-gray-600 hover:text-blue-700 font-medium text-sm" href="/projects/">Projects</a>
+<a class="text-gray-600 hover:text-blue-700 font-medium text-sm" href="/blogs/">Blog</a>
+<a class="text-gray-600 hover:text-blue-700 font-medium text-sm" href="/chromatone/">Color Detector</a>
+<a class="text-gray-600 hover:text-blue-700 font-medium text-sm" href="/ai/">AI Models</a>
+<a class="text-gray-600 hover:text-blue-700 font-medium text-sm" href="/why-ai-seo/">Why AI SEO</a>
+<a class="text-gray-600 hover:text-blue-700 font-medium text-sm" href="/livecodepreview/">Code Preview</a>
+<a class="bg-blue-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 text-sm" href="/contact/">Get in Touch</a>
 </div>
 </div>
-<div class="md:hidden">
-<button aria-label="Open navigation menu" class="burger-icon" onclick="toggleMobileMenu()"><i class="h-6 w-6" data-lucide="menu" id="mobile-menu-icon"></i></button>
+<div class="xl:hidden">
+<button aria-expanded="false" aria-label="Open navigation menu" class="burger-icon" data-dwo-menu-button="" onclick="dwoToggleMenu()"><i class="h-6 w-6" data-lucide="menu" id="mobile-menu-icon"></i></button>
 </div>
 </div>
 </div>
-<div class="hidden md:hidden bg-slate-900 border-t border-slate-800 absolute w-full z-40" id="mobile-menu">
-<div class="px-2 pt-2 pb-3 space-y-1">
-<a class="block px-3 py-2 rounded-md text-base text-gray-300" href="index.html">Home</a>
-<a class="block px-3 py-2 rounded-md text-base font-bold text-violet-400" href="Caustics-studio.html">Caustics Studio</a>
-<a class="block px-3 py-2 rounded-md text-base text-gray-300" href="contact.html">Contact</a>
+<div class="hidden xl:hidden bg-white border-b border-blue-100 shadow-lg absolute w-full z-40" id="mobile-menu">
+<div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+<a class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50" href="/">Home</a>
+<a class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50" href="/projects/">Projects</a>
+<a class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50" href="/blogs/">Blog</a>
+<a class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50" href="/chromatone/">Color Detector</a>
+<a class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50" href="/ai/">AI Models</a>
+<a class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50" href="/why-ai-seo/">Why AI SEO</a>
+<a class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50" href="/livecodepreview/">Code Preview</a>
+<a class="block px-3 py-2 text-base font-medium text-blue-700" href="/contact/">Get in Touch</a>
 </div>
 </div>
 </nav>
@@ -515,10 +521,16 @@
         </script>
 </div>
 <!-- Footer -->
-<footer class="bg-slate-900 border-t border-slate-800 pt-6 pb-4 mt-auto">
-<div class="max-w-7xl mx-auto px-4 text-center text-slate-500 text-xs">
-            © 2025 Denisia Webops Agency. Interactive WebGL caustic simulator. For educational and creative use.
-        </div>
+<footer class="bg-gray-50 border-t border-blue-100 pt-16 pb-8 mt-auto">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1"><div class="flex items-center mb-4"><div class="bg-gradient-to-r from-blue-800 to-blue-600 p-1.5 rounded-lg shadow"><i class="h-5 w-5 text-white" data-lucide="zap"></i></div><span class="ml-3 text-lg font-bold">Denisia Webops Agency</span></div><p class="text-gray-600 text-sm">Complete digital solutions – from web development to AI integration.</p></div>
+<div><h4 class="font-semibold mb-4">Services</h4><ul><li><a class="text-gray-600 text-sm hover:text-blue-700" href="/services/#web-dev">Web Development</a></li><li><a class="text-gray-600 text-sm hover:text-blue-700" href="/services/#seo">SEO</a></li><li><a class="text-gray-600 text-sm hover:text-blue-700" href="/services/#digital-marketing">Digital Marketing</a></li></ul></div>
+<div><h4 class="font-semibold mb-4">Resources</h4><ul><li><a class="text-gray-600 text-sm hover:text-blue-700" href="/blogs/">Blog</a></li><li><a class="text-gray-600 text-sm hover:text-blue-700" href="/projects/">Projects</a></li><li><a class="text-gray-600 text-sm hover:text-blue-700" href="/privacy/">Privacy</a></li></ul></div>
+<div><h4 class="font-semibold mb-4">Latest articles</h4><div class="flex"><a class="text-blue-800 font-semibold" href="/blogs/">Browse the latest articles</a></div></div>
+</div>
+<div class="border-t pt-8 text-center text-gray-500 text-sm">© 2025 Denisia Webops Agency. All rights reserved.</div>
+</div>
 </footer>
 <!-- Tawk.to Script -->
 <script type="text/javascript">
@@ -547,5 +559,7 @@
   menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setOpen(false)));
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!menu.classList.contains('hidden')){setOpen(false);triggers[0].focus()}});
  }
-});</script></body>
+});</script><script>function dwoToggleMenu(){const menu=document.getElementById('mobile-menu');const button=document.querySelector('[data-dwo-menu-button]');if(!menu||!button)return;const open=button.getAttribute('aria-expanded')!=='true';menu.classList.toggle('hidden',!open);button.setAttribute('aria-expanded',String(open));button.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');}
+document.addEventListener('click',function(e){const button=e.target.closest('[data-dwo-menu-button]');if(button){e.preventDefault();e.stopImmediatePropagation();dwoToggleMenu();}},true);
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){const b=document.querySelector('[data-dwo-menu-button]');if(b&&b.getAttribute('aria-expanded')==='true')dwoToggleMenu();}},true);</script></body>
 </html>

@@ -2,6 +2,8 @@
 
 <html lang="en">
 <head>
+<script>if(location.pathname==="/custom-crm.html"){location.replace("/custom-crm/"+location.search+location.hash);}</script>
+<base href="/">
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
 <meta content="light" name="color-scheme"/>
@@ -1614,7 +1616,8 @@ tbody tr:last-child td {
   }
 }
 </style>
-<style>.audit-table-scroll{max-width:100%;overflow-x:auto} img,video,canvas{max-width:100%} :focus-visible{outline:3px solid #2563eb;outline-offset:3px} @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}} #mobile-menu{max-height:calc(100dvh - 80px);overflow-y:auto}</style></head>
+<style>.audit-table-scroll{max-width:100%;overflow-x:auto} img,video,canvas{max-width:100%} :focus-visible{outline:3px solid #2563eb;outline-offset:3px} @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}} #mobile-menu{max-height:calc(100dvh - 80px);overflow-y:auto}</style><link rel="canonical" href="https://www.denisiawebops.org/custom-crm/">
+</head>
 <body>
 <div id="root">
 <main class="boot-screen" data-trutrip-boot="static-shell">
@@ -15336,5 +15339,5 @@ ${(t==null?void 0:t.componentStack)||""}`,applicationVersion:Rr,occurredAt:new D
   menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setOpen(false)));
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!menu.classList.contains('hidden')){setOpen(false);triggers[0].focus()}});
  }
-});</script></body>
+});</script><script>function dwoToggleMenu(){const menu=document.getElementById('mobile-menu');const button=document.querySelector('button[onclick="dwoToggleMenu()"]');if(!menu||!button)return;const open=button.getAttribute('aria-expanded')!=='true';menu.classList.toggle('hidden',!open);button.setAttribute('aria-expanded',String(open));button.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');}document.addEventListener('keydown',function(event){if(event.key==='Escape'){const b=document.querySelector('button[onclick="dwoToggleMenu()"]');if(b&&b.getAttribute('aria-expanded')==='true')dwoToggleMenu();}});</script></body>
 </html>

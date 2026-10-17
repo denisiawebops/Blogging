@@ -2,6 +2,8 @@
 
 <html lang="en">
 <head>
+<script>if(location.pathname==="/Corpcabs.html"){location.replace("/Corpcabs/"+location.search+location.hash);}</script>
+<base href="/">
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>CorpCab.OS SaaS</title>
@@ -20,10 +22,10 @@
         .subtab-inactive { color: #64748b !important; }
         .subtab-inactive:hover { color: #334155 !important; }
     </style>
-<style>.audit-table-scroll{max-width:100%;overflow-x:auto} img,video,canvas{max-width:100%} :focus-visible{outline:3px solid #2563eb;outline-offset:3px} @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}} #mobile-menu{max-height:calc(100dvh - 80px);overflow-y:auto}</style></head>
+<style>.audit-table-scroll{max-width:100%;overflow-x:auto} img,video,canvas{max-width:100%} :focus-visible{outline:3px solid #2563eb;outline-offset:3px} @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}} #mobile-menu{max-height:calc(100dvh - 80px);overflow-y:auto}</style><style>main section[id]{scroll-margin-top:105px}</style></head>
 <body class="bg-slate-50 text-slate-800 selection:bg-blue-200 selection:text-blue-900 overflow-x-hidden">
 <!-- Canonical -->
-<link href="https://www.denisiawebops.org/Corpcabs.html" rel="canonical"/>
+<link href="https://www.denisiawebops.org/Corpcabs/" rel="canonical"/>
 <!-- Basic SEO -->
 <meta content="A multi-tenant enterprise mobility SaaS demo for employee commutes, rosters, scheduling, and live tracking." name="description"/>
 <meta content="index, follow" name="robots"/>
@@ -31,7 +33,7 @@
 <meta content="website" property="og:type"/>
 <meta content="CorpCab.OS SaaS" property="og:title"/>
 <meta content="A multi-tenant enterprise mobility SaaS demo for employee commutes, rosters, scheduling, and live tracking." property="og:description"/>
-<meta content="https://www.denisiawebops.org/Corpcabs.html" property="og:url"/>
+<meta content="https://www.denisiawebops.org/Corpcabs/" property="og:url"/>
 <meta content="https://www.denisiawebops.org/og-image.jpg" property="og:image"/>
 <meta content="Denisia Webops Agency" property="og:site_name"/>
 <meta content="en_IN" property="og:locale"/>
@@ -63,8 +65,8 @@
     },
     {
       "@type": "WebPage",
-      "@id": "https://www.denisiawebops.org/Corpcabs.html#webpage",
-      "url": "https://www.denisiawebops.org/Corpcabs.html",
+      "@id": "https://www.denisiawebops.org/Corpcabs/#webpage",
+      "url": "https://www.denisiawebops.org/Corpcabs/",
       "name": "CorpCab.OS SaaS",
       "description": "A multi-tenant enterprise mobility SaaS demo for employee commutes, rosters, scheduling, and live tracking.",
       "isPartOf": {
@@ -73,11 +75,11 @@
     },
     {
       "@type": "SoftwareApplication",
-      "@id": "https://www.denisiawebops.org/Corpcabs.html#softwareapplication",
+      "@id": "https://www.denisiawebops.org/Corpcabs/#softwareapplication",
       "name": "CorpCab.OS SaaS",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
-      "url": "https://www.denisiawebops.org/Corpcabs.html",
+      "url": "https://www.denisiawebops.org/Corpcabs/",
       "description": "A multi-tenant enterprise mobility SaaS demo for employee commutes, rosters, scheduling, and live tracking.",
       "creator": {
         "@id": "https://www.denisiawebops.org/#organization"
@@ -88,46 +90,40 @@
 </script>
 <!-- 1. LANDING PAGE -->
 <div class="min-h-screen block" id="view-landing">
-<nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+<nav aria-label="Main navigation" class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex justify-between items-center h-20">
-<div class="flex items-center space-x-3">
-<div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-md">
-<i class="w-6 h-6 text-white" data-lucide="car"></i>
-</div>
-<span class="font-extrabold text-2xl tracking-tight">CorpCab<span class="text-blue-600">.OS</span></span>
-</div>
-<div class="hidden md:flex items-center space-x-8">
-<a class="text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors" href="#audience">Who It's For</a>
-<a class="text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors" href="#pricing">Pricing</a>
-<button class="bg-slate-900 hover:bg-slate-800 text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-lg hover:shadow-xl flex items-center group" onclick="app.navigate('login')">
-                            Test Live Demo <i class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" data-lucide="arrow-right"></i>
-</button>
-</div>
-<!-- Burger Button -->
-<div class="md:hidden flex items-center">
-<button aria-label="Open navigation menu" class="text-slate-600 focus:outline-none" onclick="toggleMobileMenu()">
-<i class="w-7 h-7" data-lucide="menu" id="mobile-menu-icon"></i>
-</button>
+<div class="flex items-center justify-between h-20">
+<a class="flex items-center" href="/">
+<div class="bg-gradient-to-r from-blue-800 to-blue-600 p-2 rounded-lg shadow-md"><i class="h-6 w-6 text-white" data-lucide="zap"></i></div>
+<span class="ml-3 text-xl font-bold text-gray-900">Denisia Webops Agency</span>
+</a>
+<div class="hidden xl:block">
+<div class="ml-10 flex items-baseline space-x-8">
+<a class="text-gray-600 hover:text-blue-700 font-medium text-sm" href="/">Home</a>
+<a class="text-gray-600 hover:text-blue-700 font-medium text-sm" href="/projects/">Projects</a>
+<a class="text-gray-600 hover:text-blue-700 font-medium text-sm" href="/blogs/">Blog</a>
+<a class="text-gray-600 hover:text-blue-700 font-medium text-sm" href="/chromatone/">Color Detector</a>
+<a class="text-gray-600 hover:text-blue-700 font-medium text-sm" href="/ai/">AI Models</a>
+<a class="text-gray-600 hover:text-blue-700 font-medium text-sm" href="/why-ai-seo/">Why AI SEO</a>
+<a class="text-gray-600 hover:text-blue-700 font-medium text-sm" href="/livecodepreview/">Code Preview</a>
+<a class="bg-blue-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 text-sm" href="/contact/">Get in Touch</a>
 </div>
 </div>
+<div class="xl:hidden">
+<button aria-expanded="false" aria-label="Open navigation menu" class="burger-icon" data-dwo-menu-button="" onclick="dwoToggleMenu()"><i class="h-6 w-6" data-lucide="menu" id="mobile-menu-icon"></i></button>
 </div>
-<!-- Mobile Menu -->
-<div class="hidden md:hidden bg-white border-b border-blue-100 absolute w-full left-0 top-20 shadow-xl z-50" id="mobile-menu">
+</div>
+</div>
+<div class="hidden xl:hidden bg-white border-b border-blue-100 shadow-lg absolute w-full z-40" id="mobile-menu">
 <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-<button class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50" onclick="router.navigate('home'); toggleMobileMenu()">Home</button>
-<button class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50" onclick="router.navigate('services'); toggleMobileMenu()">Services</button>
-<a class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50" href="projects.html">Projects</a>
-<a class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50" href="blogs.html">Blog</a>
-<a class="text-gray-600 hover:text-blue-700 font-medium transition text-sm" href="chromatone.html" href"color-frequency-detect.html"="">Color Frequency Detector</a>
-<a class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50" href="ai.html">Projects</a>
-<a class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50" href="livecodepreview.html">Code Preview &amp; Scan</a>
-<button class="block w-full text-left px-3 py-2 text-base font-medium text-blue-700" onclick="router.navigate('contact'); toggleMobileMenu()">Get in Touch</button>
-<div class="pt-4 pb-2">
-<button class="w-full bg-blue-600 text-white px-6 py-4 rounded-xl text-lg font-bold shadow-md flex justify-center items-center" onclick="app.navigate('login'); toggleMobileMenu()">
-                            Enter Interactive Demo <i class="w-5 h-5 ml-2" data-lucide="arrow-right"></i>
-</button>
-</div>
+<a class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50" href="/">Home</a>
+<a class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50" href="/projects/">Projects</a>
+<a class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50" href="/blogs/">Blog</a>
+<a class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50" href="/chromatone/">Color Detector</a>
+<a class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50" href="/ai/">AI Models</a>
+<a class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50" href="/why-ai-seo/">Why AI SEO</a>
+<a class="block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50" href="/livecodepreview/">Code Preview</a>
+<a class="block px-3 py-2 text-base font-medium text-blue-700" href="/contact/">Get in Touch</a>
 </div>
 </div>
 </nav>
@@ -290,7 +286,7 @@
         const router = {
             navigate: function(page) {
                 // Navigate back to the main portfolio website view
-                window.location.href = 'index.html';
+                window.location.href = '/';
             }
         };
 
@@ -938,5 +934,7 @@
   menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setOpen(false)));
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!menu.classList.contains('hidden')){setOpen(false);triggers[0].focus()}});
  }
-});</script></body>
+});</script><script>function dwoToggleMenu(){const menu=document.getElementById('mobile-menu');const button=document.querySelector('[data-dwo-menu-button]');if(!menu||!button)return;const open=button.getAttribute('aria-expanded')!=='true';menu.classList.toggle('hidden',!open);button.setAttribute('aria-expanded',String(open));button.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');}
+document.addEventListener('click',function(e){const button=e.target.closest('[data-dwo-menu-button]');if(button){e.preventDefault();e.stopImmediatePropagation();dwoToggleMenu();}},true);
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){const b=document.querySelector('[data-dwo-menu-button]');if(b&&b.getAttribute('aria-expanded')==='true')dwoToggleMenu();}},true);</script></body>
 </html>
